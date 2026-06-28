@@ -155,4 +155,9 @@ jobs:
 
           ENABLE_CURL: YES
 
+          # Avoid OOM / runner disconnect on self-hosted hosts (cui/sw/sc/sd are huge).
+
+          LOFICE_SKIP_OPTIONAL: "1"
+
+          LOFICE_BUILD_JOBS: "4"
 
