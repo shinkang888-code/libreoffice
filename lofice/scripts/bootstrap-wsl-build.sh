@@ -30,7 +30,7 @@ if [[ "${LOFICE_WSL_INSTALL_DEPS:-}" == "1" ]]; then
   export DEBIAN_FRONTEND=noninteractive
   sudo apt-get update -qq
   sudo bash ./install_deps.sh
-  sudo apt-get install -y libcurl4-openssl-dev libssl-dev
+  sudo apt-get install -y libcurl4-openssl-dev libssl-dev libnss3-dev libnspr4-dev pkg-config meson ninja-build
 fi
 
 for cmd in gcc g++ make autoconf; do
@@ -44,8 +44,8 @@ if [[ ! -f Makefile ]]; then
   log "./autogen.sh (may take several minutes)"
   ./autogen.sh
 
-  log "./configure --enable-curl=YES"
-  ./configure --enable-curl=YES
+  log "./configure --enable-curl=yes --disable-libcmis"
+  ./configure --enable-curl=yes --disable-libcmis
 else
   log "Makefile exists — skip autogen/configure"
 fi

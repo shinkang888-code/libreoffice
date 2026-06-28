@@ -59,6 +59,11 @@ fi
 TOKEN="$(gh api -X POST "repos/${REPO}/actions/runners/registration-token" --jq .token)"
 RUNNER_NAME="${LOFICE_RUNNER_NAME:-lofice-wsl-$(hostname -s)}"
 
+if [[ "$(id -u)" -eq 0 ]]; then
+  export RUNNER_ALLOW_RUNASROOT=1
+  log "Running as root — RUNNER_ALLOW_RUNASROOT=1"
+fi
+
 if [[ ! -f .runner ]]; then
   ./config.sh \
     --url "https://github.com/${REPO}" \
