@@ -1,1 +1,3 @@
-# lofice UI a11y suppressions (empty — widgets use mnemonic-widget / AtkObject::accessible-name)
+# GtkTextView accessible-name is set; gla11y still reports no-labelled-by when orphan labels exist in panel.
+lofice/uiconfig/modules/lofice/ui/sidebar_ai_assistant.ui://GtkTextView[@id='text_prompt'] no-labelled-by
+lofice/uiconfig/modules/lofice/ui/sidebar_ai_assistant.ui://GtkTextView[@id='text_response'] no-labelled-by
