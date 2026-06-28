@@ -14,7 +14,7 @@ $(eval $(call gb_CustomTarget_CustomTarget,extras/glade))
 #
 
 $(gb_CustomTarget_workdir)/extras/source/glade/lofice-catalog.xml : \
-        $(SRCDIR)/extras/source/glade/lofice-catalog.xml.in \
+        $(SRCDIR)/extras/source/glade/libreoffice-catalog.xml.in \
         $(SRCDIR)/extras/source/glade/makewidgetgroup.xslt \
         | $(call gb_ExternalExecutable_get_dependencies,xsltproc)
 	$(call gb_Output_announce,$(subst $(WORKDIR)/,,$@),$(true),XSL,4)
