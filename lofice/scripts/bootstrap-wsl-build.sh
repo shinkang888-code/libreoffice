@@ -27,6 +27,7 @@ if [[ "${LOFICE_WSL_INSTALL_DEPS:-}" == "1" ]]; then
     echo "ERROR: install_deps.sh missing" >&2
     exit 1
   fi
+  export DEBIAN_FRONTEND=noninteractive
   sudo apt-get update -qq
   sudo bash ./install_deps.sh
   sudo apt-get install -y libcurl4-openssl-dev libssl-dev
