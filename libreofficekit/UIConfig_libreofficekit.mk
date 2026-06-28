@@ -10,7 +10,7 @@
 $(eval $(call gb_UIConfig_UIConfig,loficekit))
 
 $(eval $(call gb_UIConfig_add_a11yerrors_uifiles,loficekit,\
-	loficekit/qa/gtktiledviewer/gtv \
+	libreofficekit/qa/gtktiledviewer/gtv \
 ))
 
 # vim: set noet sw=4 ts=4:

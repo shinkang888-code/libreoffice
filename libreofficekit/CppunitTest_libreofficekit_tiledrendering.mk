@@ -12,7 +12,7 @@
 $(eval $(call gb_CppunitTest_CppunitTest,loficekit_tiledrendering))
 
 $(eval $(call gb_CppunitTest_add_exception_objects,loficekit_tiledrendering, \
-    loficekit/qa/unit/tiledrendering \
+    libreofficekit/qa/unit/tiledrendering \
 ))
 
 $(eval $(call gb_CppunitTest_use_external,loficekit_tiledrendering,boost_headers))

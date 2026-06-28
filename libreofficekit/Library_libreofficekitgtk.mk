@@ -12,8 +12,8 @@ $(eval $(call gb_Library_Library,loficekitgtk))
 $(eval $(call gb_Library_use_sdk_api,loficekitgtk))
 
 $(eval $(call gb_Library_add_exception_objects,loficekitgtk,\
-    loficekit/source/gtk/lokdocview \
-    loficekit/source/gtk/tilebuffer \
+    libreofficekit/source/gtk/lokdocview \
+    libreofficekit/source/gtk/tilebuffer \
 ))
 
 $(eval $(call gb_Library_use_externals,loficekitgtk,\

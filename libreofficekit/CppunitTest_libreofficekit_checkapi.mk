@@ -14,10 +14,10 @@ $(eval $(call gb_CppunitTest_add_cxxflags,loficekit_checkapi, \
 ))
 
 $(eval $(call gb_CppunitTest_add_exception_objects,loficekit_checkapi, \
-    loficekit/qa/unit/checkapi \
+    libreofficekit/qa/unit/checkapi \
 ))
 $(eval $(call gb_CppunitTest_add_cobjects,loficekit_checkapi,\
-	loficekit/qa/unit/compile_test \
+	libreofficekit/qa/unit/compile_test \
 ))
 
 $(eval $(call gb_CppunitTest_set_external_code,loficekit_checkapi))

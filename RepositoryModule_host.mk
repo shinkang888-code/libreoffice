@@ -103,7 +103,7 @@ $(eval $(call gb_Module_add_moduledirs,lofice,\
 	jvmfwk \
 	$(call gb_Helper_optional,LIBRELOGO,librelogo) \
 	lofice \
-	loficekit \
+	libreofficekit \
 	lingucomponent \
 	linguistic \
 	lotuswordpro \
