@@ -9,45 +9,45 @@
 #
 
 
-$(eval $(call gb_Module_Module,lofice))
+$(eval $(call gb_Module_Module,lo))
 
 # This makefile needs to be read first because some variables like T_LIBS
 # for libmerged are cleared there and then later we append stuff to it
 # through e.g. gb_Library_use_external for various libraries in libmerged.
 ifneq ($(MERGELIBS),)
-$(eval $(call gb_Module_add_targets,lofice,\
+$(eval $(call gb_Module_add_targets,lo,\
 	Library_merged \
 ))
 endif
 
 # WASM_CHART change
 ifneq ($(ENABLE_WASM_STRIP_CHART),TRUE)
-$(eval $(call gb_Module_add_moduledirs,lofice,\
+$(eval $(call gb_Module_add_moduledirs,lo,\
 	chart2 \
 ))
 endif
 
 # WASM_CANVAS change
 ifneq ($(ENABLE_WASM_STRIP_CANVAS),TRUE)
-$(eval $(call gb_Module_add_moduledirs,lofice,\
+$(eval $(call gb_Module_add_moduledirs,lo,\
 	canvas \
 	cppcanvas \
 ))
 endif
 
 ifneq ($(ENABLE_WASM_STRIP_DBACCESS),TRUE)
-$(eval $(call gb_Module_add_moduledirs,lofice,\
+$(eval $(call gb_Module_add_moduledirs,lo,\
 	dbaccess \
 ))
 endif
 
 ifneq ($(ENABLE_WASM_STRIP_ACCESSIBILITY),TRUE)
-$(eval $(call gb_Module_add_moduledirs,lofice,\
+$(eval $(call gb_Module_add_moduledirs,lo,\
 	winaccessibility \
 ))
 endif
 
-$(eval $(call gb_Module_add_moduledirs,lofice,\
+$(eval $(call gb_Module_add_moduledirs,lo,\
 	android \
     $(if $(ENABLE_WASM_STRIP_BASIC_DRAW_MATH_IMPRESS),, \
 	animations \
