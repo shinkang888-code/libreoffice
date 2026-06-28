@@ -24,8 +24,9 @@
 
 
 
-#include <comphelper/configurationhelper.hxx>
+#include <memory>
 
+#include <comphelper/configuration.hxx>
 #include <officecfg/Office/Lofice.hxx>
 
 #include <osl/process.h>
@@ -242,7 +243,8 @@ void saveSettings(const AiSettings& rSettings)
 
 {
 
-    auto xBatch = comphelper::ConfigurationChanges::create();
+    std::shared_ptr<comphelper::ConfigurationChanges> xBatch(
+        comphelper::ConfigurationChanges::create());
 
     officecfg::Office::Lofice::AiSettings::UseBuiltinAi::set(rSettings.useBuiltinAi, xBatch);
 

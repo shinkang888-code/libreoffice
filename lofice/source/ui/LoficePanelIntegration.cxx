@@ -21,7 +21,7 @@
 
 #include <com/sun/star/awt/XWindow.hpp>
 #include <com/sun/star/frame/XFrame.hpp>
-#include <com/sun/star/lang/RuntimeException.hpp>
+#include <com/sun/star/lang/IllegalArgumentException.hpp>
 #include <com/sun/star/ui/XUIElement.hpp>
 
 using namespace css;
@@ -50,16 +50,19 @@ uno::Reference<ui::XUIElement> createAiAssistantSidebarPanel(
     }
 
     if (pParent == nullptr)
-        throw lang::RuntimeException(u"lofice: AiAssistantPanel requires ParentWindow"_ustr, nullptr);
+        throw lang::IllegalArgumentException(
+            u"lofice: AiAssistantPanel requires ParentWindow"_ustr, nullptr, 0);
     if (!xFrame.is())
-        throw lang::RuntimeException(u"lofice: AiAssistantPanel requires Frame"_ustr, nullptr);
+        throw lang::IllegalArgumentException(
+            u"lofice: AiAssistantPanel requires Frame"_ustr, nullptr, 1);
     if (pBindings == nullptr)
-        throw lang::RuntimeException(u"lofice: AiAssistantPanel requires SfxBindings"_ustr, nullptr);
+        throw lang::IllegalArgumentException(
+            u"lofice: AiAssistantPanel requires SfxBindings"_ustr, nullptr, 2);
 
     std::unique_ptr<PanelLayout> xPanel = AiAssistantPanel::Create(pParent, xFrame, pBindings);
 
     return sfx2::sidebar::SidebarPanelBase::Create(
-        OUString(rsResourceURL),
+        loficeLayoutId(rsResourceURL),
         xFrame,
         std::move(xPanel),
         ui::LayoutSize(-1, -1, -1));
