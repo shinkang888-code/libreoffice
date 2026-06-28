@@ -10,13 +10,13 @@
 $(eval $(call gb_Jar_Jar,smoketest))
 
 $(eval $(call gb_Jar_add_sourcefiles,smoketest, \
-    smoketest/org/lofice/smoketest/Services \
-    smoketest/org/lofice/smoketest/SmoketestCommandEnvironment \
+    smoketest/org/libreoffice/smoketest/Services \
+    smoketest/org/libreoffice/smoketest/SmoketestCommandEnvironment \
 ))
 
-$(eval $(call gb_Jar_set_componentfile,smoketest,smoketest/org/lofice/smoketest/smoketest,OOO,services))
+$(eval $(call gb_Jar_set_componentfile,smoketest,smoketest/org/libreoffice/smoketest/smoketest,OOO,services))
 
-$(eval $(call gb_Jar_set_manifest,smoketest,$(SRCDIR)/smoketest/org/lofice/smoketest/manifest))
+$(eval $(call gb_Jar_set_manifest,smoketest,$(SRCDIR)/smoketest/org/libreoffice/smoketest/manifest))
 
 $(eval $(call gb_Jar_set_packageroot,smoketest,org))
 

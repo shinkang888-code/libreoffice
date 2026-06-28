@@ -38,9 +38,20 @@
 
 
 
+#include <sal/types.h>
+
 #include <sfx2/tabdlg.hxx>
 
-#include <vcl/weld.hxx>
+namespace weld
+{
+class Button;
+class CheckButton;
+class Container;
+class DialogController;
+class Entry;
+class SpinButton;
+class Toggleable;
+}
 
 
 
@@ -58,7 +69,7 @@ public:
 
 
 
-    static std::unique_ptr<SfxTabPage> Create(weld::Container* pPage,
+    static SAL_DLLPUBLIC_EXPORT std::unique_ptr<SfxTabPage> Create(weld::Container* pPage,
 
         weld::DialogController* pController, const SfxItemSet* rAttrSet);
 

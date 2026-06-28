@@ -124,7 +124,7 @@ bool parseConversationJson(
     try
     {
         boost::property_tree::ptree aRoot;
-        std::istringstream aStream(std::string(rJson));
+        std::istringstream aStream{std::string(rJson)};
         boost::property_tree::read_json(aStream, aRoot);
 
         rHistory.clear();

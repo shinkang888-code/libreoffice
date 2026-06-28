@@ -71,7 +71,7 @@ $(eval $(call gb_InstallModule_add_scpfiles,scp2/ooo,\
     scp2/source/ooo/profileitem_ooo \
     scp2/source/ooo/scpaction_ooo \
     $(if $(filter-out MACOSX WNT,$(OS)), \
-		scp2/source/ooo/module_loficekit \
+		scp2/source/ooo/module_libreofficekit \
 	) \
 ))
 

@@ -73,7 +73,7 @@ std::string extractContextFromJson(const std::string& rBody)
     try
     {
         boost::property_tree::ptree aRoot;
-        std::istringstream aStream(rBody);
+        std::istringstream aStream{rBody};
         boost::property_tree::read_json(aStream, aRoot);
 
         if (aRoot.get_optional<std::string>("error"))

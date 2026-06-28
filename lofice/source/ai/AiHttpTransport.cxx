@@ -113,7 +113,7 @@ std::string extractContentFromJson(const std::string& rBody)
     try
     {
         boost::property_tree::ptree aRoot;
-        std::istringstream aStream(rBody);
+        std::istringstream aStream{rBody};
         boost::property_tree::read_json(aStream, aRoot);
 
         if (const auto aError = aRoot.get_child_optional("error"))
@@ -168,7 +168,7 @@ std::string extractDeltaContentFromSsePayload(std::string_view rPayload)
     try
     {
         boost::property_tree::ptree aRoot;
-        std::istringstream aStream(std::string(rPayload));
+        std::istringstream aStream{std::string(rPayload)};
         boost::property_tree::read_json(aStream, aRoot);
 
         if (const auto aChoices = aRoot.get_child_optional("choices"))

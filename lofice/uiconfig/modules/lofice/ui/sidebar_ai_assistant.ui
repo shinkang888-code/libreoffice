@@ -30,6 +30,8 @@
 
         <property name="xalign">0</property>
 
+        <property name="AtkObject::accessible-name" translatable="yes" context="sidebar_ai_assistant|label_title-atkobject">lofice AI 어시스턴트</property>
+
       </object>
 
       <packing>
@@ -53,6 +55,8 @@
         <property name="label" translatable="yes">컨텍스트: 범용</property>
 
         <property name="xalign">0</property>
+
+        <property name="AtkObject::accessible-name" translatable="yes" context="sidebar_ai_assistant|label_app_context-atkobject">컨텍스트: 범용</property>
 
       </object>
 
@@ -128,6 +132,10 @@
 
             <property name="xalign">0</property>
 
+            <property name="use-underline">True</property>
+
+            <property name="mnemonic-widget">entry_endpoint</property>
+
           </object>
 
           <packing><property name="left-attach">0</property><property name="top-attach">1</property><property name="width">2</property></packing>
@@ -159,6 +167,10 @@
             <property name="visible">True</property>
 
             <property name="xalign">0</property>
+
+            <property name="use-underline">True</property>
+
+            <property name="mnemonic-widget">entry_api_key</property>
 
           </object>
 
@@ -194,6 +206,10 @@
 
             <property name="xalign">0</property>
 
+            <property name="use-underline">True</property>
+
+            <property name="mnemonic-widget">entry_model</property>
+
           </object>
 
           <packing><property name="left-attach">0</property><property name="top-attach">5</property><property name="width">2</property></packing>
@@ -225,6 +241,10 @@
             <property name="visible">True</property>
 
             <property name="xalign">0</property>
+
+            <property name="use-underline">True</property>
+
+            <property name="mnemonic-widget">spin_timeout</property>
 
           </object>
 
@@ -304,6 +324,10 @@
 
             <property name="xalign">0</property>
 
+            <property name="use-underline">True</property>
+
+            <property name="mnemonic-widget">entry_rag_endpoint</property>
+
           </object>
 
           <packing><property name="left-attach">0</property><property name="top-attach">10</property><property name="width">2</property></packing>
@@ -337,6 +361,10 @@
             <property name="visible">True</property>
 
             <property name="xalign">0</property>
+
+            <property name="use-underline">True</property>
+
+            <property name="mnemonic-widget">spin_rag_timeout</property>
 
           </object>
 
@@ -506,6 +534,8 @@
 
             <property name="wrap-mode">word-char</property>
 
+            <property name="AtkObject::accessible-name" translatable="yes" context="sidebar_ai_assistant|text_prompt-atkobject">AI 프롬프트 입력</property>
+
           </object>
 
         </child>
@@ -548,6 +578,8 @@
 
             <property name="wrap-mode">word-char</property>
 
+            <property name="AtkObject::accessible-name" translatable="yes" context="sidebar_ai_assistant|text_response-atkobject">AI 응답</property>
+
           </object>
 
         </child>
@@ -575,6 +607,8 @@
         <property name="label" translatable="yes">준비됨 — 16개 퀵액션, RAG 활성</property>
 
         <property name="xalign">0</property>
+
+        <property name="AtkObject::accessible-name" translatable="yes" context="sidebar_ai_assistant|label_status-atkobject">AI 상태</property>
 
       </object>
 

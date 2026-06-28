@@ -188,6 +188,7 @@
                 <property name="max-width-chars">48</property>
                 <property name="xalign">0</property>
                 <property name="label" translatable="yes">OpenAI 호환 Chat Completions URL을 사용하세요. RAG는 npm run rag-server 로컬 서버가 필요합니다. 사이드바 AI 설정과 동일한 값이 저장됩니다.</property>
+                <property name="AtkObject::accessible-name" translatable="yes" context="opt_lofice_ai_page|label_hint-atkobject">AI 설정 안내</property>
               </object>
               <packing><property name="left-attach">0</property><property name="top-attach">10</property><property name="width">2</property></packing>
             </child>

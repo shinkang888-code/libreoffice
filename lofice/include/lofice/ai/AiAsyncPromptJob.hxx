@@ -21,7 +21,7 @@
 #include <string_view>
 #include <thread>
 
-#include <vcl/vcllink.hxx>
+#include <tools/link.hxx>
 
 namespace lofice::ai
 {

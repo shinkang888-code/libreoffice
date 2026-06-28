@@ -46,7 +46,7 @@
 
 
 
-#include <vcl/vcllink.hxx>
+#include <tools/link.hxx>
 
 
 
