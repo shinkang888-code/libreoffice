@@ -21,6 +21,7 @@ $(eval $(call gb_Library_use_custom_headers,lofice,\
 
 $(eval $(call gb_Library_use_libraries,lofice,\
     comphelper \
+    cppu \
     cppuhelper \
     sal \
     sfx \
