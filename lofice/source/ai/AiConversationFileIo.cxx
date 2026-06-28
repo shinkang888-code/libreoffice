@@ -14,8 +14,8 @@
 #include <lofice/ai/AiConversationHistory.hxx>
 #include <lofice/ai/AiConversationJson.hxx>
 
+#include <com/sun/star/io/SequenceInputStream.hpp>
 #include <com/sun/star/io/XInputStream.hpp>
-#include <com/sun/star/io/XOutputStream.hpp>
 #include <com/sun/star/ui/dialogs/TemplateDescription.hpp>
 
 #include <comphelper/errcode.hxx>
@@ -63,15 +63,13 @@ bool writeTextToUrl(std::u16string_view rUrl, std::string_view rUtf8)
         uno::Reference<ucb::XCommandEnvironment>(),
         comphelper::getProcessComponentContext());
 
-    uno::Reference<io::XOutputStream> xStream = aContent.openOutputStream();
-    if (!xStream.is())
-        return false;
-
     uno::Sequence<sal_Int8> aBytes(
         reinterpret_cast<sal_Int8 const*>(rUtf8.data()),
         static_cast<sal_Int32>(rUtf8.size()));
-    xStream->writeBytes(aBytes);
-    xStream->closeOutput();
+    uno::Reference<io::XInputStream> xInput
+        = io::SequenceInputStream::createStreamFromSequence(
+            comphelper::getProcessComponentContext(), aBytes);
+    aContent.writeStream(xInput, true);
     return true;
 }
 

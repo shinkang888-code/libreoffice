@@ -50,8 +50,9 @@ if [[ ! -f "$ROOT/instdir/program/libsal_textenclo.so" ]]; then
   done
 fi
 
-echo "==> make officecfg"
-touch officecfg/registry/schema/org/openoffice/Office/Lofice.xcs
+echo "==> make officecfg (Lofice headers)"
+rm -f "$ROOT/workdir/CustomTarget/officecfg/registry/officecfg/Office/Lofice.hxx" 2>/dev/null || true
+make -j"${JOBS}" CustomTarget_officecfg_registry
 make -j"${JOBS}" officecfg
 
 echo "==> make lofice"

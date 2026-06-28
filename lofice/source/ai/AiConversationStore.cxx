@@ -14,11 +14,13 @@
 #include <lofice/ai/AiConversationHistory.hxx>
 #include <lofice/ai/AiConversationJson.hxx>
 
-#include <comphelper/configurationhelper.hxx>
+#include <comphelper/configuration.hxx>
 #include <officecfg/Office/Lofice.hxx>
 
 #include <rtl/textenc.h>
 #include <sal/log.hxx>
+
+#include <memory>
 
 namespace lofice::ai
 {
@@ -57,10 +59,11 @@ void saveConversationHistory(const AiConversationHistory& rHistory)
     }
 
     const OUString aJsonOu = OStringToOUString(
-        OString(aJson.c_str(), static_cast<sal_Int32>(aJson.size()), RTL_TEXTENCODING_UTF8),
+        OString(aJson.data(), aJson.size()),
         RTL_TEXTENCODING_UTF8);
 
-    auto xBatch = comphelper::ConfigurationChanges::create();
+    std::shared_ptr<comphelper::ConfigurationChanges> xBatch(
+        comphelper::ConfigurationChanges::create());
     officecfg::Office::Lofice::AiSettings::ChatHistoryJson::set(aJsonOu, xBatch);
     xBatch->commit();
 }
