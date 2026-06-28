@@ -16,7 +16,7 @@ $(eval $(call gb_Package_add_files,extras_palettes,$(LIBO_SHARE_FOLDER)/palette,
 	freecolour-hlc.soc \
 	hatching.soh \
 	html.soc \
-	lofice.soc \
+	libreoffice.soc \
 	material.soc \
 	modern.sog \
 	compatibility.soc \
