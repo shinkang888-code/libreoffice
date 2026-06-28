@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -71,13 +71,13 @@ published constants ChartDataCaption
     /** The caption contains a custom text, which belongs
         to a data point label.
 
-        @since LibreOffice 7.1
+        @since lofice 7.1
      */
     const long CUSTOM = 32;
 
     /** The name of the data series is additionally displayed in the caption.
 
-        @since LibreOffice 7.2
+        @since lofice 7.2
      */
     const long DATA_SERIES = 64;
 };

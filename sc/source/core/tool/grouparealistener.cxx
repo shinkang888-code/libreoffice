@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -246,7 +246,7 @@ void FormulaGroupAreaListener::collectFormulaCells(
         // erAck: 2016-11-09T18:30+01:00  XXX This doesn't occur anymore, at
         // least not in the original bug scenario (insert a column before H on
         // sheet w) of tdf#89957 with
-        // http://bugs.documentfoundation.org/attachment.cgi?id=114042
+        // http://bugs.lofice.io/attachment.cgi?id=114042
         // Apparently this was fixed in the meantime, let's assume and get the
         // assert bat out to hit us if it wasn't.
         assert(!"something is still messing up the formula group and block size length");

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
-* This file is part of the LibreOffice project.
+* This file is part of the lofice project.
 *
 * This Source Code Form is subject to the terms of the Mozilla Public
 * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -262,7 +262,7 @@ STDMETHODIMP COMOpenDocuments::PromptedOnLastOpen(
 {
     // This method is used by SharePoint e.g. after calling ViewDocument3. Needs to be implemented,
     // otherwise IE would show download bar ("Do you want to open Foo.xls?"), as if opening with
-    // LibreOffice failed, even if actually it succeeded.
+    // lofice failed, even if actually it succeeded.
     if (!pbResult)
         return E_POINTER;
     // Returning true makes SharePoint library to refresh only when focused next time; false makes

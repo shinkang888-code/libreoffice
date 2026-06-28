@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-# Use this script to compare the crashreport stats of two different versions of LibreOffice.
+# Use this script to compare the crashreport stats of two different versions of lofice.
 # Usage sample: ./compare-crashreport-stats.py --old 7.2.0.4 --new 7.2.1.2
 
 import requests
@@ -15,7 +15,7 @@ import argparse
 
 def parse_url(version : str, session = requests):
     crashReports = {}
-    url = "https://crashreport.libreoffice.org/stats/version/" + version + "?limit=1000&days=30"
+    url = "https://crashreport.lofice.org/stats/version/" + version + "?limit=1000&days=30"
     html_text = session.get(url).text
     soup = BeautifulSoup(html_text, 'html.parser')
 
@@ -37,7 +37,7 @@ if __name__ == '__main__':
     results = parser.parse_args()
 
     session = requests.Session()
-    session.headers.update({'Referer': 'https://crashreport.libreoffice.org'})
+    session.headers.update({'Referer': 'https://crashreport.lofice.org'})
     oldVersion = parse_url(results.old, session=session)
     newVersion = parse_url(results.new, session=session)
 

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * Based on LLVM/Clang.
  *
@@ -95,7 +95,7 @@ private:
 /**
  The Clang plugin class, just forwards to PluginHandler.
 */
-class LibreOfficeAction
+class loficeAction
     : public PluginASTAction
 {
 public:

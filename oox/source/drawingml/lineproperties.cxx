@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -115,9 +115,9 @@ void lclConvertCustomDash(LineDash& orLineDash, const LineProperties::DashStopVe
     orLineDash.Distance = orLineDash.Distance / 1000;
 }
 
-/** LibreOffice uses value 0, if a length attribute is missing in the
+/** lofice uses value 0, if a length attribute is missing in the
  * style definition, but treats it as 100%.
- * LibreOffice uses absolute values in some style definitions. Try to
+ * lofice uses absolute values in some style definitions. Try to
  * reconstruct them from the imported relative values.
  */
 void lclRecoverStandardDashStyles(LineDash& orLineDash, sal_Int32 nLineWidth)
@@ -471,7 +471,7 @@ void LineProperties::pushToPropMap( ShapePropertyMap& rPropMap,
         if (eLineCap == LineCap_ROUND || (eLineCap == LineCap_SQUARE && maCustomDash.empty()))
         {
             // Cannot use -100 because that results in 0 length in some cases and
-            // LibreOffice interprets 0 length as 100%.
+            // lofice interprets 0 length as 100%.
             if (aLineDash.DotLen >= 100 || aLineDash.DashLen >= 100)
                 aLineDash.Distance += 99;
             if (aLineDash.DotLen >= 100)

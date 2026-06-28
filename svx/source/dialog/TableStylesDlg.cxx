@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -20,7 +20,7 @@
 /*
  This Dialog is part of GSoC 2025 "New Dialog to Edit Table Styles" project.
  The Dialog is based on the design teams proposal
- (https://design.blog.documentfoundation.org/2015/12/13/style-your-tables/)
+ (https://design.blog.lofice.io/2015/12/13/style-your-tables/)
  */
 
 #include <com/sun/star/beans/XPropertySet.hpp>

@@ -37,7 +37,7 @@
 
 /** You can find more
  * information on the following web page:
- * https://api.libreoffice.org/
+ * https://api.lofice.org/
  */
 import com.sun.star.comp.loader.FactoryHelper;
 import com.sun.star.lang.XMultiServiceFactory;

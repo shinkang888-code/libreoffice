@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -4929,7 +4929,7 @@ void DomainMapper_Impl::PushShapeContext( const uno::Reference< drawing::XShape 
                     comphelper::SequenceAsHashMap aGrabBag( xShapePropertySet->getPropertyValue(u"CharInteropGrabBag"_ustr) );
 
                     // only VML import has checked for style. Don't apply default parastyle properties to other imported shapes
-                    // - except for fontsize - to maintain compatibility with previous versions of LibreOffice.
+                    // - except for fontsize - to maintain compatibility with previous versions of lofice.
                     const bool bOnlyApplyCharHeight = !aGrabBag[u"mso-pStyle"_ustr].hasValue();
 
                     OUString sStyleName;
@@ -6846,9 +6846,9 @@ void DomainMapper_Impl::handleFieldAsk
 }
 
 /**
- * Converts a Microsoft Word field formula into LibreOffice syntax
+ * Converts a Microsoft Word field formula into lofice syntax
  * @param input The Microsoft Word field formula, with no leading '=' sign
- * @return An equivalent LibreOffice field formula
+ * @return An equivalent lofice field formula
  */
 OUString DomainMapper_Impl::convertFieldFormula(const OUString& input) {
 

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -472,7 +472,7 @@ void SdDrawDocument::InsertPage(SdrPage* pPage, sal_uInt16 nPos)
     if (!bLast)
         UpdatePageRelativeURLs(pSdPage, nPos, 1);
 
-    if (comphelper::LibreOfficeKit::isActive() && pSdPage->GetPageKind() == PageKind::Standard)
+    if (comphelper::loficeKit::isActive() && pSdPage->GetPageKind() == PageKind::Standard)
     {
         SdXImpressDocument* pDoc = getUnoModel();
         SfxLokHelper::notifyDocumentSizeChangedAllViews(pDoc);
@@ -516,7 +516,7 @@ rtl::Reference<SdrPage> SdDrawDocument::RemovePage(sal_uInt16 nPgNum)
     auto pSdPage = static_cast<SdPage*>(pPage.get());
     if (pSdPage->IsCanvasPage())
     {
-        DrawViewShell* pDrawViewSh = comphelper::LibreOfficeKit::isActive() ?
+        DrawViewShell* pDrawViewSh = comphelper::loficeKit::isActive() ?
             dynamic_cast<DrawViewShell*>(mpDocSh->GetViewShell()) : nullptr;
         if (pDrawViewSh)
         {
@@ -531,7 +531,7 @@ rtl::Reference<SdrPage> SdDrawDocument::RemovePage(sal_uInt16 nPgNum)
     if (!bLast)
         UpdatePageRelativeURLs(pSdPage, nPgNum, -1);
 
-    if (comphelper::LibreOfficeKit::isActive() && pSdPage->GetPageKind() == PageKind::Standard)
+    if (comphelper::loficeKit::isActive() && pSdPage->GetPageKind() == PageKind::Standard)
     {
         SdXImpressDocument* pDoc = getUnoModel();
         SfxLokHelper::notifyDocumentSizeChangedAllViews(pDoc);

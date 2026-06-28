@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -234,7 +234,7 @@ void GenericDragSource::startDrag( const datatransfer::dnd::DragGestureEvent&,
                                    const Reference< datatransfer::dnd::XDragSourceListener >& listener
                                    )
 {
-    if (comphelper::LibreOfficeKit::isActive()) {
+    if (comphelper::loficeKit::isActive()) {
         m_xTrans = rTrans;
         return;
     }
@@ -337,10 +337,10 @@ SalInstance::CreateClipboard(ClipboardSelectionType eSelection)
 #ifdef IOS
     return new vcl::GenericClipboard();
 #else
-    if (comphelper::LibreOfficeKit::isActive()) {
+    if (comphelper::loficeKit::isActive()) {
         // In LOK, each document view shall have its own clipboard instance (whereas
         // in non-LOK below we keep handing out one single instance; see also
-        // <https://lists.freedesktop.org/archives/libreoffice/2020-April/084824.html> "Re: Linux
+        // <https://lists.freedesktop.org/archives/lofice/2020-April/084824.html> "Re: Linux
         // SAL_USE_VCLPLUGIN=svp and the clipboard"):
         css::uno::Reference<css::datatransfer::clipboard::XClipboard> xClipboard =
             css::datatransfer::clipboard::LokClipboard::create(

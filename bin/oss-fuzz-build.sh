@@ -17,15 +17,15 @@ print_stamp()
 }
 
 print_stamp 1 start
-echo git: `git -C $SRC/libreoffice log -1 --pretty=reference`
+echo git: `git -C $SRC/lofice log -1 --pretty=reference`
 
 #shuffle CXXFLAGS -stdlib=libc++ arg into CXX as well because we use
 #the CXX as the linker and need to pass -stdlib=libc++ to build
 #enable libc++ fast hardening so an out-of-range operator[] aborts instead
 #of reading adjacent live memory that the redzone sanitizers don't flag
-export CXX="$CXX -stdlib=libc++ -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_FAST -fsanitize-blacklist=$SRC/libreoffice/bin/sanitize-excludelist.txt"
+export CXX="$CXX -stdlib=libc++ -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_FAST -fsanitize-blacklist=$SRC/lofice/bin/sanitize-excludelist.txt"
 export CXX_FOR_BUILD="$CXX"
-export CC="$CC -fsanitize-blacklist=$SRC/libreoffice/bin/sanitize-excludelist.txt"
+export CC="$CC -fsanitize-blacklist=$SRC/lofice/bin/sanitize-excludelist.txt"
 export CC_FOR_BUILD="$CC"
 #similarly force the -fsanitize etc args in as well as pthread to get
 #things to link successfully during the build
@@ -40,7 +40,7 @@ if [ -f Makefile ]; then
 fi
 
 print_stamp 0 autogen.sh
-$SRC/libreoffice/autogen.sh --with-distro=LibreOfficeOssFuzz --with-external-tar=$SRC/external-tar
+$SRC/lofice/autogen.sh --with-distro=loficeOssFuzz --with-external-tar=$SRC/external-tar
 
 print_stamp 1 make
 make
@@ -80,6 +80,6 @@ done
 cp $SRC/*.dict $OUT
 
 #options files
-cp $SRC/libreoffice/vcl/workben/*.options $OUT
+cp $SRC/lofice/vcl/workben/*.options $OUT
 
 print_stamp 1 end

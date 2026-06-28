@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -89,12 +89,12 @@ enum class SvNumFormatType : sal_Int16
       */
      UNDEFINED = css::util::NumberFormat::UNDEFINED, // 2048
      /** @internal is used to flag an empty sub format.
-         @since LibreOffice 5.1
+         @since lofice 5.1
       */
      EMPTY = css::util::NumberFormat::EMPTY, // 4096
     /** @internal selects a time duration format.
         8192 + TIME (4)
-        @since LibreOffice 6.2
+        @since lofice 6.2
      */
      DURATION = css::util::NumberFormat::DURATION, // 8196
 };

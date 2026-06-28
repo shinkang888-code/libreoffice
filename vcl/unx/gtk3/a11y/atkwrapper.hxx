@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -50,7 +50,7 @@ struct AtkObjectWrapper
 {
     GtkWidgetAccessible aParent;
 
-    AtkObject* mpOrig;  //if we're a GtkDrawingArea acting as a custom LibreOffice widget, this is the toolkit default impl
+    AtkObject* mpOrig;  //if we're a GtkDrawingArea acting as a custom lofice widget, this is the toolkit default impl
     AtkObject* mpSysObjChild; //if we're a container for a sysobj, then this is the sysobj native gtk AtkObject
 
     css::uno::Reference<css::accessibility::XAccessible> mpAccessible;

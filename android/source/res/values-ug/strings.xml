@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_experimental_editing_summary">سىناق تەھرىرلەش ھالىتىنى قوزغىتىدۇ. ئىشلىتىش ئاقىۋىتىگە ئۆزىڭىز مەسئۇل.</string>
-    <string name="app_name_settings">LibreOffice كۆرگۈچ تەڭشىكى</string>
-    <string name="app_description">LibreOffice كۆرگۈچ LibreOffice ئاساسىدىكى پۈتۈك كۆرگۈچتۇر.</string>
-    <string name="app_credits">https://www.libreoffice.org</string>
+    <string name="app_name_settings">lofice كۆرگۈچ تەڭشىكى</string>
+    <string name="app_description">lofice كۆرگۈچ lofice ئاساسىدىكى پۈتۈك كۆرگۈچتۇر.</string>
+    <string name="app_credits">https://www.lofice.org</string>
     <string name="app_vendor">بۇ تارقىتىلغان نەشرىنى $VENDOR تەمىنلىگەن.</string>
     <string name="readonly_file">بۇ ھۆججەتنى ئوقۇشقىلا بولىدۇ.</string>
     <string name="about_license">ئىجازەتنامە كۆرسەت</string>
@@ -21,9 +21,9 @@
     <string name="pref_category_general">ئادەتتىكى</string>
     <string name="pref_experimental_editing">سىناق ھالىتى</string>
     <string name="pref_developer_mode">ئىجادكار ھالىتى</string>
-    <string name="app_version">نەشرى: %1$s&lt;br&gt;قۇرۇش كىملىكى: &lt;a href=https://hub.libreoffice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
+    <string name="app_version">نەشرى: %1$s&lt;br&gt;قۇرۇش كىملىكى: &lt;a href=https://hub.lofice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
     <string name="default_document_name">ماۋزۇسىز</string>
-    <string name="app_name">LibreOffice كۆرگۈچ</string>
+    <string name="app_name">lofice كۆرگۈچ</string>
     <string name="about_privacy_policy">شەخسىيەت تۈزۈمى</string>
     <string name="file_icon_desc">ھۆججەت سىنبەلگىسى</string>
     <string name="pref_developer_mode_summary">ئىجادكار ھالىتى قوزغىتىلسا ئەپتە UNO بۇيرۇقىنى ئىجرا قىلالايسىز. ئىشلەتكەندىكى خەتەرنى ئۆز ئۈستىڭىزگە ئالىسىز.</string>

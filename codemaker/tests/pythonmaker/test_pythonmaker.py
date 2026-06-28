@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -39,7 +39,7 @@ class TestPythonMaker(unittest.TestCase):
 
         sdk_patterns: List[str] = [
             os.path.join(self.instdir, "sdk", "bin"),
-            os.path.join(self.instdir, "LibreOffice*_SDK", "bin"),
+            os.path.join(self.instdir, "lofice*_SDK", "bin"),
         ]
 
         exe_suffix: str = ".exe" if os.name == "nt" else ""
@@ -65,13 +65,13 @@ class TestPythonMaker(unittest.TestCase):
             app_patterns: List[str] = [
                 os.path.join(
                     self.instdir,
-                    "LibreOfficeDev.app",
+                    "loficeDev.app",
                     "Contents",
                     "Resources",
                 ),
                 os.path.join(
                     self.instdir,
-                    "LibreOffice.app",
+                    "lofice.app",
                     "Contents",
                     "Resources",
                 ),

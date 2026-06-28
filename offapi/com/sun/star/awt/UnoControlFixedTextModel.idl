@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -139,13 +139,13 @@ published service UnoControlFixedTextModel
 
     /** specifies the background color (RGB) of selected text in the control which is highlighted.
 
-        @since LibreOffice 7.5
+        @since lofice 7.5
      */
     [optional, property] com::sun::star::util::Color HighlightColor;
 
     /** specifies the text color (RGB) of selected text in the control which is highlighted.
 
-        @since LibreOffice 7.5
+        @since lofice 7.5
      */
     [optional, property] com::sun::star::util::Color HighlightTextColor;
 };

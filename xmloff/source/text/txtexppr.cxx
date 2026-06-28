@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -281,7 +281,7 @@ void XMLTextExportPropertySetMapper::ContextFontFilter(
         if (!sName.isEmpty())
         {
             pFontNameState->maValue <<= sName;
-            //Resolves: fdo#68431 style:font-name unrecognized by LibreOffice
+            //Resolves: fdo#68431 style:font-name unrecognized by lofice
             //<= 4.1 in styles (but recognized in autostyles) so add
             //fo:font-family, etc
             if (!bEnableFoFontFamily)

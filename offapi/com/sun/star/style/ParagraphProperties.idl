@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -47,7 +47,7 @@ published service ParagraphProperties
 
     /** contains the value of a link for the background graphic of a paragraph.
 
-        @deprecated as of LibreOffice 6.1 - use ParaBackGraphic instead
+        @deprecated as of lofice 6.1 - use ParaBackGraphic instead
 
         Note the new behaviour since it this was deprecated:
         This property can only be set and only external URLs are
@@ -121,7 +121,7 @@ published service ParagraphProperties
 
     /** determines if contextual spacing is used.
 
-        @since LibreOffice 3.6
+        @since lofice 3.6
 
         <p>If true, the top and bottom margins of the paragraph should not be
         applied when the previous and next paragraphs have the same style.</p>
@@ -130,7 +130,7 @@ published service ParagraphProperties
 
     /** Grab bag of paragraph properties, used as a string-any map for interim interop purposes.
 
-        @since LibreOffice 4.2
+        @since lofice 4.2
 
         <p>This property is intentionally not handled by the ODF filter. Any
         member that should be handled there should be first moved out from this grab
@@ -374,7 +374,7 @@ published service ParagraphProperties
 
         /** contains the graphic for the background of a paragraph.
 
-            @since LibreOffice 6.1
+            @since lofice 6.1
          */
         [optional, property] com::sun::star::graphic::XGraphic ParaBackGraphic;
 
@@ -396,27 +396,27 @@ published service ParagraphProperties
         /** Specifies whether words written in CAPS will be hyphenated.
             Setting to `true` will disable hyphenation of words written in CAPS for this paragraph.
 
-            @since LibreOffice 6.4
+            @since lofice 6.4
          */
         [optional, property] boolean ParaHyphenationNoCaps;
 
         /** Specifies whether last word of paragraph will be hyphenated.
             Setting to `true` will disable hyphenation of last word for this paragraph.
 
-            @since LibreOffice 7.4
+            @since lofice 7.4
          */
         [optional, property] boolean ParaHyphenationNoLastWord;
 
         /** specifies the minimum word length in characters, when hyphenation is applied.
 
-            @since LibreOffice 7.4
+            @since lofice 7.4
          */
         [optional, property] short ParaHyphenationMinWordLength;
 
         /** specifies the hyphenation zone, i.e. allowed extra white space
             in the line before applying hyphenation.
 
-            @since LibreOffice 7.4
+            @since lofice 7.4
          */
         [optional, property] long ParaHyphenationZone;
 
@@ -425,7 +425,7 @@ published service ParagraphProperties
             other paragraphs of the same text, i.e. a paragraph with lower
             identifier is there before the other ones with greater values.
             This property depends on implementation details and is considered experimental.
-            @since LibreOffice 7.6
+            @since lofice 7.6
          */
         [optional, property, readonly] long SortedTextId;
 
@@ -434,7 +434,7 @@ published service ParagraphProperties
 
             @see ParaHyphenationKeepType
 
-            @since LibreOffice 24.8
+            @since lofice 24.8
          */
         [optional, property] boolean ParaHyphenationKeep;
 
@@ -444,14 +444,14 @@ published service ParagraphProperties
 
             @see com::sun::star::text::ParagraphHyphenationKeepType
 
-            @since LibreOffice 24.8
+            @since lofice 24.8
          */
         [optional, property] long ParaHyphenationKeepType;
 
         /** specifies the minimum number of characters of the compound word part
             to remain before the hyphen character (when hyphenation is applied).
 
-            @since LibreOffice 24.8
+            @since lofice 24.8
          */
         [optional, property] short ParaHyphenationCompoundMinLeadingChars;
 
@@ -463,7 +463,7 @@ published service ParagraphProperties
 
             @see ParaHyphenationKeepType
 
-            @since LibreOffice 25.8
+            @since lofice 25.8
          */
         [optional, property] boolean ParaHyphenationKeepLine;
 
@@ -474,7 +474,7 @@ published service ParagraphProperties
 
             @see ParaHyphenationZone
 
-            @since LibreOffice 25.8
+            @since lofice 25.8
          */
         [optional, property] long ParaHyphenationZoneAlways;
 
@@ -485,7 +485,7 @@ published service ParagraphProperties
 
             @see ParaHyphenationZoneAlways
 
-            @since LibreOffice 25.8
+            @since lofice 25.8
          */
         [optional, property] long ParaHyphenationZoneColumn;
 
@@ -496,7 +496,7 @@ published service ParagraphProperties
 
             @see ParaHyphenationZoneColumn
 
-            @since LibreOffice 25.8
+            @since lofice 25.8
          */
         [optional, property] long ParaHyphenationZonePage;
 
@@ -507,7 +507,7 @@ published service ParagraphProperties
 
             @see ParaHyphenationZonePage
 
-            @since LibreOffice 25.8
+            @since lofice 25.8
          */
         [optional, property] long ParaHyphenationZoneSpread;
 
@@ -521,7 +521,7 @@ published service ParagraphProperties
 
             @see ParaWordSpacingMaximum
 
-            @since LibreOffice 25.8
+            @since lofice 25.8
          */
         [optional, property] long ParaWordSpacing;
 
@@ -535,7 +535,7 @@ published service ParagraphProperties
 
             @see ParaWordSpacingMaximum
 
-            @since LibreOffice 25.8
+            @since lofice 25.8
          */
         [optional, property] long ParaWordSpacingMinimum;
 
@@ -549,7 +549,7 @@ published service ParagraphProperties
 
             @see ParaWordSpacingMininum
 
-            @since LibreOffice 25.8
+            @since lofice 25.8
          */
         [optional, property] long ParaWordSpacingMaximum;
 
@@ -563,7 +563,7 @@ published service ParagraphProperties
 
             @see ParaLetterSpacingMaximum
 
-            @since LibreOffice 26.2
+            @since lofice 26.2
          */
         [optional, property] long ParaLetterSpacingMinimum;
 
@@ -577,7 +577,7 @@ published service ParagraphProperties
 
             @see ParaLetterSpacingMininum
 
-            @since LibreOffice 26.2
+            @since lofice 26.2
          */
         [optional, property] long ParaLetterSpacingMaximum;
 
@@ -591,7 +591,7 @@ published service ParagraphProperties
 
             @see ParaScaleWidthMaximum
 
-            @since LibreOffice 26.2
+            @since lofice 26.2
          */
         [optional, property] long ParaScaleWidthMinimum;
 
@@ -605,7 +605,7 @@ published service ParagraphProperties
 
             @see ParaScaleWidthMininum
 
-            @since LibreOffice 26.2
+            @since lofice 26.2
          */
         [optional, property] long ParaScaleWidthMaximum;
 
@@ -613,7 +613,7 @@ published service ParagraphProperties
             that must appear at the beginning of the line after the hyphen character
             (when hyphenation is applied).
 
-            @since LibreOffice 26.8
+            @since lofice 26.8
          */
         [optional, property] short ParaHyphenationCompoundMinTrailingChars;
 
@@ -627,7 +627,7 @@ published service ParagraphProperties
 
             @see ParaWordSpacingMaximum
 
-            @since LibreOffice 26.8
+            @since lofice 26.8
          */
         [optional, property] boolean ParaComposer;
 };

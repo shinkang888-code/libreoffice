@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -91,7 +91,7 @@
 #include <basegfx/polygon/b2dpolygon.hxx>
 #include <comphelper/lok.hxx>
 #include <sfx2/lokhelper.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <calbck.hxx>
 #include <PostItMgr.hxx>
 #include <AnnotationWin.hxx>
@@ -298,7 +298,7 @@ bool SwFEShell::SelectObj( const Point& rPt, sal_uInt8 nFlag, SdrObject *pObj )
         // tolerance limit of Drawing-SS
         const auto nHdlSizePixel = Imp()->GetDrawView()->GetMarkHdlSizePixel();
         short nMinMove;
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
             nMinMove = static_cast<short>(OutputDevice::LogicToLogic(Size(nHdlSizePixel/2,0), MapMode(MapUnit::MapPixel), GetOut()->GetMapMode()).Width());
         else
             nMinMove = static_cast<short>(GetOut()->PixelToLogic(Size(nHdlSizePixel/2, 0)).Width());
@@ -1310,7 +1310,7 @@ void SwFEShell::EndTextEdit()
     else
         pView->SdrEndTextEdit();
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         SfxLokHelper::notifyOtherViews(GetSfxViewShell(), LOK_CALLBACK_VIEW_LOCK, "rectangle", "EMPTY"_ostr);
 
     EndAllAction();

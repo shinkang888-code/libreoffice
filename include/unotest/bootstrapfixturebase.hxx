@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -41,7 +41,7 @@ namespace test {
 
 // Class to do lots of heavy-lifting UNO & environment
 // bootstrapping for unit tests, such that we can use
-// almost an entire LibreOffice during compile - so
+// almost an entire lofice during compile - so
 // that we can get pieces of code alone to beat them up.
 
 // NB. this class is instantiated multiple times during a

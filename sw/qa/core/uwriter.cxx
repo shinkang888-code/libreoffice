@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -122,7 +122,7 @@ CPPUNIT_TEST_FIXTURE(SwDocTest, testPageDescName)
     CPPUNIT_ASSERT_EQUAL_MESSAGE("GetPageDescName results must be unique", static_cast<size_t>(3), aResults.size());
 }
 
-//See https://bugs.libreoffice.org/show_bug.cgi?id=32463
+//See https://bugs.lofice.org/show_bug.cgi?id=32463
 CPPUNIT_TEST_FIXTURE(SwDocTest, testFileNameFields)
 {
     //Here's a file name with some chars in it that will be %% encoded, when expanding
@@ -180,7 +180,7 @@ CPPUNIT_TEST_FIXTURE(SwDocTest, testFileNameFields)
     m_xDocShRef->DoInitNew();
 }
 
-//See http://lists.freedesktop.org/archives/libreoffice/2011-August/016666.html
+//See http://lists.freedesktop.org/archives/lofice/2011-August/016666.html
 //Remove unnecessary parameter to IDocumentStatistics::UpdateDocStat for
 //motivation
 CPPUNIT_TEST_FIXTURE(SwDocTest, testDocStat)
@@ -549,8 +549,8 @@ CPPUNIT_TEST_FIXTURE(SwDocTest, testSwScanner)
 
     CPPUNIT_ASSERT_MESSAGE("Has Text Node", pTextNode);
 
-    //See https://bugs.libreoffice.org/show_bug.cgi?id=40449
-    //See https://bugs.libreoffice.org/show_bug.cgi?id=39365
+    //See https://bugs.lofice.org/show_bug.cgi?id=40449
+    //See https://bugs.lofice.org/show_bug.cgi?id=39365
     //Use a temporary OUString as the arg, as that's the trouble behind
     //fdo#40449 and fdo#39365
     {
@@ -570,7 +570,7 @@ CPPUNIT_TEST_FIXTURE(SwDocTest, testSwScanner)
         CPPUNIT_ASSERT_EQUAL(u"World"_ustr, rWorld);
     }
 
-    //See https://www.libreoffice.org/bugzilla/show_bug.cgi?id=45271
+    //See https://www.lofice.org/bugzilla/show_bug.cgi?id=45271
     {
         static constexpr OUString IDEOGRAPHICFULLSTOP_D = u"\u3002D"_ustr;
 
@@ -624,7 +624,7 @@ CPPUNIT_TEST_FIXTURE(SwDocTest, testSwScanner)
     }
 
     //See https://bz.apache.org/ooo/show_bug.cgi?id=89042
-    //See https://bugs.libreoffice.org/show_bug.cgi?id=53399
+    //See https://bugs.lofice.org/show_bug.cgi?id=53399
     {
         SwDocStat aDocStat;
 
@@ -656,7 +656,7 @@ CPPUNIT_TEST_FIXTURE(SwDocTest, testSwScanner)
         CPPUNIT_ASSERT_EQUAL(static_cast<sal_uInt32>(5), aDocStat.nWord);
     }
 
-    //See https://bugs.libreoffice.org/show_bug.cgi?id=49629
+    //See https://bugs.lofice.org/show_bug.cgi?id=49629
     {
         SwDocStat aDocStat;
 
@@ -705,7 +705,7 @@ CPPUNIT_TEST_FIXTURE(SwDocTest, testSwScanner)
         aDocStat.Reset();
     }
 
-    //See https://bugs.libreoffice.org/show_bug.cgi?id=46757
+    //See https://bugs.lofice.org/show_bug.cgi?id=46757
     {
         SwDocStat aDocStat;
 
@@ -766,7 +766,7 @@ CPPUNIT_TEST_FIXTURE(SwDocTest, testSwScanner)
         CPPUNIT_ASSERT_EQUAL(static_cast<sal_uInt32>(0), aDocStat.nWord);
         CPPUNIT_ASSERT_EQUAL(static_cast<sal_uInt32>(0), aDocStat.nChar);
 
-        // https://bugs.libreoffice.org/show_bug.cgi?id=68347 we do want to count
+        // https://bugs.lofice.org/show_bug.cgi?id=68347 we do want to count
         // redline *added* text though
         m_pDoc->getIDocumentRedlineAccess().SetRedlineFlags(RedlineFlags::On | RedlineFlags::ShowDelete|RedlineFlags::ShowInsert);
         aPaM.DeleteMark();
@@ -785,7 +785,7 @@ CPPUNIT_TEST_FIXTURE(SwDocTest, testSwScanner)
         CPPUNIT_ASSERT_EQUAL(static_cast<sal_uInt32>(5), aDocStat.nChar);
     }
 
-    //See https://bugs.libreoffice.org/show_bug.cgi?id=38983
+    //See https://bugs.lofice.org/show_bug.cgi?id=38983
     {
         SwDocStat aDocStat;
 
@@ -963,7 +963,7 @@ CPPUNIT_TEST_FIXTURE(SwDocTest, testMergePortionsDeleteNotSorted)
     rIDCO.InsertPoolItem(aPaM, charFormat);
 }
 
-//See https://bugs.libreoffice.org/show_bug.cgi?id=40599
+//See https://bugs.lofice.org/show_bug.cgi?id=40599
 CPPUNIT_TEST_FIXTURE(SwDocTest, testGraphicAnchorDeletion)
 {
     CPPUNIT_ASSERT_EQUAL_MESSAGE("Expected initial 0 count", static_cast<sal_uInt32>(0), m_pDoc->getIDocumentStatistics().GetDocStat().nChar);

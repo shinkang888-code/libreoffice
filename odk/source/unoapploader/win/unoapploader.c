@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -57,7 +57,7 @@ static void closeErrorFile(void);
  * environment variable to the program directory of the UNO installation.
  * If no installation is specified by the user, the default installation on
  * the system will be taken. The default installation is read from the
- * default value of the key "Software\LibreOffice\UNO\InstallPath" from the
+ * default value of the key "Software\lofice\UNO\InstallPath" from the
  * root key HKEY_CURRENT_USER in the Windows Registry. If this key is missing,
  * the key is read from the root key HKEY_LOCAL_MACHINE.</p>
  */

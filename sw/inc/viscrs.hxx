@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -47,7 +47,7 @@ class SW_DLLPUBLIC SwVisibleCursor
     const SwCursorShell* m_pCursorShell;
     vcl::Cursor m_aTextCursor;
 
-    /// For LibreOfficeKit only - remember what page we were at the last time.
+    /// For loficeKit only - remember what page we were at the last time.
     sal_uInt16 m_nPageLastTime;
     SwRect m_aLastLOKRect;
 

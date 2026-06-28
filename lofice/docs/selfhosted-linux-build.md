@@ -20,7 +20,7 @@ bash lofice/scripts/setup-selfhosted-runner.sh
 git clone <repo> ~/lofice-build && cd ~/lofice-build
 ./autogen.sh
 ./configure --enable-curl=YES
-# deps: see LibreOffice build docs
+# deps: see lofice build docs
 ```
 
 ## 워크플로

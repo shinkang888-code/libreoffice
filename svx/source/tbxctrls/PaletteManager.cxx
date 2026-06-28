@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -129,8 +129,8 @@ void PaletteManager::LoadPalettes()
                                 aFNameWithoutExt = SvxResId(RID_SVXSTR_COLOR_PALETTE_COMPATIBILITY);
                             else if (aFNameWithoutExt == "material")
                                 aFNameWithoutExt = SvxResId(RID_SVXSTR_COLOR_PALETTE_MATERIAL);
-                            else if (aFNameWithoutExt == "libreoffice")
-                                aFNameWithoutExt = "LibreOffice";
+                            else if (aFNameWithoutExt == "lofice")
+                                aFNameWithoutExt = "lofice";
                             else if (aFNameWithoutExt == "freecolour-hlc")
                                 aFNameWithoutExt = SvxResId(RID_SVXSTR_COLOR_PALETTE_FREECOLOURHLC);
                             pPalette.reset(new PaletteSOC(aFileStat.getFileURL(), aFNameWithoutExt));

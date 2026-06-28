@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -402,11 +402,11 @@ void DeInitVCL()
     // The LOK Windows map container should be empty
     assert(vcl::Window::IsLOKWindowsEmpty());
 
-    //rhbz#1444437, when using LibreOffice like a library you can't realistically
+    //rhbz#1444437, when using lofice like a library you can't realistically
     //tear everything down and recreate them on the next call, there's too many
     //(c++) singletons that point to stuff that gets deleted during shutdown
     //which won't be recreated on restart.
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return;
 
     {

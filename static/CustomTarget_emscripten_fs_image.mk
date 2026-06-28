@@ -1,7 +1,7 @@
 # vim: set noet sw=4 ts=4:
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1134,7 +1134,7 @@ gb_emscripten_fs_image_files += \
     $(INSTROOT)/$(LIBO_SHARE_FOLDER)/themes/Beach.theme \
     $(INSTROOT)/$(LIBO_SHARE_FOLDER)/themes/Breeze.theme \
     $(INSTROOT)/$(LIBO_SHARE_FOLDER)/themes/Forest.theme \
-    $(INSTROOT)/$(LIBO_SHARE_FOLDER)/themes/Libreoffice.theme \
+    $(INSTROOT)/$(LIBO_SHARE_FOLDER)/themes/lofice.theme \
     $(INSTROOT)/$(LIBO_SHARE_FOLDER)/themes/Ocean.theme \
     $(INSTROOT)/$(LIBO_SHARE_FOLDER)/themes/Rainbow.theme \
     $(INSTROOT)/$(LIBO_SHARE_FOLDER)/themes/Sunset.theme \

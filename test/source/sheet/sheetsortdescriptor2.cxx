@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -36,7 +36,7 @@ void SheetSortDescriptor2::testSheetSortDescriptor2Properties()
     std::vector<OUString> names;
     // Only test the get/read operation of the values, because set/write operation doesn't
     // make any sense. It doesn't trigger any changes.
-    // See discussion: nabble.documentfoundation.org/Testing-UNO-API-service-properties-td4236286.html.
+    // See discussion: nabble.lofice.io/Testing-UNO-API-service-properties-td4236286.html.
     for (const auto& value : values)
     {
         if (value.Name == "BindFormatsToContent")

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 
 #ifndef INCLUDED_OSL_INTERLCK_H
@@ -61,12 +61,12 @@ SAL_DLLPUBLIC oslInterlockedCount SAL_CALL osl_decrementInterlockedCount(oslInte
 /** Increments the count variable addressed by p.
 
     @attention This functionality should only be used internally within
-    LibreOffice.
+    lofice.
 
     @param p Address of count variable
     @return The adjusted value of the count variable.
 
-    @since LibreOffice 4.0
+    @since lofice 4.0
 */
 #if HAVE_GCC_BUILTIN_ATOMIC
 #    define osl_atomic_increment(p)  __sync_add_and_fetch((p), 1)
@@ -80,12 +80,12 @@ SAL_DLLPUBLIC oslInterlockedCount SAL_CALL osl_decrementInterlockedCount(oslInte
 /** Decrement the count variable addressed by p.
 
     @attention This functionality should only be used internally within
-    LibreOffice.
+    lofice.
 
     @param p Address of count variable
     @return The adjusted value of the count variable.
 
-    @since LibreOffice 4.0
+    @since lofice 4.0
 */
 #if HAVE_GCC_BUILTIN_ATOMIC
 #    define osl_atomic_decrement(p) __sync_sub_and_fetch((p), 1)

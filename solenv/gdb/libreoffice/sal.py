@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -11,8 +11,8 @@ import gdb
 import gdb.types
 import six
 
-from libreoffice.util import printing
-from libreoffice.util.string import StringPrinterHelper
+from lofice.util import printing
+from lofice.util.string import StringPrinterHelper
 
 class RtlStringPrinter(StringPrinterHelper):
     '''Prints rtl_String or rtl_uString'''
@@ -141,7 +141,7 @@ printer = None
 def build_pretty_printers():
     global printer
 
-    printer = printing.Printer("libreoffice/sal")
+    printer = printing.Printer("lofice/sal")
 
     # strings and string buffers
     printer.add('_rtl_String', RtlStringPrinter)

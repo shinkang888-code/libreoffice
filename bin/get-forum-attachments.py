@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -23,7 +23,7 @@ from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
 forums = {
-    # https://wiki.documentfoundation.org/Website/Web_Sites_services#Unofficial_and_Related_Pages
+    # https://wiki.lofice.io/Website/Web_Sites_services#Unofficial_and_Related_Pages
     'en': ["https://forum.openoffice.org/en/forum", False, 0],
     'es': ["https://forum.openoffice.org/es/forum", False, 0],
     'fr': ["https://forum.openoffice.org/fr/forum", False, 0],
@@ -33,9 +33,9 @@ forums = {
     'nl': ["https://forum.openoffice.org/nl/forum", False, 0],
     'pl': ["https://forum.openoffice.org/pl/forum", False, 0],
     'vi': ["https://forum.openoffice.org/vi/forum", False, 0],
-    'tr': ["https://forum.libreoffice.org.tr", False, 0],
+    'tr': ["https://forum.lofice.org.tr", False, 0],
     'de': ["https://www.openoffice-forum.de", False, 0],
-    'de2': ["https://www.libreoffice-forum.de", False, 0],
+    'de2': ["https://www.lofice-forum.de", False, 0],
     'de3': ["https://de.openoffice.info", False, 0],
     # Others
     'mso-de': ["https://www.ms-office-forum.net/forum", True, 0],

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -55,7 +55,7 @@
 #include <svl/sharecontrolfile.hxx>
 #include <tools/json_writer.hxx>
 #include <unotools/securityoptions.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <sal/log.hxx>
 #include <unotools/charclass.hxx>
 #include <comphelper/diagnose_ex.hxx>
@@ -259,7 +259,7 @@ void lcl_setLOKLocale(const ScTabViewShell& rViewShell, const LanguageType eLang
 
 void ScDocShell::SetLanguage(LanguageType eLatin, LanguageType eCjk, LanguageType eCtl)
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         if (ScTabViewShell* pViewShell = GetBestViewShell())
         {
@@ -2556,7 +2556,7 @@ void ScDocShell::GetState( SfxItemSet &rSet )
                     LanguageType eLatin = LANGUAGE_DONTKNOW, eCjk = LANGUAGE_DONTKNOW,
                         eCtl = LANGUAGE_DONTKNOW;
 
-                    if (comphelper::LibreOfficeKit::isActive())
+                    if (comphelper::loficeKit::isActive())
                     {
                         GetDocument().GetLanguage( eLatin, eCjk, eCtl );
                         sLanguage = SvtLanguageTable::GetLanguageString(eLatin);
@@ -3004,8 +3004,8 @@ bool ScDocShell::DdeSetData( const OUString& rItem,
 void ScDocShell::LOKCommentNotify(LOKCommentNotificationType nType, const ScDocument& rDocument, const ScAddress& rPos, const ScPostIt* pNote)
 {
     if ( !rDocument.IsDocVisible() || // don't want callbacks until document load
-         !comphelper::LibreOfficeKit::isActive() ||
-         comphelper::LibreOfficeKit::isTiledAnnotations() )
+         !comphelper::loficeKit::isActive() ||
+         comphelper::loficeKit::isTiledAnnotations() )
         return;
 
     tools::JsonWriter aAnnotation;
@@ -3047,7 +3047,7 @@ void ScDocShell::LOKCommentNotify(LOKCommentNotificationType nType, const ScDocu
     while (pViewShell)
     {
         if (pThisViewShell == nullptr || pViewShell->GetDocId() == pThisViewShell->GetDocId())
-            pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_COMMENT, aPayload);
+            pViewShell->loficeKitViewCallback(LOK_CALLBACK_COMMENT, aPayload);
         pViewShell = SfxViewShell::GetNext(*pViewShell);
     }
 }

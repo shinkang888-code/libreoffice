@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -26,8 +26,8 @@ $(eval $(call gb_JunitTest_add_sourcefiles,sw_complex,\
 $(eval $(call gb_JunitTest_use_unoapi_jars,sw_complex))
 
 # disable running the test for now as it is unreliable, see discussions
-# in https://gerrit.libreoffice.org/c/core/+/162263
-# and https://gerrit.libreoffice.org/c/core/+/164231
+# in https://gerrit.lofice.org/c/core/+/162263
+# and https://gerrit.lofice.org/c/core/+/164231
 #$(eval $(call gb_JunitTest_add_classes,sw_complex,\
 #    complex.indeterminateState.CheckIndeterminateState \
 #))

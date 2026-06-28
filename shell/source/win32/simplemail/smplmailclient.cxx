@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -66,7 +66,7 @@ namespace /* private */
         OUString altSenddocUrl;
         wchar_t buf[EXTENDED_MAX_PATH];
         DWORD bufSize(sizeof(buf));
-        LSTATUS lret = RegGetValueW(HKEY_CURRENT_USER, L"Software\\LibreOffice\\SendAsEMailClient",
+        LSTATUS lret = RegGetValueW(HKEY_CURRENT_USER, L"Software\\lofice\\SendAsEMailClient",
                                     nullptr, RRF_RT_REG_SZ, nullptr, buf, &bufSize);
         if (lret == ERROR_SUCCESS)
             osl::FileBase::getFileURLFromSystemPath(OUString(o3tl::toU(buf)), altSenddocUrl);

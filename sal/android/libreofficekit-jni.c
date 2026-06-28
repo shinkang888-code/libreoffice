@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -27,10 +27,10 @@
 
 #include <osl/detail/android-bootstrap.h>
 
-#include <LibreOfficeKit/LibreOfficeKit.h>
+#include <loficeKit/loficeKit.h>
 
-#define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "LibreOfficeKit", __VA_ARGS__))
-#define LOGE(...) ((void)__android_log_print(ANDROID_LOG_ERROR, "LibreOfficeKit", __VA_ARGS__))
+#define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "loficeKit", __VA_ARGS__))
+#define LOGE(...) ((void)__android_log_print(ANDROID_LOG_ERROR, "loficeKit", __VA_ARGS__))
 
 /* These are valid / used in all apps. */
 extern const char* data_dir;
@@ -39,33 +39,33 @@ extern void* apk_file;
 extern int apk_file_size;
 AAssetManager* native_asset_manager;
 
-extern void Java_org_libreoffice_android_Bootstrap_putenv(JNIEnv* env, jobject clazz, jstring string);
-extern void Java_org_libreoffice_android_Bootstrap_redirect_1stdio(JNIEnv* env, jobject clazz, jboolean state);
+extern void Java_org_lofice_android_Bootstrap_putenv(JNIEnv* env, jobject clazz, jstring string);
+extern void Java_org_lofice_android_Bootstrap_redirect_1stdio(JNIEnv* env, jobject clazz, jboolean state);
 
-extern LibreOfficeKit* libreofficekit_hook(const char* install_path);
+extern loficeKit* loficekit_hook(const char* install_path);
 
 static char *full_program_dir = NULL;
 
 /// Call the same method from Bootstrap.
 __attribute__ ((visibility("default")))
 void
-Java_org_libreoffice_kit_LibreOfficeKit_putenv
+Java_org_lofice_kit_loficeKit_putenv
     (JNIEnv* env, jobject clazz, jstring string)
 {
-    Java_org_libreoffice_android_Bootstrap_putenv(env, clazz, string);
+    Java_org_lofice_android_Bootstrap_putenv(env, clazz, string);
 }
 
 /// Call the same method from Bootstrap.
 __attribute__ ((visibility("default")))
-void Java_org_libreoffice_kit_LibreOfficeKit_redirectStdio
+void Java_org_lofice_kit_loficeKit_redirectStdio
     (JNIEnv* env, jobject clazz, jboolean state)
 {
-    Java_org_libreoffice_android_Bootstrap_redirect_1stdio(env, clazz, state);
+    Java_org_lofice_android_Bootstrap_redirect_1stdio(env, clazz, state);
 }
 
-/// Initialize the LibreOfficeKit.
+/// Initialize the loficeKit.
 __attribute__ ((visibility("default")))
-jboolean libreofficekit_initialize(JNIEnv* env,
+jboolean loficekit_initialize(JNIEnv* env,
      jstring dataDir, jstring cacheDir, jstring apkFile, jobject assetManager)
 {
     struct stat st;
@@ -105,7 +105,7 @@ jboolean libreofficekit_initialize(JNIEnv* env,
         setenv("FONTCONFIG_FILE", fontsConfPath, 1);
         // DEBUG:
         //setenv("FC_DEBUG", "8191", 1); // log everything
-        //Java_org_libreoffice_android_Bootstrap_redirect_1stdio(NULL, NULL, JNI_TRUE);
+        //Java_org_lofice_android_Bootstrap_redirect_1stdio(NULL, NULL, JNI_TRUE);
     }
     free(fontsConfPath);
 
@@ -147,14 +147,14 @@ jboolean libreofficekit_initialize(JNIEnv* env,
         return JNI_FALSE;
     }
 
-    LOGI("LibreOfficeKit: libreofficekit_initialize finished");
+    LOGI("loficeKit: loficekit_initialize finished");
 
     return JNI_TRUE;
 }
 
-/// Initialize the LibreOfficeKit.
+/// Initialize the loficeKit.
 __attribute__ ((visibility("default")))
-jboolean Java_org_libreoffice_kit_LibreOfficeKit_initializeNative
+jboolean Java_org_lofice_kit_loficeKit_initializeNative
     (JNIEnv* env, jobject clazz,
      jstring dataDir, jstring cacheDir, jstring apkFile, jobject assetManager)
 {
@@ -163,9 +163,9 @@ jboolean Java_org_libreoffice_kit_LibreOfficeKit_initializeNative
 
     (void) clazz;
 
-    libreofficekit_initialize(env, dataDir, cacheDir, apkFile, assetManager);
+    loficekit_initialize(env, dataDir, cacheDir, apkFile, assetManager);
 
-    // LibreOfficeKit expects a path to the program/ directory
+    // loficeKit expects a path to the program/ directory
     free(full_program_dir);
     data_dir_len = strlen(data_dir);
     full_program_dir = malloc(data_dir_len + sizeof(program_dir));
@@ -173,30 +173,30 @@ jboolean Java_org_libreoffice_kit_LibreOfficeKit_initializeNative
     strncpy(full_program_dir, data_dir, data_dir_len);
     strncpy(full_program_dir + data_dir_len, program_dir, sizeof(program_dir));
 
-    // Initialize LibreOfficeKit
-    if (!libreofficekit_hook(full_program_dir))
+    // Initialize loficeKit
+    if (!loficekit_hook(full_program_dir))
     {
-        LOGE("libreofficekit_hook returned null");
+        LOGE("loficekit_hook returned null");
         return JNI_FALSE;
     }
 
-    LOGI("LibreOfficeKit successfully initialized");
+    LOGI("loficeKit successfully initialized");
 
     return JNI_TRUE;
 }
 
 __attribute__ ((visibility("default")))
-jobject Java_org_libreoffice_kit_LibreOfficeKit_getLibreOfficeKitHandle
+jobject Java_org_lofice_kit_loficeKit_getloficeKitHandle
     (JNIEnv* env, jobject clazz)
 {
-    LibreOfficeKit* aOffice;
+    loficeKit* aOffice;
 
     (void) env;
     (void) clazz;
 
-    aOffice = libreofficekit_hook(full_program_dir);
+    aOffice = loficekit_hook(full_program_dir);
 
-    return (*env)->NewDirectByteBuffer(env, (void*) aOffice, sizeof(LibreOfficeKit));
+    return (*env)->NewDirectByteBuffer(env, (void*) aOffice, sizeof(loficeKit));
 }
 
 __attribute__ ((visibility("default")))

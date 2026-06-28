@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -21,7 +21,7 @@
  * This class parses the .ui file and calls overridable methods
  * so subclasses can create the widgets of a specific toolkit.
  *
- * The VclBuilder subclass is the implementation using LibreOffice's own VCL toolkit
+ * The VclBuilder subclass is the implementation using lofice's own VCL toolkit
  * and the QtBuilder subclass uses native Qt widgets.
  */
 template <typename Widget, typename WidgetPtr, typename MenuClass, typename MenuPtr>

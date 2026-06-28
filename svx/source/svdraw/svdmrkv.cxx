@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -59,7 +59,7 @@
 #include <o3tl/string_view.hxx>
 #include <basegfx/polygon/b2dpolygontools.hxx>
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <sfx2/lokhelper.hxx>
 #include <sfx2/lokcomponenthelpers.hxx>
@@ -110,7 +110,7 @@ ImplMarkingOverlay::ImplMarkingOverlay(const SdrPaintView& rView, const basegfx:
 :   maSecondPosition(rStartPos),
     mbUnmarking(bUnmarking)
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return; // We do client-side object manipulation with the Kit API
 
     for(sal_uInt32 a(0); a < rView.PaintWindowCount(); a++)
@@ -150,7 +150,7 @@ class MarkingSelectionOverlay
 public:
     MarkingSelectionOverlay(const SdrPaintView& rView, basegfx::B2DRectangle const& rSelection)
     {
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
             return; // We do client-side object manipulation with the Kit API
 
         for (sal_uInt32 a(0); a < rView.PaintWindowCount(); a++)
@@ -176,7 +176,7 @@ class MarkingSubSelectionOverlay
 public:
     MarkingSubSelectionOverlay(const SdrPaintView& rView, std::vector<basegfx::B2DRectangle> const & rSelections)
     {
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
             return; // We do client-side object manipulation with the Kit API
 
         for (sal_uInt32 a(0); a < rView.PaintWindowCount(); a++)
@@ -268,7 +268,7 @@ void SdrMarkView::ModelHasChanged()
         AdjustMarkHdl();
     }
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         modelHasChangedLOKit();
 }
 
@@ -880,12 +880,12 @@ OString SdrMarkView::CreateInnerTextRectString() const
 
 void SdrMarkView::SetInnerTextAreaForLOKit() const
 {
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return;
     SfxViewShell* pViewShell = GetSfxViewShell();
     OString sRectString = CreateInnerTextRectString();
     if (pViewShell && !sRectString.isEmpty())
-        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_SHAPE_INNER_TEXT, sRectString);
+        pViewShell->loficeKitViewCallback(LOK_CALLBACK_SHAPE_INNER_TEXT, sRectString);
 }
 
 void SdrMarkView::SetMarkHandlesForLOKit(tools::Rectangle const & rRect, const SfxViewShell* pOtherShell)
@@ -944,7 +944,7 @@ void SdrMarkView::SetMarkHandlesForLOKit(tools::Rectangle const & rRect, const S
 
         // hide the text selection too
         if (pViewShell)
-            pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION, ""_ostr);
+            pViewShell->loficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION, ""_ostr);
     }
 
     {
@@ -1303,11 +1303,11 @@ void SdrMarkView::SetMarkHandlesForLOKit(tools::Rectangle const & rRect, const S
             std::stringstream aStream;
             boost::property_tree::write_json(aStream, aTableJsonTree);
             if (pViewShell)
-                pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_TABLE_SELECTED, OString(aStream.str()));
+                pViewShell->loficeKitViewCallback(LOK_CALLBACK_TABLE_SELECTED, OString(aStream.str()));
         }
         else if (!getSdrModelFromSdrView().IsWriter() && pViewShell)
         {
-            pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_TABLE_SELECTED, "{}"_ostr);
+            pViewShell->loficeKitViewCallback(LOK_CALLBACK_TABLE_SELECTED, "{}"_ostr);
         }
 
         if (pOtherShell)
@@ -1321,7 +1321,7 @@ void SdrMarkView::SetMarkHandlesForLOKit(tools::Rectangle const & rRect, const S
         {
             // We have a new selection, so both pViewShell and the
             // other views want to know about it.
-            pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_GRAPHIC_SELECTION, sSelectionText);
+            pViewShell->loficeKitViewCallback(LOK_CALLBACK_GRAPHIC_SELECTION, sSelectionText);
 
             SfxLokHelper::notifyOtherViews(pViewShell, LOK_CALLBACK_GRAPHIC_VIEW_SELECTION, "selection", sSelectionTextView);
         }
@@ -1364,7 +1364,7 @@ void SdrMarkView::SetMarkHandles(SfxViewShell* pOtherShell)
         return;
 
     // There can be multiple mark views, but we're only interested in the one that has a window associated.
-    const bool bTiledRendering = comphelper::LibreOfficeKit::isActive() && GetFirstOutputDevice() && GetFirstOutputDevice()->GetOutDevType() == OUTDEV_WINDOW;
+    const bool bTiledRendering = comphelper::loficeKit::isActive() && GetFirstOutputDevice() && GetFirstOutputDevice()->GetOutDevType() == OUTDEV_WINDOW;
 
     const SdrMarkList& rMarkList = GetMarkedObjectList();
     const size_t nMarkCount=rMarkList.GetMarkCount();

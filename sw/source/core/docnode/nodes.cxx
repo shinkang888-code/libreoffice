@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -21,7 +21,7 @@
 #include <libxml/xmlwriter.h>
 #include <osl/diagnose.h>
 #include <tools/json_writer.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <sfx2/viewsh.hxx>
 #include <comphelper/lok.hxx>
 
@@ -2371,7 +2371,7 @@ void SwNodes::RemoveNode( SwNodeOffset nDelPos, SwNodeOffset nSz, bool bDel )
         }
 
         SwSectionNode* pSectionNode = pNode->GetSectionNode();
-        SfxViewShell* pKitClipSh = (comphelper::LibreOfficeKit::isActive() && pSectionNode && !GetDoc().IsClipBoard())
+        SfxViewShell* pKitClipSh = (comphelper::loficeKit::isActive() && pSectionNode && !GetDoc().IsClipBoard())
             ? SfxViewShell::Current() : nullptr;
         if (pKitClipSh)
         {
@@ -2384,7 +2384,7 @@ void SwNodes::RemoveNode( SwNodeOffset nDelPos, SwNodeOffset nSz, bool bDel )
                 aJson.put("DeleteSection", fieldCommand);
             }
 
-            pKitClipSh->libreOfficeKitViewCallback(LOK_CALLBACK_UNO_COMMAND_RESULT, aJson.finishAndGetAsOString());
+            pKitClipSh->loficeKitViewCallback(LOK_CALLBACK_UNO_COMMAND_RESULT, aJson.finishAndGetAsOString());
         }
     }
 

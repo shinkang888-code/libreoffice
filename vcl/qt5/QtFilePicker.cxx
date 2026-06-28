@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -319,7 +319,7 @@ void SAL_CALL QtFilePicker::appendFilter(const OUString& title, const OUString& 
 
     QString sGlobFilter = toQString(filter);
 
-    // LibreOffice gives us filters separated by ';' qt dialogs just want space separated
+    // lofice gives us filters separated by ';' qt dialogs just want space separated
     sGlobFilter.replace(";", " ");
 
     // make sure "*.*" is not used as "all files"

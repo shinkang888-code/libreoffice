@@ -3,8 +3,8 @@
 #     Copyright 2012-2020 Jean-Pierre LEDURE
 
 # =====================================================================================================================
-# ===                   The Access2Base library is a part of the LibreOffice project.                               ===
-# ===                   Full documentation is available on https://access2base.libreoffice.org                      ===
+# ===                   The Access2Base library is a part of the lofice project.                               ===
+# ===                   Full documentation is available on https://access2base.lofice.org                      ===
 # =====================================================================================================================
 
 # Access2Base is distributed in the hope that it will be useful,
@@ -26,14 +26,14 @@ The access2base.py module implements an interface between Python (user) scripts 
 
 Usage:
     from access2base import *
-Additionally, if Python and LibreOffice are started in separate processes:
-    If LibreOffice started from console ... (example for Linux)
+Additionally, if Python and lofice are started in separate processes:
+    If lofice started from console ... (example for Linux)
         ./soffice --accept='socket,host=localhost,port=2019;urp;'
     then insert next statement
         A2BConnect(hostname = 'localhost', port = 2019)
 
 Specific documentation about Access2Base and Python:
-    https://access2base.libreoffice.org/index.html#%5B%5BAccess2Base%20and%20Python%5D%5D
+    https://access2base.lofice.org/index.html#%5B%5BAccess2Base%20and%20Python%5D%5D
 """
 
 import uno
@@ -260,7 +260,7 @@ class acConstants(object, metaclass = _Singleton):
     # -----------------------------------------------------------------
     acCmdAboutMicrosoftAccess = 35
     acCmdAboutOpenOffice = 35
-    acCmdAboutLibreOffice = 35
+    acCmdAboutlofice = 35
     acCmdVisualBasicEditor = 525
     acCmdBringToFront = 52
     acCmdClose = 58
@@ -490,8 +490,8 @@ def _ErrorHandler(type, value, tb):
 
 def A2BConnect(hostname = '', port = 0):
     """
-    To be called explicitly by user scripts when Python process runs outside the LibreOffice process.
-        LibreOffice started as (Linux):
+    To be called explicitly by user scripts when Python process runs outside the lofice process.
+        lofice started as (Linux):
             ./soffice --accept='socket,host=localhost,port=xxxx;urp;'
     Otherwise called implicitly by the current module without arguments
     Initializes COMPONENTCONTEXT, SCRIPTPROVIDER and DESKTOP
@@ -500,7 +500,7 @@ def A2BConnect(hostname = '', port = 0):
     :return: None
     """
     global XSCRIPTCONTEXT, COMPONENTCONTEXT, DESKTOP, SCRIPTPROVIDER
-    # Determine COMPONENTCONTEXT, via socket or inside LibreOffice
+    # Determine COMPONENTCONTEXT, via socket or inside lofice
     if len(hostname) > 0 and port > 0:      # Explicit connection request via socket
         # Code derived from Bridge.py by Alain H. Romedenne
         local_context = XSCRIPTCONTEXT.getComponentContext()
@@ -510,8 +510,8 @@ def A2BConnect(hostname = '', port = 0):
             conn = 'socket,host=%s,port=%d' % (hostname, port)
             connection_url = 'uno:%s;urp;StarOffice.ComponentContext' % conn
             established_context = resolver.resolve(connection_url)
-        except Exception:  # thrown when LibreOffice specified instance isn't started
-            raise ConnectionError('Connection to LibreOffice failed (host = ' + hostname + ', port = ' + str(port) + ')')
+        except Exception:  # thrown when lofice specified instance isn't started
+            raise ConnectionError('Connection to lofice failed (host = ' + hostname + ', port = ' + str(port) + ')')
         COMPONENTCONTEXT = established_context
         DESKTOP = None
     elif len(hostname) == 0 and port == 0:       # Usual interactive mode
@@ -609,7 +609,7 @@ class _A2B(object, metaclass = _Singleton):
         :return: the value returned by the script execution
         """
         if COMPONENTCONTEXT is None:
-            A2BConnect()     #   Connection from inside LibreOffice is done at first API invocation
+            A2BConnect()     #   Connection from inside lofice is done at first API invocation
         Script = cls.xScript(script, module)
         try:
             Returned = Script.invoke((args), (), ())[0]
@@ -636,7 +636,7 @@ class _A2B(object, metaclass = _Singleton):
         :return: the value returned by the execution of the Basic routine
         """
         if COMPONENTCONTEXT is None:
-            A2BConnect()     #   Connection from inside LibreOffice is done at first API invocation
+            A2BConnect()     #   Connection from inside lofice is done at first API invocation
         # Intercept special call to Application.Events()
         if basic == Application.basicmodule and script == 'Events':
             Script = cls.xScript('PythonEventsWrapper', _WRAPPERMODULE)
@@ -762,7 +762,7 @@ class Application(object, metaclass = _Singleton):
     def OpenConnection(cls, thisdatabasedocument = acConstants.Missing):
         global THISDATABASEDOCUMENT
         if COMPONENTCONTEXT is None:
-            A2BConnect()     #   Connection from inside LibreOffice is done at first API invocation
+            A2BConnect()     #   Connection from inside lofice is done at first API invocation
         if DESKTOP is not None:
             THISDATABASEDOCUMENT = DESKTOP.getCurrentComponent()
             return _A2B.invokeMethod('OpenConnection', 'Application', THISDATABASEDOCUMENT)

@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,7 +9,7 @@
 
 from uitest.framework import UITestCase
 from uitest.uihelper.common import get_state_as_dict
-from libreoffice.uno.propertyvalue import mkPropertyValues
+from lofice.uno.propertyvalue import mkPropertyValues
 
 #test Find Bar
 class FindBar(UITestCase):
@@ -21,17 +21,17 @@ class FindBar(UITestCase):
             xWriterEdit = xWriterDoc.getChild("writer_edit")
 
             # Type some lines to search for words on them
-            xWriterEdit.executeAction("TYPE", mkPropertyValues({"TEXT": "LibreOffice"}))
+            xWriterEdit.executeAction("TYPE", mkPropertyValues({"TEXT": "lofice"}))
             xWriterEdit.executeAction("TYPE", mkPropertyValues({"KEYCODE": "RETURN"}))
-            xWriterEdit.executeAction("TYPE", mkPropertyValues({"TEXT": "LibreOffice Writer"}))
+            xWriterEdit.executeAction("TYPE", mkPropertyValues({"TEXT": "lofice Writer"}))
             xWriterEdit.executeAction("TYPE", mkPropertyValues({"KEYCODE": "RETURN"}))
-            xWriterEdit.executeAction("TYPE", mkPropertyValues({"TEXT": "LibreOffice Calc"}))
+            xWriterEdit.executeAction("TYPE", mkPropertyValues({"TEXT": "lofice Calc"}))
             xWriterEdit.executeAction("TYPE", mkPropertyValues({"KEYCODE": "RETURN"}))
-            xWriterEdit.executeAction("TYPE", mkPropertyValues({"TEXT": "The Document Foundation"}))
+            xWriterEdit.executeAction("TYPE", mkPropertyValues({"TEXT": "Lonex. Inc"}))
             xWriterEdit.executeAction("TYPE", mkPropertyValues({"KEYCODE": "RETURN"}))
             xWriterEdit.executeAction("TYPE", mkPropertyValues({"TEXT": "LibréOffice Math"}))
             xWriterEdit.executeAction("TYPE", mkPropertyValues({"KEYCODE": "RETURN"}))
-            xWriterEdit.executeAction("TYPE", mkPropertyValues({"TEXT": "libreOffice Calc"}))
+            xWriterEdit.executeAction("TYPE", mkPropertyValues({"TEXT": "lofice Calc"}))
 
             # open the Find Bar
             xWriterEdit.executeAction("TYPE", mkPropertyValues({"KEYCODE": "CTRL+f"}))

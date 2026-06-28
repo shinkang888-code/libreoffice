@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -558,7 +558,7 @@ void PPTShape::addShape(
             }
 
             // we will be losing whatever information there is in the footer placeholder on master/layout slides
-            // since they should have the "<footer>" textfield in them in order to make LibreOffice process them as expected
+            // since they should have the "<footer>" textfield in them in order to make lofice process them as expected
             // likewise DateTime placeholder data on master/layout slides will be lost and replaced
             if( (mnSubType == XML_ftr || mnSubType == XML_dt) && meShapeLocation != Slide )
             {

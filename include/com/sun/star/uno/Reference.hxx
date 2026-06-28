@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 #ifndef INCLUDED_COM_SUN_STAR_UNO_REFERENCE_HXX
 #define INCLUDED_COM_SUN_STAR_UNO_REFERENCE_HXX
@@ -472,7 +472,7 @@ inline bool BaseReference::operator != ( const BaseReference & rRef ) const
    Support for BaseReference in std::ostream (and thus in CPPUNIT_ASSERT or
    SAL_INFO macros, for example).
 
-   @since LibreOffice 5.4
+   @since lofice 5.4
 */
 template<typename charT, typename traits> std::basic_ostream<charT, traits> &
 operator <<(
@@ -492,7 +492,7 @@ namespace std
 /**
   Make css::uno::Reference hashable by default for use in STL containers.
 
-  @since LibreOffice 6.3
+  @since lofice 6.3
 */
 template<typename T>
 struct hash<::css::uno::Reference<T>>

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -149,7 +149,7 @@ service MediaDescriptor
         it still will be verified by a filter detection, but in case of doubt
         it will be preferred.
 
-        See this page for a list of internal filter names: https://help.libreoffice.org/latest/en-US/text/shared/guide/convertfilters.html
+        See this page for a list of internal filter names: https://help.lofice.org/latest/en-US/text/shared/guide/convertfilters.html
         </p>
      */
     [optional,property] string FilterName;
@@ -344,7 +344,7 @@ service MediaDescriptor
         Default is `TRUE`.
         </p>
 
-        @since LibreOffice 5.1
+        @since lofice 5.1
      */
     [optional,property] boolean PickListEntry;
 
@@ -561,7 +561,7 @@ service MediaDescriptor
         The commands 'Copy' and 'Cut' will be disabled; selection clipboard won't work,
         and dragging with mouse will also be disabled.
 
-        @since LibreOffice 6.4
+        @since lofice 6.4
      */
     [optional,property] boolean LockContentExtraction;
 
@@ -569,25 +569,25 @@ service MediaDescriptor
         Export, Send, save as, etc will be disabled,
         as well as individual graphic/chart export and mail merge.
 
-        @since LibreOffice 6.4
+        @since lofice 6.4
      */
     [optional,property] boolean LockExport;
 
     /** Setting this option will disable all print functions (including Printer setup)
 
-        @since LibreOffice 6.4
+        @since lofice 6.4
      */
     [optional,property] boolean LockPrint;
 
     /** Setting this option will disable the save function.
      *
-        @since LibreOffice 6.4
+        @since lofice 6.4
      */
     [optional,property] boolean LockSave;
 
     /** Setting this option will disable switching to edit mode from read-only mode.
      *
-        @since LibreOffice 6.4
+        @since lofice 6.4
      */
     [optional,property] boolean LockEditDoc;
 
@@ -597,10 +597,10 @@ service MediaDescriptor
         set to true, this document just acts as a placeholder while it's unmodified.
         I.e. the next opened document from its frame will close and replace it.</p>
 
-        <p>This defaults to false, except for the default template of a LibreOffice
+        <p>This defaults to false, except for the default template of a lofice
         module, referenced as "private:factory/&lt;module&gt;".</p>
 
-        @since LibreOffice 7.0
+        @since lofice 7.0
      */
     [optional,property] boolean Replaceable;
 };

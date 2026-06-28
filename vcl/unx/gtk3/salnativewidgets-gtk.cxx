@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -2944,7 +2944,7 @@ GtkSalGraphics::GtkSalGraphics( GtkSalFrame *pFrame, GtkWidget *pWindow )
     mpLinkButtonStyle = createStyleContext(GtkControlPart::LinkButton);
 #else
     getStyleContext(&mpButtonStyle, gtk_button_new());
-    getStyleContext(&mpLinkButtonStyle, gtk_link_button_new("https://www.libreoffice.org"));
+    getStyleContext(&mpLinkButtonStyle, gtk_link_button_new("https://www.lofice.org"));
 #endif
 
 #if !GTK_CHECK_VERSION(4, 0, 0)

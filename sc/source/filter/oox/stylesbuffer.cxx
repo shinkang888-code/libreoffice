@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -2131,7 +2131,7 @@ void Xf::importXf( const AttributeList& rAttribs, bool bCellXf )
     // it must have values set to "0".
     // This doesn't impact spreadsheets created with MS Excel,
     // as xfId attribute is always created during export to .xlsx
-    // Not setting "0" value is causing wrong .xlsx import by LibreOffice,
+    // Not setting "0" value is causing wrong .xlsx import by lofice,
     // for spreadsheets created by external applications (ex. SAP BI).
     bool bApplyDefault;
     if ( maModel.mbCellXf )

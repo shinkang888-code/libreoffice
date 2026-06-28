@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -42,18 +42,18 @@ const FileExtensionEntry OOFileExtensionTable[] = {
     { ".std", L".std", L"soffice.StarDrawTemplate.6"         },
     { ".sti", L".sti", L"soffice.StarImpressTemplate.6"      },
     { ".stc", L".stc", L"soffice.StarCalcTemplate.6"         },
-    { ".odt", L".odt", L"LibreOffice.WriterDocument.1"       },
-    { ".ott", L".ott", L"LibreOffice.WriterTemplate.1"       },
-    { ".odm", L".odm", L"LibreOffice.WriterGlobalDocument.1" },
-    { ".oth", L".oth", L"LibreOffice.WriterWebTemplate.1"    },
-    { ".ods", L".ods", L"LibreOffice.CalcDocument.1"         },
-    { ".ots", L".ots", L"LibreOffice.CalcTemplate.1"         },
-    { ".odg", L".odg", L"LibreOffice.DrawDocument.1"         },
-    { ".otg", L".otg", L"LibreOffice.DrawTemplate.1"         },
-    { ".odp", L".odp", L"LibreOffice.ImpressDocument.1"      },
-    { ".otp", L".otp", L"LibreOffice.ImpressTemplate.1"      },
-    { ".odf", L".odf", L"LibreOffice.MathDocument.1"         },
-    { ".odb", L".odb", L"LibreOffice.DatabaseDocument.1"     }
+    { ".odt", L".odt", L"lofice.WriterDocument.1"       },
+    { ".ott", L".ott", L"lofice.WriterTemplate.1"       },
+    { ".odm", L".odm", L"lofice.WriterGlobalDocument.1" },
+    { ".oth", L".oth", L"lofice.WriterWebTemplate.1"    },
+    { ".ods", L".ods", L"lofice.CalcDocument.1"         },
+    { ".ots", L".ots", L"lofice.CalcTemplate.1"         },
+    { ".odg", L".odg", L"lofice.DrawDocument.1"         },
+    { ".otg", L".otg", L"lofice.DrawTemplate.1"         },
+    { ".odp", L".odp", L"lofice.ImpressDocument.1"      },
+    { ".otp", L".otp", L"lofice.ImpressTemplate.1"      },
+    { ".odf", L".odf", L"lofice.MathDocument.1"         },
+    { ".odb", L".odb", L"lofice.DatabaseDocument.1"     }
     };
 
 

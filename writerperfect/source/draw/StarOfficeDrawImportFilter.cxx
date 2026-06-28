@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -94,7 +94,7 @@ Sequence<OUString> SAL_CALL StarOfficeDrawImportFilter::getSupportedServiceNames
 }
 
 extern "C" SAL_DLLPUBLIC_EXPORT css::uno::XInterface*
-org_libreoffice_comp_Draw_StarOfficeDrawImportFilter_get_implementation(
+org_lofice_comp_Draw_StarOfficeDrawImportFilter_get_implementation(
     css::uno::XComponentContext* const context, const css::uno::Sequence<css::uno::Any>&)
 {
     return cppu::acquire(new StarOfficeDrawImportFilter(context));

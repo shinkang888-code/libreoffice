@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1476,7 +1476,7 @@ bool SwCursor::SelectWordWT( SwViewShell const * pViewShell, sal_Int16 nWordType
                                 nWordType,
                                 bForward ));
 
-            if (comphelper::LibreOfficeKit::isActive() && aBndry.startPos == aBndry.endPos && w.m_nPtIndex > 0)
+            if (comphelper::loficeKit::isActive() && aBndry.startPos == aBndry.endPos && w.m_nPtIndex > 0)
             {
                 // nPtPos is the end of the paragraph, select the last word then.
                 --w.m_nPtIndex;

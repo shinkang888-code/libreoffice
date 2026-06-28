@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -379,7 +379,7 @@ constants AccessibleEventId
         <p>AccessibleEventObject::OldValue contains the item to be removed.</p>
         <p>AccessibleEventObject::NewValue is empty.</p>
 
-        @since LibreOffice 4.3
+        @since lofice 4.3
     */
     const short ACTIVE_DESCENDANT_CHANGED_NOFOCUS = 34;
 
@@ -390,7 +390,7 @@ constants AccessibleEventId
         <p>AccessibleEventObject::OldValue is empty.</p>
         <p>AccessibleEventObject::NewValue contains the item to be added.</p>
 
-        @since LibreOffice 4.3
+        @since lofice 4.3
     */
     const short SELECTION_CHANGED_ADD = 35;
 
@@ -399,7 +399,7 @@ constants AccessibleEventId
         <p>AccessibleEventObject::OldValue is empty.</p>
         <p>AccessibleEventObject::NewValue contains the item that has been removed.</p>
 
-        @since LibreOffice 4.3
+        @since lofice 4.3
     */
     const short SELECTION_CHANGED_REMOVE = 36;
 
@@ -409,25 +409,25 @@ constants AccessibleEventId
         <p>AccessibleEventObject::OldValue and
         AccessibleEventObject::NewValue is empty.</p>
 
-        @since LibreOffice 4.3
+        @since lofice 4.3
     */
     const short SELECTION_CHANGED_WITHIN = 37;
 
     /** A change of page or slide.
 
-        @since LibreOffice 4.3
+        @since lofice 4.3
     */
     const short PAGE_CHANGED = 38;
 
     /** The cursor has moved to/from a section
 
-        @since LibreOffice 4.3
+        @since lofice 4.3
     */
     const short SECTION_CHANGED = 39;
 
     /** The cursor has moved to/from a section
 
-        @since LibreOffice 4.3
+        @since lofice 4.3
     */
     const short COLUMN_CHANGED = 40;
 
@@ -439,7 +439,7 @@ constants AccessibleEventId
         The new role can be retrieved via
         XAccessibleContext::getAccessibleRole.</p>
 
-        @since LibreOffice 4.3
+        @since lofice 4.3
     */
     const short ROLE_CHANGED =41;
 };

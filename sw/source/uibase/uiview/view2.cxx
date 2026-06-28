@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -129,7 +129,7 @@
 #include <PostItMgr.hxx>
 
 #include <comphelper/processfactory.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 #include <svx/svxdlg.hxx>
 #include <swabstdlg.hxx>
@@ -323,7 +323,7 @@ ErrCode SwView::InsertGraphic( const OUString &rPath, const OUString &rFilter,
         pFilter = &GraphicFilter::GetGraphicFilter();
     }
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         INetURLObject aURL(rPath);
         if (INetProtocol::File != aURL.GetProtocol() && HostFilter::isForbidden(aURL.GetHost()))
@@ -1130,11 +1130,11 @@ void SwView::Execute(SfxRequest &rReq)
 
             if (pNext)
             {
-                if (comphelper::LibreOfficeKit::isActive())
+                if (comphelper::loficeKit::isActive())
                 {
                     sal_uInt32 nRedlineId = pNext->GetId();
                     OString aPayload(".uno:CurrentTrackedChangeId=" + OString::number(nRedlineId));
-                    libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, aPayload);
+                    loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, aPayload);
                 }
 
                 m_pWrtShell->SetInSelect();
@@ -1149,11 +1149,11 @@ void SwView::Execute(SfxRequest &rReq)
 
             if (pPrev)
             {
-                if (comphelper::LibreOfficeKit::isActive())
+                if (comphelper::loficeKit::isActive())
                 {
                     sal_uInt32 nRedlineId = pPrev->GetId();
                     OString aPayload(".uno:CurrentTrackedChangeId=" + OString::number(nRedlineId));
-                    libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, aPayload);
+                    loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, aPayload);
                 }
 
                 m_pWrtShell->SetInSelect();
@@ -1738,7 +1738,7 @@ bool SwView::IsConditionalFastCall( const SfxRequest &rReq )
 
     if (nId == FN_REDLINE_ACCEPT_DIRECT || nId == FN_REDLINE_REJECT_DIRECT)
     {
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
             bRet = true;
     }
     return bRet || SfxShell::IsConditionalFastCall(rReq);

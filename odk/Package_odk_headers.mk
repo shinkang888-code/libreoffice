@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -182,12 +182,12 @@ $(eval $(call gb_Package_add_files_with_dir,odk_headers,$(SDKDIRNAME)/include,\
 	uno/mapping.hxx \
 	uno/sequence2.h \
 	uno/threadpool.h \
-	$(if $(ENABLE_GTK3),LibreOfficeKit/LibreOfficeKitGtk.h) \
-	LibreOfficeKit/LibreOfficeKit.hxx \
-	LibreOfficeKit/LibreOfficeKitEnums.h \
-	LibreOfficeKit/LibreOfficeKit.h \
-	LibreOfficeKit/LibreOfficeKitInit.h \
-	LibreOfficeKit/LibreOfficeKitTypes.h \
+	$(if $(ENABLE_GTK3),loficeKit/loficeKitGtk.h) \
+	loficeKit/loficeKit.hxx \
+	loficeKit/loficeKitEnums.h \
+	loficeKit/loficeKit.h \
+	loficeKit/loficeKitInit.h \
+	loficeKit/loficeKitTypes.h \
 ))
 
 # vim: set noet sw=4 ts=4:

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -4661,7 +4661,7 @@ rtl::Reference<SdrObject> SvxMSDffManager::ImportShape( const DffRecordHeader& r
                         }
 
                         // MS Office uses for mso_sptArc a frame rectangle (=resize handles)
-                        // which encloses only the sector, LibreOffice uses for custom shapes as
+                        // which encloses only the sector, lofice uses for custom shapes as
                         // default a frame rectangle, which encloses the entire ellipse. That would
                         // result in wrong positions in Writer and Calc, see tdf#124029.
                         // We workaround this problem, by setting a suitable viewBox.

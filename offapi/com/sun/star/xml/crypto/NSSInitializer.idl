@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -25,10 +25,10 @@ module com { module sun { module star { module xml { module crypto {
     are called. As a result you can effectively change the user setting to
     the NSS path until NSS is really used.
 
-    After the first usage you have to restart LibreOffice to activate a new
+    After the first usage you have to restart lofice to activate a new
     NSS path.
 
-    @since LibreOffice 4.0
+    @since lofice 4.0
  */
 service NSSInitializer : XNSSInitializer;
 

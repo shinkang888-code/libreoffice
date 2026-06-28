@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -3449,7 +3449,7 @@ $(call gb_LinkTarget_add_libs,$(1),\
 )
 else ifeq ($(OS),MACOSX)
 $(call gb_LinkTarget_add_libs,$(1),\
-	-F$(gb_UnpackedTarball_workdir)/python3/python-inst/@__________________________________________________OOO -framework LibreOfficePython \
+	-F$(gb_UnpackedTarball_workdir)/python3/python-inst/@__________________________________________________OOO -framework loficePython \
 )
 else
 $(call gb_LinkTarget_add_libs,$(1),\
@@ -4260,7 +4260,7 @@ ifeq ($(OS),MACOSX)
 # use set_external, to avoid having the command added as prerequisite for the
 # targets that make use of it. (Otherwise make will choke as it doesn't have a
 # matching rule to build that specific file)
-$(call gb_ExternalExecutable_set_external,python,$(gb_UnpackedTarball_workdir)/python3/python-inst/@__________________________________________________OOO/LibreOfficePython.framework/Versions/$(PYTHON_VERSION_MAJOR).$(PYTHON_VERSION_MINOR)/bin/python$(PYTHON_VERSION_MAJOR).$(PYTHON_VERSION_MINOR))
+$(call gb_ExternalExecutable_set_external,python,$(gb_UnpackedTarball_workdir)/python3/python-inst/@__________________________________________________OOO/loficePython.framework/Versions/$(PYTHON_VERSION_MAJOR).$(PYTHON_VERSION_MINOR)/bin/python$(PYTHON_VERSION_MAJOR).$(PYTHON_VERSION_MINOR))
 # the Zip ensures that internal python has been built (cannot use the Package
 # target, as that is not used on Mac)
 $(call gb_ExternalExecutable_add_dependencies,python,$(call gb_GeneratedPackage_get_target_for_build,python3))

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -50,7 +50,7 @@
 #include <drwlayer.hxx>
 #include <scresid.hxx>
 #include <sheetevents.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <tools/json_writer.hxx>
 
@@ -68,7 +68,7 @@ void lcl_OnTabsChanged(const ScTabViewShell& rViewShell, const ScDocument& rDoc,
         if (!rDoc.IsVisible(nTabIndex))
             continue;
         if (bInvalidateTiles)
-            rViewShell.libreOfficeKitViewInvalidateTilesCallback(nullptr, nTabIndex, 0);
+            rViewShell.loficeKitViewInvalidateTilesCallback(nullptr, nTabIndex, 0);
         ScTabViewShell::notifyAllViewsSheetGeomInvalidation(
             &rViewShell,
             true /* bColsAffected */, true /* bRowsAffected */,
@@ -114,7 +114,7 @@ void lcl_UndoCommandResult(const ScTabViewShell& rViewShell,
             lcl_MakeJsonArray(aJson, *pOldTabs, "oldTabs");
     }
 
-    rViewShell.libreOfficeKitViewCallback(LOK_CALLBACK_UNO_COMMAND_RESULT, aJson.finishAndGetAsOString());
+    rViewShell.loficeKitViewCallback(LOK_CALLBACK_UNO_COMMAND_RESULT, aJson.finishAndGetAsOString());
 }
 }
 
@@ -178,7 +178,7 @@ void ScUndoInsertTab::Undo()
     if ( pChangeTrack )
         pChangeTrack->Undo( nEndChangeAction, nEndChangeAction );
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         ScDocument& rDoc = rDocShell.GetDocument();
         lcl_OnTabsChanged(*pViewShell, rDoc, nTab);
@@ -213,7 +213,7 @@ void ScUndoInsertTab::Redo()
 
     SetChangeTrack();
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         ScDocument& rDoc = rDocShell.GetDocument();
         lcl_OnTabsChanged(*pViewShell, rDoc, nTab);
@@ -444,7 +444,7 @@ void ScUndoDeleteTab::Undo()
         pChangeTrack->Undo( nStartChangeAction, nEndChangeAction );
 
     ScTabViewShell* pViewShell = ScTabViewShell::GetActiveViewShell();
-    if (comphelper::LibreOfficeKit::isActive() && !theTabs.empty())
+    if (comphelper::loficeKit::isActive() && !theTabs.empty())
     {
         if (pViewShell)
         {
@@ -488,7 +488,7 @@ void ScUndoDeleteTab::Redo()
 
     SetChangeTrack();
 
-    if (comphelper::LibreOfficeKit::isActive() && !theTabs.empty())
+    if (comphelper::loficeKit::isActive() && !theTabs.empty())
     {
         ScDocument& rDoc = rDocShell.GetDocument();
         lcl_OnTabsChanged(*pViewShell, rDoc, theTabs[0]);
@@ -646,7 +646,7 @@ void ScUndoMoveTab::DoChange( bool bUndo ) const
         }
     }
 
-    if (comphelper::LibreOfficeKit::isActive() && !mpNewTabs->empty())
+    if (comphelper::loficeKit::isActive() && !mpNewTabs->empty())
     {
         const auto newTabsMinIt = std::min_element(mpNewTabs->begin(), mpNewTabs->end());
         const auto oldTabsMinIt = std::min_element(mpOldTabs->begin(), mpOldTabs->end());
@@ -1440,7 +1440,7 @@ void ScUndoPrintRange::DoChange(bool bUndo)
 
     ScPrintFunc( rDocShell, rDocShell.GetPrinter(), nTab ).UpdatePages();
 
-    if (pViewShell && comphelper::LibreOfficeKit::isActive())
+    if (pViewShell && comphelper::loficeKit::isActive())
     {
         tools::JsonWriter aJsonWriter;
         if (bUndo)
@@ -1449,7 +1449,7 @@ void ScUndoPrintRange::DoChange(bool bUndo)
             pNewRanges->GetPrintRangesInfo(aJsonWriter);
 
         const OString message = aJsonWriter.finishAndGetAsOString();
-        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_PRINT_RANGES, message);
+        pViewShell->loficeKitViewCallback(LOK_CALLBACK_PRINT_RANGES, message);
     }
 
     rDocShell.PostPaint( ScRange(0,0,nTab,rDoc.MaxCol(),rDoc.MaxRow(),nTab), PaintPartFlags::Grid );

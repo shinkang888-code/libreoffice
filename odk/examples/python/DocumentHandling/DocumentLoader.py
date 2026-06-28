@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -46,7 +46,7 @@ if __name__ == "__main__":
             "uno:socket,host=localhost,"
             "port=2083;urp;StarOffice.ComponentContext")
     except NoConnectException:
-        raise Exception("Error: cannot establish a connection to LibreOffice.")
+        raise Exception("Error: cannot establish a connection to lofice.")
 
     desktop = context.ServiceManager.createInstanceWithContext(
         "com.sun.star.frame.Desktop", context)
@@ -62,7 +62,7 @@ if __name__ == "__main__":
     else:
         url = "private:factory/swriter"
 
-    # Load a LibreOffice document, and automatically display it on the screen
+    # Load a lofice document, and automatically display it on the screen
     xComp = desktop.loadComponentFromURL(url, "_blank", 0, tuple([]))
 
 # vim: set shiftwidth=4 softtabstop=4 expandtab:

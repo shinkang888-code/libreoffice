@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -270,7 +270,7 @@ OUStringConcat< T1, T2 > operator+( const T1& left, const T2& right )
 template< typename T1, typename T2 >
 [[nodiscard]]
 inline
-typename std::enable_if_t< libreoffice_internal::ConstCharArrayDetector< T1, void >::ok, OUStringConcat< T1, T2 > > operator+( T1& left, const T2& right )
+typename std::enable_if_t< lofice_internal::ConstCharArrayDetector< T1, void >::ok, OUStringConcat< T1, T2 > > operator+( T1& left, const T2& right )
 {
     return OUStringConcat< T1, T2 >( left, right );
 }
@@ -278,7 +278,7 @@ typename std::enable_if_t< libreoffice_internal::ConstCharArrayDetector< T1, voi
 template< typename T1, typename T2 >
 [[nodiscard]]
 inline
-typename std::enable_if_t< libreoffice_internal::ConstCharArrayDetector< T2, void >::ok, OUStringConcat< T1, T2 > > operator+( const T1& left, T2& right )
+typename std::enable_if_t< lofice_internal::ConstCharArrayDetector< T2, void >::ok, OUStringConcat< T1, T2 > > operator+( const T1& left, T2& right )
 {
     return OUStringConcat< T1, T2 >( left, right );
 }

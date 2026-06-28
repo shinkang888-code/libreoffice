@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -17,7 +17,7 @@
 #include <com/sun/star/view/XSelectionSupplier.hpp>
 #include <com/sun/star/text/XTextTable.hpp>
 #include <comphelper/propertysequence.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <vcl/scheduler.hxx>
 #include <vcl/settings.hxx>
 #include <ndtxt.hxx>
@@ -543,7 +543,7 @@ CPPUNIT_TEST_FIXTURE(SwUiWriterTest5, testTdf144748)
 
     dispatchCommand(mxComponent, u".uno:SelectAll"_ustr, {});
     dispatchCommand(mxComponent, u".uno:Delete"_ustr, {});
-    // this crashed LibreOffice
+    // this crashed lofice
     dispatchCommand(mxComponent, u".uno:Undo"_ustr, {});
 
     // redo and check redline usage

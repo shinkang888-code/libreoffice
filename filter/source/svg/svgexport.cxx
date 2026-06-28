@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -2017,7 +2017,7 @@ bool SVGFilter::implExportPage( std::u16string_view sPageId,
                     OUString sBackgroundId = OUString::Concat("bg-") + sPageId;
                     mpSVGExport->AddAttribute(u"id"_ustr, sBackgroundId);
 
-                    // At present (LibreOffice 3.4.0) the 'IsBackgroundVisible' property is not handled
+                    // At present (lofice 3.4.0) the 'IsBackgroundVisible' property is not handled
                     // by Impress; anyway we handle this property as referring only to the visibility
                     // of the master page background. So if a slide has its own background object,
                     // the visibility of such a background object is always inherited from the visibility

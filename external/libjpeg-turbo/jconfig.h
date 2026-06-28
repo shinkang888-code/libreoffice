@@ -36,7 +36,7 @@
    unsigned. */
 /* #undef RIGHT_SHIFT_IS_UNSIGNED */
 
-/* Extra Libreoffice config for windows */
+/* Extra lofice config for windows */
 #ifdef _MSC_VER
 
 /* Define "boolean" as unsigned char, not int, per Windows custom */

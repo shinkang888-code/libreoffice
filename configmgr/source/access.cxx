@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1457,8 +1457,8 @@ rtl::Reference< ChildAccess > Access::getChild(OUString const & name) {
         // Since the locale given to us is the one used at initialization,
         // here we override it with the actual current-user's language to
         // support per-view localization in LOK.
-        if (comphelper::LibreOfficeKit::isActive())
-            locale = comphelper::LibreOfficeKit::getLanguageTag().getBcp47();
+        if (comphelper::loficeKit::isActive())
+            locale = comphelper::loficeKit::getLanguageTag().getBcp47();
 
         if (!locale.isEmpty()) {
             // Try exact match first, avoiding all fallback overhead.

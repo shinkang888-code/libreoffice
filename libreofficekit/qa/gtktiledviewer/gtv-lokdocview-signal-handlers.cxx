@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -446,7 +446,7 @@ gboolean LOKDocViewSigHandlers::configureEvent(GtkWidget* pWidget, GdkEventConfi
         return false;
     }
 
-    LibreOfficeKitDocument* pDocument = lok_doc_view_get_document(LOK_DOC_VIEW(window->lokdocview));
+    loficeKitDocument* pDocument = lok_doc_view_get_document(LOK_DOC_VIEW(window->lokdocview));
     if (!pDocument || pDocument->pClass->getDocumentType(pDocument) != LOK_DOCTYPE_SPREADSHEET)
         return true;
 

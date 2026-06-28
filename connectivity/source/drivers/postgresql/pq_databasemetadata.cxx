@@ -211,10 +211,10 @@ sal_Int32 DatabaseMetaData::getDriverMinorVersion(  )
 sal_Bool DatabaseMetaData::usesLocalFiles(  )
 {
     // LEM TODO:
-    //           https://wiki.documentfoundation.org/Documentation/DevGuide/Database_Access#XDatabaseMetaData_Interface
+    //           https://wiki.lofice.io/Documentation/DevGuide/Database_Access#XDatabaseMetaData_Interface
     //           says "Returns true when the catalog name of the
     //           database should not appear in the DatasourceBrowser
-    //           of LibreOffice API, otherwise false is returned."
+    //           of lofice API, otherwise false is returned."
     //           So, hmmm, think about it.
     return false;
 }
@@ -277,7 +277,7 @@ OUString DatabaseMetaData::getIdentifierQuoteString(  )
 OUString DatabaseMetaData::getSQLKeywords(  )
 {
     // In Java 6, this is all keywords that are not SQL:2003
-    // In Java 2 v1.4 and as per LibreOffice SDK doc, this is all keywords that are not SQL92
+    // In Java 2 v1.4 and as per lofice SDK doc, this is all keywords that are not SQL92
     // I understand this to mean "reserved keywords" only.
     // See http://www.postgresql.org/docs/current/static/sql-keywords-appendix.html
     // LEM TODO: consider using pg_get_keywords(), filter on catcode
@@ -312,7 +312,7 @@ OUString DatabaseMetaData::getSQLKeywords(  )
 OUString DatabaseMetaData::getNumericFunctions(  )
 {
     // See https://www.postgresql.org/docs/9.1/static/functions-math.html
-    // LEM TODO: Err... https://wiki.documentfoundation.org/Documentation/DevGuide/Database_Access#Support_Scalar_Functions
+    // LEM TODO: Err... https://wiki.lofice.io/Documentation/DevGuide/Database_Access#Support_Scalar_Functions
     //           says this should be "Open Group CLI" names, not PostgreSQL names.
     //           Currently this is just a list of supported functions in PostgreSQL, with PostgreSQL names.
     //           And it is my job to map from Open Group CLI names/syntax to PostgreSQL names/syntax. Where? By parsing the SQL???

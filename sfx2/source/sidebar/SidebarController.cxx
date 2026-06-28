@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -56,7 +56,7 @@
 #include <comphelper/lok.hxx>
 #include <sal/log.hxx>
 #include <officecfg/Office/UI/Sidebar.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <o3tl/string_view.hxx>
 
 #include <com/sun/star/awt/XWindowPeer.hpp>
@@ -227,7 +227,7 @@ void SidebarController::disposeDecks()
 {
     SolarMutexGuard aSolarMutexGuard;
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         if (const SfxViewShell* pViewShell = mpViewFrame->GetViewShell())
         {
@@ -240,7 +240,7 @@ void SidebarController::disposeDecks()
                 aTree.put("state", "false");
                 std::stringstream aStream;
                 boost::property_tree::write_json(aStream, aTree);
-                pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
+                pViewShell->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
                                                        OString(aStream.str()));
             }
         }
@@ -371,7 +371,7 @@ void SAL_CALL SidebarController::notifyContextChangeEvent (const css::ui::Contex
         // Happens on reattach of sidebar to frame or context change
         // LOK performance impact: prevents to switch sidebar on every keypress in multi user case
         // Allow when enters embedded OLE (eg. Math formula editor second time)
-        if (!comphelper::LibreOfficeKit::isActive() || bSwitchedApp)
+        if (!comphelper::loficeKit::isActive() || bSwitchedApp)
             UpdateConfigurations();
     }
 }
@@ -476,7 +476,7 @@ void SidebarController::NotifyResize()
         // Place the deck first.
         if (bIsDeckVisible)
         {
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
             {
                 // We want to let the layouter use up as much of the
                 // height as necessary to make sure no scrollbar is
@@ -502,7 +502,7 @@ void SidebarController::NotifyResize()
 
         // Now place the tab bar.
         mpTabBar->setPosSizePixel(nTabX, 0, nTabBarDefaultWidth, nHeight);
-        if (!comphelper::LibreOfficeKit::isActive())
+        if (!comphelper::loficeKit::isActive())
             mpTabBar->Show(); // Don't show TabBar in LOK.
     }
 
@@ -558,7 +558,7 @@ void SidebarController::UpdateConfigurations()
         && mnRequestedForceFlags == SwitchFlag_NoForce)
         return;
 
-    bool bIsLOK = comphelper::LibreOfficeKit::isActive();
+    bool bIsLOK = comphelper::loficeKit::isActive();
 
     if (!bIsLOK && maCurrentContext.msApplication != "none" &&
         !maCurrentContext.msApplication.isEmpty())
@@ -834,7 +834,7 @@ void SidebarController::SwitchToDeck (
     const DeckDescriptor& rDeckDescriptor,
     const Context& rContext)
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         if (const SfxViewShell* pViewShell = mpViewFrame->GetViewShell())
         {
@@ -857,12 +857,12 @@ void SidebarController::SwitchToDeck (
             for (const auto& rStateChange : aStateChanges)
             {
                 boost::property_tree::ptree aTree;
-                aTree.put("locale", comphelper::LibreOfficeKit::getLocale().getBcp47());
+                aTree.put("locale", comphelper::loficeKit::getLocale().getBcp47());
                 aTree.put("commandName", rStateChange.first);
                 aTree.put("state", rStateChange.second);
                 std::stringstream aStream;
                 boost::property_tree::write_json(aStream, aTree);
-                pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
+                pViewShell->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
                                                        OString(aStream.str()));
             }
         }
@@ -1158,7 +1158,7 @@ IMPL_LINK(SidebarController, OnMenuItemSelected, const OUString&, rCurItemId, vo
     }
     else if (rCurItemId == "hidesidebar")
     {
-        if (!comphelper::LibreOfficeKit::isActive())
+        if (!comphelper::loficeKit::isActive())
         {
             const util::URL aURL(Tools::GetURL(u".uno:Sidebar"_ustr));
             Reference<frame::XDispatch> xDispatch(Tools::GetDispatch(mxFrame, aURL));
@@ -1288,7 +1288,7 @@ void SidebarController::UpdateDeckOpenState()
 
             mpParentWindow->GetFloatingWindow()->SetPosSizePixel(aNewPos, aNewSize);
 
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
             {
                 // Sidebar wide enough to render the menu; enable it.
                 mpTabBar->EnableMenuButton(true);
@@ -1297,7 +1297,7 @@ void SidebarController::UpdateDeckOpenState()
                 {
                     const std::string uno = UnoNameFromDeckId(msCurrentDeckId, GetCurrentContext());
                     if (!uno.empty())
-                        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
+                        pViewShell->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
                                                                 OString(uno + "=true"));
                 }
             }
@@ -1315,7 +1315,7 @@ void SidebarController::UpdateDeckOpenState()
             mnSavedSidebarWidth = aNewSize.Width(); // Save the current width to restore.
 
             aNewPos.setX(aNewPos.X() + mnSavedSidebarWidth - nTabBarDefaultWidth);
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
             {
                 // Hide by collapsing, otherwise with 0x0 the client might expect
                 // to get valid dimensions on rendering and not collapse the sidebar.
@@ -1326,7 +1326,7 @@ void SidebarController::UpdateDeckOpenState()
 
             mpParentWindow->GetFloatingWindow()->SetPosSizePixel(aNewPos, aNewSize);
 
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
             {
                 // Sidebar too narrow to render the menu; disable it.
                 mpTabBar->EnableMenuButton(false);
@@ -1335,7 +1335,7 @@ void SidebarController::UpdateDeckOpenState()
                 {
                     const std::string uno = UnoNameFromDeckId(msCurrentDeckId, GetCurrentContext());
                     if (!uno.empty())
-                        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
+                        pViewShell->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
                                                                 OString(uno + "=false"));
                 }
             }

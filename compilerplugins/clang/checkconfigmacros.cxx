@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * Based on LLVM/Clang.
  *
@@ -103,7 +103,7 @@ void CheckConfigMacros::checkMacro( const Token& macroToken, SourceLocation loca
         {
         const char* filename = compiler.getSourceManager().getPresumedLoc( location ).getFilename();
         if( filename == NULL
-            || ( !hasPathnamePrefix(filename, SRCDIR "/include/LibreOfficeKit/")
+            || ( !hasPathnamePrefix(filename, SRCDIR "/include/loficeKit/")
                 && !hasPathnamePrefix(filename, WORKDIR "/UnpackedTarball/" )))
             {
             report( DiagnosticsEngine::Error, "checking whether a config macro %0 is defined",

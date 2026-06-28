@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -68,7 +68,7 @@ constexpr OUStringLiteral SPELLML_SUPPORT = u"<?xml?>";
 // to support custom titles with space and other characters.
 // (old mechanism stores the title of the user dictionary
 // only in its file name, but special characters are
-// problem for user dictionaries shipped with LibreOffice).
+// problem for user dictionaries shipped with lofice).
 //
 // The following fake file name extension will be
 // added to the text of the title: field for correct

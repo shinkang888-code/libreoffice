@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,8 +9,8 @@
 from uitest.framework import UITestCase
 from uitest.uihelper.common import get_state_as_dict
 from uitest.uihelper.calc import enter_text_to_cell
-from libreoffice.calc.document import get_cell_by_position
-from libreoffice.uno.propertyvalue import mkPropertyValues
+from lofice.calc.document import get_cell_by_position
+from lofice.uno.propertyvalue import mkPropertyValues
 #Bug 79983 - Calc sort lists aren't case sensitive
 
 class tdf79983(UITestCase):
@@ -25,7 +25,7 @@ class tdf79983(UITestCase):
             enter_text_to_cell(gridwin, "A4", "DDD")
             gridwin.executeAction("SELECT", mkPropertyValues({"RANGE": "A1:A4"}))
 
-            #Tools / Options / LibreOffice Calc / Sort Lists
+            #Tools / Options / lofice Calc / Sort Lists
             with self.ui_test.execute_dialog_through_command(".uno:OptionsTreeDialog") as xDialogOpt:
 
                 xPages = xDialogOpt.getChild("pages")

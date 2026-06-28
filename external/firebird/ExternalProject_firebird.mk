@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -73,7 +73,7 @@ $(call gb_ExternalProject_get_state_target,firebird,build):
 				-L$(gb_UnpackedTarball_workdir)/icu/source/lib \
 			) \
 		" \
-		&& export LIBREOFFICE_ICU_LIB="$(gb_UnpackedTarball_workdir)/icu/source/lib" \
+		&& export lofice_ICU_LIB="$(gb_UnpackedTarball_workdir)/icu/source/lib" \
 		&& export MSVC_USE_INDIVIDUAL_PDBS=TRUE \
 		&& MAKE=$(MAKE) $(gb_RUN_CONFIGURE) ./configure \
 			--without-editline \

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1883,7 +1883,7 @@ void HwpReader::makeTableStyle(Table *tbl)
             switch( cl->linetype[2] )
             {
                 case 1:                           /* A thin solid line */
-                case 3:                           /* Dotted line -> LibreOffice, there is no dotted line */
+                case 3:                           /* Dotted line -> lofice, there is no dotted line */
                     mxList->addAttribute(u"fo:border"_ustr, sXML_CDATA,u"0.002cm solid #000000"_ustr);
                     break;
                 case 2:                           /* Bold lines */
@@ -1900,7 +1900,7 @@ void HwpReader::makeTableStyle(Table *tbl)
             switch( cl->linetype[0] )
             {
                 case 1:                           /* A thin solid line */
-                case 3:                           /* Dotted line -> LibreOffice, there is no dotted line */
+                case 3:                           /* Dotted line -> lofice, there is no dotted line */
                     mxList->addAttribute(u"fo:border-left"_ustr, sXML_CDATA,u"0.002cm solid #000000"_ustr);
                     break;
                 case 2:                           /* Bold lines */
@@ -1914,7 +1914,7 @@ void HwpReader::makeTableStyle(Table *tbl)
             switch( cl->linetype[1] )
             {
                 case 1:                           /* A thin solid line */
-                case 3:                           /* Dotted line -> LibreOffice, there is no dotted line */
+                case 3:                           /* Dotted line -> lofice, there is no dotted line */
                     mxList->addAttribute(u"fo:border-right"_ustr, sXML_CDATA,u"0.002cm solid #000000"_ustr);
                     break;
                 case 2:                           /* Bold lines */
@@ -1928,7 +1928,7 @@ void HwpReader::makeTableStyle(Table *tbl)
             switch( cl->linetype[2] )
             {
                 case 1:                           /* A thin solid line */
-                case 3:                           /* Dotted line -> LibreOffice, there is no dotted line */
+                case 3:                           /* Dotted line -> lofice, there is no dotted line */
                     mxList->addAttribute(u"fo:border-top"_ustr, sXML_CDATA,u"0.002cm solid #000000"_ustr);
                     break;
                 case 2:                           /* Bold lines */
@@ -1942,7 +1942,7 @@ void HwpReader::makeTableStyle(Table *tbl)
             switch( cl->linetype[3] )
             {
                 case 1:                           /* A thin solid line */
-                case 3:                           /* Dotted line -> LibreOffice, there is no dotted line */
+                case 3:                           /* Dotted line -> lofice, there is no dotted line */
                     mxList->addAttribute(u"fo:border-bottom"_ustr, sXML_CDATA,u"0.002cm solid #000000"_ustr);
                     break;
                 case 2:                           /* Bold lines */
@@ -2268,7 +2268,7 @@ void HwpReader::makeCaptionStyle(FBoxStyle * fstyle)
                     mxList->addAttribute(u"fo:padding"_ustr, sXML_CDATA,u"0mm"_ustr);
                     break;
                 case 1:                           /* A thin solid line */
-                case 3:                           /* Dotted line -> LibreOffice, there is no dotted line */
+                case 3:                           /* Dotted line -> lofice, there is no dotted line */
                     mxList->addAttribute(u"fo:border"_ustr, sXML_CDATA,u"0.002cm solid #000000"_ustr);
                     break;
                 case 2:                           /* Bold lines */
@@ -2285,7 +2285,7 @@ void HwpReader::makeCaptionStyle(FBoxStyle * fstyle)
             switch( cell->linetype[0] )
             {
                 case 1:                           /* A thin solid line */
-                case 3:                           /* Dotted line -> LibreOffice, there is no dotted line */
+                case 3:                           /* Dotted line -> lofice, there is no dotted line */
                     mxList->addAttribute(u"fo:border-left"_ustr, sXML_CDATA,u"0.002cm solid #000000"_ustr);
                     break;
                 case 2:                           /* Bold lines */
@@ -2299,7 +2299,7 @@ void HwpReader::makeCaptionStyle(FBoxStyle * fstyle)
             switch( cell->linetype[1] )
             {
                 case 1:                           /* A thin solid line */
-                case 3:                           /* Dotted line -> LibreOffice, there is no dotted line */
+                case 3:                           /* Dotted line -> lofice, there is no dotted line */
                     mxList->addAttribute(u"fo:border-right"_ustr, sXML_CDATA,u"0.002cm solid #000000"_ustr);
                     break;
                 case 2:                           /* Bold lines */
@@ -2313,7 +2313,7 @@ void HwpReader::makeCaptionStyle(FBoxStyle * fstyle)
             switch( cell->linetype[2] )
             {
                 case 1:                           /* A thin solid line */
-                case 3:                           /* Dotted line -> LibreOffice, there is no dotted line */
+                case 3:                           /* Dotted line -> lofice, there is no dotted line */
                     mxList->addAttribute(u"fo:border-top"_ustr, sXML_CDATA,u"0.002cm solid #000000"_ustr);
                     break;
                 case 2:                           /* Bold lines */
@@ -2327,7 +2327,7 @@ void HwpReader::makeCaptionStyle(FBoxStyle * fstyle)
             switch( cell->linetype[3] )
             {
                 case 1:                           /* A thin solid line */
-                case 3:                           /* Dotted line -> LibreOffice, there is no dotted line */
+                case 3:                           /* Dotted line -> lofice, there is no dotted line */
                     mxList->addAttribute(u"fo:border-bottom"_ustr, sXML_CDATA,u"0.002cm solid #000000"_ustr);
                     break;
                 case 2:                           /* Bold lines */
@@ -2476,7 +2476,7 @@ void HwpReader::makeFStyle(FBoxStyle * fstyle)
                           mxList->addAttribute(u"fo:border"_ustr, sXML_CDATA, u"none"_ustr);
                     break;
                 case 1:                           /* A thin solid line */
-                case 3:                           /* Dotted line -> LibreOffice, there is no dotted line */
+                case 3:                           /* Dotted line -> lofice, there is no dotted line */
                     mxList->addAttribute(u"fo:border"_ustr, sXML_CDATA,u"0.002cm solid #000000"_ustr);
                     break;
                 case 2:                           /* Bold lines */
@@ -2493,7 +2493,7 @@ void HwpReader::makeFStyle(FBoxStyle * fstyle)
             switch( cell->linetype[0] )
             {
                 case 1:                           /* A thin solid line */
-                case 3:                           /* Dotted line -> LibreOffice, there is no dotted line */
+                case 3:                           /* Dotted line -> lofice, there is no dotted line */
                     mxList->addAttribute(u"fo:border-left"_ustr, sXML_CDATA,u"0.002cm solid #000000"_ustr);
                     break;
                 case 2:                           /* Bold lines */
@@ -2507,7 +2507,7 @@ void HwpReader::makeFStyle(FBoxStyle * fstyle)
             switch( cell->linetype[1] )
             {
                 case 1:                           /* A thin solid line */
-                case 3:                           /* Dotted line -> LibreOffice, there is no dotted line */
+                case 3:                           /* Dotted line -> lofice, there is no dotted line */
                     mxList->addAttribute(u"fo:border-right"_ustr, sXML_CDATA,u"0.002cm solid #000000"_ustr);
                     break;
                 case 2:                           /* Bold lines */
@@ -2521,7 +2521,7 @@ void HwpReader::makeFStyle(FBoxStyle * fstyle)
             switch( cell->linetype[2] )
             {
                 case 1:                           /* A thin solid line */
-                case 3:                           /* Dotted line -> LibreOffice, there is no dotted line */
+                case 3:                           /* Dotted line -> lofice, there is no dotted line */
                     mxList->addAttribute(u"fo:border-top"_ustr, sXML_CDATA,u"0.002cm solid #000000"_ustr);
                     break;
                 case 2:                           /* Bold lines */
@@ -2535,7 +2535,7 @@ void HwpReader::makeFStyle(FBoxStyle * fstyle)
             switch( cell->linetype[3] )
             {
                 case 1:                           /* A thin solid line */
-                case 3:                           /* Dotted line -> LibreOffice, there is no dotted line */
+                case 3:                           /* Dotted line -> lofice, there is no dotted line */
                     mxList->addAttribute(u"fo:border-bottom"_ustr, sXML_CDATA,u"0.002cm solid #000000"_ustr);
                     break;
                 case 2:                           /* Bold lines */
@@ -3195,7 +3195,7 @@ void HwpReader::makeFieldCode(hchar_string const & rStr, FieldCode const *hbox)
 
 /**
  * Completed
- * In LibreOffice, refer bookmarks as reference, but hwp doesn't have the sort of feature.
+ * In lofice, refer bookmarks as reference, but hwp doesn't have the sort of feature.
  */
 void HwpReader::makeBookmark(Bookmark const * hbox)
 {
@@ -4146,7 +4146,7 @@ void HwpReader::makePictureDRAW(HWPDrawingObject *drawobj, const Picture* hbox)
                 case HWPDO_ARC:                   /* Arc */
                 case HWPDO_ADVANCED_ARC:
                 {
-                    /*  If it is the arc, LibreOffice assumes the size as the entire ellipse size */
+                    /*  If it is the arc, lofice assumes the size as the entire ellipse size */
                     uint flip = drawobj->u.line_arc.flip;
                     if( !bIsRotate )
                     {

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
-* This file is part of the LibreOffice project.
+* This file is part of the lofice project.
 *
 * This Source Code Form is subject to the terms of the Mozilla Public
 * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -20,7 +20,7 @@
 #include <unotools/resmgr.hxx>
 #include "res/spsuppDlg.h"
 
-// Since we need to show localized messages to user before starting LibreOffice, we need to
+// Since we need to show localized messages to user before starting lofice, we need to
 // bootstrap part of LO (l10n machinery). This implies loading some LO libraries, and since
 // there are ActiveX controls for both x86 and x64 for use in corresponding clients, they
 // can't both load the libraries that exist only for one architecture, like sal. Thus we need
@@ -131,7 +131,7 @@ DWORD LOStart(const wchar_t* sModeArg, const wchar_t* sFilePath)
     if (!CreateProcessW(nullptr, pCmdLine, nullptr, nullptr, FALSE, 0, nullptr, nullptr, &si, &pi))
     {
         DWORD dwError = GetLastError();
-        const OUString sErrorMsg = "Could not start LibreOffice. Error is 0x"
+        const OUString sErrorMsg = "Could not start lofice. Error is 0x"
                                    + OUString::number(dwError, 16) + ":\n\n"
                                    + comphelper::WindowsErrorString(dwError);
 

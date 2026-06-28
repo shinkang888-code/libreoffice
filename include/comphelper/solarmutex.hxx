@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -36,7 +36,7 @@ namespace comphelper {
  * SolarMutex, needed for VCL's Application::GetSolarMutex().
  *
  * The SolarMutex is the one big recursive code lock used
- * to protect the vast majority of the LibreOffice code-base,
+ * to protect the vast majority of the lofice code-base,
  * in particular anything that is graphical and the cores of
  * the applications.
  *

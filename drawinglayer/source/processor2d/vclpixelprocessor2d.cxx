@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -114,7 +114,7 @@ void VclPixelProcessor2D::tryDrawPolyPolygonColorPrimitive2DDirect(
     const basegfx::BColor aPolygonColor(
         maBColorModifierStack.getModifiedColor(rSource.getBColor()));
 
-    if (comphelper::LibreOfficeKit::isActive() && aPolygonColor.isAutomatic())
+    if (comphelper::loficeKit::isActive() && aPolygonColor.isAutomatic())
         mpOutputDevice->SetFillColor(getViewInformation2D().getAutoColor());
     else
         mpOutputDevice->SetFillColor(Color(aPolygonColor));
@@ -161,7 +161,7 @@ bool VclPixelProcessor2D::tryDrawPolygonStrokePrimitive2DDirect(
         && css::drawing::LineCap_BUTT != rSource.getLineAttribute().getLineCap())
     {
         // better use decompose to get that combination done for now, see discussion
-        // at https://bugs.documentfoundation.org/show_bug.cgi?id=130478#c17 and ff
+        // at https://bugs.lofice.io/show_bug.cgi?id=130478#c17 and ff
         return false;
     }
 
@@ -638,7 +638,7 @@ void VclPixelProcessor2D::processControlPrimitive2D(
     // office does.
     // For now, fallback to just render these controls when Tiled Rendering is active to just
     // have them displayed on all clients.
-    if (bControlIsVisibleAsChildWindow && comphelper::LibreOfficeKit::isActive())
+    if (bControlIsVisibleAsChildWindow && comphelper::loficeKit::isActive())
     {
         // Do force paint when we are in Tiled Renderer and FormControl is 'visible'
         bControlIsVisibleAsChildWindow = false;

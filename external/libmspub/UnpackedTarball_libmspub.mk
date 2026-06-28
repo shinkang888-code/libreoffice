@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -13,7 +13,7 @@ $(eval $(call gb_UnpackedTarball_set_tarball,libmspub,$(MSPUB_TARBALL)))
 
 $(eval $(call gb_UnpackedTarball_set_patchlevel,libmspub,0))
 
-# * external/libmspub/stdint.patch is upstream at <https://gerrit.libreoffice.org/#/c/73814/>
+# * external/libmspub/stdint.patch is upstream at <https://gerrit.lofice.org/#/c/73814/>
 #   "missing include":
 $(eval $(call gb_UnpackedTarball_add_patches,libmspub,\
     external/libmspub/stdint.patch \

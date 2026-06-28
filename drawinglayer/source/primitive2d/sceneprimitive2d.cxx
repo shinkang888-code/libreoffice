@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -366,7 +366,7 @@ namespace drawinglayer::primitive2d
             sal_Int32 nRasterWidth(basegfx::fround(fFullViewSizeX * aUnitVisibleRange.getWidth()) + 1);
             sal_Int32 nRasterHeight(basegfx::fround(fFullViewSizeY * aUnitVisibleRange.getHeight()) + 1);
 
-            if(!rViewInformation.getReducedDisplayQuality() && comphelper::LibreOfficeKit::isActive())
+            if(!rViewInformation.getReducedDisplayQuality() && comphelper::loficeKit::isActive())
             {
                 // for this purpose allow reduced 3D quality and make a compromise
                 // between quality and speed. This is balanced between those two

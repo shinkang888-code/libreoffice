@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1964,7 +1964,7 @@ CPPUNIT_TEST_FIXTURE(PdfExportTest2, testTdf149140)
     comphelper::SequenceAsHashMap aMediaDescriptor;
     aMediaDescriptor[u"FilterData"_ustr] <<= aFilterData;
     vcl::filter::PDFDocument aDocument;
-    loadFromFile(u"TableTH_test_LibreOfficeWriter7.3.3_HeaderRow-HeadersInTopRow.fodt");
+    loadFromFile(u"TableTH_test_loficeWriter7.3.3_HeaderRow-HeadersInTopRow.fodt");
     save(TestFilter::PDF_WRITER, aMediaDescriptor.getAsConstPropertyValueList());
 
     // Parse the export result.
@@ -2027,7 +2027,7 @@ CPPUNIT_TEST_FIXTURE(PdfExportTest2, testTdf153935)
     comphelper::SequenceAsHashMap aMediaDescriptor;
     aMediaDescriptor[u"FilterData"_ustr] <<= aFilterData;
     vcl::filter::PDFDocument aDocument;
-    loadFromFile(u"TableTH_test_LibreOfficeWriter7.3.3_HeaderRow-HeadersInTopRow.fodt");
+    loadFromFile(u"TableTH_test_loficeWriter7.3.3_HeaderRow-HeadersInTopRow.fodt");
     save(TestFilter::PDF_WRITER, aMediaDescriptor.getAsConstPropertyValueList());
 
     SvFileStream aStream(maTempFile.GetURL(), StreamMode::READ);
@@ -4506,7 +4506,7 @@ CPPUNIT_TEST_FIXTURE(PdfExportTest2, testTdf142129)
     auto* pFirst3D = pFirst3->LookupObject()->GetDictionary();
     CPPUNIT_ASSERT(pFirst3D);
     //CPPUNIT_ASSERT_EQUAL(OString("Outlines"), dynamic_cast<vcl::filter::PDFNameElement*>(pFirst3D->LookupElement("Type"))->GetValue());
-    CPPUNIT_ASSERT_EQUAL(u"Minimum requirements for using LibreOffice"_ustr,
+    CPPUNIT_ASSERT_EQUAL(u"Minimum requirements for using lofice"_ustr,
                          ::vcl::filter::PDFDocument::DecodeHexStringUTF16BE(
                              *dynamic_cast<vcl::filter::PDFHexStringElement*>(
                                  pFirst3D->LookupElement("Title"_ostr))));

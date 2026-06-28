@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -236,7 +236,7 @@ OUString ScEditUtil::GetCellFieldValue(
             if (ppTextColor)
             {
                 *ppTextColor = ScModule::get()->GetColorConfig().GetColorValue(eEntry).nColor;
-                if (comphelper::LibreOfficeKit::isActive())
+                if (comphelper::loficeKit::isActive())
                     ScModule::IsLOKViewInDarkMode() ? *ppTextColor = Color(0x1D99F3) : *ppTextColor = Color(0x000080);
             }
 
@@ -342,7 +342,7 @@ tools::Rectangle ScEditUtil::GetEditArea( const ScPatternAttr* pPattern, bool bF
         pPattern = rDoc.GetPattern( nCol, nRow, nTab );
 
     Point aStartPos = aCellPos;
-    bool bIsTiledRendering = comphelper::LibreOfficeKit::isActive();
+    bool bIsTiledRendering = comphelper::loficeKit::isActive();
 
     bool bLayoutRTL = rDoc.IsLayoutRTL( nTab );
     tools::Long nLayoutSign = (bLayoutRTL && !bIsTiledRendering) ? -1 : 1;

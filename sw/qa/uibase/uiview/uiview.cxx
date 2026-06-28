@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,7 +9,7 @@
 
 #include <swmodeltestbase.hxx>
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/processfactory.hxx>
 #include <osl/file.hxx>
 #include <comphelper/propertyvalue.hxx>
@@ -511,8 +511,8 @@ void ViewCallback::callbackImpl(int nType, const char* pPayload)
 CPPUNIT_TEST_FIXTURE(SwUibaseUiviewTest, testRedlineRenderModeInvalidate)
 {
     // Set up LOK:
-    comphelper::LibreOfficeKit::setActive(true);
-    comphelper::LibreOfficeKit::setPartInInvalidation(true);
+    comphelper::loficeKit::setActive(true);
+    comphelper::loficeKit::setPartInInvalidation(true);
 
     // Given a document where redline render mode is set to "omit deletes":
     createSwDoc();
@@ -521,7 +521,7 @@ CPPUNIT_TEST_FIXTURE(SwUibaseUiviewTest, testRedlineRenderModeInvalidate)
     SwWrtShell* pWrtShell = pDocShell->GetWrtShell();
     ViewCallback aCallback;
     TestLokCallbackWrapper aCallbackWrapper(&ViewCallback::callback, &aCallback);
-    pWrtShell->GetSfxViewShell()->setLibreOfficeKitViewCallback(&aCallbackWrapper);
+    pWrtShell->GetSfxViewShell()->setloficeKitViewCallback(&aCallbackWrapper);
     aCallbackWrapper.setLOKViewId(SfxLokHelper::getView(*pWrtShell->GetSfxViewShell()));
     SwViewOption aOpt(*pWrtShell->GetViewOptions());
     aOpt.SetRedlineRenderMode(SwRedlineRenderMode::OmitDeletes);
@@ -540,8 +540,8 @@ CPPUNIT_TEST_FIXTURE(SwUibaseUiviewTest, testRedlineRenderModeInvalidate)
     CPPUNIT_ASSERT(aCallback.m_aInvalidationModes.contains(SwRedlineRenderMode::OmitDeletes));
 
     // Tear down LOK:
-    pWrtShell->GetSfxViewShell()->setLibreOfficeKitViewCallback(nullptr);
-    comphelper::LibreOfficeKit::setPartInInvalidation(false);
+    pWrtShell->GetSfxViewShell()->setloficeKitViewCallback(nullptr);
+    comphelper::loficeKit::setPartInInvalidation(false);
 }
 
 CPPUNIT_PLUGIN_IMPLEMENT();

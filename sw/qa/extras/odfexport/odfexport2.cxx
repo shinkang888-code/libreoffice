@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -310,7 +310,7 @@ DECLARE_ODFEXPORT_TEST(testReferenceLanguage, "referencelanguage.odt")
 {
     CPPUNIT_ASSERT_EQUAL(2, getPages());
     // Test loext:reference-language attribute of reference fields
-    // (used from LibreOffice 6.1, and proposed for next ODF)
+    // (used from lofice 6.1, and proposed for next ODF)
     OUString const aFieldTexts[] = { u"A 2"_ustr, u"Az Isten"_ustr, u"Az 50-esek"_ustr,
         u"A 2018-asok"_ustr, u"Az egyebek"_ustr, u"A fejezetek"_ustr,
         u"Az „Őseinket...”"_ustr, u"a 2"_ustr,
@@ -401,7 +401,7 @@ DECLARE_ODFEXPORT_TEST(testQrCodeGenProperties, "qrcode-properties.odt")
 
     css::drawing::BarCode aBarCode = getProperty<css::drawing::BarCode>(xShape, u"BarCodeProperties"_ustr);
 
-    CPPUNIT_ASSERT_EQUAL(u"www.libreoffice.org"_ustr,
+    CPPUNIT_ASSERT_EQUAL(u"www.lofice.org"_ustr,
                          aBarCode.Payload);
     CPPUNIT_ASSERT_EQUAL(css::drawing::BarCodeErrorCorrection::LOW,
                          aBarCode.ErrorCorrection);
@@ -424,7 +424,7 @@ DECLARE_ODFEXPORT_TEST(testChapterNumberingNewLine, "chapter-number-new-line.odt
 DECLARE_ODFEXPORT_TEST(testSpellOutNumberingTypes, "spellout-numberingtypes.odt")
 {
     CPPUNIT_ASSERT_EQUAL(1, getPages());
-    // ordinal indicator, ordinal and cardinal number numbering styles (from LibreOffice 6.1)
+    // ordinal indicator, ordinal and cardinal number numbering styles (from lofice 6.1)
     OUString const aFieldTexts[] = { u"1st"_ustr, u"Erste"_ustr, u"Eins"_ustr,  u"1."_ustr, u"Premier"_ustr, u"Un"_ustr, u"1ᵉʳ"_ustr, u"First"_ustr, u"One"_ustr };
     // fallback for old platforms without std::codecvt and std::regex supports
     OUString const aFieldTextFallbacks[] = { u"Ordinal-number 1"_ustr, u"Ordinal 1"_ustr, u"1"_ustr };

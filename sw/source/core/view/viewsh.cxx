@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -210,7 +210,7 @@ void SwViewShell::DLPrePaint2(const vcl::Region& rRegion)
             MakeDrawView();
 
         // Prefer window; if not available, get mpOut (e.g. printer)
-        const bool bWindow = GetWin() && !comphelper::LibreOfficeKit::isActive() && !isOutputToWindow();
+        const bool bWindow = GetWin() && !comphelper::loficeKit::isActive() && !isOutputToWindow();
         mpPrePostOutDev = bWindow ? GetWin()->GetOutDev() : GetOut();
 
         // #i74769# use SdrPaintWindow now direct
@@ -407,20 +407,20 @@ void SwViewShell::ImplEndAction( const bool bIdleEnd )
                         // seems to work (and does technically) but fails with transparent objects. Since the
                         // region given to BeginDrawLayers() defines the clip region for DrawingLayer paint,
                         // transparent objects in the single rectangles will indeed be painted multiple times.
-                        if (!comphelper::LibreOfficeKit::isActive())
+                        if (!comphelper::loficeKit::isActive())
                         {
                             DLPrePaint2(vcl::Region(aRect.SVRect()));
                         }
 
                         if ( bPaintsFromSystem )
                             PaintDesktop(*GetOut(), aRect);
-                        if (!comphelper::LibreOfficeKit::isActive())
+                        if (!comphelper::loficeKit::isActive())
                             pCurrentLayout->PaintSwFrame( *mpOut, aRect );
                         else
                             pCurrentLayout->GetCurrShell()->InvalidateWindows(aRect);
 
                         // #i75172# end DrawingLayer paint
-                        if (!comphelper::LibreOfficeKit::isActive())
+                        if (!comphelper::loficeKit::isActive())
                         {
                             DLPostPaint2(true);
                         }
@@ -467,7 +467,7 @@ void SwViewShell::ImplStartAction()
 
 void SwViewShell::ImplLockPaint()
 {
-    if ( GetWin() && GetWin()->IsVisible() && !comphelper::LibreOfficeKit::isActive())
+    if ( GetWin() && GetWin()->IsVisible() && !comphelper::loficeKit::isActive())
         GetWin()->EnablePaint( false ); //Also cut off the controls.
     Imp()->LockPaint();
 }
@@ -477,7 +477,7 @@ void SwViewShell::ImplUnlockPaint(std::vector<LockPaintReason>& rReasons, bool b
     CurrShell aCurr( this );
     if ( GetWin() && GetWin()->IsVisible() )
     {
-        if ( (bInSizeNotify || bVirDev ) && VisArea().HasArea() && !comphelper::LibreOfficeKit::isActive())
+        if ( (bInSizeNotify || bVirDev ) && VisArea().HasArea() && !comphelper::loficeKit::isActive())
         {
             //Refresh with virtual device to avoid flickering.
             ScopedVclPtrInstance<VirtualDevice> pVout(*mpOut);
@@ -582,7 +582,7 @@ void SwViewShell::InvalidateAll(std::vector<LockPaintReason>& rReasons)
     for (const auto& reason : rReasons)
         SAL_INFO("sw.core", "InvalidateAll because of: " << to_string(reason));
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         // https://github.com/CollaboraOnline/online/issues/6379
         // ditch OuterResize as a reason to invalidate all in the online case
@@ -615,13 +615,13 @@ void SwViewShell::InvalidateWindows( const SwRect &rRect )
     if ( Imp()->IsCalcLayoutProgress() )
         return;
 
-    if(comphelper::LibreOfficeKit::isActive())
+    if(comphelper::loficeKit::isActive())
     {
         // If we are inside tiled painting, invalidations are ignored.
         // Ignore them right now to save work, but also to avoid the problem
         // that this state could be reset before FlushPendingLOKInvalidateTiles()
         // gets called.
-        if(comphelper::LibreOfficeKit::isTiledPainting())
+        if(comphelper::loficeKit::isTiledPainting())
             return;
         // First collect all invalidations and perform them only later,
         // otherwise the number of Invalidate() calls would be at least
@@ -647,7 +647,7 @@ void SwViewShell::InvalidateWindows( const SwRect &rRect )
                 ::RepaintPagePreview( &rSh, rRect );
             // In case of tiled rendering, invalidation is wanted even if
             // the rectangle is outside the visual area.
-            else if ( rSh.VisArea().Overlaps( rRect ) || comphelper::LibreOfficeKit::isActive() )
+            else if ( rSh.VisArea().Overlaps( rRect ) || comphelper::loficeKit::isActive() )
                 rSh.GetWin()->Invalidate( rRect.SVRect() );
         }
     }
@@ -655,7 +655,7 @@ void SwViewShell::InvalidateWindows( const SwRect &rRect )
 
 void SwViewShell::FlushPendingLOKInvalidateTiles()
 {
-    assert(comphelper::LibreOfficeKit::isActive());
+    assert(comphelper::loficeKit::isActive());
     SwRegionRects rects;
     for(SwViewShell& rSh : GetRingContainer())
     {
@@ -688,7 +688,7 @@ const SwRect& SwViewShell::VisArea() const
 {
     // when using the tiled rendering, consider the entire document as our
     // visible area
-    return comphelper::LibreOfficeKit::isActive()? GetLayout()->getFrameArea(): maVisArea;
+    return comphelper::loficeKit::isActive()? GetLayout()->getFrameArea(): maVisArea;
 }
 
 void SwViewShell::MakeVisible( const SwRect &rRect, ScrollSizeMode eScrollSizeMode )
@@ -1303,7 +1303,7 @@ void SwViewShell::SizeChgNotify()
         {
             PageNumNotify(*this);
 
-            if (SfxViewShell* pNotifySh = comphelper::LibreOfficeKit::isActive() ? GetSfxViewShell() : nullptr)
+            if (SfxViewShell* pNotifySh = comphelper::loficeKit::isActive() ? GetSfxViewShell() : nullptr)
             {
                 Size aDocSize = GetDocSize();
                 OString sPayload = OString::number(aDocSize.Width() + 2 * DOCUMENTBORDER) +
@@ -1442,7 +1442,7 @@ void SwViewShell::VisPortChgd( const SwRect &rRect)
                     return;
                 maVisArea.Pos(rRect.Pos());
             }
-            else if (!comphelper::LibreOfficeKit::isActive())
+            else if (!comphelper::loficeKit::isActive())
                 GetWin()->Invalidate( aRect );
         }
         else if ( !mnLockPaint ) //will be released in Unlock
@@ -1462,7 +1462,7 @@ void SwViewShell::VisPortChgd( const SwRect &rRect)
 
     // When tiled rendering, the map mode of the window is disabled, avoid
     // enabling it here.
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
     {
         Point aPt( VisArea().Pos() );
         aPt.setX( -aPt.X() ); aPt.setY( -aPt.Y() );
@@ -1729,7 +1729,7 @@ void SwViewShell::PaintDesktop(const vcl::RenderContext& rRenderContext, const S
     if ( !GetWin() && !GetOut()->GetConnectMetaFile() )
         return;                     //for the printer we don't do anything here.
 
-    if(comphelper::LibreOfficeKit::isActive())
+    if(comphelper::loficeKit::isActive())
         return;
 
     //Catch exceptions, so that it doesn't look so surprising.
@@ -2163,7 +2163,7 @@ void SwViewShell::PaintTile(VirtualDevice &rDevice, int contextWidth, int contex
     // TODO clean up SwViewShell's approach to output devices (the many of
     // them - mpBufferedOut, mpOut, mpWin, ...)
     OutputDevice *pSaveOut = mpOut;
-    comphelper::LibreOfficeKit::setTiledPainting(true);
+    comphelper::loficeKit::setTiledPainting(true);
     mpOut = &rDevice;
 
     // resizes the virtual device so to contain the entries context
@@ -2249,7 +2249,7 @@ void SwViewShell::PaintTile(VirtualDevice &rDevice, int contextWidth, int contex
     }
 
     mpOut = pSaveOut;
-    comphelper::LibreOfficeKit::setTiledPainting(false);
+    comphelper::loficeKit::setTiledPainting(false);
 }
 
 void SwViewShell::SetBrowseBorder( const Size& rNew )
@@ -2622,7 +2622,7 @@ void SwViewShell::ImplApplyViewOptions( const SwViewOption &rOpt )
     if( !bOnlineSpellChgd )
         return;
 
-    if ( !comphelper::LibreOfficeKit::isActive() )
+    if ( !comphelper::loficeKit::isActive() )
     {
         bool bOnlineSpl = rOpt.IsOnlineSpell();
         for(SwViewShell& rSh : GetRingContainer())
@@ -2668,11 +2668,11 @@ void SwViewShell::SetReadonlyOption(bool bSet)
     {
         SwViewShell::StartAction();
         Reformat();
-        if ( GetWin() && !comphelper::LibreOfficeKit::isActive() )
+        if ( GetWin() && !comphelper::loficeKit::isActive() )
             GetWin()->Invalidate();
         SwViewShell::EndAction();
     }
-    else if ( GetWin() && !comphelper::LibreOfficeKit::isActive() )
+    else if ( GetWin() && !comphelper::loficeKit::isActive() )
         GetWin()->Invalidate();
 #if !ENABLE_WASM_STRIP_ACCESSIBILITY
     if( Imp()->IsAccessible() )

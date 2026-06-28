@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -30,7 +30,7 @@ struct RefUpdateContext;
 
 }
 
-namespace vcl { class ILibreOfficeKitNotifier; }
+namespace vcl { class IloficeKitNotifier; }
 
 class ScPatternAttr;
 class ScTokenArray;
@@ -83,7 +83,7 @@ private:
 
     using ScConditionEntry::operator==;
 
-    DECL_STATIC_LINK(ScValidationData, InstallLOKNotifierHdl, void*, vcl::ILibreOfficeKitNotifier*);
+    DECL_STATIC_LINK(ScValidationData, InstallLOKNotifierHdl, void*, vcl::IloficeKitNotifier*);
 
 public:
     SC_DLLPUBLIC ScValidationData( ScValidationMode eMode, ScConditionMode eOper,

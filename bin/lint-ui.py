@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, you can obtain one at http://mozilla.org/MPL/2.0/.
 #
-# Takes a LibreOffice .ui file and provides linting tips for maintaining
+# Takes a lofice .ui file and provides linting tips for maintaining
 # a consistent look for dialogs
 
 import sys
@@ -188,7 +188,7 @@ def main():
     tree = ET.parse(sys.argv[1], parser=LineNumberingParser())
     root = tree.getroot()
 
-    if sys.argv[1] != "libreofficekit/qa/gtktiledviewer/gtv.ui":
+    if sys.argv[1] != "loficekit/qa/gtktiledviewer/gtv.ui":
         lint_assert('domain' in root.attrib, "interface needs to specify translation domain")
 
     top_level_widgets = [element for element in root.findall('object') if element.attrib['class'] not in IGNORED_TOP_LEVEL_WIDGETS]

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -87,7 +87,7 @@ CPPUNIT_TEST_FIXTURE(LOKitSearchTest, Search)
     SdXImpressDocument* pXImpressDocument = createDoc("dummy.odp");
     sd::ViewShell* pViewShell = pXImpressDocument->GetDocShell()->GetViewShell();
     CPPUNIT_ASSERT(pViewShell);
-    setupLibreOfficeKitViewCallback(pViewShell->GetViewShellBase());
+    setuploficeKitViewCallback(pViewShell->GetViewShellBase());
     uno::Reference<container::XIndexAccess> xDrawPage(
         pXImpressDocument->getDrawPages()->getByIndex(0), uno::UNO_QUERY);
     uno::Reference<text::XTextRange> xShape(xDrawPage->getByIndex(0), uno::UNO_QUERY);
@@ -122,7 +122,7 @@ CPPUNIT_TEST_FIXTURE(LOKitSearchTest, SearchAll)
     SdXImpressDocument* pXImpressDocument = createDoc("search-all.odp");
     sd::ViewShell* pViewShell = pXImpressDocument->GetDocShell()->GetViewShell();
     CPPUNIT_ASSERT(pViewShell);
-    setupLibreOfficeKitViewCallback(pViewShell->GetViewShellBase());
+    setuploficeKitViewCallback(pViewShell->GetViewShellBase());
 
     lcl_search(u"match"_ustr, /*bFindAll=*/true);
 
@@ -143,7 +143,7 @@ CPPUNIT_TEST_FIXTURE(LOKitSearchTest, SearchAllSelections)
     SdXImpressDocument* pXImpressDocument = createDoc("search-all.odp");
     sd::ViewShell* pViewShell = pXImpressDocument->GetDocShell()->GetViewShell();
     CPPUNIT_ASSERT(pViewShell);
-    setupLibreOfficeKitViewCallback(pViewShell->GetViewShellBase());
+    setuploficeKitViewCallback(pViewShell->GetViewShellBase());
 
     lcl_search(u"third"_ustr, /*bFindAll=*/true);
     // Make sure this is found on the 3rd slide.
@@ -157,7 +157,7 @@ CPPUNIT_TEST_FIXTURE(LOKitSearchTest, SearchAllNotifications)
     SdXImpressDocument* pXImpressDocument = createDoc("search-all.odp");
     sd::ViewShell* pViewShell = pXImpressDocument->GetDocShell()->GetViewShell();
     CPPUNIT_ASSERT(pViewShell);
-    setupLibreOfficeKitViewCallback(pViewShell->GetViewShellBase());
+    setuploficeKitViewCallback(pViewShell->GetViewShellBase());
 
     lcl_search(u"third"_ustr, /*bFindAll=*/true);
     // Make sure that we get no notifications about selection changes during search.
@@ -171,7 +171,7 @@ CPPUNIT_TEST_FIXTURE(LOKitSearchTest, SearchAllFollowedBySearch)
     SdXImpressDocument* pXImpressDocument = createDoc("search-all.odp");
     sd::ViewShell* pViewShell = pXImpressDocument->GetDocShell()->GetViewShell();
     CPPUNIT_ASSERT(pViewShell);
-    setupLibreOfficeKitViewCallback(pViewShell->GetViewShellBase());
+    setuploficeKitViewCallback(pViewShell->GetViewShellBase());
 
     lcl_search(u"third"_ustr, /*bFindAll=*/true);
     lcl_search(u"match"_ustr /*,bFindAll=false*/);
@@ -188,7 +188,7 @@ CPPUNIT_TEST_FIXTURE(LOKitSearchTest, DontSearchInMasterPages)
     SdXImpressDocument* pXImpressDocument = createDoc("dummy.odp");
     sd::ViewShell* pViewShell = pXImpressDocument->GetDocShell()->GetViewShell();
     CPPUNIT_ASSERT(pViewShell);
-    setupLibreOfficeKitViewCallback(pViewShell->GetViewShellBase());
+    setuploficeKitViewCallback(pViewShell->GetViewShellBase());
 
     // This should trigger the not-found callback ("date" is present only on
     // the master page)
@@ -207,7 +207,7 @@ CPPUNIT_TEST_FIXTURE(LOKitSearchTest, SearchInPDFNonExisting)
     SdXImpressDocument* pXImpressDocument = createDoc("PDFSearch.pdf");
     sd::ViewShell* pViewShell = pXImpressDocument->GetDocShell()->GetViewShell();
     CPPUNIT_ASSERT(pViewShell);
-    setupLibreOfficeKitViewCallback(pViewShell->GetViewShellBase());
+    setuploficeKitViewCallback(pViewShell->GetViewShellBase());
 
     SdPage* pPage = pViewShell->GetActualPage();
     CPPUNIT_ASSERT(pPage);
@@ -239,7 +239,7 @@ CPPUNIT_TEST_FIXTURE(LOKitSearchTest, SearchInPDF)
     SdXImpressDocument* pXImpressDocument = createDoc("PDFSearch.pdf");
     sd::ViewShell* pViewShell = pXImpressDocument->GetDocShell()->GetViewShell();
     CPPUNIT_ASSERT(pViewShell);
-    setupLibreOfficeKitViewCallback(pViewShell->GetViewShellBase());
+    setuploficeKitViewCallback(pViewShell->GetViewShellBase());
 
     SdPage* pPage = pViewShell->GetActualPage();
     CPPUNIT_ASSERT(pPage);
@@ -287,7 +287,7 @@ CPPUNIT_TEST_FIXTURE(LOKitSearchTest, SearchInPDFOnePDFObject)
     SdXImpressDocument* pXImpressDocument = createDoc("OnePDFObject.odg");
     sd::ViewShell* pViewShell = pXImpressDocument->GetDocShell()->GetViewShell();
     CPPUNIT_ASSERT(pViewShell);
-    setupLibreOfficeKitViewCallback(pViewShell->GetViewShellBase());
+    setuploficeKitViewCallback(pViewShell->GetViewShellBase());
 
     SdPage* pPage = pViewShell->GetActualPage();
     CPPUNIT_ASSERT(pPage);
@@ -327,7 +327,7 @@ CPPUNIT_TEST_FIXTURE(LOKitSearchTest, SearchInPDFInMultiplePages)
     SdXImpressDocument* pXImpressDocument = createDoc("PDFSearch.pdf");
     sd::ViewShell* pViewShell = pXImpressDocument->GetDocShell()->GetViewShell();
     CPPUNIT_ASSERT(pViewShell);
-    setupLibreOfficeKitViewCallback(pViewShell->GetViewShellBase());
+    setuploficeKitViewCallback(pViewShell->GetViewShellBase());
 
     SdPage* pPage = pViewShell->GetActualPage();
     CPPUNIT_ASSERT(pPage);
@@ -417,7 +417,7 @@ CPPUNIT_TEST_FIXTURE(LOKitSearchTest, SearchInPDFInMultiplePagesBackwards)
     SdXImpressDocument* pXImpressDocument = createDoc("PDFSearch.pdf");
     sd::ViewShell* pViewShell = pXImpressDocument->GetDocShell()->GetViewShell();
     CPPUNIT_ASSERT(pViewShell);
-    setupLibreOfficeKitViewCallback(pViewShell->GetViewShellBase());
+    setuploficeKitViewCallback(pViewShell->GetViewShellBase());
 
     SdPage* pPage = pViewShell->GetActualPage();
     CPPUNIT_ASSERT(pPage);
@@ -519,7 +519,7 @@ CPPUNIT_TEST_FIXTURE(LOKitSearchTest, SearchIn2MixedObjects)
     CPPUNIT_ASSERT(pViewShell);
     SdDrawDocument* pDocument = pXImpressDocument->GetDocShell()->GetDoc();
     CPPUNIT_ASSERT(pDocument);
-    setupLibreOfficeKitViewCallback(pViewShell->GetViewShellBase());
+    setuploficeKitViewCallback(pViewShell->GetViewShellBase());
 
     // Check we have one page
     CPPUNIT_ASSERT_EQUAL(sal_uInt16(1), pDocument->GetSdPageCount(PageKind::Standard));
@@ -606,7 +606,7 @@ CPPUNIT_TEST_FIXTURE(LOKitSearchTest, SearchIn6MixedObjects)
     CPPUNIT_ASSERT(pViewShell);
     SdDrawDocument* pDocument = pXImpressDocument->GetDocShell()->GetDoc();
     CPPUNIT_ASSERT(pDocument);
-    setupLibreOfficeKitViewCallback(pViewShell->GetViewShellBase());
+    setuploficeKitViewCallback(pViewShell->GetViewShellBase());
 
     // Check we have one page
     CPPUNIT_ASSERT_EQUAL(sal_uInt16(1), pDocument->GetSdPageCount(PageKind::Standard));
@@ -775,7 +775,7 @@ CPPUNIT_TEST_FIXTURE(LOKitSearchTest, Replace)
     SdXImpressDocument* pXImpressDocument = createDoc("ReplaceTest.odp");
     sd::ViewShell* pViewShell = pXImpressDocument->GetDocShell()->GetViewShell();
     CPPUNIT_ASSERT(pViewShell);
-    setupLibreOfficeKitViewCallback(pViewShell->GetViewShellBase());
+    setuploficeKitViewCallback(pViewShell->GetViewShellBase());
 
     CPPUNIT_ASSERT_EQUAL(u"bbb"_ustr, getShapeText(pXImpressDocument, 0, 0));
     CPPUNIT_ASSERT_EQUAL(u"Bbb bbb bbb bbb"_ustr, getShapeText(pXImpressDocument, 1, 0));
@@ -805,7 +805,7 @@ CPPUNIT_TEST_FIXTURE(LOKitSearchTest, ReplaceAll)
     SdXImpressDocument* pXImpressDocument = createDoc("ReplaceTest.odp");
     sd::ViewShell* pViewShell = pXImpressDocument->GetDocShell()->GetViewShell();
     CPPUNIT_ASSERT(pViewShell);
-    setupLibreOfficeKitViewCallback(pViewShell->GetViewShellBase());
+    setuploficeKitViewCallback(pViewShell->GetViewShellBase());
 
     CPPUNIT_ASSERT_EQUAL(u"bbb"_ustr, getShapeText(pXImpressDocument, 0, 0));
     CPPUNIT_ASSERT_EQUAL(u"Bbb bbb bbb bbb"_ustr, getShapeText(pXImpressDocument, 1, 0));
@@ -835,7 +835,7 @@ CPPUNIT_TEST_FIXTURE(LOKitSearchTest, ReplaceCombined)
     SdXImpressDocument* pXImpressDocument = createDoc("ReplaceTest.odp");
     sd::ViewShell* pViewShell = pXImpressDocument->GetDocShell()->GetViewShell();
     CPPUNIT_ASSERT(pViewShell);
-    setupLibreOfficeKitViewCallback(pViewShell->GetViewShellBase());
+    setuploficeKitViewCallback(pViewShell->GetViewShellBase());
 
     lcl_replace(u"bbb"_ustr, u"aaa"_ustr, false); // select
     lcl_replace(u"bbb"_ustr, u"aaa"_ustr, false); // replace

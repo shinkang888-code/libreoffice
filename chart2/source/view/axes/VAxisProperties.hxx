@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -115,7 +115,7 @@ struct AxisProperties final
 
     bool m_bDisplayLabels;
 
-    // Compatibility option: starting from LibreOffice 5.1 the rotated
+    // Compatibility option: starting from lofice 5.1 the rotated
     // layout is preferred to staggering for axis labels.
     // So the default value of this flag for new documents is `false`.
     bool            m_bTryStaggeringFirst;

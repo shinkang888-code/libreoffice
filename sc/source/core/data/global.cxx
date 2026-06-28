@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -497,7 +497,7 @@ void ScGlobal::InitPPT()
 {
     OutputDevice* pDev = Application::GetDefaultDevice();
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         // LOK: the below limited precision is not enough for RowColumnHeader.
         nScreenPPTX = o3tl::convert<double>(pDev->GetDPIX(), o3tl::Length::twip, o3tl::Length::in);
@@ -1117,7 +1117,7 @@ const CharClass& ScGlobal::getCharClass()
 CalendarWrapper& ScGlobal::GetCalendar()
 {
     assert(!bThreadedGroupCalcInProgress);
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         if (SfxViewShell* pCurr = SfxViewShell::Current())
         {
@@ -1171,9 +1171,9 @@ CollatorWrapper& ScGlobal::GetCollator(bool bCaseSensitive)
 }
 css::lang::Locale& ScGlobal::GetLocale()
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
-        return const_cast<css::lang::Locale&>(comphelper::LibreOfficeKit::getLocale().getLocale());
+        return const_cast<css::lang::Locale&>(comphelper::loficeKit::getLocale().getLocale());
     }
     return *comphelper::doubleCheckedInit( pLocale,
         []() { return new css::lang::Locale( Application::GetSettings().GetLanguageTag().getLocale()); });

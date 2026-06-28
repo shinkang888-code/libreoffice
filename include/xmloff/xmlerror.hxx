@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -94,7 +94,7 @@ namespace com::sun::star {
 }
 
 class ErrorRecord;
-namespace vcl { class ILibreOfficeKitNotifier; }
+namespace vcl { class IloficeKitNotifier; }
 
 /**
  * The XMLErrors is used to collect all errors and warnings that occur
@@ -106,11 +106,11 @@ class XMLErrors
     typedef ::std::vector<ErrorRecord> ErrorList;
 
     ErrorList m_aErrors;  /// list of error records
-    vcl::ILibreOfficeKitNotifier* mpNotifier;
+    vcl::IloficeKitNotifier* mpNotifier;
 
 public:
 
-    XMLErrors(vcl::ILibreOfficeKitNotifier* pNotifier);
+    XMLErrors(vcl::IloficeKitNotifier* pNotifier);
     ~XMLErrors();
 
     /// add a new entry to the list of error messages

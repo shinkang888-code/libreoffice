@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -132,7 +132,7 @@ void SAL_CALL JumpListImpl::beginList(const OUString& sApplication)
             "'Math', 'Base', 'Startcenter'.",
             getXWeak(), 1);
     }
-    OUString sApplicationID("TheDocumentFoundation.LibreOffice." + sApplication);
+    OUString sApplicationID("TheDocumentFoundation.lofice." + sApplication);
 
     try
     {
@@ -419,7 +419,7 @@ void SAL_CALL JumpListImpl::deleteList(const OUString& sApplication)
             "'Math', 'Base', 'Startcenter'.",
             getXWeak(), 1);
     }
-    OUString sApplicationID("TheDocumentFoundation.LibreOffice." + sApplication);
+    OUString sApplicationID("TheDocumentFoundation.lofice." + sApplication);
 
     try
     {
@@ -444,7 +444,7 @@ Sequence<JumpListItem> SAL_CALL JumpListImpl::getRemovedItems(const OUString& sA
             "'Math', 'Base', 'Startcenter'.",
             getXWeak(), 1);
     }
-    OUString sApplicationID("TheDocumentFoundation.LibreOffice." + sApplication);
+    OUString sApplicationID("TheDocumentFoundation.lofice." + sApplication);
 
     std::vector<JumpListItem> removedItems;
     try

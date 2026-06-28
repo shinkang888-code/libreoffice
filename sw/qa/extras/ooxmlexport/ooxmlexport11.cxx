@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -880,9 +880,9 @@ CPPUNIT_TEST_FIXTURE(Test, testGroupedShapeLink)
     // tdf#145147 Hyperlink in grouped shape not imported
     // tdf#154469 Hyperlink in grouped shape not exported
     uno::Reference<drawing::XShapes> xGroupShape(getShape(1), uno::UNO_QUERY);
-    CPPUNIT_ASSERT_EQUAL(u"https://www.libreoffice.org"_ustr,
+    CPPUNIT_ASSERT_EQUAL(u"https://www.lofice.org"_ustr,
                          getProperty<OUString>(xGroupShape->getByIndex(0), u"Hyperlink"_ustr));
-    CPPUNIT_ASSERT_EQUAL(u"https://www.documentfoundation.org"_ustr,
+    CPPUNIT_ASSERT_EQUAL(u"https://www.lofice.io"_ustr,
                          getProperty<OUString>(xGroupShape->getByIndex(1), u"Hyperlink"_ustr));
 
     xmlDocUniquePtr pXmlDoc = parseExport(u"word/document.xml"_ustr);

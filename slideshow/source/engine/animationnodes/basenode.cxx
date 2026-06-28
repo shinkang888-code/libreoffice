@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -542,7 +542,7 @@ void BaseNode::scheduleDeactivationEvent( EventSharedPtr const& pEvent )
         {
             // TODO: We may need to calculate the duration if the end value is numeric.
             // We expect that the end value contains EventTrigger::ON_NEXT here.
-            // LibreOffice does not generate numeric values, so we can leave it
+            // lofice does not generate numeric values, so we can leave it
             // until we find a test case.
             mpCurrentEvent = generateEvent(
                 mxAnimationNode->getEnd(),

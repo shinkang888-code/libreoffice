@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -2712,12 +2712,12 @@ void Window::setPosSizePixel( tools::Long nX, tools::Long nY,
             {
                 tools::Rectangle aRect( Point ( nX, nY ), Size( nWidth, nHeight ) );
                 const OutputDevice *pParentOutDev = pParent->GetOutDev();
-                if (!comphelper::LibreOfficeKit::isActive())
+                if (!comphelper::loficeKit::isActive())
                     pParentOutDev->ReMirror( aRect );
                 nX = aRect.Left();
             }
         }
-        if( !comphelper::LibreOfficeKit::isActive() &&
+        if( !comphelper::loficeKit::isActive() &&
             !(nFlags & PosSizeFlags::X) && bHasValidSize &&
             pWindow->mpWindowImpl->mpFrame->GetWidth())
         {
@@ -3169,13 +3169,13 @@ LOKWindowsMap& GetLOKWindowsMap()
 // Counter to be able to have unique id's for each window.
 static vcl::LOKWindowId sLastLOKWindowId = 1;
 
-void Window::SetLOKNotifier(const vcl::ILibreOfficeKitNotifier* pNotifier, bool bParent)
+void Window::SetLOKNotifier(const vcl::IloficeKitNotifier* pNotifier, bool bParent)
 {
     // don't allow setting this twice
     assert(mpWindowImpl->mpLOKNotifier == nullptr);
     assert(pNotifier);
     // never use this in the desktop case
-    assert(comphelper::LibreOfficeKit::isActive());
+    assert(comphelper::loficeKit::isActive());
 
     if (!bParent)
     {
@@ -3191,7 +3191,7 @@ void Window::SetLOKNotifier(const vcl::ILibreOfficeKitNotifier* pNotifier, bool 
 void Window::SetLOKWindowId()
 {
     // never use this in the desktop case
-    assert(comphelper::LibreOfficeKit::isActive());
+    assert(comphelper::loficeKit::isActive());
 
     // assign the LOK window id
     assert(mpWindowImpl->mnLOKWindowId == 0);
@@ -3223,9 +3223,9 @@ void Window::ReleaseLOKNotifier()
     mpWindowImpl->mnLOKWindowId = 0;
 }
 
-ILibreOfficeKitNotifier::~ILibreOfficeKitNotifier()
+IloficeKitNotifier::~IloficeKitNotifier()
 {
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
     {
         return;
     }
@@ -3245,7 +3245,7 @@ ILibreOfficeKitNotifier::~ILibreOfficeKitNotifier()
     }
 }
 
-const vcl::ILibreOfficeKitNotifier* Window::GetLOKNotifier() const
+const vcl::IloficeKitNotifier* Window::GetLOKNotifier() const
 {
     return mpWindowImpl ? mpWindowImpl->mpLOKNotifier : nullptr;
 }

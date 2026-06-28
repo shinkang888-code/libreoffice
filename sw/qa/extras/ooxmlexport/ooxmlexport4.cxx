@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -932,7 +932,7 @@ CPPUNIT_TEST_FIXTURE(Test, testTdf104707_urlComment)
     // the hyperlink within the comment text
     auto xURLField = getProperty< uno::Reference<text::XTextField> >(xText, u"TextField"_ustr);
     auto aURL = getProperty< OUString >(xURLField, u"URL"_ustr);
-    CPPUNIT_ASSERT_EQUAL(u"https://bugs.documentfoundation.org/show_bug.cgi?id=104707"_ustr, aURL);
+    CPPUNIT_ASSERT_EQUAL(u"https://bugs.lofice.io/show_bug.cgi?id=104707"_ustr, aURL);
 }
 
 CPPUNIT_TEST_FIXTURE(Test, testOLEObjectinHeader)

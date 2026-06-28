@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -94,7 +94,7 @@ published service FillProperties
     /** If the property #FillStyle is set to
         FillStyle::BITMAP, this is a URL to the bitmap used.
 
-        @deprecated as of LibreOffice 6.1, use FillBitmap
+        @deprecated as of lofice 6.1, use FillBitmap
 
         Note the new behaviour since it this was deprecated:
         This property can only be set and only external URLs are
@@ -212,14 +212,14 @@ published service FillProperties
         this is the cropping, otherwise it is empty.
 
         @see com::sun::star::text::GraphicCrop
-        @since LibreOffice 4.3
+        @since lofice 4.3
      */
     [optional, property] com::sun::star::text::GraphicCrop GraphicCrop;
 
     /** If this is `TRUE`, and FillStyle is FillStyle::NONE:
         The area displays the slide background
 
-        @since LibreOffice 7.5
+        @since lofice 7.5
     */
     [optional, property] boolean FillUseSlideBackground;
 

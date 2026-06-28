@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -45,7 +45,7 @@
 #include <uitool.hxx>
 #include <cmdid.h>
 #include <docsh.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <comphelper/string.hxx>
 
@@ -120,7 +120,7 @@ static void lcl_emitSearchResultCallbacks(SvxSearchItem const * pSearchItem, SwW
 
     SfxViewShell* pNotifySh = pWrtShell->GetSfxViewShell();
     if (pNotifySh)
-        pNotifySh->libreOfficeKitViewCallback(LOK_CALLBACK_SEARCH_RESULT_SELECTION, aPayload);
+        pNotifySh->loficeKitViewCallback(LOK_CALLBACK_SEARCH_RESULT_SELECTION, aPayload);
 
     if(bHighlightAll)
     {   // FindAll disables this during find, do it once when done.
@@ -255,7 +255,7 @@ void SwView::ExecSearch(SfxRequest& rReq)
                 if( bRet )
                 {
                     Scroll(m_pWrtShell->GetCharRect().SVRect());
-                    if (comphelper::LibreOfficeKit::isActive())
+                    if (comphelper::loficeKit::isActive())
                         lcl_emitSearchResultCallbacks(s_pSrchItem, m_pWrtShell.get(), /* bHighlightAll = */ false);
                 }
                 rReq.SetReturnValue(SfxBoolItem(nSlot, bRet));
@@ -281,7 +281,7 @@ void SwView::ExecSearch(SfxRequest& rReq)
                     if( !bQuiet )
                     {
                         if (SfxViewShell* pNotifySh = m_pWrtShell->GetSfxViewShell())
-                            pNotifySh->libreOfficeKitViewCallback(LOK_CALLBACK_SEARCH_NOT_FOUND, s_pSrchItem->GetSearchString().toUtf8());
+                            pNotifySh->loficeKitViewCallback(LOK_CALLBACK_SEARCH_NOT_FOUND, s_pSrchItem->GetSearchString().toUtf8());
                         SvxSearchDialogWrapper::SetSearchLabel(SearchLabel::NotFound);
                     }
 #endif
@@ -289,7 +289,7 @@ void SwView::ExecSearch(SfxRequest& rReq)
                 }
                 else
                 {
-                    if (comphelper::LibreOfficeKit::isActive())
+                    if (comphelper::loficeKit::isActive())
                         lcl_emitSearchResultCallbacks(s_pSrchItem, m_pWrtShell.get(), /* bHighlightAll = */ true);
                     if (!bQuiet)
                     {
@@ -382,7 +382,7 @@ void SwView::ExecSearch(SfxRequest& rReq)
                         if( !bQuiet )
                         {
                             if (SfxViewShell* pNotifySh = m_pWrtShell->GetSfxViewShell())
-                                pNotifySh->libreOfficeKitViewCallback(LOK_CALLBACK_SEARCH_NOT_FOUND, s_pSrchItem->GetSearchString().toUtf8());
+                                pNotifySh->loficeKitViewCallback(LOK_CALLBACK_SEARCH_NOT_FOUND, s_pSrchItem->GetSearchString().toUtf8());
                             SvxSearchDialogWrapper::SetSearchLabel(SearchLabel::NotFound);
                         }
 #endif
@@ -552,7 +552,7 @@ bool SwView::SearchAndWrap(bool bApi)
         {
 #if HAVE_FEATURE_DESKTOP
             if (SfxViewShell* pNotifySh = m_pWrtShell->GetSfxViewShell())
-                pNotifySh->libreOfficeKitViewCallback(LOK_CALLBACK_SEARCH_NOT_FOUND, s_pSrchItem->GetSearchString().toUtf8());
+                pNotifySh->loficeKitViewCallback(LOK_CALLBACK_SEARCH_NOT_FOUND, s_pSrchItem->GetSearchString().toUtf8());
             SvxSearchDialogWrapper::SetSearchLabel(SearchLabel::NotFound);
 #endif
         }
@@ -608,7 +608,7 @@ bool SwView::SearchAndWrap(bool bApi)
     else if(!bApi)
     {
         if (SfxViewShell* pNotifySh = m_pWrtShell->GetSfxViewShell())
-            pNotifySh->libreOfficeKitViewCallback(LOK_CALLBACK_SEARCH_NOT_FOUND, s_pSrchItem->GetSearchString().toUtf8());
+            pNotifySh->loficeKitViewCallback(LOK_CALLBACK_SEARCH_NOT_FOUND, s_pSrchItem->GetSearchString().toUtf8());
         SvxSearchDialogWrapper::SetSearchLabel(SearchLabel::NotFound);
     }
 #endif

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -52,7 +52,7 @@
 #include <com/sun/star/task/ErrorCodeRequest2.hpp>
 
 #include <comphelper/lok.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/processfactory.hxx>
 #include <comphelper/sequenceashashmap.hxx>
 #include <comphelper/string.hxx>
@@ -344,7 +344,7 @@ void SfxObjectShell::ModifyChanged()
     SfxGetpApp()->NotifyEvent( SfxEventHint( SfxEventHintId::ModifyChanged, GlobalEventConfig::GetEventName(GlobalEventId::MODIFYCHANGED), this ) );
 
     // Don't wait to get this important state via binding notification timeout.
-    if ( comphelper::LibreOfficeKit::isActive() )
+    if ( comphelper::loficeKit::isActive() )
     {
         OString aStatus = ".uno:ModifiedStatus="_ostr;
         aStatus += IsModified() ? "true" : "false";
@@ -2009,7 +2009,7 @@ bool SfxObjectShell::IsContinueImportOnFilterExceptions()
         {
             mbContinueImportOnFilterExceptions = yes;
             // lok: we want to overwrite file in jail, so don't use template flag
-            bool bIsLOK = comphelper::LibreOfficeKit::isActive();
+            bool bIsLOK = comphelper::loficeKit::isActive();
             // allow repair
             pMedium->GetItemSet().Put(SfxBoolItem(SID_REPAIRPACKAGE, true));
             pMedium->GetItemSet().Put(SfxBoolItem(SID_TEMPLATE, !bIsLOK));

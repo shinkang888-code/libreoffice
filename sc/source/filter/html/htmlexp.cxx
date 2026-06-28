@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -685,7 +685,7 @@ void ScHTMLExport::WriteBody()
         {
             aMarker = pEnv;
         }
-        else if (comphelper::LibreOfficeKit::isActive())
+        else if (comphelper::loficeKit::isActive())
         {
             aMarker = "<google-sheets-html-origin/>"_ostr;
         }

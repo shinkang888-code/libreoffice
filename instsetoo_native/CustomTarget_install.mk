@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -133,16 +133,16 @@ $(gb_CustomTarget_workdir)/instsetoo_native/install/install.phony: $(instsetoo_i
 	$(call gb_Trace_StartRange,$(subst $(WORKDIR)/,,$@),PRL)
 	$(if $(ENABLE_WIX),$(call gb_ExternalExecutable_get_command,python) $(SRCDIR)/msicreator/create_installer.py $(BUILDDIR) $(SRCDIR) $(LIBO_VERSION) $(PRODUCTNAME_WITHOUT_SPACES))
 ifeq (TRUE,$(LIBO_TEST_INSTALL))
-	unzip -q -d $(TESTINSTALLDIR) $(instsetoo_OUT)/$(PRODUCTNAME_WITHOUT_SPACES)/archive/install/en-US/LibreOffice*_archive.zip
-	mv $(TESTINSTALLDIR)/LibreOffice*_archive/LibreOffice*/* $(TESTINSTALLDIR)/
-	rmdir $(TESTINSTALLDIR)/LibreOffice*_archive/LibreOffice*
-	rmdir $(TESTINSTALLDIR)/LibreOffice*_archive
+	unzip -q -d $(TESTINSTALLDIR) $(instsetoo_OUT)/$(PRODUCTNAME_WITHOUT_SPACES)/archive/install/en-US/lofice*_archive.zip
+	mv $(TESTINSTALLDIR)/lofice*_archive/lofice*/* $(TESTINSTALLDIR)/
+	rmdir $(TESTINSTALLDIR)/lofice*_archive/lofice*
+	rmdir $(TESTINSTALLDIR)/lofice*_archive
 ifeq (ODK,$(filter ODK,$(BUILD_TYPE)))
-	unzip -q -d $(TESTINSTALLDIR) $(instsetoo_OUT)/$(PRODUCTNAME_WITHOUT_SPACES)_SDK/archive/install/en-US/LibreOffice*_archive_sdk.zip
-	mv $(TESTINSTALLDIR)/LibreOffice*_archive_sdk/LibreOffice*_SDK/sdk \
+	unzip -q -d $(TESTINSTALLDIR) $(instsetoo_OUT)/$(PRODUCTNAME_WITHOUT_SPACES)_SDK/archive/install/en-US/lofice*_archive_sdk.zip
+	mv $(TESTINSTALLDIR)/lofice*_archive_sdk/lofice*_SDK/sdk \
         $(TESTINSTALLDIR)/
-	rmdir $(TESTINSTALLDIR)/LibreOffice*_archive_sdk/LibreOffice*_SDK
-	rmdir $(TESTINSTALLDIR)/LibreOffice*_archive_sdk
+	rmdir $(TESTINSTALLDIR)/lofice*_archive_sdk/lofice*_SDK
+	rmdir $(TESTINSTALLDIR)/lofice*_archive_sdk
 endif
 endif # LIBO_TEST_INSTALL
 	touch $@

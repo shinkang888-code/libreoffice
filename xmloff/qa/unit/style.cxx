@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -60,7 +60,7 @@ CPPUNIT_TEST_FIXTURE(XmloffStyleTest, testFillImageBase64)
 
     // Without the accompanying fix in place, this test would have failed, as the base64 stream was
     // not considered when parsing the fill-image style.
-    CPPUNIT_ASSERT(xBitmaps->hasByName(u"libreoffice_0"_ustr));
+    CPPUNIT_ASSERT(xBitmaps->hasByName(u"lofice_0"_ustr));
 }
 
 namespace
@@ -615,7 +615,7 @@ CPPUNIT_TEST_FIXTURE(XmloffStyleTest, testAxialGradientCompatible)
     // of MCGR would get a linear gradient with start and end color B. For better compatibility
     // ODF export writes an axial gradient. with colors A and B.
     // This test needs to be adapted when color stops are available in ODF strict and widely
-    // supported in even older LibreOffice versions.
+    // supported in even older lofice versions.
     loadFromFile(u"tdf155549_MCGR_AxialGradientCompatible.odt");
 
     //Round-trip through OOXML.
@@ -645,7 +645,7 @@ CPPUNIT_TEST_FIXTURE(XmloffStyleTest, testAxialTransparencyCompatible)
     // compatibility with consumers not able to use MCGR, the ODF export writes the transparency as
     // axial transparency gradient that is same as in the original document.
     // This test needs to be adapted when color stops are available in ODF strict and widely
-    // supported in even older LibreOffice versions.
+    // supported in even older lofice versions.
     loadFromFile(u"tdf155549_MCGR_AxialTransparencyCompatible.odt");
 
     //Round-trip through OOXML.

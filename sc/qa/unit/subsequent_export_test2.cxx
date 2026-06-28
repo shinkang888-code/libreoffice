@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1532,7 +1532,7 @@ CPPUNIT_TEST_FIXTURE(ScExportTest2, testTdf123645XLSX)
     assertXPath(pXmlRels, "/rels:Relationships/rels:Relationship[@Id='rId3']", "Target",
                 u"#Sheet2!A1");
     assertXPath(pXmlRels, "/rels:Relationships/rels:Relationship[@Id='rId5']", "Target",
-                u"https://bugs.documentfoundation.org/show_bug.cgi?id=123645");
+                u"https://bugs.lofice.io/show_bug.cgi?id=123645");
 }
 
 CPPUNIT_TEST_FIXTURE(ScExportTest2, testTdf125173XLSX)
@@ -1571,7 +1571,7 @@ CPPUNIT_TEST_FIXTURE(ScExportTest2, testTdf79972XLSX)
     xmlDocUniquePtr pXmlRels = parseExport(u"xl/worksheets/_rels/sheet1.xml.rels"_ustr);
     CPPUNIT_ASSERT(pXmlRels);
     assertXPath(pXmlRels, "/rels:Relationships/rels:Relationship", "Target",
-                u"https://bugs.documentfoundation.org/show_bug.cgi?id=79972");
+                u"https://bugs.lofice.io/show_bug.cgi?id=79972");
     assertXPath(pXmlRels, "/rels:Relationships/rels:Relationship", "TargetMode", u"External");
 }
 
@@ -1587,7 +1587,7 @@ CPPUNIT_TEST_FIXTURE(ScExportTest2, testTdf126024XLSX)
     xmlDocUniquePtr pXmlRels = parseExport(u"xl/worksheets/_rels/sheet1.xml.rels"_ustr);
     CPPUNIT_ASSERT(pXmlRels);
     assertXPath(pXmlRels, "/rels:Relationships/rels:Relationship", "Target",
-                u"https://bugs.documentfoundation.org/");
+                u"https://bugs.lofice.io/");
     assertXPath(pXmlRels, "/rels:Relationships/rels:Relationship", "TargetMode", u"External");
 }
 

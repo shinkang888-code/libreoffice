@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -8,7 +8,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 
 #ifndef INCLUDED_SAL_LOG_HXX
@@ -196,9 +196,9 @@ inline char const * unwrapStream(SAL_UNUSED_PARAMETER StreamIgnore const &) {
     automatically), but also when creating exception messages.
 
     @attention For now, this functionality should only be used internally within
-    LibreOffice. It may change again in a future version.
+    lofice. It may change again in a future version.
 
-    @since LibreOffice 3.5
+    @since lofice 3.5
 */
 #define SAL_WHERE SAL_DETAIL_WHERE
 
@@ -212,9 +212,9 @@ inline char const * unwrapStream(SAL_UNUSED_PARAMETER StreamIgnore const &) {
       SAL_INFO("foo", "object: " << (hasName ? obj->name : SAL_STREAM(obj)));
 
     @attention For now, this functionality should only be used internally within
-    LibreOffice. It may change again in a future version.
+    lofice. It may change again in a future version.
 
-    @since LibreOffice 3.5
+    @since lofice 3.5
 */
 #if defined _LIBCPP_VERSION \
     || (defined _GLIBCXX_RELEASE \
@@ -349,15 +349,15 @@ inline char const * unwrapStream(SAL_UNUSED_PARAMETER StreamIgnore const &) {
     notably a file provided as a system path and filename via
     environment variable SAL_LOG_FILE (appending the process ID if that value ends in a hyphen);
     or to a syslog facility if
-    LibreOffice is suitably built, by setting environment variable
+    lofice is suitably built, by setting environment variable
     SAL_LOG_SYSLOG.
 
     @see @ref sal_log_areas
 
     @attention For now, this functionality should only be used internally within
-    LibreOffice. It may change again in a future version.
+    lofice. It may change again in a future version.
 
-    @since LibreOffice 3.5
+    @since lofice 3.5
 */
 
 /**

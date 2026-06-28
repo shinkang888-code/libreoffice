@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -23,13 +23,13 @@ module com { module sun { module star { module text {
   The sw module uses this to get a pointer to the  from the swui module.
   Because we have a dependency in our modules that goes the "wrong" way.
 
-  @since LibreOffice 24.8
+  @since lofice 24.8
 
   @internal
 
   ATTENTION: This is marked <em>internal</em> and does not
   have the <em>published</em> flag, which means it is subject to
-  change without notice and should not be used outside the LibreOffice core.
+  change without notice and should not be used outside the lofice core.
 */
 service DialogFactoryService : com::sun::star::lang::XUnoTunnel;
 

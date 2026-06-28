@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -70,7 +70,7 @@
 #include <controller/SlsPageSelector.hxx>
 
 #include <comphelper/lok.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <vcl/uitest/logger.hxx>
 #include <vcl/uitest/eventdescription.hxx>
 #include <titledockwin.hxx>
@@ -402,7 +402,7 @@ void DrawViewShell::ChangeEditMode(EditMode eEMode, bool bIsLayerModeActive)
             OUString aPageName = pPage->GetName();
             maTabControl->InsertPage(pPage->getPageId(), aPageName);
 
-            if ( !comphelper::LibreOfficeKit::isActive() && pPage->IsSelected() )
+            if ( !comphelper::loficeKit::isActive() && pPage->IsSelected() )
             {
                 nActualPageId = pPage->getPageId();
             }
@@ -826,7 +826,7 @@ void notifyLinkAnnotations(const SfxViewShell* pViewShell, const SdPage* pPage)
         }
     }
     OString aPayload = jsonWriter.finishAndGetAsOString();
-    pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, aPayload);
+    pViewShell->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, aPayload);
 }
 }
 
@@ -939,7 +939,7 @@ bool DrawViewShell::SwitchPage(sal_uInt16 nSelectedPage, bool bAllowChangeFocus,
                         && maTabControl->GetPageText(maTabControl->GetPageId(nSelectedPage)) == pNewPage->GetName())
                     {
                         // this slide is already visible
-                        if (comphelper::LibreOfficeKit::isActive())
+                        if (comphelper::loficeKit::isActive())
                             notifyLinkAnnotations(GetViewShell(), mpActualPage);
                         return true;
                     }
@@ -1003,13 +1003,13 @@ bool DrawViewShell::SwitchPage(sal_uInt16 nSelectedPage, bool bAllowChangeFocus,
         // never at a masterpage)
         GetDoc()->SetSelected(mpActualPage, true);
 
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
-            // notify LibreOfficeKit about changed page
+            // notify loficeKit about changed page
             OString aPayload = OString::number(nSelectedPage);
             if (SfxViewShell* pViewShell = GetViewShell())
             {
-                pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_SET_PART, aPayload);
+                pViewShell->loficeKitViewCallback(LOK_CALLBACK_SET_PART, aPayload);
                 notifyLinkAnnotations(pViewShell, mpActualPage);
             }
         }
@@ -1077,11 +1077,11 @@ bool DrawViewShell::SwitchPage(sal_uInt16 nSelectedPage, bool bAllowChangeFocus,
 
                     UpdateScrollBars();
 
-                    if (comphelper::LibreOfficeKit::isActive())
+                    if (comphelper::loficeKit::isActive())
                     {
                         OString aPayload = ".uno:CurrentPageResize"_ostr;
                         SfxViewShell* pViewShell = GetViewShell();
-                        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, aPayload);
+                        pViewShell->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, aPayload);
                     }
                 }
             }
@@ -1114,7 +1114,7 @@ bool DrawViewShell::SwitchPage(sal_uInt16 nSelectedPage, bool bAllowChangeFocus,
             mpDrawView->ShowSdrPage(mpActualPage);
             GetViewShellBase().GetDrawController()->FireSwitchCurrentPage(mpActualPage);
 
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
             {
                 if (bChangeZoom && bAllowChangeFocus)
                 {
@@ -1123,7 +1123,7 @@ bool DrawViewShell::SwitchPage(sal_uInt16 nSelectedPage, bool bAllowChangeFocus,
                     {
                         OString aPayload = ".uno:PageZoomChange="_ostr + OString::number(nZoom);
                         if (SfxViewShell* pViewShell = GetViewShell())
-                            pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, aPayload);
+                            pViewShell->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, aPayload);
                     }
                 }
                 if (GetDoc()->HasCanvasPage() && getCurrentPage()->IsCanvasPage() && bAllowChangeFocus)
@@ -1144,7 +1144,7 @@ bool DrawViewShell::SwitchPage(sal_uInt16 nSelectedPage, bool bAllowChangeFocus,
                     OString aPayload = aJsonWriter.finishAndGetAsOString();
                     if (SfxViewShell* pViewShell = GetViewShell())
                     {
-                        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, aPayload);
+                        pViewShell->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, aPayload);
                     }
                 }
             }

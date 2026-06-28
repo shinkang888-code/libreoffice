@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -469,7 +469,7 @@ namespace emfio
         const double fFactorCorrectedTextPercent(fabs(1.0 - fFactorCorrectedText) * 100.0);
 
         // If FactorCorrectedText fits better than FactorText this is probably
-        // an import of an old EMF/WMF written by LibreOffice on a non-Windows (unx) system
+        // an import of an old EMF/WMF written by lofice on a non-Windows (unx) system
         // and should be corrected.
         // Usually in tested cases this lies inside 5% of range, so detecting this just using
         //  fFactorTextPercent inside 5% -> no old file

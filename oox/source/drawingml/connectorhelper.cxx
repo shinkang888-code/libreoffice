@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -109,7 +109,7 @@ ConnectorHelper::getConnectorTransformMatrix(const oox::drawingml::ShapePtr& pCo
     else if (pConnector->getRotation() == 16200000 || pConnector->getRotation() == -5400000)
         aTransform *= basegfx::B2DHomMatrix(0, 1, 0, -1, 0, 0);
     else
-        SAL_WARN("oox", "tdf#157888 LibreOffice cannot handle such connector rotation");
+        SAL_WARN("oox", "tdf#157888 lofice cannot handle such connector rotation");
     return aTransform;
 }
 
@@ -308,7 +308,7 @@ void ConnectorHelper::applyConnections(const oox::drawingml::ShapePtr& pConnecto
     xPropSet->setPropertyValue(u"EdgeNode2VertDist"_ustr, uno::Any(sal_Int32(0)));
 
     // A OOXML curvedConnector uses a routing method which is basically incompatible with the
-    // traditional way of LibreOffice. A compatible way was added and needs to be enabled before
+    // traditional way of lofice. A compatible way was added and needs to be enabled before
     // connections are set, so that the method is used in the default routing.
     xPropSet->setPropertyValue(u"EdgeOOXMLCurve"_ustr, uno::Any(true));
 
@@ -330,9 +330,9 @@ void ConnectorHelper::applyConnections(const oox::drawingml::ShapePtr& pConnecto
             else
                 xPropSet->setPropertyValue(u"EndShape"_ustr, uno::Any(xShape));
 
-            // The first four glue points are the default glue points, which are set by LibreOffice.
+            // The first four glue points are the default glue points, which are set by lofice.
             // They do not belong to the preset geometry of the shape.
-            // Adapt gluepoint index to LibreOffice
+            // Adapt gluepoint index to lofice
             uno::Reference<drawing::XGluePointsSupplier> xSupplier(xShape, uno::UNO_QUERY);
             css::uno::Reference<css::container::XIdentifierContainer> xGluePoints(
                 xSupplier->getGluePoints(), uno::UNO_QUERY);

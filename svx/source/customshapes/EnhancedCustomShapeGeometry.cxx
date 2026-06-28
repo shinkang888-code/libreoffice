@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -8309,7 +8309,7 @@ const mso_CustomShape msoTearDrop =
 const SvxMSDffVertPair mso_sptSinusoidVert[] =
 {
     // calculations courtesy of section 6.3.2 of
-    // https://documentation.libreoffice.org/assets/Uploads/Documentation/en/Tutorials/CustomShapes7/Custom-Shape-Tutorial.pdf#page=52
+    // https://documentation.lofice.org/assets/Uploads/Documentation/en/Tutorials/CustomShapes7/Custom-Shape-Tutorial.pdf#page=52
 
     // taking K = (3pi/2 - 3pi^2/8 - 1/2)
     // transforming points to viewbox of size 21600 x 21600

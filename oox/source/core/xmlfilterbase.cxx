@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -140,7 +140,7 @@ const Sequence< beans::Pair< OUString, sal_Int32 > >& NamespaceIds()
              NMSP_dsp},
             {u"http://schemas.microsoft.com/office/spreadsheetml/2009/9/main"_ustr,
              NMSP_xls14Lst},
-            {u"http://schemas.libreoffice.org/"_ustr, NMSP_loext},
+            {u"http://schemas.lofice.org/"_ustr, NMSP_loext},
             {u"http://schemas.microsoft.com/office/drawing/2010/main"_ustr,
              NMSP_a14},
             {u"http://schemas.microsoft.com/office/powerpoint/2010/main"_ustr,
@@ -840,7 +840,7 @@ writeAppProperties( XmlFilterBase& rSelf, const Reference< XDocumentProperties >
     //     * 12:  [Office 2007]  [LO < 7.0]
     //     * 14:  [Office 2010]
     //     * 15:  [Office 2013/2016/2019]  [LO >= 7.0]
-    // The LibreOffice is application on 2013/2016/2019 level
+    // The lofice is application on 2013/2016/2019 level
     writeElement( pAppProps, XML_AppVersion, u"15.0000" );
 
     // OOXTODO Calculate DocSecurity value based on security (password, read-only etc.)

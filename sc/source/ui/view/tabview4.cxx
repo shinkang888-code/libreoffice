@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -28,7 +28,7 @@
 #include <globstr.hrc>
 #include <scresid.hxx>
 #include <inputhdl.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <tools/json_writer.hxx>
 #include <output.hxx>
 
@@ -293,7 +293,7 @@ void ScTabView::UpdateRef( SCCOL nCurX, SCROW nCurY, SCTAB nCurZ )
         aHelpStr = ScResId( STR_QUICKHELP_DELETE );
 
         if (ScTabViewShell* pLOKViewShell
-            = comphelper::LibreOfficeKit::isActive() ? aViewData.GetViewShell() : nullptr)
+            = comphelper::loficeKit::isActive() ? aViewData.GetViewShell() : nullptr)
         {
             // set cell addresses for deletion by autofill
             tools::Long nX1 = aDelRange.aStart.Col();
@@ -338,7 +338,7 @@ void ScTabView::UpdateRef( SCCOL nCurX, SCROW nCurY, SCTAB nCurZ )
         sTopParent = pWin;
 
         if (ScTabViewShell* pLOKViewShell
-            = comphelper::LibreOfficeKit::isActive() ? aViewData.GetViewShell() : nullptr)
+            = comphelper::loficeKit::isActive() ? aViewData.GetViewShell() : nullptr)
         {
             // we need to use nAddX and nAddX here because we need the next row&column address
             OUString sCol = OUString::number(nEndX + nAddX);
@@ -352,7 +352,7 @@ void ScTabView::UpdateRef( SCCOL nCurX, SCROW nCurY, SCTAB nCurZ )
             writer.put("text", sTipString);
             writer.put("celladdress", sCellAddress);
             OString sPayloadString = writer.finishAndGetAsOString();
-            pLOKViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_TOOLTIP, sPayloadString);
+            pLOKViewShell->loficeKitViewCallback(LOK_CALLBACK_TOOLTIP, sPayloadString);
         }
     }
 }

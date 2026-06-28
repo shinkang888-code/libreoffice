@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -903,7 +903,7 @@ void StyleSheetTable::ApplyNumberingStyleNameToParaStyles()
     }
 }
 
-/* Counteract the destructive tendencies of LibreOffice's Chapter Numbering
+/* Counteract the destructive tendencies of lofice's Chapter Numbering
  *
  * Any assignment to Chapter Numbering will erase the numbering-like properties of inherited styles.
  * So go through the list of styles and any that inherit from a Chapter Numbering style

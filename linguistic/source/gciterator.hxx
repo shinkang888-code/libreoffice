@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -82,7 +82,7 @@ class GrammarCheckingIterator:
         css::lang::XServiceInfo
     >,
     public LinguDispatcher,
-    public comphelper::LibreOfficeKit::ThreadJoinable
+    public comphelper::loficeKit::ThreadJoinable
 {
     //the queue is keeping track of all sentences to be checked
     //every element of this queue is a FlatParagraphEntry struct-object
@@ -188,7 +188,7 @@ public:
     virtual void SetServiceList( const css::lang::Locale &rLocale, const css::uno::Sequence< OUString > &rSvcImplNames ) override;
     virtual css::uno::Sequence< OUString > GetServiceList( const css::lang::Locale &rLocale ) const override;
 
-    // comphelper::LibreOfficeKit::ThreadJoinable
+    // comphelper::loficeKit::ThreadJoinable
     virtual bool joinThreads() override;
 };
 

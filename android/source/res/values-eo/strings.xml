@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_settings">Agordaro por LibreOffice-vidigilo</string>
-    <string name="app_name">LibreOffice-vidigilo</string>
-    <string name="app_version">Versio: %1$s&lt;br&gt;Build ID: &lt;a href=https://hub.libreoffice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
-    <string name="app_description">LibreOffice-Vidigilo estas dokument-vidigilo bazita sur LibreOffice.</string>
-    <string name="app_credits">https://www.libreoffice.org</string>
+    <string name="app_name_settings">Agordaro por lofice-vidigilo</string>
+    <string name="app_name">lofice-vidigilo</string>
+    <string name="app_version">Versio: %1$s&lt;br&gt;Build ID: &lt;a href=https://hub.lofice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
+    <string name="app_description">lofice-Vidigilo estas dokument-vidigilo bazita sur lofice.</string>
+    <string name="app_credits">https://www.lofice.org</string>
     <string name="app_vendor">Ĉi tiun eldonon liveris $VENDOR.</string>
     <string name="readonly_file">Ĉi tiu dosiero estas nurlega.</string>
     <string name="about_license">Vidigi permesilon</string>

@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -20,8 +20,8 @@ define gb_CliUnoApi__command
 $(call gb_Helper_abbreviate_dirs,\
 	$(gb_CliUnoApi_COMMAND) \
 		--out $(1) \
-		--assembly-company "LibreOffice" \
-		--assembly-description "This assembly contains metadata for the LibreOffice API." \
+		--assembly-company "lofice" \
+		--assembly-description "This assembly contains metadata for the lofice API." \
 		--assembly-version $(CLI_UNOAPI_VERSION) \
 		--keyfile $(CLI_UNOAPI_KEYFILE) \
 		$(if $(gb_VERBOSE),--verbose) \

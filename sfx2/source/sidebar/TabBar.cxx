@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -124,7 +124,7 @@ sal_Int32 TabBar::GetDefaultWidth()
 void TabBar::SetDecks(const ResourceManager::DeckContextDescriptorContainer& rDecks)
 {
     // invisible with LOK, so keep empty to avoid invalidations
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return;
 
     // Remove the current buttons.
@@ -362,7 +362,7 @@ void TabBar::UpdateMenus()
         mxMainMenu->set_active(sIdent, bCurrentDeck);
         mxMainMenu->set_sensitive(sIdent, bEnabled && bActive);
 
-        if (!comphelper::LibreOfficeKit::isActive())
+        if (!comphelper::loficeKit::isActive())
         {
             if (bCurrentDeck)
             {
@@ -387,7 +387,7 @@ void TabBar::UpdateMenus()
     bool bHideLock = true;
     bool bHideUnLock = true;
     // LOK doesn't support docked/undocked; Sidebar is floating but rendered docked in browser.
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
     {
         // Add entry for docking or un-docking the tool panel.
         if (!mrParentSidebarController.IsDocked())
@@ -399,7 +399,7 @@ void TabBar::UpdateMenus()
     mxMainMenu->set_visible(u"unlocktaskpanel"_ustr, !bHideUnLock);
 
     // No Restore or Customize options for LoKit.
-    mxMainMenu->set_visible(u"customization"_ustr, !comphelper::LibreOfficeKit::isActive());
+    mxMainMenu->set_visible(u"customization"_ustr, !comphelper::loficeKit::isActive());
 }
 
 void TabBar::EnableMenuButton(const bool bEnable)

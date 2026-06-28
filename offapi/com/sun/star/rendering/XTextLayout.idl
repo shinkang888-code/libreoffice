@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -163,7 +163,7 @@ interface XTextLayout : ::com::sun::star::uno::XInterface
 
         @see XTextLayout::applyKashidaPositions)
 
-        @since LibreOffice 7.6
+        @since lofice 7.6
      */
     sequence<boolean>            queryKashidaPositions();
 
@@ -184,7 +184,7 @@ interface XTextLayout : ::com::sun::star::uno::XInterface
         if the size of aPositions is not zero and does not match the number of
         characters in the text.
 
-        @since LibreOffice 7.6
+        @since lofice 7.6
      */
     void                        applyKashidaPositions( [in] sequence< boolean > aPositions )
         raises (com::sun::star::lang::IllegalArgumentException);

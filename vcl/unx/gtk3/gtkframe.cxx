@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -477,7 +477,7 @@ bool GtkSalFrame::doKeyCallback( guint state,
         // there is uncommitted text will call GtkSalFrame::EndExtTextInput() which
         // will dispatch a SalEvent::EndExtTextInput event. Writer's handler for that
         // event will delete the uncommitted text and then insert the committed text
-        // but LibreOffice will crash when deleting the uncommitted text because
+        // but lofice will crash when deleting the uncommitted text because
         // deletion of the text also removes and deletes the newly inserted comment.
         if (m_pIMHandler && !m_pIMHandler->m_aInputEvent.maText.isEmpty() && (aEvent.mnCode & (KEY_MOD1 | KEY_MOD2)))
             m_pIMHandler->doCallEndExtTextInput();
@@ -585,28 +585,28 @@ static void attach_menu_model(GtkSalFrame* pSalFrame)
 
     // Generate menu paths.
     sal_uIntPtr windowId = GtkSalFrame::GetNativeWindowHandle(pWidget);
-    gchar* aDBusWindowPath = g_strdup_printf( "/org/libreoffice/window/%lu", windowId );
-    gchar* aDBusMenubarPath = g_strdup_printf( "/org/libreoffice/window/%lu/menus/menubar", windowId );
+    gchar* aDBusWindowPath = g_strdup_printf( "/org/lofice/window/%lu", windowId );
+    gchar* aDBusMenubarPath = g_strdup_printf( "/org/lofice/window/%lu/menus/menubar", windowId );
 
     GdkDisplay *pDisplay = GtkSalFrame::getGdkDisplay();
 #if defined(GDK_WINDOWING_X11)
     if (DLSYM_GDK_IS_X11_DISPLAY(pDisplay))
     {
-        gdk_x11_window_set_utf8_property( gdkWindow, "_GTK_APPLICATION_ID", "org.libreoffice" );
+        gdk_x11_window_set_utf8_property( gdkWindow, "_GTK_APPLICATION_ID", "org.lofice" );
         gdk_x11_window_set_utf8_property( gdkWindow, "_GTK_MENUBAR_OBJECT_PATH", aDBusMenubarPath );
         gdk_x11_window_set_utf8_property( gdkWindow, "_GTK_WINDOW_OBJECT_PATH", aDBusWindowPath );
-        gdk_x11_window_set_utf8_property( gdkWindow, "_GTK_APPLICATION_OBJECT_PATH", "/org/libreoffice" );
+        gdk_x11_window_set_utf8_property( gdkWindow, "_GTK_APPLICATION_OBJECT_PATH", "/org/lofice" );
         gdk_x11_window_set_utf8_property( gdkWindow, "_GTK_UNIQUE_BUS_NAME", g_dbus_connection_get_unique_name( pSessionBus ) );
     }
 #endif
 #if defined(GDK_WINDOWING_WAYLAND)
     if (DLSYM_GDK_IS_WAYLAND_DISPLAY(pDisplay))
     {
-        gdk_wayland_window_set_dbus_properties_libgtk_only(gdkWindow, "org.libreoffice",
+        gdk_wayland_window_set_dbus_properties_libgtk_only(gdkWindow, "org.lofice",
                                                            nullptr,
                                                            aDBusMenubarPath,
                                                            aDBusWindowPath,
-                                                           "/org/libreoffice",
+                                                           "/org/lofice",
                                                            g_dbus_connection_get_unique_name( pSessionBus ));
     }
 #endif
@@ -1575,7 +1575,7 @@ void GtkSalFrame::ListenSessionManager()
 
     GVariant* res = g_dbus_proxy_call_sync(m_pSessionManager,
                                  "RegisterClient",
-                                 g_variant_new ("(ss)", "org.libreoffice", ""),
+                                 g_variant_new ("(ss)", "org.lofice", ""),
                                  G_DBUS_CALL_FLAGS_NONE,
                                  G_MAXINT,
                                  nullptr,
@@ -1760,7 +1760,7 @@ void GtkSalFrame::Init( SalFrame* pParent, SalFrameStyleFlags nStyle )
 
 #if !GTK_CHECK_VERSION(4,0,0)
 #if defined(GDK_WINDOWING_WAYLAND)
-        //rhbz#1392145 under wayland/csd if we've overridden the default widget direction in order to set LibreOffice's
+        //rhbz#1392145 under wayland/csd if we've overridden the default widget direction in order to set lofice's
         //UI to the configured ui language but the system ui locale is a different text direction, then the toplevel
         //built-in close button of the titlebar follows the overridden direction rather than continue in the same
         //direction as every other titlebar on the user's desktop. So if they don't match set an explicit
@@ -1999,14 +1999,14 @@ void GtkSalFrame::Show( bool bVisible, bool /*bNoActivate*/ )
          before gdk_wayland_window_set_application_id was available gtk
          under wayland lacked a way to change the app_id of a window, so
          brute force everything as a startcenter when initially shown to at
-         least get the default LibreOffice icon and not the broken app icon
+         least get the default lofice icon and not the broken app icon
         */
         static bool bAppIdImmutable = DLSYM_GDK_IS_WAYLAND_DISPLAY(getGdkDisplay()) &&
                                       !dlsym(nullptr, "gdk_wayland_window_set_application_id");
         if (bAppIdImmutable)
         {
             OString sOrigName(g_get_prgname());
-            g_set_prgname("libreoffice-startcenter");
+            g_set_prgname("lofice-startcenter");
             gtk_widget_set_visible(m_pWindow, true);
             g_set_prgname(sOrigName.getStr());
         }
@@ -5158,7 +5158,7 @@ public:
 #endif
 };
 
-// For LibreOffice internal D&D we provide the Transferable without Gtk
+// For lofice internal D&D we provide the Transferable without Gtk
 // intermediaries as a shortcut, see tdf#100097 for how dbaccess depends on this
 GtkInstDragSource* GtkInstDragSource::g_ActiveDragSource;
 
@@ -5233,7 +5233,7 @@ gboolean GtkInstDropTarget::signalDragDrop(GtkDropTargetAsync* context, GdkDrop*
     if (!(mask & (GDK_CONTROL_MASK | GDK_SHIFT_MASK)))
         aEvent.DropAction |= css::datatransfer::dnd::DNDConstants::ACTION_DEFAULT;
 
-    // For LibreOffice internal D&D we provide the Transferable without Gtk
+    // For lofice internal D&D we provide the Transferable without Gtk
     // intermediaries as a shortcut, see tdf#100097 for how dbaccess depends on this
     if (GtkInstDragSource::g_ActiveDragSource)
         aEvent.Transferable = GtkInstDragSource::g_ActiveDragSource->GetTransferable();
@@ -5418,7 +5418,7 @@ GdkDragAction GtkInstDropTarget::signalDragMotion(GtkDropTargetAsync *context, G
     if (!m_bInDrag)
     {
         css::uno::Reference<css::datatransfer::XTransferable> xTransferable;
-        // For LibreOffice internal D&D we provide the Transferable without Gtk
+        // For lofice internal D&D we provide the Transferable without Gtk
         // intermediaries as a shortcut, see tdf#100097 for how dbaccess depends on this
         if (GtkInstDragSource::g_ActiveDragSource)
             xTransferable = GtkInstDragSource::g_ActiveDragSource->GetTransferable();
@@ -6167,7 +6167,7 @@ void GtkInstDragSource::set_datatransfer(const css::uno::Reference<css::datatran
 
 void GtkInstDragSource::setActiveDragSource()
 {
-   // For LibreOffice internal D&D we provide the Transferable without Gtk
+   // For lofice internal D&D we provide the Transferable without Gtk
    // intermediaries as a shortcut, see tdf#100097 for how dbaccess depends on this
    g_ActiveDragSource = this;
    g_DropSuccessSet = false;

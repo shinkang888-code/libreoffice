@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -499,7 +499,7 @@ interface XAccessibleText : ::com::sun::star::uno::XInterface
         @throws ::com::sun::star::lang::IndexOutOfBoundsException
             if the indices are invalid
 
-        @since LibreOffice 7.0
+        @since lofice 7.0
     */
     boolean
         scrollSubstringTo ([in] long nStartIndex, [in] long nEndIndex,

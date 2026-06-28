@@ -1,5 +1,5 @@
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -45,12 +45,12 @@ VS_VERSION_INFO VERSIONINFO
             {
                 // International StringTable
                 VALUE "CompanyName",      PPS(RES_APP_VENDOR) "\0"
-                VALUE "ProductName",      "LibreOffice\0"
+                VALUE "ProductName",      "lofice\0"
                 VALUE "ProductVersion",   PPS(VER_LEVEL) "\0"
                 VALUE "FileVersion",      PPS(VER_LEVEL) "\0"
                 VALUE "OriginalFilename", PPS(ORG_NAME) "\0"
                 VALUE "InternalName",     PPS(INTERNAL_NAME) "\0"
-                VALUE "LegalCopyright",   S_CRIGHT " LibreOffice contributors. All rights reserved.\0"
+                VALUE "LegalCopyright",   S_CRIGHT " lofice contributors. All rights reserved.\0"
                 ADDITIONAL_VERINFO1
                 ADDITIONAL_VERINFO2
                 ADDITIONAL_VERINFO3

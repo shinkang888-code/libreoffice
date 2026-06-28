@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -23,8 +23,8 @@
         LD_LIBRARY_PATH=`pwd`/instdir/program instdir/program/fftester <foo> png
     or on macOS
         make
-        cp workdir/LinkTarget/Executable/fftester instdir/LibreOfficeDev.app/Contents/MacOS/
-        DYLD_LIBRARY_PATH=`pwd`/instdir/LibreOfficeDev.app/Contents/Frameworks instdir/LibreOfficeDev.app/Contents/MacOS/fftester <foo> png
+        cp workdir/LinkTarget/Executable/fftester instdir/loficeDev.app/Contents/MacOS/
+        DYLD_LIBRARY_PATH=`pwd`/instdir/loficeDev.app/Contents/Frameworks instdir/loficeDev.app/Contents/MacOS/fftester <foo> png
   */
 
 #include <sal/config.h>

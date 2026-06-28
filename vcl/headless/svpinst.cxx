@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -302,7 +302,7 @@ void SvpSalInstance::ProcessEvent( SalUserEvent aEvent )
 
 static void loop(void * arg) {
     SolarMutexGuard g;
-    static_cast<SvpSalInstance *>(arg)->ImplYield(comphelper::LibreOfficeKit::isActive(), false);
+    static_cast<SvpSalInstance *>(arg)->ImplYield(comphelper::loficeKit::isActive(), false);
 }
 
 bool SvpSalInstance::DoExecute(int &) {
@@ -451,7 +451,7 @@ bool SvpSalInstance::ImplYield(bool bWait, bool bHandleAllCurrentEvents)
     // We always want to drop the SolarMutex on yield; that is the whole point of yield.
     // If we know the LOK client has pending input events, then don't yet return, so those events
     // can be processed as well.
-    if (!bMustSleep && !comphelper::LibreOfficeKit::anyInput())
+    if (!bMustSleep && !comphelper::loficeKit::anyInput())
         return bWasEvent;
 
     sal_Int64 nTimeoutMicroS = 0;

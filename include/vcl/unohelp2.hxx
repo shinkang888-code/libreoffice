@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -31,7 +31,7 @@ class XClipboard;
 }
 namespace vcl
 {
-class ILibreOfficeKitNotifier;
+class IloficeKitNotifier;
 }
 
 namespace vcl::unohelper
@@ -63,7 +63,7 @@ public:
     static void
     CopyStringTo(const OUString& rContent,
                  const css::uno::Reference<css::datatransfer::clipboard::XClipboard>& rxClipboard,
-                 const vcl::ILibreOfficeKitNotifier* pNotifier = nullptr);
+                 const vcl::IloficeKitNotifier* pNotifier = nullptr);
 };
 
 } // namespace vcl::unohelper

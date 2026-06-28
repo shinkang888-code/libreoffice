@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@ class tdf123446(UITestCase):
             xWriterDoc = self.xUITest.getTopFocusWindow()
             xWriterEdit = xWriterDoc.getChild("writer_edit")
             #- Add a word to an empty document.
-            type_text(xWriterEdit, "LibreOffice")
+            type_text(xWriterEdit, "lofice")
             #- Change its style to Heading 2.
             self.xUITest.executeCommand(".uno:StyleApply?Style:string=Heading%202&FamilyName:string=ParagraphStyles")
             #- Position cursor somewhere in the middle of the word, and add Table of Contents
@@ -35,7 +35,7 @@ class tdf123446(UITestCase):
             #- Redo the ToC insertion.
             self.xUITest.executeCommand(".uno:Redo")
             #=> Crash.  Now we verify the text
-            # This second undo crash in Clang build https://bugs.documentfoundation.org/show_bug.cgi?id=123313#c9
+            # This second undo crash in Clang build https://bugs.lofice.io/show_bug.cgi?id=123313#c9
             self.xUITest.executeCommand(".uno:Undo")
             self.assertEqual(document.Text.String[0:7], "LibreOf")
 

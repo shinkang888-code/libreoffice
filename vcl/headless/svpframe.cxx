@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -472,7 +472,7 @@ void SvpSalFrame::UpdateSettings( AllSettings& rSettings )
     aStyleSettings.SetMenuColor( aBackgroundColor );
     aStyleSettings.SetMenuBarColor( aBackgroundColor );
 
-    if (comphelper::LibreOfficeKit::isActive()) // TODO: remove this.
+    if (comphelper::loficeKit::isActive()) // TODO: remove this.
     {
         vcl::Font aStdFont( FAMILY_SWISS, Size( 0, 14 ) );
         aStdFont.SetCharSet( osl_getThreadTextEncoding() );

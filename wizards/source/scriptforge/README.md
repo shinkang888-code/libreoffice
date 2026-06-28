@@ -1,18 +1,18 @@
 # ScriptForge
 ## Purpose
-Build an extensible and robust collection of macro scripting resources for LibreOffice to be invoked as an **object-oriented API** (Application Programming Interface) from user Basic and/or Python scripts.
+Build an extensible and robust collection of macro scripting resources for lofice to be invoked as an **object-oriented API** (Application Programming Interface) from user Basic and/or Python scripts.
 
 ## Context
-The LibreOffice software is a complete, feature-rich office productivity suite that provides, in combination with an API called "UNO" (Universal Network Objects), all the essential tools for building and deploying custom solutions that build on, or integrate with, the LibreOffice suite of products.
+The lofice software is a complete, feature-rich office productivity suite that provides, in combination with an API called "UNO" (Universal Network Objects), all the essential tools for building and deploying custom solutions that build on, or integrate with, the lofice suite of products.
 
 The ScriptForge project proposes to wrap many UNO interfaces in a specific set of classes, methods and properties to promote the development of custom solutions by non-professional developers. Nevertheless, all the UNO functionalities remain available.
 
-## Integration into LibreOffice
-The LibreOffice *build process* incorporates the ScriptForge software in each distributed version. It appears to users in source as additional "**LibreOffice Macros & Dialogs**" libraries and their equivalents for Python.
+## Integration into lofice
+The lofice *build process* incorporates the ScriptForge software in each distributed version. It appears to users in source as additional "**lofice Macros & Dialogs**" libraries and their equivalents for Python.
  
-Any pre-existing Basic or Python library in the LibreOffice software is left unchanged.
+Any pre-existing Basic or Python library in the lofice software is left unchanged.
 
-The numbering of the ScriptForge versions is identical with the numbering used by LibreOffice (so far from 7.1 to 26.2).
+The numbering of the ScriptForge versions is identical with the numbering used by lofice (so far from 7.1 to 26.2).
 
 ## Deliverables summary (Version "master")
 - A set of Basic + Python modules and classes covering next topics
@@ -35,7 +35,7 @@ The numbering of the ScriptForge versions is identical with the numbering used b
            + usual menus, context and popup menus
            + automated unit testing of Basic scripts
 - The corresponding unit tests grouped in a QA library
-- The user documentation as a set of LibreOffice Help pages
+- The user documentation as a set of lofice Help pages
 - Easy-to-understand examples in the TDF Wiki
 
 ## Extensibility
@@ -96,16 +96,16 @@ Above mechanisms make ScriptForge an easily extensible ecosystem combining a cor
 
 ## References
 - ScriptForge user documentation
-<br>[Nightly build](https://help.libreoffice.org/master/en-US/text/sbasic/shared/03/lib_ScriptForge.html?DbPAR=BASIC)
-<br>[Last official published version](https://help.libreoffice.org/latest/en-US/text/sbasic/shared/03/lib_ScriptForge.html?DbPAR=BASIC)
+<br>[Nightly build](https://help.lofice.org/master/en-US/text/sbasic/shared/03/lib_ScriptForge.html?DbPAR=BASIC)
+<br>[Last official published version](https://help.lofice.org/latest/en-US/text/sbasic/shared/03/lib_ScriptForge.html?DbPAR=BASIC)
 
 - ScriptForge in the TDF wiki
-<br>[Macros/ScriptForge](https://wiki.documentfoundation.org/Macros/ScriptForge)
+<br>[Macros/ScriptForge](https://wiki.lofice.io/Macros/ScriptForge)
 
-- LibreOffice core repository
-<br>[https://cgit.freedesktop.org/libreoffice/core/tree](URL)
-<br>[https://cgit.freedesktop.org/libreoffice/core/tree/wizards](URL)
-<br>[https://cgit.freedesktop.org/libreoffice/core/tree/wizards/source](URL)
+- lofice core repository
+<br>[https://cgit.freedesktop.org/lofice/core/tree](URL)
+<br>[https://cgit.freedesktop.org/lofice/core/tree/wizards](URL)
+<br>[https://cgit.freedesktop.org/lofice/core/tree/wizards/source](URL)
 
 ## Change log
 
@@ -113,30 +113,30 @@ Above mechanisms make ScriptForge an easily extensible ecosystem combining a cor
   * The new  ***session**.GetRangeFromCalc()* method reads the values contained in a given range located in a given Calc file. The file does not need to be open.
   * The new **ScriptForge.Sharedmemory** service implements the mechanisms to manage persistent memory storage across Basic and/or Python scripts. In event-driven scripting one can often benefit from having variables still being available when the next script is triggered, probably due to a user action. And this, especially, in Basic + Python mixed environments.
   * The *scriptforge.pyi* stub file, which is a great support when editing python scripts with PyCharm or VSCode, has its syntax upgraded to Python ≥ 3.10. Older typing features are now superseded by more modern alternatives.
-  * The *AccessibleContext* UNO API is gradually being deprecated. A serious code revisit was needed. More details in [tdf#168409](https://bugs.documentfoundation.org/show_bug.cgi?id=168409).
+  * The *AccessibleContext* UNO API is gradually being deprecated. A serious code revisit was needed. More details in [tdf#168409](https://bugs.lofice.io/show_bug.cgi?id=168409).
   * The ***calc**.ColorizeRange()* method accepts now negative values in the background and foreground arguments to reset them to their default value.
   * The new **SFDocuments.Shape** service is focused on the description of shapes/images/drawing objects stored (in the current release) only in Calc documents. Next methods are implemented : shape.*Anchor()*, shape.*ExportToFile()*, shape.*Pick()*, shape.*Resize()* and shape.*Rotate()* about any pivot point.
 
 
 ### 25.8
-  * The new *XRectangle(range)* property (**Calc** service) returns the coordinates (in pixels) on the screen where the given range is located. This opens the door to effective use of popup menus. See [Wiki: popup menu](https://wiki.documentfoundation.org/Macros/ScriptForge/PopupMenuExample).
+  * The new *XRectangle(range)* property (**Calc** service) returns the coordinates (in pixels) on the screen where the given range is located. This opens the door to effective use of popup menus. See [Wiki: popup menu](https://wiki.lofice.io/Macros/ScriptForge/PopupMenuExample).
   * The translation in Spanish is now available.
   * The *Intersect(range1, range2)* method computes the common area of 2 input ranges.
-  * With the *RemoveAllItems()* method (**ContextMenu** service), you can opt for configuring a totally customized context menu. Example in [Wiki: context menu](https://wiki.documentfoundation.org/Macros/ScriptForge/CustomContextMenuExample).
+  * With the *RemoveAllItems()* method (**ContextMenu** service), you can opt for configuring a totally customized context menu. Example in [Wiki: context menu](https://wiki.lofice.io/Macros/ScriptForge/CustomContextMenuExample).
   * To avoid duplicates, the *MenuHeaders* property (**Document** service) lists the menus present in the menubar.
-  * The **Calc** service now hosts new formatting methods (*AlignRange()*, *BorderRange()*, *ColorizeRange()*, *DecorateFont()* and *FormatRange()*). See an example on [Wiki: format range](https://wiki.documentfoundation.org/Macros/ScriptForge/FormatPortionsCalcRangeExample).
-  * The new *CreateTabPageContainer()* method inserts such controls in **dialogs**. Page switching in dialogs: [Wiki: tabbed pages](https://wiki.documentfoundation.org/Macros/ScriptForge/TabbedDialogExample).
-  * Still in **dialogs**, the *ImportControl()* method copies controls between dialogs: [Wiki: building compound dialogs](https://wiki.documentfoundation.org/Macros/ScriptForge/BasicMacroOrganizer)
+  * The **Calc** service now hosts new formatting methods (*AlignRange()*, *BorderRange()*, *ColorizeRange()*, *DecorateFont()* and *FormatRange()*). See an example on [Wiki: format range](https://wiki.lofice.io/Macros/ScriptForge/FormatPortionsCalcRangeExample).
+  * The new *CreateTabPageContainer()* method inserts such controls in **dialogs**. Page switching in dialogs: [Wiki: tabbed pages](https://wiki.lofice.io/Macros/ScriptForge/TabbedDialogExample).
+  * Still in **dialogs**, the *ImportControl()* method copies controls between dialogs: [Wiki: building compound dialogs](https://wiki.lofice.io/Macros/ScriptForge/BasicMacroOrganizer)
   * The new *UntitledPrefix* property (**Platform** service) provides the prefix used to name new documents. This can make macros more language agnostic.
   * The **Exception** service is revised : the *ReportScriptErrors*, *StopWhenError*, *ReturnCode* and *ReturnCodeDescription* properties let the author of scripts decide what ScriptForge should do when an error is detected by the software.
   * The *CreateBaseDocument()* method (**UI** service) lets you define, in addition to HSQLDB, FIREBIRD and CALC (embedded) database types, also the type *FIREBIRD_EXTERNAL*.
   * The new *DefinedNames* property associated with the *DefineName()* method (**Calc** service) lets you manage defined names both at sheet and global levels.
 
 ### 25.2
-  * A context menu is usually predefined at LibreOffice installation. Customization is done statically with the Tools + Customize dialog. The (new) **ContextMenu**  service provides a mean to make temporary additions at the bottom of a context menu.
+  * A context menu is usually predefined at lofice installation. Customization is done statically with the Tools + Customize dialog. The (new) **ContextMenu**  service provides a mean to make temporary additions at the bottom of a context menu.
   * When a document is closed inadvertently by the user during a macro run, or between two macros triggered by events, the actual behaviour is a fatal error message. Now the user script may test at any moment if everything is ok with the *IsAlive* As Boolean property applied to next services: **Document**, **Base**, **Calc**, **FormDocument**, **Writer**, **Datasheet**, **Dialog**.
   * To enhance the compatibility between scriptforge dictionaries, python dicts and arrays of PropertyValues, the **Dictionary** service supports now optionally case-sensitive keys, i.e. keys are different if a case-sensitive comparison finds them different.
-  * A Python script intended to connect as an outside process to LibreOffice must use either a socket or a pipe connection. So far, only sockets were supported, now both are admitted.
+  * A Python script intended to connect as an outside process to lofice must use either a socket or a pipe connection. So far, only sockets were supported, now both are admitted.
   * One can specify the fore- and background colors of the APSO console opened from a user script with *PythonShell()*.
   * A data array is a 1D array of 1D subarrays. Three methods, *ConvertFromDataArray()*, *ConvertToDataArray()* and *ConvertToRange()* are added to the **Array** service to manage them, especially in the context of complex **Calc** functions.
   * The close button (top-right cross) of a non-modal dialog now closes the dialog as expected.
@@ -168,7 +168,7 @@ Above mechanisms make ScriptForge an easily extensible ecosystem combining a cor
 
 ### 7.5
   * The (new) **Datasheet** service, to manage tabular views of database data. A datasheet may be opened from a Base window or at any moment (without the Base component being open). Cursor movement and current selection content may be processed by a user script.
-  * The *RunCommand()* method may receive arguments (see [.UNO:Commands wiki page](https://wiki.documentfoundation.org/Development/DispatchCommands)).
+  * The *RunCommand()* method may receive arguments (see [.UNO:Commands wiki page](https://wiki.lofice.io/Development/DispatchCommands)).
   * Error messages provide direct access to the help page of the failing method.
   * A new *Normalize()* method in the **FileSystem** service.
   * In the   *  service, new uses of the FilterFormula concept to selectively clear or format cells, rows or columns.
@@ -201,7 +201,7 @@ Above mechanisms make ScriptForge an easily extensible ecosystem combining a cor
   * The **DialogControl** service supports tree controls including the OnNodeSelected and OnNodeExpanded events.
   * The document management part is enriched with the new **Form** and **FormControl** services. A form and its subforms may be located in a Base, Writer or Calc document.
   * *The whole set of services (except for those functions that are better handled by Python natively) is made available for Python scripts with identical syntax and behaviour as in Basic.*
-  * In addition, a set of methods is provided compatible with their homonymous **Basic** builtin functions (MsgBox, CreateUnoService, ...). ScriptForge also integrates the APSO shell console, providing the previous installation of the [APSO extension](https://extensions.libreoffice.org/en/extensions/show/apso-alternative-script-organizer-for-Python).
+  * In addition, a set of methods is provided compatible with their homonymous **Basic** builtin functions (MsgBox, CreateUnoService, ...). ScriptForge also integrates the APSO shell console, providing the previous installation of the [APSO extension](https://extensions.lofice.org/en/extensions/show/apso-alternative-script-organizer-for-Python).
 
 ### 7.1 INITIAL RELEASE (BASIC ONLY)
   * About data containers:

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -315,8 +315,8 @@ void AnnotationManagerImpl::ShowAnnotations( bool bShow )
 
 bool AnnotationManagerImpl::isVisibleAnnotations()
 {
-    return (!comphelper::LibreOfficeKit::isActive()
-            || comphelper::LibreOfficeKit::isTiledAnnotations());
+    return (!comphelper::loficeKit::isActive()
+            || comphelper::loficeKit::isTiledAnnotations());
 }
 
 void AnnotationManagerImpl::ExecuteAnnotation(SfxRequest const & rReq )
@@ -536,7 +536,7 @@ void AnnotationManagerImpl::InsertAnnotation(const OUString& rText)
     rtl::Reference<sdr::annotation::Annotation> xAnnotation = pPage->createAnnotation();
 
     OUString sAuthor;
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         sAuthor = mrBase.GetMainViewShell()->GetView()->GetAuthor();
     else
     {
@@ -655,7 +655,7 @@ void AnnotationManagerImpl::ExecuteReplyToAnnotation( SfxRequest const & rReq )
     pTextApi->SetText(*pOPO);
 
     OUString sReplyAuthor;
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         sReplyAuthor = mrBase.GetMainViewShell()->GetView()->GetAuthor();
     else
     {
@@ -769,7 +769,7 @@ void AnnotationManagerImpl::GetAnnotationState(SfxItemSet& rSet)
 
     // Don't disable these slot in case of LOK, as postit doesn't need to
     // selected before doing an operation on it in LOK
-    if( (!xAnnotation.is() && !comphelper::LibreOfficeKit::isActive()) || bReadOnly )
+    if( (!xAnnotation.is() && !comphelper::loficeKit::isActive()) || bReadOnly )
     {
         rSet.DisableItem( SID_DELETE_POSTIT );
         rSet.DisableItem( SID_EDIT_POSTIT );

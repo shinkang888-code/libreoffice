@@ -1,5 +1,5 @@
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -15,7 +15,7 @@ def DefineNamedRange(doc, SheetName, rangeName, rangeReference):
     Example: DefineNamedRange(doc, "Sheet1", "test_range", '$A$1:$F$14').
 
     API Reference:
-    https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1sheet_1_1XNamedRanges.html
+    https://api.lofice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1sheet_1_1XNamedRanges.html
     """
     aName = rangeName
     # make sure the sheet name starts with "$"
@@ -68,7 +68,7 @@ def NamedRanges():
 
     # Format the information header row
     infoHeaderRange = infoSheet.getCellRangeByName("A1:C1")
-    # 2 = CENTER, see enum CellHoriJustify in https://api.libreoffice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html
+    # 2 = CENTER, see enum CellHoriJustify in https://api.lofice.org/docs/idl/ref/namespacecom_1_1sun_1_1star_1_1table.html
     infoHeaderRange.HoriJustify = 2
     infoHeaderRange.CellBackColor = 0xdee6ef
 

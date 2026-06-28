@@ -1,7 +1,7 @@
 #Requires -Version 5.1
 <#
 .SYNOPSIS
-  WSL에서 lofice LibreOffice 빌드 트리 부트스트랩
+  WSL에서 lofice lofice 빌드 트리 부트스트랩
 .EXAMPLE
   .\lofice\scripts\setup-wsl-build.ps1
   .\lofice\scripts\setup-wsl-build.ps1 -InstallDeps

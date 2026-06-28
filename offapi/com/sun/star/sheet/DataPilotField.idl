@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -167,7 +167,7 @@ published service DataPilotField
         For data fields, this is the function shown in the data pilot
         table.</p>
 
-        @since LibreOffice 5.3
+        @since lofice 5.3
      */
 
     [property, optional] short Function2;
@@ -187,7 +187,7 @@ published service DataPilotField
         DataPilot table. Multiple entries of the same function are ignored
         when setting the property.</p>
 
-        @since LibreOffice 5.3
+        @since lofice 5.3
      */
     [property, optional] sequence<short> Subtotals2;
 };

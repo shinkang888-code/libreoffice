@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -220,7 +220,7 @@ public:
     void dragDataGet(GtkSelectionData *data, guint info);
 #endif
 
-    // For LibreOffice internal D&D we provide the Transferable without Gtk
+    // For lofice internal D&D we provide the Transferable without Gtk
     // intermediaries as a shortcut, see tdf#100097 for how dbaccess depends on this
     static GtkInstDragSource* g_ActiveDragSource;
     css::uno::Reference<css::datatransfer::XTransferable> const & GetTransferable() const { return m_xTrans; }

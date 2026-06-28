@@ -98,7 +98,7 @@ Reference< XResultSetMetaData > SAL_CALL SequenceResultSet::getMetaData(  )
             u"pq_sequenceresultset: no meta supported "_ustr, *this,
         // I did not find "IM001" in a specific standard,
         // but it seems to be used by other systems (such as ODBC)
-        // and some parts of LibreOffice special-case it.
+        // and some parts of lofice special-case it.
             u"IM001"_ustr, 1, Any() );
     }
     return m_meta;

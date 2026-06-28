@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -288,7 +288,7 @@ VCLPLUG_WIN_PUBLIC SalInstance* create_SalInstance()
 
     pSalData->mnAppThreadId = GetCurrentThreadId();
 
-    static bool bSetAllowDarkMode = OSSupportsDarkMode(); // too early to additionally check LibreOffice's config
+    static bool bSetAllowDarkMode = OSSupportsDarkMode(); // too early to additionally check lofice's config
     if (bSetAllowDarkMode)
     {
         typedef PreferredAppMode(WINAPI* SetPreferredAppMode_t)(PreferredAppMode);
@@ -771,7 +771,7 @@ void WinSalInstance::AddToRecentDocumentList(const OUString& rFileUrl, const OUS
 
             if ( !sApplicationName.isEmpty() )
             {
-                OUString sApplicationID("TheDocumentFoundation.LibreOffice." + sApplicationName);
+                OUString sApplicationID("TheDocumentFoundation.lofice." + sApplicationName);
 
                 SHARDAPPIDINFO info;
                 info.psi = pShellItem;

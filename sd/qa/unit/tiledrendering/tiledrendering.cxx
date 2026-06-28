@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -12,7 +12,7 @@
 #include <app.hrc>
 #include <test/helper/transferable.hxx>
 #include <boost/property_tree/json_parser.hpp>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <sal/log.hxx>
 #include <comphelper/propertysequence.hxx>
 #include <comphelper/propertyvalue.hxx>
@@ -92,7 +92,7 @@ CPPUNIT_TEST_FIXTURE(SdTiledRenderingTest, testRegisterCallback)
     SdXImpressDocument* pXImpressDocument = createDoc("dummy.odp");
     sd::ViewShell* pViewShell = pXImpressDocument->GetDocShell()->GetViewShell();
     CPPUNIT_ASSERT(pViewShell);
-    setupLibreOfficeKitViewCallback(pViewShell->GetViewShellBase());
+    setuploficeKitViewCallback(pViewShell->GetViewShellBase());
 
     // Start text edit of the empty title shape.
     SdPage* pActualPage = pViewShell->GetActualPage();
@@ -328,7 +328,7 @@ CPPUNIT_TEST_FIXTURE(SdTiledRenderingTest, testInsertDeletePage)
     SdXImpressDocument* pXImpressDocument = createDoc("insert-delete.odp");
     sd::ViewShell* pViewShell = pXImpressDocument->GetDocShell()->GetViewShell();
     CPPUNIT_ASSERT(pViewShell);
-    setupLibreOfficeKitViewCallback(pViewShell->GetViewShellBase());
+    setuploficeKitViewCallback(pViewShell->GetViewShellBase());
 
     SdDrawDocument* pDoc = pXImpressDocument->GetDocShell()->GetDoc();
     CPPUNIT_ASSERT(pDoc);
@@ -1394,7 +1394,7 @@ CPPUNIT_TEST_FIXTURE(SdTiledRenderingTest, testCommentCallbacks)
 {
     // Load the document.
     // Set the tiled annotations off
-    comphelper::LibreOfficeKit::setTiledAnnotations(false);
+    comphelper::loficeKit::setTiledAnnotations(false);
 
     SdXImpressDocument* pXImpressDocument = createDoc("dummy.odp", comphelper::InitPropertySequence(
     {
@@ -1492,7 +1492,7 @@ CPPUNIT_TEST_FIXTURE(SdTiledRenderingTest, testCommentCallbacks)
     CPPUNIT_ASSERT_EQUAL(nComment1, aView1.m_aCommentCallbackResult.get<int>("id"));
     CPPUNIT_ASSERT_EQUAL(nComment1, aView2.m_aCommentCallbackResult.get<int>("id"));
 
-    comphelper::LibreOfficeKit::setTiledAnnotations(true);
+    comphelper::loficeKit::setTiledAnnotations(true);
 }
 
 CPPUNIT_TEST_FIXTURE(SdTiledRenderingTest, testCommentChangeImpress)
@@ -1501,7 +1501,7 @@ CPPUNIT_TEST_FIXTURE(SdTiledRenderingTest, testCommentChangeImpress)
 
     // Load the document.
     // Set the tiled annotations off
-    comphelper::LibreOfficeKit::setTiledAnnotations(false);
+    comphelper::loficeKit::setTiledAnnotations(false);
 
     createDoc("dummy.odp", comphelper::InitPropertySequence(
     {
@@ -1538,7 +1538,7 @@ CPPUNIT_TEST_FIXTURE(SdTiledRenderingTest, testCommentChangeImpress)
     CPPUNIT_ASSERT_EQUAL(std::string("Comment"), aView1.m_aCommentCallbackResult.get<std::string>("text"));
     CPPUNIT_ASSERT_EQUAL(std::string("10, 20, 478, 280"), aView1.m_aCommentCallbackResult.get<std::string>("rectangle"));
 
-    comphelper::LibreOfficeKit::setTiledAnnotations(true);
+    comphelper::loficeKit::setTiledAnnotations(true);
 }
 
 CPPUNIT_TEST_FIXTURE(SdTiledRenderingTest, testCommentChangeDraw)
@@ -1547,7 +1547,7 @@ CPPUNIT_TEST_FIXTURE(SdTiledRenderingTest, testCommentChangeDraw)
 
     // Load the document.
     // Set the tiled annotations off
-    comphelper::LibreOfficeKit::setTiledAnnotations(false);
+    comphelper::loficeKit::setTiledAnnotations(false);
 
     createDoc("dummy.odg", comphelper::InitPropertySequence(
     {
@@ -1584,7 +1584,7 @@ CPPUNIT_TEST_FIXTURE(SdTiledRenderingTest, testCommentChangeDraw)
     CPPUNIT_ASSERT_EQUAL(std::string("Comment"), aView1.m_aCommentCallbackResult.get<std::string>("text"));
     CPPUNIT_ASSERT_EQUAL(std::string("10, 20, 478, 280"), aView1.m_aCommentCallbackResult.get<std::string>("rectangle"));
 
-    comphelper::LibreOfficeKit::setTiledAnnotations(true);
+    comphelper::loficeKit::setTiledAnnotations(true);
 }
 
 CPPUNIT_TEST_FIXTURE(SdTiledRenderingTest, testMultiViewInsertDeletePage)
@@ -2111,7 +2111,7 @@ CPPUNIT_TEST_FIXTURE(SdTiledRenderingTest, testCutSelectionChange)
 
     sd::ViewShell* pViewShell = pXImpressDocument->GetDocShell()->GetViewShell();
     CPPUNIT_ASSERT(pViewShell);
-    setupLibreOfficeKitViewCallback(pViewShell->GetViewShellBase());
+    setuploficeKitViewCallback(pViewShell->GetViewShellBase());
     Scheduler::ProcessEventsToIdle();
 
     // Select first text object

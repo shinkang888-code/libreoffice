@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,7 +9,7 @@
 
 #include <test/lokcallback.hxx>
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <rtl/strbuf.hxx>
 #include <tools/gen.hxx>
 #include <comphelper/lok.hxx>
@@ -19,7 +19,7 @@
 #include <sfx2/sfxsids.hrc>
 #include <sfx2/sidebar/SidebarDockingWindow.hxx>
 
-TestLokCallbackWrapper::TestLokCallbackWrapper(LibreOfficeKitCallback callback, void* data)
+TestLokCallbackWrapper::TestLokCallbackWrapper(loficeKitCallback callback, void* data)
     : Idle("TestLokCallbackWrapper flush timer")
     , m_callback(callback)
     , m_data(data)
@@ -51,19 +51,19 @@ inline void TestLokCallbackWrapper::callCallback(int nType, const char* pPayload
     startTimer();
 }
 
-void TestLokCallbackWrapper::libreOfficeKitViewCallback(int nType, const rtl::OString& pPayload)
+void TestLokCallbackWrapper::loficeKitViewCallback(int nType, const rtl::OString& pPayload)
 {
     callCallback(nType, pPayload.getStr(), NO_VIEWID);
 }
 
-void TestLokCallbackWrapper::libreOfficeKitViewCallbackWithViewId(int nType,
+void TestLokCallbackWrapper::loficeKitViewCallbackWithViewId(int nType,
                                                                   const rtl::OString& pPayload,
                                                                   int nViewId)
 {
     callCallback(nType, pPayload.getStr(), nViewId);
 }
 
-void TestLokCallbackWrapper::libreOfficeKitViewInvalidateTilesCallback(
+void TestLokCallbackWrapper::loficeKitViewInvalidateTilesCallback(
     const tools::Rectangle* pRect, int nPart, int nMode)
 {
     OStringBuffer buf(64);
@@ -71,7 +71,7 @@ void TestLokCallbackWrapper::libreOfficeKitViewInvalidateTilesCallback(
         buf.append(pRect->toString());
     else
         buf.append("EMPTY");
-    if (comphelper::LibreOfficeKit::isPartInInvalidation())
+    if (comphelper::loficeKit::isPartInInvalidation())
     {
         buf.append(", " + OString::number(static_cast<sal_Int32>(nPart)) + ", "
                    + OString::number(static_cast<sal_Int32>(nMode)));
@@ -86,7 +86,7 @@ void TestLokCallbackWrapper::libreOfficeKitViewInvalidateTilesCallback(
 // is presumably this class using CallbackFlushHandler internally by default,
 // but having an option to use this simpler code when needed.
 
-void TestLokCallbackWrapper::libreOfficeKitViewUpdatedCallback(int nType)
+void TestLokCallbackWrapper::loficeKitViewUpdatedCallback(int nType)
 {
     if (std::find(m_updatedTypes.begin(), m_updatedTypes.end(), nType) == m_updatedTypes.end())
     {
@@ -95,7 +95,7 @@ void TestLokCallbackWrapper::libreOfficeKitViewUpdatedCallback(int nType)
     }
 }
 
-void TestLokCallbackWrapper::libreOfficeKitViewUpdatedCallbackPerViewId(int nType, int nViewId,
+void TestLokCallbackWrapper::loficeKitViewUpdatedCallbackPerViewId(int nType, int nViewId,
                                                                         int nSourceViewId)
 {
     const PerViewIdData data{ nType, nViewId, nSourceViewId };
@@ -111,7 +111,7 @@ void TestLokCallbackWrapper::libreOfficeKitViewUpdatedCallbackPerViewId(int nTyp
     startTimer();
 }
 
-void TestLokCallbackWrapper::libreOfficeKitViewAddPendingInvalidateTiles()
+void TestLokCallbackWrapper::loficeKitViewAddPendingInvalidateTiles()
 {
     // Invoke() will call flushPendingLOKInvalidateTiles().
     startTimer();
@@ -133,7 +133,7 @@ void TestLokCallbackWrapper::discardUpdatedTypes(int nType, int nViewId)
     if (nViewId < 0)
         allViewIds = true;
     if (nType == LOK_CALLBACK_INVALIDATE_VISIBLE_CURSOR
-        && !comphelper::LibreOfficeKit::isViewIdForVisCursorInvalidation())
+        && !comphelper::loficeKit::isViewIdForVisCursorInvalidation())
         allViewIds = true;
     for (auto it = m_updatedTypesPerViewId.begin(); it != m_updatedTypesPerViewId.end();)
     {
@@ -164,7 +164,7 @@ void TestLokCallbackWrapper::flushLOKData()
     {
         std::optional<OString> payload = viewShell->getLOKPayload(type, m_viewId);
         if (payload)
-            libreOfficeKitViewCallback(type, *payload);
+            loficeKitViewCallback(type, *payload);
     }
     for (const PerViewIdData& data : updatedTypesPerViewId)
     {
@@ -174,7 +174,7 @@ void TestLokCallbackWrapper::flushLOKData()
         assert(viewShell != nullptr);
         std::optional<OString> payload = viewShell->getLOKPayload(data.type, data.viewId);
         if (payload)
-            libreOfficeKitViewCallbackWithViewId(data.type, *payload, data.viewId);
+            loficeKitViewCallbackWithViewId(data.type, *payload, data.viewId);
     }
 }
 

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -92,7 +92,7 @@ NotebookBar::NotebookBar(Window* pParent, const OUString& rID, const OUString& r
     if ( doesCustomizedUIExist )
         sUIDir = getCustomizedUIRootDir();
 
-    bool bIsWelded = comphelper::LibreOfficeKit::isActive();
+    bool bIsWelded = comphelper::loficeKit::isActive();
     if (bIsWelded)
     {
         m_bIsWelded = true;
@@ -243,7 +243,7 @@ void SAL_CALL NotebookBarContextChangeEventListener::notifyContextChangeEvent(co
 
 void NotebookBarContextChangeEventListener::setupListener(bool bListen)
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return;
 
     auto xMultiplexer(css::ui::ContextChangeEventMultiplexer::get(::comphelper::getProcessComponentContext()));

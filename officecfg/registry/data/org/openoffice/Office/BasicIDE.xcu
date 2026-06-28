@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -19,7 +19,7 @@
  <!DOCTYPE oor:component-data SYSTEM "../../../../component-update.dtd">
 <oor:component-data xmlns:oor="http://openoffice.org/2001/registry" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:install="http://openoffice.org/2004/installation" oor:name="BasicIDE" oor:package="org.openoffice.Office">
   <node oor:name="IDEColorSchemes">
-    <node oor:name="COLORSCHEME_LIBREOFFICE_LIGHT" oor:op="replace">
+    <node oor:name="COLORSCHEME_lofice_LIGHT" oor:op="replace">
       <node oor:name="GenericColor">
         <prop oor:name="Color">
           <value>0</value>
@@ -71,7 +71,7 @@
         </prop>
       </node>
     </node>
-    <node oor:name="COLORSCHEME_LIBREOFFICE_DARK" oor:op="replace">
+    <node oor:name="COLORSCHEME_lofice_DARK" oor:op="replace">
       <node oor:name="GenericColor">
         <prop oor:name="Color">
           <value>16777215</value>

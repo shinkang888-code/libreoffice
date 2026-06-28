@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -65,21 +65,21 @@ struct CalcOp
 };
 
 CalcOp constexpr aOpTable[] = {
-/* ABS */     {{sCalc_Abs},        CALC_ABS},   // Abs (since LibreOffice 7.1)
+/* ABS */     {{sCalc_Abs},        CALC_ABS},   // Abs (since lofice 7.1)
 /* ACOS */    {{sCalc_Acos},       CALC_ACOS},  // Arc cosine
 /* ADD */     {{sCalc_Add},        CALC_PLUS},  // Addition
 /* AND */     {{sCalc_And},        CALC_AND},   // log. AND
 /* ASIN */    {{sCalc_Asin},       CALC_ASIN},  // Arc sine
 /* ATAN */    {{sCalc_Atan},       CALC_ATAN},  // Arc tangent
-/* AVERAGE */ {{sCalc_Average},    CALC_AVERAGE}, // Average (since LibreOffice 7.1)
+/* AVERAGE */ {{sCalc_Average},    CALC_AVERAGE}, // Average (since lofice 7.1)
 /* COS */     {{sCalc_Cos},        CALC_COS},   // Cosine
-/* COUNT */   {{sCalc_Count},      CALC_COUNT}, // Count (since LibreOffice 7.1)
+/* COUNT */   {{sCalc_Count},      CALC_COUNT}, // Count (since lofice 7.1)
 /* DATE */    {{sCalc_Date},       CALC_DATE},  // Date
 /* DIV */     {{sCalc_Div},        CALC_DIV},   // Division
 /* EQ */      {{sCalc_Eq},         CALC_EQ},    // Equality
 /* G */       {{sCalc_G},          CALC_GRE},   // Greater than
 /* GEQ */     {{sCalc_Geq},        CALC_GEQ},   // Greater or equal
-/* INT */     {{sCalc_Int},        CALC_INT},   // Int (since LibreOffice 7.4)
+/* INT */     {{sCalc_Int},        CALC_INT},   // Int (since lofice 7.4)
 /* L */       {{sCalc_L},          CALC_LES},   // Less than
 /* LEQ */     {{sCalc_Leq},        CALC_LEQ},   // Less or equal
 /* MAX */     {{sCalc_Max},        CALC_MAX},   // Maximum value
@@ -92,9 +92,9 @@ CalcOp constexpr aOpTable[] = {
 /* OR */      {{sCalc_Or},         CALC_OR},    // log. OR
 /* PHD */     {{sCalc_Phd},        CALC_PHD},   // Percentage
 /* POW */     {{sCalc_Pow},        CALC_POW},   // Exponentiation
-/* PRODUCT */ {{sCalc_Product},    CALC_PRODUCT}, // Product (since LibreOffice 7.1)
+/* PRODUCT */ {{sCalc_Product},    CALC_PRODUCT}, // Product (since lofice 7.1)
 /* ROUND */   {{sCalc_Round},      CALC_ROUND}, // Rounding
-/* SIGN */    {{sCalc_Sign},       CALC_SIGN},  // Sign (since LibreOffice 7.1)
+/* SIGN */    {{sCalc_Sign},       CALC_SIGN},  // Sign (since lofice 7.1)
 /* SIN */     {{sCalc_Sin},        CALC_SIN},   // Sine
 /* SQRT */    {{sCalc_Sqrt},       CALC_SQRT},  // Square root
 /* SUB */     {{sCalc_Sub},        CALC_MINUS}, // Subtraction

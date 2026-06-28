@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -31,14 +31,14 @@ class SfxChildWindow;
 struct SfxChildWinInfo;
 class SfxItemSet;
 class WhichRangesContainer;
-namespace vcl { class ILibreOfficeKitNotifier; }
+namespace vcl { class IloficeKitNotifier; }
 namespace weld { class Button; }
 namespace weld { class Window; }
 
 class SFX2_DLLPUBLIC SfxDialogController : public weld::GenericDialogController
 {
 private:
-    DECL_DLLPRIVATE_STATIC_LINK(SfxDialogController, InstallLOKNotifierHdl, void*, vcl::ILibreOfficeKitNotifier*);
+    DECL_DLLPRIVATE_STATIC_LINK(SfxDialogController, InstallLOKNotifierHdl, void*, vcl::IloficeKitNotifier*);
 
     DECL_DLLPRIVATE_LINK(FocusChangeHdl, weld::Container&, void);
 

@@ -1,5 +1,5 @@
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -41,9 +41,9 @@ solarisrequires =  "%BASISPACKAGEPREFIX%WITHOUTDOTPRODUCTVERSION-core (Name="Cor
 packagename = "%BASISPACKAGEPREFIX%PRODUCTVERSION-extension-mediawiki-publisher"
 requires = "%BASISPACKAGEPREFIX%PRODUCTVERSION-core %PACKAGEVERSION %PACKAGEVERSION-%PACKAGEREVISION"
 linuxpatchrequires = ""
-copyright = "2026 The Document Foundation"
+copyright = "2026 Lonex. Inc"
 solariscopyright = "solariscopyrightfile"
-vendor = "The Document Foundation"
+vendor = "Lonex. Inc"
 description = "MediaWiki publisher extension for %PRODUCTNAME %PRODUCTVERSION"
 destpath = "/opt"
 packageversion = "%PACKAGEVERSION"
@@ -56,9 +56,9 @@ solarisrequires =  "%BASISPACKAGEPREFIX%WITHOUTDOTPRODUCTVERSION-core (Name="Cor
 packagename = "%BASISPACKAGEPREFIX%PRODUCTVERSION-extension-nlpsolver"
 requires = "%BASISPACKAGEPREFIX%PRODUCTVERSION-core %PACKAGEVERSION %PACKAGEVERSION-%PACKAGEREVISION"
 linuxpatchrequires = ""
-copyright = "2026 The Document Foundation"
+copyright = "2026 Lonex. Inc"
 solariscopyright = "solariscopyrightfile"
-vendor = "The Document Foundation"
+vendor = "Lonex. Inc"
 description = "NLPSolver extension for %PRODUCTNAME %PRODUCTVERSION"
 destpath = "/opt"
 packageversion = "%PACKAGEVERSION"
@@ -71,9 +71,9 @@ solarisrequires =  "%BASISPACKAGEPREFIX%WITHOUTDOTPRODUCTVERSION-core (Name="Cor
 packagename = "%BASISPACKAGEPREFIX%PRODUCTVERSION-extension-beanshell-script-provider"
 requires = "%BASISPACKAGEPREFIX%PRODUCTVERSION-core %PACKAGEVERSION %PACKAGEVERSION-%PACKAGEREVISION"
 linuxpatchrequires = ""
-copyright = "2026 The Document Foundation"
+copyright = "2026 Lonex. Inc"
 solariscopyright = "solariscopyrightfile"
-vendor = "The Document Foundation"
+vendor = "Lonex. Inc"
 description = "Script provider for BeanShell extension for %PRODUCTNAME %PRODUCTVERSION"
 destpath = "/opt"
 packageversion = "%PACKAGEVERSION"
@@ -86,9 +86,9 @@ solarisrequires =  "%BASISPACKAGEPREFIX%WITHOUTDOTPRODUCTVERSION-core (Name="Cor
 packagename = "%BASISPACKAGEPREFIX%PRODUCTVERSION-extension-javascript-script-provider"
 requires = "%BASISPACKAGEPREFIX%PRODUCTVERSION-core %PACKAGEVERSION %PACKAGEVERSION-%PACKAGEREVISION"
 linuxpatchrequires = ""
-copyright = "2026 The Document Foundation"
+copyright = "2026 Lonex. Inc"
 solariscopyright = "solariscopyrightfile"
-vendor = "The Document Foundation"
+vendor = "Lonex. Inc"
 description = "Script provider for JavaScript extension for %PRODUCTNAME %PRODUCTVERSION"
 destpath = "/opt"
 packageversion = "%PACKAGEVERSION"

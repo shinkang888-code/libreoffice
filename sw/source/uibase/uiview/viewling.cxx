@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -82,7 +82,7 @@
 #include <svtools/langtab.hxx>
 
 #include <editeng/editerr.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 #include <memory>
 
@@ -596,7 +596,7 @@ bool SwView::ExecSpellPopup(const Point& rPt, bool bIsMouseEvent)
         {
             const bool bOldViewLock = m_pWrtShell->IsViewLocked();
             m_pWrtShell->LockView( true );
-            if (!comphelper::LibreOfficeKit::isActive())
+            if (!comphelper::loficeKit::isActive())
                 m_pWrtShell->Push();
             SwRect aToFill;
 
@@ -739,7 +739,7 @@ bool SwView::ExecSpellPopup(const Point& rPt, bool bIsMouseEvent)
                     }
                     else
                     {
-                        if (comphelper::LibreOfficeKit::isActive())
+                        if (comphelper::loficeKit::isActive())
                         {
                             if (SfxViewShell* pViewShell = SfxViewShell::Current())
                             {
@@ -749,7 +749,7 @@ bool SwView::ExecSpellPopup(const Point& rPt, bool bIsMouseEvent)
 
                                 std::stringstream aStream;
                                 boost::property_tree::write_json(aStream, aRoot, true);
-                                pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_CONTEXT_MENU, OString(aStream.str()));
+                                pViewShell->loficeKitViewCallback(LOK_CALLBACK_CONTEXT_MENU, OString(aStream.str()));
                             }
                         }
                         else
@@ -760,7 +760,7 @@ bool SwView::ExecSpellPopup(const Point& rPt, bool bIsMouseEvent)
                 }
             }
 
-            if (!comphelper::LibreOfficeKit::isActive())
+            if (!comphelper::loficeKit::isActive())
                 m_pWrtShell->Pop(SwCursorShell::PopMode::DeleteCurrent);
             m_pWrtShell->LockView( bOldViewLock );
         }

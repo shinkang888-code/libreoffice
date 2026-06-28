@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -45,7 +45,7 @@ struct VbaMacroKeyAndMethodBinding
 {
     // This describes a key combination in "raw" VBA Macro form, that
     // still needs translated to a key event that can be used in
-    // LibreOffice.
+    // lofice.
     OUString msApiKey;
     // The name of the macro method
     OUString msMethodName;

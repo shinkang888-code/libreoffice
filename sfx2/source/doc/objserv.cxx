@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -66,7 +66,7 @@
 #include <comphelper/documentconstants.hxx>
 #include <comphelper/storagehelper.hxx>
 #include <comphelper/lok.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <tools/link.hxx>
 #include <svl/cryptosign.hxx>
 
@@ -459,7 +459,7 @@ static void sendErrorToLOK(const ErrCodeMsg& error)
     std::stringstream aStream;
     boost::property_tree::write_json(aStream, aTree);
 
-    pNotifier->libreOfficeKitViewCallback(LOK_CALLBACK_ERROR, OString(aStream.str()));
+    pNotifier->loficeKitViewCallback(LOK_CALLBACK_ERROR, OString(aStream.str()));
 }
 
 namespace
@@ -514,7 +514,7 @@ void SetDocProperties(const uno::Reference<document::XDocumentProperties>& xDP,
 
 void SfxObjectShell::AfterSignContent(bool bHaveWeSigned, weld::Window* pDialogParent)
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         // LOK signing certificates are per-view, don't store them in the model.
         return;
@@ -998,7 +998,7 @@ void SfxObjectShell::ExecFile_Impl(SfxRequest &rReq)
         case SID_SAVEDOC:
         {
             // so far only pdf and epub support Async interface
-            if (comphelper::LibreOfficeKit::isActive() && rReq.GetCallMode() == SfxCallMode::ASYNCHRON
+            if (comphelper::loficeKit::isActive() && rReq.GetCallMode() == SfxCallMode::ASYNCHRON
                 && (nId == SID_EXPORTDOCASEPUB || nId == SID_EXPORTDOCASPDF))
                 bIsAsync = true;
 
@@ -1023,7 +1023,7 @@ void SfxObjectShell::ExecFile_Impl(SfxRequest &rReq)
             // SaveAs via GUI, so the flag must be set accordingly
             pImpl->bPreserveVersions = (nId == SID_SAVEDOC);
 
-            // do not save version infos --> (see 'Tools - Options - LibreOffice - Security')
+            // do not save version infos --> (see 'Tools - Options - lofice - Security')
             if (SvtSecurityOptions::IsOptionSet(
                 SvtSecurityOptions::EOption::DocWarnRemovePersonalInfo) && !SvtSecurityOptions::IsOptionSet(
                     SvtSecurityOptions::EOption::DocWarnKeepDocVersionInfo))
@@ -1127,7 +1127,7 @@ void SfxObjectShell::ExecFile_Impl(SfxRequest &rReq)
 
                 bool bForceSaveAs = nId == SID_SAVEDOC && IsReadOnlyMedium();
 
-                if (comphelper::LibreOfficeKit::isActive() && bForceSaveAs)
+                if (comphelper::loficeKit::isActive() && bForceSaveAs)
                 {
                     // Don't force save as in LOK but report that file cannot be written
                     // to avoid confusion with exporting for file download purpose
@@ -1199,7 +1199,7 @@ void SfxObjectShell::ExecFile_Impl(SfxRequest &rReq)
             // may be nErrorCode should be shown in future
             if ( lErr != ERRCODE_IO_ABORT )
             {
-                if (comphelper::LibreOfficeKit::isActive())
+                if (comphelper::loficeKit::isActive())
                     sendErrorToLOK(lErr);
                 else
                 {
@@ -1376,7 +1376,7 @@ void SfxObjectShell::ExecFile_Impl(SfxRequest &rReq)
             SetModified( false );
             ErrCodeMsg lErr = GetErrorCode();
 
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
                 sendErrorToLOK(lErr);
             else
             {

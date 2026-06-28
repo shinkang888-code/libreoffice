@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -36,7 +36,7 @@
 #include <tools/UnitConversion.hxx>
 #include <tools/weakbase.hxx>
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <sfx2/lokhelper.hxx>
 #include <sfx2/lokcomponenthelpers.hxx>
@@ -456,7 +456,7 @@ void ScGridWindow::Draw( SCCOL nX1, SCROW nY1, SCCOL nX2, SCROW nY2, ScUpdateMod
     // all the rendering should go through PaintTile() in that case.
     // TODO revisit if we can actually turn this into an assert(), and clean
     // up the callers
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return;
 
     bool bTextWysiwyg = ScModule::get()->GetInputOptions().GetTextWysiwyg();
@@ -674,10 +674,10 @@ void ScGridWindow::DrawContent(OutputDevice &rDevice, const ScTableInfo& rTableI
     ScModule* pScMod = ScModule::get();
     ScDocument& rDoc = mrViewData.GetDocument();
     const ScViewOptions& rOpts = mrViewData.GetOptions();
-    bool bIsTiledRendering = comphelper::LibreOfficeKit::isActive();
+    bool bIsTiledRendering = comphelper::loficeKit::isActive();
     bool bNoBackgroundAndGrid = bIsTiledRendering
-                                && comphelper::LibreOfficeKit::isCompatFlagSet(
-                                       comphelper::LibreOfficeKit::Compat::scNoGridBackground);
+                                && comphelper::loficeKit::isCompatFlagSet(
+                                       comphelper::loficeKit::Compat::scNoGridBackground);
 
     SCTAB nViewTab = aOutputData.mnTab; // the actual view tab (may be sheet view tab)
     SCTAB nTab = rDoc.GetDefaultViewTableNumber(nViewTab); // default/logical tab for structural lookups
@@ -1024,7 +1024,7 @@ void ScGridWindow::DrawContent(OutputDevice &rDevice, const ScTableInfo& rTableI
                                           : aOrigin.getX();
         Size aPixelOffset(nXOffset, aOrigin.getY());
         pContentDev->SetPixelOffset(aPixelOffset);
-        comphelper::LibreOfficeKit::setLocalRendering();
+        comphelper::loficeKit::setLocalRendering();
     }
 
     DrawRedraw( aOutputData, SC_LAYER_FRONT );
@@ -1275,8 +1275,8 @@ void ScGridWindow::DrawContent(OutputDevice &rDevice, const ScTableInfo& rTableI
                 // EditView will do the cursor notifications correctly if we're in
                 // print-twips messaging mode.
                 if (pTabViewShell == pThisViewShell
-                    && !comphelper::LibreOfficeKit::isCompatFlagSet(
-                        comphelper::LibreOfficeKit::Compat::scPrintTwipsMsgs))
+                    && !comphelper::loficeKit::isCompatFlagSet(
+                        comphelper::loficeKit::Compat::scPrintTwipsMsgs))
                 {
                     // Now we need to get relative cursor position within the editview.
                     // This is for sending the pixel-aligned twips position of the cursor to the specific views with
@@ -1328,7 +1328,7 @@ void ScGridWindow::DrawContent(OutputDevice &rDevice, const ScTableInfo& rTableI
 
 void ScGridWindow::SetupInitialPageBreaks(const ScDocument& rDoc, SCTAB nTab)
 {
-    // tdf#124983, if option LibreOfficeDev Calc/View/Visual Aids/Page breaks
+    // tdf#124983, if option loficeDev Calc/View/Visual Aids/Page breaks
     // is enabled, breaks should be visible. If the document is opened the first
     // time, the breaks are not calculated yet, so for this initialization
     // a timer will be triggered here.
@@ -1605,8 +1605,8 @@ void ScGridWindow::PaintTile( VirtualDevice& rDevice,
     ScDrawLayer* pModel = rDoc.GetDrawLayer();
     if (pModel)
     {
-        bool bPrintTwipsMsgs = comphelper::LibreOfficeKit::isCompatFlagSet(
-                comphelper::LibreOfficeKit::Compat::scPrintTwipsMsgs);
+        bool bPrintTwipsMsgs = comphelper::loficeKit::isCompatFlagSet(
+                comphelper::loficeKit::Compat::scPrintTwipsMsgs);
         if (!mpLOKDrawView)
         {
             mpLOKDrawView.reset(bPrintTwipsMsgs ?
@@ -1818,7 +1818,7 @@ void ScGridWindow::DrawHiddenIndicator( SCCOL nX1, SCROW nY1, SCCOL nX2, SCROW n
         aLineInfo.SetDotCount(1);
         aLineInfo.SetDistance(15);
         // round caps except when running VCL_PLUGIN=gen due to a performance issue
-        // https://bugs.documentfoundation.org/show_bug.cgi?id=128258#c14
+        // https://bugs.lofice.io/show_bug.cgi?id=128258#c14
         if (Application::GetToolkit() != Toolkit::Gen)
             aLineInfo.SetLineCap(css::drawing::LineCap_ROUND);
         aLineInfo.SetDotLen(1);
@@ -2188,7 +2188,7 @@ void ScGridWindow::DrawButtons(SCCOL nX1, SCCOL nX2, const ScTableInfo& rTabInfo
             }
         }
 
-        if ( !comphelper::LibreOfficeKit::isActive() && bListValButton && pRowInfo[nArrY].nRowNo == aListValPos.Row() && pRowInfo[nArrY].bChanged )
+        if ( !comphelper::loficeKit::isActive() && bListValButton && pRowInfo[nArrY].nRowNo == aListValPos.Row() && pRowInfo[nArrY].bChanged )
         {
             tools::Rectangle aRect = GetListValButtonRect( aListValPos );
             aComboButton.SetPosPixel( aRect.TopLeft() );
@@ -2319,7 +2319,7 @@ void ScGridWindow::GetRectsAnyFor(const ScMarkData &rMarkData,
     double nPPTY = mrViewData.GetPPTY();
     bool bLayoutRTL = rDoc.IsLayoutRTL( nTab );
     // LOK clients needs exact document coordinates, so don't horizontally mirror them.
-    tools::Long nLayoutSign = (!comphelper::LibreOfficeKit::isActive() && bLayoutRTL) ? -1 : 1;
+    tools::Long nLayoutSign = (!comphelper::loficeKit::isActive() && bLayoutRTL) ? -1 : 1;
 
     ScMarkData aMultiMark( rMarkData );
     aMultiMark.SetMarking( false );
@@ -2400,7 +2400,7 @@ void ScGridWindow::GetRectsAnyFor(const ScMarkData &rMarkData,
     if (nY1 < nPosY)
         nY1 = nPosY;
 
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
     {
         // limit the selection to only what is visible on the screen
         SCCOL nXRight = nPosX + mrViewData.VisibleCellsX(eHWhich);
@@ -2600,7 +2600,7 @@ IMPL_LINK(ScGridWindow, InitiatePageBreaksTimer, Timer*, pTimer, void)
 
     const ScViewOptions& rOpts = mrViewData.GetOptions();
     const bool bPage = rOpts.GetOption(sc::ViewOption::PAGEBREAKS);
-    // tdf#124983, if option LibreOfficeDev Calc/View/Visual Aids/Page
+    // tdf#124983, if option loficeDev Calc/View/Visual Aids/Page
     // breaks is enabled, breaks should be visible. If the document is
     // opened the first time or a tab is activated the first time, the
     // breaks are not calculated yet, so this initialization is done here.

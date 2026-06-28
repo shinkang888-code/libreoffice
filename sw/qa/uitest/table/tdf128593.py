@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -8,10 +8,10 @@
 #
 
 from uitest.framework import UITestCase
-from libreoffice.uno.propertyvalue import mkPropertyValues
+from lofice.uno.propertyvalue import mkPropertyValues
 from uitest.uihelper.common import get_state_as_dict, select_pos
 
-#https://bugs.documentfoundation.org/show_bug.cgi?id=128593
+#https://bugs.lofice.io/show_bug.cgi?id=128593
 #Bug 128593 - Writer table cell's background color is always black
 
 class tdf128593(UITestCase):

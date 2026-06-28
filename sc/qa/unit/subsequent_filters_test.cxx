@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -387,7 +387,7 @@ CPPUNIT_TEST_FIXTURE(ScFiltersTest, testBasicCellContentODS)
 
     ScDocument* pDoc = getScDoc();
     OUString aStr = pDoc->GetString(1, 1, 0); // B2
-    CPPUNIT_ASSERT_EQUAL(u"LibreOffice Calc"_ustr, aStr);
+    CPPUNIT_ASSERT_EQUAL(u"lofice Calc"_ustr, aStr);
     double fVal = pDoc->GetValue(1, 2, 0); // B3
     CPPUNIT_ASSERT_EQUAL(12345.0, fVal);
     aStr = pDoc->GetString(1, 3, 0); // B4

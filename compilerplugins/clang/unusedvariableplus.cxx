@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * Based on LLVM/Clang.
  *
@@ -244,7 +244,7 @@ public:
             "rptui::OXReportControllerObserver::OEnvLock",
             "oglcanvas::TransformationPreserver",
             "io_acceptor::(anonymous namespace)::BeingInAccept",
-            "desktop::LibLibreOffice_Impl",
+            "desktop::Liblofice_Impl",
             "ToolbarUnoDispatcher",
             "ooo::vba::excel::(anonymous namespace)::PasteCellsWarningReseter",
             "oox::drawingml::(anonymous namespace)::ActionLockGuard",

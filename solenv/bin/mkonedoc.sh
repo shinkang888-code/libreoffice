@@ -18,7 +18,7 @@ fi
 DOXYGEN_INPUT=`printf "%s" "$module/source $module_include"`
 DOXYGEN_OUTPUT="$BASE_OUTPUT/$module"
 DOXYGEN_VERSION="master"
-DOXYGEN_PROJECTNAME="LibreOffice Module $module"
+DOXYGEN_PROJECTNAME="lofice Module $module"
 if [ "$mode" = "tag" ] ; then
     DOXYGEN_OUR_TAGFILE="$DOXYGEN_OUTPUT/$module.tags"
     DOXYGEN_REF_TAGFILES=

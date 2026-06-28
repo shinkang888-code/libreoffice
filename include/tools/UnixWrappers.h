@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,7 +9,7 @@
 
 /* Wrappers to use Unix-style file APIs on Windows.
  *
- * Of course, LibreOffice has tons of APIs from before whose whole point is to hide system
+ * Of course, lofice has tons of APIs from before whose whole point is to hide system
  * dependencies behind a cross-platform API. All the "sal" and "osl" stuff, for starters. The
  * wrappers in this file is not intended to replace those. The point with these wrappers is to
  * quickly port code that was written for Unix *only* to Windows, with minimal changes to the source
@@ -26,7 +26,7 @@
  * character string (UTF-16).
 
  * This header is in C, not C++, because we want it to be usable from some external libraries
- * written in C that we compile as part of LibreOffice in some circumstances, particularly for
+ * written in C that we compile as part of lofice in some circumstances, particularly for
  * Windows.
  *
  * All functions behave like the wrapped ones, set errno on errors.

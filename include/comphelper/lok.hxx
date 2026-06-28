@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -24,10 +24,10 @@ namespace com::sun::star::awt
 struct Rectangle;
 }
 
-// Interface between the LibreOfficeKit implementation called by LibreOfficeKit clients and other
-// LibreOffice code.
+// Interface between the loficeKit implementation called by loficeKit clients and other
+// lofice code.
 
-namespace comphelper::LibreOfficeKit
+namespace comphelper::loficeKit
 {
 /// interface for allowing threads to be transiently shutdown.
 class COMPHELPER_DLLPUBLIC SAL_LOPLUGIN_ANNOTATE("crosscast") ThreadJoinable
@@ -39,8 +39,8 @@ public:
     virtual void startThreads() {}
 };
 
-// Functions to be called only from the LibreOfficeKit implementation in desktop, not from other
-// places in LibreOffice code.
+// Functions to be called only from the loficeKit implementation in desktop, not from other
+// places in lofice code.
 
 COMPHELPER_DLLPUBLIC void setActive(bool bActive = true);
 
@@ -57,9 +57,9 @@ COMPHELPER_DLLPUBLIC void setStatusIndicatorCallback(
     void (*callback)(void* data, statusIndicatorCallbackType type, int percent, const char* pText),
     void* data);
 
-// Functions that can be called from arbitrary places in LibreOffice.
+// Functions that can be called from arbitrary places in lofice.
 
-// Check whether the code is running as invoked through LibreOfficeKit.
+// Check whether the code is running as invoked through loficeKit.
 COMPHELPER_DLLPUBLIC bool isActive();
 
 /// Is this a transient forked child process, that shares many

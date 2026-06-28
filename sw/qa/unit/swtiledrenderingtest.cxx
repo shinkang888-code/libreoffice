@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -11,7 +11,7 @@
 
 #include <boost/property_tree/json_parser.hpp>
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <comphelper/string.hxx>
 #include <sfx2/lokhelper.hxx>
@@ -45,7 +45,7 @@ void SwTiledRenderingTest::setUp()
     SwGlobals::ensure();
     SwModule::get()->ClearRedlineAuthors();
 
-    comphelper::LibreOfficeKit::setActive(true);
+    comphelper::loficeKit::setActive(true);
 }
 
 void SwTiledRenderingTest::tearDown()
@@ -55,7 +55,7 @@ void SwTiledRenderingTest::tearDown()
         SwWrtShell* pWrtShell = getSwDocShell()->GetWrtShell();
         if (pWrtShell)
         {
-            pWrtShell->GetSfxViewShell()->setLibreOfficeKitViewCallback(nullptr);
+            pWrtShell->GetSfxViewShell()->setloficeKitViewCallback(nullptr);
         }
     }
     m_callbackWrapper.clear();
@@ -75,9 +75,9 @@ SwXTextDocument* SwTiledRenderingTest::createDoc(const char* pName)
     return pTextDocument;
 }
 
-void SwTiledRenderingTest::setupLibreOfficeKitViewCallback(SfxViewShell* pViewShell)
+void SwTiledRenderingTest::setuploficeKitViewCallback(SfxViewShell* pViewShell)
 {
-    pViewShell->setLibreOfficeKitViewCallback(&m_callbackWrapper);
+    pViewShell->setloficeKitViewCallback(&m_callbackWrapper);
     m_callbackWrapper.setLOKViewId(SfxLokHelper::getView(*pViewShell));
 }
 
@@ -179,7 +179,7 @@ void SwTiledRenderingTest::callbackImpl(int nType, const char* pPayload)
         break;
         case LOK_CALLBACK_INVALIDATE_VISIBLE_CURSOR:
         {
-            if (comphelper::LibreOfficeKit::isViewIdForVisCursorInvalidation())
+            if (comphelper::loficeKit::isViewIdForVisCursorInvalidation())
             {
                 boost::property_tree::ptree aTree;
                 std::stringstream aStream(pPayload);

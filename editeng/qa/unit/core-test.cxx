@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -710,7 +710,7 @@ void Test::testRTFPaste()
     EditEngine aEditEngine(mpItemPool.get());
     EditDoc& rDoc = aEditEngine.GetEditDoc();
     std::vector<OString> aContent(
-        { "{\\rtf1\\adeflang1025\\ansi{\\ul www.libreoffice.org}}"_ostr });
+        { "{\\rtf1\\adeflang1025\\ansi{\\ul www.lofice.org}}"_ostr });
     std::vector<OUString> aMime({ u"text/richtext"_ustr });
     uno::Reference<datatransfer::XTransferable> xData(new TestTransferable(aContent, aMime));
 
@@ -719,10 +719,10 @@ void Test::testRTFPaste()
 
     // Then make sure the text gets pasted:
     // Without the accompanying fix in place, this test would have failed with:
-    // - Expected: www.libreoffice.org
+    // - Expected: www.lofice.org
     // - Actual  :
     // i.e. RTF and plain text paste worked, but not HTML.
-    CPPUNIT_ASSERT_EQUAL(u"www.libreoffice.org"_ustr,
+    CPPUNIT_ASSERT_EQUAL(u"www.lofice.org"_ustr,
                          rDoc.GetParaAsString(static_cast<sal_Int32>(0)));
 }
 
@@ -732,14 +732,14 @@ void Test::testRTFHTMLPaste()
     EditEngine aEditEngine(mpItemPool.get());
     EditDoc& rDoc = aEditEngine.GetEditDoc();
     std::vector<OString> aContent(
-        { "{\\rtf1\\adeflang1025\\ansi{\\ul www.libreoffice.org}}"_ostr,
+        { "{\\rtf1\\adeflang1025\\ansi{\\ul www.lofice.org}}"_ostr,
           "Version:1.0\nStartHTML:0000000121\n"
           "EndHTML:0000000596\n"
           "StartFragment:0000000519\n"
           "EndFragment:0000000579\n"
           "<!DOCTYPE html><html><head><meta http-equiv=\"content-type\" content=\"text/html; "
           "charset=utf-8\"/>"
-          "<title></title><meta name=\"generator\" content=\"LibreOffice 7.4.5.1 (Windows)\"/>"
+          "<title></title><meta name=\"generator\" content=\"lofice 7.4.5.1 (Windows)\"/>"
           "<style type=\"text/css\">@page { size: 21cm 29.7cm; margin: 2cm }"
           "p{ line-height: 115%; margin-bottom: 0.25cm; background: transparent }</style>"
           "</head><body lang=\"de-DE\" link=\"#000080\" vlink=\"#800000\" dir=\"ltr\">"
@@ -754,7 +754,7 @@ void Test::testRTFHTMLPaste()
 
     // Then make sure the text gets pasted:
     // expected "abc"
-    // wrong: www.libreoffice.org
+    // wrong: www.lofice.org
     // i.e. HTML is preferred over HTML.
     CPPUNIT_ASSERT_EQUAL(u"abc"_ustr, rDoc.GetParaAsString(static_cast<sal_Int32>(0)));
 }

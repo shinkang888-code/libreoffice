@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -29,14 +29,14 @@
 #include <cppuhelper/supportsservice.hxx>
 #include <cppuhelper/weak.hxx>
 #include <o3tl/any.hxx>
-#include <org/libreoffice/embindtest/Enum.hpp>
-#include <org/libreoffice/embindtest/Exception.hpp>
-#include <org/libreoffice/embindtest/Struct.hpp>
-#include <org/libreoffice/embindtest/StructLong.hpp>
-#include <org/libreoffice/embindtest/StructString.hpp>
-#include <org/libreoffice/embindtest/Template.hpp>
-#include <org/libreoffice/embindtest/Test.hpp>
-#include <org/libreoffice/embindtest/XTest.hpp>
+#include <org/lofice/embindtest/Enum.hpp>
+#include <org/lofice/embindtest/Exception.hpp>
+#include <org/lofice/embindtest/Struct.hpp>
+#include <org/lofice/embindtest/StructLong.hpp>
+#include <org/lofice/embindtest/StructString.hpp>
+#include <org/lofice/embindtest/Template.hpp>
+#include <org/lofice/embindtest/Test.hpp>
+#include <org/lofice/embindtest/XTest.hpp>
 #include <rtl/ref.hxx>
 #include <rtl/ustring.hxx>
 #include <sal/types.h>
@@ -157,17 +157,17 @@ bool checkAnySequence(css::uno::Any const& value)
 
 bool checkAnyEnum(css::uno::Any const& value)
 {
-    return value.getValueType() == cppu::UnoType<org::libreoffice::embindtest::Enum>::get()
-           && *o3tl::forceAccess<org::libreoffice::embindtest::Enum>(value)
-                  == org::libreoffice::embindtest::Enum_E_2;
+    return value.getValueType() == cppu::UnoType<org::lofice::embindtest::Enum>::get()
+           && *o3tl::forceAccess<org::lofice::embindtest::Enum>(value)
+                  == org::lofice::embindtest::Enum_E_2;
 }
 
 bool checkAnyStruct(css::uno::Any const& value,
                     css::uno::Reference<css::uno::XInterface> const& object)
 {
-    return value.getValueType() == cppu::UnoType<org::libreoffice::embindtest::Struct>::get()
-           && *o3tl::forceAccess<org::libreoffice::embindtest::Struct>(value)
-                  == org::libreoffice::embindtest::Struct{ true,
+    return value.getValueType() == cppu::UnoType<org::lofice::embindtest::Struct>::get()
+           && *o3tl::forceAccess<org::lofice::embindtest::Struct>(value)
+                  == org::lofice::embindtest::Struct{ true,
                                                            -12,
                                                            -1234,
                                                            54321,
@@ -183,7 +183,7 @@ bool checkAnyStruct(css::uno::Any const& value,
                                                            css::uno::Any(sal_Int32(-123456)),
                                                            { u"foo"_ustr, u"barr"_ustr,
                                                              u"bazzz"_ustr },
-                                                           org::libreoffice::embindtest::Enum_E_2,
+                                                           org::lofice::embindtest::Enum_E_2,
                                                            { -123456 },
                                                            { { u"foo"_ustr },
                                                              -123456,
@@ -194,24 +194,24 @@ bool checkAnyStruct(css::uno::Any const& value,
 
 bool checkAnyException(css::uno::Any const& value)
 {
-    if (value.getValueType() != cppu::UnoType<org::libreoffice::embindtest::Exception>::get())
+    if (value.getValueType() != cppu::UnoType<org::lofice::embindtest::Exception>::get())
     {
         return false;
     }
-    auto const& e = *o3tl::forceAccess<org::libreoffice::embindtest::Exception>(value);
+    auto const& e = *o3tl::forceAccess<org::lofice::embindtest::Exception>(value);
     return e.Message.startsWith("error") && !e.Context.is() && e.m1 == -123456 && e.m2 == 100.5
            && e.m3 == u"hä";
 }
 
 bool checkAnyInterface(css::uno::Any const& value,
-                       css::uno::Reference<org::libreoffice::embindtest::XTest> const& object)
+                       css::uno::Reference<org::lofice::embindtest::XTest> const& object)
 {
-    return value.getValueType() == cppu::UnoType<org::libreoffice::embindtest::XTest>::get()
-           && *o3tl::forceAccess<css::uno::Reference<org::libreoffice::embindtest::XTest>>(value)
+    return value.getValueType() == cppu::UnoType<org::lofice::embindtest::XTest>::get()
+           && *o3tl::forceAccess<css::uno::Reference<org::lofice::embindtest::XTest>>(value)
                   == object;
 }
 
-void doExecuteTest(css::uno::Reference<org::libreoffice::embindtest::XTest> const& test)
+void doExecuteTest(css::uno::Reference<org::lofice::embindtest::XTest> const& test)
 {
     {
         bool const val = test->getBoolean();
@@ -293,7 +293,7 @@ void doExecuteTest(css::uno::Reference<org::libreoffice::embindtest::XTest> cons
     }
     {
         auto const val = test->getEnum();
-        verify(val == org::libreoffice::embindtest::Enum_E_2);
+        verify(val == org::lofice::embindtest::Enum_E_2);
         bool const ok = test->isEnum(val);
         verify(ok);
     }
@@ -301,7 +301,7 @@ void doExecuteTest(css::uno::Reference<org::libreoffice::embindtest::XTest> cons
         auto const val = test->getStruct();
         verify(
             val
-            == org::libreoffice::embindtest::Struct{ true,
+            == org::lofice::embindtest::Struct{ true,
                                                      -12,
                                                      -1234,
                                                      54321,
@@ -316,7 +316,7 @@ void doExecuteTest(css::uno::Reference<org::libreoffice::embindtest::XTest> cons
                                                      cppu::UnoType<sal_Int32>::get(),
                                                      css::uno::Any(sal_Int32(-123456)),
                                                      { u"foo"_ustr, u"barr"_ustr, u"bazzz"_ustr },
-                                                     org::libreoffice::embindtest::Enum_E_2,
+                                                     org::lofice::embindtest::Enum_E_2,
                                                      { -123456 },
                                                      { { u"foo"_ustr },
                                                        -123456,
@@ -328,13 +328,13 @@ void doExecuteTest(css::uno::Reference<org::libreoffice::embindtest::XTest> cons
     }
     {
         auto const val = test->getStructLong();
-        verify(val == org::libreoffice::embindtest::StructLong{ -123456 });
+        verify(val == org::lofice::embindtest::StructLong{ -123456 });
         bool const ok = test->isStructLong(val);
         verify(ok);
     }
     {
         auto const val = test->getStructString();
-        verify(val == org::libreoffice::embindtest::StructString{ u"hä"_ustr });
+        verify(val == org::lofice::embindtest::StructString{ u"hä"_ustr });
         bool const ok = test->isStructString(val);
         verify(ok);
     }
@@ -530,7 +530,7 @@ void doExecuteTest(css::uno::Reference<org::libreoffice::embindtest::XTest> cons
             val
             == css::uno::Sequence<css::uno::Type>{
                    cppu::UnoType<sal_Int32>::get(), cppu::UnoType<void>::get(),
-                   cppu::UnoType<css::uno::Sequence<org::libreoffice::embindtest::Enum>>::get() });
+                   cppu::UnoType<css::uno::Sequence<org::lofice::embindtest::Enum>>::get() });
         bool const ok = test->isSequenceType(val);
         verify(ok);
     }
@@ -539,10 +539,10 @@ void doExecuteTest(css::uno::Reference<org::libreoffice::embindtest::XTest> cons
         verify(val
                == css::uno::Sequence<css::uno::Any>{
                       css::uno::Any(sal_Int32(-123456)), css::uno::Any(),
-                      css::uno::Any(css::uno::Sequence<org::libreoffice::embindtest::Enum>{
-                          org::libreoffice::embindtest::Enum_E_2,
-                          org::libreoffice::embindtest::Enum_E3,
-                          org::libreoffice::embindtest::Enum_E_10 }) });
+                      css::uno::Any(css::uno::Sequence<org::lofice::embindtest::Enum>{
+                          org::lofice::embindtest::Enum_E_2,
+                          org::lofice::embindtest::Enum_E3,
+                          org::lofice::embindtest::Enum_E_10 }) });
         bool const ok = test->isSequenceAny(val);
         verify(ok);
     }
@@ -557,9 +557,9 @@ void doExecuteTest(css::uno::Reference<org::libreoffice::embindtest::XTest> cons
     {
         auto const val = test->getSequenceEnum();
         verify(val
-               == css::uno::Sequence<org::libreoffice::embindtest::Enum>{
-                      org::libreoffice::embindtest::Enum_E_2, org::libreoffice::embindtest::Enum_E3,
-                      org::libreoffice::embindtest::Enum_E_10 });
+               == css::uno::Sequence<org::lofice::embindtest::Enum>{
+                      org::lofice::embindtest::Enum_E_2, org::lofice::embindtest::Enum_E3,
+                      org::lofice::embindtest::Enum_E_10 });
         bool const ok = test->isSequenceEnum(val);
         verify(ok);
     }
@@ -567,7 +567,7 @@ void doExecuteTest(css::uno::Reference<org::libreoffice::embindtest::XTest> cons
         auto const val = test->getSequenceStruct();
         verify(
             val
-            == css::uno::Sequence<org::libreoffice::embindtest::Struct>{
+            == css::uno::Sequence<org::lofice::embindtest::Struct>{
                    { true,
                      -12,
                      -1234,
@@ -583,7 +583,7 @@ void doExecuteTest(css::uno::Reference<org::libreoffice::embindtest::XTest> cons
                      cppu::UnoType<sal_Int32>::get(),
                      css::uno::Any(sal_Int32(-123456)),
                      {},
-                     org::libreoffice::embindtest::Enum_E_2,
+                     org::lofice::embindtest::Enum_E_2,
                      { -123456 },
                      { { u"foo"_ustr },
                        -123456,
@@ -605,7 +605,7 @@ void doExecuteTest(css::uno::Reference<org::libreoffice::embindtest::XTest> cons
                      cppu::UnoType<void>::get(),
                      css::uno::Any(),
                      { u"foo"_ustr, u"barr"_ustr },
-                     org::libreoffice::embindtest::Enum_E3,
+                     org::lofice::embindtest::Enum_E3,
                      { 1 },
                      { { u"baz"_ustr }, 1, css::uno::Any(), { u"foo"_ustr } },
                      nullptr },
@@ -621,20 +621,20 @@ void doExecuteTest(css::uno::Reference<org::libreoffice::embindtest::XTest> cons
                      100.75,
                      u'Ö',
                      u"bazzz"_ustr,
-                     cppu::UnoType<css::uno::Sequence<org::libreoffice::embindtest::Enum>>::get(),
-                     css::uno::Any(css::uno::Sequence<org::libreoffice::embindtest::Enum>{
-                         org::libreoffice::embindtest::Enum_E_2,
-                         org::libreoffice::embindtest::Enum_E3,
-                         org::libreoffice::embindtest::Enum_E_10 }),
+                     cppu::UnoType<css::uno::Sequence<org::lofice::embindtest::Enum>>::get(),
+                     css::uno::Any(css::uno::Sequence<org::lofice::embindtest::Enum>{
+                         org::lofice::embindtest::Enum_E_2,
+                         org::lofice::embindtest::Enum_E3,
+                         org::lofice::embindtest::Enum_E_10 }),
                      { u"baz"_ustr },
-                     org::libreoffice::embindtest::Enum_E_10,
+                     org::lofice::embindtest::Enum_E_10,
                      { 123456 },
                      { { u"barr"_ustr },
                        123456,
-                       css::uno::Any(css::uno::Sequence<org::libreoffice::embindtest::Enum>{
-                           org::libreoffice::embindtest::Enum_E_2,
-                           org::libreoffice::embindtest::Enum_E3,
-                           org::libreoffice::embindtest::Enum_E_10 }),
+                       css::uno::Any(css::uno::Sequence<org::lofice::embindtest::Enum>{
+                           org::lofice::embindtest::Enum_E_2,
+                           org::lofice::embindtest::Enum_E3,
+                           org::lofice::embindtest::Enum_E_10 }),
                        { u"bazz"_ustr } },
                      test } });
         bool const ok = test->isSequenceStruct(val);
@@ -642,7 +642,7 @@ void doExecuteTest(css::uno::Reference<org::libreoffice::embindtest::XTest> cons
     }
     {
         auto const val = test->getNull();
-        verify(val == css::uno::Reference<org::libreoffice::embindtest::XTest>());
+        verify(val == css::uno::Reference<org::lofice::embindtest::XTest>());
         bool const ok = test->isNull(val);
         verify(ok);
     }
@@ -662,9 +662,9 @@ void doExecuteTest(css::uno::Reference<org::libreoffice::embindtest::XTest> cons
         css::uno::Type value13;
         css::uno::Any value14;
         css::uno::Sequence<OUString> value15;
-        org::libreoffice::embindtest::Enum value16;
-        org::libreoffice::embindtest::Struct value17;
-        css::uno::Reference<org::libreoffice::embindtest::XTest> value18;
+        org::lofice::embindtest::Enum value16;
+        org::lofice::embindtest::Struct value17;
+        css::uno::Reference<org::lofice::embindtest::XTest> value18;
         test->getOut(value1, value2, value3, value4, value5, value6, value7, value8, value9,
                      value10, value11, value12, value13, value14, value15, value16, value17,
                      value18);
@@ -683,10 +683,10 @@ void doExecuteTest(css::uno::Reference<org::libreoffice::embindtest::XTest> cons
         verify(value13 == cppu::UnoType<sal_Int32>::get());
         verify(value14 == css::uno::Any(sal_Int32(-123456)));
         verify(value15 == css::uno::Sequence<OUString>{ u"foo"_ustr, u"barr"_ustr, u"bazzz"_ustr });
-        verify(value16 == org::libreoffice::embindtest::Enum_E_2);
+        verify(value16 == org::lofice::embindtest::Enum_E_2);
         verify(
             value17
-            == org::libreoffice::embindtest::Struct{ true,
+            == org::lofice::embindtest::Struct{ true,
                                                      -12,
                                                      -1234,
                                                      54321,
@@ -701,7 +701,7 @@ void doExecuteTest(css::uno::Reference<org::libreoffice::embindtest::XTest> cons
                                                      cppu::UnoType<sal_Int32>::get(),
                                                      css::uno::Any(sal_Int32(-123456)),
                                                      { u"foo"_ustr, u"barr"_ustr, u"bazzz"_ustr },
-                                                     org::libreoffice::embindtest::Enum_E_2,
+                                                     org::lofice::embindtest::Enum_E_2,
                                                      { -123456 },
                                                      { { u"foo"_ustr },
                                                        -123456,
@@ -755,7 +755,7 @@ private:
 };
 
 class Test
-    : public cppu::WeakImplHelper<css::lang::XServiceInfo, org::libreoffice::embindtest::XTest>
+    : public cppu::WeakImplHelper<css::lang::XServiceInfo, org::lofice::embindtest::XTest>
 {
     OUString SAL_CALL getImplementationName() override
     {
@@ -827,17 +827,17 @@ class Test
         return value == cppu::UnoType<sal_Int32>::get();
     }
 
-    org::libreoffice::embindtest::Enum SAL_CALL getEnum() override
+    org::lofice::embindtest::Enum SAL_CALL getEnum() override
     {
-        return org::libreoffice::embindtest::Enum_E_2;
+        return org::lofice::embindtest::Enum_E_2;
     }
 
-    sal_Bool SAL_CALL isEnum(org::libreoffice::embindtest::Enum value) override
+    sal_Bool SAL_CALL isEnum(org::lofice::embindtest::Enum value) override
     {
-        return value == org::libreoffice::embindtest::Enum_E_2;
+        return value == org::lofice::embindtest::Enum_E_2;
     }
 
-    org::libreoffice::embindtest::Struct SAL_CALL getStruct() override
+    org::lofice::embindtest::Struct SAL_CALL getStruct() override
     {
         return { true,
                  -12,
@@ -854,16 +854,16 @@ class Test
                  cppu::UnoType<sal_Int32>::get(),
                  css::uno::Any(sal_Int32(-123456)),
                  { u"foo"_ustr, u"barr"_ustr, u"bazzz"_ustr },
-                 org::libreoffice::embindtest::Enum_E_2,
+                 org::lofice::embindtest::Enum_E_2,
                  { -123456 },
                  { { u"foo"_ustr }, -123456, css::uno::Any(sal_Int32(-123456)), { u"barr"_ustr } },
                  static_cast<OWeakObject*>(this) };
     }
 
-    sal_Bool SAL_CALL isStruct(org::libreoffice::embindtest::Struct const& value) override
+    sal_Bool SAL_CALL isStruct(org::lofice::embindtest::Struct const& value) override
     {
         return value
-               == org::libreoffice::embindtest::Struct{ true,
+               == org::lofice::embindtest::Struct{ true,
                                                         -12,
                                                         -1234,
                                                         54321,
@@ -879,7 +879,7 @@ class Test
                                                         css::uno::Any(sal_Int32(-123456)),
                                                         { u"foo"_ustr, u"barr"_ustr,
                                                           u"bazzz"_ustr },
-                                                        org::libreoffice::embindtest::Enum_E_2,
+                                                        org::lofice::embindtest::Enum_E_2,
                                                         { -123456 },
                                                         { { u"foo"_ustr },
                                                           -123456,
@@ -888,41 +888,41 @@ class Test
                                                         static_cast<OWeakObject*>(this) };
     }
 
-    org::libreoffice::embindtest::StructLong SAL_CALL getStructLong() override
+    org::lofice::embindtest::StructLong SAL_CALL getStructLong() override
     {
         return { -123456 };
     }
 
-    sal_Bool SAL_CALL isStructLong(org::libreoffice::embindtest::StructLong const& value) override
+    sal_Bool SAL_CALL isStructLong(org::lofice::embindtest::StructLong const& value) override
     {
         return value.m == -123456;
     }
 
-    org::libreoffice::embindtest::StructString SAL_CALL getStructString() override
+    org::lofice::embindtest::StructString SAL_CALL getStructString() override
     {
         return { u"hä"_ustr };
     }
 
     sal_Bool SAL_CALL
-    isStructString(org::libreoffice::embindtest::StructString const& value) override
+    isStructString(org::lofice::embindtest::StructString const& value) override
     {
         return value.m == u"hä";
     }
 
-    org::libreoffice::embindtest::Template<css::uno::Any,
-                                           org::libreoffice::embindtest::StructString>
+    org::lofice::embindtest::Template<css::uno::Any,
+                                           org::lofice::embindtest::StructString>
         SAL_CALL getTemplate() override
     {
         return { { u"foo"_ustr }, -123456, css::uno::Any(sal_Int32(-123456)), { u"barr"_ustr } };
     }
 
     sal_Bool SAL_CALL
-    isTemplate(org::libreoffice::embindtest::Template<
-               css::uno::Any, org::libreoffice::embindtest::StructString> const& value) override
+    isTemplate(org::lofice::embindtest::Template<
+               css::uno::Any, org::lofice::embindtest::StructString> const& value) override
     {
         return value
-               == org::libreoffice::embindtest::Template<
-                      css::uno::Any, org::libreoffice::embindtest::StructString>{
+               == org::lofice::embindtest::Template<
+                      css::uno::Any, org::lofice::embindtest::StructString>{
                       { u"foo"_ustr }, -123456, css::uno::Any(sal_Int32(-123456)), { u"barr"_ustr }
                   };
     }
@@ -1034,14 +1034,14 @@ class Test
 
     css::uno::Any SAL_CALL getAnyEnum() override
     {
-        return css::uno::Any(org::libreoffice::embindtest::Enum_E_2);
+        return css::uno::Any(org::lofice::embindtest::Enum_E_2);
     }
 
     sal_Bool SAL_CALL isAnyEnum(css::uno::Any const& value) override { return checkAnyEnum(value); }
 
     css::uno::Any SAL_CALL getAnyStruct() override
     {
-        return css::uno::Any(org::libreoffice::embindtest::Struct{
+        return css::uno::Any(org::lofice::embindtest::Struct{
             true,
             -12,
             -1234,
@@ -1057,7 +1057,7 @@ class Test
             cppu::UnoType<sal_Int32>::get(),
             css::uno::Any(sal_Int32(-123456)),
             { u"foo"_ustr, u"barr"_ustr, u"bazzz"_ustr },
-            org::libreoffice::embindtest::Enum_E_2,
+            org::lofice::embindtest::Enum_E_2,
             { -123456 },
             { { u"foo"_ustr }, -123456, css::uno::Any(sal_Int32(-123456)), { u"barr"_ustr } },
             static_cast<OWeakObject*>(this) });
@@ -1070,7 +1070,7 @@ class Test
 
     css::uno::Any SAL_CALL getAnyException() override
     {
-        return css::uno::Any(org::libreoffice::embindtest::Exception{
+        return css::uno::Any(org::lofice::embindtest::Exception{
             u"error"_ustr, {}, -123456, 100.5, u"hä"_ustr });
     }
 
@@ -1081,7 +1081,7 @@ class Test
 
     css::uno::Any SAL_CALL getAnyInterface() override
     {
-        return css::uno::Any(css::uno::Reference<org::libreoffice::embindtest::XTest>(this));
+        return css::uno::Any(css::uno::Reference<org::lofice::embindtest::XTest>(this));
     }
 
     sal_Bool SAL_CALL isAnyInterface(css::uno::Any const& value) override
@@ -1209,7 +1209,7 @@ class Test
     css::uno::Sequence<css::uno::Type> SAL_CALL getSequenceType() override
     {
         return { cppu::UnoType<sal_Int32>::get(), cppu::UnoType<void>::get(),
-                 cppu::UnoType<css::uno::Sequence<org::libreoffice::embindtest::Enum>>::get() };
+                 cppu::UnoType<css::uno::Sequence<org::lofice::embindtest::Enum>>::get() };
     }
 
     sal_Bool SAL_CALL isSequenceType(css::uno::Sequence<css::uno::Type> const& value) override
@@ -1217,16 +1217,16 @@ class Test
         return value
                == css::uno::Sequence<css::uno::Type>{
                       cppu::UnoType<sal_Int32>::get(), cppu::UnoType<void>::get(),
-                      cppu::UnoType<css::uno::Sequence<org::libreoffice::embindtest::Enum>>::get()
+                      cppu::UnoType<css::uno::Sequence<org::lofice::embindtest::Enum>>::get()
                   };
     }
 
     css::uno::Sequence<css::uno::Any> SAL_CALL getSequenceAny() override
     {
         return { css::uno::Any(sal_Int32(-123456)), css::uno::Any(),
-                 css::uno::Any(css::uno::Sequence<org::libreoffice::embindtest::Enum>{
-                     org::libreoffice::embindtest::Enum_E_2, org::libreoffice::embindtest::Enum_E3,
-                     org::libreoffice::embindtest::Enum_E_10 }) };
+                 css::uno::Any(css::uno::Sequence<org::lofice::embindtest::Enum>{
+                     org::lofice::embindtest::Enum_E_2, org::lofice::embindtest::Enum_E3,
+                     org::lofice::embindtest::Enum_E_10 }) };
     }
 
     sal_Bool SAL_CALL isSequenceAny(css::uno::Sequence<css::uno::Any> const& value) override
@@ -1234,10 +1234,10 @@ class Test
         return value
                == css::uno::Sequence<css::uno::Any>{
                       css::uno::Any(sal_Int32(-123456)), css::uno::Any(),
-                      css::uno::Any(css::uno::Sequence<org::libreoffice::embindtest::Enum>{
-                          org::libreoffice::embindtest::Enum_E_2,
-                          org::libreoffice::embindtest::Enum_E3,
-                          org::libreoffice::embindtest::Enum_E_10 })
+                      css::uno::Any(css::uno::Sequence<org::lofice::embindtest::Enum>{
+                          org::lofice::embindtest::Enum_E_2,
+                          org::lofice::embindtest::Enum_E3,
+                          org::lofice::embindtest::Enum_E_10 })
                   };
     }
 
@@ -1255,23 +1255,23 @@ class Test
                                                                     { u"baz"_ustr } };
     }
 
-    css::uno::Sequence<org::libreoffice::embindtest::Enum> SAL_CALL getSequenceEnum() override
+    css::uno::Sequence<org::lofice::embindtest::Enum> SAL_CALL getSequenceEnum() override
     {
-        return { org::libreoffice::embindtest::Enum_E_2, org::libreoffice::embindtest::Enum_E3,
-                 org::libreoffice::embindtest::Enum_E_10 };
+        return { org::lofice::embindtest::Enum_E_2, org::lofice::embindtest::Enum_E3,
+                 org::lofice::embindtest::Enum_E_10 };
     }
 
     sal_Bool SAL_CALL
-    isSequenceEnum(css::uno::Sequence<org::libreoffice::embindtest::Enum> const& value) override
+    isSequenceEnum(css::uno::Sequence<org::lofice::embindtest::Enum> const& value) override
     {
         return value
-               == css::uno::Sequence<org::libreoffice::embindtest::Enum>{
-                      org::libreoffice::embindtest::Enum_E_2, org::libreoffice::embindtest::Enum_E3,
-                      org::libreoffice::embindtest::Enum_E_10
+               == css::uno::Sequence<org::lofice::embindtest::Enum>{
+                      org::lofice::embindtest::Enum_E_2, org::lofice::embindtest::Enum_E3,
+                      org::lofice::embindtest::Enum_E_10
                   };
     }
 
-    css::uno::Sequence<org::libreoffice::embindtest::Struct> SAL_CALL getSequenceStruct() override
+    css::uno::Sequence<org::lofice::embindtest::Struct> SAL_CALL getSequenceStruct() override
     {
         return {
             { true,
@@ -1289,7 +1289,7 @@ class Test
               cppu::UnoType<sal_Int32>::get(),
               css::uno::Any(sal_Int32(-123456)),
               {},
-              org::libreoffice::embindtest::Enum_E_2,
+              org::lofice::embindtest::Enum_E_2,
               { -123456 },
               { { u"foo"_ustr }, -123456, css::uno::Any(sal_Int32(-123456)), { u"barr"_ustr } },
               static_cast<OWeakObject*>(this) },
@@ -1308,7 +1308,7 @@ class Test
               cppu::UnoType<void>::get(),
               css::uno::Any(),
               { u"foo"_ustr, u"barr"_ustr },
-              org::libreoffice::embindtest::Enum_E3,
+              org::lofice::embindtest::Enum_E3,
               { 1 },
               { { u"baz"_ustr }, 1, css::uno::Any(), { u"foo"_ustr } },
               nullptr },
@@ -1324,28 +1324,28 @@ class Test
               100.75,
               u'Ö',
               u"bazzz"_ustr,
-              cppu::UnoType<css::uno::Sequence<org::libreoffice::embindtest::Enum>>::get(),
-              css::uno::Any(css::uno::Sequence<org::libreoffice::embindtest::Enum>{
-                  org::libreoffice::embindtest::Enum_E_2, org::libreoffice::embindtest::Enum_E3,
-                  org::libreoffice::embindtest::Enum_E_10 }),
+              cppu::UnoType<css::uno::Sequence<org::lofice::embindtest::Enum>>::get(),
+              css::uno::Any(css::uno::Sequence<org::lofice::embindtest::Enum>{
+                  org::lofice::embindtest::Enum_E_2, org::lofice::embindtest::Enum_E3,
+                  org::lofice::embindtest::Enum_E_10 }),
               { u"baz"_ustr },
-              org::libreoffice::embindtest::Enum_E_10,
+              org::lofice::embindtest::Enum_E_10,
               { 123456 },
               { { u"barr"_ustr },
                 123456,
-                css::uno::Any(css::uno::Sequence<org::libreoffice::embindtest::Enum>{
-                    org::libreoffice::embindtest::Enum_E_2, org::libreoffice::embindtest::Enum_E3,
-                    org::libreoffice::embindtest::Enum_E_10 }),
+                css::uno::Any(css::uno::Sequence<org::lofice::embindtest::Enum>{
+                    org::lofice::embindtest::Enum_E_2, org::lofice::embindtest::Enum_E3,
+                    org::lofice::embindtest::Enum_E_10 }),
                 { u"bazz"_ustr } },
               static_cast<OWeakObject*>(this) }
         };
     }
 
     sal_Bool SAL_CALL
-    isSequenceStruct(css::uno::Sequence<org::libreoffice::embindtest::Struct> const& value) override
+    isSequenceStruct(css::uno::Sequence<org::lofice::embindtest::Struct> const& value) override
     {
         return value
-               == css::uno::Sequence<org::libreoffice::embindtest::Struct>{
+               == css::uno::Sequence<org::lofice::embindtest::Struct>{
                       { true,
                         -12,
                         -1234,
@@ -1361,7 +1361,7 @@ class Test
                         cppu::UnoType<sal_Int32>::get(),
                         css::uno::Any(sal_Int32(-123456)),
                         {},
-                        org::libreoffice::embindtest::Enum_E_2,
+                        org::lofice::embindtest::Enum_E_2,
                         { -123456 },
                         { { u"foo"_ustr },
                           -123456,
@@ -1383,7 +1383,7 @@ class Test
                         cppu::UnoType<void>::get(),
                         css::uno::Any(),
                         { u"foo"_ustr, u"barr"_ustr },
-                        org::libreoffice::embindtest::Enum_E3,
+                        org::lofice::embindtest::Enum_E3,
                         { 1 },
                         { { u"baz"_ustr }, 1, css::uno::Any(), { u"foo"_ustr } },
                         nullptr },
@@ -1400,32 +1400,32 @@ class Test
                         u'Ö',
                         u"bazzz"_ustr,
                         cppu::UnoType<
-                            css::uno::Sequence<org::libreoffice::embindtest::Enum>>::get(),
-                        css::uno::Any(css::uno::Sequence<org::libreoffice::embindtest::Enum>{
-                            org::libreoffice::embindtest::Enum_E_2,
-                            org::libreoffice::embindtest::Enum_E3,
-                            org::libreoffice::embindtest::Enum_E_10 }),
+                            css::uno::Sequence<org::lofice::embindtest::Enum>>::get(),
+                        css::uno::Any(css::uno::Sequence<org::lofice::embindtest::Enum>{
+                            org::lofice::embindtest::Enum_E_2,
+                            org::lofice::embindtest::Enum_E3,
+                            org::lofice::embindtest::Enum_E_10 }),
                         { u"baz"_ustr },
-                        org::libreoffice::embindtest::Enum_E_10,
+                        org::lofice::embindtest::Enum_E_10,
                         { 123456 },
                         { { u"barr"_ustr },
                           123456,
-                          css::uno::Any(css::uno::Sequence<org::libreoffice::embindtest::Enum>{
-                              org::libreoffice::embindtest::Enum_E_2,
-                              org::libreoffice::embindtest::Enum_E3,
-                              org::libreoffice::embindtest::Enum_E_10 }),
+                          css::uno::Any(css::uno::Sequence<org::lofice::embindtest::Enum>{
+                              org::lofice::embindtest::Enum_E_2,
+                              org::lofice::embindtest::Enum_E3,
+                              org::lofice::embindtest::Enum_E_10 }),
                           { u"bazz"_ustr } },
                         static_cast<OWeakObject*>(this) }
                   };
     }
 
-    css::uno::Reference<org::libreoffice::embindtest::XTest> SAL_CALL getNull() override
+    css::uno::Reference<org::lofice::embindtest::XTest> SAL_CALL getNull() override
     {
         return {};
     }
 
     sal_Bool SAL_CALL
-    isNull(css::uno::Reference<org::libreoffice::embindtest::XTest> const& value) override
+    isNull(css::uno::Reference<org::lofice::embindtest::XTest> const& value) override
     {
         return !value;
     }
@@ -1435,9 +1435,9 @@ class Test
                          sal_uInt64& value8, float& value9, double& value10, sal_Unicode& value11,
                          OUString& value12, css::uno::Type& value13, css::uno::Any& value14,
                          css::uno::Sequence<OUString>& value15,
-                         org::libreoffice::embindtest::Enum& value16,
-                         org::libreoffice::embindtest::Struct& value17,
-                         css::uno::Reference<org::libreoffice::embindtest::XTest>& value18) override
+                         org::lofice::embindtest::Enum& value16,
+                         org::lofice::embindtest::Struct& value17,
+                         css::uno::Reference<org::lofice::embindtest::XTest>& value18) override
     {
         value1 = true;
         value2 = -12;
@@ -1454,7 +1454,7 @@ class Test
         value13 = cppu::UnoType<sal_Int32>::get();
         value14 <<= sal_Int32(-123456);
         value15 = { u"foo"_ustr, u"barr"_ustr, u"bazzz"_ustr };
-        value16 = org::libreoffice::embindtest::Enum_E_2;
+        value16 = org::lofice::embindtest::Enum_E_2;
         value17
             = { true,
                 -12,
@@ -1471,7 +1471,7 @@ class Test
                 cppu::UnoType<sal_Int32>::get(),
                 css::uno::Any(sal_Int32(-123456)),
                 { u"foo"_ustr, u"barr"_ustr, u"bazzz"_ustr },
-                org::libreoffice::embindtest::Enum_E_2,
+                org::lofice::embindtest::Enum_E_2,
                 { -123456 },
                 { { u"foo"_ustr }, -123456, css::uno::Any(sal_Int32(-123456)), { u"barr"_ustr } },
                 static_cast<OWeakObject*>(this) };
@@ -1519,7 +1519,7 @@ class Test
     }
 
     sal_Bool SAL_CALL checkAttributes(
-        css::uno::Reference<org::libreoffice::embindtest::XAttributes> const& object) override
+        css::uno::Reference<org::lofice::embindtest::XAttributes> const& object) override
     {
         auto const ok1 = object->getLongAttribute() == 789;
         verify(ok1);
@@ -1545,7 +1545,7 @@ class Test
     }
 
     void SAL_CALL
-    executeTest(css::uno::Reference<org::libreoffice::embindtest::XTest> const& test) override
+    executeTest(css::uno::Reference<org::lofice::embindtest::XTest> const& test) override
     {
         doExecuteTest(test);
     }
@@ -1589,15 +1589,15 @@ private:
         }
         css::uno::UnoInterfaceReference ifcUno;
         cpp2uno.mapInterface(reinterpret_cast<void**>(&ifcUno.m_pUnoI),
-                             org::libreoffice::embindtest::Test::create(context_).get(),
-                             cppu::UnoType<org::libreoffice::embindtest::XTest>::get());
+                             org::lofice::embindtest::Test::create(context_).get(),
+                             cppu::UnoType<org::lofice::embindtest::XTest>::get());
         if (!ifcUno.is())
         {
             throw css::uno::RuntimeException(u"cannot map from C++ to UNO"_ustr);
         }
-        css::uno::Reference<org::libreoffice::embindtest::XTest> ifcCpp;
+        css::uno::Reference<org::lofice::embindtest::XTest> ifcCpp;
         uno2cpp.mapInterface(reinterpret_cast<void**>(&ifcCpp), ifcUno.get(),
-                             cppu::UnoType<org::libreoffice::embindtest::XTest>::get());
+                             cppu::UnoType<org::lofice::embindtest::XTest>::get());
         if (!ifcCpp.is())
         {
             throw css::uno::RuntimeException(u"cannot map from UNO to C++"_ustr);
@@ -1618,14 +1618,14 @@ private:
 }
 
 extern "C" SAL_DLLPUBLIC_EXPORT css::uno::XInterface*
-org_libreoffice_comp_embindtest_BridgeTest_get_implementation(
+org_lofice_comp_embindtest_BridgeTest_get_implementation(
     css::uno::XComponentContext* context, css::uno::Sequence<css::uno::Any> const&)
 {
     return cppu::acquire(new BridgeTest(context));
 }
 
 extern "C" SAL_DLLPUBLIC_EXPORT css::uno::XInterface*
-org_libreoffice_comp_embindtest_Test_get_implementation(css::uno::XComponentContext*,
+org_lofice_comp_embindtest_Test_get_implementation(css::uno::XComponentContext*,
                                                         css::uno::Sequence<css::uno::Any> const&)
 {
     return cppu::acquire(new Test);

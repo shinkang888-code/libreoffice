@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -353,7 +353,7 @@ struct DialogImpl
     tools::Long    mnResult;
     bool    mbStartedModal;
     VclAbstractDialog::AsyncContext maEndCtx;
-    Link<void*, vcl::ILibreOfficeKitNotifier*> m_aInstallLOKNotifierHdl;
+    Link<void*, vcl::IloficeKitNotifier*> m_aInstallLOKNotifierHdl;
     bool    m_bLOKTunneling;
 
     DialogImpl() : mnResult( -1 ), mbStartedModal( false ), m_bLOKTunneling( true ) {}
@@ -534,7 +534,7 @@ void Dialog::ImplInitSettings()
 
 void Dialog::ImplLOKNotifier(vcl::Window* pParent)
 {
-    if (comphelper::LibreOfficeKit::isActive() && pParent)
+    if (comphelper::loficeKit::isActive() && pParent)
     {
         if (VclPtr<vcl::Window> pWin = pParent->GetParentWithLOKNotifier())
         {
@@ -618,9 +618,9 @@ void Dialog::dispose()
     xEventBroadcaster->documentEventOccured(aObject);
     UITestLogger::getInstance().log(u"Close Dialog");
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
-        if(const vcl::ILibreOfficeKitNotifier* pNotifier = GetLOKNotifier())
+        if(const vcl::IloficeKitNotifier* pNotifier = GetLOKNotifier())
         {
             if (bTunnelingEnabled)
                 pNotifier->notifyWindow(GetLOKWindowId(), u"close"_ustr);
@@ -720,7 +720,7 @@ Size bestmaxFrameSizeForScreenSize(const Size &rScreenSize)
 #endif
 }
 
-void Dialog::SetInstallLOKNotifierHdl(const Link<void*, vcl::ILibreOfficeKitNotifier*>& rLink)
+void Dialog::SetInstallLOKNotifierHdl(const Link<void*, vcl::IloficeKitNotifier*>& rLink)
 {
     mpDialogImpl->m_aInstallLOKNotifierHdl = rLink;
 }
@@ -733,7 +733,7 @@ void Dialog::StateChanged( StateChangedType nType )
     {
         DoInitialLayout();
 
-        const bool bKitActive = comphelper::LibreOfficeKit::isActive();
+        const bool bKitActive = comphelper::loficeKit::isActive();
         if (bKitActive && bTunnelingEnabled)
         {
             std::vector<vcl::LOKPayloadItem> aItems;
@@ -743,14 +743,14 @@ void Dialog::StateChanged( StateChangedType nType )
             if (!GetText().isEmpty())
                 aItems.emplace_back("title", GetText().toUtf8());
 
-            if (const vcl::ILibreOfficeKitNotifier* pNotifier = GetLOKNotifier())
+            if (const vcl::IloficeKitNotifier* pNotifier = GetLOKNotifier())
             {
                 pNotifier->notifyWindow(GetLOKWindowId(), u"created"_ustr, aItems);
                 pNotifier->notifyWindow(GetLOKWindowId(), u"created"_ustr, aItems);
             }
             else
             {
-                vcl::ILibreOfficeKitNotifier* pViewShell = mpDialogImpl->m_aInstallLOKNotifierHdl.Call(nullptr);
+                vcl::IloficeKitNotifier* pViewShell = mpDialogImpl->m_aInstallLOKNotifierHdl.Call(nullptr);
                 if (pViewShell)
                 {
                     SetLOKNotifier(pViewShell);
@@ -774,7 +774,7 @@ void Dialog::StateChanged( StateChangedType nType )
     }
     else if (nType == StateChangedType::Text)
     {
-        const vcl::ILibreOfficeKitNotifier* pNotifier = GetLOKNotifier();
+        const vcl::IloficeKitNotifier* pNotifier = GetLOKNotifier();
         if (pNotifier && bTunnelingEnabled)
         {
             std::vector<vcl::LOKPayloadItem> aPayload;
@@ -793,7 +793,7 @@ void Dialog::StateChanged( StateChangedType nType )
 
     if (!mbModalMode && nType == StateChangedType::Visible)
     {
-        const vcl::ILibreOfficeKitNotifier* pNotifier = GetLOKNotifier();
+        const vcl::IloficeKitNotifier* pNotifier = GetLOKNotifier();
         if (pNotifier && bTunnelingEnabled)
         {
             std::vector<vcl::LOKPayloadItem> aPayload;
@@ -892,7 +892,7 @@ bool Dialog::ImplStartExecute(bool async)
 
     ImplSVData* pSVData = ImplGetSVData();
 
-    const bool bKitActive = comphelper::LibreOfficeKit::isActive();
+    const bool bKitActive = comphelper::loficeKit::isActive();
 
     const bool bModal = GetType() != WindowType::MODELESSDIALOG;
 
@@ -998,7 +998,7 @@ bool Dialog::ImplStartExecute(bool async)
     }
 
     mbInExecute = true;
-    // no real modality in LibreOfficeKit
+    // no real modality in loficeKit
     if (!bKitActive && bModal)
         SetModalInputMode(true);
 
@@ -1026,9 +1026,9 @@ bool Dialog::ImplStartExecute(bool async)
         UITestLogger::getInstance().log(Concat2View("Open Modeless " + get_id()));
 
     bool bTunnelingEnabled = mpDialogImpl->m_bLOKTunneling;
-    if (comphelper::LibreOfficeKit::isActive() && bTunnelingEnabled)
+    if (comphelper::loficeKit::isActive() && bTunnelingEnabled)
     {
-        if (const vcl::ILibreOfficeKitNotifier* pNotifier = GetLOKNotifier())
+        if (const vcl::IloficeKitNotifier* pNotifier = GetLOKNotifier())
         {
             // Dialog boxes don't get the Resize call and they
             // can have invalid size at 'created' message above.
@@ -1124,9 +1124,9 @@ void Dialog::EndDialog( tools::Long nResult )
 
     Hide();
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
-        if(const vcl::ILibreOfficeKitNotifier* pNotifier = GetLOKNotifier())
+        if(const vcl::IloficeKitNotifier* pNotifier = GetLOKNotifier())
         {
             if (mpDialogImpl->m_bLOKTunneling)
                 pNotifier->notifyWindow(GetLOKWindowId(), u"close"_ustr);
@@ -1405,11 +1405,11 @@ void Dialog::Resize()
 {
     SystemWindow::Resize();
 
-    if (comphelper::LibreOfficeKit::isDialogPainting())
+    if (comphelper::loficeKit::isDialogPainting())
         return;
 
     bool bTunnelingEnabled = mpDialogImpl->m_bLOKTunneling;
-    const vcl::ILibreOfficeKitNotifier* pNotifier = GetLOKNotifier();
+    const vcl::IloficeKitNotifier* pNotifier = GetLOKNotifier();
     if (pNotifier && bTunnelingEnabled)
     {
         std::vector<vcl::LOKPayloadItem> aItems;
@@ -1442,7 +1442,7 @@ IMPL_LINK(Dialog, ResponseHdl, Button*, pButton, void)
     if (nResponse == RET_HELP)
     {
         vcl::Window* pFocusWin = Application::GetFocusWindow();
-        if (!pFocusWin || comphelper::LibreOfficeKit::isActive())
+        if (!pFocusWin || comphelper::loficeKit::isActive())
             pFocusWin = pButton;
         HelpEvent aEvt(pFocusWin->GetPointerPosPixel(), HelpEventMode::CONTEXT);
         pFocusWin->RequestHelp(aEvt);

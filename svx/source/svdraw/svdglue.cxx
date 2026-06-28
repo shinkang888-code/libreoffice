@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -254,7 +254,7 @@ void SdrGluePoint::Shear(const Point& rRef, double tn, bool bVShear, const SdrOb
 
 void SdrGluePoint::Invalidate(vcl::Window& rWin, const SdrObject* pObj) const
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return;
     bool bMapMode=rWin.IsMapModeEnabled();
     Point aPt(pObj!=nullptr ? GetAbsolutePos(*pObj) : GetPos());
@@ -327,7 +327,7 @@ sal_uInt16 SdrGluePointList::Insert(const SdrGluePoint& rGP)
 
 void SdrGluePointList::Invalidate(vcl::Window& rWin, const SdrObject* pObj) const
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return;
     for (auto& xGP : m_aList)
         xGP.Invalidate(rWin,pObj);

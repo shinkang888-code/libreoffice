@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -204,7 +204,7 @@ protected:
     static ShellResource*      spShellRes;      ///< Resources for the Shell.
 
     SwRect                  maVisArea;       ///< The modern version of VisArea.
-    tools::Rectangle        maLOKVisibleArea;///< The visible area in the LibreOfficeKit client.
+    tools::Rectangle        maLOKVisibleArea;///< The visible area in the loficeKit client.
     rtl::Reference<SwDoc>   mxDoc;          ///< The document; never 0.
 
     sal_uInt16 mnStartAction; ///< != 0 if at least one Action is active.

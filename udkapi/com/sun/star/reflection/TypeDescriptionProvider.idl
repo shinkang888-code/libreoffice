@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -40,7 +40,7 @@ published service TypeDescriptionProvider
         <code>"com.sun.star.uno.XInterface"</code>.</p>
 
         </p>The returned values are generally non-null references of type
-        XTypeDescription.  However, before LibreOffice&nbsp;4.1,
+        XTypeDescription.  However, before lofice&nbsp;4.1,
         the value returned for a UNO constant was the value of the constant,
         rather than a reference to an XConstantTypeDescription
         object.  (It also appears that some implementations return values for

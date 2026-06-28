@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -284,7 +284,7 @@ namespace sdr::contact {
         // In the LOK case, control geometry is handled by LokControlHandler
         // except when the document is exported to PDF or printed,
         // so we use isTiledPainting() in place of the more generic isActive()
-        if (comphelper::LibreOfficeKit::isTiledPainting())
+        if (comphelper::loficeKit::isTiledPainting())
             return;
 
         OSL_PRECOND( _rControl.is(), "UnoControlContactHelper::adjustControlGeometry_throw: illegal control!" );

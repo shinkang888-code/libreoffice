@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -32,30 +32,30 @@ class SAL_NO_VTABLE SAL_DLLPUBLIC_RTTI SfxLokCallbackInterface
 {
 public:
     virtual ~SfxLokCallbackInterface() {}
-    // LibreOfficeKitCallback equivalent.
-    virtual void libreOfficeKitViewCallback(int nType, const rtl::OString& pPayload) = 0;
+    // loficeKitCallback equivalent.
+    virtual void loficeKitViewCallback(int nType, const rtl::OString& pPayload) = 0;
     // Callback that explicitly provides view id (which is also included in the payload).
-    virtual void libreOfficeKitViewCallbackWithViewId(int nType, const rtl::OString& pPayload,
+    virtual void loficeKitViewCallbackWithViewId(int nType, const rtl::OString& pPayload,
                                                       int nViewId)
         = 0;
     // LOK_CALLBACK_INVALIDATE_TILES
     // nPart is either part, -1 for all-parts, or INT_MIN if
-    // comphelper::LibreOfficeKit::isPartInInvalidation() is not set
-    virtual void libreOfficeKitViewInvalidateTilesCallback(const tools::Rectangle* pRect, int nPart,
+    // comphelper::loficeKit::isPartInInvalidation() is not set
+    virtual void loficeKitViewInvalidateTilesCallback(const tools::Rectangle* pRect, int nPart,
                                                            int nMode)
         = 0;
     // A message of the given type should be sent, for performance purpose only a notification
     // is given here, details about the message should be queried from SfxViewShell when necessary.
     // This is used for messages that are generated often but only the last one is needed.
-    virtual void libreOfficeKitViewUpdatedCallback(int nType) = 0;
-    // Like libreOfficeKitViewUpdatedCallback(), but a last message is needed for each nViewId value.
+    virtual void loficeKitViewUpdatedCallback(int nType) = 0;
+    // Like loficeKitViewUpdatedCallback(), but a last message is needed for each nViewId value.
     // SfxViewShell:getLOKPayload() will be called on nSourceViewId view.
-    virtual void libreOfficeKitViewUpdatedCallbackPerViewId(int nType, int nViewId,
+    virtual void loficeKitViewUpdatedCallbackPerViewId(int nType, int nViewId,
                                                             int nSourceViewId)
         = 0;
     // There are pending invalidate tiles calls that need to be processed.
     // A call to SfxViewShell::flushPendingLOKInvalidateTiles() should be scheduled.
-    virtual void libreOfficeKitViewAddPendingInvalidateTiles() = 0;
+    virtual void loficeKitViewAddPendingInvalidateTiles() = 0;
     virtual void dumpState(rtl::OStringBuffer& rState) = 0;
 };
 

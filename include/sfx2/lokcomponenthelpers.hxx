@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -24,7 +24,7 @@ class SfxViewShell;
 class VirtualDevice;
 namespace tools { class Rectangle; }
 
-/// A class for chart editing support via LibreOfficeKit.
+/// A class for chart editing support via loficeKit.
 class SFX2_DLLPUBLIC LokChartHelper
 {
 private:
@@ -63,7 +63,7 @@ public:
                              double fScaleX = 1.0, double fScaleY = 1.0);
 };
 
-/// A class for math editing support via LibreOfficeKit.
+/// A class for math editing support via loficeKit.
 class SFX2_DLLPUBLIC LokStarMathHelper
 {
 public:

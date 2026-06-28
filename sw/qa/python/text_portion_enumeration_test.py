@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-This file is part of the LibreOffice project.
+This file is part of the lofice project.
 
 This Source Code Form is subject to the terms of the Mozilla Public
 License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -2898,7 +2898,7 @@ class TextPortionEnumerationTest(unittest.TestCase):
         bSuccess = xMetaCursor.gotoEndOfParagraph(False)
         self.assertFalse(bSuccess, "gotoEndOfParagraph(): succeeded")
 
-    # See https://bugs.libreoffice.org/show_bug.cgi?id=49629
+    # See https://bugs.lofice.org/show_bug.cgi?id=49629
     # ensure that gotoEndOfWord does not fail when footnote is at word end
     def test_xtextcursor(self):
         xDoc = self.__class__.xDoc

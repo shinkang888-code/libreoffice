@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -75,7 +75,7 @@ interface XInternalDataProvider  : com::sun::star::chart2::data::XDataProvider
     /** similar to insertSequence, but it also insert data series
         and handle other things needed for the chart, like set color, format...
         it calls the DataBrowserModel::insertDataSeries()
-        @since LibreOffice 25.2
+        @since lofice 25.2
     */
     void insertDataSeries( [in] long nAfterIndex );
 };

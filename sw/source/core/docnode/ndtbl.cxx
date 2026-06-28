@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1478,7 +1478,7 @@ SwTableNode* SwNodes::TextToTable( const SwNodes::TableRanges_t & rTableNodes,
             SwStartNode* pSttNd = new SwStartNode( rCell.aStart.GetNode(), SwNodeType::Start,
                                         SwTableBoxStartNode );
 
-            // Quotation of http://nabble.documentfoundation.org/Some-strange-lines-by-taking-a-look-at-the-bt-of-fdo-51916-tp3994561p3994639.html
+            // Quotation of http://nabble.lofice.io/Some-strange-lines-by-taking-a-look-at-the-bt-of-fdo-51916-tp3994561p3994639.html
             // SwNode's constructor adds itself to the same SwNodes array as the other node (pSttNd).
             // So this statement is only executed for the side-effect.
             new SwEndNode( aCellEndIdx.GetNode(), *pSttNd );

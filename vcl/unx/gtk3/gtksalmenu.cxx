@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1124,7 +1124,7 @@ void GtkSalMenu::NativeSetItemText( unsigned nSection, unsigned nItemPos, const 
     SolarMutexGuard aGuard;
     // Escape all underscores so that they don't get interpreted as hotkeys
     OUString aText = rText.replaceAll( "_", "__" );
-    // Replace the LibreOffice hotkey identifier with an underscore
+    // Replace the lofice hotkey identifier with an underscore
     aText = aText.replace( '~', '_' );
     OString aConvertedText = OUStringToOString( aText, RTL_TEXTENCODING_UTF8 );
 

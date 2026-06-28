@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -752,7 +752,7 @@ std::vector<css::datatransfer::DataFlavor> GtkTransferable::getTransferDataFlavo
     }
 
     //If we have text, but no UTF-16 format which is basically the only
-    //text-format LibreOffice supports for cnp then claim we do and we
+    //text-format lofice supports for cnp then claim we do and we
     //will convert on demand
     if (bHaveText && !bHaveUTF16)
     {
@@ -1144,7 +1144,7 @@ void VclGtkClipboard::OwnerPossiblyChanged(GdkClipboard* clipboard)
     //avoid possible recursion
     g_signal_handler_disconnect(clipboard, m_nOwnerChangedSignalId);
 
-    OString sTunnel = "application/x-libreoffice-internal-id-" + getPID();
+    OString sTunnel = "application/x-lofice-internal-id-" + getPID();
     GdkAtom *targets;
     gint n_targets;
     if (gtk_clipboard_wait_for_targets(clipboard, &targets, &n_targets))
@@ -1565,7 +1565,7 @@ void VclGtkClipboard::setContents(
         {
 #if !GTK_CHECK_VERSION(4, 0, 0)
             GtkTargetEntry aEntry;
-            OString sTunnel = "application/x-libreoffice-internal-id-" + getPID();
+            OString sTunnel = "application/x-lofice-internal-id-" + getPID();
             aEntry.target = g_strdup(sTunnel.getStr());
             aEntry.flags = 0;
             aEntry.info = 0;
@@ -4060,7 +4060,7 @@ public:
 
     virtual css::uno::Reference<css::datatransfer::clipboard::XClipboard> get_clipboard() const override
     {
-        // the gen backend can have per-frame clipboards which is (presumably) useful for LibreOffice Online
+        // the gen backend can have per-frame clipboards which is (presumably) useful for lofice Online
         // but normal usage is the shared system clipboard
         return GetSystemClipboard();
     }
@@ -5252,7 +5252,7 @@ public:
 #endif
 
 #if GTK_CHECK_VERSION(4, 0, 0)
-    /* LibreOffice likes to think of separators between menu entries, while gtk likes
+    /* lofice likes to think of separators between menu entries, while gtk likes
        to think of sections of menus with separators drawn between sections. We always
        arrange to have a section in a menu so toplevel menumodels comprise of
        sections and we move entries between sections on pretending to insert separators */
@@ -7046,7 +7046,7 @@ public:
         if (get_modal() == bModal)
             return;
         gtk_window_set_modal(m_pDialog, bModal);
-        /* if change the dialog modality while its running, then also change the parent LibreOffice window
+        /* if change the dialog modality while its running, then also change the parent lofice window
            modal count, we typically expect the dialog modality to be restored to its original state
 
            This change modality while running case is for...
@@ -10651,7 +10651,7 @@ private:
         {
             set_active(false);
         }
-        else if (!g_object_get_data(G_OBJECT(event->grab_window), "g-lo-InstancePopup")) // another LibreOffice popover took a grab
+        else if (!g_object_get_data(G_OBJECT(event->grab_window), "g-lo-InstancePopup")) // another lofice popover took a grab
         {
             //try and regrab, so when we lose the grab to the menu of the color palette
             //combobox we regain it so the color palette doesn't itself disappear on next
@@ -11578,7 +11578,7 @@ private:
 #endif
 
             // by default the GtkMenuButton down arrow button is as wide as
-            // a normal button and LibreOffice's original ones are very
+            // a normal button and lofice's original ones are very
             // narrow, that assumption is fairly baked into the toolbar and
             // sidebar designs, try and minimize the width of the dropdown
             // zone.
@@ -13911,9 +13911,9 @@ private:
     {
         //tdf#117991 selection change is sent before the focus change, and focus change
         //is what will cause a spinbutton that currently has the focus to set its contents
-        //as the spin button value. So any LibreOffice callbacks on
+        //as the spin button value. So any lofice callbacks on
         //signal-change would happen before the spinbutton value-change occurs.
-        //To avoid this, send the signal-change to LibreOffice to occur after focus-change
+        //To avoid this, send the signal-change to lofice to occur after focus-change
         //has been processed
         if (m_pChangeEvent)
             Application::RemoveUserEvent(m_pChangeEvent);
@@ -14681,7 +14681,7 @@ public:
         m_nRowDeletedSignalId = g_signal_connect(m_pTreeModel, "row-deleted", G_CALLBACK(signalRowDeleted), this);
         m_nRowInsertedSignalId = g_signal_connect(m_pTreeModel, "row-inserted", G_CALLBACK(signalRowInserted), this);
 
-        // tdf#160028 LibreOffice embeds RTL/LTR direction markers in currency strings, which defeats the
+        // tdf#160028 lofice embeds RTL/LTR direction markers in currency strings, which defeats the
         // default gtk search mechanism, so switch in our one here
         gtk_tree_view_set_search_equal_func(m_pTreeView, search_equal_func, nullptr, nullptr);
     }
@@ -16322,9 +16322,9 @@ private:
     {
         //tdf#117991 selection change is sent before the focus change, and focus change
         //is what will cause a spinbutton that currently has the focus to set its contents
-        //as the spin button value. So any LibreOffice callbacks on
+        //as the spin button value. So any lofice callbacks on
         //signal-change would happen before the spinbutton value-change occurs.
-        //To avoid this, send the signal-change to LibreOffice to occur after focus-change
+        //To avoid this, send the signal-change to lofice to occur after focus-change
         //has been processed
         if (m_pSelectionChangeEvent)
             Application::RemoveUserEvent(m_pSelectionChangeEvent);
@@ -19444,7 +19444,7 @@ private:
         {
             gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(m_pToggleButton), false);
         }
-        else if (!g_object_get_data(G_OBJECT(event->grab_window), "g-lo-InstancePopup")) // another LibreOffice popover took a grab
+        else if (!g_object_get_data(G_OBJECT(event->grab_window), "g-lo-InstancePopup")) // another lofice popover took a grab
         {
             //try and regrab, so when we lose the grab to the menu of the color palette
             //combobox we regain it so the color palette doesn't itself disappear on next
@@ -21251,7 +21251,7 @@ private:
         {
             gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(m_pToggleButton), false);
         }
-        else if (!g_object_get_data(G_OBJECT(event->grab_window), "g-lo-InstancePopup")) // another LibreOffice popover took a grab
+        else if (!g_object_get_data(G_OBJECT(event->grab_window), "g-lo-InstancePopup")) // another lofice popover took a grab
         {
             //try and regrab, so when we lose the grab to the menu of the color palette
             //combobox we regain it so the color palette doesn't itself disappear on next
@@ -22895,7 +22895,7 @@ private:
         {
             popdown();
         }
-        else if (!g_object_get_data(G_OBJECT(event->grab_window), "g-lo-InstancePopup")) // another LibreOffice popover took a grab
+        else if (!g_object_get_data(G_OBJECT(event->grab_window), "g-lo-InstancePopup")) // another lofice popover took a grab
         {
             //try and regrab, so when we lose the grab to the menu of the color palette
             //combobox we regain it so the color palette doesn't itself disappear on next
@@ -23236,7 +23236,7 @@ private:
 
     void postprocess_widget(GtkWidget* pWidget)
     {
-        const bool bHideHelp = comphelper::LibreOfficeKit::isActive() &&
+        const bool bHideHelp = comphelper::loficeKit::isActive() &&
             officecfg::Office::Common::Help::HelpRootURL::get().isEmpty();
 
         //fixup icons
@@ -23460,7 +23460,7 @@ private:
     //GtkBuilder sets translation domain during parse, and unsets it again afterwards.
     //In order for GtkBuilder to find the translations bindtextdomain has to be called
     //for the domain. So here on the first setting of "domain" we call Translate::Create
-    //to make sure that happens. Without this, if some other part of LibreOffice has
+    //to make sure that happens. Without this, if some other part of lofice has
     //used the translation machinery for this domain it will still work, but if it
     //hasn't, e.g. tdf#119929, then the translation fails
     void translation_domain_set()
@@ -24012,7 +24012,7 @@ public:
            4) we want to be able to control the width of the button, but have a drop down menu which
               is not limited to the width of the button
 
-           5) https://bugs.documentfoundation.org/show_bug.cgi?id=131120
+           5) https://bugs.lofice.io/show_bug.cgi?id=131120
               super tall menu doesn't appear under X sometimes
         */
         GtkBuilder* pComboBuilder = makeComboBoxBuilder();

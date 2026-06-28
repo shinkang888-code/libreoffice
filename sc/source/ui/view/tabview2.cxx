@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -799,7 +799,7 @@ void ScTabView::GetPageMoveEndPosition(SCCOL nMovX, SCROW nMovY, SCCOL& rPageX, 
     ScVSplitPos eWhichY = WhichV( eWhich );
 
     auto nScrSizeY = SC_SIZE_NONE;
-    if (comphelper::LibreOfficeKit::isActive() && aViewData.GetPageUpDownOffset() > 0) {
+    if (comphelper::loficeKit::isActive() && aViewData.GetPageUpDownOffset() > 0) {
         nScrSizeY = ScViewData::ToPixel( aViewData.GetPageUpDownOffset(), aViewData.GetPPTX() );
     }
 
@@ -858,7 +858,7 @@ void ScTabView::GetAreaMoveEndPosition(SCCOL nMovX, SCROW nMovY, ScFollowMode eM
         // instead jump a generous block of emptiness. Limit to direct interaction by user and the simple
         // case.
         bIncrementallyExpandToDocLimits = bInteractiveByUser && (nMovX == 1 || nMovY == 1) &&
-                                          !bLegacyCellSelection && comphelper::LibreOfficeKit::isActive();
+                                          !bLegacyCellSelection && comphelper::loficeKit::isActive();
     }
 
     ScDocument& rDoc = aViewData.GetDocument();
@@ -1634,7 +1634,7 @@ void ScTabView::MakeDrawLayer()
     }
 }
 
-IMPL_STATIC_LINK_NOARG(ScTabView, InstallLOKNotifierHdl, void*, vcl::ILibreOfficeKitNotifier*)
+IMPL_STATIC_LINK_NOARG(ScTabView, InstallLOKNotifierHdl, void*, vcl::IloficeKitNotifier*)
 {
     return GetpApp();
 }
@@ -1665,7 +1665,7 @@ void ScTabView::ErrorMessage(TranslateId pGlobStrId)
                                                          VclMessageType::Info, VclButtonsType::Ok,
                                                          ScResId(pGlobStrId)));
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         m_xMessageBox->SetInstallLOKNotifierHdl(LINK(this, ScTabView, InstallLOKNotifierHdl));
 
     weld::Window* pGrabOnClose = bFocus ? pParent : nullptr;

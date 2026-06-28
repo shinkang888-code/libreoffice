@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -876,7 +876,7 @@ javaPluginError jfw_plugin_existJRE(const JavaInfo *pInfo, bool *exist)
             else if(pInfo->sVersion!=aVendorInfo->getVersion())
             {
                 *exist = false;
-                SAL_INFO("jfw.level2", "Mismatch between version number in libreoffice settings and installed JRE:  " << pInfo->sVersion <<" != " << aVendorInfo->getVersion());
+                SAL_INFO("jfw.level2", "Mismatch between version number in lofice settings and installed JRE:  " << pInfo->sVersion <<" != " << aVendorInfo->getVersion());
             }
         }
         else if (::osl::File::E_NOENT == rc_itemRt)

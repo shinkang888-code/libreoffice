@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -422,7 +422,7 @@ T OResultSet::retrieveValue(const sal_Int32 nColumnIndex, const ISC_SHORT nType)
 template <>
 ORowSetValue OResultSet::retrieveValue(const sal_Int32 nColumnIndex, const ISC_SHORT /*nType*/)
 {
-    // See https://wiki.documentfoundation.org/Documentation/DevGuide/Database_Access#Using_the_getXXX_Methods
+    // See https://wiki.lofice.io/Documentation/DevGuide/Database_Access#Using_the_getXXX_Methods
     // (bottom of page) for a chart of possible conversions, we should allow all
     // of these -- Blob/Clob will probably need some specialist handling especially
     // w.r.t. to generating Strings for them.

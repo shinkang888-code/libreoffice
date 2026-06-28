@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -30,7 +30,7 @@ class tdf118208(UITestCase):
             # 1. Open the attached file.
             # 2. Press ctrl-H to show the search and replace dialog.
             # 3. Press the "Format..."  button.
-            # Libreoffice immediately crashed.
+            # lofice immediately crashed.
 
             try:
                 self.change_default_languages("false")

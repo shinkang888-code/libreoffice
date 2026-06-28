@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -574,7 +574,7 @@ void SfxWorkWindow::DeleteControllers_Impl()
         SfxChildWindow *pChild = pCW->pWin;
         if (pChild)
         {
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
             {
                 vcl::Window* pWindow = pChild->GetWindow();
                 if (pWindow)
@@ -1201,7 +1201,7 @@ void SfxWorkWindow::UpdateObjectBars_Impl2()
     // Iterate over all Toolboxes
     xLayoutManager->lock();
     const bool bForceDestroyToolbars =
-        comphelper::LibreOfficeKit::isActive() ? false : sfx2::SfxNotebookBar::IsActive(true);
+        comphelper::loficeKit::isActive() ? false : sfx2::SfxNotebookBar::IsActive(true);
     for ( auto const & n: aObjBarList )
     {
         ToolbarId eId = n.eId;
@@ -1510,7 +1510,7 @@ bool SfxWorkWindow::IsVisible_Impl() const
 
 void SfxWorkWindow::HidePopups_Impl(bool bHide, sal_uInt16 nId )
 {
-    if (comphelper::LibreOfficeKit::isActive() && bHide)
+    if (comphelper::loficeKit::isActive() && bHide)
         return;
 
     for (const std::unique_ptr<SfxChildWin_Impl>& i : aChildWins)
@@ -1530,7 +1530,7 @@ void SfxWorkWindow::HidePopups_Impl(bool bHide, sal_uInt16 nId )
                 pChild->nVisible &= ~SfxChildVisibility::ACTIVE;
                 pCW->Hide();
             }
-            else if ( !comphelper::LibreOfficeKit::isActive() ||
+            else if ( !comphelper::loficeKit::isActive() ||
                       SfxChildVisibility::ACTIVE != (pChild->nVisible & SfxChildVisibility::ACTIVE) )
             {
                 pChild->nVisible |= SfxChildVisibility::ACTIVE;

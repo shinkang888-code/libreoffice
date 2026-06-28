@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -832,7 +832,7 @@ CurlSession::CurlSession(uno::Reference<uno::XComponentContext> xContext,
     }
 
 #ifndef _WIN32
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         //See https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html
         rc = curl_easy_setopt(m_pCurl.get(), CURLOPT_OPENSOCKETFUNCTION, opensocket_callback);
@@ -2659,7 +2659,7 @@ namespace
 {
 /// Manage lifecycle of global DAV worker threads
 class WebDAVManager : public cppu::WeakImplHelper<css::lang::XServiceInfo>,
-                      public comphelper::LibreOfficeKit::ThreadJoinable
+                      public comphelper::loficeKit::ThreadJoinable
 {
 public:
     WebDAVManager() {}
@@ -2678,7 +2678,7 @@ public:
         return { "com.sun.star.ucb.WebDAVManager" };
     }
 
-    // comphelper::LibreOfficeKit::ThreadJoinable
+    // comphelper::loficeKit::ThreadJoinable
     virtual bool joinThreads() override { return g_Init.LockStore.joinThreads(); }
 
     virtual void startThreads() override { g_Init.LockStore.startThreads(); }

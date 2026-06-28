@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -70,7 +70,7 @@ bool ScGridWindow::DrawMouseButtonDown(const MouseEvent& rMEvt)
     {
         MapMode aDrawMode = GetDrawMapMode();
         MapMode aOldMode = GetMapMode();
-        if ( comphelper::LibreOfficeKit::isActive() && aOldMode != aDrawMode )
+        if ( comphelper::loficeKit::isActive() && aOldMode != aDrawMode )
             SetMapMode( aDrawMode );
 
         pDraw->SetWindow( this );
@@ -100,7 +100,7 @@ bool ScGridWindow::DrawMouseButtonDown(const MouseEvent& rMEvt)
             }
         }
 
-        if ( comphelper::LibreOfficeKit::isActive() && aOldMode != aDrawMode )
+        if ( comphelper::loficeKit::isActive() && aOldMode != aDrawMode )
             SetMapMode( aOldMode );
     }
 
@@ -117,7 +117,7 @@ bool ScGridWindow::DrawMouseButtonUp(const MouseEvent& rMEvt)
 {
     ScViewFunc* pView = mrViewData.GetView();
     bool bRet = false;
-    bool bLOKitActive = comphelper::LibreOfficeKit::isActive();
+    bool bLOKitActive = comphelper::loficeKit::isActive();
     FuPoor* pDraw = pView->GetDrawFuncPtr();
     if (pDraw && !mrViewData.IsRefMode())
     {
@@ -167,7 +167,7 @@ bool ScGridWindow::DrawMouseMove(const MouseEvent& rMEvt)
     {
         MapMode aDrawMode = GetDrawMapMode();
         MapMode aOldMode = GetMapMode();
-        if ( comphelper::LibreOfficeKit::isActive() && aOldMode != aDrawMode )
+        if ( comphelper::loficeKit::isActive() && aOldMode != aDrawMode )
             SetMapMode( aDrawMode );
 
         pDraw->SetWindow( this );
@@ -175,7 +175,7 @@ bool ScGridWindow::DrawMouseMove(const MouseEvent& rMEvt)
         if ( bRet )
             UpdateStatusPosSize();
 
-        if ( comphelper::LibreOfficeKit::isActive() && aOldMode != aDrawMode )
+        if ( comphelper::loficeKit::isActive() && aOldMode != aDrawMode )
             SetMapMode( aOldMode );
 
         return bRet;
@@ -307,7 +307,7 @@ MapMode ScGridWindow::GetDrawMapMode( bool bForce )
     // work in the logic coordinates (ideally 100ths of mm - so that it is
     // the same as editeng and drawinglayer), and get rid of all the
     // SetMapMode's and other unnecessary fun we have with pixels
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         return mrViewData.GetLogicMode();
     }

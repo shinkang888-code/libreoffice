@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -82,7 +82,7 @@
 #include <verticaltabctrl.hxx>
 #include <wizdlg.hxx>
 #include <tools/svlibrary.h>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 #if defined(DISABLE_DYNLOADING) || defined(LINUX)
 #include <dlfcn.h>
@@ -546,7 +546,7 @@ VclBuilder::VclBuilder(vcl::Window* pParent, std::u16string_view sUIDir, const O
     }
 #endif
 
-    const bool bHideHelp = comphelper::LibreOfficeKit::isActive() &&
+    const bool bHideHelp = comphelper::loficeKit::isActive() &&
         officecfg::Office::Common::Help::HelpRootURL::get().isEmpty();
     if (bHideHelp)
     {
@@ -1012,7 +1012,7 @@ extern "C" VclBuilder::customMakeWidget lo_get_custom_widget_func(const char* na
 // This branch is mainly for building for WASM, and especially for
 // Collabora Online in the browser, where code from core and Collabora
 // Online is compiled to WASM and linked into a single WASM binary.
-// (Not for Allotropia's Qt-based LibreOffice in the browser.)
+// (Not for Allotropia's Qt-based lofice in the browser.)
 
 // When building core for WASM it doesn't use the same
 // solenv/bin/native-code.py thing as the mobile apps, even if in both
@@ -1075,7 +1075,7 @@ VclBuilder::customMakeWidget GetCustomMakeWidget(const OUString& rName)
                     // in the case of preloading, we don't have eg. the
                     // libcuilo.so, but still need to dlsym the symbols -
                     // which are already in-process
-                    if (comphelper::LibreOfficeKit::isActive())
+                    if (comphelper::loficeKit::isActive())
                     {
                         pFunction = reinterpret_cast<VclBuilder::customMakeWidget>(dlsym(RTLD_DEFAULT, OUStringToOString(sFunction, RTL_TEXTENCODING_UTF8).getStr()));
                         ok = !!pFunction;
@@ -2635,7 +2635,7 @@ void VclBuilder::insertMenuObject(PopupMenu* pParent, PopupMenu* pSubMenu, const
 
     if(rClass == "NotebookBarAddonsMenuMergePoint")
     {
-        if (!comphelper::LibreOfficeKit::isActive())
+        if (!comphelper::loficeKit::isActive())
         {
             NotebookBarAddonsMerger::MergeNotebookBarMenuAddons(pParent, nNewId, rID, m_xFrame, *m_pNotebookBarAddonsItem);
         }

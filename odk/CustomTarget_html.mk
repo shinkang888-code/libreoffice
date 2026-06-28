@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -23,11 +23,11 @@ $(gb_CustomTarget_workdir)/odk/html/%.html : $(SRCDIR)/odk/%.html
 	sed -e 's|%PRODUCTNAME%|$(PRODUCTNAME)|g' \
 	    -e 's|%LCPRODUCTNAME%|'"$$(printf %s '$(PRODUCTNAME)' | tr A-Z a-z)"'|g' \
 	    -e 's|%PRODUCT_RELEASE%|$(PRODUCTVERSION)|g' \
-	    -e 's|%DOXYGEN_PREFIX0%|$(if $(DOXYGEN),.,https://api.libreoffice.org)|g' \
-	    -e 's|%DOXYGEN_PREFIX1%|$(if $(DOXYGEN),..,https://api.libreoffice.org)|g' \
-	    -e 's|%DOXYGEN_PREFIX2%|$(if $(DOXYGEN),../..,https://api.libreoffice.org)|g' \
-	    -e 's|%JAVADOC_PREFIX0%|$(if $(ENABLE_JAVA),.,https://api.libreoffice.org)|g' \
-	    -e 's|%JAVADOC_PREFIX1%|$(if $(ENABLE_JAVA),..,https://api.libreoffice.org)|g' \
+	    -e 's|%DOXYGEN_PREFIX0%|$(if $(DOXYGEN),.,https://api.lofice.org)|g' \
+	    -e 's|%DOXYGEN_PREFIX1%|$(if $(DOXYGEN),..,https://api.lofice.org)|g' \
+	    -e 's|%DOXYGEN_PREFIX2%|$(if $(DOXYGEN),../..,https://api.lofice.org)|g' \
+	    -e 's|%JAVADOC_PREFIX0%|$(if $(ENABLE_JAVA),.,https://api.lofice.org)|g' \
+	    -e 's|%JAVADOC_PREFIX1%|$(if $(ENABLE_JAVA),..,https://api.lofice.org)|g' \
 	    < $< > $@
 	$(call gb_Trace_EndRange,$*.html,SED)
 

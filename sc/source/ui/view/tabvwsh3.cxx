@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -671,7 +671,7 @@ void ScTabViewShell::Execute( SfxRequest& rReq )
                         // align to cursor even if the cursor position hasn't changed,
                         // because the cursor may be set outside the visible area.
                         AlignToCursor( nCol, nRow, SC_FOLLOW_JUMP );
-                        if ( nSlot == SID_JUMPTOMARK && comphelper::LibreOfficeKit::isActive() )
+                        if ( nSlot == SID_JUMPTOMARK && comphelper::loficeKit::isActive() )
                             rViewData.GetActiveWin()->notifyKitCellFollowJump();
                     }
 
@@ -1352,7 +1352,7 @@ void ScTabViewShell::Execute( SfxRequest& rReq )
 
         case SID_WINDOW_FIX:
             {
-                if (!comphelper::LibreOfficeKit::isActive())
+                if (!comphelper::loficeKit::isActive())
                 {
                     ScSplitMode eHSplit = GetViewData().GetHSplitMode();
                     ScSplitMode eVSplit = GetViewData().GetVSplitMode();
@@ -1415,7 +1415,7 @@ void ScTabViewShell::Execute( SfxRequest& rReq )
                         nFreezeIndex = 0;
                 }
 
-                if (comphelper::LibreOfficeKit::isActive())
+                if (comphelper::loficeKit::isActive())
                 {
                     ScViewData& rViewData = GetViewData();
                     SCTAB nThisTab = rViewData.GetTabNumber();

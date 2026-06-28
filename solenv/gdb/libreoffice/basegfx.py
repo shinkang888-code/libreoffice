@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -10,7 +10,7 @@
 import gdb
 import six
 
-from libreoffice.util import printing
+from lofice.util import printing
 
 class B2DRangePrinter(object):
     '''Prints a B2DRange object.'''
@@ -194,7 +194,7 @@ printer = None
 def build_pretty_printers():
     global printer
 
-    printer = printing.Printer('libreoffice/basegfx')
+    printer = printing.Printer('lofice/basegfx')
 
     # basic types
     printer.add('basegfx::B2DRange', B2DRangePrinter)

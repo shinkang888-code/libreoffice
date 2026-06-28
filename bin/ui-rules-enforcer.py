@@ -1,13 +1,13 @@
 #!/bin/python3
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-# ui-rules-enforcer enforces the .ui rules and properties used by LibreOffice
+# ui-rules-enforcer enforces the .ui rules and properties used by lofice
 # mostly the deprecations of
 # https://developer.gnome.org/gtk4/stable/gtk-migrating-3-to-4.html
 # and a few other home cooked rules

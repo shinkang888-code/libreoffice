@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -47,7 +47,7 @@ module com {  module sun {  module star {  module lang {
     on the factory when going down (i.e. it is commonly disposed by the component context).</dd>
     </dl>
 
-    <p>Since LibreOffice 3.6, in addition to instances of
+    <p>Since lofice 3.6, in addition to instances of
     XServiceInfo et al, the
     com::sun::star::container::XSet of at least the default
     C++ service manager implementation now also supports sequences of

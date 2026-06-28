@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -392,7 +392,7 @@ void UpdateFramesForRemoveDeleteRedline(SwDoc & rDoc, SwPaM const& rPam)
     const SwTextNode *pTextNode = rPam.GetPointNode().GetTextNode();
     SwTextAttr* pTextAttr = pTextNode ? pTextNode->GetFieldTextAttrAt(rPam.GetPoint()->GetContentIndex() - 1, ::sw::GetTextAttrMode::Default) : nullptr;
     SwTextField *const pTextField(static_txtattr_cast<SwTextField*>(pTextAttr));
-    if (pTextField && comphelper::LibreOfficeKit::isActive() )
+    if (pTextField && comphelper::loficeKit::isActive() )
         rDoc.GetDocShell()->Broadcast(
             SwFormatFieldHint(&pTextField->GetFormatField(), SwFormatFieldHintWhich::INSERTED));
     else

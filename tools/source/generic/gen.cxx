@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -30,7 +30,7 @@ OString Pair::toString() const
 {
     // Note that this is not just used for debugging output but the
     // format is parsed by external code (passed in callbacks to
-    // LibreOfficeKit clients). So don't change.
+    // loficeKit clients). So don't change.
     return OString::number(A()) + ", " + OString::number(B());
 }
 
@@ -172,7 +172,7 @@ OString RectangleTemplateBase::toString() const
 {
     // Note that this is not just used for debugging output but the
     // format is parsed by external code (passed in callbacks to
-    // LibreOfficeKit clients). So don't change.
+    // loficeKit clients). So don't change.
     return OString::number(Left()) + ", "
             + OString::number(Top()) + ", "
             + OString::number(getOpenWidth()) + ", "

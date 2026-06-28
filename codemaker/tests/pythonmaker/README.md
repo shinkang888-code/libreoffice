@@ -20,7 +20,7 @@ This approach ensures that any change to `pythonmaker` that alters its output is
 -   `idl/pythontypes.idl`: The master IDL file containing all test cases. This includes enums, constants, typedefs, structs (plain, inherited, and polymorphic), exceptions, interfaces, services, and singletons. It also includes edge cases like the use of keywords as identifiers.
 -   `expected_pyi_stubs/`: Contains the "golden" `.pyi` file structure that `pythonmaker` is expected to generate from `pythontypes.idl`. This is the reference standard for correctness.
 -   `test_pythonmaker.py`: The Python script that orchestrates the entire test. It is executed by the build system and is responsible for compiling the IDL, running `pythonmaker`, and performing the directory comparison.
--   `makefile.mk`: The gbuild makefile that integrates the Python test script into the LibreOffice `make check` process.
+-   `makefile.mk`: The gbuild makefile that integrates the Python test script into the lofice `make check` process.
 
 ---
 
@@ -42,7 +42,7 @@ If you have fixed a bug that was causing `pythonmaker` to generate incorrect `.p
        ```
     b. Run your updated `pythonmaker` manually to generate the new, correct stubs into a temporary directory. You can find the exact command to run from the test script's log output during a `make check` run. A typical command would be:
        ```bash
-       # Run from .../libreoffice/instdir/program/
+       # Run from .../lofice/instdir/program/
        ./pathToPythonmaker.exe -O /path/to/new_golden_output /path/to/test.rdb
        ```
 3.  **Replace the Golden Files:** Copy the entire generated output into the `expected_pyi_stubs/` directory.

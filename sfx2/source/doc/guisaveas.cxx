@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -74,7 +74,7 @@
 #include <comphelper/mimeconfighelper.hxx>
 #include <comphelper/lok.hxx>
 #include <comphelper/xmlsechelper.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <utility>
 #include <vcl/svapp.hxx>
 #include <vcl/vclenum.hxx>
@@ -690,12 +690,12 @@ void SfxStoringHelper::CallFinishGUIStoreModel()
 
 IMPL_LINK( ModelData_Impl, OptionsDialogClosedHdl, css::ui::dialogs::DialogClosedEvent*, pEvt, void )
 {
-    SfxViewShell* pNotifier = comphelper::LibreOfficeKit::isActive() ? SfxViewShell::Current() : nullptr;
+    SfxViewShell* pNotifier = comphelper::loficeKit::isActive() ? SfxViewShell::Current() : nullptr;
 
     if (pEvt->DialogResult == RET_OK && m_xFilterProperties)
     {
         if (pNotifier)
-            pNotifier->libreOfficeKitViewCallback( LOK_CALLBACK_EXPORT_FILE, "PENDING"_ostr );
+            pNotifier->loficeKitViewCallback( LOK_CALLBACK_EXPORT_FILE, "PENDING"_ostr );
 
         const uno::Sequence< beans::PropertyValue > aPropsFromDialog = m_xFilterProperties->getPropertyValues();
         for ( const auto& rProp : aPropsFromDialog )
@@ -705,7 +705,7 @@ IMPL_LINK( ModelData_Impl, OptionsDialogClosedHdl, css::ui::dialogs::DialogClose
     }
     else if (pNotifier)
     {
-        pNotifier->libreOfficeKitViewCallback( LOK_CALLBACK_EXPORT_FILE, "ABORT"_ostr );
+        pNotifier->loficeKitViewCallback( LOK_CALLBACK_EXPORT_FILE, "ABORT"_ostr );
     }
 }
 
@@ -1113,13 +1113,13 @@ bool ModelData_Impl::OutputFileDialog( sal_Int16 nStoreMode,
     OUString aFilterName;
     // in LOK case we don't show File Picker so it will fail, but execute to do other preparations
     if (pFileDlg->Execute(pDialogParams, aFilterName, nScriptingSignatureState) != ERRCODE_NONE
-        && !comphelper::LibreOfficeKit::isActive() )
+        && !comphelper::loficeKit::isActive() )
     {
         throw task::ErrorCodeIOException(
             u"ModelData_Impl::OutputFileDialog: ERRCODE_IO_ABORT"_ustr,
             uno::Reference< uno::XInterface >(), sal_uInt32(ERRCODE_IO_ABORT));
     }
-    else if (comphelper::LibreOfficeKit::isActive())
+    else if (comphelper::loficeKit::isActive())
     {
         aFilterName = aPreselectedFilterPropsHM.getUnpackedValueOrDefault( u"Name"_ustr, OUString() );
     }
@@ -1139,7 +1139,7 @@ bool ModelData_Impl::OutputFileDialog( sal_Int16 nStoreMode,
     // get the path from the dialog
     INetURLObject aURL( pFileDlg->GetPath() );
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
 #ifdef IOS
         // The iOS app (and maybe the Android app) have fails to set the URL to
@@ -1517,7 +1517,7 @@ bool SfxStoringHelper::GUIStoreModel( const uno::Reference< frame::XModel2 >& xM
         }
     }
 
-    if (!comphelper::LibreOfficeKit::isActive() && !( m_nStoreMode & EXPORT_REQUESTED ) && SfxViewShell::Current() )
+    if (!comphelper::loficeKit::isActive() && !( m_nStoreMode & EXPORT_REQUESTED ) && SfxViewShell::Current() )
     {
         SfxObjectShell* pDocShell = SfxViewShell::Current()->GetObjectShell();
 
@@ -1719,12 +1719,12 @@ bool SfxStoringHelper::FinishGUIStoreModel(::comphelper::SequenceAsHashMap::cons
     {
         OUString aFileName;
         aFileNameIter->second >>= aFileName;
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             // In the LOK case, we didn't actually display any dialog yet, so invoke a callback if
             // that's set.
             OUString aNewURI;
-            if (comphelper::LibreOfficeKit::fileSaveDialog(aFileName, aNewURI))
+            if (comphelper::loficeKit::fileSaveDialog(aFileName, aNewURI))
             {
                 if (aNewURI.isEmpty())
                     return false;
@@ -1778,7 +1778,7 @@ bool SfxStoringHelper::FinishGUIStoreModel(::comphelper::SequenceAsHashMap::cons
     // Restore when exporting (which is also done when LoKit is enable, see below).
     const bool bRestore
         = (nStoreMode & EXPORT_REQUESTED)
-          || ((nStoreMode & SAVEAS_REQUESTED) && comphelper::LibreOfficeKit::isActive());
+          || ((nStoreMode & SAVEAS_REQUESTED) && comphelper::loficeKit::isActive());
     DocumentSettingsGuard aSettingsGuard(aModelData.GetModel(), aModelData.IsRecommendReadOnly(),
                                          bRestore);
 
@@ -1879,7 +1879,7 @@ bool SfxStoringHelper::FinishGUIStoreModel(::comphelper::SequenceAsHashMap::cons
             // SaveAs in LoKit is unhelpful. It saves the document to a new path, which
             // breaks the link with the storage, so new modifications can't be uploaded.
             if ((nStoreMode & EXPORT_REQUESTED)
-                || ((nStoreMode & SAVEAS_REQUESTED) && comphelper::LibreOfficeKit::isActive()))
+                || ((nStoreMode & SAVEAS_REQUESTED) && comphelper::loficeKit::isActive()))
                 aModelData.GetStorable()->storeToURL( aURL.GetMainURL( INetURLObject::DecodeMechanism::NONE ), aArgsSequence );
             else
                 aModelData.GetStorable()->storeAsURL( aURL.GetMainURL( INetURLObject::DecodeMechanism::NONE ), aArgsSequence );
@@ -1952,7 +1952,7 @@ bool SfxStoringHelper::FinishGUIStoreModel(::comphelper::SequenceAsHashMap::cons
     }
 
     // Launch PDF viewer
-    if ( nStoreMode & PDFEXPORT_REQUESTED && !comphelper::LibreOfficeKit::isActive() )
+    if ( nStoreMode & PDFEXPORT_REQUESTED && !comphelper::loficeKit::isActive() )
     {
         FilterConfigItem aItem(u"Office.Common/Filter/PDF/Export/");
         bool aViewPDF = aItem.ReadBool( u"ViewPDFAfterExport"_ustr, false );
@@ -1964,12 +1964,12 @@ bool SfxStoringHelper::FinishGUIStoreModel(::comphelper::SequenceAsHashMap::cons
         }
     }
 
-    if ( comphelper::LibreOfficeKit::isActive() )
+    if ( comphelper::loficeKit::isActive() )
     {
         if ( pViewShell )
         {
             OUString sURL = aURL.GetMainURL( INetURLObject::DecodeMechanism::NONE );
-            pViewShell->libreOfficeKitViewCallback( LOK_CALLBACK_EXPORT_FILE, sURL.toUtf8() );
+            pViewShell->loficeKitViewCallback( LOK_CALLBACK_EXPORT_FILE, sURL.toUtf8() );
         }
     }
 

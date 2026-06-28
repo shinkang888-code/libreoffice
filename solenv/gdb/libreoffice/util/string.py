@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,7 +9,7 @@
 
 import gdb
 
-from libreoffice.util.compatibility import use_lazy_string
+from lofice.util.compatibility import use_lazy_string
 
 class StringPrinterHelper(object):
     '''Base for all string pretty printers'''

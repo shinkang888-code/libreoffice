@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -140,7 +140,7 @@
 #include <comphelper/profilezone.hxx>
 #include <vcl/threadex.hxx>
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 //  namespaces
 
@@ -392,7 +392,7 @@ SfxOwnFramesLocker::SfxOwnFramesLocker( SfxObjectShell const * pObjectShell )
     if ( !pObjectShell )
         return;
 
-    if ( comphelper::LibreOfficeKit::isForkedChild() )
+    if ( comphelper::loficeKit::isForkedChild() )
         return; // no need to tweak UI when in the background
 
     for (   SfxViewFrame *pFrame = SfxViewFrame::GetFirst( pObjectShell );
@@ -1998,7 +1998,7 @@ void SAL_CALL SfxBaseModel::load(   const Sequence< beans::PropertyValue >& seqA
                 if( aRequest.isApproved() )
                 {
                     // lok: we want to overwrite file in jail, so don't use template flag
-                    bool bIsLOK = comphelper::LibreOfficeKit::isActive();
+                    bool bIsLOK = comphelper::loficeKit::isActive();
                     // broken package: try second loading and allow repair
                     pMedium->GetItemSet().Put( SfxBoolItem( SID_REPAIRPACKAGE, true ) );
                     pMedium->GetItemSet().Put( SfxBoolItem( SID_TEMPLATE, !bIsLOK ) );
@@ -3296,8 +3296,8 @@ void SfxBaseModel::impl_store(  const   OUString&                   sURL        
         SfxGetpApp()->NotifyEvent( SfxEventHint( bSaveTo ? SfxEventHintId::SaveToDocFailed : SfxEventHintId::SaveAsDocFailed, GlobalEventConfig::GetEventName( bSaveTo ? GlobalEventId::SAVETODOCFAILED : GlobalEventId::SAVEASDOCFAILED),
                                                 m_pData->m_pObjectShell.get() ) );
 
-        if (SfxViewShell* pNotifyView = comphelper::LibreOfficeKit::isActive() ? SfxViewShell::Current() : nullptr)
-            pNotifyView->libreOfficeKitViewCallback(LOK_CALLBACK_EXPORT_FILE, "ERROR"_ostr);
+        if (SfxViewShell* pNotifyView = comphelper::loficeKit::isActive() ? SfxViewShell::Current() : nullptr)
+            pNotifyView->loficeKitViewCallback(LOK_CALLBACK_EXPORT_FILE, "ERROR"_ostr);
 
         std::stringstream aErrCode;
         aErrCode << nErrCode;

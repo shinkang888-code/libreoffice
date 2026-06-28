@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -55,7 +55,7 @@ void ContextChangeBroadcaster::Activate (const css::uno::Reference<css::frame::X
 
 void ContextChangeBroadcaster::Deactivate (const css::uno::Reference<css::frame::XFrame>& rxFrame)
 {
-    if (msContextName.getLength() > 0 && !comphelper::LibreOfficeKit::isActive())
+    if (msContextName.getLength() > 0 && !comphelper::loficeKit::isActive())
     {
         BroadcastContextChange(rxFrame, GetModuleName(rxFrame),
                                vcl::EnumContext::GetContextName(vcl::EnumContext::Context::Default));
@@ -93,7 +93,7 @@ void ContextChangeBroadcaster::BroadcastContextChange (
         rsContextName);
 
     // notify the LOK too
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         SfxLokHelper::notifyContextChange(aEvent);
     }

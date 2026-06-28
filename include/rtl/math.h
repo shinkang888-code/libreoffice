@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 
 #ifndef INCLUDED_RTL_MATH_H
@@ -58,22 +58,22 @@ enum rtl_math_StringFormat
     rtl_math_StringFormat_Automatic,
 
     /** Same 'E', but with only 1 minimum digits in exponent.
-        @since LibreOffice 5.0
+        @since lofice 5.0
      */
     rtl_math_StringFormat_E1,
 
     /** Same 'E', but with only 2 minimum digits in exponent.
-        @since LibreOffice 5.0
+        @since lofice 5.0
      */
     rtl_math_StringFormat_E2,
 
     /** Same 'G', but with only 1 minimum digits in exponent.
-        @since LibreOffice 5.0
+        @since lofice 5.0
      */
     rtl_math_StringFormat_G1,
 
     /** Same 'G', but with only 2 minimum digits in exponent.
-        @since LibreOffice 5.0
+        @since lofice 5.0
      */
     rtl_math_StringFormat_G2,
 
@@ -438,7 +438,7 @@ SAL_DLLPUBLIC double SAL_CALL rtl_math_approxDiff(double a, double b) SAL_THROW_
     @attention
     approxEqual( value!=0.0, 0.0 ) _never_ yields true.
 
-    @since LibreOffice 5.3
+    @since lofice 5.3
  */
 SAL_DLLPUBLIC bool SAL_CALL rtl_math_approxEqual(double a, double b) SAL_THROW_EXTERN_C();
 

@@ -7,7 +7,7 @@
 from uitest.framework import UITestCase
 from uitest.uihelper.common import get_state_as_dict
 from uitest.uihelper.common import select_pos
-from libreoffice.uno.propertyvalue import mkPropertyValues
+from lofice.uno.propertyvalue import mkPropertyValues
 #Bug 152722 - NatNum12 number format (spell out): add/delete decimal places is losing format
 
 class tdf152722(UITestCase):

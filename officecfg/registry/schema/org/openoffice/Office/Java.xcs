@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -39,7 +39,7 @@
       </info>
       <prop oor:name="RunUnoComponentsOutOfProcess" oor:type="xs:boolean" oor:nillable="false">
         <info>
-          <desc>Specifies whether JVM based UNO components are run via uno command outside the LibreOffice process.</desc>
+          <desc>Specifies whether JVM based UNO components are run via uno command outside the lofice process.</desc>
           <label>Run UNO components out-of-process</label>
         </info>
         <value>false</value>

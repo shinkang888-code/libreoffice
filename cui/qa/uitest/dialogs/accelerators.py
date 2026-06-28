@@ -7,7 +7,7 @@
 
 from uitest.framework import UITestCase
 from uitest.uihelper.common import select_pos, select_by_text
-from libreoffice.uno.propertyvalue import mkPropertyValues
+from lofice.uno.propertyvalue import mkPropertyValues
 from uitest.uihelper.common import get_state_as_dict
 from com.sun.star.awt import KeyEvent
 from com.sun.star.awt import Key

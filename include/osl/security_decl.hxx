@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 
 #ifndef INCLUDED_OSL_SECURITY_DECL_HXX
@@ -90,7 +90,7 @@ public:
 
         @param[out] strName is the OUString which returns the name
         @param[in] bIncludeDomain Include the Domain name (like "ORG\username"). Affects Windows only.
-                                  This parameter is available since LibreOffice 5.2.
+                                  This parameter is available since lofice 5.2.
 
         @retval True if any user is successfully logged in
         @retval False if no user is logged in

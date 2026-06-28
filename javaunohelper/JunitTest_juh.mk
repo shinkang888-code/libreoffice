@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -16,10 +16,10 @@ $(eval $(call gb_JunitTest_set_defs,juh,\
 
 $(eval $(call gb_JunitTest_use_jars,juh,\
     OOoRunner \
-    libreoffice \
+    lofice \
 ))
 
-$(eval $(call gb_JunitTest_use_jar_classset,juh,libreoffice))
+$(eval $(call gb_JunitTest_use_jar_classset,juh,lofice))
 
 $(eval $(call gb_JunitTest_add_sourcefiles,juh,\
     javaunohelper/test/com/sun/star/comp/helper/ComponentContext_Test \

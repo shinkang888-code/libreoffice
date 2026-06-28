@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_settings">Nastavitve Pregledovalnika LibreOffice</string>
-    <string name="app_version">Različica: %1$s&lt;br&gt;ID gradnje: &lt;a href=https://hub.libreoffice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
-    <string name="app_description">Pregledovalnik LibreOffice je pregledovalnik dokumentov, zasnovan na LibreOffice.</string>
-    <string name="app_credits">https://sl.libreoffice.org</string>
+    <string name="app_name_settings">Nastavitve Pregledovalnika lofice</string>
+    <string name="app_version">Različica: %1$s&lt;br&gt;ID gradnje: &lt;a href=https://hub.lofice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
+    <string name="app_description">Pregledovalnik lofice je pregledovalnik dokumentov, zasnovan na lofice.</string>
+    <string name="app_credits">https://sl.lofice.org</string>
     <string name="readonly_file">Ta datoteka je samo za branje.</string>
     <string name="about_license">Pokaži dovoljenje</string>
     <string name="new_drawing">Nova risba</string>
@@ -99,7 +99,7 @@
     <string name="automatic">Samodejno</string>
     <string name="action_rename_slide">Preimenuj prosojnico</string>
     <string name="highlight_color">Barva poudarjanja</string>
-    <string name="app_name">Pregledovalnik LibreOffice</string>
+    <string name="app_name">Pregledovalnik lofice</string>
     <string name="app_vendor">Ta izdelek je dal na voljo $VENDOR.</string>
     <string name="pref_category_general">Splošno</string>
     <string name="UNO_commands_string_hint">Ukaz UNO</string>

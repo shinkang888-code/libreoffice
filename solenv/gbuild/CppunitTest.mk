@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -434,7 +434,7 @@ endef
 
 define gb_CppunitTest__use_java_ure
 $(call gb_CppunitTest_get_target,$(1)) : \
-    $(foreach jar,java_uno libreoffice unoloader,$(call gb_Jar_get_target,$(jar))) \
+    $(foreach jar,java_uno lofice unoloader,$(call gb_Jar_get_target,$(jar))) \
     $(call gb_Library_get_target,affine_uno_uno) \
     $(call gb_Library_get_target,java_uno) \
     $(call gb_Library_get_target,jpipe) \

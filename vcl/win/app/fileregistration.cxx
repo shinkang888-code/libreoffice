@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -72,7 +72,7 @@ IsPathDefaultForClass(sal::systools::COMReference<IApplicationAssociationRegistr
 
 static bool IsDefaultAppInstalledInReg()
 {
-    const wchar_t* keyPath = L"SOFTWARE\\LibreOffice\\UNO\\InstallPath";
+    const wchar_t* keyPath = L"SOFTWARE\\lofice\\UNO\\InstallPath";
 
     WCHAR szRegPath[EXTENDED_MAX_PATH];
     DWORD cbData = sizeof(szRegPath);
@@ -150,9 +150,9 @@ void CheckFileExtRegistration(weld::Window* pDialogParent)
     }
 
     static const std::pair<LPCWSTR, LPCWSTR> formats[] = {
-        { L".odp", L"LibreOffice.ImpressDocument.1" },
-        { L".odt", L"LibreOffice.WriterDocument.1" },
-        { L".ods", L"LibreOffice.CalcDocument.1" },
+        { L".odp", L"lofice.ImpressDocument.1" },
+        { L".odt", L"lofice.WriterDocument.1" },
+        { L".ods", L"lofice.CalcDocument.1" },
     };
     OUString aNonDefaults;
 

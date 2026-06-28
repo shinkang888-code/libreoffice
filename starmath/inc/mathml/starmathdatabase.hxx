@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -193,7 +193,7 @@ inline constexpr Color COL_SM_DIV_BLUE(0x102694);
 inline constexpr Color COL_SM_UBUNTU_ORANGE(0xE95420);
 // https://www.debian.org/logos/   Picked from SVG logo
 inline constexpr Color COL_SM_DEBIAN_MAGENTA(0xA80030);
-// https://libreoffice.org/
+// https://lofice.org/
 inline constexpr Color COL_SM_LO_GREEN(0x00A500);
 
 namespace starmathdatabase

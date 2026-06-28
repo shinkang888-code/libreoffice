@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 
 #ifndef INCLUDED_RTL_LOCALE_H
@@ -79,7 +79,7 @@ SAL_DLLPUBLIC rtl_Locale * SAL_CALL rtl_locale_register(
 /**
     Common method of getting the current default Locale.
 
-    @deprecated  LibreOffice itself does not use this anymore, and client code
+    @deprecated  lofice itself does not use this anymore, and client code
     should not have good use for it either.  It may eventually be removed.
  */
 SAL_DLLPUBLIC rtl_Locale * SAL_CALL rtl_locale_getDefault(void);
@@ -93,7 +93,7 @@ SAL_DLLPUBLIC rtl_Locale * SAL_CALL rtl_locale_getDefault(void);
     @param country uppercase two-letter ISO-3166 code.
     @param variant vendor and browser specific code. See class description.
 
-    @deprecated  LibreOffice itself does not use this anymore, and client code
+    @deprecated  lofice itself does not use this anymore, and client code
     should not have good use for it either.  It may eventually be removed.
  */
 SAL_DLLPUBLIC void SAL_CALL rtl_locale_setDefault(

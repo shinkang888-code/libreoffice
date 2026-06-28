@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -673,7 +673,7 @@ static void InsertSpotlightEntry(weld::TreeView& rTreeView, const weld::TreeIter
     // regardless of the selection mode of the style panel, so multiple views
     // on a document all share the same id for a style.
     sal_Int32 nSpotlightId;
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         nSpotlightId = rEntry.getSpotlightId();
     else
     {
@@ -1728,7 +1728,7 @@ IMPL_LINK(StyleList, CustomRenderHdl, weld::TreeView::render_args, aPayload, voi
     ::tools::Rectangle aRect(
         rRect.TopLeft(),
         Size(rRenderContext.GetOutputSize().Width() - rRect.Left(), rRect.GetHeight()));
-    bool bSelected = comphelper::LibreOfficeKit::isActive() ? false : std::get<2>(aPayload);
+    bool bSelected = comphelper::loficeKit::isActive() ? false : std::get<2>(aPayload);
     const OUString& rId = std::get<3>(aPayload);
 
     auto popIt = rRenderContext.ScopedPush(vcl::PushFlags::TEXTCOLOR);
@@ -1883,7 +1883,7 @@ const SfxStyleFamilyItem& StyleList::GetFamilyItemByIndex(size_t i) const
 IMPL_STATIC_LINK(StyleList, CustomGetSizeHdl, weld::TreeView::get_size_args, aPayload, Size)
 {
     vcl::RenderContext& rRenderContext = aPayload.first;
-    return Size(comphelper::LibreOfficeKit::isActive() ? 200 : 42,
+    return Size(comphelper::loficeKit::isActive() ? 200 : 42,
                 32 * rRenderContext.GetDPIScaleFactor());
 }
 

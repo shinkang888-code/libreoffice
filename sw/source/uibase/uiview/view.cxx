@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -111,7 +111,7 @@
 #include <comphelper/servicehelper.hxx>
 #include <framework/windowstatehelper.hxx>
 #include <sfx2/lokhelper.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <svtools/embedhlp.hxx>
 #include <tools/UnitConversion.hxx>
 
@@ -1147,7 +1147,7 @@ SwView::SwView(SfxViewFrame& _rFrame, SfxViewShell* pOldSh)
                 LINK(this, SwView, BringToAttentionBlinkTimerHdl));
     m_aBringToAttentionBlinkTimer.SetTimeout(350);
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         SwXTextDocument* pModel = comphelper::getFromUnoTunnel<SwXTextDocument>(GetCurrentDocument());
         SfxLokHelper::notifyViewRenderState(this, pModel);
@@ -1238,7 +1238,7 @@ void SwView::SetDying()
 
 void SwView::afterCallbackRegistered()
 {
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return;
 
     // common tasks
@@ -2168,15 +2168,15 @@ IMPL_LINK_NOARG(SwView, BringToAttentionBlinkTimerHdl, Timer*, void)
     }
 }
 
-void SwView::libreOfficeKitViewInvalidateTilesCallback(const tools::Rectangle* pRect, int nPart,
+void SwView::loficeKitViewInvalidateTilesCallback(const tools::Rectangle* pRect, int nPart,
                                                        int nMode) const
 {
-    SfxViewShell::libreOfficeKitViewInvalidateTilesCallback(pRect, nPart, nMode);
+    SfxViewShell::loficeKitViewInvalidateTilesCallback(pRect, nPart, nMode);
     if (static_cast<SwRedlineRenderMode>(nMode) == SwRedlineRenderMode::OmitDeletes)
     {
         // If an "omit deletes" mode is invalidated, also invalidate the matching "omit inserts"
         // mode.
-        SfxViewShell::libreOfficeKitViewInvalidateTilesCallback(
+        SfxViewShell::loficeKitViewInvalidateTilesCallback(
             pRect, nPart, static_cast<int>(SwRedlineRenderMode::OmitInserts));
     }
 }

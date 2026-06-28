@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -164,7 +164,7 @@ extern "C" SalInstance *create_SalInstance()
 
 void AndroidSalSystem::ShowNativeMessageBox(const OUString& rTitle, const OUString& rMessage)
 {
-    LOGI("LibreOffice native dialog '%s': '%s'",
+    LOGI("lofice native dialog '%s': '%s'",
          OUStringToOString(rTitle, RTL_TEXTENCODING_ASCII_US).getStr(),
          OUStringToOString(rMessage, RTL_TEXTENCODING_ASCII_US).getStr());
     LOGI("Dialog '%s': '%s'",

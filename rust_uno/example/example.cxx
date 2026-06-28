@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -206,7 +206,7 @@ rtl::OUString Dispatch::static_getImplementationName()
 void Dispatch::dispatch(css::util::URL const&, css::uno::Sequence<css::beans::PropertyValue> const&)
 {
     // === RUST UNO BINDING TEST ===
-    // Call our Rust UNO binding to test it works within LibreOffice
+    // Call our Rust UNO binding to test it works within lofice
     SAL_INFO("desktop.app", "Testing Rust UNO binding...");
     try
     {

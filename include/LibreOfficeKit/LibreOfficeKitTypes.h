@@ -1,14 +1,14 @@
 /* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-#ifndef INCLUDED_LIBREOFFICEKIT_LIBREOFFICEKIT_TYPES_H
-#define INCLUDED_LIBREOFFICEKIT_LIBREOFFICEKIT_TYPES_H
+#ifndef INCLUDED_loficeKIT_loficeKIT_TYPES_H
+#define INCLUDED_loficeKIT_loficeKIT_TYPES_H
 
 #include <stddef.h>
 
@@ -17,27 +17,27 @@ extern "C" {
 #endif
 
 /** @see lok::Office::registerCallback().
-    @since LibreOffice 6.0
+    @since lofice 6.0
  */
-typedef void (*LibreOfficeKitCallback)(int nType, const char* pPayload, void* pData);
+typedef void (*loficeKitCallback)(int nType, const char* pPayload, void* pData);
 
 /** @see lok::Office::runLoop().
-    @since LibreOffice 6.3
+    @since lofice 6.3
  */
-typedef int (*LibreOfficeKitPollCallback)(void* pData, int timeoutUs);
-typedef void (*LibreOfficeKitWakeCallback)(void* pData);
+typedef int (*loficeKitPollCallback)(void* pData, int timeoutUs);
+typedef void (*loficeKitWakeCallback)(void* pData);
 
 /// @see lok::Office::registerAnyInputCallback()
-typedef bool (*LibreOfficeKitAnyInputCallback)(void* pData, int nMostUrgentPriority);
+typedef bool (*loficeKitAnyInputCallback)(void* pData, int nMostUrgentPriority);
 
 /// @see lok::Office::registerFileSaveDialogCallback()
-typedef void (*LibreOfficeKitFileSaveDialogCallback)(const char* pSuggestedUri, char* pResultUri,
+typedef void (*loficeKitFileSaveDialogCallback)(const char* pSuggestedUri, char* pResultUri,
                                                      size_t nResultUri);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif // INCLUDED_LIBREOFFICEKIT_LIBREOFFICEKIT_TYPES_H
+#endif // INCLUDED_loficeKIT_loficeKIT_TYPES_H
 
 /* vim:set shiftwidth=4 softtabstop=4 expandtab: */

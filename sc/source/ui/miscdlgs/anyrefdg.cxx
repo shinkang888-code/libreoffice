@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -250,7 +250,7 @@ void ScFormulaReferenceHelper::HideReference( bool bDoneRefMode )
             pTabViewShell->DoneRefMode();
         pTabViewShell->ClearHighlightRanges();
 
-        if( comphelper::LibreOfficeKit::isActive() )
+        if( comphelper::loficeKit::isActive() )
         {
             // Clear
             std::vector<ReferenceMark> aReferenceMarks;
@@ -455,7 +455,7 @@ void ScFormulaReferenceHelper::DoClose( sal_uInt16 nId )
 
 void ScFormulaReferenceHelper::SetDispatcherLock( bool bLock )
 {
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
     {
         // lock / unlock only the dispatchers of Calc documents
         ScDocShell* pDocShell = static_cast<ScDocShell*>(SfxObjectShell::GetFirst(checkSfxObjectShell<ScDocShell>));

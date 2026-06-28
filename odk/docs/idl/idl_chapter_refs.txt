@@ -207,8 +207,8 @@ com.sun.star.awt.XWindowPeer
 com.sun.star.frame.XFrame
 TOPIC:
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Text_Field
-DESCR:LibreOffice Basic - Text Field
+LINK:Documentation/DevGuide/lofice_Basic#Text_Field
+DESCR:lofice Basic - Text Field
 REF:
 com.sun.star.awt.UnoControlEdit
 com.sun.star.awt.XTextComponent
@@ -584,8 +584,8 @@ REF:
 com.sun.star.xml.sax.XDocumentHandler
 TOPIC:
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#General_Structure
-DESCR:LibreOffice Basic - General Structure
+LINK:Documentation/DevGuide/lofice_Basic#General_Structure
+DESCR:lofice Basic - General Structure
 REF:
 com.sun.star.io.XInputStreamProvider
 TOPIC:
@@ -709,8 +709,8 @@ com.sun.star.lang.DisposedException
 com.sun.star.uno.RuntimeException
 TOPIC:
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#File_IO
-DESCR:LibreOffice Basic - File IO
+LINK:Documentation/DevGuide/lofice_Basic#File_IO
+DESCR:lofice Basic - File IO
 REF:
 com.sun.star.io.XActiveDataSource
 com.sun.star.io.XStream
@@ -1109,8 +1109,8 @@ REF:
 TOPIC:
 com.sun.star.sheet.XMultipleOperation
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#HorizontalVertical_Line
-DESCR:LibreOffice Basic - HorizontalVertical Line
+LINK:Documentation/DevGuide/lofice_Basic#HorizontalVertical_Line
+DESCR:lofice Basic - HorizontalVertical Line
 REF:
 com.sun.star.awt.UnoControlFixedLine
 TOPIC:
@@ -1157,8 +1157,8 @@ com.sun.star.frame.FrameLoader
 com.sun.star.frame.XFrame
 TOPIC:
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Currency_Field
-DESCR:LibreOffice Basic - Currency Field
+LINK:Documentation/DevGuide/lofice_Basic#Currency_Field
+DESCR:lofice Basic - Currency Field
 REF:
 com.sun.star.awt.UnoControlCurrencyField
 TOPIC:
@@ -1610,8 +1610,8 @@ com.sun.star.reflection.XIdlClass
 com.sun.star.container.XNameContainer
 TOPIC:
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Creating_Dialogs_at_Runtime
-DESCR:LibreOffice Basic - Creating Dialogs at Runtime
+LINK:Documentation/DevGuide/lofice_Basic#Creating_Dialogs_at_Runtime
+DESCR:lofice Basic - Creating Dialogs at Runtime
 REF:
 com.sun.star.awt.XDialog
 com.sun.star.awt.UnoControlDialogModel
@@ -1854,8 +1854,8 @@ com.sun.star.uno.XInterface
 com.sun.star.script.XInvocation
 TOPIC:
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#List_Box
-DESCR:LibreOffice Basic - List Box
+LINK:Documentation/DevGuide/lofice_Basic#List_Box
+DESCR:lofice Basic - List Box
 REF:
 com.sun.star.awt.UnoControlListBox
 com.sun.star.awt.XListBox
@@ -1942,8 +1942,8 @@ com.sun.star.sheet.TableCellStyle
 TOPIC:
 com.sun.star.sheet.TableCellStyle
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Programming_Dialogs_and_Dialog_Controls
-DESCR:LibreOffice Basic - Programming Dialogs and Dialog Controls
+LINK:Documentation/DevGuide/lofice_Basic#Programming_Dialogs_and_Dialog_Controls
+DESCR:lofice Basic - Programming Dialogs and Dialog Controls
 REF:
 com.sun.star.awt.XWindow
 com.sun.star.beans.XPropertySet
@@ -1994,8 +1994,8 @@ com.sun.star.util.SearchDescriptor
 com.sun.star.util.XReplaceable
 com.sun.star.util.XSearchable
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#ThisComponent
-DESCR:LibreOffice Basic - Accessing the UNO API - ThisComponent
+LINK:Documentation/DevGuide/lofice_Basic#ThisComponent
+DESCR:lofice Basic - Accessing the UNO API - ThisComponent
 REF:
 com.sun.star.frame.XStorable
 com.sun.star.util.XModifiable
@@ -2289,8 +2289,8 @@ REF:
 com.sun.star.xml.sax.XDocumentHandler
 TOPIC:
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Numeric_Field
-DESCR:LibreOffice Basic - Numeric Field
+LINK:Documentation/DevGuide/lofice_Basic#Numeric_Field
+DESCR:lofice Basic - Numeric Field
 REF:
 com.sun.star.awt.UnoControlNumericField
 TOPIC:
@@ -3062,8 +3062,8 @@ com.sun.star.frame.Frame
 com.sun.star.awt
 TOPIC:
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Label_Field
-DESCR:LibreOffice Basic - Label Field
+LINK:Documentation/DevGuide/lofice_Basic#Label_Field
+DESCR:lofice Basic - Label Field
 REF:
 com.sun.star.awt.UnoControlFixedText
 TOPIC:
@@ -3097,7 +3097,7 @@ com.sun.star.document.Events
 TOPIC:
 com.sun.star.document.XEventBroadcaster
 
-LINK:Documentation/DevGuide/LibreOffice_API-Design-Guidelines#Usage_5
+LINK:Documentation/DevGuide/lofice_API-Design-Guidelines#Usage_5
 DESCR:Appendix A. Guidelines and Specifications - Events - Usage
 REF:
 com.sun.star.lang.XEventListener
@@ -3113,8 +3113,8 @@ com.sun.star.text.XParagraphCursor
 TOPIC:
 com.sun.star.text.XSimpleText
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Check_Box
-DESCR:LibreOffice Basic - Check Box
+LINK:Documentation/DevGuide/lofice_Basic#Check_Box
+DESCR:lofice Basic - Check Box
 REF:
 com.sun.star.awt.XCheckBox
 com.sun.star.awt.UnoControlCheckBox
@@ -3287,8 +3287,8 @@ com.sun.star.form.component.TextField
 com.sun.star.beans.XPropertyChangeListener
 TOPIC:
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Option_Button
-DESCR:LibreOffice Basic - Option Button
+LINK:Documentation/DevGuide/lofice_Basic#Option_Button
+DESCR:lofice Basic - Option Button
 REF:
 com.sun.star.awt.UnoControlRadioButton
 TOPIC:
@@ -3438,7 +3438,7 @@ com.sun.star.util.XImportable
 TOPIC:
 com.sun.star.sheet.DatabaseImportDescriptor
 
-LINK:Documentation/DevGuide/LibreOffice_API-Design-Guidelines#Collection_Interfaces
+LINK:Documentation/DevGuide/lofice_API-Design-Guidelines#Collection_Interfaces
 DESCR:Appendix A. Guidelines and Specifications - Special Cases - Collection Interfaces
 REF:
 com.sun.star.text.TextDocument
@@ -3716,8 +3716,8 @@ REF:
 com.sun.star.lang.XTypeProvider
 TOPIC:
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Formatted_Field
-DESCR:LibreOffice Basic - Formatted Field
+LINK:Documentation/DevGuide/lofice_Basic#Formatted_Field
+DESCR:lofice Basic - Formatted Field
 REF:
 com.sun.star.awt.UnoControlFormattedField
 TOPIC:
@@ -3730,7 +3730,7 @@ TOPIC:
 com.sun.star.bridge.UnoUrlResolver
 com.sun.star.lang.ServiceManager
 
-LINK:Documentation/DevGuide/LibreOffice_API-Design-Guidelines#Naming_6
+LINK:Documentation/DevGuide/lofice_API-Design-Guidelines#Naming_6
 DESCR:Appendix A. Guidelines and Specifications - Services - Naming
 REF:
 com.sun.star.text.TextDocument
@@ -3768,8 +3768,8 @@ REF:
 com.sun.star.form
 TOPIC:
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Image_Control
-DESCR:LibreOffice Basic - Image Control
+LINK:Documentation/DevGuide/lofice_Basic#Image_Control
+DESCR:lofice Basic - Image Control
 REF:
 com.sun.star.awt.UnoControlImageControl
 TOPIC:
@@ -4323,8 +4323,8 @@ REF:
 com.sun.star.lang.XInitialization
 TOPIC:
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Date_Field
-DESCR:LibreOffice Basic - Date Field
+LINK:Documentation/DevGuide/lofice_Basic#Date_Field
+DESCR:lofice Basic - Date Field
 REF:
 com.sun.star.awt.UnoControlDateField
 TOPIC:
@@ -4416,8 +4416,8 @@ com.sun.star.reflection.XIdlClass
 com.sun.star.reflection.CoreReflection
 TOPIC:
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Getting_the_Dialog_Model
-DESCR:LibreOffice Basic - Getting the Dialog Model
+LINK:Documentation/DevGuide/lofice_Basic#Getting_the_Dialog_Model
+DESCR:lofice Basic - Getting the Dialog Model
 REF:
 com.sun.star.awt.XControl
 TOPIC:
@@ -4484,7 +4484,7 @@ com.sun.star.util.URL
 TOPIC:
 com.sun.star.util.URL
 
-LINK:Documentation/DevGuide/LibreOffice_API-Design-Guidelines#Inheritance
+LINK:Documentation/DevGuide/lofice_API-Design-Guidelines#Inheritance
 DESCR:Appendix A. Guidelines and Specifications - General Design Rules - Inheritance
 REF:
 com.sun.star.uno.XInterface
@@ -4527,8 +4527,8 @@ com.sun.star.awt.XMenuBar
 com.sun.star.awt.XTopWindow
 TOPIC:
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Progress_Bar
-DESCR:LibreOffice Basic - Progress Bar
+LINK:Documentation/DevGuide/lofice_Basic#Progress_Bar
+DESCR:lofice Basic - Progress Bar
 REF:
 com.sun.star.awt.UnoControlProgressBar
 TOPIC:
@@ -4731,8 +4731,8 @@ com.sun.star.sdbcx.ResultSet
 com.sun.star.sdbc.ResultSet
 com.sun.star.sdb.ResultSet
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Command_Button
-DESCR:LibreOffice Basic - Command Button
+LINK:Documentation/DevGuide/lofice_Basic#Command_Button
+DESCR:lofice Basic - Command Button
 REF:
 com.sun.star.awt.XButton
 com.sun.star.awt.UnoControlButton
@@ -4820,22 +4820,22 @@ com.sun.star.uno.DeploymentException
 com.sun.star.lang.XMultiComponentFactory
 TOPIC:
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Showing_a_Dialog
-DESCR:LibreOffice Basic - Showing a Dialog
+LINK:Documentation/DevGuide/lofice_Basic#Showing_a_Dialog
+DESCR:lofice Basic - Showing a Dialog
 REF:
 com.sun.star.awt.XDialog
 com.sun.star.io.XInputStreamProvider
 TOPIC:
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#File_Control
-DESCR:LibreOffice Basic - File Control
+LINK:Documentation/DevGuide/lofice_Basic#File_Control
+DESCR:lofice Basic - File Control
 REF:
 com.sun.star.awt.UnoControlFileControl
 com.sun.star.ui.dialogs.FilePicker
 TOPIC:
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Library_Container_API
-DESCR:LibreOffice Basic - Accessing Libraries from Basic - Library Container API
+LINK:Documentation/DevGuide/lofice_Basic#Library_Container_API
+DESCR:lofice Basic - Accessing Libraries from Basic - Library Container API
 REF:
 com.sun.star.script.XLibraryContainer2
 com.sun.star.container.XNameContainer
@@ -5120,8 +5120,8 @@ com.sun.star.util.XRefreshable
 TOPIC:
 com.sun.star.sheet.DDELink
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Dialog_Properties
-DESCR:LibreOffice Basic - Dialog Properties
+LINK:Documentation/DevGuide/lofice_Basic#Dialog_Properties
+DESCR:lofice Basic - Dialog Properties
 REF:
 com.sun.star.awt.XDialog
 com.sun.star.beans.XPropertySet
@@ -5163,8 +5163,8 @@ com.sun.star.i18n.XBreakIterator
 TOPIC:
 com.sun.star.i18n.XBreakIterator
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Technical_Background
-DESCR:LibreOffice Basic - Technical Background
+LINK:Documentation/DevGuide/lofice_Basic#Technical_Background
+DESCR:lofice Basic - Technical Background
 REF:
 com.sun.star.resource
 com.sun.star.resource.StringResource
@@ -5329,8 +5329,8 @@ com.sun.star.sheet.TablePageStyle
 TOPIC:
 com.sun.star.sheet.TablePageStyle
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Group_Box
-DESCR:LibreOffice Basic - Group Box
+LINK:Documentation/DevGuide/lofice_Basic#Group_Box
+DESCR:lofice Basic - Group Box
 REF:
 com.sun.star.awt.UnoControlGroupBox
 TOPIC:
@@ -5897,8 +5897,8 @@ com.sun.star.form.binding.BindableControlModel
 com.sun.star.form.validation.ValidatableBindableControlModel
 TOPIC:
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Time_Field
-DESCR:LibreOffice Basic - Time Field
+LINK:Documentation/DevGuide/lofice_Basic#Time_Field
+DESCR:lofice Basic - Time Field
 REF:
 com.sun.star.awt.UnoControlDateField
 TOPIC:
@@ -6063,8 +6063,8 @@ com.sun.star.text.XTextContent
 com.sun.star.text.TextFrame
 TOPIC:
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Pattern_Field
-DESCR:LibreOffice Basic - Pattern Field
+LINK:Documentation/DevGuide/lofice_Basic#Pattern_Field
+DESCR:lofice Basic - Pattern Field
 REF:
 com.sun.star.awt.UnoControlPatternField
 TOPIC:
@@ -6369,7 +6369,7 @@ TOPIC:
 com.sun.star.task.JobExecutor
 
 LINK:Documentation/DevGuide/Database_Access#DatabaseContext
-DESCR:Database Access - Data Sources in LibreOffice API - DatabaseContext
+DESCR:Database Access - Data Sources in lofice API - DatabaseContext
 REF:
 com.sun.star.sdb.Connection
 com.sun.star.sdb.DatabaseContext
@@ -6492,7 +6492,7 @@ com.sun.star.sdbc.DataType
 TOPIC:
 com.sun.star.sdbc.XRow
 
-LINK:Documentation/DevGuide/LibreOffice_API-Design-Guidelines#Naming_7
+LINK:Documentation/DevGuide/lofice_API-Design-Guidelines#Naming_7
 DESCR:Appendix A. Guidelines and Specifications - Exceptions - Naming
 REF:
 com.sun.star.lang.IllegalArgumentException
@@ -6627,8 +6627,8 @@ com.sun.star.form.FormComponent
 com.sun.star.awt.UnoControlModel
 com.sun.star.form.FormControlModel
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Dialog_as_Control_Container
-DESCR:LibreOffice Basic - Dialog as Control Container
+LINK:Documentation/DevGuide/lofice_Basic#Dialog_as_Control_Container
+DESCR:lofice Basic - Dialog as Control Container
 REF:
 com.sun.star.awt.UnoControlDialogModel
 com.sun.star.awt.XControlContainer
@@ -6886,8 +6886,8 @@ com.sun.star.style.StyleFamilies
 com.sun.star.style.XStyle
 com.sun.star.style.StyleFamily
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#Combo_Box
-DESCR:LibreOffice Basic - Combo Box
+LINK:Documentation/DevGuide/lofice_Basic#Combo_Box
+DESCR:lofice Basic - Combo Box
 REF:
 com.sun.star.awt.UnoControlComboBox
 com.sun.star.awt.XComboBox
@@ -7047,8 +7047,8 @@ REF:
 com.sun.star.awt
 TOPIC:
 
-LINK:Documentation/DevGuide/LibreOffice_Basic#HorizontalVertical_Scroll_Bar
-DESCR:LibreOffice Basic - HorizontalVertical Scroll Bar
+LINK:Documentation/DevGuide/lofice_Basic#HorizontalVertical_Scroll_Bar
+DESCR:lofice Basic - HorizontalVertical Scroll Bar
 REF:
 com.sun.star.awt.UnoControlScrollBar
 com.sun.star.awt.AdjustmentEvent
@@ -7295,8 +7295,8 @@ com.sun.star.table.CellAddress
 com.sun.star.sheet.XSheetAnnotationAnchor
 TOPIC:
 
-LINK:Documentation/DevGuide/Office_Development#Frame-Controller-Model_Paradigm_in_LibreOffice
-DESCR:Office Development - Frame-Controller-Model Paradigm in LibreOffice
+LINK:Documentation/DevGuide/Office_Development#Frame-Controller-Model_Paradigm_in_lofice
+DESCR:Office Development - Frame-Controller-Model Paradigm in lofice
 REF:
 TOPIC:
 com.sun.star.frame.XController

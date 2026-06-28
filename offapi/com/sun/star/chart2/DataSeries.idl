@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -165,21 +165,21 @@ service DataSeries
     /** This property describes whether the legend entry for the
         the data series should be shown.
 
-        @since LibreOffice 6.3
+        @since lofice 6.3
       */
     [optional, property] boolean                    ShowLegendEntry;
 
     /** A sequence of indexes denoting which data points shouldn't be
         shown in the legend.
 
-        @since LibreOffice 7.0
+        @since lofice 7.0
      */
     [optional, property] sequence<long>             DeletedLegendEntries;
 
     /** This property describes whether the data point and the data label
         are connected with a leader line.
 
-        @since LibreOffice 7.1
+        @since lofice 7.1
       */
     [optional, property] boolean                    ShowCustomLeaderLines;
 };

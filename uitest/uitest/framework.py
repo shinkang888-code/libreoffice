@@ -11,7 +11,7 @@ import time
 
 from uitest.test import UITest
 
-from libreoffice.connection import PersistentConnection
+from lofice.connection import PersistentConnection
 
 class UITestCase(unittest.TestCase):
 

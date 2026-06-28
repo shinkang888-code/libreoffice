@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -291,7 +291,7 @@ void ScUndoInsertCells::DoChange( const bool bUndo )
 
     pViewShell->CellContentChanged();
 
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return;
 
     SCTAB nTab = pViewShell->GetViewData().GetTabNumber();
@@ -575,7 +575,7 @@ void ScUndoDeleteCells::DoChange( const bool bUndo )
     if (!pViewShell)
         return;
 
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return;
 
     SCTAB nTab = pViewShell->GetViewData().GetTabNumber();
@@ -1395,7 +1395,7 @@ void ScUndoDragDrop::DoUndo( ScRange aRange )
 
     if (ScTabViewShell* pTabViewShell = ScTabViewShell::GetActiveViewShell())
     {
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             pTabViewShell->OnLOKSetWidthOrHeight(aPaintRange.aStart.Col(), true);
             pTabViewShell->OnLOKSetWidthOrHeight(aPaintRange.aStart.Row(), false);
@@ -1556,7 +1556,7 @@ void ScUndoDragDrop::Redo()
     EndRedo();
     SfxGetpApp()->Broadcast( SfxHint( SfxHintId::ScAreaLinksChanged ) );
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         SCCOL nStartCol = aDestRange.aStart.Col();
         SCROW nStartRow = aDestRange.aStart.Row();

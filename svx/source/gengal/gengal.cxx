@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -110,7 +110,7 @@ static void createTheme( const OUString& aThemeName, std::u16string_view aGaller
 
 static int PrintHelp()
 {
-    fprintf( stdout, "Utility to generate LibreOffice gallery files\n\n" );
+    fprintf( stdout, "Utility to generate lofice gallery files\n\n" );
 
     fprintf( stdout, "using: gengal --name <name> --path <dir> [ --destdir <path> ]\n");
     fprintf( stdout, "              [ files ... ]\n\n" );

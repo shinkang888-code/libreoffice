@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -886,7 +886,7 @@ std::unique_ptr<sdr::overlay::OverlayObject> SdrHdl::CreateOverlayObject(
         Bitmap aBmp(ImpGetBitmap(eKindOfMarker, eColIndex));
 
         // When the image with handles is not found, the bitmap returned is
-        // empty. This is a problem when we use LibreOffice as a library
+        // empty. This is a problem when we use lofice as a library
         // (through LOKit - for example on Android) even when we don't show
         // the handles, because the hit test would always return false.
         //

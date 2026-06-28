@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -43,7 +43,7 @@
 #include <osl/file.hxx>
 #include <openuriexternally.hxx>
 #include <comphelper/lok.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <tools/json_writer.hxx>
 
 #include <memory>
@@ -836,7 +836,7 @@ SfxDocumentPage::SfxDocumentPage(weld::Container* pPage, weld::DialogController*
     ImplCheckPasswordState();
     m_xChangePassBtn->connect_clicked( LINK( this, SfxDocumentPage, ChangePassHdl ) );
     m_xSignatureBtn->connect_clicked( LINK( this, SfxDocumentPage, SignatureHdl ) );
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         m_xSignatureBtn->hide();
     m_xDeleteBtn->connect_clicked( LINK( this, SfxDocumentPage, DeleteHdl ) );
     m_xImagePreferredDpiCheckButton->connect_toggled(LINK(this, SfxDocumentPage, ImagePreferredDPICheckBoxClicked));
@@ -906,7 +906,7 @@ IMPL_LINK_NOARG(SfxDocumentPage, ChangePassHdl, weld::Button&, void)
         std::shared_ptr<const SfxFilter> pFilter = pShell->GetMedium()->GetFilter();
         if (!pFilter)
             break;
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             // MS Types support max len of 15 characters while OOXML is "unlimited"
             const sal_uInt16 maxPwdLen = sfx2::IsMSType(pFilter) && !sfx2::IsOOXML(pFilter) ? 15 : 0;
@@ -926,7 +926,7 @@ IMPL_LINK_NOARG(SfxDocumentPage, ChangePassHdl, weld::Button&, void)
 
                     SfxViewShell *pViewShell = SfxViewShell::Current();
                     if (pViewShell)
-                        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_DOCUMENT_PASSWORD_RESET, payloadJson.finishAndGetAsOString());
+                        pViewShell->loficeKitViewCallback(LOK_CALLBACK_DOCUMENT_PASSWORD_RESET, payloadJson.finishAndGetAsOString());
 
                     pShell->SetModified();
                 }
@@ -996,7 +996,7 @@ void SfxDocumentPage::ImplCheckPasswordState()
         return;
     }
     while (false);
-    m_xChangePassBtn->set_sensitive(comphelper::LibreOfficeKit::isActive());
+    m_xChangePassBtn->set_sensitive(comphelper::loficeKit::isActive());
 }
 
 std::unique_ptr<SfxTabPage> SfxDocumentPage::Create(weld::Container* pPage, weld::DialogController* pController, const SfxItemSet* rItemSet)
@@ -1151,7 +1151,7 @@ void SfxDocumentPage::Reset( const SfxItemSet* rSet )
     m_sFileURL.clear();
     // determine location
     // online we don't know file location so we just set it as the name
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         m_xFileValEd->set_label(aName);
         m_sFileURL = aName;
@@ -1359,7 +1359,7 @@ SfxDocumentInfoDialog::SfxDocumentInfoDialog(weld::Window* pParent, const SfxIte
         AddTabPage(u"cmisprops"_ustr, TabResId(RID_TAB_CMIS.aLabel),
                    SfxCmisPropertiesPage::Create, RID_L + RID_TAB_CMIS.sIconName);
     // Disable security page for online as not fully asynced yet
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         AddTabPage(u"security"_ustr, TabResId(RID_TAB_SECURITY.aLabel), SfxSecurityPage::Create,
                    RID_L + RID_TAB_SECURITY.sIconName);
 }

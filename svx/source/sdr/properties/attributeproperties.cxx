@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -154,7 +154,7 @@ namespace sdr::properties
                     // tdf#117506
                     // The error shows that it is definitely necessary to solve this problem.
                     // Interestingly I already had a note here for 'work needed'.
-                    // Checked in libreoffice-6-0 what happened there. In principle, the whole
+                    // Checked in lofice-6-0 what happened there. In principle, the whole
                     // ::Clone of SdrPage and SdrObject happened in the same SdrModel, only
                     // afterwards a ::SetModel was used at the cloned SdrPage which went through
                     // all layers. The StyleSheet-problem was solved in
@@ -179,7 +179,7 @@ namespace sdr::properties
                     // Note: It *may* be necessary to do more for StyleSheets, e.g. clone/copy the
                     // StyleSheet Hierarchy from the source SdrModel and/or add the Items from there
                     // as hard attributes. If needed, have a look at the older AttributeProperties::SetModel
-                    // implementation from e.g. libreoffice-6-0.
+                    // implementation from e.g. lofice-6-0.
                     SfxStyleSheetBasePool* pTargetStyleSheetPool(rObj.getSdrModelFromSdrObject().GetStyleSheetPool());
 
                     if(nullptr != pTargetStyleSheetPool)

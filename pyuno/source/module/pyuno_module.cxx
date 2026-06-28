@@ -1,6 +1,6 @@
 /* -*- Mode: C++; eval:(c-set-style "bsd"); tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -309,9 +309,9 @@ static PyObject* getComponentContext(
 }
 
 // While pyuno.private_initTestEnvironment is called from individual Python tests (e.g., from
-// UnoInProcess in unotest/source/python/org/libreoffice/unotest.py, which makes sure to call it
+// UnoInProcess in unotest/source/python/org/lofice/unotest.py, which makes sure to call it
 // only once), pyuno.private_deinitTestEnvironment is called centrally from
-// unotest/source/python/org/libreoffice/unittest.py at the end of every PythonTest (to DeInitVCL
+// unotest/source/python/org/lofice/unittest.py at the end of every PythonTest (to DeInitVCL
 // exactly once near the end of the process, if InitVCL has ever been called via
 // pyuno.private_initTestEnvironment):
 

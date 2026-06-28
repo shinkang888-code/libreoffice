@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -606,7 +606,7 @@ Components::Components(
 #if ENABLE_DCONF
             if (write) {
                 OUString token(
-                    expand("${SYSUSERCONFIG}/libreoffice/dconfwrite"));
+                    expand("${SYSUSERCONFIG}/lofice/dconfwrite"));
                 osl::DirectoryItem it;
                 osl::FileBase::RC e = osl::DirectoryItem::get(token, it);
                 ignore = e == osl::FileBase::E_None;

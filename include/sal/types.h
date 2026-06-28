@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 
 #ifndef INCLUDED_SAL_TYPES_H
@@ -378,7 +378,7 @@ namespace com { namespace sun { namespace star { } } }
 
 /** short-circuit extra-verbose API namespaces
 
- @since LibreOffice 4.0
+ @since lofice 4.0
 */
 namespace css = ::com::sun::star;
 
@@ -388,7 +388,7 @@ namespace css = ::com::sun::star;
     error, while otherwise it will only cause a link-time error as the declared
     function is not defined.
 
-    @since LibreOffice 4.1
+    @since lofice 4.1
 */
 #if defined LIBO_INTERNAL_ONLY
 #define SAL_DELETED_FUNCTION = delete
@@ -401,7 +401,7 @@ namespace css = ::com::sun::star;
     For LIBO_INTERNAL_ONLY, force the method to override an existing method in
     parent, error out if the method with the correct signature does not exist.
 
-    @since LibreOffice 4.1
+    @since lofice 4.1
 */
 #if defined LIBO_INTERNAL_ONLY
 #define SAL_OVERRIDE override
@@ -414,7 +414,7 @@ namespace css = ::com::sun::star;
     For LIBO_INTERNAL_ONLY, declare that it's possible to evaluate the value
     at compile time.
 
-    @since LibreOffice 7.2
+    @since lofice 7.2
 */
 #if defined LIBO_INTERNAL_ONLY
 #define SAL_CONSTEXPR constexpr
@@ -426,7 +426,7 @@ namespace css = ::com::sun::star;
 
     The latter has been removed completely from C++20.
 
-    @since LibreOffice 7.2
+    @since lofice 7.2
  */
 #if __cplusplus >= 201103L
 #define SAL_NOEXCEPT noexcept
@@ -583,7 +583,7 @@ template< typename T1, typename T2 > inline T1 static_int_cast(T2 n) {
 
     without a SAL_UNUSED_PARAMETER annotation.
 
-    @since LibreOffice 3.6
+    @since lofice 3.6
  */
 #if defined __cplusplus
 #if defined __GNUC__ || defined __clang__
@@ -601,7 +601,7 @@ template< typename T1, typename T2 > inline T1 static_int_cast(T2 n) {
  or external constructors or destructors. Classes marked with SAL_WARN_UNUSED
  will be warned about.
 
- @since LibreOffice 4.0
+ @since lofice 4.0
 
 */
 
@@ -631,7 +631,7 @@ template< typename T1, typename T2 > inline T1 static_int_cast(T2 n) {
     if (SAL_LIKELY(ptr != nullptr))
        // this path is the one that is ~always taken.
 
-    @since LibreOffice 5.2
+    @since lofice 5.2
 
     Returns: the boolean value of expr (expressed as either int 1 or 0)
  */
@@ -643,7 +643,7 @@ template< typename T1, typename T2 > inline T1 static_int_cast(T2 n) {
     if (SAL_UNLIKELY(ptr != nullptr))
        // this path is the one that is ~never taken.
 
-    @since LibreOffice 5.2
+    @since lofice 5.2
 
     Returns: the boolean value of expr (expressed as either int 1 or 0)
  */
@@ -658,7 +658,7 @@ template< typename T1, typename T2 > inline T1 static_int_cast(T2 n) {
     In addition this code can end up in a special section, to be
     grouped with other frequently used code.
 
-    @since LibreOffice 5.2
+    @since lofice 5.2
  */
 #    define SAL_HOT __attribute__((hot))
 
@@ -673,7 +673,7 @@ template< typename T1, typename T2 > inline T1 static_int_cast(T2 n) {
     with (and away from) other more frequently used code, to improve
     locality of reference.
 
-    @since LibreOffice 5.2
+    @since lofice 5.2
  */
 #    define SAL_COLD __attribute__((cold))
 #else
@@ -693,7 +693,7 @@ template< typename T1, typename T2 > inline T1 static_int_cast(T2 n) {
     annotation, but since it's in a completely different place on
     the function declaration, it's a little hard to support both.
 
-    @since LibreOffice 5.5
+    @since lofice 5.5
 */
 #ifndef __has_attribute
 #define __has_attribute(x) 0

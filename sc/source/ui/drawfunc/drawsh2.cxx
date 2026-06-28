@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -51,7 +51,7 @@
 #include <svx/svdoole2.hxx>
 #include <svx/xflgrit.hxx>
 #include <comphelper/lok.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 #include <svx/xflclit.hxx>
 #include <com/sun/star/chart2/XChartDocument.hpp>
@@ -365,12 +365,12 @@ static void setupFillColorForChart(const SfxViewShell* pShell, SfxItemSet& rSet)
         XFillColorItem aFillColorItem(u""_ustr, Color(ColorTransparency, nFillColor));
         rSet.Put(aFillColorItem);
 
-        if (comphelper::LibreOfficeKit::isActive())
-            pShell->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
+        if (comphelper::loficeKit::isActive())
+            pShell->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
                     (".uno:FillColor=" + OString::number(nFillColor)));
     }
 
-    if (!(comphelper::LibreOfficeKit::isActive() && xInfo->hasPropertyByName(u"FillGradientName"_ustr)))
+    if (!(comphelper::loficeKit::isActive() && xInfo->hasPropertyByName(u"FillGradientName"_ustr)))
         return;
 
     OUString aGradientName;

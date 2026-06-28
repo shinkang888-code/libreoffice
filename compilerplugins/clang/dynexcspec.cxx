@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -16,7 +16,7 @@
 #include "plugin.hxx"
 
 // Remove dynamic exception specifications.  See the mail thread starting at
-// <https://lists.freedesktop.org/archives/libreoffice/2017-January/076665.html>
+// <https://lists.freedesktop.org/archives/lofice/2017-January/076665.html>
 // "Dynamic Exception Specifications" for details.
 
 namespace {

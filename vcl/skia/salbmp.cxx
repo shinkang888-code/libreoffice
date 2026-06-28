@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -256,7 +256,7 @@ BitmapBuffer* SkiaSalBitmap::AcquireBuffer(BitmapAccessMode nMode)
             // Note: also handle pending scaling if SAL_FORCE_HIDPI_SCALING is
             // set otherwise exporting the following animated .png image will
             // fail:
-            //   https://bugs.documentfoundation.org/attachment.cgi?id=188792
+            //   https://bugs.lofice.io/attachment.cgi?id=188792
             static const bool bForceHiDPIScaling = getenv("SAL_FORCE_HIDPI_SCALING") != nullptr;
             if (mImage && !mImageImmutable && mBitCount == 8 && mPalette.IsGreyPalette8Bit()
                 && (mPixelsSize != mSize || bForceHiDPIScaling))

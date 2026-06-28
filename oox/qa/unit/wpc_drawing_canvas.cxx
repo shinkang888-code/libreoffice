@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -314,7 +314,7 @@ CPPUNIT_TEST_FIXTURE(TestWPC, WPC_CurvedConnector2)
     // This connector is a single Bezier segment without handles.
     loadFromFile(u"WPC_CurvedConnector2.docx");
 
-    // LO and OOXML differ in the position of the control points. LibreOffice uses 2/3 but OOXML
+    // LO and OOXML differ in the position of the control points. lofice uses 2/3 but OOXML
     // uses 1/2 of width or height. The path by LO looks more round.
     uno::Reference<drawing::XDrawPagesSupplier> xDrawPagesSupplier(mxComponent, uno::UNO_QUERY);
     uno::Reference<drawing::XDrawPage> xDrawPage(xDrawPagesSupplier->getDrawPages()->getByIndex(0),

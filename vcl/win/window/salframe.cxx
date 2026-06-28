@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -3536,7 +3536,7 @@ static void UnsetAltIfAltGr(SalKeyEvent& rKeyEvt, sal_uInt16 nModCode)
 // there is uncommitted text will call WinSalFrame::EndExtTextInput() which
 // will dispatch a SalEvent::EndExtTextInput event. Writer's handler for that
 // event will delete the uncommitted text and then insert the committed text
-// but LibreOffice will crash when deleting the uncommitted text because
+// but lofice will crash when deleting the uncommitted text because
 // deletion of the text also removes and deletes the newly inserted comment.
 static void FlushIMBeforeShortCut(WinSalFrame* pFrame, SalEvent nEvent, sal_uInt16 nModCode)
 {

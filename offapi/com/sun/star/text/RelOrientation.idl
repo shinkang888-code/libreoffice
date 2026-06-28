@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -73,13 +73,13 @@ published constants RelOrientation
 
     /** Bottom page border (page area below PAGE_PRINT_AREA).
 
-        @since LibreOffice 7.0
+        @since lofice 7.0
      */
     const short PAGE_PRINT_AREA_BOTTOM = 10;
 
     /** Top page border (page area above PAGE_PRINT_AREA).
 
-        @since LibreOffice 7.1
+        @since lofice 7.1
      */
     const short PAGE_PRINT_AREA_TOP = 11;
 

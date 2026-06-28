@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -52,7 +52,7 @@ liborcus_CPPFLAGS+=$(ZLIB_CFLAGS)
 endif
 #
 # OSes that use the GNU C++ library need to use -D_GLIBCXX_DEBUG in
-# sync with the rest of LibreOffice, i.e. depending on
+# sync with the rest of lofice, i.e. depending on
 # --enable-dbgutil. Note that although Android doesn't use the GNU C
 # library (glibc), the NDK does offer the GNU C++ library as one of
 # the C++ libraries available, and we use it.

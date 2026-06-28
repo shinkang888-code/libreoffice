@@ -1,7 +1,7 @@
 // -*- Mode: Java; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
 
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -107,7 +107,7 @@ public class Bootstrap {
      *
      * @return an array of default commandline options
      * @see #bootstrap( String[] )
-     * @since LibreOffice 5.1
+     * @since lofice 5.1
      */
     public static final String[] getDefaultOptions()
     {
@@ -315,7 +315,7 @@ public class Bootstrap {
      *
      * @return a bootstrapped component context.
      *
-     * @since LibreOffice 5.1
+     * @since lofice 5.1
      */
     public static final XComponentContext bootstrap( String[] argArray )
         throws BootstrapException {
@@ -408,7 +408,7 @@ public class Bootstrap {
      *
      * @return a bootstrapped component context.
      *
-     * @since LibreOffice 24.2
+     * @since lofice 24.2
      */
     public static final XComponentContext bootstrapWebsocketConnection( String url )
         throws BootstrapException {

@@ -1,5 +1,5 @@
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -49,7 +49,7 @@ public final class UnoClassLoader extends URLClassLoader {
      * Instantiates the root UNO class loader.
      *
      * @param base a base URL relative to which the URE JARs
-     * (<code>java_uno.jar</code> and <code>libreoffice.jar</code>)
+     * (<code>java_uno.jar</code> and <code>lofice.jar</code>)
      * can be found; must not be <code>null</code>.
      *
      * @param classPath an array of URLs that form the class path of this class
@@ -194,7 +194,7 @@ public final class UnoClassLoader extends URLClassLoader {
         final int JARS = 2;
         URL[] urls = new URL[JARS + (classPath == null ? 0 : classPath.length)];
         urls[0] = new URL(base, "java_uno.jar"); //TODO get rid of it here
-        urls[1] = new URL(base, "libreoffice.jar");
+        urls[1] = new URL(base, "lofice.jar");
         if (classPath != null) {
             System.arraycopy(classPath, 0, urls, JARS, classPath.length);
         }

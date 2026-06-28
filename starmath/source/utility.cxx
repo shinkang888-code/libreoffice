@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -34,7 +34,7 @@ SmViewShell * SmGetActiveView()
 {
     SfxViewShell *pView = SfxViewShell::Current();
     SmViewShell* pSmView = dynamic_cast<SmViewShell*>(pView);
-    if (!pSmView && comphelper::LibreOfficeKit::isActive())
+    if (!pSmView && comphelper::loficeKit::isActive())
     {
         auto* pWindow = static_cast<SmGraphicWindow*>(LokStarMathHelper(pView).GetGraphicWindow());
         if (pWindow)

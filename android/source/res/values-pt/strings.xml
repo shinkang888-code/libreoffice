@@ -2,7 +2,7 @@
 <resources>
     <string name="pdf_export_finished">Exportação PDF terminada</string>
     <string name="pref_developer_mode_summary">Ativa o modo de desenvolvedor para enviar comandos UNO na aplicação. Use por sua conta e risco.</string>
-    <string name="app_description">O visualizador LibreOffice é baseado no LibreOffice.</string>
+    <string name="app_description">O visualizador lofice é baseado no lofice.</string>
     <string name="calc_show">Mostrar</string>
     <string name="pref_developer_mode">Modo de desenvolvimento</string>
     <string name="action_pwd_dialog_cancel">Cancelar</string>
@@ -16,7 +16,7 @@
     <string name="action_about">Acerca</string>
     <string name="action_fromat">Ativar formato</string>
     <string name="password">Palavra-passe</string>
-    <string name="app_credits">https://www.libreoffice.org</string>
+    <string name="app_credits">https://www.lofice.org</string>
     <string name="select_insert_options">Selecione as opções de inserção:</string>
     <string name="UNO_commands_string_type_hint">Tipo</string>
     <string name="current_uno_command">Comando UNO atual</string>
@@ -97,12 +97,12 @@
     <string name="action_settings">Definições</string>
     <string name="sheet">Folha</string>
     <string name="compress_photo_title">Deseja comprimir a foto?</string>
-    <string name="app_version">Versão: %1$s&lt;br&gt;ID da compilação: &lt;a href=https://hub.libreoffice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
+    <string name="app_version">Versão: %1$s&lt;br&gt;ID da compilação: &lt;a href=https://hub.lofice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
     <string name="about_license">Mostrar licença</string>
     <string name="title_browser">Todos os ficheiros</string>
     <string name="take_photo">Obter foto</string>
     <string name="unable_to_save">Não foi possível guardar o ficheiro</string>
-    <string name="app_name">Visualizador LibreOffice</string>
+    <string name="app_name">Visualizador lofice</string>
     <string name="insert_table">Inserir tabela</string>
     <string name="action_add_slide">Adicionar diapositivo</string>
     <string name="action_cancel">Cancelar</string>

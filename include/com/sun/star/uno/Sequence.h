@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 #ifndef INCLUDED_COM_SUN_STAR_UNO_SEQUENCE_H
 #define INCLUDED_COM_SUN_STAR_UNO_SEQUENCE_H
@@ -123,7 +123,7 @@ public:
 
         @param init an initializer_list
 
-        @since LibreOffice 5.0
+        @since lofice 5.0
      */
     inline Sequence(std::initializer_list<E> init);
 #endif
@@ -163,7 +163,7 @@ public:
 #if defined LIBO_INTERNAL_ONLY
     /** This function allows to use Sequence in cases where  std::size is needed, and the like.
 
-        @since LibreOffice 6.4
+        @since lofice 6.4
     */
     sal_uInt32 size() const
         { assert(getLength() >= 0); return static_cast<sal_uInt32>(getLength()); }
@@ -193,7 +193,7 @@ public:
     /** This function allows to use Sequence in standard algorithms, like std::find
         and others.
 
-        @since LibreOffice 4.2
+        @since lofice 4.2
     */
     inline E * begin();
 #endif
@@ -201,7 +201,7 @@ public:
     /** This function allows to use Sequence in standard algorithms, like std::find
         and others.
 
-        @since LibreOffice 4.2
+        @since lofice 4.2
     */
     inline E const * begin() const;
 
@@ -209,7 +209,7 @@ public:
     /** This function allows to use Sequence in standard algorithms, like std::find
         and others.
 
-        @since LibreOffice 4.2
+        @since lofice 4.2
     */
     inline E * end();
 #endif
@@ -217,7 +217,7 @@ public:
     /** This function allows to use Sequence in standard algorithms, like std::find
         and others.
 
-        @since LibreOffice 4.2
+        @since lofice 4.2
     */
     inline E const * end() const;
 
@@ -283,7 +283,7 @@ public:
 
         @param other another sequence of same type
 
-        @since LibreOffice 7.3
+        @since lofice 7.3
     */
     inline void swap(Sequence& other);
 #endif

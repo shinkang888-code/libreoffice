@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -245,7 +245,7 @@ void ScTabViewShell::Notify( SfxBroadcaster& rBC, const SfxHint& rHint )
 
             case SfxHintId::ScKillEditView:
             case SfxHintId::ScKillEditViewNoPaint:
-                if (!comphelper::LibreOfficeKit::isActive()
+                if (!comphelper::loficeKit::isActive()
                     || this == SfxViewShell::Current()
                     || bInPrepareClose
                     || bInDispose)

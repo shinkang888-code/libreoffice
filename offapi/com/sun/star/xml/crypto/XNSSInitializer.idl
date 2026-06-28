@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -20,7 +20,7 @@
 module com { module sun { module star { module xml { module crypto {
 
 /**
-    @since LibreOffice 4.0
+    @since lofice 4.0
  */
 interface XNSSInitializer {
     interface ::com::sun::star::xml::crypto::XDigestContextSupplier;
@@ -30,10 +30,10 @@ interface XNSSInitializer {
 
         This attribute returns the current setting, based on the user selection
         or automatic detection. This value can change until someone uses NSS
-        crypto functions, because just then LibreOffice initializes the NSS
-        library and the value stays fixed until LibreOffice is restarted!
+        crypto functions, because just then lofice initializes the NSS
+        library and the value stays fixed until lofice is restarted!
 
-        @since LibreOffice 7.1
+        @since lofice 7.1
      */
     [attribute, readonly] string NSSPath;
 
@@ -42,13 +42,13 @@ interface XNSSInitializer {
         This attribute returns true, if the NSS library is initialized.
 
         @see NSSPath
-        @since LibreOffice 7.1
+        @since lofice 7.1
      */
     [attribute, readonly] boolean IsNSSinitialized;
 
     /** get the current profile list
 
-        @since LibreOffice 7.1
+        @since lofice 7.1
      */
     sequence<NSSProfile> getNSSProfiles();
 };

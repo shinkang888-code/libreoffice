@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -57,7 +57,7 @@
 #include <ndtxt.hxx>
 #include <pam.hxx>
 #include <comphelper/lok.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <boost/property_tree/json_parser.hpp>
 #include <osl/diagnose.h>
 
@@ -1618,7 +1618,7 @@ void SwView::StateTabWin(SfxItemSet& rSet)
                 aTabStops.SetWhich(nWhich);
                 rSet.Put(aTabStops);
 
-                if (comphelper::LibreOfficeKit::isActive() && nWhich == RES_PARATR_TABSTOP)
+                if (comphelper::loficeKit::isActive() && nWhich == RES_PARATR_TABSTOP)
                 {
                     boost::property_tree::ptree aRootTree;
                     boost::property_tree::ptree aEntries;
@@ -1637,7 +1637,7 @@ void SwView::StateTabWin(SfxItemSet& rSet)
 
                     std::stringstream aStream;
                     boost::property_tree::write_json(aStream, aRootTree);
-                    rSh.GetSfxViewShell()->libreOfficeKitViewCallback(LOK_CALLBACK_TAB_STOP_LIST, OString(aStream.str()));
+                    rSh.GetSfxViewShell()->loficeKitViewCallback(LOK_CALLBACK_TAB_STOP_LIST, OString(aStream.str()));
                 }
             }
             break;

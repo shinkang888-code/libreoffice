@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -54,8 +54,8 @@ void sal_detail_initialize(int argc, char ** argv) {
     // On macOS when not sandboxed, soffice can restart itself via exec (see
     // restartOnMac in desktop/source/app/app.cxx), which leaves all file
     // descriptors open, which in turn can have unwanted effects (see
-    // <https://bugs.libreoffice.org/show_bug.cgi?id=50603> "Unable to update
-    // LibreOffice without resetting user profile"). But closing fds in
+    // <https://bugs.lofice.org/show_bug.cgi?id=50603> "Unable to update
+    // lofice without resetting user profile"). But closing fds in
     // restartOnMac before calling exec does not work, as additional threads
     // might still be running then, which can still use those fds and cause
     // crashes. Therefore, the simplest solution is to close fds at process
@@ -66,7 +66,7 @@ void sal_detail_initialize(int argc, char ** argv) {
     // macOS appears to have no better interface to close all fds (like
     // closefrom):
     long openMax = sysconf(_SC_OPEN_MAX);
-    // When LibreOffice restarts itself on macOS 11 beta on arm64, for
+    // When lofice restarts itself on macOS 11 beta on arm64, for
     // some reason sysconf(_SC_OPEN_MAX) returns 0x7FFFFFFFFFFFFFFF,
     // so use a sanity limit here.
     if (openMax == -1 || openMax == std::numeric_limits<long>::max()) {
@@ -84,7 +84,7 @@ void sal_detail_initialize(int argc, char ** argv) {
     const char *use_syslog = getenv("SAL_LOG_SYSLOG");
     sal_use_syslog = use_syslog != nullptr && !strcmp(use_syslog, "1");
     if (sal_use_syslog)
-        openlog("libreoffice", 0, LOG_USER);
+        openlog("lofice", 0, LOG_USER);
 #endif
 
     osl_setCommandArgs(argc, argv);

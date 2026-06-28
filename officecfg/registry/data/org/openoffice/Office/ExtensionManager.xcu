@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -20,7 +20,7 @@
 <oor:component-data xmlns:oor="http://openoffice.org/2001/registry" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:install="http://openoffice.org/2004/installation" oor:name="ExtensionManager" oor:package="org.openoffice.Office">
   <node oor:name="ExtensionRepositories">
     <prop oor:name="WebsiteLink">
-      <value>https://extensions.libreoffice.org/</value>
+      <value>https://extensions.lofice.org/</value>
     </prop>
   </node>
 </oor:component-data>

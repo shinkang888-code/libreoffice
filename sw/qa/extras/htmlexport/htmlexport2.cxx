@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -607,7 +607,7 @@ CPPUNIT_TEST_FIXTURE(HtmlExportTest, testTdf114769)
 
     // Normal external URL
     uno::Reference<beans::XPropertySet> xRun(getRun(getParagraph(1), 1), uno::UNO_QUERY);
-    xRun->setPropertyValue(u"HyperLinkURL"_ustr, uno::Any(u"http://libreoffice.org/"_ustr));
+    xRun->setPropertyValue(u"HyperLinkURL"_ustr, uno::Any(u"http://lofice.org/"_ustr));
 
     // Bookmark reference
     xRun.set(getRun(getParagraph(2), 1), uno::UNO_QUERY);
@@ -631,7 +631,7 @@ CPPUNIT_TEST_FIXTURE(HtmlExportTest, testTdf114769)
     htmlDocUniquePtr pHtmlDoc = parseHtml(maTempFile);
     CPPUNIT_ASSERT(pHtmlDoc);
 
-    assertXPath(pHtmlDoc, "/html/body/p[1]/a", "href", u"http://libreoffice.org/");
+    assertXPath(pHtmlDoc, "/html/body/p[1]/a", "href", u"http://lofice.org/");
     assertXPath(pHtmlDoc, "/html/body/p[2]/a", "href", u"#some_bookmark");
     assertXPath(pHtmlDoc, "/html/body/p[3]/a", "href", u"C:\\test.txt");
     assertXPath(pHtmlDoc, "/html/body/p[4]/a", "href", u"..\\..\\test.odt");

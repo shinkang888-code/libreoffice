@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -378,7 +378,7 @@ SdrHitKind SdrView::PickAnything(const Point& rLogicPos, SdrViewEvent& rVEvt) co
                     // but this one safely keeps existing behaviour as-is.
                     // Except for the LOK. LOK doesn't have hoovering popup
                     // feature.
-                    eHit = comphelper::LibreOfficeKit::isActive() ? SdrHitKind::TextEditObj : SdrHitKind::UnmarkedObject;
+                    eHit = comphelper::loficeKit::isActive() ? SdrHitKind::TextEditObj : SdrHitKind::UnmarkedObject;
                     break;
                 default:
                     break;

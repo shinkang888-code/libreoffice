@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -31,7 +31,7 @@
 #include <editeng/autodiritem.hxx>
 #include <editeng/frmdiritem.hxx>
 #include <tools/json_writer.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <sax/tools/converter.hxx>
 #include <fmtsrnd.hxx>
 #include <fmtinfmt.hxx>
@@ -926,7 +926,7 @@ tools::Long SwEditShell::CompareDoc( const SwDoc& rDoc )
     EndAllAction();
 
     SfxViewShell* pSfxViewShell = GetSfxViewShell();
-    if (pSfxViewShell && pSfxViewShell->getLibreOfficeKitViewCallback())
+    if (pSfxViewShell && pSfxViewShell->getloficeKitViewCallback())
     {
         tools::JsonWriter aWriter;
         aWriter.put("commandName", "CompareDocumentsProperties");
@@ -943,7 +943,7 @@ tools::Long SwEditShell::CompareDoc( const SwDoc& rDoc )
             }
         }
         OString aPayload = aWriter.finishAndGetAsOString();
-        pSfxViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, aPayload);
+        pSfxViewShell->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, aPayload);
     }
 
     return nRet;

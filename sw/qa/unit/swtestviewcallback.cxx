@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -12,7 +12,7 @@
 #include <boost/property_tree/json_parser.hpp>
 #include <cppunit/TestAssert.h>
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <comphelper/string.hxx>
 #include <sfx2/lokhelper.hxx>
@@ -40,7 +40,7 @@ SwTestViewCallback::SwTestViewCallback(
         rBeforeInstallFunc(*this);
 
     mpViewShell = pViewShell ? pViewShell : SfxViewShell::Current();
-    mpViewShell->setLibreOfficeKitViewCallback(&m_callbackWrapper);
+    mpViewShell->setloficeKitViewCallback(&m_callbackWrapper);
     mnView = SfxLokHelper::getCurrentView();
     m_callbackWrapper.setLOKViewId(mnView);
 }
@@ -48,7 +48,7 @@ SwTestViewCallback::SwTestViewCallback(
 SwTestViewCallback::~SwTestViewCallback()
 {
     SfxLokHelper::setView(mnView);
-    mpViewShell->setLibreOfficeKitViewCallback(nullptr);
+    mpViewShell->setloficeKitViewCallback(nullptr);
 }
 
 void SwTestViewCallback::callback(int nType, const char* pPayload, void* pData)
@@ -77,7 +77,7 @@ void SwTestViewCallback::callbackImpl(int nType, const char* pPayload)
             m_bOwnCursorInvalidated = true;
 
             OString sRect;
-            if (comphelper::LibreOfficeKit::isViewIdForVisCursorInvalidation())
+            if (comphelper::loficeKit::isViewIdForVisCursorInvalidation())
             {
                 std::stringstream aStream(pPayload);
                 boost::property_tree::ptree aTree;

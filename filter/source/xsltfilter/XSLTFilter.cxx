@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -224,7 +224,7 @@ namespace XSLT
         css::uno::Reference<xslt::XXSLTTransformer> xTransformer;
 
         // check if the filter needs XSLT-2.0-capable transformer
-        // COMPATIBILITY: libreoffice 3.5/3.6 used to save the impl.
+        // COMPATIBILITY: lofice 3.5/3.6 used to save the impl.
         // name of the XSLT 2.0 transformation service there, so check
         // for that too (it is sufficient to check that there is _a_
         // service name there)

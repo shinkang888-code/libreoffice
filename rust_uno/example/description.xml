@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  -->
 
 <d:description xmlns:d="http://openoffice.org/extensions/description/2006">
-  <d:identifier value="org.libreoffice/rust_uno/example"/>
+  <d:identifier value="org.lofice/rust_uno/example"/>
   <d:version value="1"/>
   <d:dependencies>
     <d:OpenOffice.org-minimal-version d:name="OpenOffice.org 3.4" value="3.4"/>

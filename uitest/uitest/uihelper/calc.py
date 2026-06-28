@@ -5,7 +5,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #
 
-from libreoffice.uno.propertyvalue import mkPropertyValues
+from lofice.uno.propertyvalue import mkPropertyValues
 from uitest.uihelper.common import type_text
 
 def enter_text_to_cell(gridwin, cell, text):

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -299,7 +299,7 @@ void LoadEnv::startLoading(const OUString& sURL, const uno::Sequence<beans::Prop
         !m_lMediaDescriptor.getUnpackedValueOrDefault(utl::MediaDescriptor::PROP_HIDDEN, false) &&
         !m_lMediaDescriptor.getUnpackedValueOrDefault(utl::MediaDescriptor::PROP_PREVIEW, false);
 
-    if( comphelper::LibreOfficeKit::isActive() &&
+    if( comphelper::loficeKit::isActive() &&
         m_lMediaDescriptor.getUnpackedValueOrDefault(utl::MediaDescriptor::PROP_SILENT, false))
     {
         rtl::Reference<QuietInteraction> pQuietInteraction = new QuietInteraction();
@@ -1795,8 +1795,8 @@ void LoadEnv::impl_applyPersistentWindowState(const css::uno::Reference< css::aw
         // Do nothing, if no configuration entry exists!
         OUString sWindowState;
 
-        // Don't look for persistent window attributes when used through LibreOfficeKit
-        if( !comphelper::LibreOfficeKit::isActive() )
+        // Don't look for persistent window attributes when used through loficeKit
+        if( !comphelper::loficeKit::isActive() )
             comphelper::ConfigurationHelper::readRelativeKey(xModuleCfg, sModule, u"ooSetupFactoryWindowAttributes"_ustr) >>= sWindowState;
 
         if (!sWindowState.isEmpty())

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -190,7 +190,7 @@ void ScDrawShell::ExecDrawAttr( SfxRequest& rReq )
                 const sal_uLong newPosX = convertTwipToMm100(newPosXTwips->GetValue());
                 const sal_uLong newPosY = convertTwipToMm100(newPosYTwips->GetValue());
 
-                bool bNegateX = comphelper::LibreOfficeKit::isActive() && rViewData.GetDocument().IsLayoutRTL(rViewData.CurrentTabForData());
+                bool bNegateX = comphelper::loficeKit::isActive() && rViewData.GetDocument().IsLayoutRTL(rViewData.CurrentTabForData());
                 pView->MoveShapeHandle(handleNum, Point(bNegateX ? -static_cast<tools::Long>(newPosX) : newPosX, newPosY), OrdNum ? OrdNum->GetValue() : -1);
             }
         }

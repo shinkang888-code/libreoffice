@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -33,7 +33,7 @@
 
 #include <comphelper/lok.hxx>
 #include <sfx2/lokhelper.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 #include <drawdoc.hxx>
 #include <sdmod.hxx>
@@ -125,10 +125,10 @@ void DrawViewShell::ExecOptionsBar( SfxRequest& rReq )
             pOptions->SetGridVisible( !mpDrawView->IsGridVisible() );
 
             SfxViewShell* pViewShell = SfxViewShell::Current();
-            if (pViewShell && comphelper::LibreOfficeKit::isActive())
+            if (pViewShell && comphelper::loficeKit::isActive())
             {
                 OString state = !mpDrawView->IsGridVisible() ? ".uno:GridVisible=true"_ostr: ".uno:GridVisible=false"_ostr;
-                pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, state);
+                pViewShell->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, state);
             }
         }
         break;
@@ -138,10 +138,10 @@ void DrawViewShell::ExecOptionsBar( SfxRequest& rReq )
             pOptions->SetUseGridSnap( !mpDrawView->IsGridSnap() );
 
             SfxViewShell* pViewShell = SfxViewShell::Current();
-            if (pViewShell && comphelper::LibreOfficeKit::isActive())
+            if (pViewShell && comphelper::loficeKit::isActive())
             {
                 OString state = !mpDrawView->IsGridSnap() ? ".uno:GridUse=true"_ostr: ".uno:GridUse=false"_ostr;
-                pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, state);
+                pViewShell->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, state);
             }
         }
         break;

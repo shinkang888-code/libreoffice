@@ -1,5 +1,5 @@
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -678,7 +678,7 @@ public class Helper
 
         conn.setRequestMethod(method);
         // TODO: is it possible to read the version from the extension metadata?
-        conn.setRequestProperty("User-Agent", "LibreOffice Wiki Publisher 1.2.0");
+        conn.setRequestProperty("User-Agent", "lofice Wiki Publisher 1.2.0");
         // note: don't connect yet so that the caller can do some further setup
 
         return conn;

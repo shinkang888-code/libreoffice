@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -125,7 +125,7 @@ interface XModel2 : com::sun::star::frame::XModel
     /** Sets com::sun::star::document::MediaDescriptor properties
         of the current model during runtime.
 
-        @since LibreOffice 6.3
+        @since lofice 6.3
 
         @param Arguments
             Properties which should be set
@@ -138,7 +138,7 @@ interface XModel2 : com::sun::star::frame::XModel
                 <li>com::sun::star::document::MediaDescriptor::LockPrint</li>
                 <li>com::sun::star::document::MediaDescriptor::LockSave</li>
                 <li>com::sun::star::document::MediaDescriptor::LockEditDoc</li>
-                <li>com::sun::star::document::MediaDescriptor::EncryptionData (since LibreOffice 7.0)</li>
+                <li>com::sun::star::document::MediaDescriptor::EncryptionData (since lofice 7.0)</li>
             </ul>
 
         @throws com::sun::star::lang::IllegalArgumentException When trying to set an unsupported property

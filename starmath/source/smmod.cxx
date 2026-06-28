@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -123,7 +123,7 @@ void SmModule::ConfigurationChanged(utl::ConfigurationBroadcaster* pBrdCst, Conf
     {
         // FIXME: What if pViewShell is for a different document,
         // but OTOH Math is presumably never used through
-        // LibreOfficeKit, so maybe an irrelevant concern?
+        // loficeKit, so maybe an irrelevant concern?
         if (dynamic_cast<const SmViewShell *>(pViewShell) != nullptr)
             pViewShell->GetWindow()->Invalidate();
         pViewShell = SfxViewShell::GetNext(*pViewShell);

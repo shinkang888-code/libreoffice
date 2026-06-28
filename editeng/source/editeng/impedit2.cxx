@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -628,7 +628,7 @@ bool ImpEditEngine::MouseButtonUp( const MouseEvent& rMEvt, EditView* pView )
     // FIXME I believe resetting bInSelection should not be here even in the
     // non-tiled-rendering case, but it has been here since 2000 (and before)
     // so who knows what corner case it was supposed to solve back then
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         mbInSelection = false;
 
     // Special treatments
@@ -1019,7 +1019,7 @@ EditSelection const& ImpEditEngine::MoveCursor(const KeyEvent& rKeyEvent, EditVi
     if ( bKeyModifySelection )
     {
         // Then the selection is expanded ... or the whole selection is painted in case of tiled rendering.
-        EditSelection aTmpNewSel( comphelper::LibreOfficeKit::isActive() ? pEditView->getImpl().GetEditSelection().Min() : aOldEnd, aPaM );
+        EditSelection aTmpNewSel( comphelper::loficeKit::isActive() ? pEditView->getImpl().GetEditSelection().Min() : aOldEnd, aPaM );
         pEditView->getImpl().DrawSelectionXOR( aTmpNewSel );
     }
     else

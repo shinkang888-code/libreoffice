@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -408,7 +408,7 @@ void SAL_CALL RecoveryCore::statusChanged(const css::frame::FeatureStateEvent& a
 
     if (aNew.OrgURL.isEmpty()) {
         // If there is no file URL, the window title is used for the display name.
-        // Remove any unwanted elements such as " - LibreOffice Writer".
+        // Remove any unwanted elements such as " - lofice Writer".
         sal_Int32 i = aNew.DisplayName.indexOf(" - ");
         if (i > 0)
             aNew.DisplayName = aNew.DisplayName.copy(0, i);

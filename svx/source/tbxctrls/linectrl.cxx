@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -365,7 +365,7 @@ void SvxLineEndWindow::FillValueSet()
     // An entry is temporarily added to get the UI bitmap
     basegfx::B2DPolyPolygon aNothing;
     mpLineEndList->Insert(std::make_unique<XLineEndEntry>(aNothing,
-        comphelper::LibreOfficeKit::isActive() ? SvxResId(RID_SVXSTR_INVISIBLE)
+        comphelper::loficeKit::isActive() ? SvxResId(RID_SVXSTR_INVISIBLE)
             : SvxResId(RID_SVXSTR_NONE)));
     const XLineEndEntry* pEntry = mpLineEndList->GetLineEnd(nCount);
     Bitmap aBmp = mpLineEndList->GetUiBitmap( nCount );

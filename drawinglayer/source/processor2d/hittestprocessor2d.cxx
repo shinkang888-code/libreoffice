@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -157,7 +157,7 @@ namespace drawinglayer::processor2d
                     const Size aSizePixel(rBitmap.GetSizePixel());
 
                     // When tiled rendering, don't bother with the pixel size of the candidate.
-                    if(aSizePixel.Width() && aSizePixel.Height() && !comphelper::LibreOfficeKit::isActive())
+                    if(aSizePixel.Width() && aSizePixel.Height() && !comphelper::loficeKit::isActive())
                     {
                         basegfx::B2DHomMatrix aBackTransform(
                             getViewInformation2D().getObjectToViewTransformation() *

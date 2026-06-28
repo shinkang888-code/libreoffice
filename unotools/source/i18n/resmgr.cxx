@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -212,7 +212,7 @@ namespace Translate
         const std::string ret = boost::locale::pgettext(sContextAndId.mpContext, sContextAndId.getId(), loc);
         OUString result(ExpandVariables(OUString::fromUtf8(ret.data())));
 
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             // If it is de-CH, change sharp s to double s.
             if (std::use_facet<boost::locale::info>(loc).country() == "CH" &&
@@ -243,7 +243,7 @@ namespace Translate
         const std::string ret = boost::locale::npgettext(aContextSingularPlural.mpContext, aContextSingularPlural.mpSingular, aContextSingularPlural.mpPlural, n, loc);
         OUString result(ExpandVariables(OUString::fromUtf8(ret.data())));
 
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             if (std::use_facet<boost::locale::info>(loc).country() == "CH" &&
                 std::use_facet<boost::locale::info>(loc).language() == "de")

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1001,7 +1001,7 @@ CPPUNIT_TEST_FIXTURE(ScExportTest, testHiddenEmptyColsODS)
 
 CPPUNIT_TEST_FIXTURE(ScExportTest, testLandscapeOrientationXLSX)
 {
-    //tdf#48767 - Landscape page orientation is not loaded from .xlsx format with MS Excel, after export with Libre Office
+    //tdf#48767 - Landscape page orientation is not loaded from .xlsx format with MS Excel, after export with lofice
     createScDoc("ods/hidden-empty-rows.ods");
 
     save(TestFilter::XLSX);
@@ -1090,7 +1090,7 @@ CPPUNIT_TEST_FIXTURE(ScExportTest, testTdf162963_ODF)
 
 CPPUNIT_TEST_FIXTURE(ScExportTest, testTdf162177_EastersundayODF14)
 {
-    // EASTERSUNDAY was added to ODFF in ODF 1.4. LibreOffice has written it as
+    // EASTERSUNDAY was added to ODFF in ODF 1.4. lofice has written it as
     // ORG.OPENOFFICE.EASTERSUNDAY for ODF 1.2 and ODF 1.3.
     comphelper::ScopeGuard g([]() { SetODFDefaultVersion(SvtSaveOptions::ODFVER_LATEST); });
     createScDoc("fods/tdf162177_Eastersunday.fods");

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -434,7 +434,7 @@ void SwTextShell::ExecInsert(SfxRequest &rReq)
     case FN_INSERT_SMA:
         {
             // if sidebar is closed - open to show elements deck
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
                 sfx2::sidebar::Sidebar::Setup(u"");
 
             // #i34343# Inserting a math object into an autocompletion crashes

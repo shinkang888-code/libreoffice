@@ -1,12 +1,12 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.libreoffice</groupId>
+  <groupId>org.lofice</groupId>
   <artifactId>unoloader</artifactId>
   <version>@version@</version>
   <packaging>jar</packaging>
-  <name>LibreOffice - UNO loader</name>
+  <name>lofice - UNO loader</name>
   <description>UNO loader</description>
-  <url>https://www.libreoffice.org</url>
+  <url>https://www.lofice.org</url>
 
   <licenses>
     <license>
@@ -17,28 +17,28 @@
   </licenses>
 
   <scm>
-    <url>https://cgit.freedesktop.org/libreoffice/core</url>
-    <connection>https://gerrit.libreoffice.org/#/admin/projects/core</connection>
+    <url>https://cgit.freedesktop.org/lofice/core</url>
+    <connection>https://gerrit.lofice.org/#/admin/projects/core</connection>
   </scm>
 
   <developers>
     <developer>
-      <name>The Document Foundation</name>
+      <name>Lonex. Inc</name>
     </developer>
   </developers>
 
   <mailingLists>
     <mailingList>
-      <name>LibreOffice Development Mailing List</name>
-      <post>libreoffice@lists.freedesktop.org</post>
-      <subscribe>http://lists.freedesktop.org/mailman/listinfo/libreoffice</subscribe>
-      <unsubscribe>http://lists.freedesktop.org/mailman/listinfo/libreoffice</unsubscribe>
-      <archive>http://lists.freedesktop.org/archives/libreoffice</archive>
+      <name>lofice Development Mailing List</name>
+      <post>lofice@lists.freedesktop.org</post>
+      <subscribe>http://lists.freedesktop.org/mailman/listinfo/lofice</subscribe>
+      <unsubscribe>http://lists.freedesktop.org/mailman/listinfo/lofice</unsubscribe>
+      <archive>http://lists.freedesktop.org/archives/lofice</archive>
     </mailingList>
   </mailingLists>
 
   <issueManagement>
-    <url>https://bugs.documentfoundation.org</url>
-    <system>LibreOffice Issue Tracker</system>
+    <url>https://bugs.lofice.io</url>
+    <system>lofice Issue Tracker</system>
   </issueManagement>
 </project>

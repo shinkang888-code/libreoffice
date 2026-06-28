@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -86,7 +86,7 @@ SafeModeDialog::SafeModeDialog(weld::Window* pParent)
     RadioBtnHdl(*mxRadioRestore);
 
     // Set URL for help button (module=safemode)
-    OUString sURL(officecfg::Office::Common::Menus::SendFeedbackURL::get()  //officecfg/registry/data/org/openoffice/Office/Common.xcu => https://hub.libreoffice.org/send-feedback/
+    OUString sURL(officecfg::Office::Common::Menus::SendFeedbackURL::get()  //officecfg/registry/data/org/openoffice/Office/Common.xcu => https://hub.lofice.org/send-feedback/
      + "?LOversion=" + utl::ConfigManager::getAboutBoxProductVersion() +
         "&LOlocale=" + utl::ConfigManager::getUILocale() + "&LOmodule=safemode");
     mxBugLink->set_uri(sURL);
@@ -271,7 +271,7 @@ IMPL_LINK(SafeModeDialog, DialogBtnHdl, weld::Button&, rBtn, void)
 
 IMPL_LINK(SafeModeDialog, CreateZipBtnHdl, weld::Button&, /*rBtn*/, void)
 {
-    const OUString zipFileURL(comphelper::BackupFileHelper::getUserProfileURL() + "/libreoffice-profile.zip");
+    const OUString zipFileURL(comphelper::BackupFileHelper::getUserProfileURL() + "/lofice-profile.zip");
     osl::File::remove(zipFileURL); // Remove previous exports
     try
     {

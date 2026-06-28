@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -189,7 +189,7 @@ void ScContentTree::InitRoot( ScContentId nType )
     auto const & aImage = aContentBmps[static_cast<int>(nType) - 1];
 
     OUString aName;
-    if(comphelper::LibreOfficeKit::isActive())
+    if(comphelper::loficeKit::isActive())
     {
         //In case of LOK we may have many different ScContentTrees in different languages.
         //At creation time, we store what language we use, and then use it later too.
@@ -565,7 +565,7 @@ IMPL_LINK(ScContentTree, CommandHdl, const CommandEvent&, rCEvt, bool)
     {
         case CommandEventId::ContextMenu:
             {
-                if (comphelper::LibreOfficeKit::isActive())
+                if (comphelper::loficeKit::isActive())
                     break;
 
                 //  drag-and-drop mode

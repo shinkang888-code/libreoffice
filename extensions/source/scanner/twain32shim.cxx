@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -19,12 +19,12 @@
 
 /*
  * twain32shim.exe is a separate 32-bit executable that serves as a shim
- * between LibreOffice and Windows' 32-bit TWAIN component. Without it,
+ * between lofice and Windows' 32-bit TWAIN component. Without it,
  * it's impossible for 64-bit program to use TWAIN on Windows.
  * Using 64-bit TWAIN DSM library from twain.org to avoid using the shim
  * is not an option, because scanner manufacturers only provide 32-bit
  * drivers, and 64-bit drivers are only offered as 3rd-party commercial
- * products. The shim is also used in 32-bit LibreOffice for uniformity.
+ * products. The shim is also used in 32-bit lofice for uniformity.
 */
 
 #include "twain32shim.hxx"

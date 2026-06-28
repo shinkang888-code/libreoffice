@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -27,7 +27,7 @@
      al del mot correcte.
 
      2. Volem que la llista contingui aproximadament un 200 mots per no relantizar
-     el funcionament del LibreOffice.
+     el funcionament del lofice.
 
      3. Volem que sigui capaç de corregir els errors més comuns fent un
      blanceig entre anàlisi estadístic, errors tipogràfics comuns, i errades

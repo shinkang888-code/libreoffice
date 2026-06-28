@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -165,7 +165,7 @@ public:
     void                    ChildWindowExecute(SfxRequest&);
     SAL_DLLPRIVATE void     ChildWindowState(SfxItemSet&);
 
-    /** Append a new InfoBar (see https://wiki.documentfoundation.org/Design/Whiteboards/Infobar).
+    /** Append a new InfoBar (see https://wiki.lofice.io/Design/Whiteboards/Infobar).
 
         The buttons will be added from Right to Left at the right of the info bar. The parent, size
         and position of each button will be changed: only the width will remain unchanged.

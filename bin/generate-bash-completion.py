@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,7 +9,7 @@
 #
 
 """
-Script to generate LibreOffice bash_completion file for the main applications
+Script to generate lofice bash_completion file for the main applications
 """
 
 import argparse
@@ -71,8 +71,8 @@ class SetAppName(argparse.Action):
 # default names of lowrappers
 # use "" for name if you want to disable any wrapper
 APPS = {
-    'office': App("libreoffice", 'openoffice', ALLDOCS),  # libreoffice should contain all
-    'office_short': App("loffice", 'ooffice', ALLDOCS),  # libreoffice should contain all
+    'office': App("lofice", 'openoffice', ALLDOCS),  # lofice should contain all
+    'office_short': App("loffice", 'ooffice', ALLDOCS),  # lofice should contain all
     'master': App("", '', MASTERDOCS),
     'base': App("lobase", 'oobase', BASEDOCS),
     'calc': App("localc", 'oocalc', CALCDOCS),

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -2681,7 +2681,7 @@ COM_DECLSPEC_NOTHROW STDMETHODIMP CMAccessible::get_attributes(/*[out]*/ BSTR *p
         }
 
         // some text-specific IAccessible2 object attributes (like text alignment
-        // of a paragraph) are handled as text attributes in LibreOffice
+        // of a paragraph) are handled as text attributes in lofice
         Reference<XAccessibleText> xText(pRContext, UNO_QUERY);
         if (xText.is())
         {

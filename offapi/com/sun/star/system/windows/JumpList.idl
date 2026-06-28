@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -15,7 +15,7 @@ interface XJumpList;
 
 /** Specifies a Jump List service. Allows to add custom commands to the Windows Jump List.
 
-    @since LibreOffice 7.4
+    @since lofice 7.4
 
     @see com::sun::star::system::windows::XJumpList
 */

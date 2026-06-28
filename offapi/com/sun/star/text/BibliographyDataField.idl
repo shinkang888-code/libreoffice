@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -123,7 +123,7 @@ published constants BibliographyDataField
     const short ISBN            = 30;
     /** This field contains a local copy of the publishing.
 
-        @since LibreOffice 7.3
+        @since lofice 7.3
      */
     const short LOCAL_URL       = 31;
 };

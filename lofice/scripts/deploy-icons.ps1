@@ -36,6 +36,14 @@ foreach ($theme in $Themes) {
             Write-Host "Deployed: $theme/$target"
         }
     }
+    # SVG embed PNG (mainapp_*.svg → lofice_16.png / lofice_32.png)
+    foreach ($png in @('lofice_16.png', 'lofice_32.png')) {
+        $pngSrc = Join-Path $IconSource $png
+        if (Test-Path $pngSrc) {
+            Copy-Item $pngSrc (Join-Path $themeDir $png) -Force
+            Write-Host "Deployed: $theme/$png"
+        }
+    }
 }
 
 Write-Host "Icon theme deployment complete."

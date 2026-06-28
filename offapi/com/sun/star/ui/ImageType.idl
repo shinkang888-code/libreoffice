@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -39,7 +39,7 @@ constants ImageType
     const short SIZE_LARGE         = 1;
 
     /** an image with size 32.
-        @since LibreOffice 5.3
+        @since lofice 5.3
      */
     const short SIZE_32            = 2;
 
@@ -54,7 +54,7 @@ constants ImageType
     /** an image specialized for rl-tb writing. if unset, the
         image is unspecialized or for lr-tb writing.
 
-        @since LibreOffice 25.8
+        @since lofice 25.8
      */
     const short DIR_RL_TB = 8;
 };

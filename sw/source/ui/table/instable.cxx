@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -33,7 +33,7 @@ void SwInsTableDlg::GetValues( OUString& rName, sal_uInt16& rRow, sal_uInt16& rC
                                 std::unique_ptr<SwTableAutoFormat>& prTAFormat )
 {
     SwInsertTableFlags nInsMode = SwInsertTableFlags::NONE;
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         nInsMode = SwInsertTableFlags::DefaultBorder;
     rName = m_xNameEdit->get_text();
     rRow = m_xRowSpinButton->get_value();
@@ -47,7 +47,7 @@ void SwInsTableDlg::GetValues( OUString& rName, sal_uInt16& rRow, sal_uInt16& rC
         rInsTableOpts.mnRowsToRepeat = 0;
     if (!m_xDontSplitCB->get_active())
         nInsMode |= SwInsertTableFlags::SplitLayout;
-    if (m_xTAutoFormat && !comphelper::LibreOfficeKit::isActive())
+    if (m_xTAutoFormat && !comphelper::loficeKit::isActive())
     {
         prTAFormat.reset(new SwTableAutoFormat( *m_xTAutoFormat ));
         rAutoName = prTAFormat->GetName().toString();
@@ -84,7 +84,7 @@ SwInsTableDlg::SwInsTableDlg(SwView& rView)
     , m_xWndPreview(new weld::CustomWeld(*m_xBuilder, u"previewinstable"_ustr, m_aWndPreview))
     , m_xStyleFrame(m_xBuilder->weld_frame(u"stylesframe"_ustr))
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         m_xStyleFrame->hide();
 
     const int nWidth = m_xLbFormat->get_approximate_digit_width() * 32;

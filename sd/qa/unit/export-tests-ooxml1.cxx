@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1436,7 +1436,7 @@ CPPUNIT_TEST_FIXTURE(SdOOXMLExportTest1, testCustomshapeBitmapfillSrcrect)
     // Original values of attribute of l and r in xml files: <a:srcRect l="4393" r="4393"/>
     // No core feature for handling this. We add support to import filter. We crop the bitmap
     // physically during import and shouldn't export the l r t b attributes anymore. In the
-    // future if we add core feature to LibreOffice, we should change the control value with
+    // future if we add core feature to lofice, we should change the control value with
     // 4393.
 
     assertXPathNoAttribute(pXmlDoc, "/p:sld/p:cSld/p:spTree/p:sp/p:spPr/a:blipFill/a:srcRect", "l");

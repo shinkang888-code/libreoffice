@@ -9,6 +9,7 @@
     "rag-server": "node rag-search-server.mjs",
     "verify-mk": "node verify-lofice-mk.mjs",
     "verify-ci": "node verify-lofice-ci.mjs",
+    "verify-rebrand": "node verify-rebrand.mjs",
     "verify-rag": "node verify-rag-health.mjs",
     "verify-rag-e2e": "node verify-rag-e2e.mjs",
     "verify-embed": "node verify-embed-readiness.mjs",

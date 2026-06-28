@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -39,7 +39,7 @@ private:
     static void ApplyAutoFilter(ScDocShell& rDocSh, const ScViewData& rViewData, ScDBData* pDBData,
                                 SCROW nRow, SCTAB nTab, const ScQueryParam& aParam);
 
-    DECL_STATIC_LINK(ScDBFunc, InstallLOKNotifierHdl, void*, vcl::ILibreOfficeKitNotifier*);
+    DECL_STATIC_LINK(ScDBFunc, InstallLOKNotifierHdl, void*, vcl::IloficeKitNotifier*);
 
 public:
                     ScDBFunc( vcl::Window* pParent, ScDocShell& rDocSh, ScTabViewShell* pViewShell );

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -296,7 +296,7 @@ uno::Reference<drawing::XShape> SwFmDrawPage::GetShape(SdrObject* pObj)
         return nullptr;
     SwFrameFormat* pFormat = ::FindFrameFormat( pObj );
     // TODO see comment at
-    // <https://gerrit.libreoffice.org/c/core/+/78734/4#message-5ee4e724a8073c5c475f07da0b5d79bc34e61de5>
+    // <https://gerrit.lofice.org/c/core/+/78734/4#message-5ee4e724a8073c5c475f07da0b5d79bc34e61de5>
     // "make page bookkeep the SwXShapes" [-loplugin:crosscast]:
     SwFmDrawPage* pPage = dynamic_cast<SwFmDrawPage*>(pFormat);
     if(!pPage || pPage->m_vShapes.empty())

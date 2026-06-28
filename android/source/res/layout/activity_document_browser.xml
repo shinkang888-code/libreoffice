@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
- This file is part of the LibreOffice project.
+ This file is part of the lofice project.
 
  This Source Code Form is subject to the terms of the Mozilla Public
  License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -20,9 +20,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:elevation="3dp"
-        app:theme="@style/LibreOfficeTheme"
-        tools:theme="@style/LibreOfficeTheme"
-        app:popupTheme="@style/LibreOfficeTheme"
+        app:theme="@style/loficeTheme"
+        tools:theme="@style/loficeTheme"
+        app:popupTheme="@style/loficeTheme"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         app:layout_constraintRight_toRightOf="parent"

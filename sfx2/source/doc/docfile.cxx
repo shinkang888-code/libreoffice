@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -364,7 +364,7 @@ class MediumTempFile : public ::utl::TempFileNamed
 public:
     MediumTempFile(const OUString *pParent )
         : ::utl::TempFileNamed(pParent)
-        , m_bWasChild(comphelper::LibreOfficeKit::isForkedChild())
+        , m_bWasChild(comphelper::loficeKit::isForkedChild())
     {
     }
 
@@ -372,7 +372,7 @@ public:
 
     ~MediumTempFile()
     {
-        bool isForked = comphelper::LibreOfficeKit::isForkedChild();
+        bool isForked = comphelper::loficeKit::isForkedChild();
 
         // avoid deletion of files created by the parent
         if (isForked && ! m_bWasChild)
@@ -2692,7 +2692,7 @@ void SfxMedium::Transfer_Impl()
                         // tdf#95272 try to re-issue a lock command when a new file is created.
                         // This may be needed because some WebDAV servers fail to implement the
                         // 'LOCK on unallocated reference', see issue comment:
-                        // <https://bugs.documentfoundation.org/show_bug.cgi?id=95792#c8>
+                        // <https://bugs.lofice.io/show_bug.cgi?id=95792#c8>
                         // and specification at:
                         // <http://tools.ietf.org/html/rfc4918#section-7.3>
                         // If the WebDAV resource is already locked by this LO instance, nothing will
@@ -4512,7 +4512,7 @@ void SfxMedium::SignContents_Impl(weld::Window* pDialogParent,
                 if (GetFilter() && GetFilter()->IsOwnFormat())
                 {
                     bool bImplicitScriptSign = officecfg::Office::Common::Security::Scripting::ImplicitScriptSign::get();
-                    if (comphelper::LibreOfficeKit::isActive())
+                    if (comphelper::loficeKit::isActive())
                     {
                         bImplicitScriptSign = true;
                     }

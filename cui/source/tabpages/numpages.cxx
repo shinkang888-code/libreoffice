@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -851,7 +851,7 @@ SvxBitmapPickTabPage::SvxBitmapPickTabPage(weld::Container* pPage, weld::DialogC
     m_xExamplesVS->SetDoubleClickHdl(LINK(this, SvxBitmapPickTabPage, DoubleClickHdl_Impl));
     m_xBtBrowseFile->connect_clicked(LINK(this, SvxBitmapPickTabPage, ClickAddBrowseHdl_Impl));
 
-    if(comphelper::LibreOfficeKit::isActive())
+    if(comphelper::loficeKit::isActive())
         m_xBtBrowseFile->hide();
 
     eCoreUnit = rSet.GetPool()->GetMetric(rSet.GetPool()->GetWhichIDFromSlotID(SID_ATTR_NUMBERING_RULE));
@@ -1223,7 +1223,7 @@ SvxNumOptionsTabPage::SvxNumOptionsTabPage(weld::Container* pPage, weld::DialogC
     for (sal_uInt32 i = 0; i < nCount; ++i)
     {
         int nValue = SvxNumberingTypeTable::GetValue(i);
-        if (comphelper::LibreOfficeKit::isActive() && (nValue & SVX_NUM_BITMAP)) continue;
+        if (comphelper::loficeKit::isActive() && (nValue & SVX_NUM_BITMAP)) continue;
         m_xFmtLB->append(OUString::number(nValue), SvxNumberingTypeTable::GetString(i));
     }
 

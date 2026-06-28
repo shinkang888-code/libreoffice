@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -187,7 +187,7 @@ class theExceptionThrower : public rtl::Static<ExceptionThrower, theExceptionThr
 // Instead of digging in and trying to understand what is wrong, another
 // solution was chosen. It turns out that the number of types of exception
 // objects thrown by cppu::throwException() is fairly small. During startup of
-// the LibreOffice code, and loading of an .odt document, only one kind of
+// the lofice code, and loading of an .odt document, only one kind of
 // exception is thrown this way... (The lovely
 // css::ucb:InteractiveAugmentedIOException.)
 //

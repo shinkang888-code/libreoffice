@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -265,7 +265,7 @@ Type PropertyConversion::xmlTypeToUnoType( const OUString& _rType )
     {
         { token::GetXMLToken( token::XML_BOOLEAN ) , cppu::UnoType<bool>::get()},
         // Not a copy paste error, quotation from:
-        // http://nabble.documentfoundation.org/Question-unoType-for-getXmlToken-dbaccess-reportdesign-module-tp4109071p4109116.html
+        // http://nabble.lofice.io/Question-unoType-for-getXmlToken-dbaccess-reportdesign-module-tp4109071p4109116.html
         // all numeric types (including the UNO double)
         // consistently map to XML_FLOAT, so taking the extra precision from the
         // C++ type "float" to "double" makes absolute sense

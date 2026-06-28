@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 #ifndef INCLUDED_COM_SUN_STAR_UNO_ANY_H
 #define INCLUDED_COM_SUN_STAR_UNO_ANY_H
@@ -350,7 +350,7 @@ template<> Any SAL_CALL makeAny(Any const &) SAL_DELETED_FUNCTION;
     (A difference to the deprecated makeAny is that makeAny cannot be called on an Any, while
     toAny just returns the given Any.)
 
-    @since LibreOffice 5.0
+    @since lofice 5.0
 */
 template<typename T> inline Any toAny(T const & value);
 
@@ -373,7 +373,7 @@ template<> inline Any toAny(Any const & value);
 
     @return  true iff extraction succeeded
 
-    @since LibreOffice 5.3
+    @since lofice 5.3
 */
 template<typename T> inline bool fromAny(Any const & any, T * value);
 

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -14,7 +14,7 @@
 
 #include <string>
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 #define GTV_TYPE_MAIN_TOOLBAR            (gtv_main_toolbar_get_type())
 #define GTV_MAIN_TOOLBAR(obj)            (G_TYPE_CHECK_INSTANCE_CAST((obj), GTV_TYPE_MAIN_TOOLBAR, GtvMainToolbar))
@@ -51,7 +51,7 @@ void gtv_main_toolbar_set_sensitive_internal(GtvMainToolbar* toolbar, GtkToolIte
 /// Use internal sensitivity map to set actual widget's sensitiveness
 void gtv_main_toolbar_set_edit(GtvMainToolbar* toolbar, gboolean bEdit);
 
-void gtv_main_toolbar_doc_loaded(GtvMainToolbar* toolbar, LibreOfficeKitDocumentType eDocType, bool bEditMode);
+void gtv_main_toolbar_doc_loaded(GtvMainToolbar* toolbar, loficeKitDocumentType eDocType, bool bEditMode);
 
 void gtv_main_toolbar_add_recent_uno(GtvMainToolbar* toolbar, const std::string& rUnoCmdStr);
 

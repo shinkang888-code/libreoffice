@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -11,7 +11,7 @@
 #include <com/sun/star/lang/XServiceInfo.hpp>
 #include <cppuhelper/implbase.hxx>
 #include <cppuhelper/supportsservice.hxx>
-#include <org/libreoffice/embindtest/XStringFactory.hpp>
+#include <org/lofice/embindtest/XStringFactory.hpp>
 
 namespace com::sun::star::uno
 {
@@ -20,7 +20,7 @@ class XComponentContext;
 
 namespace
 {
-class SingletonTest : public cppu::WeakImplHelper<org::libreoffice::embindtest::XStringFactory,
+class SingletonTest : public cppu::WeakImplHelper<org::lofice::embindtest::XStringFactory,
                                                   css::lang::XServiceInfo>
 {
 public:
@@ -44,7 +44,7 @@ public:
 }
 
 extern "C" SAL_DLLPUBLIC_EXPORT css::uno::XInterface*
-org_libreoffice_comp_embindtest_Singleton_get_implementation(
+org_lofice_comp_embindtest_Singleton_get_implementation(
     css::uno::XComponentContext*, css::uno::Sequence<css::uno::Any> const&)
 {
     return cppu::acquire(new SingletonTest);

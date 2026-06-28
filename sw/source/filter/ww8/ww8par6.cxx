@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -5033,7 +5033,7 @@ void SwWW8ImplReader::Read_TextAnim(sal_uInt16 /*nId*/, const sal_uInt8* pData, 
             bool bBlink;
 
             // The 7 animated text effects available in word all get
-            // mapped to a blinking text effect in LibreOffice
+            // mapped to a blinking text effect in lofice
             // 0 no animation       1 Las Vegas lights
             // 2 background blink   3 sparkle text
             // 4 marching ants      5 marching red ants

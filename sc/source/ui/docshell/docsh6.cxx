@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -437,7 +437,7 @@ void ScDocShell::SetFormulaOptions( const ScFormulaOptions& rOpt, bool bForLoadi
     // LOKit may need to juggle different symbols lists for different users so a
     // single load is not enough, otherwise the wrong separators may be expected
     // for the users locale
-    if (!bForLoading || bInitOnce || comphelper::LibreOfficeKit::isActive())
+    if (!bForLoading || bInitOnce || comphelper::loficeKit::isActive())
     {
         bool bForceInit = bInitOnce;
         bInitOnce = false;
@@ -500,7 +500,7 @@ void ScDocShell::CheckConfigOptions()
         pScMod->SetFormulaOptions(aNew);
 
         // Launch a nice warning dialog to let the users know of this change.
-        ScTabViewShell* pViewShell = comphelper::LibreOfficeKit::isActive() ? nullptr : GetBestViewShell();
+        ScTabViewShell* pViewShell = comphelper::loficeKit::isActive() ? nullptr : GetBestViewShell();
         if (pViewShell)
         {
             std::shared_ptr<weld::MessageDialog> xInfoBox(Application::CreateMessageDialog(pViewShell->GetFrameWeld(),

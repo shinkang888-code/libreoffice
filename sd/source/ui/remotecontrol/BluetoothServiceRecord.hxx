@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -26,7 +26,7 @@ const char * const bluetooth_service_record =
       "<attribute id=\"0x0001\">"       // Service class ID list
         "<sequence>"
           "<uuid value=\"0x1101\"/>"    // an assigned service class meaning: 'serial port'
-                                        // we could add our own 'LibreOffice remote' service
+                                        // we could add our own 'lofice remote' service
                                         // class here too in future ...
         "</sequence>"
       "</attribute>"
@@ -64,10 +64,10 @@ const char * const bluetooth_service_record =
       // Attribute identifiers are pointed to by the Language Base Attribute ID List
       //  id+0 = ServiceName, id+1 = ServiceDescription, id+2=ProviderName
       "<attribute id=\"0x0100\">"
-        "<text value=\"LibreOffice Impress Remote Control\"/>"
+        "<text value=\"lofice Impress Remote Control\"/>"
       "</attribute>"
       "<attribute id=\"0x0102\">"
-        "<text value=\"The Document Foundation\"/>"
+        "<text value=\"Lonex. Inc\"/>"
       "</attribute>"
     "</record>"
   ;

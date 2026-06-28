@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -10,8 +10,8 @@ from uitest.framework import UITestCase
 from uitest.uihelper.calc import enter_text_to_cell
 from uitest.uihelper.common import select_by_text
 
-from libreoffice.calc.document import get_cell_by_position
-from libreoffice.uno.propertyvalue import mkPropertyValues
+from lofice.calc.document import get_cell_by_position
+from lofice.uno.propertyvalue import mkPropertyValues
 
 # Bug 39917 - EDITING Find/Replace modifies formula in R1C1 syntax to invalid lowercase
 class tdf39917(UITestCase):
@@ -36,7 +36,7 @@ class tdf39917(UITestCase):
                 self.change_formula_syntax("Excel R1C1")
 
                 #1. Create a workbook with 3 sheets: Page1, Page2, Page3.
-                # 2. Tools -> Options -> LibreOffice Calc -> Formula: Set syntax to Excel A1
+                # 2. Tools -> Options -> lofice Calc -> Formula: Set syntax to Excel A1
                 # 5. Fill fields:
 
                 with self.ui_test.execute_dialog_through_command(".uno:Insert") as xDialog:

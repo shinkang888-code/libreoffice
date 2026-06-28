@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -14,7 +14,7 @@
 #include <sfx2/viewsh.hxx>
 #include <unotools/datetime.hxx>
 #include <comphelper/lok.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 using namespace css;
 
@@ -59,17 +59,17 @@ void LOKCommentNotify(CommentNotificationType nType, const SfxViewShell* pViewSh
                       Annotation& rAnnotation)
 {
     // callbacks only if tiled annotations are explicitly turned off by LOK client
-    if (!comphelper::LibreOfficeKit::isActive() || comphelper::LibreOfficeKit::isTiledAnnotations())
+    if (!comphelper::loficeKit::isActive() || comphelper::loficeKit::isTiledAnnotations())
         return;
 
     OString aPayload = rAnnotation.ToJSON(nType);
-    pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_COMMENT, aPayload);
+    pViewShell->loficeKitViewCallback(LOK_CALLBACK_COMMENT, aPayload);
 }
 
 void LOKCommentNotifyAll(CommentNotificationType nType, Annotation& rAnnotation)
 {
     // callbacks only if tiled annotations are explicitly turned off by LOK client
-    if (!comphelper::LibreOfficeKit::isActive() || comphelper::LibreOfficeKit::isTiledAnnotations())
+    if (!comphelper::loficeKit::isActive() || comphelper::loficeKit::isTiledAnnotations())
         return;
 
     OString aPayload = rAnnotation.ToJSON(nType);
@@ -77,7 +77,7 @@ void LOKCommentNotifyAll(CommentNotificationType nType, Annotation& rAnnotation)
     const SfxViewShell* pViewShell = SfxViewShell::GetFirst();
     while (pViewShell)
     {
-        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_COMMENT, aPayload);
+        pViewShell->loficeKitViewCallback(LOK_CALLBACK_COMMENT, aPayload);
         pViewShell = SfxViewShell::GetNext(*pViewShell);
     }
 }

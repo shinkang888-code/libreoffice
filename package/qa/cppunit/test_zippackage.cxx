@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -452,7 +452,7 @@ CPPUNIT_TEST_FIXTURE(ZipPackageTest, testTdf163818)
 CPPUNIT_TEST_FIXTURE(ZipPackageTest, testDataDescriptorDirectory)
 {
     auto const url(m_directories.getURLFromSrc(
-        u"/package/qa/cppunit/data/vaidator-fine-libreoffice-no-open.odt"));
+        u"/package/qa/cppunit/data/vaidator-fine-lofice-no-open.odt"));
     uno::Sequence<uno::Any> const args{
         uno::Any(url),
         uno::Any(beans::NamedValue("StorageFormat", uno::Any(embed::StorageFormats::PACKAGE)))

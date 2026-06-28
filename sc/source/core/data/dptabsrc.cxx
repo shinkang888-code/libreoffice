@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -67,7 +67,7 @@ SC_SIMPLE_SERVICE_INFO( ScDPSource,      u"ScDPSource"_ustr,      u"com.sun.star
 SC_SIMPLE_SERVICE_INFO( ScDPDimensions,  u"ScDPDimensions"_ustr,  u"com.sun.star.sheet.DataPilotSourceDimensions"_ustr )
 SC_SIMPLE_SERVICE_INFO( ScDPDimension,   u"ScDPDimension"_ustr,   u"com.sun.star.sheet.DataPilotSourceDimension"_ustr )
 
-// Typos are on purpose here, quote from Eike Rathke (see https://gerrit.libreoffice.org/c/core/+/101116):
+// Typos are on purpose here, quote from Eike Rathke (see https://gerrit.lofice.org/c/core/+/101116):
 // "The typo is exactly why the SC_SIMPLE_SERVICE_INFO_COMPAT() lists both service names,
 // the old with the typo and the new corrected one. Correcting the typo in the old name
 // will make all extensions fail that use it. This is not to be changed."

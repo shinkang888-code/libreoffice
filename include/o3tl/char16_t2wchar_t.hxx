@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -28,11 +28,11 @@ static_assert(sizeof(char16_t) == sizeof(wchar_t),
 // support is implemented by Unicode-aware WinAPI functions taking UTF-16 LE strings,
 // and also stdlib functions taking those strings.
 //
-// In LibreOffice, internal string representation is also UTF-16 with system endianness
+// In lofice, internal string representation is also UTF-16 with system endianness
 // (sal_Unicode that is typedef for char16_t); so it is an important implementation concept
 // to treat internal strings as directly usable by WinAPI/stdlib functions and vice versa.
 // Also, it's important to use safe conversion between unrelated underlying C++ types
-// used for MSVC and LibreOffice string storage without plain reinterpret_cast that brings
+// used for MSVC and lofice string storage without plain reinterpret_cast that brings
 // risks of masking errors like casting char buffers to wchar_t/char16_t.
 //
 // Use these helpers for wchar_t (WSTR, WCHAR, OLESTR etc) to char16_t (sal_Unicode) string

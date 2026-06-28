@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -41,7 +41,7 @@ published service MediaProperties
         </p>
 
         <p>
-        Note: As of LibreOffice 6.1 GraphicObject scheme URLs are not supported anymore.
+        Note: As of lofice 6.1 GraphicObject scheme URLs are not supported anymore.
         For example:
         <ul>
             <li>vnd.sun.star.GraphicObject:10000000000001940000012FB99807BD</li>
@@ -106,7 +106,7 @@ published service MediaProperties
 
         <p>Load the graphic as an external link</p>
 
-        @since LibreOffice 6.1
+        @since lofice 6.1
     */
     [optional, property] boolean LoadAsLink;
 };

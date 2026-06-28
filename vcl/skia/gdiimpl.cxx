@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -60,7 +60,7 @@ namespace
 // Note that polygons generally have the complication that when used
 // for area (fill) operations they usually miss the right-most and
 // bottom-most line of pixels of the bounding rectangle (see
-// https://lists.freedesktop.org/archives/libreoffice/2019-November/083709.html).
+// https://lists.freedesktop.org/archives/lofice/2019-November/083709.html).
 // So be careful with rectangle->polygon conversions (generally avoid them).
 void addPolygonToPath(const basegfx::B2DPolygon& rPolygon, SkPathBuilder& rPathBuilder,
                       sal_uInt32 nFirstIndex, sal_uInt32 nLastIndex, const sal_uInt32 nPointCount,

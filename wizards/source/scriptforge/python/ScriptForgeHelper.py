@@ -3,8 +3,8 @@
 # Copyright 2019-2022 Jean-Pierre LEDURE, Rafael LIMA, Alain ROMEDENNE
 
 # ======================================================================================================================
-# ===           The ScriptForge library and its associated libraries are part of the LibreOffice project.            ===
-# ===                   Full documentation is available on https://help.libreoffice.org/                             ===
+# ===           The ScriptForge library and its associated libraries are part of the lofice project.            ===
+# ===                   Full documentation is available on https://help.lofice.org/                             ===
 # ======================================================================================================================
 
 #    ScriptForge is distributed in the hope that it will be useful,
@@ -313,8 +313,8 @@ if __name__ == "__main__":
     print(_SF_Platform('PythonVersion'))
     #
     print(hashlib.algorithms_guaranteed)
-    print(_SF_FileSystem__HashFile('/opt/libreoffice7.3/program/libbootstraplo.so', 'md5'))
-    print(_SF_FileSystem__HashFile('/opt/libreoffice7.3/share/Scripts/python/Capitalise.py', 'sha512'))
+    print(_SF_FileSystem__HashFile('/opt/lofice7.3/program/libbootstraplo.so', 'md5'))
+    print(_SF_FileSystem__HashFile('/opt/lofice7.3/share/Scripts/python/Capitalise.py', 'sha512'))
     print(_SF_FileSystem__Normalize('A/foo/../B/C/./D//E'))
     #
     print(_SF_String__HashStr('œ∑¡™£¢∞§¶•ªº–≠œ∑´®†¥¨ˆøπ“‘åß∂ƒ©˙∆˚¬', 'MD5'))    # 616eb9c513ad07cd02924b4d285b9987

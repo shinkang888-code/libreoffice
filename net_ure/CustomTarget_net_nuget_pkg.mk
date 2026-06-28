@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,7 +9,7 @@
 $(eval $(call gb_CustomTarget_CustomTarget,net_ure/net_uretypes))
 
 net_nuget_pkg_DIR := $(gb_CustomTarget_workdir)/net_ure/net_nuget_pkg
-net_nuget_pkg_ID := LibreOffice.Bindings
+net_nuget_pkg_ID := lofice.Bindings
 net_nuget_pkg_VERSION := 0.1.0
 net_nuget_pkg_PROJECT := $(net_nuget_pkg_DIR)/nuget_pkg.csproj
 net_nuget_pkg_FILE := $(net_nuget_pkg_DIR)/$(net_nuget_pkg_ID).$(net_nuget_pkg_VERSION).nupkg
@@ -25,7 +25,7 @@ $(net_nuget_pkg_PROJECT) : \
 	$(file >>$@,<TargetFramework>netstandard2.0</TargetFramework>)
 	$(file >>$@,<PackageId>$(net_nuget_pkg_ID)</PackageId>)
 	$(file >>$@,<Version>$(net_nuget_pkg_VERSION)</Version>)
-	$(file >>$@,<Company>LibreOffice</Company>)
+	$(file >>$@,<Company>lofice</Company>)
 	$(file >>$@,<Description>Libraries for the new .NET language bindings for UNO.</Description>)
 	$(file >>$@,<IncludeBuildOutput>false</IncludeBuildOutput>)
 	$(file >>$@,</PropertyGroup>)

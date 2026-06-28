@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 USAGE="""
-Script to generate the lists in https://wiki.documentfoundation.org/Development/DispatchCommands
+Script to generate the lists in https://wiki.lofice.io/Development/DispatchCommands
 3 types of source files are scanned to identify and describe a list of relevant UNO commands:
 - .hxx files: containing the symbolic and numeric id's, and the respective modes and groups
 - .xcu files; containing several english labels as they appear in menus or tooltips
 - .sdi files: containing a list of potential arguments for the commands, and their types
 
 Used with an argument : outfile.(csv|html|wiki)
-the script generates one list as in https://wiki.documentfoundation.org/Development/DispatchCommandsList
+the script generates one list as in https://wiki.lofice.io/Development/DispatchCommandsList
 """
 
 import os
@@ -36,7 +36,7 @@ if len(sys.argv) > 1:
 else:
     FH_OUT = None
 
-REPO = 'https://opengrok.libreoffice.org/xref/core'
+REPO = 'https://opengrok.lofice.org/xref/core'
 
 BLACKLIST = ('_SwitchViewShell0', '_SwitchViewShell1', '_SwitchViewShell2', '_SwitchViewShell3', '_SwitchViewShell4')
 

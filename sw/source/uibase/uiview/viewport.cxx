@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -198,7 +198,7 @@ void SwView::DocSzChgd(const Size &rSz)
 void SwView::SetVisArea( const tools::Rectangle &rRect, bool bUpdateScrollbar )
 {
     Size aOldSz( m_aVisArea.GetSize() );
-    if (comphelper::LibreOfficeKit::isActive() && m_pWrtShell)
+    if (comphelper::loficeKit::isActive() && m_pWrtShell)
         // If m_pWrtShell's visible area is the whole document, do the same here.
         aOldSz = m_pWrtShell->VisArea().SSize();
 
@@ -544,7 +544,7 @@ void SwView::Scroll( const tools::Rectangle &rRect, sal_uInt16 nRangeX, sal_uInt
 bool SwView::GetPageScrollUpOffset( SwTwips &rOff ) const
 {
     // in the LOK case, force the value set by the API
-    if (comphelper::LibreOfficeKit::isActive() && m_nLOKPageUpDownOffset > 0)
+    if (comphelper::loficeKit::isActive() && m_nLOKPageUpDownOffset > 0)
     {
         rOff = -m_nLOKPageUpDownOffset;
         return true;
@@ -566,7 +566,7 @@ bool SwView::GetPageScrollUpOffset( SwTwips &rOff ) const
 bool SwView::GetPageScrollDownOffset( SwTwips &rOff ) const
 {
     // in the LOK case, force the value set by the API
-    if (comphelper::LibreOfficeKit::isActive() && m_nLOKPageUpDownOffset > 0)
+    if (comphelper::loficeKit::isActive() && m_nLOKPageUpDownOffset > 0)
     {
         rOff = m_nLOKPageUpDownOffset;
         return true;

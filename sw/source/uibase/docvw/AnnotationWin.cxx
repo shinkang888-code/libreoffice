@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -460,7 +460,7 @@ sal_uInt32 SwAnnotationWin::CountFollowing()
 void SwAnnotationWin::InitAnswer(OutlinerParaObject const & rText)
 {
     // If tiled annotations is off in lok case, skip adding additional reply text.
-    if (comphelper::LibreOfficeKit::isActive() && !comphelper::LibreOfficeKit::isTiledAnnotations())
+    if (comphelper::loficeKit::isActive() && !comphelper::loficeKit::isTiledAnnotations())
         return;
 
     //collect our old meta data

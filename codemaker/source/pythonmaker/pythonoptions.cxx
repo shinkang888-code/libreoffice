@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -191,7 +191,7 @@ OString PythonOptions::prepareHelp()
             "About:\n"
             "  This tool generates Python stub files (.pyi) from UNO type libraries (.rdb).\n"
             "  These stubs enable static type checking and provide rich\n"
-            "  auto-completion for the LibreOffice API in modern code editors.\n\n"
+            "  auto-completion for the lofice API in modern code editors.\n\n"
             "Usage:\n"
             "  "
           + programName

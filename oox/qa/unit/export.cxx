@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -806,7 +806,7 @@ CPPUNIT_TEST_FIXTURE(Test, testTdf151008VertAnchor)
     // The order of the shapes in the file is by name "Right", "Center", "Left", "RightMiddle",
     // "CenterMiddle" and "LeftMiddle". I access the shapes here by index, because the XPath is
     // easier then.
-    // As of Sep 2022 LibreOffice does not write the default anchorCtr="0"
+    // As of Sep 2022 lofice does not write the default anchorCtr="0"
     // Right
     assertXPath(pXmlDoc, "//p:spTree/p:sp[1]/p:txBody/a:bodyPr", "anchor", u"t");
     assertXPathNoAttribute(pXmlDoc, "//p:spTree/p:sp[1]/p:txBody/a:bodyPr", "anchorCtr");
@@ -888,7 +888,7 @@ CPPUNIT_TEST_FIXTURE(Test, testVMLFontworkSlantUp)
     // The document has a Fontwork shape type 'textSlantUp' (172). When exporting to docx, Word does
     // not recognize its markup as preset WordArt, because the used markup differs from what Word
     // expects for this type of shape. As a result Word saves the shape as having custom geometry
-    // and such is not understand by LibreOffice.
+    // and such is not understand by lofice.
     loadFromFile(u"tdf153296_VML_export_SlantUp.odt");
 
     // Save to DOCX:

@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t; fill-column: 100 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -102,7 +102,7 @@ $(call gb_ExternalProject_get_state_target,python3,build) :
 		--prefix=/python-inst \
 		--with-system-expat \
 		$(if $(filter MACOSX,$(OS)), \
-			--enable-framework=/@__________________________________________________OOO --with-framework-name=LibreOfficePython, \
+			--enable-framework=/@__________________________________________________OOO --with-framework-name=loficePython, \
 			--enable-shared \
 		) \
 		$(if $(ENABLE_OPENSSL),$(if $(SYSTEM_OPENSSL),,\
@@ -153,7 +153,7 @@ endif
 
 ifeq ($(OS),MACOSX)
 
-python3_fw_prefix:=$(gb_UnpackedTarball_workdir)/python3/python-inst/@__________________________________________________OOO/LibreOfficePython.framework/Versions/$(PYTHON_VERSION_MAJOR).$(PYTHON_VERSION_MINOR)
+python3_fw_prefix:=$(gb_UnpackedTarball_workdir)/python3/python-inst/@__________________________________________________OOO/loficePython.framework/Versions/$(PYTHON_VERSION_MAJOR).$(PYTHON_VERSION_MINOR)
 python3_EXTENSION_MODULE_SUFFIX:=cpython-$(PYTHON_VERSION_MAJOR)$(PYTHON_VERSION_MINOR)$(if $(ENABLE_DBGUTIL),d)-darwin
 
 # Since python 3.12 setuptools and pip are not available by default
@@ -180,7 +180,7 @@ $(call gb_ExternalProject_get_state_target,python3,fixscripts) : $(call gb_Exter
 origpath=$$(pwd)\n\
 bindir=$$(cd $$(dirname \"$$0\") ; pwd)\n\
 cd \"$$origpath\"\n\
-\"$$bindir/../Resources/Python.app/Contents/MacOS/LibreOfficePython\" - $$@ <<EOF"} \
+\"$$bindir/../Resources/Python.app/Contents/MacOS/loficePython\" - $$@ <<EOF"} \
 		FNR==1{next} \
 		      {print} \
 		END   {print "EOF"}' > "../Resources/$$file" ; } < "$$file" && \
@@ -190,20 +190,20 @@ cd \"$$origpath\"\n\
 $(call gb_ExternalProject_get_state_target,python3,fixinstallnames) : $(call gb_ExternalProject_get_state_target,python3,build) \
         | $(call gb_ExternalProject_get_state_target,python3,removeunnecessarystuff)
 	$(INSTALL_NAME_TOOL) -change \
-		$(python3_fw_prefix)/LibreOfficePython \
-		@executable_path/../../../../LibreOfficePython \
-		$(python3_fw_prefix)/Resources/Python.app/Contents/MacOS/LibreOfficePython
+		$(python3_fw_prefix)/loficePython \
+		@executable_path/../../../../loficePython \
+		$(python3_fw_prefix)/Resources/Python.app/Contents/MacOS/loficePython
 	for file in $(shell $(FIND) $(python3_fw_prefix)/lib/python$(PYTHON_VERSION_MAJOR).$(PYTHON_VERSION_MINOR)/lib-dynload -name "*.so") ; do \
 	$(INSTALL_NAME_TOOL) -change \
-		$(python3_fw_prefix)/LibreOfficePython \
-		@loader_path/../../../LibreOfficePython $$file ; done
+		$(python3_fw_prefix)/loficePython \
+		@loader_path/../../../loficePython $$file ; done
 	touch $@
 
 $(call gb_ExternalProject_get_state_target,python3,executables) : $(call gb_ExternalProject_get_state_target,python3,build)
 	cd $(python3_fw_prefix)/bin ; \
 	$(INSTALL_NAME_TOOL) -change \
-		$(python3_fw_prefix)/LibreOfficePython \
-		@executable_path/../LibreOfficePython python$(PYTHON_VERSION_MAJOR).$(PYTHON_VERSION_MINOR)
+		$(python3_fw_prefix)/loficePython \
+		@executable_path/../loficePython python$(PYTHON_VERSION_MAJOR).$(PYTHON_VERSION_MINOR)
 	touch $@
 
 # Remove modules (both Python and binary bits) of questionable usefulness that we don't ship on

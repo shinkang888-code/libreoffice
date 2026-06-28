@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1159,7 +1159,7 @@ ColorMapType lcl_createColorMapFromShapeProps(
     const awt::Gradient2& rColorGradient, const bool& rbHasColorGradient,
     const awt::Gradient2& rTransparenceGradient, const bool& rbHasTransparenceGradient)
 {
-    // LibreOffice can use color gradients and transparency gradients with different geometries.
+    // lofice can use color gradients and transparency gradients with different geometries.
     // That is not possible in OOXML, so a fill might look different in Word. But a round-trip
     // with gradients imported from Word, should work well.
 
@@ -1244,8 +1244,8 @@ ColorMapType lcl_createColorMapFromShapeProps(
     }
 
     // If a gradient has only two stops, MS Office renders it with a non-linear method which looks
-    // different than gradient in LibreOffice (see tdf#128795). For more than two stops rendering is
-    // the same as in LibreOffice, even if two stops are identical.
+    // different than gradient in lofice (see tdf#128795). For more than two stops rendering is
+    // the same as in lofice, even if two stops are identical.
     if (aColorMap.size() == 2)
     {
         auto it = aColorMap.begin();
@@ -1340,7 +1340,7 @@ void FontworkHelpers::createCharInteropGrabBagUpdatesFromShapeProps(
                 eGradientStyle = aColorGradient.Style;
             else if (bHasTransparenceGradient)
                 eGradientStyle = aTransparenceGradient.Style;
-            // write 'lin' or 'path'. LibreOffice has nothing which corresponds to 'shape'.
+            // write 'lin' or 'path'. lofice has nothing which corresponds to 'shape'.
             if (eGradientStyle == awt::GradientStyle_LINEAR
                 || eGradientStyle == awt::GradientStyle_AXIAL)
             {
@@ -1355,12 +1355,12 @@ void FontworkHelpers::createCharInteropGrabBagUpdatesFromShapeProps(
                 pGrabBagStack->push(u"lin"_ustr);
                 pGrabBagStack->push(u"attributes"_ustr);
                 pGrabBagStack->addInt32(u"ang"_ustr, nAngleOOX);
-                // LibreOffice cannot scale a gradient to the shape size.
+                // lofice cannot scale a gradient to the shape size.
                 pGrabBagStack->addString(u"scaled"_ustr, u"0"_ustr);
             }
             else
             {
-                // Same rendering as in LibreOffice is not possible:
+                // Same rendering as in lofice is not possible:
                 // (1) The gradient type 'path' in Word has no rotation.
                 // (2) To get the same size of gradient area, the element 'tileRect' is needed, but
                 // that is not available for <w14:textFill> element.

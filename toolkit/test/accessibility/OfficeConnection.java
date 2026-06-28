@@ -1,5 +1,5 @@
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -23,7 +23,7 @@ import com.sun.star.bridge.XUnoUrlResolver;
 import com.sun.star.lang.XMultiServiceFactory;
 
 
-/** @descr  This class establishes a connection to a LibreOffice application.
+/** @descr  This class establishes a connection to a lofice application.
  */
 public class OfficeConnection
 {
@@ -34,7 +34,7 @@ public class OfficeConnection
     }
 
     /** @descr Return the service manager that represents the connected
-                LibreOffice application
+                lofice application
     */
     public XMultiServiceFactory getServiceManager ()
     {
@@ -43,14 +43,14 @@ public class OfficeConnection
         return maServiceManager;
     }
 
-    /** @descr  Connect to an already running LibreOffice application.
+    /** @descr  Connect to an already running lofice application.
     */
     private void connect ()
     {
         connect (msDefaultHost, mnDefaultPort);
     }
 
-    /** @descr  Connect to an already running LibreOffice application that has
+    /** @descr  Connect to an already running lofice application that has
                 been started with a command line argument like
 		"--accept=socket,host=localhost,port=5678;urp;"
 		*/
@@ -82,7 +82,7 @@ public class OfficeConnection
         catch (Exception e)
         {
             MessageArea.println ("Could not connect with " + sConnectString + " : " + e);
-            MessageArea.println ("Please start LibreOffice with "
+            MessageArea.println ("Please start lofice with "
                 + "\"--accept=socket,host=localhost,port=5678;urp;\"");
         }
     }

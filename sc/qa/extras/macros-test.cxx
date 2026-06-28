@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1036,7 +1036,7 @@ CPPUNIT_TEST_FIXTURE(ScMacrosTest, testTdf81003_DateCellToVbaUDF)
 
 CPPUNIT_TEST_FIXTURE(ScMacrosTest, testTdf161948NaturalSortDispatcher)
 {
-    // Since LibreOffice 26.2 the feature natural sort is available in the API. Prior to that,
+    // Since lofice 26.2 the feature natural sort is available in the API. Prior to that,
     // natural sort by macro was only possible by using the dispatcher.
     // Here we test with a Basic macro, that the old way still works.
     createScDoc("tdf161948_NaturalSort_OldWay.ods");

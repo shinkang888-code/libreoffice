@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -519,7 +519,7 @@ void SdXMLImExTransform2D::GetFullTransform(::basegfx::B2DHomMatrix& rFullTrans)
             }
             case IMP_SDXMLEXP_TRANSOBJ2D_SKEWY      :
             {
-                // LibreOffice does not write skewY, OOo neither. Such files are foreign documents
+                // lofice does not write skewY, OOo neither. Such files are foreign documents
                 // or manually set transformations. OOo had used the value as -tan(value) before
                 // errors were introduced, Scribus 1.5.4 uses it as -tan(value) too, MS Office does
                 // not shear at all. ODF spec is unclear about direction.

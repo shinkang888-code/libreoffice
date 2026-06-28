@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -162,7 +162,7 @@ std::vector< HistoryItem > GetList( EHistoryType eHistory )
             }
             catch(const uno::Exception&)
             {
-                // <https://bugs.libreoffice.org/show_bug.cgi?id=46074>
+                // <https://bugs.lofice.org/show_bug.cgi?id=46074>
                 // "FILEOPEN: No Recent Documents..." discusses a problem
                 // with corrupted /org.openoffice.Office/Histories/Histories
                 // configuration items; to work around that problem, simply
@@ -246,7 +246,7 @@ void AppendItem(EHistoryType eHistory, const OUString& sURL, const OUString& sFi
                 }
                 catch (container::NoSuchElementException &)
                 {
-                    // <https://bugs.libreoffice.org/show_bug.cgi?id=46074>
+                    // <https://bugs.lofice.org/show_bug.cgi?id=46074>
                     // "FILEOPEN: No Recent Documents..." discusses a problem
                     // with corrupted /org.openoffice.Office/Histories/Histories
                     // configuration items; to work around that problem, simply

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -105,7 +105,7 @@ std::unique_ptr<java_util_Properties> connectivity::createStringPropertyArray(co
 
     for (const PropertyValue& rPropertyValue : info)
     {
-        // these are properties used internally by LibreOffice,
+        // these are properties used internally by lofice,
         // and should not be passed to the JDBC driver
         // (which probably does not know anything about them anyway).
         if  (   rPropertyValue.Name != "JavaDriverClass"

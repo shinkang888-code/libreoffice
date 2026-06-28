@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -316,7 +316,7 @@ cpp2uno_call(bridges::cpp_uno::shared::CppInterfaceProxy* pThis,
                     // directly bind this register to 64 bit variable.
                     //
                     // This bug occurs when build pyuno with gcc-12 with -O2.
-                    // https://bugs.documentfoundation.org/show_bug.cgi?id=155937
+                    // https://bugs.lofice.io/show_bug.cgi?id=155937
                     //
                     // So we need to clean the higher bits in bridge.
                     case typelib_TypeClass_BOOLEAN:

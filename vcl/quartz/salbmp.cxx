@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -551,7 +551,7 @@ CGImageRef QuartzSalBitmap::CreateColorMask( int nX, int nY, int nWidth,
                     // that will generate gray pixels due to antialiasing so
                     // count dark gray the same as black, light gray the same
                     // as white, and the rest as medium gray.
-                    // The results are not smooth since LibreOffice appears to
+                    // The results are not smooth since lofice appears to
                     // redraw these semi-transparent masks repeatedly without
                     // clearing the background so the semi-transparent pixels
                     // will grow darker with repeatedly redraws due to

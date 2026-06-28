@@ -11,7 +11,7 @@
 ## 1. Neon 연결 (최초 1회)
 
 ```powershell
-cd c:\Users\FORYOUCOM\Documents\cursor\loffice_li\libreoffice
+cd c:\Users\FORYOUCOM\Documents\cursor\loffice_li\lofice
 neonctl link --org-id org-wispy-brook-68991240 --project-id gentle-base-41825553
 neonctl checkout main
 ```
@@ -29,7 +29,7 @@ npm install
 npm run index
 ```
 
-**범위:** `lofice/`만 (전체 LibreOffice 코어 제외 — 용량·노이즈 방지)
+**범위:** `lofice/`만 (전체 lofice 코어 제외 — 용량·노이즈 방지)
 
 **대상 확장자:** `.cxx`, `.hxx`, `.md`, `.ui`, `.mk`, `.json`, `.sql`, `.ps1`
 

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 
 #ifndef INCLUDED_RTL_ALLOC_H
@@ -96,7 +96,7 @@ SAL_DLLPUBLIC void * SAL_CALL rtl_allocateZeroMemory (
     @param[in] Ptr   pointer to the previously allocated memory.
     @param[in] Bytes memory size.
 
-    @since LibreOffice 5.0
+    @since lofice 5.0
  */
 SAL_DLLPUBLIC void SAL_CALL rtl_secureZeroMemory (
     void *   Ptr,
@@ -130,7 +130,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_freeZeroMemory (
     @param[in] Bytes     memory size.
     @return pointer to the allocated memory.
 
-    @since LibreOffice 4.3
+    @since lofice 4.3
  */
 SAL_DLLPUBLIC void* SAL_CALL rtl_allocateAlignedMemory (
     sal_Size Alignment,
@@ -144,7 +144,7 @@ SAL_DLLPUBLIC void* SAL_CALL rtl_allocateAlignedMemory (
 
     @param[in] Ptr pointer to the previously allocated memory.
 
-    @since LibreOffice 4.3
+    @since lofice 4.3
  */
 SAL_DLLPUBLIC void SAL_CALL rtl_freeAlignedMemory (
     void *   Ptr
@@ -295,7 +295,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_cache_free (
 /** rtl_alloc_preInit
  *
  * This function, is called at the beginning and again
- * at the end of LibreOfficeKit pre-initialization to enable
+ * at the end of loficeKit pre-initialization to enable
  * various optimizations.
  *
  * Its function is to annotate a section @mode = 1
@@ -319,7 +319,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_cache_free (
  * use with extraordinary care referring to the
  * implementation.
  *
- * @since LibreOffice 6.1
+ * @since lofice 6.1
  */
 SAL_DLLPUBLIC void SAL_CALL rtl_alloc_preInit (
     sal_uInt8 mode

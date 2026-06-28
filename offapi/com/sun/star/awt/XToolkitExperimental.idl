@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -26,19 +26,19 @@ interface XToolkitExperimental : XToolkit3
      */
     void setDeterministicScheduling([in] boolean bDeterministicMode);
 
-    /** Pause the main thread of LibreOffice for the requested amount of time.
+    /** Pause the main thread of lofice for the requested amount of time.
      */
     void pause([in] long nMilliseconds);
 
     /** Start time logging.
 
-        @since LibreOffice 6.0
+        @since lofice 6.0
      */
     void startRecording();
 
     /** Stop time logging.
 
-        @since LibreOffice 6.0
+        @since lofice 6.0
      */
     void stopRecording();
 
@@ -47,13 +47,13 @@ interface XToolkitExperimental : XToolkit3
         next ones are the log lines. A log line contains the thread ID,
         time stamp, profile zone ID and "start" or "stop".
 
-        @since LibreOffice 6.0
+        @since lofice 6.0
      */
     sequence<string> getRecordingAndClear();
 
     /** Wait until all idles dispatched.
 
-        @since LibreOffice 24.2
+        @since lofice 24.2
      */
     void waitUntilAllIdlesDispatched();
 };

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -49,7 +49,7 @@ static void NotebookbarAddonValues(
     std::vector<css::uno::Sequence<css::uno::Sequence<css::beans::PropertyValue>>>&
         aExtensionValues)
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return;
 
     framework::AddonsOptions aAddonsItems;
@@ -339,7 +339,7 @@ bool SfxNotebookBar::StateMethod(SystemWindow* pSysWindow,
         const Reference<frame::XModuleManager> xModuleManager  = frame::ModuleManager::create( xContext );
         OUString aModuleName = xModuleManager->identify( xFrame );
         vcl::EnumContext::Application eApp = vcl::EnumContext::GetApplicationEnum( aModuleName );
-        bool bIsLOK = comphelper::LibreOfficeKit::isActive();
+        bool bIsLOK = comphelper::loficeKit::isActive();
 
         OUString sFile = lcl_getNotebookbarFileName( eApp );
 

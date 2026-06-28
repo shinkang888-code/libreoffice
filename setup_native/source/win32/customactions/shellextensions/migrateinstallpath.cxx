@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -54,22 +54,22 @@ extern "C" __declspec(dllexport) UINT __stdcall MigrateInstallPath(MSIHANDLE han
     // See #i93032# for layers description
     if (sInstDir.empty())
     {
-        sKey = L"Software\\LibreOffice\\Layers\\" + sDefinedName + L"\\" + sBrandPackageVersion;
+        sKey = L"Software\\lofice\\Layers\\" + sDefinedName + L"\\" + sBrandPackageVersion;
         sInstDir = RegValue(HKEY_CURRENT_USER, sKey.c_str(), L"INSTALLLOCATION");
     }
     if (sInstDir.empty())
     {
-        sKey = L"Software\\LibreOffice\\Layers_\\" + sDefinedName + L"\\" + sBrandPackageVersion;
+        sKey = L"Software\\lofice\\Layers_\\" + sDefinedName + L"\\" + sBrandPackageVersion;
         sInstDir = RegValue(HKEY_CURRENT_USER, sKey.c_str(), L"INSTALLLOCATION");
     }
     if (sInstDir.empty())
     {
-        sKey = L"Software\\LibreOffice\\Layers\\" + sDefinedName + L"\\" + sBrandPackageVersion;
+        sKey = L"Software\\lofice\\Layers\\" + sDefinedName + L"\\" + sBrandPackageVersion;
         sInstDir = RegValue(HKEY_LOCAL_MACHINE, sKey.c_str(), L"INSTALLLOCATION");
     }
     if (sInstDir.empty())
     {
-        sKey = L"Software\\LibreOffice\\Layers_\\" + sDefinedName + L"\\" + sBrandPackageVersion;
+        sKey = L"Software\\lofice\\Layers_\\" + sDefinedName + L"\\" + sBrandPackageVersion;
         sInstDir = RegValue(HKEY_LOCAL_MACHINE, sKey.c_str(), L"INSTALLLOCATION");
     }
     if (sInstDir.empty())

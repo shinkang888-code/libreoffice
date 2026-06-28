@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -52,7 +52,7 @@ ColorDialog::ColorDialog(weld::Window* pParent, vcl::ColorPickerMode eMode)
 {
     if (!officecfg::Office::Common::Misc::UseSystemColorDialog::get())
     {
-        // use custom LibreOffice color picker dialog
+        // use custom lofice color picker dialog
         m_pColorDialogController = std::make_shared<ColorPickerDialog>(pParent, COL_BLACK, eMode);
         return;
     }

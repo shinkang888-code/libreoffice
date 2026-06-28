@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1628,7 +1628,7 @@
         <prop oor:name="ODFRecalcMode" oor:type="xs:int" oor:nillable="false">
           <!-- UIHint: Tools - Options - Spreadsheet - Formula -->
           <info>
-            <desc>Specifies whether to force a hard recalc after load on non-LibreOffice-generated ODF documents.</desc>
+            <desc>Specifies whether to force a hard recalc after load on non-lofice-generated ODF documents.</desc>
           </info>
           <constraints>
             <enumeration oor:value="0">

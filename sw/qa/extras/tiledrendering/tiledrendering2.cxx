@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -114,7 +114,7 @@ CPPUNIT_TEST_FIXTURE(SwTiledRenderingTest, testPasteInvalidateNumRules)
     // bullets:
     createDoc("numrules.odt");
     SwWrtShell* pWrtShell = getSwDocShell()->GetWrtShell();
-    setupLibreOfficeKitViewCallback(pWrtShell->GetSfxViewShell());
+    setuploficeKitViewCallback(pWrtShell->GetSfxViewShell());
     pWrtShell->SttEndDoc(/*bStt=*/true);
     pWrtShell->Down(/*bSelect=*/false);
     pWrtShell->Insert(u"test"_ustr);
@@ -145,7 +145,7 @@ CPPUNIT_TEST_FIXTURE(SwTiledRenderingTest, testPasteInvalidateNumRulesBullet)
     // bullets:
     createDoc("numrules.odt");
     SwWrtShell* pWrtShell = getSwDocShell()->GetWrtShell();
-    setupLibreOfficeKitViewCallback(pWrtShell->GetSfxViewShell());
+    setuploficeKitViewCallback(pWrtShell->GetSfxViewShell());
     pWrtShell->SttEndDoc(/*bStt=*/true);
     pWrtShell->Down(/*bSelect=*/false);
     pWrtShell->Insert(u"test"_ustr);
@@ -208,7 +208,7 @@ CPPUNIT_TEST_FIXTURE(SwTiledRenderingTest, testAsyncLayout)
     CPPUNIT_ASSERT(!pPage3->IsInvalidContent());
 }
 
-/// Test callback that works with comphelper::LibreOfficeKit::setAnyInputCallback().
+/// Test callback that works with comphelper::loficeKit::setAnyInputCallback().
 class AnyInputCallback final
 {
 public:
@@ -216,13 +216,13 @@ public:
 
     AnyInputCallback()
     {
-        comphelper::LibreOfficeKit::setAnyInputCallback(&callback, this,
+        comphelper::loficeKit::setAnyInputCallback(&callback, this,
                                                         []() -> int { return -1; });
     }
 
     ~AnyInputCallback()
     {
-        comphelper::LibreOfficeKit::setAnyInputCallback(nullptr, nullptr,
+        comphelper::loficeKit::setAnyInputCallback(nullptr, nullptr,
                                                         []() -> int { return -1; });
     }
 };
@@ -351,8 +351,8 @@ CPPUNIT_TEST_FIXTURE(SwTiledRenderingTest, testLoadVisibleArea)
 {
     // Given a document with 3 pages, the LOK visible area at load time is set to the first page:
     awt::Rectangle aVisibleArea{ 0, 0, 12240, 15840 };
-    comphelper::LibreOfficeKit::setInitialClientVisibleArea(aVisibleArea);
-    comphelper::ScopeGuard g([] { comphelper::LibreOfficeKit::setInitialClientVisibleArea({}); });
+    comphelper::loficeKit::setInitialClientVisibleArea(aVisibleArea);
+    comphelper::ScopeGuard g([] { comphelper::loficeKit::setInitialClientVisibleArea({}); });
 
     // When loading that document:
     OUString aURL = createFileURL(u"3pages.odt");
@@ -728,8 +728,8 @@ CPPUNIT_TEST_FIXTURE(SwTiledRenderingTest, testCommentsOnLoad)
     // Given a document of 3 pages, with a small enough visible area that document load doesn't lay
     // out the entire document:
     awt::Rectangle aVisibleArea{ 0, 0, 12240, 15840 };
-    comphelper::LibreOfficeKit::setInitialClientVisibleArea(aVisibleArea);
-    comphelper::ScopeGuard g([] { comphelper::LibreOfficeKit::setInitialClientVisibleArea({}); });
+    comphelper::loficeKit::setInitialClientVisibleArea(aVisibleArea);
+    comphelper::ScopeGuard g([] { comphelper::loficeKit::setInitialClientVisibleArea({}); });
     OUString aURL = createFileURL(u"comments-on-load.docx");
     loadFromURL(aURL);
     SwXTextDocument* pXTextDocument = getSwTextDoc();
@@ -791,8 +791,8 @@ CPPUNIT_TEST_FIXTURE(SwTiledRenderingTest, testIdleLayoutShape)
 {
     // Given a loaded document with a defined viewport:
     awt::Rectangle aVisibleArea{ 0, 0, 12240, 15840 };
-    comphelper::LibreOfficeKit::setInitialClientVisibleArea(aVisibleArea);
-    comphelper::ScopeGuard g([] { comphelper::LibreOfficeKit::setInitialClientVisibleArea({}); });
+    comphelper::loficeKit::setInitialClientVisibleArea(aVisibleArea);
+    comphelper::ScopeGuard g([] { comphelper::loficeKit::setInitialClientVisibleArea({}); });
     OUString aURL = createFileURL(u"3pages-shape.odt");
     UnoApiTest::loadFromURL(aURL);
 
@@ -845,7 +845,7 @@ CPPUNIT_TEST_FIXTURE(SwTiledRenderingTest, testImageBulletRemoteNotFetched)
 {
     // text:list-level-style-image with a remote xlink:href must not fetch
     // the URL during paint when link updates are not allowed.
-    comphelper::LibreOfficeKit::setActive(false);
+    comphelper::loficeKit::setActive(false);
 
     uno::Sequence<beans::PropertyValue> aParams = {
         comphelper::makePropertyValue(u"UpdateDocMode"_ustr,
@@ -876,7 +876,7 @@ CPPUNIT_TEST_FIXTURE(SwTiledRenderingTest, testBackgroundImageRemoteNotFetched)
 {
     // style:background-image with a remote xlink:href must not fetch
     // the URL during paint when link updates are not allowed.
-    comphelper::LibreOfficeKit::setActive(false);
+    comphelper::loficeKit::setActive(false);
 
     uno::Sequence<beans::PropertyValue> aParams = {
         comphelper::makePropertyValue(u"UpdateDocMode"_ustr,
@@ -909,7 +909,7 @@ CPPUNIT_TEST_FIXTURE(SwTiledRenderingTest, testPageBackgroundImageRemoteNotFetch
 {
     // style:background-image on a page style with a remote xlink:href must
     // not fetch the URL during paint when link updates are not allowed.
-    comphelper::LibreOfficeKit::setActive(false);
+    comphelper::loficeKit::setActive(false);
 
     uno::Sequence<beans::PropertyValue> aParams = {
         comphelper::makePropertyValue(u"UpdateDocMode"_ustr,
@@ -936,7 +936,7 @@ CPPUNIT_TEST_FIXTURE(SwTiledRenderingTest, testShapeFillRemoteNotFetched)
     // the URL during paint when link updates are not allowed.
     // The assert in createNewSdrFillGraphicAttribute will fire if
     // a remote fetch is attempted.
-    comphelper::LibreOfficeKit::setActive(false);
+    comphelper::loficeKit::setActive(false);
 
     uno::Sequence<beans::PropertyValue> aParams = {
         comphelper::makePropertyValue(u"UpdateDocMode"_ustr,

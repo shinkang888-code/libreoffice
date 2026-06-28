@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -15,7 +15,7 @@
 #include "gtv-helpers.hxx"
 #include "gtv-comments-sidebar.hxx"
 
-#include <LibreOfficeKit/LibreOfficeKitGtk.h>
+#include <loficeKit/loficeKitGtk.h>
 
 #include <boost/property_tree/json_parser.hpp>
 
@@ -38,7 +38,7 @@ gtv_comments_sidebar_view_annotations(GtvCommentsSidebar* sidebar)
 {
     GtvApplicationWindow* window = GTV_APPLICATION_WINDOW(gtk_widget_get_toplevel(GTK_WIDGET(sidebar)));
 
-    LibreOfficeKitDocument* pDocument = lok_doc_view_get_document(LOK_DOC_VIEW(window->lokdocview));
+    loficeKitDocument* pDocument = lok_doc_view_get_document(LOK_DOC_VIEW(window->lokdocview));
     char* pValues = pDocument->pClass->getCommandValues(pDocument, ".uno:ViewAnnotations");
     g_info("lok::Document::getCommandValues(%s) : %s", ".uno:ViewAnnotations", pValues);
     std::stringstream aStream(pValues);

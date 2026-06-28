@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -47,7 +47,7 @@
 
 #include <memory>
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <sfx2/lokhelper.hxx>
 #include <boost/property_tree/json_parser.hpp>
@@ -109,7 +109,7 @@ void SwVisibleCursor::Show()
         m_bIsVisible = true;
 
         // display at all?
-        if (m_pCursorShell->VisArea().Overlaps(m_rState.m_aCharRect) || comphelper::LibreOfficeKit::isActive())
+        if (m_pCursorShell->VisArea().Overlaps(m_rState.m_aCharRect) || comphelper::loficeKit::isActive())
             SetPosAndShow(nullptr);
     }
 }
@@ -207,7 +207,7 @@ SwRect SwVisibleCursor::SetPos()
 
         // Disable pixel alignment when tiled rendering, so that twip values of
         // the cursor don't depend on statics.
-        if (!comphelper::LibreOfficeKit::isActive())
+        if (!comphelper::loficeKit::isActive())
             ::SwAlignRect( aRect, static_cast<SwViewShell const *>(m_pCursorShell), m_pCursorShell->GetOut() );
     }
     if( !m_rState.IsOverwriteCursor() || m_bIsDragCursor ||
@@ -223,7 +223,7 @@ void SwVisibleCursor::SetPosAndShow(SfxViewShell const * pViewShell)
 {
     const SwRect aRect = SetPos();
 
-    if (SfxViewShell* pNotifyViewShell = comphelper::LibreOfficeKit::isActive() ? m_pCursorShell->GetSfxViewShell() : nullptr)
+    if (SfxViewShell* pNotifyViewShell = comphelper::loficeKit::isActive() ? m_pCursorShell->GetSfxViewShell() : nullptr)
     {
         // notify about page number change (if that happened)
         sal_uInt16 nPage, nVirtPage;
@@ -234,7 +234,7 @@ void SwVisibleCursor::SetPosAndShow(SfxViewShell const * pViewShell)
         {
             m_nPageLastTime = nPage;
             OString aPayload = OString::number(nPage - 1);
-            pNotifyViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_SET_PART, aPayload);
+            pNotifyViewShell->loficeKitViewCallback(LOK_CALLBACK_SET_PART, aPayload);
         }
 
         // This may get called often, so instead of sending data on each update, just notify
@@ -281,7 +281,7 @@ void SwVisibleCursor::SetPosAndShow(SfxViewShell const * pViewShell)
 std::optional<OString> SwVisibleCursor::getLOKPayload(int nType, int nViewId) const
 {
     assert(nType == LOK_CALLBACK_INVALIDATE_VISIBLE_CURSOR || nType == LOK_CALLBACK_INVALIDATE_VIEW_CURSOR);
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         SwRect aRect = m_aLastLOKRect;
 
@@ -497,7 +497,7 @@ void SwSelPaintRects::Show(std::vector<OString>* pSelectionRectangles)
     // talks about "the" cursor at the moment. As long as that's true,
     // don't say anything about the Writer cursor till a draw object is
     // being edited.
-    if (!comphelper::LibreOfficeKit::isActive() || pView->GetTextEditObject())
+    if (!comphelper::loficeKit::isActive() || pView->GetTextEditObject())
         return;
 
     // If pSelectionRectangles is set, we're just collecting the text selections -> don't emit start/end.
@@ -668,7 +668,7 @@ void SwSelPaintRects::HighlightContentControl()
 
                 aContentControlRanges.emplace_back(aRect.Left(), aRect.Top(), aRect.Right() + 1,
                                                    aRect.Bottom() + 1);
-                if (comphelper::LibreOfficeKit::isActive())
+                if (comphelper::loficeKit::isActive())
                 {
                     aLOKRectangles.push_back(aRect.toString());
                 }
@@ -702,7 +702,7 @@ void SwSelPaintRects::HighlightContentControl()
     auto pWrtShell = dynamic_cast<const SwWrtShell*>(GetShell());
     if (!aContentControlRanges.empty())
     {
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             OString aPayload = comphelper::string::join("; ", aLOKRectangles);
             tools::JsonWriter aJson;
@@ -729,7 +729,7 @@ void SwSelPaintRects::HighlightContentControl()
             }
 
             OString pJson(aJson.finishAndGetAsOString());
-            GetShell()->GetSfxViewShell()->libreOfficeKitViewCallback(LOK_CALLBACK_CONTENT_CONTROL, pJson);
+            GetShell()->GetSfxViewShell()->loficeKitViewCallback(LOK_CALLBACK_CONTENT_CONTROL, pJson);
         }
         if (m_pContentControlOverlay)
         {
@@ -808,12 +808,12 @@ void SwSelPaintRects::HighlightContentControl()
     }
     else
     {
-        if (SfxViewShell* pNotifySh = comphelper::LibreOfficeKit::isActive() && m_pContentControlOverlay ? GetShell()->GetSfxViewShell() : nullptr)
+        if (SfxViewShell* pNotifySh = comphelper::loficeKit::isActive() && m_pContentControlOverlay ? GetShell()->GetSfxViewShell() : nullptr)
         {
             tools::JsonWriter aJson;
             aJson.put("action", "hide");
             OString pJson(aJson.finishAndGetAsOString());
-            pNotifySh->libreOfficeKitViewCallback(LOK_CALLBACK_CONTENT_CONTROL, pJson);
+            pNotifySh->loficeKitViewCallback(LOK_CALLBACK_CONTENT_CONTROL, pJson);
         }
         m_pContentControlOverlay.reset();
 
@@ -976,7 +976,7 @@ void SwShellCursor::Show(SfxViewShell const * pViewShell)
             pShCursor->SwSelPaintRects::Show(&aSelectionRectangles);
     }
 
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return;
 
     std::vector<OString> aRect;
@@ -1007,7 +1007,7 @@ void SwShellCursor::Show(SfxViewShell const * pViewShell)
             return;
         }
 
-        pSfxViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION, sRect);
+        pSfxViewShell->loficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION, sRect);
         SfxLokHelper::notifyOtherViews(pSfxViewShell, LOK_CALLBACK_TEXT_VIEW_SELECTION, "selection", sRect);
     }
 }
@@ -1148,7 +1148,7 @@ void SwShellTableCursor::FillRects()
         return;
 
     bool bStart = true;
-    SwRegionRects aReg( comphelper::LibreOfficeKit::isActive()
+    SwRegionRects aReg( comphelper::loficeKit::isActive()
         ? GetShell()->getIDocumentLayoutAccess().GetCurrentLayout()->getFrameArea()
         : GetShell()->VisArea() );
     SwFrame* pEndFrame = nullptr;

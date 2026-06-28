@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -575,14 +575,14 @@ bool AquaSalInstance::DoYield(bool bWait, bool bHandleAllCurrentEvents)
                 // live resizing while Option-dragging a window needs
                 // left mouse up events to be dispatched to end live
                 // resizing. So if we keep reposting the same left mouse up
-                // event, LibreOffice will go into an infinite loop waiting
+                // event, lofice will go into an infinite loop waiting
                 // for live resizing to end.
                 // Reposting last mouse up events is still needed to
                 // prevent tdf#155092 during normal live resizing so allow
                 // last mouse up events to be reposted but only once.
                 // The purpose of reposting is to skip native event
                 // dispatching during this pass and only let native timers
-                // run. This lets pending LibreOffice resizing and
+                // run. This lets pending lofice resizing and
                 // repainting timers run before the left mouse up event is
                 // dispatched.
                 static NSEvent *pLastRepostedEvent = nil;
@@ -844,9 +844,9 @@ void AquaSalInstance::GetPrinterQueueInfo(ImplPrnQueueList& rList)
         }
     }
 
-    // tdf#151700 Prevent the non-native LibreOffice PrintDialog from
+    // tdf#151700 Prevent the non-native lofice PrintDialog from
     // displaying by creating a fake printer if there are no printers. This
-    // will allow the LibreOffice printing code to proceed with native
+    // will allow the lofice printing code to proceed with native
     // NSPrintOperation which will display the native print panel.
     if ( !nNameCount )
     {
@@ -877,7 +877,7 @@ OUString AquaSalInstance::GetDefaultPrinter()
             if( pPr )
             {
                 // Related: tdf#151700 Return the name of the fake printer if
-                // there are no printers so that the LibreOffice printing code
+                // there are no printers so that the lofice printing code
                 // will be able to find the fake printer returned by
                 // AquaSalInstance::GetPrinterQueueInfo()
                 NSString* pDefName = [pPr name];

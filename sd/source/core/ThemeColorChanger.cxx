@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -158,7 +158,7 @@ void ThemeColorChanger::apply(std::shared_ptr<model::ColorSet> const& pColorSet)
         // TODO - for now change all the objects regardless to which master page it belongs to.
         // Currently we don't have a concept of master slide with a group of layouts as in MSO, but we always only
         // have master pages, which aren't grouped together. In MSO the theme is defined per master slide, so when
-        // changing a theme, all the layouts get the new theme, as layouts are synonymous to master pages in LibreOffice,
+        // changing a theme, all the layouts get the new theme, as layouts are synonymous to master pages in lofice,
         // this is not possible to do and we would need to change the theme for each master page separately, which
         // is just annoying for the user.
 

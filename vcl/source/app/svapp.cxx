@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -326,9 +326,9 @@ OString Application::dumpNotifyState() const
     return "notimpl"_ostr;
 }
 
-void Application::libreOfficeKitViewCallback(int nType, const OString& pPayload) const
+void Application::loficeKitViewCallback(int nType, const OString& pPayload) const
 {
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return;
 
     if (m_pCallback)
@@ -407,13 +407,13 @@ bool Application::Reschedule( bool i_bAllEvents )
     }
     int nOldView = -1;
     ViewShellDocId nOldDocId(-1);
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
-        nOldView = comphelper::LibreOfficeKit::getView();
-        nOldDocId = comphelper::LibreOfficeKit::getDocId();
+        nOldView = comphelper::loficeKit::getView();
+        nOldDocId = comphelper::loficeKit::getDocId();
     }
     bool bRet = InnerYield(false, i_bAllEvents);
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         // Yield may have changed the current docId, restore the old value,
         // (which is cheap). If there is a view to restore this doesn't matter
@@ -421,13 +421,13 @@ bool Application::Reschedule( bool i_bAllEvents )
         // document, then this ensures that the next view to be created is
         // created with the expected document id.
         assert(nOldDocId.get() != -1 && "won't be unset");
-        comphelper::LibreOfficeKit::setDocId(nOldDocId);
+        comphelper::loficeKit::setDocId(nOldDocId);
 
-        int nNewView = comphelper::LibreOfficeKit::getView();
+        int nNewView = comphelper::loficeKit::getView();
         if (nOldView != -1 && nNewView != -1 && nOldView != nNewView)
         {
             // Yield changed the current view, restore the old value.
-            comphelper::LibreOfficeKit::setView(nOldView);
+            comphelper::loficeKit::setView(nOldView);
         }
     }
     return bRet;
@@ -947,7 +947,7 @@ ImplSVEvent* Application::PostMouseEvent( VclEventId nEvent, vcl::Window *pWin, 
         Point aTransformedPos( pMouseEvent->GetPosPixel() );
 
         // LOK uses (0, 0) as the origin of all windows; don't offset.
-        if (!comphelper::LibreOfficeKit::isActive())
+        if (!comphelper::loficeKit::isActive())
         {
             aTransformedPos.AdjustX(pWin->GetOutOffXPixel());
             aTransformedPos.AdjustY(pWin->GetOutOffYPixel());
@@ -1584,7 +1584,7 @@ void Application::EnableHeadlessMode( bool dialogsAreFatal )
 
 bool Application::IsHeadlessModeEnabled()
 {
-    return IsDialogCancelEnabled() || comphelper::LibreOfficeKit::isActive();
+    return IsDialogCancelEnabled() || comphelper::loficeKit::isActive();
 }
 
 void Application::EnableBitmapRendering()

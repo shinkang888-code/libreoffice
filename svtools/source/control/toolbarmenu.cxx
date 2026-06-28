@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -144,7 +144,7 @@ void ToolbarPopupContainer::setPopover(std::unique_ptr<WeldToolbarPopup> xPopup)
 
     // in online LoseFocus event is fired due to this line and popup is closed
     // when first time opened any popup from not focused sidebar
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         m_xPopup->GrabFocus();
 }
 

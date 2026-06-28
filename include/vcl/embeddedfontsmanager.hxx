@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -96,7 +96,7 @@ public:
      * format and rendering.
      *
      * For example "Liberation Serif" is a common font because it's available
-     * in any typical LibreOffice installation or is substituted for the
+     * in any typical lofice installation or is substituted for the
      * "Times New Roman" metric compatible font for compatibility with other
      * editors.
      */

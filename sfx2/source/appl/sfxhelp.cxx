@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -70,7 +70,7 @@
 #include <openuriexternally.hxx>
 
 #include <comphelper/lok.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <sfx2/viewsh.hxx>
 
 #include "newhelp.hxx"
@@ -164,7 +164,7 @@ bool impl_checkHelpLocalePath(OUString const & rpPath)
 /// Check if help/<lang>/err.html file exist
 bool impl_hasHelpInstalled()
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return false;
 
         // detect installed locale
@@ -185,7 +185,7 @@ bool impl_hasHelpInstalled()
 /// Check if help/lang/text folder exist. Only html has it.
 bool impl_hasHTMLHelpInstalled()
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return false;
 
     // detect installed locale
@@ -202,8 +202,8 @@ bool impl_hasHTMLHelpInstalled()
 /// Return the locale we prefer for displaying help
 static OUString const & HelpLocaleString()
 {
-    if (comphelper::LibreOfficeKit::isActive())
-        return comphelper::LibreOfficeKit::getLanguageTag().getBcp47();
+    if (comphelper::loficeKit::isActive())
+        return comphelper::loficeKit::getLanguageTag().getBcp47();
 
     static OUString aLocaleStr;
     if (!aLocaleStr.isEmpty())
@@ -600,7 +600,7 @@ OUString SfxHelp::GetHelpText(const OUString& aCommandURL)
 OUString SfxHelp::GetURLHelpText(std::u16string_view aURL)
 {
     // hyperlinks are handled differently in Online
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return OUString();
 
     bool bCtrlClickHlink = SvtSecurityOptions::IsOptionSet(SvtSecurityOptions::EOption::CtrlClickHyperlink);
@@ -644,7 +644,7 @@ bool SfxHelp::Start(const OUString& rURL, weld::Widget* pWidget)
     return bRet;
 }
 
-/// Redirect the vnd.sun.star.help:// urls to http://help.libreoffice.org
+/// Redirect the vnd.sun.star.help:// urls to http://help.lofice.org
 static bool impl_showOnlineHelp(const OUString& rURL, weld::Widget* pDialogParent)
 {
     static constexpr OUString aInternal(u"vnd.sun.star.help://"_ustr);
@@ -656,17 +656,17 @@ static bool impl_showOnlineHelp(const OUString& rURL, weld::Widget* pDialogParen
     aTarget = aTarget.replaceAll("%2F", "/").replaceAll("?", "&");
     aHelpLink += aTarget;
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         if(SfxViewShell* pViewShell = SfxViewShell::Current())
         {
-            pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_HYPERLINK_CLICKED,
+            pViewShell->loficeKitViewCallback(LOK_CALLBACK_HYPERLINK_CLICKED,
                                                    aHelpLink.toUtf8());
             return true;
         }
         else if (GetpApp())
         {
-            GetpApp()->libreOfficeKitViewCallback(LOK_CALLBACK_HYPERLINK_CLICKED,
+            GetpApp()->loficeKitViewCallback(LOK_CALLBACK_HYPERLINK_CLICKED,
                                                    aHelpLink.toUtf8());
             return true;
         }
@@ -1051,19 +1051,19 @@ bool SfxHelp::Start_Impl(const OUString& rURL, const vcl::Window* pWindow)
     pWindow = GetBestParent(pWindow);
     weld::Window* pWeldWindow = pWindow ? pWindow->GetFrameWeld() : nullptr;
 
-    if ( comphelper::LibreOfficeKit::isActive() )
+    if ( comphelper::loficeKit::isActive() )
     {
         impl_showOnlineHelp(aHelpURL, pWeldWindow);
         return true;
     }
 #ifdef MACOSX
     if (@available(macOS 10.14, *)) {
-        // Workaround: Safari sandboxing prevents it from accessing files in the LibreOffice.app folder
+        // Workaround: Safari sandboxing prevents it from accessing files in the lofice.app folder
         // force online-help instead if Safari is default browser.
         CFURLRef pBrowser = LSCopyDefaultApplicationURLForURL(
                                 CFURLCreateWithString(
                                     kCFAllocatorDefault,
-                                    static_cast<CFStringRef>(@"https://www.libreoffice.org"),
+                                    static_cast<CFStringRef>(@"https://www.lofice.org"),
                                     nullptr),
                                 kLSRolesAll, nullptr);
         if([static_cast<NSString*>(CFURLGetString(pBrowser)) hasSuffix:@"/Applications/Safari.app/"]) {
@@ -1244,19 +1244,19 @@ bool SfxHelp::Start_Impl(const OUString& rURL, weld::Widget* pWidget, const OUSt
         }
     }
 
-    if ( comphelper::LibreOfficeKit::isActive() )
+    if ( comphelper::loficeKit::isActive() )
     {
         impl_showOnlineHelp(aHelpURL, pWidget);
         return true;
     }
 #ifdef MACOSX
     if (@available(macOS 10.14, *)) {
-        // Workaround: Safari sandboxing prevents it from accessing files in the LibreOffice.app folder
+        // Workaround: Safari sandboxing prevents it from accessing files in the lofice.app folder
         // force online-help instead if Safari is default browser.
         CFURLRef pBrowser = LSCopyDefaultApplicationURLForURL(
                                 CFURLCreateWithString(
                                     kCFAllocatorDefault,
-                                    static_cast<CFStringRef>(@"https://www.libreoffice.org"),
+                                    static_cast<CFStringRef>(@"https://www.lofice.org"),
                                     nullptr),
                                 kLSRolesAll, nullptr);
         if([static_cast<NSString*>(CFURLGetString(pBrowser)) hasSuffix:@"/Applications/Safari.app/"]) {

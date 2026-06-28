@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -15,7 +15,7 @@ class tdf124413(UITestCase):
     def test_copy_paste_overwriting_undo_redo_in_macro_editor_tdf124413(self):
 
         with self.ui_test.create_doc_in_start_center("writer"):
-            #Start LibreOffice. Go to Tools > Macros > Organize Macros > Basic
+            #Start lofice. Go to Tools > Macros > Organize Macros > Basic
             with self.ui_test.execute_dialog_through_command(".uno:MacroDialog", close_button="") as xDialog:
                 #Open Editor
                 xEditBtn = xDialog.getChild("edit")

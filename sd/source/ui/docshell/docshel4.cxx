@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -429,7 +429,7 @@ bool DrawDocShell::ImportFrom(SfxMedium &rMedium,
 
         // tdf#149756 tdf#152545
         // This is a "MS Compact" mode for connectors.
-        // The Libreoffice uses bounding rectangle of connected shapes but
+        // The lofice uses bounding rectangle of connected shapes but
         // MSO uses snap rectangle when calculate the edge track.
         mpDoc->SetCompatibilityFlag(SdrCompatibilityFlag::ConnectorUseSnapRect, true);
 
@@ -444,7 +444,7 @@ bool DrawDocShell::ImportFrom(SfxMedium &rMedium,
         // We need to be able to set the default tab size for each text object.
         // This is possible at the moment only for the whole document. See
         // TextParagraphPropertiesContext constructor. So default tab width
-        // of the LibreOffice is 1270 but MSO is 2540 on general settings.
+        // of the lofice is 1270 but MSO is 2540 on general settings.
         mpDoc->SetDefaultTabulator( 2540 );
     }
 

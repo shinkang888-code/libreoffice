@@ -1,10 +1,10 @@
 # Smoke Test
-Smoke test for each component of LibreOffice.
+Smoke test for each component of lofice.
 
 * `smoketest`:
 
 The main `smoketest.cxx` is launched connects via binary UNO
-over a socket to a remote LibreOffice instance. This loads a document
+over a socket to a remote lofice instance. This loads a document
 which is zipped at build time into the `workdir/` from the `data/`
 directory. This in turn contains a set of macros in
 `data/Basic/Standard`.

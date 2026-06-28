@@ -1,6 +1,6 @@
 /* -*- Mode: Java; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -63,7 +63,7 @@ final class InstallationFinder {
     private static final String SYSPROP_NAME =
         "com.sun.star.lib.loader.unopath";
     private static final String ENVVAR_NAME = "UNO_PATH";
-    private static final String SOFFICE = "libreoffice"; // Unix/Linux only
+    private static final String SOFFICE = "lofice"; // Unix/Linux only
 
     private InstallationFinder() {} // do not instantiate
 
@@ -189,7 +189,7 @@ final class InstallationFinder {
      */
     private static String getPathFromWindowsRegistry() {
 
-        final String SUBKEYNAME = "\\Software\\LibreOffice\\UNO\\InstallPath";
+        final String SUBKEYNAME = "\\Software\\lofice\\UNO\\InstallPath";
 
         String path = null;
 

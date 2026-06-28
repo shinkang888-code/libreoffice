@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -89,7 +89,7 @@ CertificateChooser::CertificateChooser(weld::Window* _pParent,
     // disable buttons
     CertificateHighlightHdl(*m_xCertLB);
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         // Single certificate doesn't change during the lifetime of a LOK view: no need to search or
         // reload it.
@@ -229,7 +229,7 @@ void CertificateChooser::ImplInitialize(bool mbSearch)
             {
                 if (meAction == CertificateChooserUserAction::Sign || meAction == CertificateChooserUserAction::SelectSign)
                 {
-                    if (comphelper::LibreOfficeKit::isActive())
+                    if (comphelper::loficeKit::isActive())
                     {
                         // The LOK case takes the signing certificate from the view.
                         if (m_pViewShell && m_pViewShell->GetSigningCertificate().m_xCertificate.is())

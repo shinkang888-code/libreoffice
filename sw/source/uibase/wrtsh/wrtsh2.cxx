@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -58,7 +58,7 @@
 
 #include <memory>
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <sfx2/event.hxx>
 #include <sal/log.hxx>
@@ -609,9 +609,9 @@ static bool LoadURL(const SfxViewShell& rView, const OUString& rURL, LoadUrlFlag
 
     // We are doing tiledRendering, let the client handles the URL loading,
     // unless we are jumping to a TOC mark.
-    if (comphelper::LibreOfficeKit::isActive() && !rURL.startsWith("#"))
+    if (comphelper::loficeKit::isActive() && !rURL.startsWith("#"))
     {
-        rView.libreOfficeKitViewCallback(LOK_CALLBACK_HYPERLINK_CLICKED, rURL.toUtf8());
+        rView.loficeKitViewCallback(LOK_CALLBACK_HYPERLINK_CLICKED, rURL.toUtf8());
         return true;
     }
 
@@ -638,7 +638,7 @@ static bool LoadURL(const SfxViewShell& rView, const OUString& rURL, LoadUrlFlag
     //#39076# Silent can be removed accordingly to SFX.
     SfxBoolItem aBrowse( SID_BROWSE, true );
 
-    if ((nFilter & LoadUrlFlags::NewView) && !comphelper::LibreOfficeKit::isActive())
+    if ((nFilter & LoadUrlFlags::NewView) && !comphelper::loficeKit::isActive())
         aTargetFrameName.SetValue( u"_blank"_ustr );
 
     const SfxPoolItem* aArr[] = {

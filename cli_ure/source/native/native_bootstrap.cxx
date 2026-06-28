@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -28,7 +28,7 @@
 #include <windows.h>
 #include <delayimp.h>
 
-#define INSTALL_PATH L"Software\\LibreOffice\\UNO\\InstallPath"
+#define INSTALL_PATH L"Software\\lofice\\UNO\\InstallPath"
 #define UNO_PATH L"UNO_PATH"
 
 namespace {
@@ -71,9 +71,9 @@ WCHAR* getPathFromRegistryKey( HKEY hroot, LPCWSTR subKeyName )
 }
 
 /* Returns the path to the program folder of the brand layer,
-   for example C:/Program Files/LibreOffice/program
+   for example C:/Program Files/lofice/program
    This path is either obtained from the environment variable UNO_PATH
-   or the registry item "Software\\LibreOffice\\UNO\\InstallPath"
+   or the registry item "Software\\lofice\\UNO\\InstallPath"
    either in HKEY_CURRENT_USER or HKEY_LOCAL_MACHINE
    The return value must be freed with delete[]
 */
@@ -196,8 +196,8 @@ namespace util
 
     Bootstrapping requires the existence of many libraries which are contained
     in an URE installation. To find and load these libraries the Windows
-    registry keys HKEY_CURRENT_USER\Software\LibreOffice\Layer\URE\1
-    and HKEY_LOCAL_MACHINE\Software\LibreOffice\Layer\URE\1 are examined.
+    registry keys HKEY_CURRENT_USER\Software\lofice\Layer\URE\1
+    and HKEY_LOCAL_MACHINE\Software\lofice\Layer\URE\1 are examined.
     These contain a named value UREINSTALLLOCATION which holds a path to the URE
     installation folder.
 */

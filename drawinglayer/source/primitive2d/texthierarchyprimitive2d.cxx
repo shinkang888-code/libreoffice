@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -148,7 +148,7 @@ namespace drawinglayer::primitive2d
         {
             // check if TextEdit is active. If not, process. If yes, suppress the content
             // lok case: always decompose it when we're rendering a slide show
-            if (!rViewInformation.getTextEditActive() || comphelper::LibreOfficeKit::isSlideshowRendering())
+            if (!rViewInformation.getTextEditActive() || comphelper::loficeKit::isSlideshowRendering())
                 GroupPrimitive2D::get2DDecomposition(rVisitor, rViewInformation);
         }
 

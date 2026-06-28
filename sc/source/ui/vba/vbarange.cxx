@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -4618,7 +4618,7 @@ ScVbaRange::AutoFilter( const uno::Any& aField, const uno::Any& Criteria1, const
             else // no value specified
                 bAll = true;
             // not sure what the relationship between Criteria1 and Operator is,
-            // e.g. can you have an Operator without a Criteria? In LibreOffice it
+            // e.g. can you have an Operator without a Criteria? In lofice it
             if ( Operator.hasValue()  && ( Operator >>= nOperator ) )
             {
                 assert(pTabFilts);

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -4635,7 +4635,7 @@ struct ScDependantsCalculator
     }
 
     // Because Lookup will extend the Result Vector under certain circumstances listed at:
-    // https://wiki.documentfoundation.org/Documentation/Calc_Functions/LOOKUP
+    // https://wiki.lofice.io/Documentation/Calc_Functions/LOOKUP
     // then if the Lookup has a Result Vector only accept the Lookup for parallelization
     // of the Result Vector has the same dimensions as the Search Vector.
     bool LookupResultVectorMismatch(sal_Int32 nTokenIdx)

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -163,7 +163,7 @@ CPPUNIT_TEST_FIXTURE(TestScene3d, test_isometricRightUp)
 
 CPPUNIT_TEST_FIXTURE(TestScene3d, test_legacyObliqueBottomRight)
 {
-    // The legacy preset camera types correspond to the geometry available in the UI of LibreOffice.
+    // The legacy preset camera types correspond to the geometry available in the UI of lofice.
     // They are not available in the UI of MS Office, but if given, user can change some properties.
     // The test includes some of them.
 
@@ -219,7 +219,7 @@ CPPUNIT_TEST_FIXTURE(TestScene3d, test_obliqueTopRight)
 {
     // MS Office applies the shape rotation after the camera rotations in case of oblique preset
     // camera types. That needs to be converted to the 'first shape rotation' specification of ODF.
-    // That conversion results in angles not available in the UI of LibreOffice, but LO can
+    // That conversion results in angles not available in the UI of lofice, but LO can
     // render them. The shape has got these rotation in the UI of MS Office: 60° shape ,
     // 50° on x-axis, 10° on y-axis and 40° on z-axis.
     loadFromFile(u"Scene3d_obliqueTopRight.pptx");
@@ -293,7 +293,7 @@ CPPUNIT_TEST_FIXTURE(TestScene3d, test_orthographicFront)
 CPPUNIT_TEST_FIXTURE(TestScene3d, test_perspectiveContrastingLeft)
 {
     // The file contains a shape with the preset camera perspectiveContrastingLeft.
-    // Such shape cannot be produced in the UI of LibreOffice, but it can be rendered.
+    // Such shape cannot be produced in the UI of lofice, but it can be rendered.
     loadFromFile(u"Scene3d_perspectiveContrastingLeft.pptx");
     uno::Reference<drawing::XShape> xShape(getShape(0, 0)); // shape 0 on page 0
 
@@ -340,7 +340,7 @@ CPPUNIT_TEST_FIXTURE(TestScene3d, test_perspectiveContrastingLeft)
 CPPUNIT_TEST_FIXTURE(TestScene3d, test_legacyPerspectiveTopRight)
 {
     // The file contains a shape with the preset camera legacyPerspectiveTopLeft. These kind of
-    // camera corresponds directly to the extrusions available in the UI of LibreOffice. The
+    // camera corresponds directly to the extrusions available in the UI of lofice. The
     // non-frontal view is not done by rotation but by shifting the view point horizontal and
     // vertical. That is tested here.
     loadFromFile(u"Scene3d_legacyPerspectiveTopRight.pptx");
@@ -419,7 +419,7 @@ CPPUNIT_TEST_FIXTURE(TestScene3d, test_lightRig_default)
 {
     // The scene uses the modern camera 'isometricOffAxis1Top' and the lightRig 'harsh'. Here the
     // unrotated lightRig is tested. Since rig 'harsh' has only two lights and the direction of the
-    // second light is against view direction, the colors are same in LibreOffice and MS Office.
+    // second light is against view direction, the colors are same in lofice and MS Office.
     // The test assumes rendering with ShadeMode_FLAT.
     loadFromFile(u"Scene3d_lightRig_default.pptx");
     Bitmap aBMP;
@@ -444,7 +444,7 @@ CPPUNIT_TEST_FIXTURE(TestScene3d, test_lightRig_dir_rotation)
 {
     // The scene uses the modern camera 'isometricOffAxis1Top' and the lightRig 'harsh'. The rig is
     // rotated around the z-axis by attribute 'dir'. Since rig 'harsh' has only two lights and the
-    // direction of the second light is against the view direction, colors are same in LibreOffice
+    // direction of the second light is against the view direction, colors are same in lofice
     // and MSO. The test assumes rendering with ShadeMode_FLAT.
     loadFromFile(u"Scene3d_lightRig_dir_rotation.pptx");
     Bitmap aBMP;

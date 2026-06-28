@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -30,7 +30,7 @@ published service BaseIndex
 {
     interface com::sun::star::text::XDocumentIndex;
 
-    /** @since LibreOffice 4.0 */
+    /** @since lofice 4.0 */
     [optional] interface com::sun::star::util::XRefreshable;
 
     /** contains the title of the index.*/
@@ -66,7 +66,7 @@ published service BaseIndex
 
     /** contains the URL of a graphic file that is displayed as background graphic
 
-        @deprecated as of LibreOffice 6.1 - use BackGraphic instead
+        @deprecated as of lofice 6.1 - use BackGraphic instead
 
         Note the new behaviour since it this was deprecated:
         This property can only be set and only external URLs are
@@ -108,7 +108,7 @@ published service BaseIndex
 
     /** contains the graphic object that is displayed as background graphic.
 
-        @since LibreOffice 6.1
+        @since lofice 6.1
     */
     [optional, property] com::sun::star::graphic::XGraphic BackGraphic;
 };

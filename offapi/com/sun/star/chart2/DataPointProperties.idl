@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -37,7 +37,7 @@ service DataPointProperties
         Note that there is access for some of them
         through some alias.
 
-        @since LibreOffice 5.1
+        @since lofice 5.1
     */
     service ::com::sun::star::drawing::FillProperties;
 
@@ -246,7 +246,7 @@ service DataPointProperties
     /** specifies a text with possible fields that is used as a data point label,
         if set then Label property is ignored
 
-        @since LibreOffice 6.1
+        @since lofice 6.1
     */
     [optional, property] sequence<XDataPointCustomLabelField>  CustomLabelFields;
 
@@ -256,7 +256,7 @@ service DataPointProperties
 
     /** specifies if the text of a data label (caption) must be wrapped
 
-        @since LibreOffice 5.1
+        @since lofice 5.1
      */
     [optional, property] boolean TextWordWrap;
 
@@ -314,13 +314,13 @@ service DataPointProperties
 
     /** Custom position on the page associated to the CUSTOM label placement.
 
-        @since LibreOffice 7.0
+        @since lofice 7.0
     */
     [optional, maybevoid, property] ::com::sun::star::chart2::RelativePosition CustomLabelPosition;
 
     /** Custom size associated with the CUSTOM label placement.
 
-        @since LibreOffice 24.8
+        @since lofice 24.8
     */
     [optional, maybevoid, property] ::com::sun::star::chart2::RelativeSize CustomLabelSize;
 };

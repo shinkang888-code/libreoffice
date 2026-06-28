@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -127,7 +127,7 @@ void SAL_CALL JavaInteractionHandler::handle( const Reference< XInteractionReque
         {
            // No suitable JRE found
             OUString sPrimTex;
-            OUString urlLink(officecfg::Office::Common::Menus::InstallJavaURL::get() + // https://hub.libreoffice.org/InstallJava/
+            OUString urlLink(officecfg::Office::Common::Menus::InstallJavaURL::get() + // https://hub.lofice.org/InstallJava/
                 "?LOlocale=" + utl::ConfigManager::getUILocale());
             g_JavaEvents.bNotFoundHandled = true;
 #if defined(MACOSX)

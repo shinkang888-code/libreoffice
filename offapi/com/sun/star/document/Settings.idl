@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -244,38 +244,38 @@ published service Settings
     /**
        Whether to embed fonts used by the document (see e.g. handling
        of OOXML embedRegular etc.)
-       @since LibreOffice 4.0
+       @since lofice 4.0
      */
     [optional, property] boolean EmbedFonts;
     // Writer, maybe later others
     /**
        Whether to embed also system fonts used by the document.
        Does not have any effect if EmbedFonts is false.
-       @since LibreOffice 4.0
+       @since lofice 4.0
      */
     [optional, property] boolean EmbedSystemFonts;
 
     /** Whether to embed only the fonts that are used in the document.
 
-        @since LibreOffice 6.2
+        @since lofice 6.2
      */
      [optional, property] boolean EmbedOnlyUsedFonts;
 
     /** Whether to embed Latin script fonts.
 
-        @since LibreOffice 6.2
+        @since lofice 6.2
      */
     [optional, property] boolean EmbedLatinScriptFonts;
 
     /** Whether to embed Asian script fonts.
 
-        @since LibreOffice 6.2
+        @since lofice 6.2
      */
     [optional, property] boolean EmbedAsianScriptFonts;
 
     /** Whether to embed Complex script fonts.
 
-        @since LibreOffice 6.2
+        @since lofice 6.2
      */
     [optional, property] boolean EmbedComplexScriptFonts;
 };

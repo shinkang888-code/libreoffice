@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -46,7 +46,7 @@ void CPDManager::onNameAcquired(GDBusConnection* connection, const gchar*, gpoin
 
     GDBusNodeInfo* introspection_data = g_dbus_node_info_new_for_xml(contents, nullptr);
 
-    g_dbus_connection_register_object(connection, "/org/libreoffice/PrintDialog",
+    g_dbus_connection_register_object(connection, "/org/lofice/PrintDialog",
                                       introspection_data->interfaces[0], nullptr,
                                       nullptr, /* user_data */
                                       nullptr, /* user_data_free_func */
@@ -275,7 +275,7 @@ CPDManager::CPDManager()
 CPDManager::~CPDManager()
 {
 #if ENABLE_DBUS && ENABLE_GIO
-    g_dbus_connection_emit_signal(m_pConnection, nullptr, "/org/libreoffice/PrintDialog",
+    g_dbus_connection_emit_signal(m_pConnection, nullptr, "/org/lofice/PrintDialog",
                                   "org.openprinting.PrintFrontend", "StopListing", nullptr,
                                   nullptr);
     g_dbus_connection_flush_sync(m_pConnection, nullptr, nullptr);
@@ -314,7 +314,7 @@ const PPDParser* CPDManager::createCPDParser(const OUString& rPrinter)
                                      nullptr, &error);
         if (ret != nullptr && error == nullptr)
         {
-            // TODO: These keys need to be redefined to preserve usage across libreoffice
+            // TODO: These keys need to be redefined to preserve usage across lofice
             // InputSlot - media-col.media-source?
             // Font - not needed now as it is required only for ps and we are using pdf
             // Dial? - for FAX (need to look up PWG spec)
@@ -752,7 +752,7 @@ bool CPDManager::checkPrintersChanged(bool)
 #if ENABLE_DBUS && ENABLE_GIO
     bool bChanged = m_aPrintersChanged;
     m_aPrintersChanged = false;
-    g_dbus_connection_emit_signal(m_pConnection, nullptr, "/org/libreoffice/PrintDialog",
+    g_dbus_connection_emit_signal(m_pConnection, nullptr, "/org/lofice/PrintDialog",
                                   "org.openprinting.PrintFrontend", "RefreshBackend", nullptr,
                                   nullptr);
     return bChanged;

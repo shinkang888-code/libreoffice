@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -336,7 +336,7 @@ void SwTransferable::ObjectReleased()
 void SwTransferable::AddSupportedFormats()
 {
     // only need if we are the current XSelection Object
-    if (this == SwModule::get()->m_pXSelection || comphelper::LibreOfficeKit::isActive())
+    if (this == SwModule::get()->m_pXSelection || comphelper::loficeKit::isActive())
     {
         SetDataForDragAndDrop( Point( 0,0) );
     }
@@ -802,7 +802,7 @@ bool SwTransferable::WriteObject( SvStream& rOStream,
     case SWTRANSFER_OBJECTTYPE_HTML:
     {
         // LOK is interested in getting images embedded for copy/paste support.
-        GetHTMLWriter( comphelper::LibreOfficeKit::isActive() ? u"EmbedImages;NoPrettyPrint"_ustr : OUString(), OUString(), xWrt );
+        GetHTMLWriter( comphelper::loficeKit::isActive() ? u"EmbedImages;NoPrettyPrint"_ustr : OUString(), OUString(), xWrt );
         break;
     }
 

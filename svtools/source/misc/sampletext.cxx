@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1034,28 +1034,28 @@ namespace
         return aMask;
     }
 
-    //false for all bits considered "Latin" by LibreOffice
+    //false for all bits considered "Latin" by lofice
     std::bitset<vcl::UnicodeCoverage::MAX_UC_ENUM> const & getLatinMask()
     {
         static std::bitset<vcl::UnicodeCoverage::MAX_UC_ENUM> s_Mask(getMaskByScriptType(css::i18n::ScriptType::LATIN));
         return s_Mask;
     }
 
-    //false for all bits considered "Asian" by LibreOffice
+    //false for all bits considered "Asian" by lofice
     std::bitset<vcl::UnicodeCoverage::MAX_UC_ENUM> const & getCJKMask()
     {
         static std::bitset<vcl::UnicodeCoverage::MAX_UC_ENUM> s_Mask(getMaskByScriptType(css::i18n::ScriptType::ASIAN));
         return s_Mask;
     }
 
-    //false for all bits considered "Complex" by LibreOffice
+    //false for all bits considered "Complex" by lofice
     std::bitset<vcl::UnicodeCoverage::MAX_UC_ENUM> const & getCTLMask()
     {
         static std::bitset<vcl::UnicodeCoverage::MAX_UC_ENUM> s_Mask(getMaskByScriptType(css::i18n::ScriptType::COMPLEX));
         return s_Mask;
     }
 
-    //false for all bits considered "WEAK" by LibreOffice
+    //false for all bits considered "WEAK" by lofice
     std::bitset<vcl::UnicodeCoverage::MAX_UC_ENUM> const & getWeakMask()
     {
         static std::bitset<vcl::UnicodeCoverage::MAX_UC_ENUM> s_Mask(getMaskByScriptType(css::i18n::ScriptType::WEAK));

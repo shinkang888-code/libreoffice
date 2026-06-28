@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1834,7 +1834,7 @@ Color SdrPage::GetPageBackgroundColor( SdrPageView const * pView, bool bScreenDi
             // See unomodel.cxx: "It is guaranteed, that after a standard page the corresponding notes page follows."
             bool notesPage = GetPageNum() % 2 == 0;
 
-            if (!comphelper::LibreOfficeKit::isActive() || !notesPage || !getSdrModelFromSdrPage().IsImpress())
+            if (!comphelper::loficeKit::isActive() || !notesPage || !getSdrModelFromSdrPage().IsImpress())
                 pBackgroundFill = &TRG_GetMasterPage().getSdrPageProperties().GetItemSet();
             else
             {

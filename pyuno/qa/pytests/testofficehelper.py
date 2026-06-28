@@ -16,7 +16,7 @@ class OfficeHelperTest(unittest.TestCase):
     Python source documentation """
     def test_default_config(self):
         # Check default timeout and number of attempts
-        # Stop LibreOffice running service
+        # Stop lofice running service
         ctx = bootstrap()  # Default settings suffice to initialize the service
         #time.sleep(10)  # gve
         if ctx:  # stop soffice as a service
@@ -34,12 +34,12 @@ class OfficeHelperTest(unittest.TestCase):
         self.assertTrue(ctx)
 
     def test_exception(self):
-        # Raise BootstrapException and stop ALL PRESENT LibreOffice running services
+        # Raise BootstrapException and stop ALL PRESENT lofice running services
         with self.assertRaises(BootstrapException):
             bootstrap(delays=[0,], report=print)  # delays=[0,] must raise BootstrapException
 
     def test_session_manager(self):
-        # Start/Stop a LibreOffice `randomly named` pipe service
+        # Start/Stop a lofice `randomly named` pipe service
         with SessionManager() as ctx:
             self.assertTrue(theDesktop.get(ctx))
 

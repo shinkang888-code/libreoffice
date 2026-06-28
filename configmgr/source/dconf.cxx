@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -36,7 +36,7 @@
 //
 // * The node hierarchy (starting at component nodes with names like
 //   "org.openoffice.Setup") maps to dconf paths underneath
-//   "/org/libreoffice/registry/".
+//   "/org/lofice/registry/".
 //
 // * Component, group, set, and localized property nodes map to dconf dirs,
 //   while property and localized value nodes map to dconf keys.
@@ -214,7 +214,7 @@ private:
 };
 
 OString getRoot() {
-    return "/org/libreoffice/registry"_ostr;
+    return "/org/lofice/registry"_ostr;
 }
 
 bool decode(OUString * string, bool slash) {

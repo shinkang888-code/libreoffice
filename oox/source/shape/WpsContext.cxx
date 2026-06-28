@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -961,7 +961,7 @@ void WpsContext::onEndElement()
     if (sMSPresetType.isEmpty() || sMSPresetType == u"textNoShape")
         return;
 
-    // Word can combine its "abc Transform" with a lot of shape types. LibreOffice can only render
+    // Word can combine its "abc Transform" with a lot of shape types. lofice can only render
     // the old kind WordArt, which is based on a rectangle. In case of non rectangular shape we keep
     // the shape and do not convert the text to Fontwork.
     OUString sType;

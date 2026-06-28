@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -338,7 +338,7 @@ void Window::SetCenterAllowed (bool bIsAllowed)
         nZoom = mnMinZoom;
 
     // Set the zoom factor at the window's map mode.
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
     {
         MapMode aMap(GetMapMode());
         aMap.SetScaleX(double(nZoom) / 100);
@@ -576,7 +576,7 @@ void Window::UpdateMapOrigin(bool bInvalidate)
     maPrevSize = aWinSize;
 
     // When tiled rendering, the above UpdateMapMode() call doesn't touch the map mode.
-    if (bChanged && bInvalidate && !comphelper::LibreOfficeKit::isActive())
+    if (bChanged && bInvalidate && !comphelper::loficeKit::isActive())
         Invalidate();
 }
 
@@ -616,7 +616,7 @@ void Window::UpdateMapMode()
     Point aNewOrigin (-maWinPos.X(), -maWinPos.Y());
     maWinPos += maViewOrigin;
 
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
     {
         MapMode aMap(GetMapMode());
         aMap.SetOrigin(aNewOrigin);
@@ -1019,7 +1019,7 @@ void Window::LogicInvalidate(const ::tools::Rectangle* pRectangle)
     if (!pDrawViewShell || pDrawViewShell->IsInSwitchPage())
         return;
 
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return;
     ::tools::Rectangle aRectangle;
     ::tools::Rectangle* pResultRectangle;

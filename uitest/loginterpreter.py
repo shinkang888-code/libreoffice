@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -69,7 +69,7 @@ def initiate_test_generation(address):
     initial_text = \
     "# -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-\n\n" + \
     "from uitest.framework import UITestCase\n" + \
-    "from libreoffice.uno.propertyvalue import mkPropertyValues\n" + \
+    "from lofice.uno.propertyvalue import mkPropertyValues\n" + \
     "import importlib\n\n" + \
     "class TestClass(UITestCase):\n" + \
     "    def test_function(self):\n"

@@ -1,5 +1,5 @@
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -80,7 +80,7 @@ public class StyleMapper
     public static StyleMapper loadInstance(final ResourceManager resourceManager)
             throws ResourceException
     {
-        final Resource resource = resourceManager.createDirectly("res://org/libreoffice/report/pentaho/styles/stylemapper.xml", StyleMapper.class);
+        final Resource resource = resourceManager.createDirectly("res://org/lofice/report/pentaho/styles/stylemapper.xml", StyleMapper.class);
         return (StyleMapper) resource.getResource();
     }
 }

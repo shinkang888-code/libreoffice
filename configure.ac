@@ -717,7 +717,7 @@ AC_DEFINE_UNQUOTED(SRC_ROOT,"$SRC_ROOT")
 AC_DEFINE_UNQUOTED(BUILDDIR,"$BUILDDIR")
 
 if test "z$EUID" = "z0" -a "`uname -o 2>/dev/null`" = "Cygwin"; then
-    AC_MSG_ERROR([You must build LibreOffice as a normal user - not using an administrative account])
+    AC_MSG_ERROR([You must build lofice as a normal user - not using an administrative account])
 fi
 
 # need sed in os checks...
@@ -1026,7 +1026,7 @@ solaris*)
     AC_MSG_CHECKING([the Solaris operating system release])
     _os_release=`echo $host_os | $SED -e s/solaris2\.//`
     if test "$_os_release" -lt "10"; then
-        AC_MSG_ERROR([use Solaris >= 10 to build LibreOffice])
+        AC_MSG_ERROR([use Solaris >= 10 to build lofice])
     else
         AC_MSG_RESULT([ok ($_os_release)])
     fi
@@ -1284,7 +1284,7 @@ emscripten)
     ;;
 
 *)
-    AC_MSG_ERROR([$host_os operating system is not suitable to build LibreOffice for!])
+    AC_MSG_ERROR([$host_os operating system is not suitable to build lofice for!])
     ;;
 esac
 
@@ -1704,7 +1704,7 @@ libo_FUZZ_ARG_ENABLE(mergelibs,
     AS_HELP_STRING([--enable-mergelibs=yes/no/more],
         [Merge several of the smaller libraries into one big "merged" library.
          The "more" option will link even more of the smaller libraries.
-         "more" not appropriate for distros which split up LibreOffice into multiple packages.
+         "more" not appropriate for distros which split up lofice into multiple packages.
          It is only appropriate for situations where all of LO is delivered in a single install/package. ])
 )
 
@@ -1738,7 +1738,7 @@ libo_FUZZ_ARG_ENABLE(pch,
 
 libo_FUZZ_ARG_ENABLE(epm,
     AS_HELP_STRING([--enable-epm],
-        [LibreOffice includes self-packaging code, that requires epm, however epm is
+        [lofice includes self-packaging code, that requires epm, however epm is
          useless for large scale package building.])
 )
 
@@ -2000,7 +2000,7 @@ AC_ARG_ENABLE(win,
 
 AC_ARG_ENABLE(gui,
     AS_HELP_STRING([--disable-gui],
-        [Disable use of X11 or Wayland to reduce dependencies (e.g. for building LibreOfficeKit).]),
+        [Disable use of X11 or Wayland to reduce dependencies (e.g. for building loficeKit).]),
 ,enable_gui=yes)
 
 libo_FUZZ_ARG_ENABLE(randr,
@@ -2100,13 +2100,13 @@ AC_ARG_ENABLE(z7-debug,
 libo_FUZZ_ARG_ENABLE(online-update,
     AS_HELP_STRING([--enable-online-update],
         [Enable the online update service that will check for new versions of
-         LibreOffice. Disabled by default. Requires --with-privacy-policy-url to be set.]),
+         lofice. Disabled by default. Requires --with-privacy-policy-url to be set.]),
 ,)
 
 libo_FUZZ_ARG_ENABLE(online-update-mar,
     AS_HELP_STRING([--enable-online-update-mar],
         [Enable the Mozilla-like online update service that will
-         check for new versions of LibreOffice. Currently only works for
+         check for new versions of lofice. Currently only works for
          Windows and Linux. Disabled by default.]),
 ,)
 
@@ -2148,7 +2148,7 @@ libo_FUZZ_ARG_ENABLE(release-build,
         [Enable release build. Note that the "release build" choice is orthogonal to
          whether symbols are present, debug info is generated, or optimization
          is done.
-         See https://wiki.documentfoundation.org/Development/DevBuild]),
+         See https://wiki.lofice.io/Development/DevBuild]),
 ,)
 
 libo_FUZZ_ARG_ENABLE(hardening-flags,
@@ -2217,7 +2217,7 @@ AC_ARG_WITH(package-version,
 
 libo_FUZZ_ARG_ENABLE(readonly-installset,
     AS_HELP_STRING([--enable-readonly-installset],
-        [Prevents any attempts by LibreOffice to write into its installation. That means
+        [Prevents any attempts by lofice to write into its installation. That means
          at least that no "system-wide" extensions can be added. Partly experimental work in
          progress, probably not fully implemented. Always enabled for macOS.]),
 ,)
@@ -2465,14 +2465,14 @@ libo_FUZZ_ARG_WITH(helppack-integration,
 
 libo_FUZZ_ARG_WITH(fonts,
     AS_HELP_STRING([--without-fonts],
-        [LibreOffice includes some third-party fonts to provide a reliable basis for
+        [lofice includes some third-party fonts to provide a reliable basis for
          help content, templates, samples, etc. When these fonts are already
          known to be available on the system then you should use this option.]),
 ,)
 
 libo_FUZZ_ARG_WITH(docrepair-fonts,
     AS_HELP_STRING([--with-docrepair-fonts],
-        [LibreOffice optionally includes fonts from 'The DocRepair Project' that
+        [lofice optionally includes fonts from 'The DocRepair Project' that
          provide metrically equivalent fallback fonts for a variety of common fonts
          seen in Office Open XML documents. See https://github.com/docrepair-fonts
          for more details. This option has no effect when --without-fonts is used.]),
@@ -2487,7 +2487,7 @@ AC_ARG_WITH(epm,
 
 AC_ARG_WITH(package-format,
     AS_HELP_STRING([--with-package-format],
-        [Specify package format(s) for LibreOffice installation sets. The
+        [Specify package format(s) for lofice installation sets. The
          implicit --without-package-format leads to no installation sets being
          generated. Possible values: archive, bsd, deb, dmg, emscripten,
          installed, msi, pkg, and rpm.
@@ -2497,7 +2497,7 @@ AC_ARG_WITH(package-format,
 AC_ARG_WITH(tls,
     AS_HELP_STRING([--with-tls],
         [Decides which TLS/SSL and cryptographic implementations to use for
-         LibreOffice's code. Default is to use NSS although OpenSSL is also
+         lofice's code. Default is to use NSS although OpenSSL is also
          possible. Notice that selecting NSS restricts the usage of OpenSSL
          in LO's code but selecting OpenSSL doesn't restrict by now the
          usage of NSS in LO's code. Possible values: openssl, nss.
@@ -2541,7 +2541,7 @@ AC_ARG_WITH(system-epoxy,
 
 AC_ARG_WITH(myspell-dicts,
     AS_HELP_STRING([--with-myspell-dicts],
-        [Adds myspell dictionaries to the LibreOffice installation set]),
+        [Adds myspell dictionaries to the lofice installation set]),
 ,)
 
 AC_ARG_WITH(system-dicts,
@@ -2651,7 +2651,7 @@ AC_ARG_WITH(system-mariadb,
 
 AC_ARG_ENABLE(bundle-mariadb,
     AS_HELP_STRING([--enable-bundle-mariadb],
-        [When using MariaDB/MySQL libraries already on system, bundle them with the MariaDB Connector/LibreOffice.])
+        [When using MariaDB/MySQL libraries already on system, bundle them with the MariaDB Connector/lofice.])
 )
 
 AC_ARG_WITH(system-postgresql,
@@ -3025,7 +3025,7 @@ AC_ARG_WITH(windows-sdk,
 
 AC_ARG_WITH(lang,
     AS_HELP_STRING([--with-lang="es sw tu cs sk"],
-        [Use this option to build LibreOffice with additional UI language support.
+        [Use this option to build lofice with additional UI language support.
          English (US) is always included by default.
          Separate multiple languages with space.
          For all languages, use --with-lang=ALL.]),
@@ -3161,7 +3161,7 @@ AC_ARG_WITH(privacy-policy-url,
 ,[with_privacy_policy_url="undefined"])
 
 AC_ARG_WITH(android-package-name,
-    AS_HELP_STRING([--with-android-package-name="org.libreoffice"],
+    AS_HELP_STRING([--with-android-package-name="org.lofice"],
         [Set Android package name of the build.]),
 ,)
 
@@ -3317,7 +3317,7 @@ dnl ===================================================================
 
 AC_ARG_WITH(macosx-version-min-required,
     AS_HELP_STRING([--with-macosx-version-min-required=<version>],
-        [set the minimum OS version needed to run the built LibreOffice])
+        [set the minimum OS version needed to run the built lofice])
     [
                           e. g.: --with-macosx-version-min-required=11.0
     ],
@@ -4811,7 +4811,7 @@ if test "$_os" = "WINNT"; then
     ]])],[AC_MSG_RESULT([yes])],[AC_MSG_ERROR([no])])
 
     # we used to build 64bit bits for 32bit windows (explorer shell extension, activex, similar)
-    # dating back when there was no 64bit version of LibreOffice yet (pre 5.0)
+    # dating back when there was no 64bit version of lofice yet (pre 5.0)
     # now (since 25.8) we only care about the inverse, building the 32bit twain and activex spsupp
     # lib when targeting/building the 64bit version for Windows
 
@@ -5874,7 +5874,7 @@ emscripten*)
     ;;
 
 *)
-    AC_MSG_ERROR([$host_os operating system is not suitable to build LibreOffice for!])
+    AC_MSG_ERROR([$host_os operating system is not suitable to build lofice for!])
     ;;
 esac
 
@@ -6006,7 +6006,7 @@ fi
 DISABLE_GUI=""
 if test "$enable_gui" = "no"; then
     if test "$using_x11" != yes; then
-        AC_MSG_ERROR([$host_os operating system is not suitable to build LibreOffice with --disable-gui.])
+        AC_MSG_ERROR([$host_os operating system is not suitable to build lofice with --disable-gui.])
     fi
     USING_X11=
     DISABLE_GUI=TRUE
@@ -6091,7 +6091,7 @@ deb - Debian software distribution
 pkg - Solaris software distribution
 rpm - RedHat software distribution
 
-LibreOffice additionally supports:
+lofice additionally supports:
 archive - .tar.gz or .zip
 dmg - macOS .dmg
 emscripten - directory with qt_soffice.html etc.
@@ -7628,7 +7628,7 @@ if test "$GXX" = "yes" -a -z "$COM_IS_CLANG"; then
     _gpp_majmin=`echo $_gpp_version | $AWK -F. '{ print \$1*100+\$2 }'`
 
     if test "$_gpp_majmin" -lt "1200"; then
-        AC_MSG_ERROR([You need to use GNU C++ compiler version >= 12.0 to build LibreOffice, you have $_gpp_version.])
+        AC_MSG_ERROR([You need to use GNU C++ compiler version >= 12.0 to build lofice, you have $_gpp_version.])
     else
         AC_MSG_RESULT([ok (g++ $_gpp_version)])
     fi
@@ -9857,7 +9857,7 @@ if test "$enable_epm" = "yes"; then
        echo "$PKGFORMAT" | $EGREP pkg 2>&1 >/dev/null; then
         if test "$with_epm" = "no" -a "$_os" != "Darwin"; then
             if test "`echo $EPM_VERSION | cut -d'.' -f1`" -lt "4"; then
-                AC_MSG_CHECKING([whether epm is patched for LibreOffice's needs])
+                AC_MSG_CHECKING([whether epm is patched for lofice's needs])
                 if grep "Patched for .*Office" $EPM >/dev/null 2>/dev/null; then
                     AC_MSG_RESULT([yes])
                 else
@@ -10289,7 +10289,7 @@ install a pre-compiled binary for Win32
 
 mkdir -p /opt/lo/bin
 cd /opt/lo/bin
-wget https://dev-www.libreoffice.org/bin/cygwin/nasm.exe
+wget https://dev-www.lofice.org/bin/cygwin/nasm.exe
 chmod +x nasm
 
 or get and install one from https://www.nasm.us/
@@ -10627,7 +10627,7 @@ AC_MSG_CHECKING([which Python to use for Pyuno])
 case "$enable_python" in
 no|disable)
     if test -z "$PYTHON_FOR_BUILD" -a "$cross_compiling" != yes; then
-        # Python is required to build LibreOffice. In theory we could separate the build-time Python
+        # Python is required to build lofice. In theory we could separate the build-time Python
         # requirement from the choice whether to include Python stuff in the installer, but why
         # bother?
         AC_MSG_ERROR([Python is required at build time.])
@@ -15648,9 +15648,9 @@ if test "$_os" = "Android" ; then
     if test -z "$with_android_package_name" -o "$with_android_package_name" = "no"; then
         if test -n "$ENABLE_DEBUG"; then
             # Default to the package name that makes ndk-gdb happy.
-            ANDROID_PACKAGE_NAME="org.libreoffice"
+            ANDROID_PACKAGE_NAME="org.lofice"
         else
-            ANDROID_PACKAGE_NAME="org.example.libreoffice"
+            ANDROID_PACKAGE_NAME="org.example.lofice"
         fi
 
         AC_MSG_RESULT([not set, using $ANDROID_PACKAGE_NAME])
@@ -15753,7 +15753,7 @@ AC_DEFINE_UNQUOTED(ONEDRIVE_CLIENT_SECRET, $ONEDRIVE_CLIENT_SECRET)
 
 
 dnl ===================================================================
-dnl Hook up LibreOffice's nodep environmental variable to automake's equivalent
+dnl Hook up lofice's nodep environmental variable to automake's equivalent
 dnl --enable-dependency-tracking configure option
 dnl ===================================================================
 AC_MSG_CHECKING([whether to enable dependency tracking])
@@ -15942,7 +15942,7 @@ then
     AC_MSG_CHECKING([whether $CXX_BASE has working consteval in combination with PCH])
     dnl ...that does not suffer from <https://github.com/llvm/llvm-project/issues/81745> "undefined
     dnl reference to consteval constructor exported from module" (which also affects PCH, see
-    dnl <https://lists.freedesktop.org/archives/libreoffice/2024-February/091564.html> "Our Clang
+    dnl <https://lists.freedesktop.org/archives/lofice/2024-February/091564.html> "Our Clang
     dnl --enable-pch setup is known broken"):
     printf 'export module M;\nexport struct S1 { consteval S1(int) {} };' >conftest.cppm
     $CXX $CXXFLAGS $CXXFLAGS_CXX11 --precompile conftest.cppm
@@ -16158,15 +16158,15 @@ if test $_os = WINNT -a -f "$SRC_ROOT/antivirusDetection.vbs" ; then
             EICAR_TEMP_FILE_CONTENTS=`cat $SRC_ROOT/eicar`
             rm $SRC_ROOT/eicar
             if [ [ "$EICAR_STRING" != "$EICAR_TEMP_FILE_CONTENTS" ] ]; then
-                AC_MSG_ERROR([Exclude the build and source directories associated with LibreOffice in the following Antivirus software: $ANTIVIRUS_LIST])
+                AC_MSG_ERROR([Exclude the build and source directories associated with lofice in the following Antivirus software: $ANTIVIRUS_LIST])
             fi
             echo $EICAR_STRING > $BUILDDIR/eicar
             EICAR_TEMP_FILE_CONTENTS=`cat $BUILDDIR/eicar`
             rm $BUILDDIR/eicar
             if [ [ "$EICAR_STRING" != "$EICAR_TEMP_FILE_CONTENTS" ] ]; then
-                AC_MSG_ERROR([Exclude the build and source directories associated with LibreOffice in the following Antivirus software: $ANTIVIRUS_LIST])
+                AC_MSG_ERROR([Exclude the build and source directories associated with lofice in the following Antivirus software: $ANTIVIRUS_LIST])
             fi
-            add_warning "To speed up builds and avoid failures in unit tests, it is highly recommended that you exclude the build and source directories associated with LibreOffice in the following Antivirus software: $ANTIVIRUS_LIST"
+            add_warning "To speed up builds and avoid failures in unit tests, it is highly recommended that you exclude the build and source directories associated with lofice in the following Antivirus software: $ANTIVIRUS_LIST"
         else
             AC_MSG_RESULT([not found])
         fi
@@ -16596,7 +16596,7 @@ to install a pre-compiled binary make for Win32
 
  mkdir -p /opt/lo/bin
  cd /opt/lo/bin
- wget https://dev-www.libreoffice.org/bin/cygwin/make-4.2.1-msvc.exe
+ wget https://dev-www.lofice.org/bin/cygwin/make-4.2.1-msvc.exe
  cp make-4.2.1-msvc.exe make
  chmod +x make
 

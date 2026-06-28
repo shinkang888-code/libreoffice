@@ -5,7 +5,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #
 
-from libreoffice.uno.propertyvalue import convert_property_values_to_dict, mkPropertyValues
+from lofice.uno.propertyvalue import convert_property_values_to_dict, mkPropertyValues
 from contextlib import contextmanager
 import org.libreoffice.unotest
 import pathlib

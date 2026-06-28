@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -27,7 +27,7 @@
 #include <vector>
 
 #include <comphelper/solarmutex.hxx>
-#include <LibreOfficeKit/LibreOfficeKitTypes.h>
+#include <loficeKit/loficeKitTypes.h>
 #include <osl/mutex.hxx>
 #include <rtl/ustring.hxx>
 #include <osl/thread.h>
@@ -233,7 +233,7 @@ enum class DialogCancelMode {
 };
 
 /**
- @brief Base class used mainly for the LibreOffice Desktop class.
+ @brief Base class used mainly for the lofice Desktop class.
 
  The Application class is a base class mainly used by the Desktop
  class. It is really meant to be subclassed, and the Main() function
@@ -246,7 +246,7 @@ enum class DialogCancelMode {
 
  @see   Desktop, ImplSVData
  */
-class VCL_DLLPUBLIC Application : public vcl::ILibreOfficeKitNotifier
+class VCL_DLLPUBLIC Application : public vcl::IloficeKitNotifier
 {
 public:
     /** @name Initialization
@@ -257,7 +257,7 @@ public:
 
     /** Default constructor for Application class.
 
-    Initializes the LibreOffice global instance data structure if needed,
+    Initializes the lofice global instance data structure if needed,
     and then sets itself to be the Application class. Also initializes any
     platform specific data structures.
 
@@ -267,7 +267,7 @@ public:
 
     /** Virtual destructor for Application class.
 
-     Deinitializes the LibreOffice global instance data structure, then
+     Deinitializes the lofice global instance data structure, then
      deinitializes any platform specific data structures.
     */
     virtual                     ~Application();
@@ -453,7 +453,7 @@ public:
 
     /** @name Event Loop Functions
 
-        Functions that handle the LibreOffice main event loop are here,
+        Functions that handle the lofice main event loop are here,
         including a global lock called the Solar Mutex.
     */
     ///@{
@@ -1333,14 +1333,14 @@ public:
 
     static weld::Window* GetFrameWeld(const css::uno::Reference<css::awt::XWindow>& rWindow);
 
-    // ILibreOfficeKitNotifier
+    // IloficeKitNotifier
     void* m_pCallbackData;
-    LibreOfficeKitCallback m_pCallback;
+    loficeKitCallback m_pCallback;
 
     virtual void notifyWindow(vcl::LOKWindowId nLOKWindowId,
                               const OUString& rAction,
                               const std::vector<vcl::LOKPayloadItem>& rPayload = std::vector<vcl::LOKPayloadItem>()) const override;
-    virtual void libreOfficeKitViewCallback(int nType, const OString& pPayload) const override;
+    virtual void loficeKitViewCallback(int nType, const OString& pPayload) const override;
     virtual void notifyInvalidation(tools::Rectangle const* pRect) const override;
     virtual void notifyCursorInvalidation(tools::Rectangle const* pRect, bool bControlEvent, int windowID) const override;
     virtual OString dumpNotifyState() const override;

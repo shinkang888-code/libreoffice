@@ -9,14 +9,14 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name="libreoffice-connection",
+    name="lofice-connection",
     version="0.0.1",
-    description="Connection code for LibreOffice's pyUNO",
+    description="Connection code for lofice's pyUNO",
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url="http://www.libreoffice.org",
-    author="The LibreOffice developers",
-    author_email="libreoffice@lists.freedesktop.org",
+    url="http://www.lofice.org",
+    author="The lofice developers",
+    author_email="lofice@lists.freedesktop.org",
     license="MPL2",
     classifiers=[
         "Development Status :: 3 - Alpha",

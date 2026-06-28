@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -52,7 +52,7 @@ published service GetReference
     /** contains the language id of the alternative language-dependent references.
         <p> Alternative language-dependent forms of reference types. </p>
 
-        @since LibreOffice 6.1
+        @since lofice 6.1
 
         <p> The current set of supported languages is:
         <ul>
@@ -63,7 +63,7 @@ published service GetReference
      */
     [optional, property] string ReferenceFieldLanguage;
     /** contains extra flags which can modify the behaviour of the field
-        @since LibreOffice 24.2
+        @since lofice 24.2
      */
     [optional, property] short ReferenceFieldFlags;
 };

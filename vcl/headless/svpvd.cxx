@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -100,9 +100,9 @@ bool SvpSalVirtualDevice::CreateSurface(tools::Long nNewDX, tools::Long nNewDY, 
     // when used to draw a tile for LOK. It cannot be used for something else, because otherwise
     // this would need a way to detect whether this is a tiled paint that needs LOK handling
     // or whether it's that something else that just might happen to be called with LOK active.
-    assert(comphelper::LibreOfficeKit::isActive());
+    assert(comphelper::loficeKit::isActive());
     // Force scaling of the painting
-    double fScale = comphelper::LibreOfficeKit::getDPIScale();
+    double fScale = comphelper::loficeKit::getDPIScale();
 
     m_pSurface = cairo_image_surface_create_for_data(pBuffer, CAIRO_FORMAT_ARGB32,
                         nNewDX, nNewDY, cairo_format_stride_for_width(CAIRO_FORMAT_ARGB32, nNewDX));

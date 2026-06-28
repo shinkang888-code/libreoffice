@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -281,7 +281,7 @@ gb_Module_CURRENTMODULE_SYMBOLS_ENABLED := $(call gb_Module__symbols_enabled,$(1
 gb_Module_CURRENTMODULE_FORCE_COMPILE := $(call gb_Module__force_compile,$(1),$(notdir $(realpath $(dir $(realpath $(lastword $(MAKEFILE_LIST))))../)))
 gb_Module_CURRENTMODULE_NAME := $(1)
 $(call gb_Helper_make_userfriendly_targets,$(1),Module)
-$(if $(filter-out libreoffice instsetoo_native android ios,$(1)),\
+$(if $(filter-out lofice instsetoo_native android ios,$(1)),\
     $(call gb_Postprocess_register_target,AllModulesButInstsetNative,Module,$(1)))
 
 $(call gb_Postprocess_get_target,AllModuleTests) : $(call gb_Module_get_check_target,$(1))

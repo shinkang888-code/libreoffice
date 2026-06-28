@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -64,7 +64,7 @@
 #include <svx/extrusionbar.hxx>
 #include <comphelper/lok.hxx>
 #include <sfx2/lokhelper.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 using namespace ::com::sun::star;
 
@@ -160,7 +160,7 @@ void SwView::ExecDraw(const SfxRequest& rReq)
                 if ( pObj )
                 {
                     Size            aDocSize( m_pWrtShell->GetDocSize() );
-                    const SwRect    aVisArea = comphelper::LibreOfficeKit::isActive() ?
+                    const SwRect    aVisArea = comphelper::loficeKit::isActive() ?
                                                 SwRect(m_pWrtShell->getLOKVisibleArea()) : m_pWrtShell->VisArea();
                     Point           aPos( aVisArea.Center() );
                     tools::Rectangle aObjRect( pObj->GetLogicRect() );
@@ -230,7 +230,7 @@ void SwView::ExecDraw(const SfxRequest& rReq)
 
     std::unique_ptr<SwDrawBase> pFuncPtr;
 
-    // for LibreOfficeKit - choosing a shape should construct it directly
+    // for loficeKit - choosing a shape should construct it directly
     bool bCreateDirectly = false;
 
     switch (nSlotId)
@@ -288,7 +288,7 @@ void SwView::ExecDraw(const SfxRequest& rReq)
         case SID_CONNECTOR_LINES_CIRCLE_END:
         case SID_CONNECTOR_LINES_CIRCLES:
             pFuncPtr.reset( new ConstRectangle(m_pWrtShell.get(), m_pEditWin, *this) );
-            bCreateDirectly = comphelper::LibreOfficeKit::isActive();
+            bCreateDirectly = comphelper::loficeKit::isActive();
             m_nDrawSfxId = nSlotId;
             m_sDrawCustom.clear();
             break;
@@ -332,7 +332,7 @@ void SwView::ExecDraw(const SfxRequest& rReq)
         {
             pFuncPtr.reset( new ConstCustomShape(m_pWrtShell.get(), m_pEditWin, *this, rReq ) );
 
-            bCreateDirectly = comphelper::LibreOfficeKit::isActive();
+            bCreateDirectly = comphelper::loficeKit::isActive();
 
             m_nDrawSfxId = nSlotId;
             if ( nSlotId != SID_DRAW_CS_ID )
@@ -636,7 +636,7 @@ bool SwView::BeginTextEdit(SdrObject* pObj, SdrPageView* pPV, vcl::Window* pWin,
         {
             pView->SetSelection(aNewSelection);
 
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
             {
                 OString sRect = pView->GetOutputArea().toString();
                 SfxLokHelper::notifyOtherViews(this, LOK_CALLBACK_VIEW_LOCK, "rectangle", sRect);

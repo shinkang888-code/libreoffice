@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,8 +9,8 @@
 
 import six
 
-from libreoffice.util import printing
-from libreoffice.util.uno import TypeClass, make_uno_type, uno_cast
+from lofice.util import printing
+from lofice.util.uno import TypeClass, make_uno_type, uno_cast
 
 class UnoAnyPrinter(object):
     '''Prints UNO any'''
@@ -138,7 +138,7 @@ printer = None
 def build_pretty_printers():
     global printer
 
-    printer = printing.Printer("libreoffice/cppu")
+    printer = printing.Printer("lofice/cppu")
 
     # basic UNO stuff
     printer.add('_uno_Any', UnoAnyPrinter)

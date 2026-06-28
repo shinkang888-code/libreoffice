@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -184,7 +184,7 @@ constants FormulaMapGroupSpecialOffset
         TABULATION (U+0009), LINE FEED (U+000A), and CARRIAGE RETURN
         (U+000D). See also ODF v1.3 OpenFormula 5.14 Whitespace.</p>
 
-        @since LibreOffice 7.3
+        @since lofice 7.3
      */
     const long WHITESPACE = 13;
 
@@ -196,7 +196,7 @@ constants FormulaMapGroupSpecialOffset
         <p>The FormulaToken::Data member shall contain a struct of type
         `TableRefToken`.</p>
 
-        @since LibreOffice 25.2
+        @since lofice 25.2
      */
     const long TABLE_REF = 14;
 

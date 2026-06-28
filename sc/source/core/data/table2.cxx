@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1984,7 +1984,7 @@ void ScTable::CommentNotifyAddressChange( SCCOL nCol1, SCROW nRow1, SCCOL nCol2,
     // Only in use in kit mode for now, but looks to me a good idea to revisit why (since OOo times)
     // on deleting/inserting a column that we generate all the captions, while on deleting/inserting
     // a row we do not. Presumably we should skip generating captions if we don't have to.
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return;
 
     if (!ValidCol(nCol1) || !ValidCol(nCol2))

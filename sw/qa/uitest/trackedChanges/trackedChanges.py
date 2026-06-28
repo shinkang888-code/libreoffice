@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -10,7 +10,7 @@
 # tests for tracked changes ; tdf912270
 from uitest.framework import UITestCase
 from uitest.uihelper.common import get_state_as_dict, get_url_for_data_file, type_text, select_by_text
-from libreoffice.uno.propertyvalue import mkPropertyValues
+from lofice.uno.propertyvalue import mkPropertyValues
 from tempfile import TemporaryDirectory
 from org.libreoffice.unotest import systemPathToFileUrl
 import os.path
@@ -40,14 +40,14 @@ class trackedchanges(UITestCase):
             xWriterEdit = xWriterDoc.getChild("writer_edit")
 
             self.xUITest.executeCommand(".uno:TrackChanges")
-            type_text(xWriterEdit, "Test LibreOffice")
+            type_text(xWriterEdit, "Test lofice")
             self.xUITest.executeCommand(".uno:ShowTrackedChanges")
 
             with self.ui_test.execute_modeless_dialog_through_command(".uno:AcceptTrackedChanges", close_button="close") as xTrackDlg:
                 xAccBtn = xTrackDlg.getChild("accept")
                 xAccBtn.executeAction("CLICK", tuple())
 
-            self.assertEqual(document.Text.String[0:16], "Test LibreOffice")
+            self.assertEqual(document.Text.String[0:16], "Test lofice")
 
     def test_tracked_changes_acceptall(self):
 
@@ -56,7 +56,7 @@ class trackedchanges(UITestCase):
             xWriterEdit = xWriterDoc.getChild("writer_edit")
 
             self.xUITest.executeCommand(".uno:TrackChanges")
-            type_text(xWriterEdit, "Test LibreOffice")
+            type_text(xWriterEdit, "Test lofice")
             self.xUITest.executeCommand(".uno:ShowTrackedChanges")
 
             with self.ui_test.execute_modeless_dialog_through_command(".uno:AcceptTrackedChanges", close_button="close") as xTrackDlg:
@@ -65,7 +65,7 @@ class trackedchanges(UITestCase):
                 xAccBtn.executeAction("CLICK", tuple())
 
 
-            self.assertEqual(document.Text.String[0:16], "Test LibreOffice")
+            self.assertEqual(document.Text.String[0:16], "Test lofice")
 
     def test_tracked_changes_reject(self):
 
@@ -74,7 +74,7 @@ class trackedchanges(UITestCase):
             xWriterEdit = xWriterDoc.getChild("writer_edit")
 
             self.xUITest.executeCommand(".uno:TrackChanges")
-            type_text(xWriterEdit, "Test LibreOffice")
+            type_text(xWriterEdit, "Test lofice")
             self.xUITest.executeCommand(".uno:ShowTrackedChanges")
 
             with self.ui_test.execute_modeless_dialog_through_command(".uno:AcceptTrackedChanges", close_button="close") as xTrackDlg:
@@ -93,7 +93,7 @@ class trackedchanges(UITestCase):
             xWriterEdit = xWriterDoc.getChild("writer_edit")
 
             self.xUITest.executeCommand(".uno:TrackChanges")
-            type_text(xWriterEdit, "Test LibreOffice")
+            type_text(xWriterEdit, "Test lofice")
             self.xUITest.executeCommand(".uno:ShowTrackedChanges")
 
             with self.ui_test.execute_modeless_dialog_through_command(".uno:AcceptTrackedChanges", close_button="close") as xTrackDlg:
@@ -110,7 +110,7 @@ class trackedchanges(UITestCase):
             xWriterEdit = xWriterDoc.getChild("writer_edit")
 
             self.xUITest.executeCommand(".uno:TrackChanges")
-            type_text(xWriterEdit, "Test LibreOffice")
+            type_text(xWriterEdit, "Test lofice")
             self.xUITest.executeCommand(".uno:TrackChanges")
             type_text(xWriterEdit, " Test2")
             self.xUITest.executeCommand(".uno:TrackChanges")
@@ -121,16 +121,16 @@ class trackedchanges(UITestCase):
             type_text(xWriterEdit, " Test5")
             self.xUITest.executeCommand(".uno:PreviousTrackedChange")
             self.xUITest.executeCommand(".uno:RejectTrackedChange")
-            self.assertEqual(document.Text.String[0:37], "Test LibreOffice Test2 Test3 Test4")
+            self.assertEqual(document.Text.String[0:37], "Test lofice Test2 Test3 Test4")
 
             self.xUITest.executeCommand(".uno:PreviousTrackedChange")
             self.xUITest.executeCommand(".uno:PreviousTrackedChange")
             self.xUITest.executeCommand(".uno:AcceptTrackedChange")
-            self.assertEqual(document.Text.String[0:37], "Test LibreOffice Test2 Test3 Test4")
+            self.assertEqual(document.Text.String[0:37], "Test lofice Test2 Test3 Test4")
 
             self.xUITest.executeCommand(".uno:NextTrackedChange")
             self.xUITest.executeCommand(".uno:RejectTrackedChange")
-            self.assertEqual(document.Text.String[0:30], "Test LibreOffice Test2 Test4")
+            self.assertEqual(document.Text.String[0:30], "Test lofice Test2 Test4")
 
 
     def test_list_of_changes(self):

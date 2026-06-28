@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -482,9 +482,9 @@ CPPUNIT_TEST_FIXTURE(TestPivottable, testPivotTableLabels)
 
     // Raw data
     const char* aData[][3] = {
-        { "LibreOffice", "3.3.0", "30" },
-        { "LibreOffice", "3.3.1", "20" },
-        { "LibreOffice", "3.4.0", "45" },
+        { "lofice", "3.3.0", "30" },
+        { "lofice", "3.3.1", "20" },
+        { "lofice", "3.4.0", "45" },
     };
 
     size_t nFieldCount = SAL_N_ELEMENTS(aFields);
@@ -509,7 +509,7 @@ CPPUNIT_TEST_FIXTURE(TestPivottable, testPivotTableLabels)
         std::vector<std::vector<const char*>> aOutputCheck = {
             { "Sum - 1.2.3", "Version", nullptr, nullptr, nullptr },
             { "Software", "3.3.0", "3.3.1", "3.4.0", "Total Result" },
-            { "LibreOffice", "30", "20", "45", "95" },
+            { "lofice", "30", "20", "45", "95" },
             { "Total Result", "30", "20", "45", "95" }
         };
 
@@ -2574,9 +2574,9 @@ CPPUNIT_TEST_FIXTURE(TestPivottable, testPivotTableDPCollection)
 
     // Raw data
     const char* aData[][3] = {
-        { "LibreOffice", "3.3.0", "30" },
-        { "LibreOffice", "3.3.1", "20" },
-        { "LibreOffice", "3.4.0", "45" },
+        { "lofice", "3.3.0", "30" },
+        { "lofice", "3.3.1", "20" },
+        { "lofice", "3.4.0", "45" },
     };
 
     size_t nFieldCount = SAL_N_ELEMENTS(aFields);

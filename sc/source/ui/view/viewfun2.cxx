@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source eCode Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -79,7 +79,7 @@
 #include <searchresults.hxx>
 #include <tokenarray.hxx>
 #include <rowheightcontext.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <mergecellsdialog.hxx>
 #include <sheetevents.hxx>
@@ -127,7 +127,7 @@ bool ScViewFunc::AdjustBlockHeight( bool bPaint, ScMarkData* pMarkData, bool bRa
         aMarkedRows.emplace_back(nCurRow, nCurRow);
     }
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         SCCOLROW nStart = aMarkedRows[0].mnStart;
         OnLOKSetWidthOrHeight(nStart, /*width: */ false);
@@ -176,7 +176,7 @@ bool ScViewFunc::AdjustBlockHeight( bool bPaint, ScMarkData* pMarkData, bool bRa
     if ( bPaint && bAnyChanged )
         pDocSh->UpdateOle(GetViewData());
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         ScTabViewShell::notifyAllViewsSheetGeomInvalidation(
                 GetViewData().GetViewShell(),
@@ -191,7 +191,7 @@ bool ScViewFunc::AdjustBlockHeight( bool bPaint, ScMarkData* pMarkData, bool bRa
 
 bool ScViewFunc::AdjustRowHeight( SCROW nStartRow, SCROW nEndRow, bool bApi )
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         OnLOKSetWidthOrHeight(nStartRow, /*width: */ false);
     }
@@ -232,7 +232,7 @@ bool ScViewFunc::AdjustRowHeight( SCROW nStartRow, SCROW nEndRow, bool bApi )
         pDocSh->PostPaint( 0, nStartRow, nTab, rDoc.MaxCol(), rDoc.MaxRow(), nTab,
                                             PaintPartFlags::Grid | PaintPartFlags::Left );
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         ScTabViewShell::notifyAllViewsSheetGeomInvalidation(
                 GetViewData().GetViewShell(),
@@ -1128,14 +1128,14 @@ void ScViewFunc::SetPrintRanges( bool bEntireSheet, const OUString* pPrint,
     {
         SCTAB nCurTab = GetViewData().CurrentTabForData();
         std::unique_ptr<ScPrintRangeSaver> pNewRanges = rDoc.CreatePrintRangeSaver();
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             tools::JsonWriter aJsonWriter;
             pNewRanges->GetPrintRangesInfo(aJsonWriter);
 
             SfxViewShell* pViewShell = GetViewData().GetViewShell();
             const OString message = aJsonWriter.finishAndGetAsOString();
-            pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_PRINT_RANGES, message);
+            pViewShell->loficeKitViewCallback(LOK_CALLBACK_PRINT_RANGES, message);
         }
 
         pDocSh->GetUndoManager()->AddUndoAction(
@@ -2048,7 +2048,7 @@ bool ScViewFunc::SearchAndReplace( const SvxSearchItem* pSearchItem,
                 SfxViewFrame* pViewFrm = SfxViewFrame::Current();
                 bool bShow = GetViewData().GetViewShell()->GetViewData().GetOptions().GetOption(sc::ViewOption::SUMMARY);
 
-                if (bShow && pViewFrm && !comphelper::LibreOfficeKit::isActive())
+                if (bShow && pViewFrm && !comphelper::loficeKit::isActive())
                 {
                     pViewFrm->ShowChildWindow(sc::SearchResultsDlgWrapper::GetChildWindowId());
                     SfxChildWindow* pWnd = pViewFrm->GetChildWindow(sc::SearchResultsDlgWrapper::GetChildWindowId());
@@ -2114,7 +2114,7 @@ bool ScViewFunc::SearchAndReplace( const SvxSearchItem* pSearchItem,
             GetFrameWin()->LeaveWait();
             if (!bIsApi)
             {
-                GetViewData().GetViewShell()->libreOfficeKitViewCallback(LOK_CALLBACK_SEARCH_NOT_FOUND, pSearchItem->GetSearchString().toUtf8());
+                GetViewData().GetViewShell()->loficeKitViewCallback(LOK_CALLBACK_SEARCH_NOT_FOUND, pSearchItem->GetSearchString().toUtf8());
                 SvxSearchDialogWrapper::SetSearchLabel(SearchLabel::NotFound);
             }
 
@@ -2159,7 +2159,7 @@ bool ScViewFunc::SearchAndReplace( const SvxSearchItem* pSearchItem,
         AlignToCursor( nCol, nRow, SC_FOLLOW_JUMP );
         SetCursor( nCol, nRow, true );
 
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             Point aCurPos = GetViewData().GetScrPos(nCol, nRow, GetViewData().GetActivePart());
 
@@ -2197,7 +2197,7 @@ bool ScViewFunc::SearchAndReplace( const SvxSearchItem* pSearchItem,
                 boost::property_tree::write_json(aStream, aTree);
                 OString aPayload( aStream.str() );
                 SfxViewShell* pViewShell = GetViewData().GetViewShell();
-                pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_SEARCH_RESULT_SELECTION, aPayload);
+                pViewShell->loficeKitViewCallback(LOK_CALLBACK_SEARCH_RESULT_SELECTION, aPayload);
 
                 // Trigger LOK_CALLBACK_TEXT_SELECTION now.
                 MarkDataChanged();
@@ -3184,7 +3184,7 @@ void ScViewFunc::MoveTable(sal_uInt16 nDestDocNo, SCTAB nDestTab, bool bCopy,
 
         SCTAB nTab = GetViewData().CurrentTabForData();
 
-        if (comphelper::LibreOfficeKit::isActive() && !pSrcTabs->empty())
+        if (comphelper::loficeKit::isActive() && !pSrcTabs->empty())
         {
             ScModelObj* pModel = pDocShell->GetModel();
             SfxLokHelper::notifyDocumentSizeChangedAllViews(pModel);

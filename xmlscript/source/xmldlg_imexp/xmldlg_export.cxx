@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1064,7 +1064,7 @@ void ElementDescriptor::readDefaults( bool supportPrintable, bool supportVisible
 
     // The following is a hack to allow 'form' controls to override the default
     // control supported by dialogs. This should work well for both VBA support and
-    // normal LibreOffice (when normal 'Dialogs' decide to support form control models)
+    // normal lofice (when normal 'Dialogs' decide to support form control models)
     // In the future VBA support might require custom models ( and not the just the form
     // variant of a control that we currently use ) In this case the door is still open,
     // we just need to define a new way for the 'ServiceName' to be extracted from the

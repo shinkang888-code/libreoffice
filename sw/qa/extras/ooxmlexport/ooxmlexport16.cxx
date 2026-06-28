@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -143,7 +143,7 @@ CPPUNIT_TEST_FIXTURE(Test, testTdf134219ContourWrap_glow_rotate)
     createSwDoc("tdf143219ContourWrap_glow_rotate.docx");
 
     // Error was, that the margins, which were added on import to approximate Word's rendering of
-    // contour wrap, contained the effect extent for rotation. But LibreOffice extents the wrap
+    // contour wrap, contained the effect extent for rotation. But lofice extents the wrap
     // distance automatically. The distance was too large on first load and because the extent was
     // not removed on export, much larger on reload.
     // Test fails on reload without fix with left: expected 1461 actual 2455; right: expected 1302
@@ -656,7 +656,7 @@ DECLARE_OOXMLEXPORT_TEST(testShapeHyperlink, "hyperlinkshape.docx")
 {
     // Test import/export of hyperlink property on shapes
     auto xShape(getShape(1));
-    CPPUNIT_ASSERT_EQUAL(u"https://libreoffice.org/"_ustr, getProperty<OUString>(xShape, u"Hyperlink"_ustr));
+    CPPUNIT_ASSERT_EQUAL(u"https://lofice.org/"_ustr, getProperty<OUString>(xShape, u"Hyperlink"_ustr));
 }
 
 CPPUNIT_TEST_FIXTURE(Test, testTextframeHyperlink)
@@ -668,7 +668,7 @@ CPPUNIT_TEST_FIXTURE(Test, testTextframeHyperlink)
     CPPUNIT_ASSERT_EQUAL(sal_Int32(1), xIndexAccess->getCount());
 
     uno::Reference<beans::XPropertySet> xFrame(xIndexAccess->getByIndex(0), uno::UNO_QUERY);
-    CPPUNIT_ASSERT_EQUAL(u"https://libreoffice.org/"_ustr, getProperty<OUString>(xFrame, u"HyperLinkURL"_ustr));
+    CPPUNIT_ASSERT_EQUAL(u"https://lofice.org/"_ustr, getProperty<OUString>(xFrame, u"HyperLinkURL"_ustr));
 
     // FIXME: After save&reload, the text frame should still be a text frame, and the above test should still work.
     // (Currently the Writer text frame becomes a text box (shape based)). See tdf#140961
@@ -678,7 +678,7 @@ CPPUNIT_TEST_FIXTURE(Test, testTextframeHyperlink)
     // DML
     assertXPath(pXmlDoc, "//w:drawing/wp:anchor/wp:docPr/a:hlinkClick", 1);
     // VML
-    assertXPath(pXmlDoc, "//w:pict/v:rect", "href", u"https://libreoffice.org/");
+    assertXPath(pXmlDoc, "//w:pict/v:rect", "href", u"https://lofice.org/");
 }
 
 CPPUNIT_TEST_FIXTURE(Test, testTdf146171_invalid_change_date)
@@ -1022,7 +1022,7 @@ CPPUNIT_TEST_FIXTURE(Test, Test_ShadowDirection)
     CPPUNIT_ASSERT_EQUAL(1, getPages());
     // The attribute 'rotWithShape' has the default value 'true' in OOXML, so Words interprets a
     // missing attribute as 'true'. That means that Word rotates the shadow if the shape is
-    // rotated. Because in LibreOffice a shadow is never rotated, we must not omit this
+    // rotated. Because in lofice a shadow is never rotated, we must not omit this
     // attribute.
     xmlDocUniquePtr pXmlDoc = parseExport(u"word/document.xml"_ustr);
     assertXPath(pXmlDoc,

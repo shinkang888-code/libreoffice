@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -101,7 +101,7 @@ AquaSalFrame::AquaSalFrame( SalFrame* pParent, SalFrameStyleFlags salFrameStyle 
     // tdf#150177 Limit minimum blink cursor rate
     // This bug occurs when the values for NSTextInsertionPointBlinkPeriodOn or
     // NSTextInsertionPointBlinkPeriodOff are set to zero or close to zero.
-    // LibreOffice becomes very sluggish opening documents when either is set
+    // lofice becomes very sluggish opening documents when either is set
     // at 100 milliseconds or less so set the blink rate to the maximum of
     // nMinBlinkCursorDelay, NSTextInsertionPointBlinkPeriodOn, and
     // NSTextInsertionPointBlinkPeriodOff.
@@ -487,7 +487,7 @@ void AquaSalFrame::Show(bool bVisible, bool bNoActivate)
 
     // tdf#152173 Don't display tooltip windows when application is inactive
     // Starting with macOS 13 Ventura, inactive applications receive mouse
-    // move events so when LibreOffice is inactive, a mouse move event causes
+    // move events so when lofice is inactive, a mouse move event causes
     // a tooltip to be displayed. Since the tooltip window is attached to its
     // parent window (to ensure that the tooltip is above the parent window),
     // displaying a tooltip pulls the parent window in front of the windows
@@ -1005,7 +1005,7 @@ void AquaSalFrame::doShowFullScreen( bool bFullScreen, sal_Int32 nDisplay )
         // Show the dock and the menubar if there is no native modal dialog
         // and if the key window is nil or is not a SalFrameWindow instance.
         // If a SalFrameWindow is the key window, it should have already set
-        // the menubar visibility to match its LibreOffice full screen mode
+        // the menubar visibility to match its lofice full screen mode
         // state.
         else if( ![NSApp modalWindow] )
         {
@@ -1019,7 +1019,7 @@ void AquaSalFrame::doShowFullScreen( bool bFullScreen, sal_Int32 nDisplay )
             if( mbNativeFullScreen && !NSIsEmptyRect( maNativeFullScreenRestoreRect ) )
             {
                 // Related: tdf#128186 force window to unzoom
-                // If we exit LibreOffice's internal full screen mode while
+                // If we exit lofice's internal full screen mode while
                 // the window is in native full screen mode, the window will
                 // be zoomed after exiting native full screen mode.
                 [mpNSWindow setIsZoomed: NO];
@@ -1060,7 +1060,7 @@ void AquaSalFrame::StartPresentation( bool bStart )
         GetSalData()->maPresentationFrames.push_back( this );
         IOPMAssertionCreateWithName(kIOPMAssertionTypeNoDisplaySleep,
                                     kIOPMAssertionLevelOn,
-                                    CFSTR("LibreOffice presentation running"),
+                                    CFSTR("lofice presentation running"),
                                     &mnAssertionID);
         [mpNSWindow setLevel: NSPopUpMenuWindowLevel];
         if( mbShown )
@@ -1706,7 +1706,7 @@ SAL_WNODEPRECATED_DECLARATIONS_POP
 
     aStyleSettings.SetToolbarIconSize( ToolbarIconSize::Large );
 
-    // TODO: better mapping of macOS<->LibreOffice font settings
+    // TODO: better mapping of macOS<->lofice font settings
     vcl::Font aLabelFont( getFont( [NSFont labelFontOfSize: 0], nDPIY, aAppFont ) );
     aStyleSettings.BatchSetFonts( aAppFont, aLabelFont );
     vcl::Font aMenuFont( getFont( [NSFont menuFontOfSize: 0], nDPIY, aAppFont ) );

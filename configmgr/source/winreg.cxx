@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -38,7 +38,7 @@ namespace {
 // Nil (dword, optional)
 //
 // For example the following registry setting:
-// [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\LibreOffice\org.openoffice.UserProfile\Data\o]
+// [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\lofice\org.openoffice.UserProfile\Data\o]
 // "Value"="Example Corp."
 // "Final"=dword:00000001
 // becomes the following in configuration:
@@ -50,10 +50,10 @@ namespace {
 // </item>
 //
 // Another example:
-// [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\LibreOffice\org.openoffice.Office.OptionsDialog\OptionsDialogGroups\ProductName/#fuse\Pages\Java/#fuse\Hide]
+// [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\lofice\org.openoffice.Office.OptionsDialog\OptionsDialogGroups\ProductName/#fuse\Pages\Java/#fuse\Hide]
 // "Value"="true"
 // becomes the following in configuration:
-// <!-- Hide Tools - Options - LibreOffice - Advanced panel -->
+// <!-- Hide Tools - Options - lofice - Advanced panel -->
 // <item oor:path="/org.openoffice.Office.OptionsDialog/OptionsDialogGroups">
 //     <node oor:name="ProductName" oor:op="fuse">
 //         <node oor:name="Pages">
@@ -67,7 +67,7 @@ namespace {
 // </item>
 //
 // Third example (property of an extensible group -> needs type):
-// [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\LibreOffice\org.openoffice.Office.Jobs\Jobs\org.openoffice.Office.Jobs:Job['UpdateCheck']\Arguments\AutoCheckEnabled]
+// [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\lofice\org.openoffice.Office.Jobs\Jobs\org.openoffice.Office.Jobs:Job['UpdateCheck']\Arguments\AutoCheckEnabled]
 // "Value"="false"
 // "Final"=dword:00000001
 // "Type"="xs:boolean"
@@ -79,7 +79,7 @@ namespace {
 // </item>
 //
 // External (component data) example:
-// [HKEY_CURRENT_USER\Software\Policies\LibreOffice\org.openoffice.UserProfile\Data\o]
+// [HKEY_CURRENT_USER\Software\Policies\lofice\org.openoffice.UserProfile\Data\o]
 // "Value"="company"
 // "Final"=dword:00000001
 // "External"=dword:00000001
@@ -94,11 +94,11 @@ namespace {
 // Nil example:
 // Empty value (<value></value>) and nil value (<value xsi:nil="true"/>) are different.
 // In case of some path settings, the base path setting has to be cleared.
-// [HKEY_CURRENT_USER\Software\Policies\LibreOffice\org.openoffice.Office.Common\Path\Current\Work]
+// [HKEY_CURRENT_USER\Software\Policies\lofice\org.openoffice.Office.Common\Path\Current\Work]
 // "Value"=""
 // "Final"=dword:00000001
 // "Nil"=dword:00000001
-// [HKEY_CURRENT_USER\Software\Policies\LibreOffice\org.openoffice.Office.Paths\Paths\org.openoffice.Office.Paths:NamedPath['Work']\WritePath]
+// [HKEY_CURRENT_USER\Software\Policies\lofice\org.openoffice.Office.Paths\Paths\org.openoffice.Office.Paths:NamedPath['Work']\WritePath]
 // "Value"="file:///H:/"
 // "Final"=dword:00000001
 // becomes the following in configuration:
@@ -301,12 +301,12 @@ bool dumpWindowsRegistry(OUString* pFileURL, WinRegType eType)
 {
     HKEY hKey;
     HKEY hDomain = eType == LOCAL_MACHINE ? HKEY_LOCAL_MACHINE : HKEY_CURRENT_USER;
-    if(RegOpenKeyExW(hDomain, L"SOFTWARE\\Policies\\LibreOffice", 0, KEY_READ, &hKey) != ERROR_SUCCESS)
+    if(RegOpenKeyExW(hDomain, L"SOFTWARE\\Policies\\lofice", 0, KEY_READ, &hKey) != ERROR_SUCCESS)
     {
         SAL_INFO(
             "configmgr",
             "Windows registry settings do not exist in " << winRegTypeName(eType)
-            << " HKLM\\SOFTWARE\\Policies\\LibreOffice");
+            << " HKLM\\SOFTWARE\\Policies\\lofice");
         return false;
     }
 

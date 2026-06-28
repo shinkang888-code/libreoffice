@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -27,7 +27,7 @@
 #include <com/sun/star/beans/PropertyValue.hpp>
 #include <com/sun/star/uno/Any.hxx>
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <comphelper/propertyvalue.hxx>
 #include <editeng/editstat.hxx>
@@ -234,7 +234,7 @@ void DrawViewShell::FuPermanent(SfxRequest& rReq)
         rBind.Update(nOldSId);
     }
 
-    // for LibreOfficeKit - choosing a shape should construct it directly
+    // for loficeKit - choosing a shape should construct it directly
     bool bCreateDirectly = false;
     bool bRectangle = false;
 
@@ -503,7 +503,7 @@ void DrawViewShell::FuPermanent(SfxRequest& rReq)
                 }
             }
 
-            bCreateDirectly = comphelper::LibreOfficeKit::isActive();
+            bCreateDirectly = comphelper::loficeKit::isActive();
             bRectangle = true;
             SetCurrentFunction( FuConstructRectangle::Create( *this, GetActiveWindow(), mpDrawView.get(), *GetDoc(), rReq, bPermanent ) );
             rReq.Done();
@@ -520,7 +520,7 @@ void DrawViewShell::FuPermanent(SfxRequest& rReq)
         {
             // Direct mode means no interactive drawing, just insert the shape with reasonable
             // defaults -- to be consistent with the line insert case above.
-            bCreateDirectly = comphelper::LibreOfficeKit::isActive();
+            bCreateDirectly = comphelper::loficeKit::isActive();
 
             SetCurrentFunction( FuConstructBezierPolygon::Create(*this, GetActiveWindow(), mpDrawView.get(), *GetDoc(), rReq, bPermanent) );
             rReq.Done();
@@ -583,7 +583,7 @@ void DrawViewShell::FuPermanent(SfxRequest& rReq)
             SetCurrentFunction( FuConstructCustomShape::Create( *this, GetActiveWindow(), mpDrawView.get(), *GetDoc(), rReq, bPermanent ) );
             rReq.Done();
 
-            bCreateDirectly = comphelper::LibreOfficeKit::isActive();
+            bCreateDirectly = comphelper::loficeKit::isActive();
             const SfxItemSet* pArgs = rReq.GetArgs();
             if (pArgs && pArgs->HasItem(FN_PARAM_1))
             {
@@ -685,7 +685,7 @@ void DrawViewShell::FuPermanent(SfxRequest& rReq)
 
     // calc position and size
     ::tools::Rectangle aVisArea = GetActiveWindow()->PixelToLogic(::tools::Rectangle(Point(0,0), GetActiveWindow()->GetOutputSizePixel()));
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         // aVisArea is nonsensical in the LOK case, use the slide size
         aVisArea = ::tools::Rectangle(Point(), getCurrentPage()->GetSize());

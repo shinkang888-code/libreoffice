@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 #ifndef INCLUDED_COM_SUN_STAR_UNO_ANY_HXX
 #define INCLUDED_COM_SUN_STAR_UNO_ANY_HXX
@@ -685,7 +685,7 @@ template<> Any Any::get() const = delete;
    Support for Any in std::ostream (and thus in CPPUNIT_ASSERT or SAL_INFO
    macros, for example).
 
-   @since LibreOffice 4.2
+   @since lofice 4.2
 */
 template<typename charT, typename traits>
 inline std::basic_ostream<charT, traits> &operator<<(std::basic_ostream<charT, traits> &o, Any const &any) {

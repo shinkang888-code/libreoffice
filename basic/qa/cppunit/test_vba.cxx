@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -190,7 +190,7 @@ void VBATest::testMiscOLEStuff()
 // see "so skip test" below.)
 
 // Since some time, on a properly updated Windows 10, this works
-// only with a 64-bit LibreOffice
+// only with a 64-bit lofice
 
 #if defined _WIN32 && defined _ARM64_
     // skip for windows arm64 build

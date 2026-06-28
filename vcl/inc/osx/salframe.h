@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -101,16 +101,16 @@ public:
     // Force flush after drawing tab items
     bool                            mbForceFlushTabItems;
 
-    // Is window in LibreOffice full screen mode
+    // Is window in lofice full screen mode
     bool                            mbInternalFullScreen;
-    // Window size to restore to when exiting LibreOffice full screen mode
+    // Window size to restore to when exiting lofice full screen mode
     NSRect                          maInternalFullScreenRestoreRect;
-    // Desired window size when entering exiting LibreOffice full screen mode
+    // Desired window size when entering exiting lofice full screen mode
     NSRect                          maInternalFullScreenExpectedRect;
 
     // Is window in native full screen mode
     bool                            mbNativeFullScreen;
-    // Window size to restore to when exiting LibreOffice full screen mode
+    // Window size to restore to when exiting lofice full screen mode
     NSRect                          maNativeFullScreenRestoreRect;
 
 public:

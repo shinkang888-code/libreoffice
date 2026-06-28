@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -427,9 +427,9 @@ void AquaSalMenu::setMainMenu()
                 NSMenuItem* pItem = maItems[i]->mpMenuItem;
                 [mpMenu insertItem: pItem atIndex: i+1];
 
-                // tdf#165448 Allow macOS to add menu items in LibreOffice windows menu
+                // tdf#165448 Allow macOS to add menu items in lofice windows menu
                 // macOS will automatically insert menu items in NSApp's
-                // windows menu so set that menu to LibreOffice's windows menu.
+                // windows menu so set that menu to lofice's windows menu.
                 if ( maItems[i]->getItemCommand() == u".uno:WindowList"_ustr )
                 {
                     // Avoid macOS inserting duplicate menu items in the

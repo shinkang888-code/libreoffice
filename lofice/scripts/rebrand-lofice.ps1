@@ -48,6 +48,10 @@ $ExcludeFilePatterns = @(
 # org.libreoffice.* 는 Tier=All 에서도 UNO 서비스 ID 보호
 $UnoServicePattern = 'org\.libreoffice\.|vnd\.libreoffice\.|com\.sun\.star\.comp\.(?!lofice)'
 
+# Android LOK JNI — Java 클래스·네이티브 심볼명 유지 (strings.xml 등 res/ 만 Display 적용)
+$ExcludeDirPatterns += 'android\\Bootstrap'
+$ExcludeDirPatterns += 'android\\source\\src'
+
 function Test-ExcludedPath {
     param([string]$Path)
     $normalized = $Path -replace '\\', '/'

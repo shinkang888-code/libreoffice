@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -29,7 +29,7 @@ published service PageProperties
 
     /** contains the URL of the background graphic.
 
-        @deprecated as of LibreOffice 6.1 - use BackGraphic instead
+        @deprecated as of lofice 6.1 - use BackGraphic instead
 
         Note the new behaviour since it this was deprecated:
         This property can only be set and only external URLs are
@@ -158,7 +158,7 @@ published service PageProperties
 
     /** contains the URL of the background graphic of the header.
 
-        @deprecated as of LibreOffice 6.1 - use HeaderBackGraphic instead
+        @deprecated as of lofice 6.1 - use HeaderBackGraphic instead
 
         Note the new behaviour since it this was deprecated:
         This property can only be set and only external URLs are
@@ -237,7 +237,7 @@ published service PageProperties
 
     /** determines if the header/footer content on the first page and remaining pages is the same.
 
-        @since LibreOffice 4.0
+        @since lofice 4.0
      */
     [optional, property, maybevoid] boolean FirstIsShared;
 
@@ -271,7 +271,7 @@ published service PageProperties
 
     /** contains the URL of the background graphic in the footer.
 
-        @deprecated as of LibreOffice 6.1 - use FooterBackGraphic
+        @deprecated as of lofice 6.1 - use FooterBackGraphic
 
         Note the new behaviour since it this was deprecated:
         This property can only be set and only external URLs are
@@ -456,38 +456,38 @@ published service PageProperties
 
     /** contains the graphic of the background.
 
-        @since LibreOffice 6.1
+        @since lofice 6.1
      */
     [optional, property] com::sun::star::graphic::XGraphic BackGraphic;
 
     /** contains the graphic of the background of the header.
 
-        @since LibreOffice 6.1
+        @since lofice 6.1
      */
     [optional, property, maybevoid] com::sun::star::graphic::XGraphic HeaderBackGraphic;
 
     /** contains the graphic of the background of the footer.
 
-        @since LibreOffice 6.1
+        @since lofice 6.1
      */
     [optional, property, maybevoid] com::sun::star::graphic::XGraphic FooterBackGraphic;
 
     /** determines the gutter margin of the page.
 
-        @since LibreOffice 7.2
+        @since lofice 7.2
      */
     [optional, property] long GutterMargin;
 
     /** does the background cover the full page or only inside the
         margins?
 
-        @since LibreOffice 7.2
+        @since lofice 7.2
      */
     [optional, property] boolean BackgroundFullSize;
 
     /** specifies that the page gutter shall be placed on the right side of the page.
 
-        @since LibreOffice 7.2
+        @since lofice 7.2
      */
     [optional, property] boolean RtlGutter;
 

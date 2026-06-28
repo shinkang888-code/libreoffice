@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -189,7 +189,7 @@ ScInputWindow::ScInputWindow( vcl::Window* pParent, const SfxBindings* pBind ) :
     mpViewShell = pViewSh;
 
     // Position window, 3 buttons, input window
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
     {
         InsertWindow    (ToolBoxItemId(1), aWndPos.get(), ToolBoxItemBits::NONE, 0);
         InsertSeparator (1);
@@ -207,7 +207,7 @@ ScInputWindow::ScInputWindow( vcl::Window* pParent, const SfxBindings* pBind ) :
     InsertWindow    (ToolBoxItemId(7), mxTextWindow.get(), ToolBoxItemBits::NONE, 7);
     SetDropdownClickHdl( LINK( this, ScInputWindow, DropdownClickHdl ));
 
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
     {
         aWndPos   ->SetQuickHelpText(ScResId(SCSTR_QHELP_POSWND));
         aWndPos   ->SetHelpId       (HID_INSWIN_POS);
@@ -227,7 +227,7 @@ ScInputWindow::ScInputWindow( vcl::Window* pParent, const SfxBindings* pBind ) :
         SetHelpId   (SID_INPUT_CANCEL, HID_INSWIN_CANCEL);
         SetHelpId   (SID_INPUT_OK, HID_INSWIN_OK);
 
-        if (!comphelper::LibreOfficeKit::isActive())
+        if (!comphelper::loficeKit::isActive())
         {
             SetItemText ( SID_INPUT_SUM, ScResId( SCSTR_QHELP_BTNSUM ) );
             SetItemText ( SID_INPUT_EQUAL, ScResId( SCSTR_QHELP_BTNEQUAL ) );
@@ -246,7 +246,7 @@ ScInputWindow::ScInputWindow( vcl::Window* pParent, const SfxBindings* pBind ) :
 
     SetHelpId( HID_SC_INPUTWIN ); // For the whole input row
 
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         aWndPos   ->Show();
     mxTextWindow->Show();
 
@@ -273,7 +273,7 @@ ScInputWindow::ScInputWindow( vcl::Window* pParent, const SfxBindings* pBind ) :
     else if (pViewSh)
     {
         // Don't stop editing in LOK a remote user might be editing.
-        const bool bStopEditing = !comphelper::LibreOfficeKit::isActive();
+        const bool bStopEditing = !comphelper::loficeKit::isActive();
         pViewSh->UpdateInputHandler(true, bStopEditing); // Absolutely necessary update
     }
 
@@ -310,7 +310,7 @@ void ScInputWindow::dispose()
         }
     }
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         if (GetLOKNotifier())
             ReleaseLOKNotifier();
@@ -345,7 +345,7 @@ void ScInputWindow::Select()
     {
         //! new method at ScModule to query if function autopilot is open
         SfxViewFrame* pViewFrm = SfxViewFrame::Current();
-        if ( pViewFrm && ( comphelper::LibreOfficeKit::isActive() || !pViewFrm->GetChildWindow( SID_OPENDLG_FUNCTION ) ) )
+        if ( pViewFrm && ( comphelper::loficeKit::isActive() || !pViewFrm->GetChildWindow( SID_OPENDLG_FUNCTION ) ) )
         {
             pViewFrm->GetDispatcher()->Execute( SID_OPENDLG_FUNCTION,
                                         SfxCallMode::SYNCHRON | SfxCallMode::RECORD );
@@ -423,7 +423,7 @@ void ScInputWindow::StartFormula()
         if (pView)
         {
             sal_Int32 nStartPara = 0, nEndPara = 0;
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
             {
                 TextGrabFocus();
             }
@@ -437,7 +437,7 @@ void ScInputWindow::StartFormula()
 
 void ScInputWindow::PixelInvalidate(const tools::Rectangle* pRectangle)
 {
-    if (comphelper::LibreOfficeKit::isDialogPainting() || !comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isDialogPainting() || !comphelper::loficeKit::isActive())
         return;
 
     if (pRectangle)
@@ -454,7 +454,7 @@ void ScInputWindow::PixelInvalidate(const tools::Rectangle* pRectangle)
 
 void ScInputWindow::SetSizePixel( const Size& rNewSize )
 {
-    const vcl::ILibreOfficeKitNotifier* pNotifier = GetLOKNotifier();
+    const vcl::IloficeKitNotifier* pNotifier = GetLOKNotifier();
     if (pNotifier)
     {
         if (vcl::Window* pFrameWindowImpl = GetParent())
@@ -483,7 +483,7 @@ void ScInputWindow::Resize()
 
     auto nLines = mxTextWindow->GetNumLines();
     //(-10) to allow margin between sidebar and formulabar
-    tools::Long margin = (comphelper::LibreOfficeKit::isActive()) ? 10 : 0;
+    tools::Long margin = (comphelper::loficeKit::isActive()) ? 10 : 0;
     Size aTextWindowSize(aSize.Width() - mxTextWindow->GetPosPixel().X() - LEFT_OFFSET - margin,
                          mxTextWindow->GetPixelHeightForLines(nLines));
     mxTextWindow->SetSizePixel(aTextWindowSize);
@@ -514,7 +514,7 @@ void ScInputWindow::Resize()
 
 void ScInputWindow::NotifyLOKClient()
 {
-    if (comphelper::LibreOfficeKit::isActive() && !GetLOKNotifier() && mpViewShell)
+    if (comphelper::loficeKit::isActive() && !GetLOKNotifier() && mpViewShell)
         SetLOKNotifier(mpViewShell);
 }
 
@@ -612,7 +612,7 @@ void ScInputWindow::SetSumAssignMode()
 
 void ScInputWindow::SetFormulaMode( bool bSet )
 {
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         aWndPos->SetFormulaMode(bSet);
     mxTextWindow->SetFormulaMode(bSet);
 }
@@ -675,7 +675,7 @@ void ScInputWindow::SwitchToTextWin()
 
 void ScInputWindow::PosGrabFocus()
 {
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         aWndPos->GrabFocus();
 }
 
@@ -863,7 +863,7 @@ ScInputBarGroup::ScInputBarGroup(vcl::Window* pParent, ScTabViewShell* pViewSh)
     mxButtonUp->connect_clicked(LINK(this, ScInputBarGroup, ClickHdl));
     mxButtonDown->connect_clicked(LINK(this, ScInputBarGroup, ClickHdl));
 
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
     {
         mxButtonUp->set_tooltip_text(ScResId( SCSTR_QHELP_COLLAPSE_FORMULA));
         mxButtonDown->set_tooltip_text(ScResId(SCSTR_QHELP_EXPAND_FORMULA));
@@ -1100,7 +1100,7 @@ void ScInputBarGroup::NumLinesChanged()
 void ScInputBarGroup::TriggerToolboxLayout()
 {
     // layout changes are expensive and un-necessary.
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return;
 
     vcl::Window *w=GetParent();
@@ -1157,7 +1157,7 @@ ScTextWndGroup::ScTextWndGroup(ScInputBarGroup& rParent, ScTabViewShell* pViewSh
     , mrParent(rParent)
 {
     mxScrollWin->connect_vadjustment_value_changed(LINK(this, ScTextWndGroup, Impl_ScrollHdl));
-    if (ScTabViewShell* pActiveViewShell = comphelper::LibreOfficeKit::isActive() ?
+    if (ScTabViewShell* pActiveViewShell = comphelper::loficeKit::isActive() ?
             dynamic_cast<ScTabViewShell*>(SfxViewShell::Current()) : nullptr)
     {
         pActiveViewShell->LOKSendFormulabarUpdate(nullptr, u""_ustr, ESelection());
@@ -1315,7 +1315,7 @@ void ScTextWnd::Paint( vcl::RenderContext& rRenderContext, const tools::Rectangl
         }
     }
 
-    if (comphelper::LibreOfficeKit::isActive() && m_xEditEngine)
+    if (comphelper::loficeKit::isActive() && m_xEditEngine)
     {
         // EditEngine/EditView works in twips logical coordinates, so set the device map-mode to twips before painting
         // and use twips version of the painting area 'rRect'.
@@ -1592,7 +1592,7 @@ void ScTextWnd::InitEditEngine()
                       ScResId(STR_ACC_EDITLINE_DESCR));
     }
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         m_xEditView->RegisterViewShell(mpViewShell);
 
     // Text from Clipboard is taken over as ASCII in a single row
@@ -1830,7 +1830,7 @@ bool ScTextWnd::Command( const CommandEvent& rCEvt )
         }
     }
 
-    if ( comphelper::LibreOfficeKit::isActive() && nCommand == CommandEventId::CursorPos )
+    if ( comphelper::loficeKit::isActive() && nCommand == CommandEventId::CursorPos )
     {
         // LOK uses this to setup caret position because drawingarea is replaced
         // with text input field, it sends logical caret position (start, end) not pixels
@@ -1977,7 +1977,7 @@ void ScTextWnd::StopEditEngine( bool bAll )
             Invalidate(); // So that the Selection is not left there
     }
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         // Clear
         std::vector<ReferenceMark> aReferenceMarks;
@@ -2080,7 +2080,7 @@ void ScTextWnd::SetTextString( const OUString& rNewString, bool bKitUpdate )
         bInputMode = false;
     }
 
-    if (ScTabViewShell* pActiveViewShell = bKitUpdate && comphelper::LibreOfficeKit::isActive() ?
+    if (ScTabViewShell* pActiveViewShell = bKitUpdate && comphelper::loficeKit::isActive() ?
             dynamic_cast<ScTabViewShell*>(SfxViewShell::Current()) : nullptr)
     {
         ESelection aSel = m_xEditView ? m_xEditView->GetSelection() : ESelection();
@@ -2143,7 +2143,7 @@ void ScTextWnd::MakeDialogEditView()
                       ScResId(STR_ACC_EDITLINE_DESCR));
     }
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         m_xEditView->RegisterViewShell(mpViewShell);
     m_xEditEngine->InsertView( m_xEditView.get(), EE_APPEND );
 

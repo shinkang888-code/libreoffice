@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 #ifndef INCLUDED_CPPU_CPPUDLLAPI_H
 #define INCLUDED_CPPU_CPPUDLLAPI_H

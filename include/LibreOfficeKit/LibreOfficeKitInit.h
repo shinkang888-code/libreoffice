@@ -1,16 +1,16 @@
 /* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-#ifndef INCLUDED_LIBREOFFICEKIT_LIBREOFFICEKITINIT_H
-#define INCLUDED_LIBREOFFICEKIT_LIBREOFFICEKITINIT_H
+#ifndef INCLUDED_loficeKIT_loficeKITINIT_H
+#define INCLUDED_loficeKIT_loficeKITINIT_H
 
-#include "LibreOfficeKit.h"
+#include "loficeKit.h"
 
 #if defined __GNUC__ || defined __clang__
 #  define LOK_TOLERATE_UNUSED __attribute__((used))
@@ -36,7 +36,7 @@
         #define MERGED_LIB "libmergedlo.dylib"
 
         #if (!defined TARGET_OS_IPHONE || TARGET_OS_IPHONE == 0) && (!defined TARGET_OS_OSX || TARGET_OS_OSX == 0)
-            #error LibreOfficeKit is not supported on tvOS, visionOS or watchOS
+            #error loficeKit is not supported on tvOS, visionOS or watchOS
         #endif
     #else
         #define SOFFICEAPP_LIB "libsofficeapp.so"
@@ -296,20 +296,20 @@ static void *lok_dlopen( const char *install_path, char ** _imp_lib )
 }
 #endif
 
-typedef LibreOfficeKit *(LokHookFunction)( const char *install_path);
+typedef loficeKit *(LokHookFunction)( const char *install_path);
 
-typedef LibreOfficeKit *(LokHookFunction2)( const char *install_path, const char *user_profile_url );
+typedef loficeKit *(LokHookFunction2)( const char *install_path, const char *user_profile_url );
 
 typedef int             (LokHookPreInit)  ( const char *install_path, const char *user_profile_url );
 
 // For client code directly accessing the exported lok_preinit_2 via lok_dlsym:
-typedef int             (LokHookPreInit2) ( const char *install_path, const char *user_profile_url, LibreOfficeKit** kit);
+typedef int             (LokHookPreInit2) ( const char *install_path, const char *user_profile_url, loficeKit** kit);
 
 #if defined(IOS) || defined(ANDROID) || defined(__EMSCRIPTEN__)
-LibreOfficeKit *libreofficekit_hook_2(const char* install_path, const char* user_profile_path);
+loficeKit *loficekit_hook_2(const char* install_path, const char* user_profile_path);
 #endif
 
-// install_path is the pathname to the LibreOffice installation
+// install_path is the pathname to the lofice installation
 // directory, the one with the subdirectories "program", "share" etc.
 // On Linux there is nothing special here, you just pass such a
 // pathname.
@@ -326,7 +326,7 @@ LibreOfficeKit *libreofficekit_hook_2(const char* install_path, const char* user
 //
 // user_profile_url is a file: URI for the user profile. Can be NULL.
 
-static LibreOfficeKit *lok_init_2( const char *install_path,  const char *user_profile_url )
+static loficeKit *lok_init_2( const char *install_path,  const char *user_profile_url )
 {
 #if !defined(IOS) && !defined(ANDROID) && !defined(__EMSCRIPTEN__)
     void *dlhandle;
@@ -338,18 +338,18 @@ static LibreOfficeKit *lok_init_2( const char *install_path,  const char *user_p
     if (!dlhandle)
         return NULL;
 
-    pSym2 = (LokHookFunction2 *) lok_dlsym(dlhandle, "libreofficekit_hook_2");
+    pSym2 = (LokHookFunction2 *) lok_dlsym(dlhandle, "loficekit_hook_2");
     if (!pSym2)
     {
         if (user_profile_url != NULL)
         {
-            fprintf( stderr, "the LibreOffice version in '%s' does not support passing a user profile to the hook function\n",
+            fprintf( stderr, "the lofice version in '%s' does not support passing a user profile to the hook function\n",
                      imp_lib );
             lok_dlclose( dlhandle );
             free( imp_lib );
             return NULL;
         }
-        pSym = (LokHookFunction *) lok_dlsym( dlhandle, "libreofficekit_hook" );
+        pSym = (LokHookFunction *) lok_dlsym( dlhandle, "loficekit_hook" );
         if (!pSym)
         {
             fprintf( stderr, "failed to find hook in library '%s'\n", imp_lib );
@@ -377,12 +377,12 @@ static LibreOfficeKit *lok_init_2( const char *install_path,  const char *user_p
     // coverity[leaked_storage] - on purpose
     return pSym2( install_path, user_profile_url );
 #else
-    return libreofficekit_hook_2( install_path, user_profile_url );
+    return loficekit_hook_2( install_path, user_profile_url );
 #endif
 }
 
 static LOK_TOLERATE_UNUSED
-LibreOfficeKit *lok_init( const char *install_path )
+loficeKit *lok_init( const char *install_path )
 {
     return lok_init_2( install_path, NULL );
 }
@@ -424,6 +424,6 @@ int lok_preinit( const char *install_path,  const char *user_profile_url )
 
 #endif // defined(__linux__) || defined (__FreeBSD__) || defined(_WIN32) || defined(__APPLE__)
 
-#endif // INCLUDED_LIBREOFFICEKIT_LIBREOFFICEKITINIT_H
+#endif // INCLUDED_loficeKIT_loficeKITINIT_H
 
 /* vim:set shiftwidth=4 softtabstop=4 expandtab: */

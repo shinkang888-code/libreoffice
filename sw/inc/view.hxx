@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -264,7 +264,7 @@ class SW_DLLPUBLIC SwView: public SfxViewShell
                     m_bForceChangesToolbar : 1;  // on load of documents with change tracking
     bool m_bInitOnceCompleted = false;
 
-    /// LibreOfficeKit has to force the page size for PgUp/PgDown
+    /// loficeKit has to force the page size for PgUp/PgDown
     /// functionality based on the user's view, instead of using the m_aVisArea.
     SwTwips         m_nLOKPageUpDownOffset;
 
@@ -753,8 +753,8 @@ public:
     void BringToAttention(const tools::Rectangle& rRect);
     void BringToAttention(const SwNode* pNode);
 
-    /// See SfxViewShell::libreOfficeKitViewInvalidateTilesCallback().
-    void libreOfficeKitViewInvalidateTilesCallback(const tools::Rectangle* pRect, int nPart,
+    /// See SfxViewShell::loficeKitViewInvalidateTilesCallback().
+    void loficeKitViewInvalidateTilesCallback(const tools::Rectangle* pRect, int nPart,
                                                    int nMode) const override;
 };
 

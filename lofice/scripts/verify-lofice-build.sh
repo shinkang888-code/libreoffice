@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # lofice — Linux build verification helper
-# Run from LibreOffice repo root after ./autogen.sh && make
+# Run from lofice repo root after ./autogen.sh && make
 
 set -euo pipefail
 

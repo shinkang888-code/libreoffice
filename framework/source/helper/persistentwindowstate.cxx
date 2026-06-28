@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -77,8 +77,8 @@ void SAL_CALL PersistentWindowState::initialize(const css::uno::Sequence< css::u
 
 void SAL_CALL PersistentWindowState::frameAction(const css::frame::FrameActionEvent& aEvent)
 {
-    // We don't want to do this stuff when being used through LibreOfficeKit
-    if( comphelper::LibreOfficeKit::isActive() )
+    // We don't want to do this stuff when being used through loficeKit
+    if( comphelper::loficeKit::isActive() )
         return;
 
     css::uno::Reference< css::uno::XComponentContext >     xContext;
@@ -274,8 +274,8 @@ void PersistentWindowState::implst_setWindowStateOnWindow(const css::uno::Refere
 void PersistentWindowState::SaveWindowStateToConfig(const css::uno::Reference<css::uno::XComponentContext>& rContext,
                                                     const css::uno::Reference<css::frame::XFrame>& rFrame)
 {
-    // We don't want to do this stuff when being used through LibreOfficeKit
-    if (comphelper::LibreOfficeKit::isActive())
+    // We don't want to do this stuff when being used through loficeKit
+    if (comphelper::loficeKit::isActive())
         return;
 
     if (!rFrame.is())

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -234,14 +234,14 @@ static void* osl_thread_start_Impl (void* pData)
 #ifdef ANDROID
         JNIEnv* env = 0;
         int res = (*lo_get_javavm()).AttachCurrentThread(&env, NULL);
-        __android_log_print(ANDROID_LOG_INFO, "LibreOffice", "New sal thread started and attached res=%d", res);
+        __android_log_print(ANDROID_LOG_INFO, "lofice", "New sal thread started and attached res=%d", res);
 #endif
         /* call worker function */
         pImpl->m_WorkerFunction(pImpl->m_pData);
 
 #ifdef ANDROID
         res = (*lo_get_javavm()).DetachCurrentThread();
-        __android_log_print(ANDROID_LOG_INFO, "LibreOffice", "Detached finished sal thread res=%d", res);
+        __android_log_print(ANDROID_LOG_INFO, "lofice", "Detached finished sal thread res=%d", res);
 #endif
     }
 

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -155,8 +155,8 @@ bool writeRegistry(std::wstring const& installLocation)
         ok = false;
     }
     if (RegSetValueExW(key, L"name", 0, REG_SZ,
-                       reinterpret_cast<BYTE const*>(L"The Document Foundation"),
-                       sizeof L"The Document Foundation")
+                       reinterpret_cast<BYTE const*>(L"Lonex. Inc"),
+                       sizeof L"Lonex. Inc")
         != ERROR_SUCCESS)
     {
         ok = false;

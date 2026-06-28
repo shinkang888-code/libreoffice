@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -79,7 +79,7 @@ AboutDialog::AboutDialog(weld::Window* pParent)
     if (IsStringValidGitHash(sbuildId))
     {
         const tools::Long nMaxChar = 25;
-        m_pBuildLabel->set_uri("https://git.libreoffice.org/core/commit/" + sbuildId);
+        m_pBuildLabel->set_uri("https://git.lofice.org/core/commit/" + sbuildId);
         m_pBuildLabel->set_label(
             sbuildId.getLength() > nMaxChar
                 ? sbuildId.replaceAt(nMaxChar, sbuildId.getLength() - nMaxChar, u"...")
@@ -250,7 +250,7 @@ OUString AboutDialog::GetCopyrightString()
     OUString sVendorTextStr(CuiResId(RID_CUISTR_ABOUT_VENDOR));
     OUString aCopyrightString = sVendorTextStr + "\n" + CuiResId(RID_CUISTR_ABOUT_COPYRIGHT) + "\n";
 
-    if (utl::ConfigManager::getProductName() == "LibreOffice")
+    if (utl::ConfigManager::getProductName() == "lofice")
         aCopyrightString += CuiResId(RID_CUISTR_ABOUT_BASED_ON);
     else
         aCopyrightString += CuiResId(RID_CUISTR_ABOUT_DERIVED);

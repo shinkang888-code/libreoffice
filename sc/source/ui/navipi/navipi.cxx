@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -382,7 +382,7 @@ ScNavigatorDlg::ScNavigatorDlg(SfxBindings* pB, weld::Widget* pParent, SfxNaviga
         eNavMode = NAV_LMODE_AREAS;
     SetListMode(eNavMode);
 
-    if(comphelper::LibreOfficeKit::isActive())
+    if(comphelper::loficeKit::isActive())
     {
         m_xBuilder->weld_container(u"gridbuttons"_ustr)->hide();
         m_xLbDocuments->hide();
@@ -451,7 +451,7 @@ void ScNavigatorDlg::Notify( SfxBroadcaster&, const SfxHint& rHint )
         // This is for when the document might change and the navigator
         // wants to update for the new document, which isn't a scenario
         // that happens in online.
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
             return;
         const SfxEventHint& rEventHint = static_cast<const SfxEventHint&>(rHint);
         if (rEventHint.GetEventId() == SfxEventHintId::ActivateDoc)

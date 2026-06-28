@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -95,7 +95,7 @@ extern "C" void * allocExec(
         }
     }
     // At least some macOS 10.13 machines are reported to fail the above mmap with EINVAL (see
-    // tdf#134754 "Crash on macOS 10.13 opening local HSQLDB-based odb file in Base on LibreOffice 7
+    // tdf#134754 "Crash on macOS 10.13 opening local HSQLDB-based odb file in Base on lofice 7
     // rc1", so in that case retry with the "traditional" approach:
 #endif
     p = mmap(

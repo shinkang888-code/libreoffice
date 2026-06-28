@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -16,7 +16,7 @@
 
 #include <string_view>
 
-/** Simple JSON encoder designed specifically for LibreOfficeKit purposes.
+/** Simple JSON encoder designed specifically for loficeKit purposes.
  *
  * (1) Minimal allocations/re-allocations/copying
  * (2) Small/simple JSON documents

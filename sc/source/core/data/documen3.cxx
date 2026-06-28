@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -74,7 +74,7 @@
 #include <queryparam.hxx>
 #include <progress.hxx>
 #include <globalnames.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <comphelper/flagguard.hxx>
 #include <config_fuzzers.h>
@@ -1391,12 +1391,12 @@ bool ScDocument::SearchAndReplace(
                                 ScDocument::GetSearchAndReplaceStart(
                                     rSearchItem, nCol, nRow );
 
-                                // notify LibreOfficeKit about changed page
-                                if (comphelper::LibreOfficeKit::isActive())
+                                // notify loficeKit about changed page
+                                if (comphelper::loficeKit::isActive())
                                 {
                                     OString aPayload = OString::number(nTab);
                                     if (SfxViewShell* pViewShell = SfxViewShell::Current())
-                                        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_SET_PART, aPayload);
+                                        pViewShell->loficeKitViewCallback(LOK_CALLBACK_SET_PART, aPayload);
                                 }
                             }
                         }
@@ -1422,12 +1422,12 @@ bool ScDocument::SearchAndReplace(
                                 ScDocument::GetSearchAndReplaceStart(
                                     rSearchItem, nCol, nRow );
 
-                                // notify LibreOfficeKit about changed page
-                                if (comphelper::LibreOfficeKit::isActive())
+                                // notify loficeKit about changed page
+                                if (comphelper::loficeKit::isActive())
                                 {
                                     OString aPayload = OString::number(nTab);
                                     if(SfxViewShell* pViewShell = SfxViewShell::Current())
-                                        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_SET_PART, aPayload);
+                                        pViewShell->loficeKitViewCallback(LOK_CALLBACK_SET_PART, aPayload);
                                 }
                             }
                         }

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -48,7 +48,7 @@ struct strong_int
 {
 public:
 // when compiling LO on macOS, debug builds will display a linking error where, see
-// <https://lists.freedesktop.org/archives/libreoffice/2024-February/091564.html>, "Our Clang
+// <https://lists.freedesktop.org/archives/lofice/2024-February/091564.html>, "Our Clang
 // --enable-pch setup is known broken":
 #if defined MACOSX && defined __clang__ && (__clang_major__ == 16 || __clang_major__ == 17) && ENABLE_PCH
     explicit constexpr strong_int(unsigned long long value) : m_value(value) {}

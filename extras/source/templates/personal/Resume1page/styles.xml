@@ -49,7 +49,7 @@
     <text:notes-configuration text:note-class="endnote" style:num-format="i" text:start-value="0"/>
     <text:linenumbering-configuration text:number-lines="false" text:offset="0.499cm" style:num-format="1" text:number-position="left" text:increment="5"/>
     <loext:theme loext:name="Office">
-      <loext:theme-colors loext:name="LibreOffice">
+      <loext:theme-colors loext:name="lofice">
         <loext:color loext:name="dark1" loext:color="#000000"/>
         <loext:color loext:name="light1" loext:color="#ffffff"/>
         <loext:color loext:name="dark2" loext:color="#000000"/>

@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -4380,7 +4380,7 @@ $(eval $(call gb_UnoApi_add_idlfiles_nohdl,offapi,org/freedesktop/PackageKit,\
 ))
 
 ifeq ($(ENABLE_EMBINDTEST_UNO),TRUE)
-$(eval $(call gb_UnoApi_add_idlfiles,offapi,org/libreoffice/embindtest, \
+$(eval $(call gb_UnoApi_add_idlfiles,offapi,org/lofice/embindtest, \
     Constants \
     Enum \
     Exception \
@@ -4396,7 +4396,7 @@ $(eval $(call gb_UnoApi_add_idlfiles,offapi,org/libreoffice/embindtest, \
     XTest \
     theSingleton \
 ))
-$(eval $(call gb_UnoApi_add_idlfiles_nohdl,offapi,org/libreoffice/embindtest, \
+$(eval $(call gb_UnoApi_add_idlfiles_nohdl,offapi,org/lofice/embindtest, \
     BridgeTest \
     Test \
 ))

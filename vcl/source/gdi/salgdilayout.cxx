@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -783,7 +783,7 @@ bool SalGraphics::DrawNativeControl( ControlType nType, ControlPart nPart, const
 
     bool bLayoutRTL = true && (m_nLayout & SalLayoutFlags::BiDiRtl);
     bool bDevRTL = rOutDev.IsRTLEnabled();
-    bool bIsLOK = comphelper::LibreOfficeKit::isActive();
+    bool bIsLOK = comphelper::loficeKit::isActive();
     if( (bLayoutRTL || bDevRTL) && !bIsLOK )
     {
         mirror(aControlRegion, rOutDev);
@@ -913,8 +913,8 @@ css::uno::Any SalGraphics::GetNativeSurfaceHandle(cairo::SurfaceSharedPtr&,
 
 bool SalGraphics::ShouldDownscaleIconsAtSurface(double& rScaleOut) const
 {
-    rScaleOut = comphelper::LibreOfficeKit::getDPIScale();
-    return comphelper::LibreOfficeKit::isActive();
+    rScaleOut = comphelper::loficeKit::getDPIScale();
+    return comphelper::loficeKit::isActive();
 }
 
 bool SalGraphics::DrawBitmapWallpaper(

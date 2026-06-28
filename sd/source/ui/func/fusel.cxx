@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -60,7 +60,7 @@
 #include <svx/diagram/DiagramHelper_svx.hxx>
 #include <svx/annotation/ObjectAnnotationData.hxx>
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <svl/cryptosign.hxx>
 
@@ -150,7 +150,7 @@ bool FuSelection::MouseButtonDown(const MouseEvent& rMEvt)
     sal_uInt16 nDrgLog = sal_uInt16 ( mpWindow->PixelToLogic(Size(mpView->GetDragThresholdPixels(),0)).Width() );
     sal_uInt16 nHitLog = sal_uInt16 ( mpWindow->PixelToLogic(Size(HITPIX,0)).Width() );
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         // When tiled rendering, we always work in logic units, use the non-pixel constants.
         nDrgLog = DRGLOG;
@@ -282,10 +282,10 @@ bool FuSelection::MouseButtonDown(const MouseEvent& rMEvt)
                     return true;
 
                 // If tiled rendering, let client handles URL execution and early returns.
-                if (comphelper::LibreOfficeKit::isActive())
+                if (comphelper::loficeKit::isActive())
                 {
                     SfxViewShell& rSfxViewShell = mrViewShell.GetViewShellBase();
-                    rSfxViewShell.libreOfficeKitViewCallback(LOK_CALLBACK_HYPERLINK_CLICKED, aVEvt.mpURLField->GetURL().toUtf8());
+                    rSfxViewShell.loficeKitViewCallback(LOK_CALLBACK_HYPERLINK_CLICKED, aVEvt.mpURLField->GetURL().toUtf8());
                     return true;
                 }
 
@@ -449,7 +449,7 @@ bool FuSelection::MouseButtonDown(const MouseEvent& rMEvt)
                             if ( ! rMEvt.IsRight())
                                 mpView->BegDragObj(aMDPos, nullptr, pHdl, nDrgLog);
 
-                            if (comphelper::LibreOfficeKit::isActive())
+                            if (comphelper::loficeKit::isActive())
                             {
                                 if (pObj->GetObjIdentifier() == SdrObjKind::Page)
                                 {
@@ -464,7 +464,7 @@ bool FuSelection::MouseButtonDown(const MouseEvent& rMEvt)
 
                                         OString aPayload = jsonWriter.finishAndGetAsOString();
                                         if (pViewShell)
-                                            pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, aPayload);
+                                            pViewShell->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, aPayload);
 
                                     }
                                 }
@@ -756,7 +756,7 @@ bool FuSelection::MouseButtonUp(const MouseEvent& rMEvt)
                 * Toggle between selection and rotation
                 **************************************************************/
                 if (nSlotId == SID_OBJECT_SELECT
-                    && !comphelper::LibreOfficeKit::isActive()
+                    && !comphelper::loficeKit::isActive()
                     && mpView->IsRotateAllowed()
 
                     && (rMEvt.GetClicks() != 2)

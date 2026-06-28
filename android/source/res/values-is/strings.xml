@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">LibreOffice-skoðari</string>
-    <string name="app_name_settings">Stillingar LibreOffice-skoðara</string>
-    <string name="app_version">Útgáfa: %1$s&lt;br&gt;Byggingarauðkenni: &lt;a href=https://hub.libreoffice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
+    <string name="app_name">lofice-skoðari</string>
+    <string name="app_name_settings">Stillingar lofice-skoðara</string>
+    <string name="app_version">Útgáfa: %1$s&lt;br&gt;Byggingarauðkenni: &lt;a href=https://hub.lofice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
     <string name="about_privacy_policy">Meðferð persónuupplýsinga</string>
     <string name="create_file">Búa til nýja skrá</string>
     <string name="search_find_next">Finna næsta</string>
@@ -16,8 +16,8 @@
     <string name="font_color">Litur á letri</string>
     <string name="action_rename_slide">Endurnefna skyggnu</string>
     <string name="automatic">Sjálfvirkt</string>
-    <string name="app_description">LibreOffice-skoðarinn er skjalaskoðari byggður á LibreOffice.</string>
-    <string name="app_credits">https://www.libreoffice.org</string>
+    <string name="app_description">lofice-skoðarinn er skjalaskoðari byggður á lofice.</string>
+    <string name="app_credits">https://www.lofice.org</string>
     <string name="app_vendor">"Þessi útgáfa var gefin út af  $VENDOR."</string>
     <string name="readonly_file">Þessi skrá er aðeins lesanleg.</string>
     <string name="about_license">Birta notkunarleyfi</string>

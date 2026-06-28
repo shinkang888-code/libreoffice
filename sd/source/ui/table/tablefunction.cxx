@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -107,7 +107,7 @@ static void InsertTableImpl(const DrawViewShell* pShell,
         // if zoomed in close, don't make the table bigger than the viewing window.
         Size aMaxSize = pShell->getCurrentPage()->GetSize();
 
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             // aWinRect is nonsensical in the LOK case
             aWinRect = ::tools::Rectangle(aPos, aMaxSize);

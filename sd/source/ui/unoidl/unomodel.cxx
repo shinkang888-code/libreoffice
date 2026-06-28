@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -89,7 +89,7 @@
 #include <vcl/themecolors.hxx>
 #include <vcl/svapp.hxx>
 #include <Outliner.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 #include <editeng/UnoForbiddenCharsTable.hxx>
 #include <svx/svdoutl.hxx>
@@ -3866,7 +3866,7 @@ void SdXImpressDocument::paintTile( VirtualDevice& rDevice,
         return;
 
     // we need to skip tile invalidation for controls on rendering
-    comphelper::LibreOfficeKit::setTiledPainting(true);
+    comphelper::loficeKit::setTiledPainting(true);
 
     // Setup drawing layer to work properly. Since we use a custom VirtualDevice
     // for the drawing, SdrPaintView::BeginCompleteRedraw() will call FindPaintWindow()
@@ -3922,12 +3922,12 @@ void SdXImpressDocument::paintTile( VirtualDevice& rDevice,
     ::tools::Rectangle aRect(aPoint, aSize);
 
     SdrView* pView = pViewSh->GetDrawView();
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         pView->SetPaintTextEdit(mbPaintTextEdit);
 
     pViewSh->GetView()->CompleteRedraw(&rDevice, vcl::Region(aRect));
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         pView->SetPaintTextEdit(true);
 
     LokChartHelper::PaintAllChartsOnTile(rDevice, nOutputWidth, nOutputHeight,
@@ -3950,7 +3950,7 @@ void SdXImpressDocument::paintTile( VirtualDevice& rDevice,
         LokControlHandler::paintControlTile(pPage, pDrawView, *pActiveWin, rDevice, aOutputSize, aTileRect);
     }
 
-    comphelper::LibreOfficeKit::setTiledPainting(false);
+    comphelper::loficeKit::setTiledPainting(false);
 }
 
 OString SdXImpressDocument::getViewRenderState(SfxViewShell* pViewShell)
@@ -4282,7 +4282,7 @@ void SdXImpressDocument::initializeForTiledRendering(const css::uno::Sequence<cs
 
         // Disable comments if requested
         SdOptions* pOptions = SdModule::get()->GetSdOptions(mpDoc->GetDocumentType());
-        pOptions->SetShowComments(comphelper::LibreOfficeKit::isTiledAnnotations());
+        pOptions->SetShowComments(comphelper::loficeKit::isTiledAnnotations());
 
         pViewShell->SetRuler(false);
         pViewShell->SetScrollBarsVisible(false);
@@ -4316,7 +4316,7 @@ void SdXImpressDocument::initializeForTiledRendering(const css::uno::Sequence<cs
     auto xChanges = comphelper::ConfigurationChanges::create();
     officecfg::Office::Common::Save::Document::WarnAlienFormat::set(false, xChanges);
 
-    if (!o3tl::IsRunningUnitTest() || !comphelper::LibreOfficeKit::isActive())
+    if (!o3tl::IsRunningUnitTest() || !comphelper::loficeKit::isActive())
         officecfg::Office::Impress::MultiPaneGUI::SlideSorterBar::Visible::ImpressView::set(true,xChanges);
     xChanges->commit();
 

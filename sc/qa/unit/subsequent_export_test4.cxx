@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -404,7 +404,7 @@ CPPUNIT_TEST_FIXTURE(ScExportTest4, testTdf121715_FirstPageHeaderFooterXLSX)
 CPPUNIT_TEST_FIXTURE(ScExportTest4, testTdf121716_ExportEvenHeaderFooterXLSX)
 {
     // Header and footer on even pages should be exported properly
-    // If there are separate odd/even header, but only 1 footer for all pages (this is possible only in LibreOffice)
+    // If there are separate odd/even header, but only 1 footer for all pages (this is possible only in lofice)
     //  then the footer will be duplicated to have the same footer separately for even/odd pages
 
     createScDoc("ods/tdf121716_EvenHeaderFooter.ods");

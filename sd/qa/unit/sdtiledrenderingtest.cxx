@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -12,7 +12,7 @@
 #include <comphelper/lok.hxx>
 #include <comphelper/string.hxx>
 #include <sfx2/lokhelper.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <o3tl/string_view.hxx>
 #include <osl/process.h>
 
@@ -41,7 +41,7 @@ void SdTiledRenderingTest::setUp()
 
     // prevent showing warning message box
     osl_setEnvironment(u"OOX_NO_SMARTART_WARNING"_ustr.pData, u"1"_ustr.pData);
-    comphelper::LibreOfficeKit::setActive(true);
+    comphelper::loficeKit::setActive(true);
 }
 
 void SdTiledRenderingTest::tearDown()
@@ -65,9 +65,9 @@ SdTiledRenderingTest::createDoc(const char* pName,
     return pImpressDocument;
 }
 
-void SdTiledRenderingTest::setupLibreOfficeKitViewCallback(SfxViewShell& rViewShell)
+void SdTiledRenderingTest::setuploficeKitViewCallback(SfxViewShell& rViewShell)
 {
-    rViewShell.setLibreOfficeKitViewCallback(&m_callbackWrapper);
+    rViewShell.setloficeKitViewCallback(&m_callbackWrapper);
     m_callbackWrapper.setLOKViewId(SfxLokHelper::getView(rViewShell));
 }
 
@@ -207,7 +207,7 @@ SdTestViewCallback::SdTestViewCallback()
     , partOfInvalidation(0)
 {
     mpViewShell = SfxViewShell::Current();
-    mpViewShell->setLibreOfficeKitViewCallback(&m_callbackWrapper);
+    mpViewShell->setloficeKitViewCallback(&m_callbackWrapper);
     mnView = SfxLokHelper::getCurrentView();
     m_callbackWrapper.setLOKViewId(mnView);
 }
@@ -215,7 +215,7 @@ SdTestViewCallback::SdTestViewCallback()
 SdTestViewCallback::~SdTestViewCallback()
 {
     SfxLokHelper::setView(mnView);
-    mpViewShell->setLibreOfficeKitViewCallback(nullptr);
+    mpViewShell->setloficeKitViewCallback(nullptr);
 }
 
 void SdTestViewCallback::callback(int nType, const char* pPayload, void* pData)

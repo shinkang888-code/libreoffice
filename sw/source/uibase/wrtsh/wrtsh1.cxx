@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -705,7 +705,7 @@ void SwWrtShell::LaunchOLEObj(sal_Int32 nVerb)
     // LOK: we don't want to handle any other embedded objects than
     // charts, there are too many problems with eg. embedded spreadsheets
     // (like it creates a separate view for the calc sheet)
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         const auto classId = xRef->getClassID();
         if (!SotExchange::IsChart(classId) && !SotExchange::IsMath(classId))
@@ -2377,7 +2377,7 @@ void SwWrtShell::InsertPostIt(SwFieldMgr& rFieldMgr, const SfxRequest& rReq)
 {
     SwPostItField* pPostIt = dynamic_cast<SwPostItField*>(rFieldMgr.GetCurField());
     bool bNew = !(pPostIt && pPostIt->GetTyp()->Which() == SwFieldIds::Postit);
-    if (bNew || GetView().GetPostItMgr()->IsAnswer() || comphelper::LibreOfficeKit::isActive())
+    if (bNew || GetView().GetPostItMgr()->IsAnswer() || comphelper::loficeKit::isActive())
     {
         const SvxPostItAuthorItem* pAuthorItem = rReq.GetArg(SID_ATTR_POSTIT_AUTHOR);
         OUString sAuthor;
@@ -2509,7 +2509,7 @@ void SwWrtShell::InsertPostIt(SwFieldMgr& rFieldMgr, const SfxRequest& rReq)
 
     // Client has disabled annotations rendering, no need to
     // focus the postit field
-    if (comphelper::LibreOfficeKit::isActive() && !comphelper::LibreOfficeKit::isTiledAnnotations())
+    if (comphelper::loficeKit::isActive() && !comphelper::loficeKit::isTiledAnnotations())
         return;
 
     if (pPostIt)

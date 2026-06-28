@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -695,7 +695,7 @@ void ChartController::impl_createDrawViewController()
         if( m_pDrawModelWrapper )
         {
             bool bLokCalcGlobalRTL = false;
-            if(comphelper::LibreOfficeKit::isActive() && AllSettings::GetLayoutRTL())
+            if(comphelper::loficeKit::isActive() && AllSettings::GetLayoutRTL())
             {
                 rtl::Reference< ChartModel > xChartModel = getChartModel();
                 if (xChartModel.is())

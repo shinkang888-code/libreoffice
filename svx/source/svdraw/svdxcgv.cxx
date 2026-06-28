@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -401,7 +401,7 @@ void SdrExchangeView::ImpPasteObject(SdrObject* pObj, SdrObjList& rLst, const Po
     tools::Long xs=nSizX;
     tools::Long ys=nSizY;
     // set the pos to 0, 0 for online case
-    bool isLOK = comphelper::LibreOfficeKit::isActive();
+    bool isLOK = comphelper::loficeKit::isActive();
     Point aPos(isLOK ? 0 : rCenter.X()-xs/2, isLOK ? 0 : rCenter.Y()-ys/2);
     tools::Rectangle aR(aPos.X(),aPos.Y(),aPos.X()+xs,aPos.Y()+ys);
     pObj->SetLogicRect(aR);

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -116,13 +116,13 @@ xmlDocPtr HelpCompiler::getSourceDocument(const fs::path &filePath)
     xmlDocPtr res;
     if (bExtensionMode)
     {
-        // this is the mode when used within LibreOffice for importing help
+        // this is the mode when used within lofice for importing help
         // bundled with an extension
         res = xmlParseFile(filePath.native_file_string().c_str());
     }
     else
     {
-        // this is the mode when used at build time to generate LibreOffice
+        // this is the mode when used at build time to generate lofice
         // help from its xhp source
         static xsltStylesheetPtr cur = nullptr;
         static const char *params[2 + 1];

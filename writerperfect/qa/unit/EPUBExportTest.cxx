@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -613,8 +613,8 @@ CPPUNIT_TEST_FIXTURE(EPUBExportTest, testLink)
     save(TestFilter::EPUB);
 
     xmlDocUniquePtr mpXmlDoc = parseExport(u"OEBPS/sections/section0001.xhtml"_ustr);
-    assertXPathContent(mpXmlDoc, "//xhtml:p/xhtml:a/xhtml:span", u"https://libreoffice.org/");
-    assertXPath(mpXmlDoc, "//xhtml:p/xhtml:a", "href", u"https://libreoffice.org/");
+    assertXPathContent(mpXmlDoc, "//xhtml:p/xhtml:a/xhtml:span", u"https://lofice.org/");
+    assertXPath(mpXmlDoc, "//xhtml:p/xhtml:a", "href", u"https://lofice.org/");
 }
 
 CPPUNIT_TEST_FIXTURE(EPUBExportTest, testLinkInvalid)
@@ -634,8 +634,8 @@ CPPUNIT_TEST_FIXTURE(EPUBExportTest, testLinkCharFormat)
 
     xmlDocUniquePtr mpXmlDoc = parseExport(u"OEBPS/sections/section0001.xhtml"_ustr);
     // <span> was lost, link text having a char format was missing.
-    assertXPathContent(mpXmlDoc, "//xhtml:p/xhtml:a/xhtml:span", u"https://libreoffice.org/");
-    assertXPath(mpXmlDoc, "//xhtml:p/xhtml:a", "href", u"https://libreoffice.org/");
+    assertXPathContent(mpXmlDoc, "//xhtml:p/xhtml:a/xhtml:span", u"https://lofice.org/");
+    assertXPath(mpXmlDoc, "//xhtml:p/xhtml:a", "href", u"https://lofice.org/");
 }
 
 CPPUNIT_TEST_FIXTURE(EPUBExportTest, testLinkNamedCharFormat)
@@ -648,8 +648,8 @@ CPPUNIT_TEST_FIXTURE(EPUBExportTest, testLinkNamedCharFormat)
     std::map<OUString, std::vector<OUString>> aCssDoc
         = parseCss(u"OEBPS/styles/stylesheet.css"_ustr);
     // This failed, there was no span inside the hyperlink.
-    assertXPathContent(mpXmlDoc, "//xhtml:p/xhtml:a/xhtml:span", u"http://libreoffice.org");
-    assertXPath(mpXmlDoc, "//xhtml:p/xhtml:a", "href", u"http://libreoffice.org/");
+    assertXPathContent(mpXmlDoc, "//xhtml:p/xhtml:a/xhtml:span", u"http://lofice.org");
+    assertXPath(mpXmlDoc, "//xhtml:p/xhtml:a", "href", u"http://lofice.org/");
 
     OUString aClass = getXPath(mpXmlDoc, "//xhtml:p/xhtml:a/xhtml:span", "class");
     CPPUNIT_ASSERT_EQUAL(u"#ff0000"_ustr, EPUBExportTest::getCss(aCssDoc, aClass, u"color"));

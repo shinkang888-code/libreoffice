@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -107,7 +107,7 @@ SdNavigatorWin::SdNavigatorWin(weld::Widget* pParent, SfxBindings* pInBindings, 
     mxToolbox->connect_key_press(LINK(this, SdNavigatorWin, KeyInputHdl));
     mxTlbObjects->connect_key_press(LINK(this, SdNavigatorWin, KeyInputHdl));
     mxLbDocs->connect_key_press(LINK(this, SdNavigatorWin, KeyInputHdl));
-    if(comphelper::LibreOfficeKit::isActive())
+    if(comphelper::loficeKit::isActive())
     {
         mxToolbox->hide();
         mxLbDocs->hide();
@@ -276,7 +276,7 @@ IMPL_STATIC_LINK_NOARG(SdNavigatorWin, MouseReleaseHdl, const MouseEvent&, bool)
 
 IMPL_LINK(SdNavigatorWin, CommandHdl, const CommandEvent&, rCEvt, bool)
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return false;
 
     if (NavDocInfo* pInfo = GetDocInfo(); !pInfo || !pInfo->IsActive())

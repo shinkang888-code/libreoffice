@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -214,7 +214,7 @@ published service SheetCell
     /** contains the content type of the cell.
 
         @see com::sun::star::table::CellContentType
-        @since LibreOffice 6.1
+        @since lofice 6.1
     */
     [optional, readonly, property] com::sun::star::table::CellContentType CellContentType;
 
@@ -222,7 +222,7 @@ published service SheetCell
     /** contains the result type of a formula.
 
         @see com::sun::star::sheet::FormulaResult
-        @since LibreOffice 6.1
+        @since lofice 6.1
      */
     [optional, readonly, property] long FormulaResultType2;
 };

@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,17 +18,17 @@ class tdf122722(UITestCase):
         with self.ui_test.create_doc_in_start_center("writer") as document:
             xWriterDoc = self.xUITest.getTopFocusWindow()
             xWriterEdit = xWriterDoc.getChild("writer_edit")
-            #1. Start LibreOffice
+            #1. Start lofice
             #2. Create New Writer Document
-            #3. Type "LibreOffice" in Writer
-            type_text(xWriterEdit, "LibreOffice")
-            #4. Select "LibreOffice" with mouse, and right click
+            #3. Type "lofice" in Writer
+            type_text(xWriterEdit, "lofice")
+            #4. Select "lofice" with mouse, and right click
             self.xUITest.executeCommand(".uno:SelectAll")
-            self.assertEqual(document.Text.String[0:11], "LibreOffice")
+            self.assertEqual(document.Text.String[0:11], "lofice")
             #5. Appear Context Menu, Character -> Character
             #6. Opened Character, Select "Font Effect" tab
             #7. Check Hidden, and click [OK]
-            #8. Crash a LibreOffice
+            #8. Crash a lofice
             with self.ui_test.execute_dialog_through_command(".uno:FontDialog") as xDialog:
                 xTabs = xDialog.getChild("tabcontrol")
                 select_pos(xTabs, "1")
@@ -48,6 +48,6 @@ class tdf122722(UITestCase):
                 xHidden.executeAction("CLICK", tuple())
 
 
-            self.assertEqual(document.Text.String[0:11], "LibreOffice")
+            self.assertEqual(document.Text.String[0:11], "lofice")
 
 # vim: set shiftwidth=4 softtabstop=4 expandtab:

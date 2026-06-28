@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
 #include <comphelper/processfactory.hxx>
 #include <comphelper/servicehelper.hxx>
 #include <sfx2/lokhelper.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <unomodel.hxx>
 
 using namespace css;
@@ -29,7 +29,7 @@ void DrawViewShell::ConfigurationChanged( utl::ConfigurationBroadcaster* pCb, Co
 {
     svtools::ColorConfig *pColorConfig = dynamic_cast<svtools::ColorConfig*>(pCb);
     ConfigureAppBackgroundColor(pColorConfig);
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
     {
         SdViewOptions aViewOptions = GetViewOptions();
         aViewOptions.mnDocBackgroundColor = pColorConfig->GetColorValue(svtools::DOCCOLOR).nColor;
@@ -48,7 +48,7 @@ void DrawViewShell::ConfigurationChanged( utl::ConfigurationBroadcaster* pCb, Co
         SdXImpressDocument* pDoc = comphelper::getFromUnoTunnel<SdXImpressDocument>(pCurrentShell->GetCurrentDocument());
         SfxLokHelper::notifyViewRenderState(pCurrentShell, pDoc);
         Color aFillColor(pColorConfig->GetColorValue(svtools::APPBACKGROUND).nColor);
-        pCurrentShell->libreOfficeKitViewCallback(LOK_CALLBACK_APPLICATION_BACKGROUND_COLOR,
+        pCurrentShell->loficeKitViewCallback(LOK_CALLBACK_APPLICATION_BACKGROUND_COLOR,
                     aFillColor.AsRGBHexString().toUtf8());
     }
 }
@@ -58,7 +58,7 @@ void DrawViewShell::ConfigureAppBackgroundColor( svtools::ColorConfig *pColorCon
     if (!pColorConfig)
         pColorConfig = &SdModule::get()->GetColorConfig();
     Color aFillColor( pColorConfig->GetColorValue( svtools::APPBACKGROUND ).nColor );
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         aFillColor = COL_TRANSPARENT;
     // tdf#87905 Use darker background color for master view
     if (meEditMode == EditMode::MasterPage)

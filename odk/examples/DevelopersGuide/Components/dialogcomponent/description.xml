@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,7 +9,7 @@
 -->
 <d:description xmlns:d="http://openoffice.org/extensions/description/2006">
   <d:dependencies>
-    <l:LibreOffice-minimal-version value="4.1" d:name="LibreOffice 4.1"
-        xmlns:l="http://libreoffice.org/extensions/description/2011"/>
+    <l:lofice-minimal-version value="4.1" d:name="lofice 4.1"
+        xmlns:l="http://lofice.org/extensions/description/2011"/>
   </d:dependencies>
 </d:description>

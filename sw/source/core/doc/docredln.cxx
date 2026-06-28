@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -28,7 +28,7 @@
 #include <editeng/prntitem.hxx>
 #include <comphelper/lok.hxx>
 #include <comphelper/string.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <unotools/datetime.hxx>
 #include <sfx2/viewsh.hxx>
 #include <o3tl/string_view.hxx>
@@ -337,7 +337,7 @@ void lcl_LOKInvalidateStartEndFrames(SwShellCursor& rCursor)
 bool lcl_LOKRedlineNotificationEnabled()
 {
     static bool bDisableRedlineComments = getenv("DISABLE_REDLINE") != nullptr;
-    if (comphelper::LibreOfficeKit::isActive() && !bDisableRedlineComments)
+    if (comphelper::loficeKit::isActive() && !bDisableRedlineComments)
         return true;
 
     return false;
@@ -419,7 +419,7 @@ void SwRedlineTable::LOKRedlineNotification(RedlineNotification nType, SwRangeRe
     while (pViewShell)
     {
         if (pView && pView->GetDocId() == pViewShell->GetDocId())
-            pViewShell->libreOfficeKitViewCallback(nType == RedlineNotification::Modify ? LOK_CALLBACK_REDLINE_TABLE_ENTRY_MODIFIED : LOK_CALLBACK_REDLINE_TABLE_SIZE_CHANGED, OString(aPayload));
+            pViewShell->loficeKitViewCallback(nType == RedlineNotification::Modify ? LOK_CALLBACK_REDLINE_TABLE_ENTRY_MODIFIED : LOK_CALLBACK_REDLINE_TABLE_SIZE_CHANGED, OString(aPayload));
         pViewShell = SfxViewShell::GetNext(*pViewShell);
     }
 }
@@ -1469,7 +1469,7 @@ namespace
 {
 void lcl_LOKBroadcastCommentOperation(RedlineType type, const SwPaM& rPam)
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         auto eHintType = RedlineType::Delete == type ? SwFormatFieldHintWhich::REDLINED_DELETION: SwFormatFieldHintWhich::INSERTED;
         const SwTextNode *pTextNode = rPam.GetPointNode().GetTextNode();
@@ -1830,7 +1830,7 @@ void SwRangeRedline::InvalidateRange(Invalidation const eWhy)
                     pNd->CallSwClientNotify(hint);
                 }
 
-                if (comphelper::LibreOfficeKit::isActive() && IsAnnotation())
+                if (comphelper::loficeKit::isActive() && IsAnnotation())
                 {
                     auto eHintType = eWhy == Invalidation::Add ? SwFormatFieldHintWhich::INSERTED: SwFormatFieldHintWhich::REMOVED;
                     const SwTextNode *pTextNode = this->GetPointNode().GetTextNode();

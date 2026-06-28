@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -19,8 +19,8 @@ class insertFootnote(UITestCase):
 
             self.xUITest.executeCommand(".uno:InsertFootnote")
 
-            type_text(xWriterEdit, "LibreOffice")
-            self.assertEqual(document.Footnotes[0].String, "LibreOffice")
+            type_text(xWriterEdit, "lofice")
+            self.assertEqual(document.Footnotes[0].String, "lofice")
             self.assertEqual(len(document.Footnotes), 1)
 
             self.xUITest.executeCommand(".uno:Undo")
@@ -31,6 +31,6 @@ class insertFootnote(UITestCase):
             self.assertEqual(document.Footnotes[0].String, "")
             self.assertEqual(len(document.Footnotes), 1)
             self.xUITest.executeCommand(".uno:Redo")
-            self.assertEqual(document.Footnotes[0].String, "LibreOffice")
+            self.assertEqual(document.Footnotes[0].String, "lofice")
 
 # vim: set shiftwidth=4 softtabstop=4 expandtab:

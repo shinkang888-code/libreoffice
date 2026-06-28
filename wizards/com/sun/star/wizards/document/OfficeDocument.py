@@ -1,5 +1,5 @@
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -178,7 +178,7 @@ class OfficeDocument(object):
             return True
         except ErrorCodeIOException:
             #Throw this exception when trying to save a file
-            #which is already opened in Libreoffice
+            #which is already opened in lofice
             #TODO: handle it properly
             return True
             pass

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -424,12 +424,12 @@ public:
 class SAL_NO_VTABLE SAL_DLLPUBLIC_RTTI OutlinerViewShell
 {
 public:
-    virtual void libreOfficeKitViewCallback(int nType, const OString& pPayload) const = 0;
-    virtual void libreOfficeKitViewCallbackWithViewId(int nType, const OString& pPayload, int nViewId) const = 0;
-    virtual void libreOfficeKitViewInvalidateTilesCallback(const tools::Rectangle* pRect, int nPart, int nMode) const = 0;
-    virtual void libreOfficeKitViewUpdatedCallback(int nType) const = 0;
-    virtual void libreOfficeKitViewUpdatedCallbackPerViewId(int nType, int nViewId, int nSourceViewId) const = 0;
-    virtual void libreOfficeKitViewAddPendingInvalidateTiles() = 0;
+    virtual void loficeKitViewCallback(int nType, const OString& pPayload) const = 0;
+    virtual void loficeKitViewCallbackWithViewId(int nType, const OString& pPayload, int nViewId) const = 0;
+    virtual void loficeKitViewInvalidateTilesCallback(const tools::Rectangle* pRect, int nPart, int nMode) const = 0;
+    virtual void loficeKitViewUpdatedCallback(int nType) const = 0;
+    virtual void loficeKitViewUpdatedCallbackPerViewId(int nType, int nViewId, int nSourceViewId) const = 0;
+    virtual void loficeKitViewAddPendingInvalidateTiles() = 0;
     virtual ViewShellId GetViewShellId() const = 0;
     virtual ViewShellDocId GetDocId() const = 0;
     /// Wrapper around SfxLokHelper::notifyOtherViews().

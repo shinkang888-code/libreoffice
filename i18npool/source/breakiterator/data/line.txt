@@ -21,7 +21,7 @@
 #
 
 ### BEGIN CUSTOMIZATION
-### This file contains LibreOffice-specific rule customizations.
+### This file contains lofice-specific rule customizations.
 ###
 ### To aid future maintainability:
 ### - The change location should be bracketed by comments of this form.

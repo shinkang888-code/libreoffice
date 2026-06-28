@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -61,8 +61,8 @@ void UnoApiTest::tearDown()
     if (mxComponent.is())
         dispose();
 
-    if (comphelper::LibreOfficeKit::isActive())
-        comphelper::LibreOfficeKit::setActive(false);
+    if (comphelper::loficeKit::isActive())
+        comphelper::loficeKit::setActive(false);
 
     test::BootstrapFixture::tearDown();
 }
@@ -168,13 +168,13 @@ void UnoApiTest::validate(TestFilter eFilter)
         aValidator
             += " -M "
                + m_directories.getPathFromSrc(
-                     u"/schema/libreoffice/OpenDocument-v1.4+libreoffice-manifest-schema.rng")
+                     u"/schema/lofice/OpenDocument-v1.4+lofice-manifest-schema.rng")
                + " -D "
                + m_directories.getPathFromSrc(
-                     u"/schema/libreoffice/OpenDocument-v1.4+libreoffice-dsig-schema.rng")
+                     u"/schema/lofice/OpenDocument-v1.4+lofice-dsig-schema.rng")
                + " -O "
                + m_directories.getPathFromSrc(
-                     u"/schema/libreoffice/OpenDocument-v1.4+libreoffice-schema.rng")
+                     u"/schema/lofice/OpenDocument-v1.4+lofice-schema.rng")
                + " -m " + m_directories.getPathFromSrc(u"/schema/mathml2/mathml2.xsd");
     }
 

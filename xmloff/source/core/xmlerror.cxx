@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -30,7 +30,7 @@
 #include <comphelper/lok.hxx>
 #include <tools/json_writer.hxx>
 #include <vcl/IDialogRenderable.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 using ::com::sun::star::uno::Any;
 using ::com::sun::star::uno::Sequence;
@@ -82,7 +82,7 @@ ErrorRecord::ErrorRecord( sal_Int32 nID, const Sequence<OUString>& rParams,
 {
 }
 
-XMLErrors::XMLErrors(vcl::ILibreOfficeKitNotifier* pNotifier)
+XMLErrors::XMLErrors(vcl::IloficeKitNotifier* pNotifier)
     : mpNotifier(pNotifier)
 {
 }
@@ -103,7 +103,7 @@ void XMLErrors::AddRecord(
     m_aErrors.emplace_back( nId, rParams, rExceptionMessage,
                                     nRow, nColumn, rPublicId, rSystemId );
 
-    if (comphelper::LibreOfficeKit::isActive() && mpNotifier)
+    if (comphelper::loficeKit::isActive() && mpNotifier)
     {
         // The outer error is logged in sfx2, mentioning just the stream name. Also log here the
         // inner error, which potentially contains the location of an uncaught exception.
@@ -118,7 +118,7 @@ void XMLErrors::AddRecord(
                 aWriter.put("cmd", "");
                 aWriter.put("message", rExceptionMessage);
             }
-            mpNotifier->libreOfficeKitViewCallback(LOK_CALLBACK_ERROR, aWriter.finishAndGetAsOString());
+            mpNotifier->loficeKitViewCallback(LOK_CALLBACK_ERROR, aWriter.finishAndGetAsOString());
         }
     }
 

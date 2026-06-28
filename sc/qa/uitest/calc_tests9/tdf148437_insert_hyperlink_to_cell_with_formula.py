@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -8,8 +8,8 @@
 #
 
 from uitest.framework import UITestCase
-from libreoffice.uno.propertyvalue import mkPropertyValues
-from libreoffice.calc.document import get_cell_by_position
+from lofice.uno.propertyvalue import mkPropertyValues
+from lofice.calc.document import get_cell_by_position
 from uitest.uihelper.calc import enter_text_to_cell
 from uitest.uihelper.common import get_state_as_dict, select_pos
 
@@ -20,7 +20,7 @@ class tdf148437(UITestCase):
             xGridWindow = xCalcDoc.getChild("grid_window")
 
             # Select a cell including a formula and insert a hyperlink
-            enter_text_to_cell(xGridWindow, "A1", "=HYPERLINK(\"www.libreoffice.org\";\"LibreOffice\")")
+            enter_text_to_cell(xGridWindow, "A1", "=HYPERLINK(\"www.lofice.org\";\"lofice\")")
             # Move focus to ensure cell is not in edit mode
             xGridWindow.executeAction("SELECT", mkPropertyValues({"CELL": "A2"}))
             xGridWindow.executeAction("SELECT", mkPropertyValues({"CELL": "A1"}))
@@ -32,12 +32,12 @@ class tdf148437(UITestCase):
                 xTarget = xDialog.getChild("target")
                 self.assertEqual(get_state_as_dict(xTarget)["Text"], "")
                 xIndication = xDialog.getChild("indication")
-                self.assertEqual(get_state_as_dict(xIndication)["Text"], "LibreOffice")
+                self.assertEqual(get_state_as_dict(xIndication)["Text"], "lofice")
 
                 # Insert a sample hyperlink
-                xTarget.executeAction("TYPE", mkPropertyValues({"TEXT": "https://www.documentfoundation.org/"}))
+                xTarget.executeAction("TYPE", mkPropertyValues({"TEXT": "https://www.lofice.io/"}))
                 xIndication.executeAction("TYPE", mkPropertyValues({"KEYCODE":"CTRL+A"}))
-                xIndication.executeAction("TYPE", mkPropertyValues({"TEXT": "LibreOffice Document Foundation"}))
+                xIndication.executeAction("TYPE", mkPropertyValues({"TEXT": "lofice Lonex. Inc"}))
 
             # Move focus to ensure cell is not in edit mode
             xGridWindow.executeAction("SELECT", mkPropertyValues({"CELL": "A2"}))
@@ -45,9 +45,9 @@ class tdf148437(UITestCase):
 
             # Check contents of the cell
             xCell = get_cell_by_position(document, 0, 0, 0)
-            self.assertEqual(xCell.getString(), "LibreOffice Document Foundation")
+            self.assertEqual(xCell.getString(), "lofice Lonex. Inc")
             xTextFields = xCell.getTextFields()
             self.assertEqual(len(xTextFields), 1)
-            self.assertEqual(xTextFields[0].URL, "https://www.documentfoundation.org/")
+            self.assertEqual(xTextFields[0].URL, "https://www.lofice.io/")
 
 # vim: set shiftwidth=4 softtabstop=4 expandtab:

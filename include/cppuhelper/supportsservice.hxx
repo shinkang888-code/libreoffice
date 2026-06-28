@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -8,7 +8,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 
 #ifndef INCLUDED_CPPUHELPER_SUPPORTSSERVICE_HXX
@@ -40,7 +40,7 @@ namespace cppu {
     @return true iff the sequence returned by the given implementation's
     getSupportedServices method contains the given name
 
-    @since LibreOffice 4.0
+    @since lofice 4.0
 */
 bool CPPUHELPER_DLLPUBLIC supportsService(
     css::lang::XServiceInfo * implementation,

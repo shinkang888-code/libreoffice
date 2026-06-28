@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -30,9 +30,9 @@
 #endif
 #endif
 
-#include <LibreOfficeKit/LibreOfficeKitInit.h>
-#include <LibreOfficeKit/LibreOfficeKit.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitInit.h>
+#include <loficeKit/loficeKit.hxx>
+#include <loficeKit/loficeKitEnums.h>
 
 using namespace ::boost;
 using namespace ::lok;
@@ -146,17 +146,17 @@ void TiledRenderingTest::runAllTests()
 
 void TiledRenderingTest::testDocumentLoadFail( Office* pOffice )
 {
-    const string sDocPath = m_sSrcRoot + "/libreofficekit/qa/data/IDONOTEXIST.odt";
+    const string sDocPath = m_sSrcRoot + "/loficekit/qa/data/IDONOTEXIST.odt";
     std::unique_ptr< Document> pDocument( pOffice->documentLoad( sDocPath.c_str() ) );
     CPPUNIT_ASSERT( !pDocument );
     // TODO: we probably want to have some way of returning what
     // the cause of failure was. getError() will return
     // something along the lines of:
-    // "Unsupported URL <file:///SRC_ROOT/libreofficekit/qa/data/IDONOTEXIST.odt>: "type detection failed""
+    // "Unsupported URL <file:///SRC_ROOT/loficekit/qa/data/IDONOTEXIST.odt>: "type detection failed""
 }
 
 // Our dumped .png files end up in
-// workdir/CppunitTest/libreofficekit_tiledrendering.test.core
+// workdir/CppunitTest/loficekit_tiledrendering.test.core
 
 static int getDocumentType( Office* pOffice, const string& rPath )
 {
@@ -168,8 +168,8 @@ static int getDocumentType( Office* pOffice, const string& rPath )
 std::unique_ptr<Document> TiledRenderingTest::loadDocument( Office *pOffice, const string &pName,
                                                             const char *pFilterOptions )
 {
-    const string sDocPath = m_sSrcRoot + "/libreofficekit/qa/data/" + pName;
-    const string sLockFile = m_sSrcRoot +"/libreofficekit/qa/data/.~lock." + pName + "#";
+    const string sDocPath = m_sSrcRoot + "/loficekit/qa/data/" + pName;
+    const string sLockFile = m_sSrcRoot +"/loficekit/qa/data/.~lock." + pName + "#";
 
     remove( sLockFile.c_str() );
 
@@ -181,18 +181,18 @@ void TiledRenderingTest::testDocumentTypes( Office* pOffice )
     std::unique_ptr<Document> pDocument(loadDocument(pOffice, "blank_text.odt"));
 
     CPPUNIT_ASSERT(pDocument);
-    CPPUNIT_ASSERT_EQUAL(LOK_DOCTYPE_TEXT, static_cast<LibreOfficeKitDocumentType>(pDocument->getDocumentType()));
+    CPPUNIT_ASSERT_EQUAL(LOK_DOCTYPE_TEXT, static_cast<loficeKitDocumentType>(pDocument->getDocumentType()));
     // This crashed.
     pDocument->postUnoCommand(".uno:Bold");
     processEventsToIdle();
 
-    const string sPresentationDocPath = m_sSrcRoot + "/libreofficekit/qa/data/blank_presentation.odp";
-    const string sPresentationLockFile = m_sSrcRoot +"/libreofficekit/qa/data/.~lock.blank_presentation.odp#";
+    const string sPresentationDocPath = m_sSrcRoot + "/loficekit/qa/data/blank_presentation.odp";
+    const string sPresentationLockFile = m_sSrcRoot +"/loficekit/qa/data/.~lock.blank_presentation.odp#";
 
     // FIXME: same comment as below wrt lockfile removal.
     remove( sPresentationLockFile.c_str() );
 
-    CPPUNIT_ASSERT_EQUAL(LOK_DOCTYPE_PRESENTATION, static_cast<LibreOfficeKitDocumentType>(getDocumentType(pOffice, sPresentationDocPath)));
+    CPPUNIT_ASSERT_EQUAL(LOK_DOCTYPE_PRESENTATION, static_cast<loficeKitDocumentType>(getDocumentType(pOffice, sPresentationDocPath)));
 
     // TODO: do this for all supported document types
 }
@@ -224,7 +224,7 @@ void TiledRenderingTest::testPaintPartTile(Office* pOffice)
     std::unique_ptr<Document> pDocument(loadDocument(pOffice, "blank_text.odt"));
 
     CPPUNIT_ASSERT(pDocument);
-    CPPUNIT_ASSERT_EQUAL(LOK_DOCTYPE_TEXT, static_cast<LibreOfficeKitDocumentType>(pDocument->getDocumentType()));
+    CPPUNIT_ASSERT_EQUAL(LOK_DOCTYPE_TEXT, static_cast<loficeKitDocumentType>(pDocument->getDocumentType()));
 
     // Create two views.
     pDocument->getView();
@@ -402,7 +402,7 @@ void TiledRenderingTest::testMultiKeyInput(Office *pOffice)
     std::unique_ptr<Document> pDocument(loadDocument(pOffice, "blank_text.odt"));
 
     CPPUNIT_ASSERT(pDocument);
-    CPPUNIT_ASSERT_EQUAL(LOK_DOCTYPE_TEXT, static_cast<LibreOfficeKitDocumentType>(pDocument->getDocumentType()));
+    CPPUNIT_ASSERT_EQUAL(LOK_DOCTYPE_TEXT, static_cast<loficeKitDocumentType>(pDocument->getDocumentType()));
 
     // Create two views.
     int nViewA = pDocument->getView();

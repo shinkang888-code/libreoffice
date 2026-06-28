@@ -30,7 +30,7 @@ interface XTransferable2 : com::sun::star::datatransfer::XTransferable
     /**
      * Returns true if the selection contains embedded objects or is a large text blob.
      *
-     * @since LibreOffice 6.4
+     * @since lofice 6.4
      */
     boolean isComplex();
 };

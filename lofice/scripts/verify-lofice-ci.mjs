@@ -110,14 +110,27 @@ const uiWidgets = await verifyUiWidgets();
 const rag = await verifyRagHealth();
 const ragE2e = await verifyRagE2e();
 
+let rebrand = { ok: true, skipped: true };
+try {
+  const { spawnSync } = await import('node:child_process');
+  const result = spawnSync(process.execPath, ['verify-rebrand.mjs'], {
+    cwd: __dirname,
+    encoding: 'utf8',
+  });
+  rebrand = JSON.parse(result.stdout || '{"ok":false}');
+} catch {
+  rebrand = { ok: false, error: 'verify-rebrand failed to run' };
+}
+
 const ok =
   mk.missing.length === 0
   && mk.missingFiles.length === 0
   && officecfg.missingInXcs.length === 0
   && officecfg.missingInXcu.length === 0
   && ui.missing.length === 0
-  && uiWidgets.missing.length === 0;
+  && uiWidgets.missing.length === 0
+  && rebrand.ok;
 
-console.log(JSON.stringify({ ok, mk, officecfg, ui, uiWidgets, rag, ragE2e }, null, 2));
+console.log(JSON.stringify({ ok, mk, officecfg, ui, uiWidgets, rag, ragE2e, rebrand }, null, 2));
 if (!ok)
   process.exit(1);

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1084,7 +1084,7 @@ sal_Int32 EnhancedCustomShape2d::GetLuminanceChange( sal_uInt32 nIndex ) const
 Color EnhancedCustomShape2d::GetColorData( const Color& rFillColor, sal_uInt32 nIndex, double dBrightness ) const
 {
     if ( m_bOOXMLShape || ( mso_sptMin == m_eSpType /* ODF "non-primitive" */ ) )
-    { //do LibreOffice way, using dBrightness
+    { //do lofice way, using dBrightness
         if ( dBrightness == 0.0)
         {
             return rFillColor;
@@ -2185,7 +2185,7 @@ void EnhancedCustomShape2d::CreateSubPath(
                     if (pAny)
                         *pAny >>= sShpType;
                     // User defined shapes in MS binary format, which contain command U or T after import
-                    // in LibreOffice, starts with "mso".
+                    // in lofice, starts with "mso".
                     const bool bIsFromBinaryImport(sShpType.startsWith("mso"));
                     // The only own or imported preset shapes with U command are those listed below.
                     // Command T is not used in preset shapes.

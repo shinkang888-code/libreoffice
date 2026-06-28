@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -38,7 +38,7 @@ $(if $(UNOAPI_REFERENCE), \
 	&& { $(gb_UnoApiTarget_UNOIDLCHECKCOMMAND) $(UNOAPI_REFERENCE) -- \
 			$(foreach rdb,$(UNOAPI_DEPRDBS),$(call gb_UnoApiTarget_get_target,$(rdb))) \
 			$(1) \
-		|| { printf 'ERROR: Published UNO API must not be changed incompatibly!\n(If published UNO API shall be changed incompatibly after all, see\n<https://wiki.documentfoundation.org/Development/Incompatible_UNO_API_Changes>.)\n'; \
+		|| { printf 'ERROR: Published UNO API must not be changed incompatibly!\n(If published UNO API shall be changed incompatibly after all, see\n<https://wiki.lofice.io/Development/Incompatible_UNO_API_Changes>.)\n'; \
 		     false; } })
 endef
 

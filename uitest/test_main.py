@@ -15,8 +15,8 @@ import types
 
 from uitest.framework import UITestCase
 
-from libreoffice.connection import OfficeConnection
-from libreoffice.connection import PersistentConnection
+from lofice.connection import OfficeConnection
+from lofice.connection import PersistentConnection
 
 test_name_limit_found = False
 

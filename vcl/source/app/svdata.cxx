@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -296,7 +296,7 @@ vcl::Window *ImplGetDefaultContextWindow()
 const std::locale& ImplGetResLocale()
 {
     ImplSVData* pSVData = ImplGetSVData();
-    if (!pSVData->mbResLocaleSet || comphelper::LibreOfficeKit::isActive())
+    if (!pSVData->mbResLocaleSet || comphelper::loficeKit::isActive())
     {
         pSVData->maResLocale = Translate::Create("vcl");
         pSVData->mbResLocaleSet = true;
@@ -375,7 +375,7 @@ void LocaleConfigurationListener::ConfigurationChanged( utl::ConfigurationBroadc
 
 ImplSVWinData* CreateSVWinData()
 {
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return nullptr;
 
     ImplSVWinData* p = new ImplSVWinData;
@@ -394,7 +394,7 @@ void DestroySVWinData(ImplSVWinData* pData)
 
 void SetSVWinData(ImplSVWinData* pSVWinData)
 {
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return;
 
     ImplSVData* pSVData = ImplGetSVData();
@@ -490,7 +490,7 @@ void ImplSVData::dumpState(rtl::OStringBuffer &rState)
 
 ImplSVHelpData* CreateSVHelpData()
 {
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return nullptr;
 
     ImplSVHelpData* pNewData = new ImplSVHelpData;
@@ -509,7 +509,7 @@ ImplSVHelpData* CreateSVHelpData()
 
 void DestroySVHelpData(ImplSVHelpData* pSVHelpData)
 {
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return;
 
     // Change the SVData's help date if necessary
@@ -527,7 +527,7 @@ void DestroySVHelpData(ImplSVHelpData* pSVHelpData)
 
 void SetSVHelpData(ImplSVHelpData* pSVHelpData)
 {
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return;
 
     ImplSVData* pSVData = ImplGetSVData();

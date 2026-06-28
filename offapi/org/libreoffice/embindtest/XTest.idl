@@ -1,13 +1,13 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-module org { module libreoffice { module embindtest {
+module org { module lofice { module embindtest {
 
 interface XTest {
     boolean getBoolean();
@@ -131,7 +131,7 @@ interface XTest {
     void passJob([in] com::sun::star::task::XJob object);
     void passJobExecutor([in] com::sun::star::task::XJobExecutor object, [in] boolean newThread);
     void passInterface([in] com::sun::star::uno::XInterface object);
-    boolean checkAttributes([in] org::libreoffice::embindtest::XAttributes object);
+    boolean checkAttributes([in] org::lofice::embindtest::XAttributes object);
     [attribute] string StringAttribute;
     boolean testSolarMutex();
     void executeTest([in] XTest test);

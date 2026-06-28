@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -17,7 +17,7 @@
 #include <ChartModel.hxx>
 #include <ViewElementListProvider.hxx>
 #include <PropertyHelper.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 #include <chartview/DrawModelWrapper.hxx>
 #include <com/sun/star/chart2/XDiagram.hpp>
@@ -526,7 +526,7 @@ void ChartAreaPanel::selectionChanged(bool bCorrectType)
         return;
 
     // set the initial correct color for the color picker
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         css::uno::Reference<css::beans::XPropertySet> xPropSet = getPropSet(mxModel);
         if (xPropSet.is())
@@ -550,7 +550,7 @@ void ChartAreaPanel::selectionChanged(bool bCorrectType)
                                 if (SfxViewShell* pViewShell = SfxViewShell::Current())
                                 {
                                     const OString sCommand = ".uno:FillColor"_ostr;
-                                    pViewShell->libreOfficeKitViewCallback(
+                                    pViewShell->loficeKitViewCallback(
                                         LOK_CALLBACK_STATE_CHANGED,
                                         sCommand + "=" + OString::number(nFillColor));
                                 }

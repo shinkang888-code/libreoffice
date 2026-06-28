@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -773,7 +773,7 @@ void lcl_SetLogicRectFromAnchor(SdrObject* pObj, const ScDrawObjData& rAnchor, c
     if (!pObj || !pDoc || !rAnchor.maEnd.IsValid() || !rAnchor.maStart.IsValid())
         return;
 
-    // In case of a vertical mirrored custom shape, LibreOffice uses internally an additional 180deg
+    // In case of a vertical mirrored custom shape, lofice uses internally an additional 180deg
     // in aGeo.nRotationAngle and in turn has a different logic rectangle position. We remove flip,
     // set the logic rectangle, and apply flip again. You cannot simple use a 180deg-rotated
     // rectangle, because custom shape mirroring is internally applied after the other

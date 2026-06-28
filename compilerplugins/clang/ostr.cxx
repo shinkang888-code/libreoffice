@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -290,7 +290,7 @@ public:
         }
         if (!loplugin::TypeCheck(expr->getArg(1)->getType())
                  .Struct("Dummy")
-                 .Namespace("libreoffice_internal")
+                 .Namespace("lofice_internal")
                  .Namespace("rtl")
                  .GlobalNamespace())
         {

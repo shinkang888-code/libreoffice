@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -205,7 +205,7 @@ static void lcl_InsertGraphic( const Graphic& rGraphic,
                                                  aAnchorType == SCA_CELL_RESIZE);
 
     //  don't select if from (dispatch) API, to allow subsequent cell operations
-    SdrInsertFlags nInsOptions = (bApi && !comphelper::LibreOfficeKit::isActive()) ? SdrInsertFlags::DONTMARK : SdrInsertFlags::NONE;
+    SdrInsertFlags nInsOptions = (bApi && !comphelper::loficeKit::isActive()) ? SdrInsertFlags::DONTMARK : SdrInsertFlags::NONE;
     bool bSuccess = pView->InsertObjectAtView( pObj.get(), *pPV, nInsOptions );
 
     // SetGraphicLink has to be used after inserting the object,
@@ -287,7 +287,7 @@ FuInsertGraphic::FuInsertGraphic( ScTabViewShell&   rViewSh,
         if ( pReqArgs->GetItemState( FN_PARAM_1, true, &pItem ) == SfxItemState::SET )
             bAsLink = static_cast<const SfxBoolItem*>(pItem)->GetValue();
 
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             INetURLObject aURL(aFileName);
             if (INetProtocol::File != aURL.GetProtocol() && HostFilter::isForbidden(aURL.GetHost()))

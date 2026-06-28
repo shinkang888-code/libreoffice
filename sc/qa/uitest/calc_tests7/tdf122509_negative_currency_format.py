@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,8 +9,8 @@
 from uitest.framework import UITestCase
 from uitest.uihelper.common import get_state_as_dict, get_url_for_data_file
 from uitest.uihelper.common import select_pos
-from libreoffice.calc.document import get_cell_by_position
-from libreoffice.uno.propertyvalue import mkPropertyValues
+from lofice.calc.document import get_cell_by_position
+from lofice.uno.propertyvalue import mkPropertyValues
 
 #Bug 122509 - EDITING Calc crashes when manipulating Negative numbers in red on Currency ( not gtk3 )
 
@@ -32,7 +32,7 @@ class tdf122509(UITestCase):
                 self.assertEqual(get_state_as_dict(xformatted)["Text"], "#,##0.00 [$USD];[RED]-#,##0.00 [$USD]")
                 #click negative
                 xnegnumred.executeAction("CLICK", tuple())
-                #format check; https://bugs.documentfoundation.org/show_bug.cgi?id=122509#c7
+                #format check; https://bugs.lofice.io/show_bug.cgi?id=122509#c7
                 self.assertEqual(get_state_as_dict(xformatted)["Text"], "#,##0.00 [$USD];-#,##0.00 [$USD]")
                 # click negative
                 xnegnumred.executeAction("CLICK", tuple())

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1040,7 +1040,7 @@ CPPUNIT_TEST_FIXTURE(Test, testFileOpenInputOutputError)
 {
     createSwDoc("floatingtbl_with_formula.docx");
     saveAndReload(TestFilter::DOCX);
-    // Docx containing Floating table with formula was giving "General input/output error" while opening in LibreOffice
+    // Docx containing Floating table with formula was giving "General input/output error" while opening in lofice
     xmlDocUniquePtr pXmlDoc = parseExport(u"word/document.xml"_ustr);
     assertXPath(pXmlDoc, "/w:document/w:body/w:p[1]/w:pPr/w:pStyle", "val", u"Normal");
 

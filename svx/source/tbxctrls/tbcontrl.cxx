@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -926,7 +926,7 @@ SvxStyleBox_Base::SvxStyleBox_Base(std::unique_ptr<weld::ComboBox> xWidget,
 IMPL_LINK(SvxStyleBox_Base, CustomGetSizeHdl, OutputDevice&, rArg, Size)
 {
     CalcOptimalExtraUserWidth(rArg);
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return Size(m_nMaxUserDrawFontWidth * rArg.GetDPIX() / 96, ITEM_HEIGHT * rArg.GetDPIY() / 96);
     return Size(m_nMaxUserDrawFontWidth, ITEM_HEIGHT);
 }
@@ -1804,7 +1804,7 @@ void SvxFontNameBox_Base::Update( const css::awt::FontDescriptor* pFontDesc )
     }
     OUString aCurName = aCurFont.GetFamilyName();
     OUString aText = m_xWidget->get_active_text();
-    if (aText != aCurName || comphelper::LibreOfficeKit::isActive())
+    if (aText != aCurName || comphelper::loficeKit::isActive())
         set_active_or_entry_text(aCurName);
 }
 
@@ -2179,7 +2179,7 @@ namespace
 
     NamedColor GetNoneColor()
     {
-        OUString aName = comphelper::LibreOfficeKit::isActive()
+        OUString aName = comphelper::loficeKit::isActive()
                             ? SvxResId(RID_SVXSTR_INVISIBLE)
                             : SvxResId(RID_SVXSTR_NONE);
         return { COL_NONE_COLOR, aName };
@@ -2833,7 +2833,7 @@ SvxLineWindow_Impl::SvxLineWindow_Impl(SvxFrameToolBoxControl* pControl, weld::W
     m_xLineStyleLb->SetStyle( WinBits(WB_FLATVALUESET | WB_ITEMBORDER | WB_3DLOOK | WB_NO_DIRECTSELECT | WB_TABSTOP) );
 
     m_xLineStyleLb->SetSourceUnit( FieldUnit::TWIP );
-    m_xLineStyleLb->SetNone( comphelper::LibreOfficeKit::isActive() ? SvxResId(RID_SVXSTR_INVISIBLE)
+    m_xLineStyleLb->SetNone( comphelper::loficeKit::isActive() ? SvxResId(RID_SVXSTR_INVISIBLE)
         :SvxResId(RID_SVXSTR_NONE) );
 
     m_xLineStyleLb->InsertEntry( SvxBorderLine::getWidthImpl( SvxBorderLineStyle::SOLID ), SvxBorderLineStyle::SOLID );
@@ -3237,7 +3237,7 @@ void SvxStyleToolBoxControl::FillStyleBox()
     }
 
     // Insert More button
-    if ((m_pImpl->bSpecModeWriter || m_pImpl->bSpecModeCalc) && !comphelper::LibreOfficeKit::isActive())
+    if ((m_pImpl->bSpecModeWriter || m_pImpl->bSpecModeCalc) && !comphelper::loficeKit::isActive())
         pBox->append_text(m_pImpl->aMore);
 
     pBox->thaw();
@@ -4284,7 +4284,7 @@ IMPL_LINK(ColorListBox, ToggleHdl, weld::Toggleable&, rButton, void)
     if (rButton.get_active())
     {
         ColorWindow* pColorWindow = getColorWindow();
-        if (pColorWindow && !comphelper::LibreOfficeKit::isActive())
+        if (pColorWindow && !comphelper::loficeKit::isActive())
             pColorWindow->GrabFocus();
     }
 }

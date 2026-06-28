@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@ namespace
 void drawPolygonOffset(OutputDevice& rDevice, tools::Rectangle const& rRect, int nOffset,
                        int nFix = 0)
 {
-    // Note: According to https://lists.freedesktop.org/archives/libreoffice/2019-November/083709.html
+    // Note: According to https://lists.freedesktop.org/archives/lofice/2019-November/083709.html
     // filling polygons always skips the right-most and bottom-most pixels, in order to avoid
     // overlaps when drawing adjacent polygons. Specifying nFix = 1 allows to visually compensate
     // for this by making the polygon explicitly larger.

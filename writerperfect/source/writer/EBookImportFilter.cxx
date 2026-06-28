@@ -2,7 +2,7 @@
 /* EBookImportFilter: Sets up the filter, and calls DocumentCollector
  * to do the actual filtering
  *
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -109,7 +109,7 @@ css::uno::Sequence<OUString> SAL_CALL EBookImportFilter::getSupportedServiceName
 }
 
 extern "C" SAL_DLLPUBLIC_EXPORT css::uno::XInterface*
-org_libreoffice_comp_Writer_EBookImportFilter_get_implementation(
+org_lofice_comp_Writer_EBookImportFilter_get_implementation(
     css::uno::XComponentContext* const context, const css::uno::Sequence<css::uno::Any>&)
 {
     return cppu::acquire(new EBookImportFilter(context));

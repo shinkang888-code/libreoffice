@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -96,7 +96,7 @@ enum ColorConfigEntry : int
     SQLPARAMETER,
     SQLCOMMENT,
 
-    // colors for Libreoffice Theme (Application)
+    // colors for lofice Theme (Application)
     WINDOWCOLOR         ,
     WINDOWTEXTCOLOR     ,
     WRITERNOTEBOOKBARCOLOR   ,
@@ -132,9 +132,9 @@ enum ColorConfigEntry : int
     ColorConfigEntryCount
 };
 
-constexpr OUString AUTOMATIC_COLOR_SCHEME = u"COLOR_SCHEME_LIBREOFFICE_AUTOMATIC"_ustr;
-constexpr OUString LIGHT_COLOR_SCHEME = u"COLOR_SCHEME_LIBREOFFICE_LIGHT"_ustr;
-constexpr OUString DARK_COLOR_SCHEME = u"COLOR_SCHEME_LIBREOFFICE_DARK"_ustr;
+constexpr OUString AUTOMATIC_COLOR_SCHEME = u"COLOR_SCHEME_lofice_AUTOMATIC"_ustr;
+constexpr OUString LIGHT_COLOR_SCHEME = u"COLOR_SCHEME_lofice_LIGHT"_ustr;
+constexpr OUString DARK_COLOR_SCHEME = u"COLOR_SCHEME_lofice_DARK"_ustr;
 constexpr size_t THEME_APPLICATION_COLORS_COUNT = ColorConfigEntryCount - WINDOWCOLOR;
 
 namespace {

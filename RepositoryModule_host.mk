@@ -1,7 +1,7 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,45 +9,45 @@
 #
 
 
-$(eval $(call gb_Module_Module,libreoffice))
+$(eval $(call gb_Module_Module,lofice))
 
 # This makefile needs to be read first because some variables like T_LIBS
 # for libmerged are cleared there and then later we append stuff to it
 # through e.g. gb_Library_use_external for various libraries in libmerged.
 ifneq ($(MERGELIBS),)
-$(eval $(call gb_Module_add_targets,libreoffice,\
+$(eval $(call gb_Module_add_targets,lofice,\
 	Library_merged \
 ))
 endif
 
 # WASM_CHART change
 ifneq ($(ENABLE_WASM_STRIP_CHART),TRUE)
-$(eval $(call gb_Module_add_moduledirs,libreoffice,\
+$(eval $(call gb_Module_add_moduledirs,lofice,\
 	chart2 \
 ))
 endif
 
 # WASM_CANVAS change
 ifneq ($(ENABLE_WASM_STRIP_CANVAS),TRUE)
-$(eval $(call gb_Module_add_moduledirs,libreoffice,\
+$(eval $(call gb_Module_add_moduledirs,lofice,\
 	canvas \
 	cppcanvas \
 ))
 endif
 
 ifneq ($(ENABLE_WASM_STRIP_DBACCESS),TRUE)
-$(eval $(call gb_Module_add_moduledirs,libreoffice,\
+$(eval $(call gb_Module_add_moduledirs,lofice,\
 	dbaccess \
 ))
 endif
 
 ifneq ($(ENABLE_WASM_STRIP_ACCESSIBILITY),TRUE)
-$(eval $(call gb_Module_add_moduledirs,libreoffice,\
+$(eval $(call gb_Module_add_moduledirs,lofice,\
 	winaccessibility \
 ))
 endif
 
-$(eval $(call gb_Module_add_moduledirs,libreoffice,\
+$(eval $(call gb_Module_add_moduledirs,lofice,\
 	android \
     $(if $(ENABLE_WASM_STRIP_BASIC_DRAW_MATH_IMPRESS),, \
 	animations \
@@ -102,7 +102,7 @@ $(eval $(call gb_Module_add_moduledirs,libreoffice,\
 	jvmaccess \
 	jvmfwk \
 	$(call gb_Helper_optional,LIBRELOGO,librelogo) \
-	libreofficekit \
+	loficekit \
 	lingucomponent \
 	linguistic \
 	lotuswordpro \

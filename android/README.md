@@ -1,16 +1,16 @@
-# LibreOffice for Android
+# lofice for Android
 
 ## Bootstrap
 
-Contains common code for all projects on Android to bootstrap LibreOffice. In
-addition it is a home to `LibreOfficeKit` (LOK - see `libreofficekit/README.md`) JNI
+Contains common code for all projects on Android to bootstrap lofice. In
+addition it is a home to `loficeKit` (LOK - see `loficekit/README.md`) JNI
 classes.
 
 ## Stuff in Source Directory
 
-LibreOffice Android application - the code is based on Fennec (Firefox for Android).
+lofice Android application - the code is based on Fennec (Firefox for Android).
 It uses OpenGL ES 2 for rendering of the document tiles which are gathered from
-LibreOffice using LOK. The application contains the LibreOffice core in one shared
+lofice using LOK. The application contains the lofice core in one shared
 library: `liblo-native-code.so`, which is bundled together with the application.
 
 ## Adding Dependencies
@@ -31,13 +31,13 @@ The application implements editing support using 4 threads:
    amount of time.
 2. An OpenGL thread which contains the OpenGL context and is responsible for drawing
    all layers (including tiles) to the screen.
-3. A thread (`LOKitThread`), that performs `LibreOfficeKit` calls, which may take more time
+3. A thread (`LOKitThread`), that performs `loficeKit` calls, which may take more time
    to complete. In addition it also receives events from the soffice thread (see below)
    when the callback emits an event. Events are stored in a blocking queue (thread
    processes events in FCFS order, goes to sleep when no more event is available and
    awakens when there are events in the queue again).
-4. A native thread created by LibreOfficeKit (we call it the soffice thread), where
-   LibreOffice itself runs. It receives calls from `LOKitThread`, and may emit callback
+4. A native thread created by loficeKit (we call it the soffice thread), where
+   lofice itself runs. It receives calls from `LOKitThread`, and may emit callback
    events as necessary.
 
 ## LOKitThread
@@ -113,18 +113,18 @@ low resolution layer.
 
 ### Tile Invalidation
 
-Tile can change in LibreOffice when user changes the content (adds, removes text or changes
-the properties). In this case, an invalidation rectangle is signaled from LibreOffice, which
+Tile can change in lofice when user changes the content (adds, removes text or changes
+the properties). In this case, an invalidation rectangle is signaled from lofice, which
 includes a rectangle that needs to be invalidated. In this case `LOKitThread` gets this request
 via callback, and rechecks all tiles if they need to be invalidated. For more details see
 LOKitThread#tileInvalidation).
 
 ## Editing
 
-For editing there are 2 coarse tasks that the LibreOffice app must do:
+For editing there are 2 coarse tasks that the lofice app must do:
 
-1. send input events to LibreOffice core (keyboard, touch and mouse)
-2. listen to messages (provided via callback) from LibreOffice core and react accordingly
+1. send input events to lofice core (keyboard, touch and mouse)
+2. listen to messages (provided via callback) from lofice core and react accordingly
 
 In most cases when an input event happens and is send to the LO core, then a message from
 LO core follows. For example: when the user writes to the keyboard, key event is sent and
@@ -132,12 +132,12 @@ an invalidation request from LO core follows. When user touches an image, a mous
 sent, and a "new graphic selection" message from LO core follows.
 
 All keyboard and touch events are sent to `LOKitThread` as `LOEvents`. In `LOKitThread` they are
-processed and sent to LibreOffice core. The touch events originate in `JavaPanZoomController`,
+processed and sent to lofice core. The touch events originate in `JavaPanZoomController`,
 the keyboard events in `LOKitInputConnectionHandler` (`org.libreoffice.LOKitInputConnectionHandler`),
 however there are other parts too - depending on the need.
 
 `InvalidationHandler` (`org.libreoffice.InvalidationHandler`) is the class that is responsible
-to process messages from LibreOffice core and to track the state.
+to process messages from lofice core and to track the state.
 
 ## Overlay
 
@@ -240,7 +240,7 @@ Using `lldb` from within Android Studio is more comfortable though and works lik
 	- on tab "Native Debugger" add `android/obj/local/<hostarch>` to
 	the Symbol directories
 	- on the LLDB startup commands tab add
-	"command script import `/path/to/solenv/lldb/libreoffice/LO.py`"
+	"command script import `/path/to/solenv/lldb/lofice/LO.py`"
 	to get some pretty printing hooks for the various string classes
 
 Then you can select your new configuration and use Run | Debug to launch it.
@@ -278,7 +278,7 @@ Assuming that you're already in the LOAndroid3 directory in your shell.
 ### Debugging the Missing Services
 
 Android library only include essential services that are compiled for
-LibreOffice in order to reduce the size of the apk. When developing,
+lofice in order to reduce the size of the apk. When developing,
 some services might become useful and we should add those services
 to the combined library.
 

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -12,8 +12,8 @@
 #include <filesystem>
 #include <memory>
 
-#include <LibreOfficeKit/LibreOfficeKitGtk.h>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitGtk.h>
+#include <loficeKit/loficeKitEnums.h>
 
 #include "gtv-application-window.hxx"
 #include "gtv-main-toolbar.hxx"
@@ -170,10 +170,10 @@ static void initWindow(GtvApplicationWindow* window)
 #endif
 
     // TODO: Implement progressbar in statusbar
-    LibreOfficeKitDocument* pDocument = lok_doc_view_get_document(LOK_DOC_VIEW(window->lokdocview));
+    loficeKitDocument* pDocument = lok_doc_view_get_document(LOK_DOC_VIEW(window->lokdocview));
     if (pDocument)
     {
-        LibreOfficeKitDocumentType eDocType = static_cast<LibreOfficeKitDocumentType>(pDocument->pClass->getDocumentType(pDocument));
+        loficeKitDocumentType eDocType = static_cast<loficeKitDocumentType>(pDocument->pClass->getDocumentType(pDocument));
         if (eDocType == LOK_DOCTYPE_SPREADSHEET)
         {
             // Align to top left corner, so the tiles are in sync with the
@@ -461,7 +461,7 @@ gtv_application_window_unregister_child_window(GtvApplicationWindow* window, Gtk
     if (pChildWin)
     {
         priv->m_pChildWindows = g_list_remove(priv->m_pChildWindows, pChildWin);
-        LibreOfficeKitDocument* pDocument = lok_doc_view_get_document(LOK_DOC_VIEW(window->lokdocview));
+        loficeKitDocument* pDocument = lok_doc_view_get_document(LOK_DOC_VIEW(window->lokdocview));
         guint dialogId = 0;
         g_object_get(G_OBJECT(pChildWin), "dialogid", &dialogId, nullptr);
         pDocument->pClass->postWindow(pDocument, dialogId, LOK_WINDOW_CLOSE, nullptr);
@@ -511,7 +511,7 @@ gtv_application_window_new(GtkApplication* app)
                                                "application", app,
                                                "width-request", 1024,
                                                "height-request", 768,
-                                               "title", "LibreOffice GtkTiledViewer",
+                                               "title", "lofice GtkTiledViewer",
                                                "window-position", GTK_WIN_POS_CENTER,
                                                "show-menubar", false,
                                                nullptr));

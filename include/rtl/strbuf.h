@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 
 #ifndef INCLUDED_RTL_STRBUF_H
@@ -105,7 +105,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_stringbuffer_ensureCapacity(
     @param[in,out]  This        the String to operate on.
     @param[in,out]  capacity    the capacity of the string buffer
     @param[in]      offset      the offset.
-    @param[in]      str         a character array.  Since LibreOffice 4.4, as a
+    @param[in]      str         a character array.  Since lofice 4.4, as a
                                 special case, if str is null then the len added
                                 characters are left uninitialized.
     @param[in]      len         the number of characters to append.

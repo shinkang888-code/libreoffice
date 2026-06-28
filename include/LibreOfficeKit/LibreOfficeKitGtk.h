@@ -1,19 +1,19 @@
 /* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-#ifndef INCLUDED_LIBREOFFICEKIT_LIBREOFFICEKITGTK_H
-#define INCLUDED_LIBREOFFICEKIT_LIBREOFFICEKITGTK_H
+#ifndef INCLUDED_loficeKIT_loficeKITGTK_H
+#define INCLUDED_loficeKIT_loficeKITGTK_H
 
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
 
-#include "LibreOfficeKit.h"
+#include "loficeKit.h"
 
  // Avoid "error C2375: 'foo': redefinition; different linkage" on MSVC
 #if defined LOK_DOC_VIEW_IMPLEMENTATION
@@ -50,8 +50,8 @@ LOK_DOC_VIEW_DLLPUBLIC GType   lok_doc_view_get_type               (void) G_GNUC
 
 /**
  * lok_doc_view_new:
- * @pPath: (nullable) (allow-none): LibreOffice install path. Pass null to set it to default
- * path which in most cases would be $libdir/libreoffice/program
+ * @pPath: (nullable) (allow-none): lofice install path. Pass null to set it to default
+ * path which in most cases would be $libdir/lofice/program
  * @cancellable: The cancellable object that you can use to cancel this
  * operation.
  * @error: The error that will be set if the object fails to initialize.
@@ -64,11 +64,11 @@ LOK_DOC_VIEW_DLLPUBLIC GtkWidget* lok_doc_view_new                 (const gchar*
 
 /**
  * lok_doc_view_new_from_user_profile:
- * @pPath: (nullable) (allow-none): LibreOffice install path. Pass null to set it to default
- * path which in most cases would be $libdir/libreoffice/program
+ * @pPath: (nullable) (allow-none): lofice install path. Pass null to set it to default
+ * path which in most cases would be $libdir/lofice/program
  * @pUserProfile: (nullable) (allow-none): User profile URL. Must be either a file URL or a
  * special vnd.sun.star.pathname URL. Pass non-null to be able to use this
- * widget and LibreOffice itself in parallel.
+ * widget and lofice itself in parallel.
  * @cancellable: The cancellable object that you can use to cancel this
  * operation.
  * @error: The error that will be set if the object fails to initialize.
@@ -124,9 +124,9 @@ LOK_DOC_VIEW_DLLPUBLIC gboolean lok_doc_view_open_document_finish  (LOKDocView* 
  *
  * Gets the document the viewer displays.
  *
- * Returns: The #LibreOfficeKitDocument instance the widget is currently showing
+ * Returns: The #loficeKitDocument instance the widget is currently showing
  */
-LOK_DOC_VIEW_DLLPUBLIC LibreOfficeKitDocument* lok_doc_view_get_document (LOKDocView* pDocView);
+LOK_DOC_VIEW_DLLPUBLIC loficeKitDocument* lok_doc_view_get_document (LOKDocView* pDocView);
 
 /**
  * lok_doc_view_set_zoom:
@@ -236,7 +236,7 @@ LOK_DOC_VIEW_DLLPUBLIC gboolean lok_doc_view_get_edit              (LOKDocView* 
  * @pArguments: the arguments to the given command
  * @bNotifyWhenFinished: normally false, but it may be useful for eg. .uno:Save
  *
- * Posts the .uno: command to the LibreOfficeKit.
+ * Posts the .uno: command to the loficeKit.
  */
 LOK_DOC_VIEW_DLLPUBLIC void    lok_doc_view_post_command           (LOKDocView* pDocView,
                                                                     const gchar* pCommand,
@@ -344,7 +344,7 @@ LOK_DOC_VIEW_DLLPUBLIC void     lok_doc_view_set_document_password (LOKDocView* 
  * Returns: JSON string containing version information in format:
  * {ProductName: <>, ProductVersion: <>, ProductExtension: <>, BuildId: <>}
  *
- * Eg: {"ProductName": "LibreOffice",
+ * Eg: {"ProductName": "lofice",
  * "ProductVersion": "5.3",
  * "ProductExtension": ".0.0.alpha0",
  * "BuildId": "<full 40 char git hash>"}
@@ -384,6 +384,6 @@ LOK_DOC_VIEW_DLLPUBLIC void lok_doc_view_send_content_control_event(LOKDocView* 
 
 G_END_DECLS
 
-#endif // INCLUDED_LIBREOFFICEKIT_LIBREOFFICEKITGTK_H
+#endif // INCLUDED_loficeKIT_loficeKITGTK_H
 
 /* vim:set shiftwidth=4 softtabstop=4 expandtab: */

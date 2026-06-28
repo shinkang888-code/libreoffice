@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -71,16 +71,16 @@ void alloc_preInit(bool start) noexcept;
 #  define PROBE_INTERN_NEW PROBE_NAME (new_string_intern,RTL_LOG_STRING_BITS)
 #  define PROBE_INTERN_DEL PROBE_NAME (delete_string_intern,RTL_LOG_STRING_BITS)
 #  define RTL_LOG_STRING_NEW(s) \
-    DTRACE_PROBE4(libreoffice, PROBE_NEW, s, \
+    DTRACE_PROBE4(lofice, PROBE_NEW, s, \
                   (s)->refCount, (s)->length, (s)->buffer)
 #  define RTL_LOG_STRING_DELETE(s) \
-    DTRACE_PROBE4(libreoffice, PROBE_DEL, s, \
+    DTRACE_PROBE4(lofice, PROBE_DEL, s, \
                   (s)->refCount, (s)->length, (s)->buffer)
 #  define RTL_LOG_STRING_INTERN_NEW(s,o) \
-    DTRACE_PROBE5(libreoffice, PROBE_INTERN_NEW, s, \
+    DTRACE_PROBE5(lofice, PROBE_INTERN_NEW, s, \
                   (s)->refCount, (s)->length, (s)->buffer, o)
 #  define RTL_LOG_STRING_INTERN_DELETE(s) \
-    DTRACE_PROBE4(libreoffice, PROBE_INTERN_DEL, s, \
+    DTRACE_PROBE4(lofice, PROBE_INTERN_DEL, s, \
                   (s)->refCount, (s)->length, (s)->buffer)
 #else
 #  define RTL_LOG_STRING_NEW(s)

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -83,7 +83,7 @@ CPPUNIT_TEST_FIXTURE(Test, testImageHyperlink)
 {
     createSwDoc("image-hyperlink.docx");
     OUString URL = getProperty<OUString>(getShape(1), u"HyperLinkURL"_ustr);
-    CPPUNIT_ASSERT_EQUAL(u"http://www.libreoffice.org/"_ustr, URL);
+    CPPUNIT_ASSERT_EQUAL(u"http://www.lofice.org/"_ustr, URL);
 }
 
 CPPUNIT_TEST_FIXTURE(Test, testMathMalformedXml)

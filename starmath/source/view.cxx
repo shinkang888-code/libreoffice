@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -32,7 +32,7 @@
 #include <comphelper/storagehelper.hxx>
 #include <comphelper/string.hxx>
 #include <i18nutil/unicode.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <officecfg/Office/Common.hxx>
 #include <sfx2/chalign.hxx>
 #include <sfx2/dispatch.hxx>
@@ -332,7 +332,7 @@ void SmGraphicWidget::SetDrawingArea(weld::DrawingArea* pDrawingArea)
     rDevice.SetBackground(
         SmModule::get()->GetColorConfig().GetColorValue(svtools::DOCCOLOR).nColor);
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         // Disable map mode, so that it's possible to send mouse event coordinates
         // directly in twips.
@@ -392,7 +392,7 @@ bool SmGraphicWidget::MouseButtonDown(const MouseEvent& rMEvt)
         GetCursor().MoveTo(&rDevice, aPos, !rMEvt.IsShift());
         GetView().InvalidateSlots();
         // 'on grab' window events are missing in lok, do it explicitly
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
             SetIsCursorVisible(true);
         return true;
     }
@@ -482,7 +482,7 @@ IMPL_LINK_NOARG(SmGraphicWidget, CaretBlinkTimerHdl, Timer *, void)
 
 void SmGraphicWidget::CaretBlinkInit()
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return; // No blinking in lok case
     aCaretBlinkTimer.SetInvokeHandler(LINK(this, SmGraphicWidget, CaretBlinkTimerHdl));
     aCaretBlinkTimer.SetTimeout(Application::GetSettings().GetStyleSettings().GetCursorBlinkTime());
@@ -490,7 +490,7 @@ void SmGraphicWidget::CaretBlinkInit()
 
 void SmGraphicWidget::CaretBlinkStart()
 {
-    if (!SmViewShell::IsInlineEditEnabled() || comphelper::LibreOfficeKit::isActive())
+    if (!SmViewShell::IsInlineEditEnabled() || comphelper::loficeKit::isActive())
         return;
     if (aCaretBlinkTimer.GetTimeout() != STYLE_CURSOR_NOBLINKTIME)
         aCaretBlinkTimer.Start();
@@ -498,7 +498,7 @@ void SmGraphicWidget::CaretBlinkStart()
 
 void SmGraphicWidget::CaretBlinkStop()
 {
-    if (!SmViewShell::IsInlineEditEnabled() || comphelper::LibreOfficeKit::isActive())
+    if (!SmViewShell::IsInlineEditEnabled() || comphelper::loficeKit::isActive())
         return;
     aCaretBlinkTimer.Stop();
 }
@@ -527,10 +527,10 @@ void SmGraphicWidget::ShowLine(bool bShow)
 void SmGraphicWidget::SetIsCursorVisible(bool bVis)
 {
     bIsCursorVisible = bVis;
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         mrViewShell.SendCaretToLOK();
-        mrViewShell.libreOfficeKitViewCallback(LOK_CALLBACK_CURSOR_VISIBLE,
+        mrViewShell.loficeKitViewCallback(LOK_CALLBACK_CURSOR_VISIBLE,
                                                OString::boolean(bVis));
     }
 }
@@ -883,7 +883,7 @@ bool SmGraphicWidget::Command(const CommandEvent& rCEvt)
 
 void SmGraphicWindow::SetZoom(sal_uInt16 Factor)
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return;
     nZoom = std::clamp(Factor, MINZOOM, MAXZOOM);
     double fFraction = nZoom / 100.0;
@@ -2068,7 +2068,7 @@ public:
     {
         SfxBaseController::attachFrame(xFrame);
 
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             CopyLokViewCallbackFromFrameCreator();
             // In lok mode, DocumentHolder::ShowUI is not called on OLE in-place activation,
@@ -2089,9 +2089,9 @@ public:
 
     virtual void SAL_CALL dispose() override
     {
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
             if (auto pViewShell = GetViewShell_Impl())
-                pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_CURSOR_VISIBLE,
+                pViewShell->loficeKitViewCallback(LOK_CALLBACK_CURSOR_VISIBLE,
                                                        OString::boolean(false));
 
         SfxBaseController::dispose();
@@ -2203,7 +2203,7 @@ void SmViewShell::Notify( SfxBroadcaster& , const SfxHint& rHint )
 
 bool SmViewShell::IsInlineEditEnabled()
 {
-    return comphelper::LibreOfficeKit::isActive()
+    return comphelper::loficeKit::isActive()
            || SmModule::get()->GetConfig()->IsInlineEditEnable();
 }
 
@@ -2305,12 +2305,12 @@ void SmViewShell::SendCaretToLOK() const
     const int nViewId = sal_Int32(GetViewShellId());
     if (const auto payload = getLOKPayload(LOK_CALLBACK_INVALIDATE_VISIBLE_CURSOR, nViewId))
     {
-        libreOfficeKitViewCallbackWithViewId(LOK_CALLBACK_INVALIDATE_VISIBLE_CURSOR,
+        loficeKitViewCallbackWithViewId(LOK_CALLBACK_INVALIDATE_VISIBLE_CURSOR,
                                              *payload, nViewId);
     }
     if (const auto payload = getLOKPayload(LOK_CALLBACK_TEXT_SELECTION, nViewId))
     {
-        libreOfficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION, *payload);
+        loficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION, *payload);
     }
 }
 

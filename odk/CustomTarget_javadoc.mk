@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -29,7 +29,7 @@ $(gb_CustomTarget_workdir)/odk/docs/java/ref/%.html : \
 	touch $@
 
 $(gb_CustomTarget_workdir)/odk/docs/java/ref/javadoc_log.txt : \
-		$(call gb_Jar_get_target,libreoffice)
+		$(call gb_Jar_get_target,lofice)
 	$(call gb_Output_announce,$(subst $(WORKDIR)/,,$@),$(true),JDC,1)
 	$(call gb_Trace_StartRange,$(subst $(WORKDIR)/,,$@),JDC)
 	$(call gb_Helper_abbreviate_dirs,\
@@ -39,7 +39,7 @@ $(gb_CustomTarget_workdir)/odk/docs/java/ref/javadoc_log.txt : \
 		-tag attention:a:"Attention:" \
 		-d $(dir $@) \
 		-sourcepath "$(SRCDIR)/ridljar/source/unoloader$(gb_CLASSPATHSEP)$(SRCDIR)/ridljar$(gb_CLASSPATHSEP)$(SRCDIR)/jurt$(gb_CLASSPATHSEP)$(SRCDIR)/javaunohelper" \
-		-classpath $(call gb_Jar_get_target,libreoffice) \
+		-classpath $(call gb_Jar_get_target,lofice) \
 		-linkoffline ../../common/reg $(SRCDIR)/odk/docs/java-uno \
 		-linkoffline http://java.sun.com/j2se/1.5/docs/api $(SRCDIR)/odk/docs/java \
 		$(odk_JAVAPACKAGES) \

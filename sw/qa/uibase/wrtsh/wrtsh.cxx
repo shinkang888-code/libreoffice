@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -15,7 +15,7 @@
 #include <com/sun/star/text/XTextRange.hpp>
 #include <com/sun/star/text/XTextDocument.hpp>
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <rtl/ustring.hxx>
 #include <sal/types.h>
@@ -663,7 +663,7 @@ CPPUNIT_TEST_FIXTURE(Test, testCutFontworkObject)
 CPPUNIT_TEST_FIXTURE(Test, testMultiSelectionTextSelectionCallback)
 {
     // Given a document with "ABC" and LOK active:
-    comphelper::LibreOfficeKit::setActive(true);
+    comphelper::loficeKit::setActive(true);
     createSwDoc();
     SwXTextDocument* pTextDocument = getSwTextDoc();
     pTextDocument->initializeForTiledRendering(uno::Sequence<beans::PropertyValue>());

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?> <!-- -*- fill-column: 100 -*- -->
 <!--
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -32,14 +32,14 @@
 	    with other software products.
 	  </desc>
 	</info>
-	<prop oor:name="UseLibreOffice6FloatingPointConversion" oor:type="xs:boolean" oor:nillable="false">
+	<prop oor:name="Uselofice6FloatingPointConversion" oor:type="xs:boolean" oor:nillable="false">
 	  <info>
 	    <!-- Yes, this description refers to a bug report and is technobabble. That is
 	         intentional. This property is to be changed only by people who know what they are
 	         doing.
 	    -->
 	    <desc>Whether conversion from strings to floating-point numbers in Basic should behave
-	      as in LibreOffice 6, before the fix to tdf#97983.
+	      as in lofice 6, before the fix to tdf#97983.
 	    </desc>
 	  </info>
 	  <value>false</value>

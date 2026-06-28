@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -43,7 +43,7 @@
 #include <svl/stritem.hxx>
 #include <unotools/moduleoptions.hxx>
 #include <comphelper/lok.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <svl/visitem.hxx>
 #include <redline.hxx>
 #include <rootfrm.hxx>
@@ -226,7 +226,7 @@ void SwView::GetState(SfxItemSet &rSet)
 
                 ::PageDescToItemSet( rDesc, rSet);
 
-                if (nWhich == SID_ATTR_PAGE_ORIENTATION && comphelper::LibreOfficeKit::isActive())
+                if (nWhich == SID_ATTR_PAGE_ORIENTATION && comphelper::loficeKit::isActive())
                 {
                     OString aPayload = ".uno:Orientation="_ostr;
                     if (rDesc.GetLandscape())
@@ -237,7 +237,7 @@ void SwView::GetState(SfxItemSet &rSet)
                     {
                         aPayload += "IsPortrait";
                     }
-                    libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, aPayload);
+                    loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, aPayload);
                 }
             }
             break;
@@ -459,16 +459,16 @@ void SwView::GetState(SfxItemSet &rSet)
                     }
                 }
 
-                // LibreOfficeKit wants to handle changes by index, so always allow here.
+                // loficeKit wants to handle changes by index, so always allow here.
                 if (bDisable)
                     rSet.DisableItem(nWhich);
-                if (comphelper::LibreOfficeKit::isActive())
+                if (comphelper::loficeKit::isActive())
                 {
                     OString aPayload(".uno:TrackedChangeIndex="_ostr);
                     SwRedlineTable::size_type nRedline = 0;
                     if (pDoc->getIDocumentRedlineAccess().GetRedline(*pCursor->Start(), &nRedline))
                         aPayload += OString::number(nRedline);
-                    libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, aPayload);
+                    loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, aPayload);
                 }
             }
             break;

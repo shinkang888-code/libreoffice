@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 #ifndef INCLUDED_UNO_SEQUENCE2_H
 #define INCLUDED_UNO_SEQUENCE2_H
@@ -183,7 +183,7 @@ CPPU_DLLPUBLIC sal_Bool SAL_CALL uno_type_sequence_realloc(
     @param release function called each time an interface needs to be release,
         must be non-null
 
-    @since LibreOffice 4.4
+    @since lofice 4.4
 */
 CPPU_DLLPUBLIC void SAL_CALL uno_type_sequence_destroy(
     uno_Sequence * sequence, struct _typelib_TypeDescriptionReference * type,

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -108,7 +108,7 @@ IMPL_LINK_NOARG(ShadowPropertyPanel, ClickShadowHdl, weld::Toggleable&, void)
         GetBindings()->GetDispatcher()->ExecuteList(SID_ATTR_FILL_SHADOW,
                 SfxCallMode::RECORD, { &aItem });
 
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             mxShowShadow->set_state( TRISTATE_FALSE );
             UpdateControls();
@@ -123,7 +123,7 @@ IMPL_LINK_NOARG(ShadowPropertyPanel, ClickShadowHdl, weld::Toggleable&, void)
         if (mxShadowDistance->get_value(FieldUnit::POINT) == 0)
             mxShadowDistance->set_value( 8, FieldUnit::POINT );
 
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             mxShowShadow->set_state( TRISTATE_TRUE );
             UpdateControls();

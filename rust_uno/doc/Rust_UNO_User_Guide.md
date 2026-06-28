@@ -19,7 +19,7 @@
     - [Troubleshooting](#troubleshooting)
 <!--toc:end-->
 
-Welcome to the **Rust UNO Bindings** user guide. This document provides comprehensive instructions for using Rust to interact with LibreOffice via the UNO (Universal Network Objects) API.
+Welcome to the **Rust UNO Bindings** user guide. This document provides comprehensive instructions for using Rust to interact with lofice via the UNO (Universal Network Objects) API.
 
 ## Table of Contents
 
@@ -34,7 +34,7 @@ Welcome to the **Rust UNO Bindings** user guide. This document provides comprehe
 
 ## Introduction
 
-The Rust UNO bindings provide a safe, high-performance interface to automate LibreOffice. Unlike Python or Java bindings which rely heavily on runtime reflection, Rust UNO uses **compile-time generated wrappers** ensuring:
+The Rust UNO bindings provide a safe, high-performance interface to automate lofice. Unlike Python or Java bindings which rely heavily on runtime reflection, Rust UNO uses **compile-time generated wrappers** ensuring:
 
 - **Type Safety**: Errors are caught at compile time.
 - **Performance**: Zero-cost abstractions over the C++ bridge.
@@ -45,13 +45,13 @@ The Rust UNO bindings provide a safe, high-performance interface to automate Lib
 
 ## Prerequisites & Setup
 
-To use Rust UNO, you must build it as part of LibreOffice.
+To use Rust UNO, you must build it as part of lofice.
 
 ### Requirements
 
 - **Rust**: Stable toolchain (install via `rustup`).
-- **LibreOffice Build Deps**: Standard development environment for LibreOffice.
-- **Disk Space**: Sufficient space for a full LibreOffice build.
+- **lofice Build Deps**: Standard development environment for lofice.
+- **Disk Space**: Sufficient space for a full lofice build.
 
 ### Enabling Rust Support
 
@@ -63,7 +63,7 @@ Add the following to your `autogen.input` file or pass it to `autogen.sh`:
 
 ### Building
 
-Run the following commands to generate bindings and build LibreOffice:
+Run the following commands to generate bindings and build lofice:
 
 ```bash
 ./autogen.sh
@@ -85,7 +85,7 @@ The bindings utilize a 3-layer architecture to safely bridge safe Rust with C++ 
 graph TD
     UserCode["Your Rust Code"] -->|Calls| RustWrapper["Rust Wrappers"]
     RustWrapper -->|FFI| CppBridge["C++ Bridge (extern C)"]
-    CppBridge -->|Calls| NativeUNO["Native LibreOffice C++ API"]
+    CppBridge -->|Calls| NativeUNO["Native lofice C++ API"]
 
     subgraph "Layer 1: Safe Rust"
     RustWrapper
@@ -102,7 +102,7 @@ graph TD
 
 1. **Rust Wrappers** (`rust_uno/src/generated/`): Safe structs holding opaque pointers. Methods are fully typed.
 2. **C++ Bridge** (`workdir/CustomTarget/rust_uno/rustmaker/cpp/`): Handles exception catching and reference counting.
-3. **Native UNO**: The actual LibreOffice implementation.
+3. **Native UNO**: The actual lofice implementation.
 
 ---
 
@@ -181,7 +181,7 @@ UNO interfaces map directly to Rust structs.
 
 ### Strings
 
-LibreOffice uses `OUString` (UTF-16). The bindings provide efficient conversion:
+lofice uses `OUString` (UTF-16). The bindings provide efficient conversion:
 
 - `OUString::from("Hello")`: Rust string slice -> OUString
 - `ou_string.to_string()`: OUString -> Rust String

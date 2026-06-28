@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -111,7 +111,7 @@ published service ChartDataPointProperties
         <p>When you query this value you get an internal URL of the
         embedded graphic.</p>
 
-        @deprecated as of Libreoffice 6.1
+        @deprecated as of lofice 6.1
 
         @see ChartSymbolType
      */
@@ -125,7 +125,7 @@ published service ChartDataPointProperties
 
     /** specifies if the text of a data label (caption) must be wrapped
 
-        @since LibreOffice 5.1
+        @since lofice 5.1
      */
     [optional, property] boolean TextWordWrap;
 
@@ -133,7 +133,7 @@ published service ChartDataPointProperties
         a graphic object.  This graphic is then used as symbol for each
         data point.
 
-        @since LibreOffice 6.1
+        @since lofice 6.1
 
         @see ChartSymbolType
      */

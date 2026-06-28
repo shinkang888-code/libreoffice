@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -200,7 +200,7 @@ sal_Bool SAL_CALL Desktop::terminate()
 
     css::lang::EventObject                                aEvent             ( static_cast< ::cppu::OWeakObject* >(this) );
     bool                                                  bAskQuickStart     = !m_bSuspendQuickstartVeto;
-    const bool bRestartableMainLoop = comphelper::LibreOfficeKit::isActive();
+    const bool bRestartableMainLoop = comphelper::loficeKit::isActive();
     aGuard.clear();
 
     // Allow use of any UI, because Desktop.terminate() was designed as UI functionality in the past.

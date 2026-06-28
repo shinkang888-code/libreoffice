@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -3698,7 +3698,7 @@ void SwTextShell::GetState( SfxItemSet &rSet )
                 if (nLang != LANGUAGE_DONTKNOW)
                 {
                     aCurrentLang = SvtLanguageTable::GetLanguageString( nLang );
-                    if (comphelper::LibreOfficeKit::isActive())
+                    if (comphelper::loficeKit::isActive())
                     {
                         if (nLang == LANGUAGE_NONE)
                         {
@@ -3974,7 +3974,7 @@ void SwTextShell::GetState( SfxItemSet &rSet )
 
         case FN_INSERT_PAGEHEADER:
         case FN_INSERT_PAGEFOOTER:
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
             {
                 bool bState = false;
                 bool bAllState = true;
@@ -4049,7 +4049,7 @@ void SwTextShell::GetState( SfxItemSet &rSet )
                 {
 #if HAVE_FEATURE_CURL && !ENABLE_WASM_STRIP_EXTRA
                     if (!officecfg::Office::Common::Misc::ExperimentalMode::get()
-                        && !comphelper::LibreOfficeKit::isActive())
+                        && !comphelper::loficeKit::isActive())
                     {
                         rSet.Put(SfxVisibilityItem(nWhich, false));
                         break;

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -84,7 +84,7 @@
 #include <comphelper/lok.hxx>
 #include <comphelper/string.hxx>
 #include <officecfg/Office/Writer.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 #include <annotsh.hxx>
 #include <swabstdlg.hxx>
@@ -146,7 +146,7 @@ namespace {
     /// Emits LOK notification about one addition/removal/change of a comment
     void lcl_CommentNotification(const SwView* pView, const CommentNotificationType nType, const SwAnnotationItem* pItem, const sal_uInt32 nPostItId)
     {
-        if (!comphelper::LibreOfficeKit::isActive())
+        if (!comphelper::loficeKit::isActive())
             return;
 
         boost::property_tree::ptree aAnnotation;
@@ -203,7 +203,7 @@ namespace {
                 aAnnotation.put("searchSelection", sSelStr);
             }
         }
-        if (nType == CommentNotificationType::Remove && comphelper::LibreOfficeKit::isActive())
+        if (nType == CommentNotificationType::Remove && comphelper::loficeKit::isActive())
         {
             // Redline author is basically the author which has made the modification rather than author of the comments
             // This is important to know who removed the comment
@@ -218,7 +218,7 @@ namespace {
 
         if (pView)
         {
-            pView->libreOfficeKitViewCallback(LOK_CALLBACK_COMMENT, OString(aPayload));
+            pView->loficeKitViewCallback(LOK_CALLBACK_COMMENT, OString(aPayload));
         }
     }
 
@@ -482,7 +482,7 @@ bool SwPostItMgr::CheckForRemovedPostIts()
                 SetActiveSidebarWin(nullptr);
             p->mpPostIt.disposeAndClear();
 
-            if (comphelper::LibreOfficeKit::isActive() && !comphelper::LibreOfficeKit::isTiledAnnotations())
+            if (comphelper::loficeKit::isActive() && !comphelper::loficeKit::isTiledAnnotations())
             {
                 const SwPostItField* pPostItField = static_cast<const SwPostItField*>(p->GetFormatField().GetField());
                 lcl_CommentNotification(mpView, CommentNotificationType::Remove, nullptr, pPostItField->GetPostItId());
@@ -641,7 +641,7 @@ void SwPostItMgr::Notify( SfxBroadcaster& rBC, const SfxHint& rHint )
                     RemoveItem(pField);
 
                     // If LOK has disabled tiled annotations, emit annotation callbacks
-                    if (comphelper::LibreOfficeKit::isActive() && !comphelper::LibreOfficeKit::isTiledAnnotations())
+                    if (comphelper::loficeKit::isActive() && !comphelper::loficeKit::isTiledAnnotations())
                     {
                         SwPostItField* pPostItField = static_cast<SwPostItField*>(pField->GetField());
                         auto type = pFormatHint->Which() == SwFormatFieldHintWhich::REMOVED ? CommentNotificationType::Remove: CommentNotificationType::RedlinedDeletion;
@@ -672,7 +672,7 @@ void SwPostItMgr::Notify( SfxBroadcaster& rBC, const SfxHint& rHint )
                         }
 
                         // If LOK has disabled tiled annotations, emit annotation callbacks
-                        if (comphelper::LibreOfficeKit::isActive() && !comphelper::LibreOfficeKit::isTiledAnnotations())
+                        if (comphelper::loficeKit::isActive() && !comphelper::loficeKit::isTiledAnnotations())
                         {
                             if(SwFormatFieldHintWhich::CHANGED == pFormatHint->Which())
                                 lcl_CommentNotification(mpView, CommentNotificationType::Modify, postItField.get(), 0);
@@ -965,8 +965,8 @@ VclPtr<SwAnnotationWin> SwPostItMgr::GetOrCreateAnnotationWindow(SwAnnotationIte
 
 void SwPostItMgr::LayoutPostIts()
 {
-    const bool bLoKitActive = comphelper::LibreOfficeKit::isActive();
-    const bool bTiledAnnotations = comphelper::LibreOfficeKit::isTiledAnnotations();
+    const bool bLoKitActive = comphelper::loficeKit::isActive();
+    const bool bTiledAnnotations = comphelper::loficeKit::isTiledAnnotations();
     const bool bShowNotes = ShowNotes();
 
     const bool bEnableMapMode = bLoKitActive && !mpEditWin->IsMapModeEnabled();
@@ -1051,7 +1051,7 @@ void SwPostItMgr::LayoutPostIts()
                                 nTextHeight = pPostIt->GuessTextHeightForWidth(nSidebarWidth);
 
                             tools::Long postItPixelTextHeight
-                                = (comphelper::LibreOfficeKit::isActive()
+                                = (comphelper::loficeKit::isActive()
                                        ? mpEditWin->LogicToPixel(Point(0, nTextHeight)).Y()
                                        : nTextHeight);
                             aPostItHeight
@@ -1128,13 +1128,13 @@ void SwPostItMgr::LayoutPostIts()
                             // view that has the comment focus emits callbacks,
                             // so the editing view jumps to the comment, but
                             // not the others.
-                            bool bTiledPainting = comphelper::LibreOfficeKit::isTiledPainting();
+                            bool bTiledPainting = comphelper::loficeKit::isTiledPainting();
                             if (!bTiledPainting)
                                 // No focus -> disable callbacks.
-                                comphelper::LibreOfficeKit::setTiledPainting(!visiblePostIt->HasChildPathFocus());
+                                comphelper::loficeKit::setTiledPainting(!visiblePostIt->HasChildPathFocus());
                             visiblePostIt->ShowNote();
                             if (!bTiledPainting)
-                                comphelper::LibreOfficeKit::setTiledPainting(bTiledPainting);
+                                comphelper::loficeKit::setTiledPainting(bTiledPainting);
                         }
                         else
                         {
@@ -1273,7 +1273,7 @@ void SwPostItMgr::DrawNotesForPage(OutputDevice *pOutDev, sal_uInt32 nPage)
     if (nPage >= mPages.size())
         return;
     const bool bEnableMapMode
-        = comphelper::LibreOfficeKit::isActive() && !mpEditWin->IsMapModeEnabled();
+        = comphelper::loficeKit::isActive() && !mpEditWin->IsMapModeEnabled();
     if (bEnableMapMode)
         mpEditWin->EnableMapMode();
     for (auto const& pItem : mPages[nPage]->mvSidebarItems)
@@ -2454,7 +2454,7 @@ tools::ULong SwPostItMgr::GetSidebarWidth(bool bPx) const
 {
     bool bEnableMapMode = !mpWrtShell->GetOut()->IsMapModeEnabled();
     sal_uInt16 nZoom = mpWrtShell->GetViewOptions()->GetZoom();
-    if (comphelper::LibreOfficeKit::isActive() && !bEnableMapMode)
+    if (comphelper::loficeKit::isActive() && !bEnableMapMode)
     {
         // The output device is the tile and contains the real wanted scale factor.
         double fScaleX = mpWrtShell->GetOut()->GetMapMode().GetScaleX();

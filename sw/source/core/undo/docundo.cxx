@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -103,7 +103,7 @@ void UndoManager::SetView(SwView* pView)
 size_t UndoManager::GetUndoActionCount(const bool bCurrentLevel) const
 {
     size_t nRet = SdrUndoManager::GetUndoActionCount(bCurrentLevel);
-    if (!comphelper::LibreOfficeKit::isActive() || !m_pView)
+    if (!comphelper::loficeKit::isActive() || !m_pView)
         return nRet;
 
     if (!nRet || !SdrUndoManager::GetUndoActionCount())
@@ -127,7 +127,7 @@ size_t UndoManager::GetUndoActionCount(const bool bCurrentLevel) const
 size_t UndoManager::GetRedoActionCount(const bool bCurrentLevel) const
 {
     size_t nRet = SdrUndoManager::GetRedoActionCount(bCurrentLevel);
-    if (!comphelper::LibreOfficeKit::isActive() || !m_pView)
+    if (!comphelper::loficeKit::isActive() || !m_pView)
         return nRet;
 
     if (!nRet || !SdrUndoManager::GetRedoActionCount())
@@ -455,7 +455,7 @@ UndoManager::GetLastUndoInfo(
 
     SfxUndoAction *const pAction( SdrUndoManager::GetUndoAction() );
 
-    if (comphelper::LibreOfficeKit::isActive() && !m_bRepair)
+    if (comphelper::loficeKit::isActive() && !m_bRepair)
     {
         // If another view created the undo action, prevent undoing it from this view.
         ViewShellId nViewShellId = pView ? pView->GetViewShellId() : m_pDocShell->GetView()->GetViewShellId();
@@ -520,7 +520,7 @@ bool UndoManager::GetFirstRedoInfo(OUString *const o_pStr,
         return false;
     }
 
-    if (comphelper::LibreOfficeKit::isActive() && !m_bRepair)
+    if (comphelper::loficeKit::isActive() && !m_bRepair)
     {
         // If another view created the undo action, prevent redoing it from this view.
         ViewShellId nViewShellId = pView ? pView->GetViewShellId() : m_pDocShell->GetView()->GetViewShellId();
@@ -673,7 +673,7 @@ bool UndoManager::impl_DoUndoRedo(UndoOrRedoType undoOrRedo, size_t nUndoOffset)
 
     SwView* pViewShell = dynamic_cast<SwView*>(SfxViewShell::Current());
     SwEditShell *const pEditShell(
-        comphelper::LibreOfficeKit::isActive() && pViewShell ? pViewShell->GetWrtShellPtr()
+        comphelper::loficeKit::isActive() && pViewShell ? pViewShell->GetWrtShellPtr()
         : rDoc.GetEditShell());
     OSL_ENSURE(pEditShell, "sw::UndoManager needs a SwEditShell!");
     if (!pEditShell)

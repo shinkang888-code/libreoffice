@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1773,7 +1773,7 @@ std::unique_ptr<SmNode> SmParser5::DoTerm(bool bGroupNumberIdent)
             // The tokenizer skips whitespaces so we need some additional
             // work to distinguish from "x_2 n".
             // See https://bz.apache.org/ooo/show_bug.cgi?id=11752 and
-            // https://bugs.libreoffice.org/show_bug.cgi?id=55853
+            // https://bugs.lofice.org/show_bug.cgi?id=55853
             sal_Int32 nBufLen = m_aBufferString.getLength();
 
             // We need to be careful to call NextToken() only after having

@@ -2,8 +2,8 @@
 # a simple email mailmerge component
 
 # manual installation for hackers, not necessary for users
-# cp mailmerge.py /usr/lib/libreoffice/program
-# cd /usr/lib/libreoffice/program
+# cp mailmerge.py /usr/lib/lofice/program
+# cd /usr/lib/lofice/program
 # ./unopkg add --shared mailmerge.py
 # edit ~/.openoffice.org2/user/registry/data/org/openoffice/Office/Writer.xcu
 # and change EMailSupported to as follows...
@@ -266,7 +266,7 @@ class PyMailSMTPService(unohelper.Base, XSmtpService):
         if xMailMessage.ReplyToAddress != "":
             msg["Reply-To"] = xMailMessage.ReplyToAddress
 
-        mailerstring = "LibreOffice via Caolan's mailmerge component"
+        mailerstring = "lofice via Caolan's mailmerge component"
         try:
             ctx = uno.getComponentContext()
             aConfigProvider = ctx.ServiceManager.createInstance(

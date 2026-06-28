@@ -1,5 +1,5 @@
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -275,7 +275,7 @@ en-US = "< &Back"
 en-US = "Cancel"
 
 [OOO_CONTROL_124]
-en-US = "Build contributed in collaboration with the community by [Manufacturer]. For credits, see: https://www.documentfoundation.org"
+en-US = "Build contributed in collaboration with the community by [Manufacturer]. For credits, see: https://www.lofice.io"
 
 [OOO_CONTROL_125]
 en-US = "&Next >"

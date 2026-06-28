@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1373,7 +1373,7 @@ CPPUNIT_TEST_FIXTURE(ScExportTest3, testTdf80149)
     // - Expected: Character 0x16 is here ->><<--
     // - Actual  :
     CPPUNIT_ASSERT_EQUAL(u"Character 0x16 is here ->><<--"_ustr, pDoc->GetString(1, 0, 0));
-    CPPUNIT_ASSERT_EQUAL(u"File opens in libre office, but can't be saved as xlsx"_ustr,
+    CPPUNIT_ASSERT_EQUAL(u"File opens in lofice, but can't be saved as xlsx"_ustr,
                          pDoc->GetString(2, 0, 0));
     CPPUNIT_ASSERT_EQUAL(u"row 2"_ustr, pDoc->GetString(0, 1, 0));
     CPPUNIT_ASSERT_EQUAL(u"Subsequent rows get truncated"_ustr, pDoc->GetString(1, 1, 0));

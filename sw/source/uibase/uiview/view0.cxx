@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -643,7 +643,7 @@ void SwView::ExecViewOptions(SfxRequest &rReq)
             bFlag = !m_bIsSpotlightParaStyles;
         m_bIsSpotlightParaStyles = bFlag;
 
-        if (!comphelper::LibreOfficeKit::isActive() && m_bIsSpotlightParaStyles)
+        if (!comphelper::loficeKit::isActive() && m_bIsSpotlightParaStyles)
         {
             if (!pArgs || !pArgs->HasItem(FN_PARAM_1))
             {
@@ -673,7 +673,7 @@ void SwView::ExecViewOptions(SfxRequest &rReq)
             bFlag = !m_bIsSpotlightCharStyles;
         m_bIsSpotlightCharStyles = bFlag;
 
-        if (!comphelper::LibreOfficeKit::isActive() && m_bIsSpotlightCharStyles)
+        if (!comphelper::loficeKit::isActive() && m_bIsSpotlightCharStyles)
         {
             if (!pArgs || !pArgs->HasItem(FN_PARAM_1))
             {

@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,9 +9,9 @@
 from uitest.framework import UITestCase
 from uitest.uihelper.common import get_state_as_dict
 from uitest.uihelper.common import select_by_text
-from libreoffice.uno.propertyvalue import mkPropertyValues
+from lofice.uno.propertyvalue import mkPropertyValues
 
-#TSCP: add advanced classification dialog https://cgit.freedesktop.org/libreoffice/core/commit/?id=71ee09947d5a71105d64fd225bb3672dfa7ce834
+#TSCP: add advanced classification dialog https://cgit.freedesktop.org/lofice/core/commit/?id=71ee09947d5a71105d64fd225bb3672dfa7ce834
 # This adds an advanced classification dialog, which enables the user
 # to manually construct a header/footer message from classification
 # properties in cases where the user needs more control. All the
@@ -21,7 +21,7 @@ from libreoffice.uno.propertyvalue import mkPropertyValues
 # want to use in this case.
 
 #[Bug 122491] Classification: dialog (Paragraph) Classification doesn't show previously chosen classification
-#https://wiki.documentfoundation.org/TSCP-classification
+#https://wiki.lofice.io/TSCP-classification
 
         #new file; open Doc classification dialog
         #add classification Confidential, save

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -41,7 +41,7 @@ using namespace ::com::sun::star::uno;
 
 using ::std::map;
 
-#define EXT_MODULE_OLE_URI "http://libreoffice.org/2011/xslt/ole"
+#define EXT_MODULE_OLE_URI "http://lofice.org/2011/xslt/ole"
 
 namespace XSLT
 {

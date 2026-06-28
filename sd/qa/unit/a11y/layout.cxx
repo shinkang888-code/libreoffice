@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -36,7 +36,7 @@ CPPUNIT_TEST_FIXTURE(test::AccessibleTestBase, TestImpressDefaultStructure)
                          collectText());
 }
 
-// a basic check of the content order for https://bugs.documentfoundation.org/show_bug.cgi?id=150064
+// a basic check of the content order for https://bugs.lofice.io/show_bug.cgi?id=150064
 CPPUNIT_TEST_FIXTURE(test::AccessibleTestBase, TestImpressDefaultLayout)
 {
     load(u"private:factory/simpress"_ustr);
@@ -62,7 +62,7 @@ CPPUNIT_TEST_FIXTURE(test::AccessibleTestBase, TestImpressDefaultLayout)
         xDocumentContext->getAccessibleChild(2)->getAccessibleContext()->getAccessibleName());
 }
 
-// test a11y tree order is stable (https://bugs.documentfoundation.org/show_bug.cgi?id=150064)
+// test a11y tree order is stable (https://bugs.lofice.io/show_bug.cgi?id=150064)
 CPPUNIT_TEST_FIXTURE(test::AccessibleTestBase, tdf150064)
 {
     loadFromSrc(u"/sd/qa/unit/a11y/data/tdf150064.fodp"_ustr);

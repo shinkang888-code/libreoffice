@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1440,7 +1440,7 @@ void XMLShapeExport::ImpExportQRCode(const uno::Reference<drawing::XShape>& xSha
         return;
 
     mrExport.AddAttribute(XML_NAMESPACE_OFFICE, XML_STRING_VALUE, aBarCode.Payload);
-    /* Export QR Code as per customised schema, @see OpenDocument-schema-v1.3+libreoffice */
+    /* Export QR Code as per customised schema, @see OpenDocument-schema-v1.3+lofice */
     OUString temp;
     switch(aBarCode.ErrorCorrection){
         case css::drawing::BarCodeErrorCorrection::LOW :
@@ -4722,7 +4722,7 @@ static void ImpExportEnhancedGeometry( SvXMLExport& rExport, const uno::Referenc
                                         sal_Int16 eMetalType;
                                         if (rProp.Value >>= eMetalType)
                                         {
-                                            // LibreOffice had used the same values as later specified in ODF 1.4
+                                            // lofice had used the same values as later specified in ODF 1.4
                                             if (eMetalType == drawing::EnhancedCustomShapeMetalType::MetalMSCompatible)
                                                 aStr = "loext:MetalMSCompatible";
                                             else

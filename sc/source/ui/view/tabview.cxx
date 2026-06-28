@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1907,7 +1907,7 @@ Point ScTabView::GetChartInsertPos( const Size& rSize, const ScRange& rCellRange
         ActivatePart( eUsedPart );
 
         //  get the visible rectangle in logic units
-        bool bLOKActive = comphelper::LibreOfficeKit::isActive();
+        bool bLOKActive = comphelper::loficeKit::isActive();
         MapMode aDrawMode = pWin->GetDrawMapMode();
         tools::Rectangle aVisible(
             bLOKActive ?
@@ -2499,7 +2499,7 @@ void ScTabView::EnableAutoSpell( bool bEnable )
         pWin->SetAutoSpellContext(mpSpellCheckCxt);
     }
 
-    if (bWasEnabled != bEnable && comphelper::LibreOfficeKit::isActive())
+    if (bWasEnabled != bEnable && comphelper::loficeKit::isActive())
     {
         if (ScTabViewShell* pViewSh = aViewData.GetViewShell())
         {
@@ -2878,7 +2878,7 @@ void ScTabView::getRowColumnHeaders(const tools::Rectangle& rRectangle, tools::J
     if (rRectangle.IsEmpty())
         return;
 
-    bool bRangeHeaderSupport = comphelper::LibreOfficeKit::isRangeHeaders();
+    bool bRangeHeaderSupport = comphelper::loficeKit::isRangeHeaders();
 
     rJsonWriter.put("commandName", ".uno:ViewRowColumnHeaders");
 

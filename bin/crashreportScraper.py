@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-# Use this script to retrieve information from https://crashreport.libreoffice.org
-# about a specific version of LibreOffice
-# Usage sample: ./crashreportScraper.py --version 7.2.0.4 --repository /path/to/libreoffice/repository/
+# Use this script to retrieve information from https://crashreport.lofice.org
+# about a specific version of lofice
+# Usage sample: ./crashreportScraper.py --version 7.2.0.4 --repository /path/to/lofice/repository/
 
 import argparse
 import requests
@@ -65,7 +65,7 @@ def convert_str_to_date(value):
 
 def parse_version_url(version, session):
     crashReports = {}
-    url = "https://crashreport.libreoffice.org/stats/version/" + version + "?limit=1000&days=30"
+    url = "https://crashreport.lofice.org/stats/version/" + version + "?limit=1000&days=30"
 
     try:
         html_text = session.get(url, timeout=200).text
@@ -87,7 +87,7 @@ def parse_version_url(version, session):
 
 def parse_reports_and_get_most_recent_report_from_last_page(signature, session):
     try:
-        url = "https://crashreport.libreoffice.org/stats/signature/" + signature
+        url = "https://crashreport.lofice.org/stats/signature/" + signature
         html_text = session.get(url, timeout=200).text
         soup = BeautifulSoup(html_text, 'html.parser')
     except requests.exceptions.Timeout:
@@ -136,7 +136,7 @@ def parse_reports_and_get_most_recent_report_from_last_page(signature, session):
 
 def parse_details_and_get_info(crashId, session, gitRepo, gitBranch):
     try:
-        url = "https://crashreport.libreoffice.org/stats/crash_details/" + crashID
+        url = "https://crashreport.lofice.org/stats/crash_details/" + crashID
         html_text = session.get(url, timeout=200).text
         soup = BeautifulSoup(html_text, 'html.parser')
     except requests.exceptions.Timeout:
@@ -165,7 +165,7 @@ def parse_details_and_get_info(crashId, session, gitRepo, gitBranch):
                     lines = f.readlines()
                     for index, line in enumerate(lines):
                         if index + 1 == int(codeNumber):
-                            urlLink = "https://git.libreoffice.org/core/+/" + \
+                            urlLink = "https://git.lofice.org/core/+/" + \
                                 gitBranch + "/" + codeFile + "#" + str(codeNumber)
                             codeLine += str(count) + ": <a target=\"_blank\" href=\"" + urlLink + "\">" + line.strip().replace("\"", "'") + "</a>"
                             count += 1
@@ -197,7 +197,7 @@ if __name__ == '__main__':
     gitBranch = git.Repo(args.repository).active_branch.name
 
     session = requests.Session()
-    session.headers.update({'Referer': 'https://crashreport.libreoffice.org'})
+    session.headers.update({'Referer': 'https://crashreport.lofice.org'})
 
     crashes = parse_version_url(args.version, session)
 
@@ -235,7 +235,7 @@ if __name__ == '__main__':
                     ratio = round(crashCount / ((lDate[2] - lDate[1]).days + 1), 2)
                     count += 1
                     f.write("<td id=\"td1\">" + str(count) + "</td>")
-                    f.write("<td id=\"td1\"><b><a target=\"_blank\" href=\"https://crashreport.libreoffice.org/stats/crash_details/"
+                    f.write("<td id=\"td1\"><b><a target=\"_blank\" href=\"https://crashreport.lofice.org/stats/crash_details/"
                         + crashID + "\">" + k + "</a></b></td>")
                     f.write("<td id=\"td1\">" + str(ratio) + "</td>")
                     f.write("<td id=\"td1\">" + str(crashCount) + "</td>")

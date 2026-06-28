@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -47,7 +47,7 @@ using namespace com::sun::star::awt;
 using namespace com::sun::star::lang;
 using namespace comphelper;
 
-// For LibreOffice internal D&D we provide the Transferable without NSDragPboard
+// For lofice internal D&D we provide the Transferable without NSDragPboard
 // interference as a shortcut, see tdf#100097 for how dbaccess depends on this
 uno::Reference<XTransferable> DragSource::g_XTransferable;
 NSView* DragSource::g_DragSourceView = nil;

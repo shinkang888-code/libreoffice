@@ -1,3 +1,3 @@
-# Connection code for LibreOffice's pyUNO
+# Connection code for lofice's pyUNO
 
-This code allows out-of-process communication with a LibreOffice instance. The instance can either be started by the script or a connection to a running LibreOffice instance. The code contains several safety checks for hanging and crashed LibreOffice instances.
+This code allows out-of-process communication with a lofice instance. The instance can either be started by the script or a connection to a running lofice instance. The code contains several safety checks for hanging and crashed lofice instances.

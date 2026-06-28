@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -159,7 +159,7 @@ void VclProcessor2D::RenderTextSimpleOrDecoratedPortionPrimitive2D(
             // tdf#153092 Ideally we don't have to scale the font and dxarray, but we might have
             // to nevertheless if dealing with non integer sizes
             const bool bScaleFont(aFontSize.getY() != std::round(aFontSize.getY())
-                                  || comphelper::LibreOfficeKit::isActive());
+                                  || comphelper::loficeKit::isActive());
             vcl::Font aFont;
 
             // Get the VCL font
@@ -388,7 +388,7 @@ void VclProcessor2D::RenderTextSimpleOrDecoratedPortionPrimitive2D(
                 const basegfx::B2DPoint aPoint(aLocalTransform * basegfx::B2DPoint(0.0, 0.0));
                 double aPointX = aPoint.getX(), aPointY = aPoint.getY();
 
-                if (!comphelper::LibreOfficeKit::isActive())
+                if (!comphelper::loficeKit::isActive())
                 {
                     // aFont has an integer size; we must scale a bit for precision
                     double nFontScalingFixY = aFontScaling.getY() / aResultFontSize.Height();

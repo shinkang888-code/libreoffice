@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -27,7 +27,7 @@ extern "C" {
 /**
  * C wrapper for cppu::defaultBootstrap_InitialComponentContext()
  *
- * This function provides a C interface to the LibreOffice UNO bootstrap
+ * This function provides a C interface to the lofice UNO bootstrap
  * functionality, allowing Rust code to initialize the UNO component context.
  *
  * @return XInterface* - Opaque pointer to XComponentContext (as XInterface)
@@ -39,13 +39,13 @@ SAL_DLLPUBLIC_EXPORT void* defaultBootstrap_InitialComponentContext()
 
     try
     {
-        // Call the actual LibreOffice bootstrap function
+        // Call the actual lofice bootstrap function
         SAL_INFO("rustuno", "Calling cppu::defaultBootstrap_InitialComponentContext");
         Reference<XComponentContext> xContext = cppu::defaultBootstrap_InitialComponentContext();
 
         if (!xContext.is())
         {
-            SAL_WARN("rustuno", "LibreOffice bootstrap failed - component context is invalid");
+            SAL_WARN("rustuno", "lofice bootstrap failed - component context is invalid");
             return nullptr;
         }
 

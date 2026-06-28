@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -89,7 +89,7 @@ void TestBreakIterator::testLineBreaking()
     i18n::LineBreakUserOptions aUserOptions;
     lang::Locale aLocale;
 
-    //See https://bugs.libreoffice.org/show_bug.cgi?id=31271
+    //See https://bugs.lofice.org/show_bug.cgi?id=31271
     {
         OUString aTest(u"(some text here)"_ustr);
 
@@ -109,7 +109,7 @@ void TestBreakIterator::testLineBreaking()
         }
     }
 
-    //See https://bugs.libreoffice.org/show_bug.cgi?id=49849
+    //See https://bugs.lofice.org/show_bug.cgi?id=49849
     {
         static constexpr OUString aWord = u"\u05DE\u05D9\u05DC\u05D9\u05DD"_ustr;
         OUString aTest(aWord + " " + aWord);
@@ -210,16 +210,16 @@ void TestBreakIterator::testLineBreaking()
             // even containing whitespace.
             //
             // Reverting to the ICU line rules fixes this root issue. Now, in the following,
-            // "C:\Program" and "Files\LibreOffice" are treated as separate tokens. This is also
+            // "C:\Program" and "Files\lofice" are treated as separate tokens. This is also
             // consistent with the behavior of other office programs.
             i18n::LineBreakResults aResult = m_xBreak->getLineBreak(
-                u"C:\\Program Files\\LibreOffice"_ustr, strlen("C:\\Program Files\\Libre"), aLocale, 0,
+                u"C:\\Program Files\\lofice"_ustr, strlen("C:\\Program Files\\Libre"), aLocale, 0,
                 aHyphOptions, aUserOptions);
             CPPUNIT_ASSERT_EQUAL(static_cast<sal_Int32>(11), aResult.breakIndex);
 
             // An identical result should be generated for solidus.
             aResult = m_xBreak->getLineBreak(
-                u"C:/Program Files/LibreOffice"_ustr, strlen("C:/Program Files/Libre"), aLocale, 0,
+                u"C:/Program Files/lofice"_ustr, strlen("C:/Program Files/Libre"), aLocale, 0,
                 aHyphOptions, aUserOptions);
             CPPUNIT_ASSERT_EQUAL(static_cast<sal_Int32>(11), aResult.breakIndex);
         }
@@ -456,7 +456,7 @@ void TestBreakIterator::testLineBreaking()
         }
     }
 
-    //See https://bugs.documentfoundation.org/show_bug.cgi?id=96197
+    //See https://bugs.lofice.io/show_bug.cgi?id=96197
     {
         static constexpr OUString aTest = u"\uc560\uad6D\uac00\uc758 \uac00"
                                        "\uc0ac\ub294"_ustr;
@@ -507,7 +507,7 @@ void TestBreakIterator::testLineBreaking()
     }
 }
 
-//See https://bugs.libreoffice.org/show_bug.cgi?id=49629
+//See https://bugs.lofice.org/show_bug.cgi?id=49629
 void TestBreakIterator::testWordBoundaries()
 {
     lang::Locale aLocale;
@@ -610,7 +610,7 @@ void TestBreakIterator::testWordBoundaries()
         CPPUNIT_ASSERT_EQUAL(sal_Int32(92), aBounds.endPos);
     }
 
-    //See https://bugs.libreoffice.org/show_bug.cgi?id=49629
+    //See https://bugs.lofice.org/show_bug.cgi?id=49629
     sal_Unicode aBreakTests[] = { ' ', 1, 2, 3, 4, 5, 6, 7, 0x91, 0x92, 0x200B, 0xE8FF, 0xF8FF };
     for (int mode = i18n::WordType::ANY_WORD; mode <= i18n::WordType::WORD_COUNT; ++mode)
     {
@@ -868,7 +868,7 @@ void TestBreakIterator::testWordBoundaries()
     }
 
     //See https://bz.apache.org/ooo/show_bug.cgi?id=58513
-    //See https://bugs.libreoffice.org/show_bug.cgi?id=55707
+    //See https://bugs.lofice.org/show_bug.cgi?id=55707
     {
         aLocale.Language = "fi";
         aLocale.Country = "FI";
@@ -1169,7 +1169,7 @@ void TestBreakIterator::testSentenceBoundaries()
     }
 }
 
-//See https://bugs.libreoffice.org/show_bug.cgi?id=40292
+//See https://bugs.lofice.org/show_bug.cgi?id=40292
 //See https://bz.apache.org/ooo/show_bug.cgi?id=80412
 //See https://bz.apache.org/ooo/show_bug.cgi?id=111152
 //See https://bz.apache.org/ooo/show_bug.cgi?id=50172
@@ -1408,7 +1408,7 @@ void TestBreakIterator::testWeak()
 //A test to ensure that certain ranges and codepoints that are categorized as
 //asian remain as asian, so that existing docs that depend on this don't silently
 //change font for those asian chars.
-//See https://bugs.libreoffice.org/show_bug.cgi?id=38095
+//See https://bugs.lofice.org/show_bug.cgi?id=38095
 void TestBreakIterator::testAsian()
 {
     lang::Locale aLocale;
@@ -1481,7 +1481,7 @@ void TestBreakIterator::testThai()
     aLocale.Language = "th";
     aLocale.Country = "TH";
 
-    //See http://lists.freedesktop.org/archives/libreoffice/2012-February/025959.html
+    //See http://lists.freedesktop.org/archives/lofice/2012-February/025959.html
     {
         static constexpr OUString aTest = u"\u0E01\u0E38\u0E2B\u0E25\u0E32\u0E1A"_ustr;
         i18n::Boundary aBounds = m_xBreak->getWordBoundary(aTest, 0, aLocale,
@@ -1569,7 +1569,7 @@ void TestBreakIterator::testNorthernThai()
 // insufficient, so icu khmer stuff is disabled
 
 //A test to ensure that our khmer word boundary detection is useful
-//https://bugs.libreoffice.org/show_bug.cgi?id=52020
+//https://bugs.lofice.org/show_bug.cgi?id=52020
 void TestBreakIterator::testKhmer()
 {
     lang::Locale aLocale;

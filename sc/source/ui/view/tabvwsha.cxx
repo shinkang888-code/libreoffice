@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -479,7 +479,7 @@ void ScTabViewShell::GetState( SfxItemSet& rSet )
                 break;
 
             case SID_WINDOW_FIX:
-                if(!comphelper::LibreOfficeKit::isActive())
+                if(!comphelper::loficeKit::isActive())
                 {
                     rSet.Put(SfxBoolItem(nWhich,
                                 rViewData.GetHSplitMode() == SC_SPLIT_FIX ||
@@ -836,7 +836,7 @@ void ScTabViewShell::ExecuteSave( SfxRequest& rReq )
     // Finish entering unless 'DontTerminateEdit' is specified, even if a formula is being processed
     if (bCommitChanges)
     {
-        bool bLOKActive = comphelper::LibreOfficeKit::isActive();
+        bool bLOKActive = comphelper::loficeKit::isActive();
 
         // Disable error dialog box when about to save in lok mode as
         // this ultimately invokes SvpSalInstance::DoYield() when we want

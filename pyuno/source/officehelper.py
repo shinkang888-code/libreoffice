@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -31,7 +31,7 @@ Specific versions of the office suite can be started.
 `SessionManager` class takes care of process memory cleanup.
 Instructions:
 1.  Include one of the below examples in your Python macro
-2.  Run your LibreOffice script from your preferred IDE
+2.  Run your lofice script from your preferred IDE
 Imports:
     os, random, subprocess, sys - `bootstrap`
     itertools, time - `retry` decorator
@@ -73,7 +73,7 @@ class BootstrapException(UnoException):
 
 
 class SessionManager():
-    r""" Bootstrap an 'LibreOffice' service via a Python
+    r""" Bootstrap an 'lofice' service via a Python
     `context manager` taking care of process cleanup
     Examples:
     i.  Start LO as a service, get its remote component context
@@ -145,9 +145,9 @@ def bootstrap(soffice=None, delays=(1, 3, 5, 7), report=lambda *args: None):
         >>> import officehelper as oh
         >>> ctx = oh.bootstrap(delays=(5,10,15,20),report=print)  # wait 5, 10, 15 and 20 sec.
         >>> # your code goes here
-    iii. Use a specific LibreOffice copy
+    iii. Use a specific lofice copy
         >>> from officehelper import bootstrap
-        >>> ctx = bootstrap(soffice=r"USB:\PortableApps\libO-7.6\App\libreoffice\program\soffice.exe")
+        >>> ctx = bootstrap(soffice=r"USB:\PortableApps\libO-7.6\App\lofice\program\soffice.exe")
         >>> # your code goes here
     """
     try:
@@ -159,7 +159,7 @@ def bootstrap(soffice=None, delays=(1, 3, 5, 7), report=lambda *args: None):
             if "UNO_PATH" in os.environ:
                 sOffice = os.path.join(os.environ["UNO_PATH"], sOffice)
             elif platform == "darwin":  # any other un-hardcoded suggestion?
-                sOffice = "/Applications/LibreOffice.App/Contents/MacOS/soffice"
+                sOffice = "/Applications/lofice.App/Contents/MacOS/soffice"
             if platform.startswith("win"):
                 sOffice += ".exe"
         # Generate a random pipe name.

@@ -3,8 +3,8 @@
 #     Copyright 2020-2024 Jean-Pierre LEDURE, Rafael LIMA, @AmourSpirit, Alain ROMEDENNE
 
 # =====================================================================================================================
-# ===           The ScriptForge library and its associated libraries are part of the LibreOffice project.           ===
-# ===                   Full documentation is available on https://help.libreoffice.org/                            ===
+# ===           The ScriptForge library and its associated libraries are part of the lofice project.           ===
+# ===                   Full documentation is available on https://help.lofice.org/                            ===
 # =====================================================================================================================
 
 # ScriptForge is distributed in the hope that it will be useful,
@@ -22,9 +22,9 @@
 # distributed with this file, see http://www.gnu.org/licenses/ .
 
 """
-    ScriptForge libraries are an extensible and robust collection of macro scripting resources for LibreOffice
+    ScriptForge libraries are an extensible and robust collection of macro scripting resources for lofice
     to be invoked from user Basic or Python macros. Users familiar with other BASIC macro variants often face hard
-    times to dig into the extensive LibreOffice Application Programming Interface even for the simplest operations.
+    times to dig into the extensive lofice Application Programming Interface even for the simplest operations.
     By collecting most-demanded document operations in a set of easy to use, easy to read routines, users can now
     program document macros with much less hassle and get quicker results.
 
@@ -34,7 +34,7 @@
 
     The scriptforge.py module
         - describes the interfaces (classes and attributes) to be used in Python user scripts
-          to run the services implemented in the standard modules shipped with LibreOffice
+          to run the services implemented in the standard modules shipped with lofice
         - implements a protocol between those interfaces and, when appropriate, the corresponding ScriptForge
           Basic libraries implementing the requested services.
 
@@ -45,11 +45,11 @@
 
     Usage:
 
-        When Python and LibreOffice run in the same process (usual case):
+        When Python and lofice run in the same process (usual case):
             from scriptforge import CreateScriptService
 
-        When Python and LibreOffice are started in separate processes,
-        LibreOffice being started from console ... (examples for Linux with port = 2026 or pipe = 'MYPIPE')
+        When Python and lofice are started in separate processes,
+        lofice being started from console ... (examples for Linux with port = 2026 or pipe = 'MYPIPE')
         Either:
             ./soffice --accept='socket,host=localhost,port=2026;urp;'
         or:
@@ -64,11 +64,11 @@
         To edit and debug a user script in a specialized Python IDE, and afterwards, when ready,
         run it in the usual interactive mode without code change, write:
             from scriptforge import CreateScriptService
-        and start LibreOffice with a dedicated pipe:
-            ./soffice --accept='pipe,name=PIPE2LIBREOFFICE;urp;'
+        and start lofice with a dedicated pipe:
+            ./soffice --accept='pipe,name=PIPE2lofice;urp;'
 
     Specific documentation about the use of ScriptForge from Python scripts:
-        https://help.libreoffice.org/latest/en-US/text/sbasic/shared/03/sf_intro.html?DbPAR=BASIC
+        https://help.lofice.org/latest/en-US/text/sbasic/shared/03/sf_intro.html?DbPAR=BASIC
     """
 
 import uno
@@ -99,7 +99,7 @@ class _Singleton(type):
 class ScriptForge(object, metaclass = _Singleton):
     """
         The ScriptForge class encapsulates the core of the ScriptForge run-time
-            - Bridge with the LibreOffice process
+            - Bridge with the lofice process
             - Implementation of the inter-language protocol with the Basic libraries
             - Identification of the available services interfaces
             - Dispatching of services
@@ -131,7 +131,7 @@ class ScriptForge(object, metaclass = _Singleton):
     # Class constants
     # #########################################################################
     library = 'ScriptForge'
-    Version = '26.8'  # Version number of the LibreOffice release containing the actual file
+    Version = '26.8'  # Version number of the lofice release containing the actual file
     #
     # Basic dispatcher for Python scripts (@scope#library.module.function)
     basicdispatcher = '@application#ScriptForge.SF_PythonHelper._PythonDispatcher'
@@ -159,12 +159,12 @@ class ScriptForge(object, metaclass = _Singleton):
                             ('ScriptForge.String', 8),
                             ('ScriptForge.UI', 9)])
     # The default pipe name to connect to when debugging user scripts from external IDE's
-    defaultpipe = 'PIPE2LIBREOFFICE'
+    defaultpipe = 'PIPE2lofice'
 
     def __init__(self, hostname = '', port = 0, pipe = ''):
         """
             Because singleton, constructor is executed only once while Python active
-            Both arguments are mandatory when Python and LibreOffice run in separate processes
+            Both arguments are mandatory when Python and lofice run in separate processes
             Otherwise both arguments must be left out.
             :param hostname: probably 'localhost'
             :param port: port number
@@ -193,7 +193,7 @@ class ScriptForge(object, metaclass = _Singleton):
     def ConnectToLOProcess(cls, hostname = '', port = 0, pipe = ''):
         """
             Called by the ScriptForge class constructor to establish the connection with
-            the requested LibreOffice instance
+            the requested lofice instance
             The default arguments are for the usual interactive mode
 
             :param hostname: probably 'localhost' or ''
@@ -214,9 +214,9 @@ class ScriptForge(object, metaclass = _Singleton):
                     conn = 'pipe,name=%s' % pipe
                 url = 'uno:%s;urp;StarOffice.ComponentContext' % conn
                 ctx = resolver.resolve(url)
-            except Exception:  # thrown when LibreOffice specified instance isn't started
+            except Exception:  # thrown when lofice specified instance isn't started
                 raise SystemExit(
-                    "Connection to LibreOffice failed (%s)" % conn)
+                    "Connection to lofice failed (%s)" % conn)
             return ctx
         elif len(hostname) == 0 and port == 0 and len(pipe) == 0:  # Usual interactive mode
             # Try a connection through the default pipe first
@@ -224,8 +224,8 @@ class ScriptForge(object, metaclass = _Singleton):
                 conn = 'pipe,name=%s' % ScriptForge.defaultpipe
                 url = 'uno:%s;urp;StarOffice.ComponentContext' % conn
                 ctx = resolver.resolve(url)
-            except Exception:  # thrown when LibreOffice specified instance isn't started
-                print("Connection to LibreOffice failed (%s). Assuming interactive mode." % conn)
+            except Exception:  # thrown when lofice specified instance isn't started
+                print("Connection to lofice failed (%s). Assuming interactive mode." % conn)
             finally:  # Ignore exception
                 return ctx
         else:
@@ -250,7 +250,7 @@ class ScriptForge(object, metaclass = _Singleton):
                 The execution is done with the invoke() method applied on the created object
             Implicit scope: Either
                 "application"            a shared library                    (BASIC)
-                "share"                  a module within LibreOffice Macros  (PYTHON)
+                "share"                  a module within lofice Macros  (PYTHON)
             :param script: Either
                     [@][scope#][library.]module.method - Must not be a class module or method
                         [@] means that the targeted method accepts ParamArray arguments (Basic only)
@@ -290,7 +290,7 @@ class ScriptForge(object, metaclass = _Singleton):
                 _xscript = cls.scriptprovider.getScript(uri)     # com.sun.star.script.provider.XScript
             except Exception:
                 raise RuntimeError(
-                    'The script \'{0}\' could not be located in your LibreOffice installation'.format(_script))
+                    'The script \'{0}\' could not be located in your lofice installation'.format(_script))
             return _paramarray, _fullscript, _xscript
 
         # The frequently called PythonDispatcher in the ScriptForge Basic library is cached to privilege performance
@@ -299,7 +299,7 @@ class ScriptForge(object, metaclass = _Singleton):
             fullscript = script
             paramarray = True
         # Parse the 'script' argument and build the URI specification described in
-        # https://wiki.documentfoundation.org/Documentation/DevGuide/Scripting_Framework#Scripting_Framework_URI_Specification
+        # https://wiki.lofice.io/Documentation/DevGuide/Scripting_Framework#Scripting_Framework_URI_Specification
         elif len(script) > 0:
             paramarray, fullscript, xscript = ParseScript(script)
         else:  # Should not happen
@@ -749,7 +749,7 @@ class SFScriptForge:
                 core/basic/source/runtime/stdobj.cxx
 
             Detailed user documentation:
-                https://help.libreoffice.org/latest/en-US/text/sbasic/shared/03/sf_basic.html?DbPAR=BASIC
+                https://help.lofice.org/latest/en-US/text/sbasic/shared/03/sf_basic.html?DbPAR=BASIC
             """
         # Mandatory class properties for service registration
         serviceimplementation = 'python'
@@ -1165,7 +1165,7 @@ class SFScriptForge:
                 #   Choice is a minimalist call to a Basic routine: no arguments, a few lines of code
                 SFScriptForge.SF_Basic.GetGuiType()
             else:
-                # The APSO extension could not be located in your LibreOffice installation
+                # The APSO extension could not be located in your lofice installation
                 cls._RaiseFatal('SF_Exception.PythonShell', 'variables=None', 'PYTHONSHELLERROR')
 
         @classmethod
@@ -1362,7 +1362,7 @@ class SFScriptForge:
             and context :
                 the hardware platform
                 the operating system
-                the LibreOffice version
+                the lofice version
                 the current user
             All those properties are read-only.
             The implementation is mainly based on the 'platform' module of the Python standard library
@@ -1566,7 +1566,7 @@ class SFScriptForge:
         SCRIPTISAPPLICATION = 'application'  # in any shared library (Basic)
         SCRIPTISPERSONAL = 'user'  # in My Macros (Python)
         SCRIPTISPERSOXT = 'user:uno_packages'  # in an extension installed for the current user (Python)
-        SCRIPTISSHARED = 'share'  # in LibreOffice macros (Python)
+        SCRIPTISSHARED = 'share'  # in lofice macros (Python)
         SCRIPTISSHAROXT = 'share:uno_packages'  # in an extension installed for all users (Python)
         SCRIPTISOXT = 'uno_packages'  # in an extension but the installation parameters are unknown (Python)
 
@@ -1813,7 +1813,7 @@ class SFScriptForge:
     class SF_UI(SFServices, metaclass = _Singleton):
         """
             Singleton class for the identification and the manipulation of the
-            different windows composing the whole LibreOffice application:
+            different windows composing the whole lofice application:
                 - Windows selection
                 - Windows moving and resizing
                 - Statusbar settings
@@ -1991,7 +1991,7 @@ class SFDatabases:
     class SF_Dataset(SFServices):
         """
             A dataset represents a set of tabular data produced by a database.
-            In the user interface of LibreOffice a dataset corresponds with the data
+            In the user interface of lofice a dataset corresponds with the data
             displayed in a form, a data sheet (table, query).
             To use datasets, the database instance must exist but the Base document may not be open.
             """
@@ -2130,7 +2130,7 @@ class SFDialogs:
             executed on the box can trigger specific actions.
 
             In non-modal mode, the floating dialog remains displayed until the dialog is terminated
-            by code (Terminate()) or until the LibreOffice application stops.
+            by code (Terminate()) or until the lofice application stops.
             """
         # Mandatory class properties for service registration
         serviceimplementation = 'basic'
@@ -2392,7 +2392,7 @@ class SFDialogs:
 class SFDocuments:
     """
         The SFDocuments class gathers a number of classes, methods and properties making easy
-        managing and manipulating LibreOffice documents
+        managing and manipulating lofice documents
         """
     pass
 
@@ -2882,7 +2882,7 @@ class SFDocuments:
     # #########################################################################
     class SF_Form(SFServices):
         """
-            Management of forms defined in LibreOffice documents. Supported types are Base, Calc and Writer documents.
+            Management of forms defined in lofice documents. Supported types are Base, Calc and Writer documents.
             It includes the management of subforms
             Each instance of the current class represents a single form or a single subform
             A form may optionally be (understand "is often") linked to a data source manageable with
@@ -3097,7 +3097,7 @@ class SFWidgets:
             A context menu is obtained by a right-click on several areas of a document.
             Each component model has its own set of context menus.
 
-            A context menu is usually predefined at LibreOffice installation.
+            A context menu is usually predefined at lofice installation.
             Customization is done statically with the Tools + Customize dialog.
 
             The actual service provides means
@@ -3222,7 +3222,7 @@ def CreateScriptService(service, *args, **kwargs):
         """
     # Init at each CreateScriptService() invocation
     #       CreateScriptService is usually the first statement in user scripts requesting ScriptForge services
-    #       ScriptForge() is optional in user scripts when Python process inside LibreOffice process
+    #       ScriptForge() is optional in user scripts when Python process inside lofice process
     if ScriptForge.SCRIPTFORGEINITDONE is False:
         ScriptForge()
 

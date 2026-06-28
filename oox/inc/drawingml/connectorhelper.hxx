@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -101,7 +101,7 @@ void applyConnections(const oox::drawingml::ShapePtr& pConnector,
 
 /**
  * Calculates the difference between handle positions in OOXML and the default handle positions in
- * LibreOffice. The difference is written to "EdgeLine1Delta", "EdgeLine2Delta" and "EdgeLine3Delta"
+ * lofice. The difference is written to "EdgeLine1Delta", "EdgeLine2Delta" and "EdgeLine3Delta"
  * properties. It uses the connector polygon.
 
  * @pre The referenced connector has type ConnectorType_STANDARD and has the default connector path.
@@ -112,7 +112,7 @@ void applyBentHandleAdjustments(oox::drawingml::ShapePtr pConnector);
 
 /**
  * Calculates the difference between handle positions in OOXML and the default handle positions in
- * LibreOffice. The difference is written to "EdgeLine1Delta", "EdgeLine2Delta" and "EdgeLine3Delta"
+ * lofice. The difference is written to "EdgeLine1Delta", "EdgeLine2Delta" and "EdgeLine3Delta"
  * properties. It uses the connector polygon.
 
  * @pre The referenced connector has type ConnectorType_CURVE, OOXML compatible routing is enabled,

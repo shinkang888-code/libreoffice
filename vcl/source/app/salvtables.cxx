@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -613,7 +613,7 @@ OUString SalInstanceWidget::escape_ui_str(const OUString& rLabel) const
 
 ScopedVclPtr<VirtualDevice> SalInstanceWidget::create_virtual_device() const
 {
-    // create with (annoying) separate alpha layer that LibreOffice itself uses
+    // create with (annoying) separate alpha layer that lofice itself uses
     return VclPtr<VirtualDevice>::Create(*Application::GetDefaultDevice(),
                                          DeviceFormat::WITH_ALPHA);
 }
@@ -1775,7 +1775,7 @@ void SalInstanceDialog::undo_collapse()
 }
 
 void SalInstanceDialog::SetInstallLOKNotifierHdl(
-    const Link<void*, vcl::ILibreOfficeKitNotifier*>& rLink)
+    const Link<void*, vcl::IloficeKitNotifier*>& rLink)
 {
     m_xDialog->SetInstallLOKNotifierHdl(rLink);
 }
@@ -6781,7 +6781,7 @@ void SalInstanceWindow::help()
     vcl::Window* pWidget = ImplGetSVData()->mpWinData->mpFocusWin;
     if (!pWidget)
         pWidget = m_xWindow;
-    if (comphelper::LibreOfficeKit::isActive() && m_xWindow->GetFocusedWindow())
+    if (comphelper::loficeKit::isActive() && m_xWindow->GetFocusedWindow())
         pWidget = m_xWindow->GetFocusedWindow().get();
     OUString sHelpId = pWidget->GetHelpId();
     while (sHelpId.isEmpty())

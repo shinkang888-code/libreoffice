@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -232,7 +232,7 @@ void SvxLineTabPage::FillListboxes()
     m_xLbLineStyle->set_active( nOldSelect );
 
     // Line end style
-    OUString sNone( comphelper::LibreOfficeKit::isActive() ? SvxResId( RID_SVXSTR_INVISIBLE )
+    OUString sNone( comphelper::loficeKit::isActive() ? SvxResId( RID_SVXSTR_INVISIBLE )
         : SvxResId( RID_SVXSTR_NONE ) );
     nOldSelect = m_xLbStartStyle->get_active();
     m_xLbStartStyle->clear();
@@ -294,7 +294,7 @@ void SvxLineTabPage::ActivatePage( const SfxItemSet& rSet )
 
             *m_pnLineEndListState = ChangeType::NONE;
 
-            OUString sNone( comphelper::LibreOfficeKit::isActive() ? SvxResId( RID_SVXSTR_INVISIBLE )
+            OUString sNone( comphelper::loficeKit::isActive() ? SvxResId( RID_SVXSTR_INVISIBLE )
                 : SvxResId( RID_SVXSTR_NONE ) );
 
             auto sActiveStyle = m_xLbStartStyle->get_active_text();

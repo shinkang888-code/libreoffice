@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -71,7 +71,7 @@
 #include <string_view>
 
 #include <sal/log.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <comphelper/sequenceashashmap.hxx>
 #include <comphelper/servicehelper.hxx>
@@ -578,7 +578,7 @@ void SfxDispatchController_Impl::dispatch( const css::util::URL& aURL,
 
     SolarMutexGuard aGuard;
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         const SfxViewShell* pViewShell = SfxViewShell::Current();
         if (pViewShell && pViewShell->isBlockedCommand(aURL.Complete))
@@ -590,7 +590,7 @@ void SfxDispatchController_Impl::dispatch( const css::util::URL& aURL,
             aTree.put("message", "Blocked feature");
             aTree.put("viewID", pViewShell->GetViewShellId().get());
 
-            pViewShell->libreOfficeKitViewCallback(LOK_COMMAND_BLOCKED, aTree.finishAndGetAsOString());
+            pViewShell->loficeKitViewCallback(LOK_COMMAND_BLOCKED, aTree.finishAndGetAsOString());
             return;
         }
     }
@@ -1043,7 +1043,7 @@ OString RowColSelCountPayload(sal_uInt16, SfxViewFrame*,
         aEvent.State >>= aString;
     tools::JsonWriter aTree;
     aTree.put("commandName", aEvent.FeatureURL.Complete);
-    aTree.put("locale", comphelper::LibreOfficeKit::getLocale().getBcp47());
+    aTree.put("locale", comphelper::loficeKit::getLocale().getBcp47());
     aTree.put("state", aString);
     return aTree.finishAndGetAsOString();
 }
@@ -1465,7 +1465,7 @@ const std::map<std::u16string_view, KitUnoCommand>& GetKitUnoCommandList()
 static void InterceptLOKStateChangeEvent(sal_uInt16 nSID, SfxViewFrame* pViewFrame, const css::frame::FeatureStateEvent& aEvent, const SfxPoolItem* pState)
 {
     const SfxViewShell* pViewShell = pViewFrame->GetViewShell();
-    if (!comphelper::LibreOfficeKit::isActive() || !pViewShell)
+    if (!comphelper::loficeKit::isActive() || !pViewShell)
         return;
 
     const std::map<std::u16string_view, KitUnoCommand>& rUnoCommandList = GetKitUnoCommandList();
@@ -1481,7 +1481,7 @@ static void InterceptLOKStateChangeEvent(sal_uInt16 nSID, SfxViewFrame* pViewFra
     auto payloadIter = enumToPayload.find(handler->second.payloadType);
     PayloadGetter_t pFunct = payloadIter != enumToPayload.end() ? payloadIter->second : nullptr;
     if (pFunct != nullptr)
-        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
+        pViewShell->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
                                                pFunct(nSID, pViewFrame, aEvent, pState));
 }
 

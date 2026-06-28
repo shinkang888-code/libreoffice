@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 
 #ifndef INCLUDED_RTL_USTRING_HXX
@@ -76,8 +76,8 @@ class OUStringBuffer;
 /**
 A wrapper dressing a string literal as a static-refcount rtl_uString.
 
-This class is not part of public API and is meant to be used only in LibreOffice code.
-@since LibreOffice 4.0
+This class is not part of public API and is meant to be used only in lofice code.
+@since lofice 4.0
 */
 template<std::size_t N> class SAL_WARN_UNUSED OUStringLiteral {
     static_assert(N != 0);
@@ -129,7 +129,7 @@ public:
 };
 
 #if defined RTL_STRING_UNITTEST
-namespace libreoffice_internal {
+namespace lofice_internal {
 template<std::size_t N> struct ExceptConstCharArrayDetector<OUStringLiteral<N>> {};
 template<std::size_t N> struct ExceptCharArrayDetector<OUStringLiteral<N>> {};
 }
@@ -216,7 +216,7 @@ public:
       Move constructor.
 
       @param    str         an OUString.
-      @since LibreOffice 5.2
+      @since lofice 5.2
     */
     constexpr
     OUString( OUString && str ) noexcept
@@ -292,16 +292,16 @@ public:
 
     template<typename T> explicit OUString(
         T const & value,
-        typename libreoffice_internal::CharPtrDetector<T, libreoffice_internal::Dummy>::TypeUtf16
-            = libreoffice_internal::Dummy()):
+        typename lofice_internal::CharPtrDetector<T, lofice_internal::Dummy>::TypeUtf16
+            = lofice_internal::Dummy()):
         pData(nullptr)
     { rtl_uString_newFromStr(&pData, value); }
 
     template<typename T> explicit OUString(
         T & value,
         typename
-        libreoffice_internal::NonConstCharArrayDetector<T, libreoffice_internal::Dummy>::TypeUtf16
-            = libreoffice_internal::Dummy()):
+        lofice_internal::NonConstCharArrayDetector<T, lofice_internal::Dummy>::TypeUtf16
+            = lofice_internal::Dummy()):
         pData(nullptr)
     { rtl_uString_newFromStr(&pData, value); }
 
@@ -347,22 +347,22 @@ public:
 
       @param    literal         the 8-bit ASCII string literal
 
-      @since LibreOffice 3.6
+      @since lofice 3.6
     */
     template< typename T >
-    OUString( T& literal, typename libreoffice_internal::ConstCharArrayDetector< T, libreoffice_internal::Dummy >::Type = libreoffice_internal::Dummy() )
+    OUString( T& literal, typename lofice_internal::ConstCharArrayDetector< T, lofice_internal::Dummy >::Type = lofice_internal::Dummy() )
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         pData = NULL;
-        if SAL_CONSTEXPR (libreoffice_internal::ConstCharArrayDetector<T>::length == 0) {
+        if SAL_CONSTEXPR (lofice_internal::ConstCharArrayDetector<T>::length == 0) {
             rtl_uString_new(&pData);
         } else {
             rtl_uString_newFromLiteral(
                 &pData,
-                libreoffice_internal::ConstCharArrayDetector<T>::toPointer(
+                lofice_internal::ConstCharArrayDetector<T>::toPointer(
                     literal),
-                libreoffice_internal::ConstCharArrayDetector<T>::length, 0);
+                lofice_internal::ConstCharArrayDetector<T>::length, 0);
         }
 #ifdef RTL_STRING_UNITTEST
         rtl_string_unittest_const_literal = true;
@@ -374,9 +374,9 @@ public:
     // it via std::u16string_view from kicking in):
     template<typename T> OUString(
         T &,
-        typename libreoffice_internal::ConstCharArrayDetector<
-            T, libreoffice_internal::Dummy>::TypeUtf16
-                = libreoffice_internal::Dummy()) = delete;
+        typename lofice_internal::ConstCharArrayDetector<
+            T, lofice_internal::Dummy>::TypeUtf16
+                = lofice_internal::Dummy()) = delete;
 
     OUString(OUStringChar c): pData(nullptr) { rtl_uString_newFromStr_WithLength(&pData, &c.c, 1); }
 #endif
@@ -388,7 +388,7 @@ public:
      * @internal
      */
     template< typename T >
-    OUString( T&, typename libreoffice_internal::ExceptConstCharArrayDetector< T >::Type = libreoffice_internal::Dummy() )
+    OUString( T&, typename lofice_internal::ExceptConstCharArrayDetector< T >::Type = lofice_internal::Dummy() )
     {
         pData = NULL;
         rtl_uString_newFromLiteral( &pData, "!!br0ken!!", 10, 0 ); // set to garbage
@@ -399,7 +399,7 @@ public:
      * @internal
      */
     template< typename T >
-    OUString( const T&, typename libreoffice_internal::ExceptCharArrayDetector< T >::Type = libreoffice_internal::Dummy() )
+    OUString( const T&, typename lofice_internal::ExceptCharArrayDetector< T >::Type = lofice_internal::Dummy() )
     {
         pData = NULL;
         rtl_uString_newFromLiteral( &pData, "!!br0ken!!", 10, 0 ); // set to garbage
@@ -413,7 +413,7 @@ public:
     /**
       New string from a string literal.
 
-      @since LibreOffice 5.0
+      @since lofice 5.0
     */
     template<std::size_t N> constexpr OUString(OUStringLiteral<N> const & literal):
         pData(const_cast<rtl_uString *>(&literal.str)) {}
@@ -569,7 +569,7 @@ public:
                an OUStringBuffer
         @return
                OUString const & based on given storage
-        @since LibreOffice 7.4
+        @since lofice 7.4
     */
     static OUString const& unacquired(const OUStringBuffer& str);
 #endif
@@ -591,7 +591,7 @@ public:
       Move assign a new string.
 
       @param    str         an OUString.
-      @since LibreOffice 5.2
+      @since lofice 5.2
     */
     OUString & operator=( OUString && str ) noexcept
     {
@@ -611,21 +611,21 @@ public:
 
       @param    literal         the 8-bit ASCII string literal
 
-      @since LibreOffice 3.6
+      @since lofice 3.6
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, OUString& >::Type operator=( T& literal )
+    typename lofice_internal::ConstCharArrayDetector< T, OUString& >::Type operator=( T& literal )
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
-        if SAL_CONSTEXPR (libreoffice_internal::ConstCharArrayDetector<T>::length == 0) {
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
+        if SAL_CONSTEXPR (lofice_internal::ConstCharArrayDetector<T>::length == 0) {
             rtl_uString_new(&pData);
         } else {
             rtl_uString_newFromLiteral(
                 &pData,
-                libreoffice_internal::ConstCharArrayDetector<T>::toPointer(
+                lofice_internal::ConstCharArrayDetector<T>::toPointer(
                     literal),
-                libreoffice_internal::ConstCharArrayDetector<T>::length, 0);
+                lofice_internal::ConstCharArrayDetector<T>::length, 0);
         }
         return *this;
     }
@@ -635,7 +635,7 @@ public:
     // support for it via std::u16string_view from kicking in):
     template<typename T>
     typename
-        libreoffice_internal::ConstCharArrayDetector<T, OUString &>::TypeUtf16
+        lofice_internal::ConstCharArrayDetector<T, OUString &>::TypeUtf16
     operator =(T &) = delete;
 
     OUString & operator =(OUStringChar c) {
@@ -643,7 +643,7 @@ public:
         return *this;
     }
 
-    /** @overload @since LibreOffice 5.4 */
+    /** @overload @since lofice 5.4 */
     template<std::size_t N> OUString & operator =(OUStringLiteral<N> const & literal) {
         rtl_uString_release(pData);
         pData = const_cast<rtl_uString *>(&literal.str);
@@ -675,7 +675,7 @@ public:
       @param    str         an OUStringBuffer.
 
       @exception std::bad_alloc is thrown if an out-of-memory condition occurs
-      @since LibreOffice 6.2
+      @since lofice 6.2
     */
     inline OUString & operator+=( const OUStringBuffer & str ) &;
 #endif
@@ -702,47 +702,47 @@ public:
 
         @param literal  an 8-bit ASCII-only string literal
 
-        @since LibreOffice 5.1
+        @since lofice 5.1
     */
     template<typename T>
-    typename libreoffice_internal::ConstCharArrayDetector<T, OUString &>::Type
+    typename lofice_internal::ConstCharArrayDetector<T, OUString &>::Type
     operator +=(T & literal)
 #if defined LIBO_INTERNAL_ONLY
         &
 #endif
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         rtl_uString_newConcatAsciiL(
             &pData, pData,
-            libreoffice_internal::ConstCharArrayDetector<T>::toPointer(literal),
-            libreoffice_internal::ConstCharArrayDetector<T>::length);
+            lofice_internal::ConstCharArrayDetector<T>::toPointer(literal),
+            lofice_internal::ConstCharArrayDetector<T>::length);
         return *this;
     }
 #if defined LIBO_INTERNAL_ONLY
     template<typename T>
-    typename libreoffice_internal::ConstCharArrayDetector<T, OUString &>::Type
+    typename lofice_internal::ConstCharArrayDetector<T, OUString &>::Type
     operator +=(T &) && = delete;
 #endif
 
 #if defined LIBO_INTERNAL_ONLY
-    /** @overload @since LibreOffice 5.3 */
+    /** @overload @since lofice 5.3 */
     template<typename T>
     typename
-        libreoffice_internal::ConstCharArrayDetector<T, OUString &>::TypeUtf16
+        lofice_internal::ConstCharArrayDetector<T, OUString &>::TypeUtf16
     operator +=(T & literal) & {
         rtl_uString_newConcatUtf16L(
             &pData, pData,
-            libreoffice_internal::ConstCharArrayDetector<T>::toPointer(literal),
-            libreoffice_internal::ConstCharArrayDetector<T>::length);
+            lofice_internal::ConstCharArrayDetector<T>::toPointer(literal),
+            lofice_internal::ConstCharArrayDetector<T>::length);
         return *this;
     }
     template<typename T>
     typename
-        libreoffice_internal::ConstCharArrayDetector<T, OUString &>::TypeUtf16
+        lofice_internal::ConstCharArrayDetector<T, OUString &>::TypeUtf16
     operator +=(T &) && = delete;
 
-    /** @overload @since LibreOffice 5.4 */
+    /** @overload @since lofice 5.4 */
     template<std::size_t N> OUString & operator +=(OUStringLiteral<N> const & literal) & {
         rtl_uString_newConcatUtf16L(&pData, pData, literal.getStr(), literal.getLength());
         return *this;
@@ -801,7 +801,7 @@ public:
 
     /**
       Clears the string, i.e, makes a zero-character string
-      @since LibreOffice 4.4
+      @since lofice 4.4
     */
     void clear()
     {
@@ -824,7 +824,7 @@ public:
       @return   true if the string is empty;
                 false, otherwise.
 
-      @since LibreOffice 3.4
+      @since lofice 3.4
     */
     bool isEmpty() const
     {
@@ -847,7 +847,7 @@ public:
 
       @return the character at the given index.
 
-      @since LibreOffice 3.5
+      @since lofice 3.5
     */
     sal_Unicode operator [](sal_Int32 index) const {
         // silence spurious -Werror=strict-overflow warnings from GCC 4.8.2
@@ -938,17 +938,17 @@ public:
     /**
      @overload
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 4.1
+     @since lofice 4.1
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, sal_Int32 >::Type reverseCompareTo( T& literal ) const
+    typename lofice_internal::ConstCharArrayDetector< T, sal_Int32 >::Type reverseCompareTo( T& literal ) const
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         return rtl_ustr_asciil_reverseCompare_WithLength(
             pData->buffer, pData->length,
-            libreoffice_internal::ConstCharArrayDetector<T>::toPointer(literal),
-            libreoffice_internal::ConstCharArrayDetector<T>::length);
+            lofice_internal::ConstCharArrayDetector<T>::toPointer(literal),
+            lofice_internal::ConstCharArrayDetector<T>::length);
     }
 
     /**
@@ -1022,7 +1022,7 @@ public:
                 < 0 - if this string is less than the string argument
                 > 0 - if this string is greater than the string argument
 
-      @since LibreOffice 4.0
+      @since lofice 4.0
     */
 #if defined LIBO_INTERNAL_ONLY
     sal_Int32 compareToIgnoreAsciiCase(std::u16string_view sv) const {
@@ -1040,19 +1040,19 @@ public:
     /**
      @overload
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 3.6
+     @since lofice 3.6
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type equalsIgnoreAsciiCase( T& literal ) const
+    typename lofice_internal::ConstCharArrayDetector< T, bool >::Type equalsIgnoreAsciiCase( T& literal ) const
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         return
             (pData->length
-             == libreoffice_internal::ConstCharArrayDetector<T>::length)
+             == lofice_internal::ConstCharArrayDetector<T>::length)
             && (rtl_ustr_ascii_compareIgnoreAsciiCase_WithLength(
                     pData->buffer, pData->length,
-                    libreoffice_internal::ConstCharArrayDetector<T>::toPointer(
+                    lofice_internal::ConstCharArrayDetector<T>::toPointer(
                         literal))
                 == 0);
     }
@@ -1093,20 +1093,20 @@ public:
     /**
      @overload
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 3.6
+     @since lofice 3.6
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type match( T& literal, sal_Int32 fromIndex = 0 ) const
+    typename lofice_internal::ConstCharArrayDetector< T, bool >::Type match( T& literal, sal_Int32 fromIndex = 0 ) const
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         assert(fromIndex >= 0);
         return
             rtl_ustr_ascii_shortenedCompare_WithLength(
                 pData->buffer+fromIndex, pData->length-fromIndex,
-                libreoffice_internal::ConstCharArrayDetector<T>::toPointer(
+                lofice_internal::ConstCharArrayDetector<T>::toPointer(
                     literal),
-                libreoffice_internal::ConstCharArrayDetector<T>::length)
+                lofice_internal::ConstCharArrayDetector<T>::length)
             == 0;
     }
 
@@ -1150,16 +1150,16 @@ public:
     /**
      @overload
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 3.6
+     @since lofice 3.6
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type matchIgnoreAsciiCase( T& literal, sal_Int32 fromIndex = 0 ) const
+    typename lofice_internal::ConstCharArrayDetector< T, bool >::Type matchIgnoreAsciiCase( T& literal, sal_Int32 fromIndex = 0 ) const
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         return matchIgnoreAsciiCaseAsciiL(
-            libreoffice_internal::ConstCharArrayDetector<T>::toPointer(literal),
-            libreoffice_internal::ConstCharArrayDetector<T>::length, fromIndex);
+            lofice_internal::ConstCharArrayDetector<T>::toPointer(literal),
+            lofice_internal::ConstCharArrayDetector<T>::length, fromIndex);
     }
 
     /**
@@ -1331,7 +1331,7 @@ public:
                 < 0 - if this string is less than the string argument
                 > 0 - if this string is greater than the string argument
 
-      @since LibreOffice 3.5
+      @since lofice 3.5
     */
     sal_Int32 compareToIgnoreAsciiCaseAscii( const char * asciiStr ) const
     {
@@ -1460,7 +1460,7 @@ public:
       @return true if and only if the given str appears as a substring at the
       start of this string
 
-      @since LibreOffice 4.0
+      @since lofice 4.0
     */
     bool startsWith(std::u16string_view sv) const {
         return match(sv);
@@ -1472,12 +1472,12 @@ public:
 
       @param rest if this function returns true, then assign a
       copy of the remainder of this string to *rest. Available since
-      LibreOffice 4.2
+      lofice 4.2
 
       @return true if and only if the given str appears as a substring at the
       start of this string
 
-      @since LibreOffice 4.0
+      @since lofice 4.0
     */
     bool startsWith(std::u16string_view sv, OUString * rest) const {
         assert(rest);
@@ -1498,7 +1498,7 @@ public:
       @return true if and only if the given str appears as a substring at the
       start of this string
 
-      @since LibreOffice 25.2
+      @since lofice 25.2
     */
     bool startsWith(std::u16string_view sv, std::u16string_view * rest) const {
         assert(rest);
@@ -1516,12 +1516,12 @@ public:
 
       @param rest if non-null, and this function returns true, then assign a
       copy of the remainder of this string to *rest. Available since
-      LibreOffice 4.2
+      lofice 4.2
 
       @return true if and only if the given str appears as a substring at the
       start of this string
 
-      @since LibreOffice 4.0
+      @since lofice 4.0
     */
     bool startsWith(OUString const & str, OUString * rest = NULL) const {
         bool b = match(str);
@@ -1535,54 +1535,54 @@ public:
 #if defined LIBO_INTERNAL_ONLY
     /**
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 25.2
+     @since lofice 25.2
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type startsWith(
+    typename lofice_internal::ConstCharArrayDetector< T, bool >::Type startsWith(
         T & literal) const
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         bool b
-            = (libreoffice_internal::ConstCharArrayDetector<T>::length
+            = (lofice_internal::ConstCharArrayDetector<T>::length
                <= sal_uInt32(pData->length))
             && rtl_ustr_asciil_reverseEquals_WithLength(
                 pData->buffer,
-                libreoffice_internal::ConstCharArrayDetector<T>::toPointer(
+                lofice_internal::ConstCharArrayDetector<T>::toPointer(
                     literal),
-                libreoffice_internal::ConstCharArrayDetector<T>::length);
+                lofice_internal::ConstCharArrayDetector<T>::length);
         return b;
     }
     /**
      @overload
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 4.0
+     @since lofice 4.0
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type startsWith(
+    typename lofice_internal::ConstCharArrayDetector< T, bool >::Type startsWith(
         T & literal, OUString * rest) const
     {
         assert(rest);
         bool b = startsWith(literal);
         if (b) {
             *rest = copy(
-                libreoffice_internal::ConstCharArrayDetector<T>::length);
+                lofice_internal::ConstCharArrayDetector<T>::length);
         }
         return b;
     }
     /**
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 25.2
+     @since lofice 25.2
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type startsWith(
+    typename lofice_internal::ConstCharArrayDetector< T, bool >::Type startsWith(
         T & literal, std::u16string_view * rest) const
     {
         assert(rest);
         bool b = startsWith(literal);
         if (b) {
             *rest = subView(
-                libreoffice_internal::ConstCharArrayDetector<T>::length);
+                lofice_internal::ConstCharArrayDetector<T>::length);
         }
         return b;
     }
@@ -1590,25 +1590,25 @@ public:
     /**
      @overload
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 4.0
+     @since lofice 4.0
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type startsWith(
+    typename lofice_internal::ConstCharArrayDetector< T, bool >::Type startsWith(
         T & literal, OUString * rest = NULL) const
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         bool b
-            = (libreoffice_internal::ConstCharArrayDetector<T>::length
+            = (lofice_internal::ConstCharArrayDetector<T>::length
                <= sal_uInt32(pData->length))
             && rtl_ustr_asciil_reverseEquals_WithLength(
                 pData->buffer,
-                libreoffice_internal::ConstCharArrayDetector<T>::toPointer(
+                lofice_internal::ConstCharArrayDetector<T>::toPointer(
                     literal),
-                libreoffice_internal::ConstCharArrayDetector<T>::length);
+                lofice_internal::ConstCharArrayDetector<T>::length);
         if (b && rest != NULL) {
             *rest = copy(
-                libreoffice_internal::ConstCharArrayDetector<T>::length);
+                lofice_internal::ConstCharArrayDetector<T>::length);
         }
         return b;
     }
@@ -1621,7 +1621,7 @@ public:
 
       @return true if and only if the given character appears at the start of this string
 
-      @since LibreOffice 26.8
+      @since lofice 26.8
     */
     bool startsWith(sal_Unicode ch) const
     {
@@ -1638,7 +1638,7 @@ public:
 
       @return true if and only if the given character appears at the start of this string
 
-      @since LibreOffice 26.8
+      @since lofice 26.8
     */
     bool startsWith(sal_Unicode ch, OUString* rest) const {
         assert(rest);
@@ -1661,7 +1661,7 @@ public:
 
       @return true if and only if the given character appears at the start of this string
 
-      @since LibreOffice 26.8
+      @since lofice 26.8
     */
     bool startsWith(sal_Unicode ch, std::u16string_view* rest) const {
         assert(rest);
@@ -1686,13 +1686,13 @@ public:
 
       @param rest if non-null, and this function returns true, then assign a
       copy of the remainder of this string to *rest. Available since
-      LibreOffice 4.2
+      lofice 4.2
 
       @return true if and only if the given str appears as a substring at the
       start of this string, ignoring the case of ASCII letters ("A"--"Z" and
       "a"--"z")
 
-      @since LibreOffice 4.0
+      @since lofice 4.0
     */
 #if defined LIBO_INTERNAL_ONLY
     bool startsWithIgnoreAsciiCase(std::u16string_view sv) const {
@@ -1730,56 +1730,56 @@ public:
     /**
      @overload
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 4.0
+     @since lofice 4.0
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type
+    typename lofice_internal::ConstCharArrayDetector< T, bool >::Type
     startsWithIgnoreAsciiCase(T & literal) const
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         bool b
-            = (libreoffice_internal::ConstCharArrayDetector<T>::length
+            = (lofice_internal::ConstCharArrayDetector<T>::length
                <= sal_uInt32(pData->length))
             && (rtl_ustr_ascii_compareIgnoreAsciiCase_WithLengths(
                    pData->buffer,
-                   libreoffice_internal::ConstCharArrayDetector<T>::length,
-                   libreoffice_internal::ConstCharArrayDetector<T>::toPointer(
+                   lofice_internal::ConstCharArrayDetector<T>::length,
+                   lofice_internal::ConstCharArrayDetector<T>::toPointer(
                        literal),
-                   libreoffice_internal::ConstCharArrayDetector<T>::length)
+                   lofice_internal::ConstCharArrayDetector<T>::length)
                == 0);
         return b;
     }
     /**
      @overload
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 4.0
+     @since lofice 4.0
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type
+    typename lofice_internal::ConstCharArrayDetector< T, bool >::Type
     startsWithIgnoreAsciiCase(T & literal, OUString * rest) const
     {
         assert(rest);
         bool b = startsWithIgnoreAsciiCase(literal);
         if (b) {
             *rest = copy(
-                libreoffice_internal::ConstCharArrayDetector<T>::length);
+                lofice_internal::ConstCharArrayDetector<T>::length);
         }
         return b;
     }
     /**
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 25.2
+     @since lofice 25.2
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type
+    typename lofice_internal::ConstCharArrayDetector< T, bool >::Type
     startsWithIgnoreAsciiCase(T & literal, std::u16string_view * rest) const
     {
         assert(rest);
         bool b = startsWithIgnoreAsciiCase(literal);
         if (b) {
             *rest = subView(
-                libreoffice_internal::ConstCharArrayDetector<T>::length);
+                lofice_internal::ConstCharArrayDetector<T>::length);
         }
         return b;
     }
@@ -1787,27 +1787,27 @@ public:
     /**
      @overload
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 4.0
+     @since lofice 4.0
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type
+    typename lofice_internal::ConstCharArrayDetector< T, bool >::Type
     startsWithIgnoreAsciiCase(T & literal, OUString * rest = NULL) const
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         bool b
-            = (libreoffice_internal::ConstCharArrayDetector<T>::length
+            = (lofice_internal::ConstCharArrayDetector<T>::length
                <= sal_uInt32(pData->length))
             && (rtl_ustr_ascii_compareIgnoreAsciiCase_WithLengths(
                    pData->buffer,
-                   libreoffice_internal::ConstCharArrayDetector<T>::length,
-                   libreoffice_internal::ConstCharArrayDetector<T>::toPointer(
+                   lofice_internal::ConstCharArrayDetector<T>::length,
+                   lofice_internal::ConstCharArrayDetector<T>::toPointer(
                        literal),
-                   libreoffice_internal::ConstCharArrayDetector<T>::length)
+                   lofice_internal::ConstCharArrayDetector<T>::length)
                == 0);
         if (b && rest != NULL) {
             *rest = copy(
-                libreoffice_internal::ConstCharArrayDetector<T>::length);
+                lofice_internal::ConstCharArrayDetector<T>::length);
         }
         return b;
     }
@@ -1822,7 +1822,7 @@ public:
       @return true if and only if the given str appears as a substring at the
       end of this string
 
-      @since LibreOffice 3.6
+      @since lofice 3.6
     */
     bool endsWith(std::u16string_view sv) const {
         return sv.size() <= sal_uInt32(pData->length)
@@ -1846,7 +1846,7 @@ public:
       @return true if and only if the given str appears as a substring at the
       end of this string
 
-      @since LibreOffice 25.2
+      @since lofice 25.2
     */
     bool endsWith(std::u16string_view sv, std::u16string_view * rest) const {
         assert(rest);
@@ -1864,12 +1864,12 @@ public:
 
       @param rest if non-null, and this function returns true, then assign a
       copy of the remainder of this string to *rest. Available since
-      LibreOffice 4.2
+      lofice 4.2
 
       @return true if and only if the given str appears as a substring at the
       end of this string
 
-      @since LibreOffice 3.6
+      @since lofice 3.6
     */
     bool endsWith(OUString const & str, OUString * rest = NULL) const {
         bool b = str.getLength() <= getLength()
@@ -1888,7 +1888,7 @@ public:
 
       @return true if and only if the given character appears at the end of this string
 
-      @since LibreOffice 26.8
+      @since lofice 26.8
     */
     bool endsWith(sal_Unicode ch) const
     {
@@ -1905,7 +1905,7 @@ public:
 
       @return true if and only if the given character appears at the end of this string
 
-      @since LibreOffice 26.8
+      @since lofice 26.8
     */
     bool endsWith(sal_Unicode ch, OUString* rest) const {
         assert(rest);
@@ -1928,7 +1928,7 @@ public:
 
       @return true if and only if the given character appears at the end of this string
 
-      @since LibreOffice 26.8
+      @since lofice 26.8
     */
     bool endsWith(sal_Unicode ch, std::u16string_view* rest) const {
         assert(rest);
@@ -1945,27 +1945,27 @@ public:
     /**
      @overload
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 25.2
+     @since lofice 25.2
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type
+    typename lofice_internal::ConstCharArrayDetector< T, bool >::Type
     endsWith(T & literal) const
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         bool b
-            = (libreoffice_internal::ConstCharArrayDetector<T>::length
+            = (lofice_internal::ConstCharArrayDetector<T>::length
                <= sal_uInt32(pData->length))
             && rtl_ustr_asciil_reverseEquals_WithLength(
                 (pData->buffer + pData->length
-                 - libreoffice_internal::ConstCharArrayDetector<T>::length),
-                libreoffice_internal::ConstCharArrayDetector<T>::toPointer(
+                 - lofice_internal::ConstCharArrayDetector<T>::length),
+                lofice_internal::ConstCharArrayDetector<T>::toPointer(
                     literal),
-                libreoffice_internal::ConstCharArrayDetector<T>::length);
+                lofice_internal::ConstCharArrayDetector<T>::length);
         return b;
     }
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type
+    typename lofice_internal::ConstCharArrayDetector< T, bool >::Type
     endsWith(T & literal, OUString * rest) const
     {
         assert(rest);
@@ -1974,12 +1974,12 @@ public:
             *rest = copy(
                 0,
                 (getLength()
-                 - libreoffice_internal::ConstCharArrayDetector<T>::length));
+                 - lofice_internal::ConstCharArrayDetector<T>::length));
         }
         return b;
     }
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type
+    typename lofice_internal::ConstCharArrayDetector< T, bool >::Type
     endsWith(T & literal, std::u16string_view * rest) const
     {
         assert(rest);
@@ -1988,7 +1988,7 @@ public:
             *rest = subView(
                 0,
                 (getLength()
-                 - libreoffice_internal::ConstCharArrayDetector<T>::length));
+                 - lofice_internal::ConstCharArrayDetector<T>::length));
         }
         return b;
     }
@@ -1996,28 +1996,28 @@ public:
     /**
      @overload
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 3.6
+     @since lofice 3.6
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type
+    typename lofice_internal::ConstCharArrayDetector< T, bool >::Type
     endsWith(T & literal, OUString * rest = NULL) const
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         bool b
-            = (libreoffice_internal::ConstCharArrayDetector<T>::length
+            = (lofice_internal::ConstCharArrayDetector<T>::length
                <= sal_uInt32(pData->length))
             && rtl_ustr_asciil_reverseEquals_WithLength(
                 (pData->buffer + pData->length
-                 - libreoffice_internal::ConstCharArrayDetector<T>::length),
-                libreoffice_internal::ConstCharArrayDetector<T>::toPointer(
+                 - lofice_internal::ConstCharArrayDetector<T>::length),
+                lofice_internal::ConstCharArrayDetector<T>::toPointer(
                     literal),
-                libreoffice_internal::ConstCharArrayDetector<T>::length);
+                lofice_internal::ConstCharArrayDetector<T>::length);
         if (b && rest != NULL) {
             *rest = copy(
                 0,
                 (getLength()
-                 - libreoffice_internal::ConstCharArrayDetector<T>::length));
+                 - lofice_internal::ConstCharArrayDetector<T>::length));
         }
         return b;
     }
@@ -2056,13 +2056,13 @@ public:
 
       @param rest if this function returns true, then assign a
       copy of the remainder of this string to *rest. Available since
-      LibreOffice 4.2
+      lofice 4.2
 
       @return true if and only if the given str appears as a substring at the
       end of this string, ignoring the case of ASCII letters ("A"--"Z" and
       "a"--"z")
 
-      @since LibreOffice 3.6
+      @since lofice 3.6
     */
     bool endsWithIgnoreAsciiCase(std::u16string_view sv) const {
         return sv.size() <= sal_uInt32(pData->length)
@@ -2092,7 +2092,7 @@ public:
       end of this string, ignoring the case of ASCII letters ("A"--"Z" and
       "a"--"z")
 
-      @since LibreOffice 24.2
+      @since lofice 24.2
     */
     bool endsWithIgnoreAsciiCase(std::u16string_view sv, std::u16string_view * rest) const {
         assert(rest);
@@ -2115,13 +2115,13 @@ public:
 
       @param rest if non-null, and this function returns true, then assign a
       copy of the remainder of this string to *rest. Available since
-      LibreOffice 4.2
+      lofice 4.2
 
       @return true if and only if the given str appears as a substring at the
       end of this string, ignoring the case of ASCII letters ("A"--"Z" and
       "a"--"z")
 
-      @since LibreOffice 3.6
+      @since lofice 3.6
     */
     bool endsWithIgnoreAsciiCase(OUString const & str, OUString * rest = NULL) const
     {
@@ -2137,33 +2137,33 @@ public:
 #if defined LIBO_INTERNAL_ONLY
     /**
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 25.2
+     @since lofice 25.2
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type
+    typename lofice_internal::ConstCharArrayDetector< T, bool >::Type
     endsWithIgnoreAsciiCase(T & literal) const
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         bool b
-            = (libreoffice_internal::ConstCharArrayDetector<T>::length
+            = (lofice_internal::ConstCharArrayDetector<T>::length
                <= sal_uInt32(pData->length))
             && (rtl_ustr_ascii_compareIgnoreAsciiCase_WithLengths(
                     (pData->buffer + pData->length
-                     - libreoffice_internal::ConstCharArrayDetector<T>::length),
-                    libreoffice_internal::ConstCharArrayDetector<T>::length,
-                    libreoffice_internal::ConstCharArrayDetector<T>::toPointer(
+                     - lofice_internal::ConstCharArrayDetector<T>::length),
+                    lofice_internal::ConstCharArrayDetector<T>::length,
+                    lofice_internal::ConstCharArrayDetector<T>::toPointer(
                         literal),
-                    libreoffice_internal::ConstCharArrayDetector<T>::length)
+                    lofice_internal::ConstCharArrayDetector<T>::length)
                 == 0);
         return b;
     }
     /**
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 25.2
+     @since lofice 25.2
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type
+    typename lofice_internal::ConstCharArrayDetector< T, bool >::Type
     endsWithIgnoreAsciiCase(T & literal, std::u16string_view * rest) const
     {
         assert(rest);
@@ -2172,7 +2172,7 @@ public:
             *rest = subView(
                 0,
                 (getLength()
-                 - libreoffice_internal::ConstCharArrayDetector<T>::length));
+                 - lofice_internal::ConstCharArrayDetector<T>::length));
         }
         return b;
     }
@@ -2180,30 +2180,30 @@ public:
     /**
      @overload
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 3.6
+     @since lofice 3.6
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type
+    typename lofice_internal::ConstCharArrayDetector< T, bool >::Type
     endsWithIgnoreAsciiCase(T & literal, OUString * rest = NULL) const
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         bool b
-            = (libreoffice_internal::ConstCharArrayDetector<T>::length
+            = (lofice_internal::ConstCharArrayDetector<T>::length
                <= sal_uInt32(pData->length))
             && (rtl_ustr_ascii_compareIgnoreAsciiCase_WithLengths(
                     (pData->buffer + pData->length
-                     - libreoffice_internal::ConstCharArrayDetector<T>::length),
-                    libreoffice_internal::ConstCharArrayDetector<T>::length,
-                    libreoffice_internal::ConstCharArrayDetector<T>::toPointer(
+                     - lofice_internal::ConstCharArrayDetector<T>::length),
+                    lofice_internal::ConstCharArrayDetector<T>::length,
+                    lofice_internal::ConstCharArrayDetector<T>::toPointer(
                         literal),
-                    libreoffice_internal::ConstCharArrayDetector<T>::length)
+                    lofice_internal::ConstCharArrayDetector<T>::length)
                 == 0);
         if (b && rest != NULL) {
             *rest = copy(
                 0,
                 (getLength()
-                 - libreoffice_internal::ConstCharArrayDetector<T>::length));
+                 - lofice_internal::ConstCharArrayDetector<T>::length));
         }
         return b;
     }
@@ -2246,44 +2246,44 @@ public:
 
 #if defined LIBO_INTERNAL_ONLY
 
-    template<typename T> friend typename libreoffice_internal::CharPtrDetector<T, bool>::TypeUtf16
+    template<typename T> friend typename lofice_internal::CharPtrDetector<T, bool>::TypeUtf16
     operator ==(OUString const & s1, T const & s2) {
         return rtl_ustr_compare_WithLength(s1.getStr(), s1.getLength(), s2, rtl_ustr_getLength(s2))
             == 0;
     }
 
     template<typename T>
-    friend typename libreoffice_internal::NonConstCharArrayDetector<T, bool>::TypeUtf16
+    friend typename lofice_internal::NonConstCharArrayDetector<T, bool>::TypeUtf16
     operator ==(OUString const & s1, T & s2) {
         return rtl_ustr_compare_WithLength(s1.getStr(), s1.getLength(), s2, rtl_ustr_getLength(s2))
             == 0;
     }
 
-    template<typename T> friend typename libreoffice_internal::CharPtrDetector<T, bool>::TypeUtf16
+    template<typename T> friend typename lofice_internal::CharPtrDetector<T, bool>::TypeUtf16
     operator ==(T const & s1, OUString const & s2) {
         return rtl_ustr_compare_WithLength(s1, rtl_ustr_getLength(s1), s2.getStr(), s2.getLength())
             == 0;
     }
 
     template<typename T>
-    friend typename libreoffice_internal::NonConstCharArrayDetector<T, bool>::TypeUtf16
+    friend typename lofice_internal::NonConstCharArrayDetector<T, bool>::TypeUtf16
     operator ==(T & s1, OUString const & s2) {
         return rtl_ustr_compare_WithLength(s1, rtl_ustr_getLength(s1), s2.getStr(), s2.getLength())
             == 0;
     }
 
-    template<typename T> friend typename libreoffice_internal::CharPtrDetector<T, bool>::TypeUtf16
+    template<typename T> friend typename lofice_internal::CharPtrDetector<T, bool>::TypeUtf16
     operator !=(OUString const & s1, T const & s2) { return !(s1 == s2); }
 
     template<typename T>
-    friend typename libreoffice_internal::NonConstCharArrayDetector<T, bool>::TypeUtf16
+    friend typename lofice_internal::NonConstCharArrayDetector<T, bool>::TypeUtf16
     operator !=(OUString const & s1, T & s2) { return !(s1 == s2); }
 
-    template<typename T> friend typename libreoffice_internal::CharPtrDetector<T, bool>::TypeUtf16
+    template<typename T> friend typename lofice_internal::CharPtrDetector<T, bool>::TypeUtf16
     operator !=(T const & s1, OUString const & s2) { return !(s1 == s2); }
 
     template<typename T>
-    friend typename libreoffice_internal::NonConstCharArrayDetector<T, bool>::TypeUtf16
+    friend typename lofice_internal::NonConstCharArrayDetector<T, bool>::TypeUtf16
     operator !=(T & s1, OUString const & s2) { return !(s1 == s2); }
 
 #else
@@ -2305,108 +2305,108 @@ public:
      *
      * This operator is equal to calling equalsAsciiL().
      *
-     * @since LibreOffice 3.6
+     * @since lofice 3.6
      */
     template< typename T >
-    friend typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type operator==( const OUString& rString, T& literal )
+    friend typename lofice_internal::ConstCharArrayDetector< T, bool >::Type operator==( const OUString& rString, T& literal )
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         return rString.equalsAsciiL(
-            libreoffice_internal::ConstCharArrayDetector<T>::toPointer(literal),
-            libreoffice_internal::ConstCharArrayDetector<T>::length);
+            lofice_internal::ConstCharArrayDetector<T>::toPointer(literal),
+            lofice_internal::ConstCharArrayDetector<T>::length);
     }
     /**
      * Compare string to an ASCII string literal.
      *
      * This operator is equal to calling equalsAsciiL().
      *
-     * @since LibreOffice 3.6
+     * @since lofice 3.6
      */
     template< typename T >
-    friend typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type operator==( T& literal, const OUString& rString )
+    friend typename lofice_internal::ConstCharArrayDetector< T, bool >::Type operator==( T& literal, const OUString& rString )
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         return rString.equalsAsciiL(
-            libreoffice_internal::ConstCharArrayDetector<T>::toPointer(literal),
-            libreoffice_internal::ConstCharArrayDetector<T>::length);
+            lofice_internal::ConstCharArrayDetector<T>::toPointer(literal),
+            lofice_internal::ConstCharArrayDetector<T>::length);
     }
     /**
      * Compare string to an ASCII string literal.
      *
      * This operator is equal to calling !equalsAsciiL().
      *
-     * @since LibreOffice 3.6
+     * @since lofice 3.6
      */
     template< typename T >
-    friend typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type operator!=( const OUString& rString, T& literal )
+    friend typename lofice_internal::ConstCharArrayDetector< T, bool >::Type operator!=( const OUString& rString, T& literal )
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         return !rString.equalsAsciiL(
-            libreoffice_internal::ConstCharArrayDetector<T>::toPointer(literal),
-            libreoffice_internal::ConstCharArrayDetector<T>::length);
+            lofice_internal::ConstCharArrayDetector<T>::toPointer(literal),
+            lofice_internal::ConstCharArrayDetector<T>::length);
     }
     /**
      * Compare string to an ASCII string literal.
      *
      * This operator is equal to calling !equalsAsciiL().
      *
-     * @since LibreOffice 3.6
+     * @since lofice 3.6
      */
     template< typename T >
-    friend typename libreoffice_internal::ConstCharArrayDetector< T, bool >::Type operator!=( T& literal, const OUString& rString )
+    friend typename lofice_internal::ConstCharArrayDetector< T, bool >::Type operator!=( T& literal, const OUString& rString )
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         return !rString.equalsAsciiL(
-            libreoffice_internal::ConstCharArrayDetector<T>::toPointer(literal),
-            libreoffice_internal::ConstCharArrayDetector<T>::length);
+            lofice_internal::ConstCharArrayDetector<T>::toPointer(literal),
+            lofice_internal::ConstCharArrayDetector<T>::length);
     }
 
 #if defined LIBO_INTERNAL_ONLY
-    /** @overload @since LibreOffice 5.3 */
-    template<typename T> friend typename libreoffice_internal::ConstCharArrayDetector<T, bool>::TypeUtf16
+    /** @overload @since lofice 5.3 */
+    template<typename T> friend typename lofice_internal::ConstCharArrayDetector<T, bool>::TypeUtf16
     operator ==(OUString const & string, T & literal) {
         return
             rtl_ustr_reverseCompare_WithLength(
                 string.pData->buffer, string.pData->length,
-                libreoffice_internal::ConstCharArrayDetector<T>::toPointer(
+                lofice_internal::ConstCharArrayDetector<T>::toPointer(
                     literal),
-                libreoffice_internal::ConstCharArrayDetector<T>::length)
+                lofice_internal::ConstCharArrayDetector<T>::length)
             == 0;
     }
-    /** @overload @since LibreOffice 5.3 */
-    template<typename T> friend typename libreoffice_internal::ConstCharArrayDetector<T, bool>::TypeUtf16
+    /** @overload @since lofice 5.3 */
+    template<typename T> friend typename lofice_internal::ConstCharArrayDetector<T, bool>::TypeUtf16
     operator ==(T & literal, OUString const & string) {
         return
             rtl_ustr_reverseCompare_WithLength(
-                libreoffice_internal::ConstCharArrayDetector<T>::toPointer(
+                lofice_internal::ConstCharArrayDetector<T>::toPointer(
                     literal),
-                libreoffice_internal::ConstCharArrayDetector<T>::length,
+                lofice_internal::ConstCharArrayDetector<T>::length,
                 string.pData->buffer, string.pData->length)
             == 0;
     }
-    /** @overload @since LibreOffice 5.3 */
-    template<typename T> friend typename libreoffice_internal::ConstCharArrayDetector<T, bool>::TypeUtf16
+    /** @overload @since lofice 5.3 */
+    template<typename T> friend typename lofice_internal::ConstCharArrayDetector<T, bool>::TypeUtf16
     operator !=(OUString const & string, T & literal) {
         return
             rtl_ustr_reverseCompare_WithLength(
                 string.pData->buffer, string.pData->length,
-                libreoffice_internal::ConstCharArrayDetector<T>::toPointer(
+                lofice_internal::ConstCharArrayDetector<T>::toPointer(
                     literal),
-                libreoffice_internal::ConstCharArrayDetector<T>::length)
+                lofice_internal::ConstCharArrayDetector<T>::length)
             != 0;
     }
-    /** @overload @since LibreOffice 5.3 */
-    template<typename T> friend typename libreoffice_internal::ConstCharArrayDetector<T, bool>::TypeUtf16
+    /** @overload @since lofice 5.3 */
+    template<typename T> friend typename lofice_internal::ConstCharArrayDetector<T, bool>::TypeUtf16
     operator !=(T & literal, OUString const & string) {
         return
             rtl_ustr_reverseCompare_WithLength(
-                libreoffice_internal::ConstCharArrayDetector<T>::toPointer(
+                lofice_internal::ConstCharArrayDetector<T>::toPointer(
                     literal),
-                libreoffice_internal::ConstCharArrayDetector<T>::length,
+                lofice_internal::ConstCharArrayDetector<T>::length,
                 string.pData->buffer, string.pData->length)
             != 0;
     }
@@ -2510,18 +2510,18 @@ public:
     /**
      @overload
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 3.6
+     @since lofice 3.6
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, sal_Int32 >::Type indexOf( T& literal, sal_Int32 fromIndex = 0 ) const
+    typename lofice_internal::ConstCharArrayDetector< T, sal_Int32 >::Type indexOf( T& literal, sal_Int32 fromIndex = 0 ) const
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         assert(fromIndex >= 0);
         sal_Int32 n = rtl_ustr_indexOfAscii_WithLength(
             pData->buffer + fromIndex, pData->length - fromIndex,
-            libreoffice_internal::ConstCharArrayDetector<T>::toPointer(literal),
-            libreoffice_internal::ConstCharArrayDetector<T>::length);
+            lofice_internal::ConstCharArrayDetector<T>::toPointer(literal),
+            lofice_internal::ConstCharArrayDetector<T>::length);
         return n < 0 ? n : n + fromIndex;
     }
 
@@ -2625,17 +2625,17 @@ public:
     /**
      @overload
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 3.6
+     @since lofice 3.6
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, sal_Int32 >::Type lastIndexOf( T& literal ) const
+    typename lofice_internal::ConstCharArrayDetector< T, sal_Int32 >::Type lastIndexOf( T& literal ) const
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         return rtl_ustr_lastIndexOfAscii_WithLength(
             pData->buffer, pData->length,
-            libreoffice_internal::ConstCharArrayDetector<T>::toPointer(literal),
-            libreoffice_internal::ConstCharArrayDetector<T>::length);
+            lofice_internal::ConstCharArrayDetector<T>::toPointer(literal),
+            lofice_internal::ConstCharArrayDetector<T>::length);
     }
 
     /**
@@ -2837,7 +2837,7 @@ public:
       replacement took place or -1 if no replacement took place; if the pointer
       is null, searching always starts at index 0
 
-      @since LibreOffice 3.6
+      @since lofice 3.6
     */
 #if defined LIBO_INTERNAL_ONLY
     [[nodiscard]] OUString replaceFirst(
@@ -2878,34 +2878,34 @@ public:
       replacement took place or -1 if no replacement took place; if the pointer
       is null, searching always starts at index 0
 
-      @since LibreOffice 3.6
+      @since lofice 3.6
     */
 #if defined LIBO_INTERNAL_ONLY
     template<typename T> [[nodiscard]]
-    typename libreoffice_internal::ConstCharArrayDetector<T, OUString >::Type replaceFirst(
+    typename lofice_internal::ConstCharArrayDetector<T, OUString >::Type replaceFirst(
         T & from, std::u16string_view to, sal_Int32 * index = nullptr) const
     {
-        assert(libreoffice_internal::ConstCharArrayDetector<T>::isValid(from));
+        assert(lofice_internal::ConstCharArrayDetector<T>::isValid(from));
         rtl_uString * s = nullptr;
         sal_Int32 i = 0;
         rtl_uString_newReplaceFirstAsciiLUtf16L(
-            &s, pData, libreoffice_internal::ConstCharArrayDetector<T>::toPointer(from),
-            libreoffice_internal::ConstCharArrayDetector<T>::length, to.data(), to.size(),
+            &s, pData, lofice_internal::ConstCharArrayDetector<T>::toPointer(from),
+            lofice_internal::ConstCharArrayDetector<T>::length, to.data(), to.size(),
             index == nullptr ? &i : index);
         return OUString(s, SAL_NO_ACQUIRE);
     }
 #else
     template< typename T >
-    SAL_WARN_UNUSED_RESULT typename libreoffice_internal::ConstCharArrayDetector< T, OUString >::Type replaceFirst( T& from, OUString const & to,
+    SAL_WARN_UNUSED_RESULT typename lofice_internal::ConstCharArrayDetector< T, OUString >::Type replaceFirst( T& from, OUString const & to,
                                                                                                         sal_Int32 * index = NULL) const
     {
-        assert(libreoffice_internal::ConstCharArrayDetector<T>::isValid(from));
+        assert(lofice_internal::ConstCharArrayDetector<T>::isValid(from));
         rtl_uString * s = NULL;
         sal_Int32 i = 0;
         rtl_uString_newReplaceFirstAsciiL(
             &s, pData,
-            libreoffice_internal::ConstCharArrayDetector<T>::toPointer(from),
-            libreoffice_internal::ConstCharArrayDetector<T>::length, to.pData,
+            lofice_internal::ConstCharArrayDetector<T>::toPointer(from),
+            lofice_internal::ConstCharArrayDetector<T>::length, to.pData,
             index == NULL ? &i : index);
         return OUString(s, SAL_NO_ACQUIRE);
     }
@@ -2927,34 +2927,34 @@ public:
       replacement took place or -1 if no replacement took place; if the pointer
       is null, searching always starts at index 0
 
-      @since LibreOffice 5.1
+      @since lofice 5.1
     */
 #if defined LIBO_INTERNAL_ONLY
     template<typename T> [[nodiscard]]
-    typename libreoffice_internal::ConstCharArrayDetector<T, OUString >::Type replaceFirst(
+    typename lofice_internal::ConstCharArrayDetector<T, OUString >::Type replaceFirst(
         std::u16string_view from, T & to, sal_Int32 * index = nullptr) const
     {
-        assert(libreoffice_internal::ConstCharArrayDetector<T>::isValid(to));
+        assert(lofice_internal::ConstCharArrayDetector<T>::isValid(to));
         rtl_uString * s = nullptr;
         sal_Int32 i = 0;
         rtl_uString_newReplaceFirstUtf16LAsciiL(
             &s, pData, from.data(), from.size(),
-            libreoffice_internal::ConstCharArrayDetector<T>::toPointer(to),
-            libreoffice_internal::ConstCharArrayDetector<T>::length, index == nullptr ? &i : index);
+            lofice_internal::ConstCharArrayDetector<T>::toPointer(to),
+            lofice_internal::ConstCharArrayDetector<T>::length, index == nullptr ? &i : index);
         return OUString(s, SAL_NO_ACQUIRE);
     }
 #else
     template< typename T >
-    SAL_WARN_UNUSED_RESULT typename libreoffice_internal::ConstCharArrayDetector< T, OUString >::Type replaceFirst( OUString const & from, T& to,
+    SAL_WARN_UNUSED_RESULT typename lofice_internal::ConstCharArrayDetector< T, OUString >::Type replaceFirst( OUString const & from, T& to,
                                                                                                         sal_Int32 * index = NULL) const
     {
-        assert(libreoffice_internal::ConstCharArrayDetector<T>::isValid(to));
+        assert(lofice_internal::ConstCharArrayDetector<T>::isValid(to));
         rtl_uString * s = NULL;
         sal_Int32 i = 0;
         rtl_uString_newReplaceFirstToAsciiL(
             &s, pData, from.pData,
-            libreoffice_internal::ConstCharArrayDetector<T>::toPointer(to),
-            libreoffice_internal::ConstCharArrayDetector<T>::length,
+            lofice_internal::ConstCharArrayDetector<T>::toPointer(to),
+            lofice_internal::ConstCharArrayDetector<T>::length,
             index == NULL ? &i : index);
         return OUString(s, SAL_NO_ACQUIRE);
     }
@@ -2976,22 +2976,22 @@ public:
       replacement took place or -1 if no replacement took place; if the pointer
       is null, searching always starts at index 0
 
-      @since LibreOffice 3.6
+      @since lofice 3.6
     */
     template< typename T1, typename T2 >
-        SAL_WARN_UNUSED_RESULT typename libreoffice_internal::ConstCharArrayDetector< T1, typename libreoffice_internal::ConstCharArrayDetector< T2, OUString >::Type >::Type
+        SAL_WARN_UNUSED_RESULT typename lofice_internal::ConstCharArrayDetector< T1, typename lofice_internal::ConstCharArrayDetector< T2, OUString >::Type >::Type
         replaceFirst( T1& from, T2& to, sal_Int32 * index = NULL) const
     {
-        assert(libreoffice_internal::ConstCharArrayDetector<T1>::isValid(from));
-        assert(libreoffice_internal::ConstCharArrayDetector<T2>::isValid(to));
+        assert(lofice_internal::ConstCharArrayDetector<T1>::isValid(from));
+        assert(lofice_internal::ConstCharArrayDetector<T2>::isValid(to));
         rtl_uString * s = NULL;
         sal_Int32 i = 0;
         rtl_uString_newReplaceFirstAsciiLAsciiL(
             &s, pData,
-            libreoffice_internal::ConstCharArrayDetector<T1>::toPointer(from),
-            libreoffice_internal::ConstCharArrayDetector<T1>::length,
-            libreoffice_internal::ConstCharArrayDetector<T2>::toPointer(to),
-            libreoffice_internal::ConstCharArrayDetector<T2>::length,
+            lofice_internal::ConstCharArrayDetector<T1>::toPointer(from),
+            lofice_internal::ConstCharArrayDetector<T1>::length,
+            lofice_internal::ConstCharArrayDetector<T2>::toPointer(to),
+            lofice_internal::ConstCharArrayDetector<T2>::length,
             index == NULL ? &i : index);
         return OUString(s, SAL_NO_ACQUIRE);
     }
@@ -3009,7 +3009,7 @@ public:
 
       @param fromIndex  the position in the string where we will begin searching
 
-      @since LibreOffice 4.0
+      @since lofice 4.0
     */
 #if defined LIBO_INTERNAL_ONLY
     [[nodiscard]] OUString replaceAll(
@@ -3041,30 +3041,30 @@ public:
 
       @param to  the replacing substring
 
-      @since LibreOffice 3.6
+      @since lofice 3.6
     */
 #if defined LIBO_INTERNAL_ONLY
     template<typename T> [[nodiscard]]
-    typename libreoffice_internal::ConstCharArrayDetector<T, OUString >::Type replaceAll(
+    typename lofice_internal::ConstCharArrayDetector<T, OUString >::Type replaceAll(
         T & from, std::u16string_view to) const
     {
-        assert(libreoffice_internal::ConstCharArrayDetector<T>::isValid(from));
+        assert(lofice_internal::ConstCharArrayDetector<T>::isValid(from));
         rtl_uString * s = nullptr;
         rtl_uString_newReplaceAllAsciiLUtf16L(
-            &s, pData, libreoffice_internal::ConstCharArrayDetector<T>::toPointer(from),
-            libreoffice_internal::ConstCharArrayDetector<T>::length, to.data(), to.size());
+            &s, pData, lofice_internal::ConstCharArrayDetector<T>::toPointer(from),
+            lofice_internal::ConstCharArrayDetector<T>::length, to.data(), to.size());
         return OUString(s, SAL_NO_ACQUIRE);
     }
 #else
     template< typename T >
-    SAL_WARN_UNUSED_RESULT typename libreoffice_internal::ConstCharArrayDetector< T, OUString >::Type replaceAll( T& from, OUString const & to) const
+    SAL_WARN_UNUSED_RESULT typename lofice_internal::ConstCharArrayDetector< T, OUString >::Type replaceAll( T& from, OUString const & to) const
     {
-        assert(libreoffice_internal::ConstCharArrayDetector<T>::isValid(from));
+        assert(lofice_internal::ConstCharArrayDetector<T>::isValid(from));
         rtl_uString * s = NULL;
         rtl_uString_newReplaceAllAsciiL(
             &s, pData,
-            libreoffice_internal::ConstCharArrayDetector<T>::toPointer(from),
-            libreoffice_internal::ConstCharArrayDetector<T>::length, to.pData);
+            lofice_internal::ConstCharArrayDetector<T>::toPointer(from),
+            lofice_internal::ConstCharArrayDetector<T>::length, to.pData);
         return OUString(s, SAL_NO_ACQUIRE);
     }
 #endif
@@ -3080,31 +3080,31 @@ public:
 
       @param to  ASCII string literal, the replacing substring
 
-      @since LibreOffice 5.1
+      @since lofice 5.1
     */
 #if defined LIBO_INTERNAL_ONLY
     template<typename T> [[nodiscard]]
-    typename libreoffice_internal::ConstCharArrayDetector<T, OUString >::Type replaceAll(
+    typename lofice_internal::ConstCharArrayDetector<T, OUString >::Type replaceAll(
         std::u16string_view from, T & to) const
     {
-        assert(libreoffice_internal::ConstCharArrayDetector<T>::isValid(to));
+        assert(lofice_internal::ConstCharArrayDetector<T>::isValid(to));
         rtl_uString * s = nullptr;
         rtl_uString_newReplaceAllUtf16LAsciiL(
             &s, pData, from.data(), from.size(),
-            libreoffice_internal::ConstCharArrayDetector<T>::toPointer(to),
-            libreoffice_internal::ConstCharArrayDetector<T>::length);
+            lofice_internal::ConstCharArrayDetector<T>::toPointer(to),
+            lofice_internal::ConstCharArrayDetector<T>::length);
         return OUString(s, SAL_NO_ACQUIRE);
     }
 #else
     template< typename T >
-    SAL_WARN_UNUSED_RESULT typename libreoffice_internal::ConstCharArrayDetector< T, OUString >::Type replaceAll( OUString const & from, T& to) const
+    SAL_WARN_UNUSED_RESULT typename lofice_internal::ConstCharArrayDetector< T, OUString >::Type replaceAll( OUString const & from, T& to) const
     {
-        assert(libreoffice_internal::ConstCharArrayDetector<T>::isValid(to));
+        assert(lofice_internal::ConstCharArrayDetector<T>::isValid(to));
         rtl_uString * s = NULL;
         rtl_uString_newReplaceAllToAsciiL(
             &s, pData, from.pData,
-            libreoffice_internal::ConstCharArrayDetector<T>::toPointer(to),
-            libreoffice_internal::ConstCharArrayDetector<T>::length);
+            lofice_internal::ConstCharArrayDetector<T>::toPointer(to),
+            lofice_internal::ConstCharArrayDetector<T>::length);
         return OUString(s, SAL_NO_ACQUIRE);
     }
 #endif
@@ -3120,21 +3120,21 @@ public:
 
       @param to  ASCII string literal, the substring to be replaced
 
-      @since LibreOffice 3.6
+      @since lofice 3.6
     */
     template< typename T1, typename T2 >
-    SAL_WARN_UNUSED_RESULT typename libreoffice_internal::ConstCharArrayDetector< T1, typename libreoffice_internal::ConstCharArrayDetector< T2, OUString >::Type >::Type
+    SAL_WARN_UNUSED_RESULT typename lofice_internal::ConstCharArrayDetector< T1, typename lofice_internal::ConstCharArrayDetector< T2, OUString >::Type >::Type
         replaceAll( T1& from, T2& to ) const
     {
-        assert(libreoffice_internal::ConstCharArrayDetector<T1>::isValid(from));
-        assert(libreoffice_internal::ConstCharArrayDetector<T2>::isValid(to));
+        assert(lofice_internal::ConstCharArrayDetector<T1>::isValid(from));
+        assert(lofice_internal::ConstCharArrayDetector<T2>::isValid(to));
         rtl_uString * s = NULL;
         rtl_uString_newReplaceAllAsciiLAsciiL(
             &s, pData,
-            libreoffice_internal::ConstCharArrayDetector<T1>::toPointer(from),
-            libreoffice_internal::ConstCharArrayDetector<T1>::length,
-            libreoffice_internal::ConstCharArrayDetector<T2>::toPointer(to),
-            libreoffice_internal::ConstCharArrayDetector<T2>::length);
+            lofice_internal::ConstCharArrayDetector<T1>::toPointer(from),
+            lofice_internal::ConstCharArrayDetector<T1>::length,
+            lofice_internal::ConstCharArrayDetector<T2>::toPointer(to),
+            lofice_internal::ConstCharArrayDetector<T2>::length);
         return OUString(s, SAL_NO_ACQUIRE);
     }
 
@@ -3234,7 +3234,7 @@ public:
 
       @return  the given token, or an empty string
 
-      @since LibreOffice 3.6
+      @since lofice 3.6
      */
     OUString getToken(sal_Int32 count, sal_Unicode separator) const {
         sal_Int32 n = 0;
@@ -3290,7 +3290,7 @@ public:
                 0 if this string represents no number or one of too large
                 magnitude.
 
-      @since LibreOffice 4.2
+      @since lofice 4.2
     */
     sal_uInt32 toUInt32( sal_Int16 radix = 10 ) const
     {
@@ -3322,7 +3322,7 @@ public:
                 0 if this string represents no number or one of too large
                 magnitude.
 
-      @since LibreOffice 4.1
+      @since lofice 4.1
     */
     sal_uInt64 toUInt64( sal_Int16 radix = 10 ) const
     {
@@ -3516,7 +3516,7 @@ public:
      * @param rSource
      * an OString to convert
      *
-     * @since LibreOffice 4.4
+     * @since lofice 4.4
      */
 #if defined LIBO_INTERNAL_ONLY
     static OUString fromUtf8(std::string_view rSource)
@@ -3554,7 +3554,7 @@ public:
      * UTF-16 code units, but only at places where it is assumed that the
      * content is a proper string.
      *
-     * @since LibreOffice 4.4
+     * @since lofice 4.4
      */
     OString toUtf8() const
     {
@@ -3604,7 +3604,7 @@ public:
       @param    i           an integer value
       @param    radix       the radix (between 2 and 36)
       @return   a string with the string representation of the argument.
-      @since LibreOffice 4.1
+      @since lofice 4.1
     */
     static OUString number( int i, sal_Int16 radix = 10 )
     {
@@ -3612,32 +3612,32 @@ public:
         return OUString(aBuf, rtl_ustr_valueOfInt32(aBuf, i, radix));
     }
     /// @overload
-    /// @since LibreOffice 4.1
+    /// @since lofice 4.1
     static OUString number( unsigned int i, sal_Int16 radix = 10 )
     {
         return number( static_cast< unsigned long long >( i ), radix );
     }
     /// @overload
-    /// @since LibreOffice 4.1
+    /// @since lofice 4.1
     static OUString number( long i, sal_Int16 radix = 10)
     {
         return number( static_cast< long long >( i ), radix );
     }
     /// @overload
-    /// @since LibreOffice 4.1
+    /// @since lofice 4.1
     static OUString number( unsigned long i, sal_Int16 radix = 10 )
     {
         return number( static_cast< unsigned long long >( i ), radix );
     }
     /// @overload
-    /// @since LibreOffice 4.1
+    /// @since lofice 4.1
     static OUString number( long long ll, sal_Int16 radix = 10 )
     {
         sal_Unicode aBuf[RTL_USTR_MAX_VALUEOFINT64];
         return OUString(aBuf, rtl_ustr_valueOfInt64(aBuf, ll, radix));
     }
     /// @overload
-    /// @since LibreOffice 4.1
+    /// @since lofice 4.1
     static OUString number( unsigned long long ll, sal_Int16 radix = 10 )
     {
         sal_Unicode aBuf[RTL_USTR_MAX_VALUEOFUINT64];
@@ -3652,7 +3652,7 @@ public:
 
       @param    f           a float.
       @return   a string with the decimal representation of the argument.
-      @since LibreOffice 4.1
+      @since lofice 4.1
     */
     static OUString number( float f )
     {
@@ -3674,7 +3674,7 @@ public:
 
       @param    d           a double.
       @return   a string with the decimal representation of the argument.
-      @since LibreOffice 4.1
+      @since lofice 4.1
     */
     static OUString number( double d )
     {
@@ -3720,7 +3720,7 @@ public:
 
       @param    b   a bool.
       @return   a string with the string representation of the argument.
-      @since LibreOffice 4.1
+      @since lofice 4.1
     */
     static OUString boolean( bool b )
     {
@@ -4029,7 +4029,7 @@ inline OString OUStringToOString( const OUString & rUnicode,
 
     The rtl::OUString is converted to UTF-8.
 
-    @since LibreOffice 3.5.
+    @since lofice 3.5.
 */
 template< typename charT, typename traits >
 inline std::basic_ostream<charT, traits> & operator <<(
@@ -4084,7 +4084,7 @@ operator ""_ustr() { return L; }
 /**
   Make OUString hashable by default for use in STL containers.
 
-  @since LibreOffice 6.0
+  @since lofice 6.0
 */
 #if defined LIBO_INTERNAL_ONLY
 namespace std {
@@ -4113,7 +4113,7 @@ struct hash<::rtl::OUString>
   * static empty string object, handy for returning from functions where the function is
   * returning a "const OUString &"
   *
-  * @since LibreOffice 25.2
+  * @since lofice 25.2
   */
 static inline constexpr ::rtl::OUString EMPTY_OUSTRING = u""_ustr;
 

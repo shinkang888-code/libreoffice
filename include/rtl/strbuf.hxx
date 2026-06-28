@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 
 #pragma once
@@ -112,7 +112,7 @@ public:
     explicit OStringBuffer(T length, std::enable_if_t<std::is_integral_v<T>, int> = 0)
         : OStringBuffer(static_cast<sal_Int32>(length))
     {
-        assert(libreoffice_internal::IsValidStrLen(length));
+        assert(lofice_internal::IsValidStrLen(length));
     }
     // avoid (obvious) bugs
     explicit OStringBuffer(bool) = delete;
@@ -138,7 +138,7 @@ public:
 #if defined LIBO_INTERNAL_ONLY
     OStringBuffer(std::string_view sv)
         : pData(nullptr)
-        , nCapacity(libreoffice_internal::ThrowIfInvalidStrLen(sv.length(), 16) + 16)
+        , nCapacity(lofice_internal::ThrowIfInvalidStrLen(sv.length(), 16) + 16)
     {
         rtl_stringbuffer_newFromStr_WithLength( &pData, sv.data(), sv.length() );
     }
@@ -153,10 +153,10 @@ public:
 
     /**
         @overload
-        @since LibreOffice 3.6
+        @since lofice 3.6
      */
     template< typename T >
-    OStringBuffer( const T& value, typename libreoffice_internal::CharPtrDetector< T, libreoffice_internal::Dummy >::Type = libreoffice_internal::Dummy())
+    OStringBuffer( const T& value, typename lofice_internal::CharPtrDetector< T, lofice_internal::Dummy >::Type = lofice_internal::Dummy())
         : pData(NULL)
     {
         sal_Int32 length = rtl_str_getLength( value );
@@ -165,7 +165,7 @@ public:
     }
 
     template< typename T >
-    OStringBuffer( T& value, typename libreoffice_internal::NonConstCharArrayDetector< T, libreoffice_internal::Dummy >::Type = libreoffice_internal::Dummy())
+    OStringBuffer( T& value, typename lofice_internal::NonConstCharArrayDetector< T, lofice_internal::Dummy >::Type = lofice_internal::Dummy())
         : pData(NULL)
     {
         sal_Int32 length = rtl_str_getLength( value );
@@ -175,7 +175,7 @@ public:
 
 #if __cplusplus > 202002L // C++23 P2266R3 "Simpler implicit move"
     template< typename T >
-    OStringBuffer( T&& value, typename libreoffice_internal::NonConstCharArrayDetector< T, libreoffice_internal::Dummy >::Type = libreoffice_internal::Dummy())
+    OStringBuffer( T&& value, typename lofice_internal::NonConstCharArrayDetector< T, lofice_internal::Dummy >::Type = lofice_internal::Dummy())
         : pData(NULL)
     {
         sal_Int32 length = rtl_str_getLength( value );
@@ -191,21 +191,21 @@ public:
       If there are any embedded \0's in the string literal, the result is undefined.
       Use the overload that explicitly accepts length.
 
-      @since LibreOffice 3.6
+      @since lofice 3.6
 
       @param    literal       a string literal
     */
     template< typename T >
-    OStringBuffer( T& literal, typename libreoffice_internal::ConstCharArrayDetector< T, libreoffice_internal::Dummy >::Type = libreoffice_internal::Dummy())
+    OStringBuffer( T& literal, typename lofice_internal::ConstCharArrayDetector< T, lofice_internal::Dummy >::Type = lofice_internal::Dummy())
         : pData(NULL)
-        , nCapacity( libreoffice_internal::ConstCharArrayDetector<T>::length + 16 )
+        , nCapacity( lofice_internal::ConstCharArrayDetector<T>::length + 16 )
     {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         rtl_string_newFromLiteral(
             &pData,
-            libreoffice_internal::ConstCharArrayDetector<T>::toPointer(literal),
-            libreoffice_internal::ConstCharArrayDetector<T>::length, 16);
+            lofice_internal::ConstCharArrayDetector<T>::toPointer(literal),
+            lofice_internal::ConstCharArrayDetector<T>::length, 16);
 #ifdef RTL_STRING_UNITTEST
         rtl_string_unittest_const_literal = true;
 #endif
@@ -276,7 +276,7 @@ public:
 
     /** Assign from a string.
 
-        @since LibreOffice 5.3
+        @since lofice 5.3
     */
 #if defined LIBO_INTERNAL_ONLY
     OStringBuffer & operator =(std::string_view string) {
@@ -303,29 +303,29 @@ public:
 
     /** Assign from a string literal.
 
-        @since LibreOffice 5.3
+        @since lofice 5.3
     */
     template<typename T>
     typename
-        libreoffice_internal::ConstCharArrayDetector<T, OStringBuffer &>::Type
+        lofice_internal::ConstCharArrayDetector<T, OStringBuffer &>::Type
     operator =(T & literal) {
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         sal_Int32 const n
-            = libreoffice_internal::ConstCharArrayDetector<T>::length;
+            = lofice_internal::ConstCharArrayDetector<T>::length;
         if (n >= nCapacity) {
             ensureCapacity(n + 16); //TODO: check for overflow
         }
         std::memcpy(
             pData->buffer,
-            libreoffice_internal::ConstCharArrayDetector<T>::toPointer(literal),
+            lofice_internal::ConstCharArrayDetector<T>::toPointer(literal),
             n + 1);
         pData->length = n;
         return *this;
     }
 
 #if defined LIBO_INTERNAL_ONLY
-    /** @overload @since LibreOffice 5.3 */
+    /** @overload @since lofice 5.3 */
     template<typename T1, typename T2>
     OStringBuffer & operator =(OStringConcat<T1, T2> && concat) {
         sal_Int32 const n = concat.length();
@@ -385,7 +385,7 @@ public:
       @return   true if the string buffer is empty;
                 false, otherwise.
 
-      @since LibreOffice 4.1
+      @since lofice 4.1
     */
     bool isEmpty() const
     {
@@ -512,7 +512,7 @@ public:
 
       @return a reference to the character at the given index.
 
-      @since LibreOffice 3.5
+      @since lofice 3.5
     */
     char & operator [](sal_Int32 index)
     {
@@ -558,13 +558,13 @@ public:
         @return  this string buffer.
      */
     template< typename T >
-    typename libreoffice_internal::CharPtrDetector< T, OStringBuffer& >::Type append( const T& str )
+    typename lofice_internal::CharPtrDetector< T, OStringBuffer& >::Type append( const T& str )
     {
         return insert(getLength(), str);
     }
 
     template< typename T >
-    typename libreoffice_internal::NonConstCharArrayDetector< T, OStringBuffer& >::Type append( T& str )
+    typename lofice_internal::NonConstCharArrayDetector< T, OStringBuffer& >::Type append( T& str )
     {
         return insert(getLength(), str);
     }
@@ -572,10 +572,10 @@ public:
     /**
      @overload
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 3.6
+     @since lofice 3.6
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, OStringBuffer& >::Type append( T& literal )
+    typename lofice_internal::ConstCharArrayDetector< T, OStringBuffer& >::Type append( T& literal )
     {
         return insert(getLength(), literal);
     }
@@ -650,7 +650,7 @@ public:
         @param   b   a <code>bool</code>.
         @return  this string buffer.
 
-        @since LibreOffice 4.3
+        @since lofice 4.3
      */
     OStringBuffer & append(bool b)
     {
@@ -662,8 +662,8 @@ public:
     // Explicitly delete all pointer append() overloads to prevent this
     // (except for char* overload, which is handled elsewhere).
     template< typename T >
-    typename libreoffice_internal::Enable< void,
-        !libreoffice_internal::CharPtrDetector< T* >::ok >::Type
+    typename lofice_internal::Enable< void,
+        !lofice_internal::CharPtrDetector< T* >::ok >::Type
         append( T* ) SAL_DELETED_FUNCTION;
     /// @endcond
 
@@ -761,7 +761,7 @@ public:
        @return a pointer to the start of the uninitialized block; only valid
        until this OStringBuffer's capacity changes
 
-       @since LibreOffice 4.4
+       @since lofice 4.4
     */
     char * appendUninitialized(sal_Int32 length) SAL_RETURNS_NONNULL {
         sal_Int32 n = getLength();
@@ -814,13 +814,13 @@ public:
         @return     this string buffer.
      */
     template< typename T >
-    typename libreoffice_internal::CharPtrDetector< T, OStringBuffer& >::Type insert( sal_Int32 offset, const T& str )
+    typename lofice_internal::CharPtrDetector< T, OStringBuffer& >::Type insert( sal_Int32 offset, const T& str )
     {
         return insert( offset, str, rtl_str_getLength( str ) );
     }
 
     template< typename T >
-    typename libreoffice_internal::NonConstCharArrayDetector< T, OStringBuffer& >::Type insert( sal_Int32 offset, T& str )
+    typename lofice_internal::NonConstCharArrayDetector< T, OStringBuffer& >::Type insert( sal_Int32 offset, T& str )
     {
         return insert( offset, str, rtl_str_getLength( str ) );
     }
@@ -828,18 +828,18 @@ public:
     /**
      @overload
      This function accepts an ASCII string literal as its argument.
-     @since LibreOffice 3.6
+     @since lofice 3.6
     */
     template< typename T >
-    typename libreoffice_internal::ConstCharArrayDetector< T, OStringBuffer& >::Type insert( sal_Int32 offset, T& literal )
+    typename lofice_internal::ConstCharArrayDetector< T, OStringBuffer& >::Type insert( sal_Int32 offset, T& literal )
     {
         RTL_STRING_CONST_FUNCTION
         assert(
-            libreoffice_internal::ConstCharArrayDetector<T>::isValid(literal));
+            lofice_internal::ConstCharArrayDetector<T>::isValid(literal));
         return insert(
             offset,
-            libreoffice_internal::ConstCharArrayDetector<T>::toPointer(literal),
-            libreoffice_internal::ConstCharArrayDetector<T>::length);
+            lofice_internal::ConstCharArrayDetector<T>::toPointer(literal),
+            lofice_internal::ConstCharArrayDetector<T>::length);
     }
 
     /**
@@ -907,7 +907,7 @@ public:
         @param      b        a <code>bool</code>.
         @return     this string buffer.
 
-        @since LibreOffice 4.3
+        @since lofice 4.3
      */
     OStringBuffer & insert(sal_Int32 offset, bool b)
     {
@@ -1069,7 +1069,7 @@ public:
         This output parameter receives a pointer to the internal capacity.
         pInternalCapacity itself must not be null.
 
-        @since LibreOffice 5.4
+        @since lofice 5.4
     */
     void accessInternals(
         rtl_String *** pInternalData, sal_Int32 ** pInternalCapacity)

@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -8,8 +8,8 @@
 #
 
 from uitest.framework import UITestCase
-from libreoffice.uno.propertyvalue import mkPropertyValues
-from libreoffice.calc.document import get_cell_by_position
+from lofice.uno.propertyvalue import mkPropertyValues
+from lofice.calc.document import get_cell_by_position
 from uitest.uihelper.calc import enter_text_to_cell
 
 #https://www.linuxtopia.org/online_books/office_guides/openoffice_3_calc_user_guide/openoffice_calc_Multiple_operations_Multiple_operations_in_columns_or_rows.html

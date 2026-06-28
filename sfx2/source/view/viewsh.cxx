@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -87,7 +87,7 @@
 #include <toolkit/helper/vclunohelper.hxx>
 #include <vcl/settings.hxx>
 #include <vcl/commandinfoprovider.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 #include <officecfg/Setup.hxx>
 #include <sfx2/app.hxx>
@@ -193,7 +193,7 @@ void SfxClipboardChangeListener::ChangedContents()
     rBind.Invalidate(SID_PASTE_SPECIAL);
     rBind.Invalidate(SID_CLIPBOARD_FORMAT_ITEMS);
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         // In the future we might send the payload as well.
         SfxLokHelper::notifyAllViews(LOK_CALLBACK_CLIPBOARD_CHANGED, ""_ostr);
@@ -947,7 +947,7 @@ void LOKDocumentFocusListener::notifyEditingInSelectionState(bool bParagraph)
     if (m_pViewShell)
     {
         SAL_INFO("lok.a11y", "LOKDocumentFocusListener::notifyEditingInSelectionState: payload: \n" << aPayload);
-        m_pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_A11Y_EDITING_IN_SELECTION_STATE, aPayload.c_str());
+        m_pViewShell->loficeKitViewCallback(LOK_CALLBACK_A11Y_EDITING_IN_SELECTION_STATE, aPayload.c_str());
     }
 }
 
@@ -981,7 +981,7 @@ void LOKDocumentFocusListener::notifyFocusedParagraphChanged(bool force)
                        m_sFocusedParagraph, m_nCaretPosition,
                        m_nSelectionStart, m_nSelectionEnd, m_nListPrefixLength, force);
 
-        m_pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_A11Y_FOCUS_CHANGED, aPayload.c_str());
+        m_pViewShell->loficeKitViewCallback(LOK_CALLBACK_A11Y_FOCUS_CHANGED, aPayload.c_str());
     }
 }
 
@@ -996,7 +996,7 @@ void LOKDocumentFocusListener::notifyCaretChanged()
     if (m_pViewShell)
     {
         SAL_INFO("lok.a11y", "LOKDocumentFocusListener::notifyCaretChanged: " << m_nCaretPosition);
-        m_pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_A11Y_CARET_CHANGED, aPayload.c_str());
+        m_pViewShell->loficeKitViewCallback(LOK_CALLBACK_A11Y_CARET_CHANGED, aPayload.c_str());
     }
 }
 
@@ -1014,7 +1014,7 @@ void LOKDocumentFocusListener::notifyTextSelectionChanged()
     {
         SAL_INFO("lok.a11y",  "LOKDocumentFocusListener::notifyTextSelectionChanged: "
                 "start: " << m_nSelectionStart << ", end: " << m_nSelectionEnd);
-        m_pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_A11Y_TEXT_SELECTION_CHANGED, aPayload.c_str());
+        m_pViewShell->loficeKitViewCallback(LOK_CALLBACK_A11Y_TEXT_SELECTION_CHANGED, aPayload.c_str());
     }
 }
 
@@ -1068,7 +1068,7 @@ void LOKDocumentFocusListener::notifyFocusedCellChanged(
                        m_sFocusedParagraph, m_nCaretPosition, m_nSelectionStart, m_nSelectionEnd,
                        m_nListPrefixLength, false);
 
-        m_pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_A11Y_FOCUSED_CELL_CHANGED, aPayload.c_str());
+        m_pViewShell->loficeKitViewCallback(LOK_CALLBACK_A11Y_FOCUSED_CELL_CHANGED, aPayload.c_str());
     }
 }
 
@@ -1154,7 +1154,7 @@ void LOKDocumentFocusListener::notifySelectionChanged(const uno::Reference<acces
         {
             SAL_INFO("lok.a11y",  "LOKDocumentFocusListener::notifySelectionChanged: "
                                      "action: " << sAction << ", name: " << sName);
-            m_pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_A11Y_SELECTION_CHANGED, aPayload.c_str());
+            m_pViewShell->loficeKitViewCallback(LOK_CALLBACK_A11Y_SELECTION_CHANGED, aPayload.c_str());
         }
     }
 }
@@ -1903,7 +1903,7 @@ sal_uInt32 SfxViewShell_Impl::m_nLastViewShellId = 0;
 SfxViewShell_Impl::SfxViewShell_Impl(SfxViewShellFlags const nFlags, ViewShellDocId nDocId)
 :   m_bHasPrintOptions(nFlags & SfxViewShellFlags::HAS_PRINTOPTIONS)
 ,   m_nFamily(0xFFFF)   // undefined, default set by TemplateDialog
-,   m_pLibreOfficeKitViewCallback(nullptr)
+,   m_ploficeKitViewCallback(nullptr)
 ,   m_bTiledSearching(false)
 ,   m_nViewShellId(SfxViewShell_Impl::m_nLastViewShellId++)
 ,   m_nDocId(nDocId)
@@ -2518,7 +2518,7 @@ SfxInPlaceClient* SfxViewShell::GetUIActiveClient() const
     if ( rClients.empty() )
         return nullptr;
 
-    const bool bIsTiledRendering = comphelper::LibreOfficeKit::isActive();
+    const bool bIsTiledRendering = comphelper::loficeKit::isActive();
 
     for (SfxInPlaceClient* pIPClient : rClients)
     {
@@ -2746,7 +2746,7 @@ SfxViewShell::SfxViewShell
 )
 
 :   SfxShell(this)
-,   pImpl( new SfxViewShell_Impl(nFlags, comphelper::LibreOfficeKit::getDocId()) )
+,   pImpl( new SfxViewShell_Impl(nFlags, comphelper::loficeKit::getDocId()) )
 ,   rFrame(rViewFrame)
 ,   pWindow(nullptr)
 ,   bNoNewWindow( nFlags & SfxViewShellFlags::NO_NEWWINDOW )
@@ -2765,7 +2765,7 @@ SfxViewShell::SfxViewShell
     std::vector<SfxViewShell*> &rViewArr = SfxGetpApp()->GetViewShells_Impl();
     rViewArr.push_back(this);
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         maLOKLanguageTag = SfxLokHelper::getDefaultLanguage();
         maLOKLocale = SfxLokHelper::getDefaultLanguage();
@@ -2947,7 +2947,7 @@ SfxViewShell* SfxViewShell::Current()
 
 bool SfxViewShell::IsCurrentLokViewReadOnly()
 {
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return false;
     SfxViewShell* pCurrent = Current();
     return pCurrent && pCurrent->IsLokReadOnlyView();
@@ -3202,7 +3202,7 @@ void SfxViewShell::Notify( SfxBroadcaster& rBC,
 
 bool SfxViewShell::ExecKey_Impl(const KeyEvent& aKey)
 {
-    bool setModuleConfig = false; // In case libreofficekit is active, we will re-set the module config class.
+    bool setModuleConfig = false; // In case loficekit is active, we will re-set the module config class.
     if (!pImpl->m_xAccExec)
     {
         pImpl->m_xAccExec = ::svt::AcceleratorExecute::createAcceleratorHelper();
@@ -3211,7 +3211,7 @@ bool SfxViewShell::ExecKey_Impl(const KeyEvent& aKey)
         setModuleConfig = true;
     }
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         // Get the module name.
         const css::uno::Reference< css::uno::XComponentContext >&  xContext      (::comphelper::getProcessComponentContext());
@@ -3251,13 +3251,13 @@ bool SfxViewShell::ExecKey_Impl(const KeyEvent& aKey)
     return pImpl->m_xAccExec->execute(aKey.GetKeyCode());
 }
 
-void SfxViewShell::setLibreOfficeKitViewCallback(SfxLokCallbackInterface* pCallback)
+void SfxViewShell::setloficeKitViewCallback(SfxLokCallbackInterface* pCallback)
 {
-    pImpl->m_pLibreOfficeKitViewCallback = pCallback;
+    pImpl->m_ploficeKitViewCallback = pCallback;
 
     afterCallbackRegistered();
 
-    if (!pImpl->m_pLibreOfficeKitViewCallback)
+    if (!pImpl->m_ploficeKitViewCallback)
         return;
 
     // Ask other views to tell us about their cursors.
@@ -3270,12 +3270,12 @@ void SfxViewShell::setLibreOfficeKitViewCallback(SfxLokCallbackInterface* pCallb
     }
 }
 
-SfxLokCallbackInterface* SfxViewShell::getLibreOfficeKitViewCallback() const
+SfxLokCallbackInterface* SfxViewShell::getloficeKitViewCallback() const
 {
-    return pImpl->m_pLibreOfficeKitViewCallback;
+    return pImpl->m_ploficeKitViewCallback;
 }
 
-void SfxViewShell::dumpLibreOfficeKitViewState(rtl::OStringBuffer &rState)
+void SfxViewShell::dumploficeKitViewState(rtl::OStringBuffer &rState)
 {
     rState.append("\n    SfxViewShell: ");
     rState.append(OString::number(reinterpret_cast<sal_uInt64>(this), 16));
@@ -3291,16 +3291,16 @@ void SfxViewShell::dumpLibreOfficeKitViewState(rtl::OStringBuffer &rState)
     rState.append("\n\tA11y:\t");
     rState.append(GetLOKAccessibilityState() ? "enabled" : "disabled");
 
-    if (pImpl->m_pLibreOfficeKitViewCallback)
-        pImpl->m_pLibreOfficeKitViewCallback->dumpState(rState);
+    if (pImpl->m_ploficeKitViewCallback)
+        pImpl->m_ploficeKitViewCallback->dumpState(rState);
 }
 
-static bool ignoreLibreOfficeKitViewCallback(int nType, const SfxViewShell_Impl* pImpl)
+static bool ignoreloficeKitViewCallback(int nType, const SfxViewShell_Impl* pImpl)
 {
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return true;
 
-    if (comphelper::LibreOfficeKit::isTiledPainting())
+    if (comphelper::loficeKit::isTiledPainting())
     {
         switch (nType)
         {
@@ -3332,78 +3332,78 @@ static bool ignoreLibreOfficeKitViewCallback(int nType, const SfxViewShell_Impl*
     return false;
 }
 
-void SfxViewShell::libreOfficeKitViewInvalidateTilesCallback(const tools::Rectangle* pRect, int nPart, int nMode) const
+void SfxViewShell::loficeKitViewInvalidateTilesCallback(const tools::Rectangle* pRect, int nPart, int nMode) const
 {
-    if (ignoreLibreOfficeKitViewCallback(LOK_CALLBACK_INVALIDATE_TILES, pImpl.get()))
+    if (ignoreloficeKitViewCallback(LOK_CALLBACK_INVALIDATE_TILES, pImpl.get()))
         return;
-    if (pImpl->m_pLibreOfficeKitViewCallback)
-        pImpl->m_pLibreOfficeKitViewCallback->libreOfficeKitViewInvalidateTilesCallback(pRect, nPart, nMode);
+    if (pImpl->m_ploficeKitViewCallback)
+        pImpl->m_ploficeKitViewCallback->loficeKitViewInvalidateTilesCallback(pRect, nPart, nMode);
     else
         SAL_INFO(
             "sfx.view",
-            "SfxViewShell::libreOfficeKitViewInvalidateTilesCallback no callback set!");
+            "SfxViewShell::loficeKitViewInvalidateTilesCallback no callback set!");
 }
 
-void SfxViewShell::libreOfficeKitViewCallbackWithViewId(int nType, const OString& pPayload, int nViewId) const
+void SfxViewShell::loficeKitViewCallbackWithViewId(int nType, const OString& pPayload, int nViewId) const
 {
-    if (ignoreLibreOfficeKitViewCallback(nType, pImpl.get()))
+    if (ignoreloficeKitViewCallback(nType, pImpl.get()))
         return;
-    if (pImpl->m_pLibreOfficeKitViewCallback)
-        pImpl->m_pLibreOfficeKitViewCallback->libreOfficeKitViewCallbackWithViewId(nType, pPayload, nViewId);
+    if (pImpl->m_ploficeKitViewCallback)
+        pImpl->m_ploficeKitViewCallback->loficeKitViewCallbackWithViewId(nType, pPayload, nViewId);
     else
         SAL_INFO(
             "sfx.view",
-            "SfxViewShell::libreOfficeKitViewCallbackWithViewId no callback set! Dropped payload of type "
+            "SfxViewShell::loficeKitViewCallbackWithViewId no callback set! Dropped payload of type "
             << lokCallbackTypeToString(nType) << ": [" << pPayload << ']');
 }
 
-void SfxViewShell::libreOfficeKitViewCallback(int nType, const OString& pPayload) const
+void SfxViewShell::loficeKitViewCallback(int nType, const OString& pPayload) const
 {
-    if (ignoreLibreOfficeKitViewCallback(nType, pImpl.get()))
+    if (ignoreloficeKitViewCallback(nType, pImpl.get()))
         return;
-    if (pImpl->m_pLibreOfficeKitViewCallback)
-        pImpl->m_pLibreOfficeKitViewCallback->libreOfficeKitViewCallback(nType, pPayload);
+    if (pImpl->m_ploficeKitViewCallback)
+        pImpl->m_ploficeKitViewCallback->loficeKitViewCallback(nType, pPayload);
     else
         SAL_INFO(
             "sfx.view",
-            "SfxViewShell::libreOfficeKitViewCallback no callback set! Dropped payload of type "
+            "SfxViewShell::loficeKitViewCallback no callback set! Dropped payload of type "
             << lokCallbackTypeToString(nType) << ": [" << pPayload << ']');
 }
 
-void SfxViewShell::libreOfficeKitViewUpdatedCallback(int nType) const
+void SfxViewShell::loficeKitViewUpdatedCallback(int nType) const
 {
-    if (ignoreLibreOfficeKitViewCallback(nType, pImpl.get()))
+    if (ignoreloficeKitViewCallback(nType, pImpl.get()))
         return;
-    if (pImpl->m_pLibreOfficeKitViewCallback)
-        pImpl->m_pLibreOfficeKitViewCallback->libreOfficeKitViewUpdatedCallback(nType);
+    if (pImpl->m_ploficeKitViewCallback)
+        pImpl->m_ploficeKitViewCallback->loficeKitViewUpdatedCallback(nType);
     else
         SAL_INFO(
             "sfx.view",
-            "SfxViewShell::libreOfficeKitViewUpdatedCallback no callback set! Dropped payload of type "
+            "SfxViewShell::loficeKitViewUpdatedCallback no callback set! Dropped payload of type "
             << lokCallbackTypeToString(nType));
 }
 
-void SfxViewShell::libreOfficeKitViewUpdatedCallbackPerViewId(int nType, int nViewId, int nSourceViewId) const
+void SfxViewShell::loficeKitViewUpdatedCallbackPerViewId(int nType, int nViewId, int nSourceViewId) const
 {
-    if (ignoreLibreOfficeKitViewCallback(nType, pImpl.get()))
+    if (ignoreloficeKitViewCallback(nType, pImpl.get()))
         return;
-    if (pImpl->m_pLibreOfficeKitViewCallback)
-        pImpl->m_pLibreOfficeKitViewCallback->libreOfficeKitViewUpdatedCallbackPerViewId(nType, nViewId, nSourceViewId);
+    if (pImpl->m_ploficeKitViewCallback)
+        pImpl->m_ploficeKitViewCallback->loficeKitViewUpdatedCallbackPerViewId(nType, nViewId, nSourceViewId);
     else
         SAL_INFO(
             "sfx.view",
-            "SfxViewShell::libreOfficeKitViewUpdatedCallbackPerViewId no callback set! Dropped payload of type "
+            "SfxViewShell::loficeKitViewUpdatedCallbackPerViewId no callback set! Dropped payload of type "
             << lokCallbackTypeToString(nType));
 }
 
-void SfxViewShell::libreOfficeKitViewAddPendingInvalidateTiles()
+void SfxViewShell::loficeKitViewAddPendingInvalidateTiles()
 {
-    if (pImpl->m_pLibreOfficeKitViewCallback)
-        pImpl->m_pLibreOfficeKitViewCallback->libreOfficeKitViewAddPendingInvalidateTiles();
+    if (pImpl->m_ploficeKitViewCallback)
+        pImpl->m_ploficeKitViewCallback->loficeKitViewAddPendingInvalidateTiles();
     else
         SAL_INFO(
             "sfx.view",
-            "SfxViewShell::libreOfficeKitViewAddPendingInvalidateTiles no callback set!");
+            "SfxViewShell::loficeKitViewAddPendingInvalidateTiles no callback set!");
 }
 
 void SfxViewShell::afterCallbackRegistered()
@@ -3527,8 +3527,8 @@ void SfxViewShell::SetLOKLocale(const OUString& rBcp47LanguageTag)
     if (this == Current())
     {
         // update the current LOK language and locale for the dialog tunneling
-        comphelper::LibreOfficeKit::setLanguageTag(GetLOKLanguageTag());
-        comphelper::LibreOfficeKit::setLocale(GetLOKLocale());
+        comphelper::loficeKit::setLanguageTag(GetLOKLanguageTag());
+        comphelper::loficeKit::setLocale(GetLOKLocale());
     }
     mpCalendar = std::make_unique<CalendarWrapper>(::comphelper::getProcessComponentContext());
     mpCalendar->loadDefaultCalendar(GetLOKLocale().getLocale());

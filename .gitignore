@@ -207,3 +207,6 @@ gdb.txt
 lofice/scripts/node_modules/
 lofice/rag-api/node_modules/
 lofice/rag-api/.vercel
+
+# lofice icon deploy backups (original mainapp SVG before overlay)
+icon-themes/**/*.lofice.bak

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -14,7 +14,7 @@
 #include "gtv-signal-handlers.hxx"
 #include "gtv-helpers.hxx"
 
-#include <LibreOfficeKit/LibreOfficeKitGtk.h>
+#include <loficeKit/loficeKitGtk.h>
 
 #include <algorithm>
 #include <filesystem>
@@ -234,7 +234,7 @@ static void populateRecentUnoSelector(GtvMainToolbar* toolbar)
 }
 
 void
-gtv_main_toolbar_doc_loaded(GtvMainToolbar* toolbar, LibreOfficeKitDocumentType eDocType, bool bEditMode)
+gtv_main_toolbar_doc_loaded(GtvMainToolbar* toolbar, loficeKitDocumentType eDocType, bool bEditMode)
 {
     GtvMainToolbarPrivate& priv = getPrivate(toolbar);
     gtk_widget_set_visible(toolbar->m_pAddressbar, false);

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -53,7 +53,7 @@
 #include <sal/log.hxx>
 #include <osl/diagnose.h>
 #include <comphelper/lok.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 #include <formatsh.hxx>
 #include <sc.hrc>
@@ -1851,10 +1851,10 @@ void ScFormatShell::GetNumFormatState( SfxItemSet& rSet )
 
                         rSet.Put(SfxStringItem(nWhich, aFormat));
 
-                        if (comphelper::LibreOfficeKit::isActive())
+                        if (comphelper::loficeKit::isActive())
                         {
                             OUString sPayload = ".uno:NumberFormat=" + aFormat;
-                            GetViewShell()->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
+                            GetViewShell()->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
                                 OUStringToOString(sPayload, RTL_TEXTENCODING_ASCII_US));
                         }
                     }

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -243,7 +243,7 @@ bool TransitionPreset::importTransitionsFile( TransitionPresetList& rList,
             {
                 TransitionPresetPtr pPreset( new TransitionPreset( xChildNode ) );
 
-                if( comphelper::LibreOfficeKit::isActive() )
+                if( comphelper::loficeKit::isActive() )
                 {
                     sal_Int16 eTransitionType = pPreset->getTransition();
                     sal_Int16 eTransitionSubType = pPreset->getSubtype();
@@ -380,8 +380,8 @@ const TransitionPresetList& TransitionPreset::getTransitionPresetList()
 {
     // Support localization per-view. Currently not useful for Desktop
     // but very much critical for LOK. The cache now is per-language.
-    const OUString aLang = comphelper::LibreOfficeKit::isActive()
-                               ? comphelper::LibreOfficeKit::getLanguageTag().getBcp47()
+    const OUString aLang = comphelper::loficeKit::isActive()
+                               ? comphelper::loficeKit::getLanguageTag().getBcp47()
                                : SvtSysLocaleOptions().GetLanguageTag().getBcp47();
 
     SolarMutexGuard aGuard;

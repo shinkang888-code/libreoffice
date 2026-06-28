@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -40,7 +40,7 @@ def get_files_list(directory, extension):
 def linkFormat(name):
     bugId = re.search(r'\d{5,6}', name)
     if bugId:
-        return "[https://bugs.documentfoundation.org/show_bug.cgi?id={} {}]"\
+        return "[https://bugs.lofice.io/show_bug.cgi?id={} {}]"\
                 .format(bugId.group(), name)
     else:
         return name

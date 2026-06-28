@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -105,7 +105,7 @@ OUString SAL_CALL StorageFilterDetect::detect(uno::Sequence<beans::PropertyValue
         OUString aMediaType;
         xStorageProperties->getPropertyValue( u"MediaType"_ustr ) >>= aMediaType;
         aTypeName = getInternalFromMediaType( aMediaType );
-        if (comphelper::LibreOfficeKit::isActive() && aTypeName == "draw8_template")
+        if (comphelper::loficeKit::isActive() && aTypeName == "draw8_template")
         {
             // save it as draw8 instead of template format
             aTypeName = "draw8";
@@ -151,7 +151,7 @@ OUString SAL_CALL StorageFilterDetect::detect(uno::Sequence<beans::PropertyValue
             {
                 aTypeName = aRequestedTypeName;
                 // lok: we want to overwrite file in jail, so don't use template flag
-                const bool bIsLOK = comphelper::LibreOfficeKit::isActive();
+                const bool bIsLOK = comphelper::loficeKit::isActive();
                 aMediaDesc[utl::MediaDescriptor::PROP_DOCUMENTTITLE] <<= aDocumentTitle;
                 aMediaDesc[utl::MediaDescriptor::PROP_ASTEMPLATE] <<= !bIsLOK;
                 aMediaDesc[u"RepairPackage"_ustr] <<= true;

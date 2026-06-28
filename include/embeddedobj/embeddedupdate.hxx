@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -16,7 +16,7 @@ namespace embeddedobj
 /** This class is only used to tell the OCommonEmbeddedObject class
     that the following call is an Link- / Ole-refresh.
 
-    @since LibreOffice 7.4
+    @since lofice 7.4
  */
 class EMBOBJ_DLLPUBLIC SAL_LOPLUGIN_ANNOTATE("crosscast") EmbeddedUpdate
 {

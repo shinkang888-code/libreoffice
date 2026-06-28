@@ -1,5 +1,5 @@
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -32,7 +32,7 @@ protected:
     SdXImpressDocument* createDoc(const char* pName,
                                   const css::uno::Sequence<css::beans::PropertyValue>& rArguments
                                   = css::uno::Sequence<css::beans::PropertyValue>());
-    void setupLibreOfficeKitViewCallback(SfxViewShell& pViewShell);
+    void setuploficeKitViewCallback(SfxViewShell& pViewShell);
     static void callback(int nType, const char* pPayload, void* pData);
     void callbackImpl(int nType, const char* pPayload);
     xmlDocUniquePtr parseXmlDump();

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -2407,7 +2407,7 @@ void ScInterpreter::ScCell()
                             eConv == FormulaGrammar::CONV_XL_OOX)
                         {
                             // file name and table name: FILEPATH/[FILENAME]TABLE
-                            if (!comphelper::LibreOfficeKit::isActive())
+                            if (!comphelper::loficeKit::isActive())
                                 aFuncResult = rURLObj.GetPartBeforeLastName();
                             aFuncResult += "[" + rURLObj.GetLastName(INetURLObject::DecodeMechanism::Unambiguous) +
                                            "]" + aTabName;
@@ -2416,7 +2416,7 @@ void ScInterpreter::ScCell()
                         {
                             // file name and table name: 'FILEPATH/FILENAME'#$TABLE
                             aFuncResult = "'";
-                            if (!comphelper::LibreOfficeKit::isActive())
+                            if (!comphelper::loficeKit::isActive())
                                 aFuncResult += rURLObj.GetMainURL(INetURLObject::DecodeMechanism::Unambiguous);
                             else
                                 aFuncResult += rURLObj.GetLastName(INetURLObject::DecodeMechanism::Unambiguous);
@@ -5333,7 +5333,7 @@ bool isCellContentEmpty( const ScRefCellValue& rCell )
             // COUNTBLANK() tests the (display) result whereas ISBLANK() tests
             // the cell content.
             // ODFF allows both for COUNTBLANK().
-            // OOo and LibreOffice prior to 4.4 did not treat ="" as blank in
+            // OOo and lofice prior to 4.4 did not treat ="" as blank in
             // COUNTBLANK(), we now do for Excel interoperability.
             /* TODO: introduce yet another compatibility option? */
             sc::FormulaResultValue aRes = rCell.getFormula()->GetResult();

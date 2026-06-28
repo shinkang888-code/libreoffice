@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -59,8 +59,8 @@
 // presentation engine.
 // For the mentioned factor refer to:
 //   Patch to demonstrate former and now repaint differences
-//   https://gerrit.libreoffice.org/c/core/+/129301
-//   git fetch https://git.libreoffice.org/core refs/changes/01/129301/3 && git cherry-pick FETCH_HEAD
+//   https://gerrit.lofice.org/c/core/+/129301
+//   git fetch https://git.lofice.org/core refs/changes/01/129301/3 && git cherry-pick FETCH_HEAD
 //
 // Note: This principle only works when the target is RGB, so
 // useful for EditViews like for PrimitiveRenderers where this is

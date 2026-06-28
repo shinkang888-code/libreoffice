@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -563,7 +563,7 @@ const TranslateId STR_TABSTYLE_ARY[] =
     RID_SVXSTR_TBLAFMT_RED,
     RID_SVXSTR_TBLAFMT_TURQUOISE,
     RID_SVXSTR_TBLAFMT_YELLOW,
-    // 10 new styles since LibreOffice 6.0 Svx resource strings
+    // 10 new styles since lofice 6.0 Svx resource strings
     RID_SVXSTR_TBLAFMT_LO6_ACADEMIC,
     RID_SVXSTR_TBLAFMT_LO6_BOX_LIST_BLUE,
     RID_SVXSTR_TBLAFMT_LO6_BOX_LIST_GREEN,
@@ -603,7 +603,7 @@ SwTextFormatColl* DocumentStylePoolManager::GetTextCollFromPool( SwPoolFormatId 
         if( nId == pNewColl->GetPoolFormatId() )
         {
             // in online we can have multiple languages, use translated name
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
             {
                 UIName aName = SwStyleNameMapper::GetUIName(nId, ProgName());
                 if (!aName.isEmpty())

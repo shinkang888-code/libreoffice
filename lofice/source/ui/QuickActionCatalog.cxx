@@ -83,7 +83,7 @@ constexpr QuickActionDef kCatalog[] = {
       u8"프레젠테이션 슬라이드쇼(Slideshow)를 시작하고 발표자 보기를 사용하는 방법을 설명해 주세요.",
       QuickActionScope::Impress | QuickActionScope::Draw },
     { "Sidebar", ".uno:Sidebar",
-      u8"LibreOffice 사이드바를 열고 AI 어시스턴트 패널을 사용하는 방법을 알려 주세요.",
+      u8"lofice 사이드바를 열고 AI 어시스턴트 패널을 사용하는 방법을 알려 주세요.",
       QuickActionScope::Universal },
 };
 

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -8,7 +8,7 @@
  */
 
 #include "../helper/qahelper.hxx"
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <unotools/syslocaleoptions.hxx>
 #include <vcl/keycodes.hxx>
 #include <vcl/scheduler.hxx>
@@ -880,21 +880,21 @@ CPPUNIT_TEST_FIXTURE(ScUiCalcTest, testTdf90579)
     insertStringToCell(u"C2"_ustr, u"=A2&B2");
 
     CPPUNIT_ASSERT_EQUAL(u"2310"_ustr, pDoc->GetString(ScAddress(2, 0, 0)));
-    CPPUNIT_ASSERT_EQUAL(u"LibreOffice"_ustr, pDoc->GetString(ScAddress(2, 1, 0)));
+    CPPUNIT_ASSERT_EQUAL(u"lofice"_ustr, pDoc->GetString(ScAddress(2, 1, 0)));
 
     goToCell(u"C1:C2"_ustr);
 
     dispatchCommand(mxComponent, u".uno:ConvertFormulaToValue"_ustr, {});
 
     CPPUNIT_ASSERT_EQUAL(u"2310"_ustr, pDoc->GetString(ScAddress(2, 0, 0)));
-    CPPUNIT_ASSERT_EQUAL(u"LibreOffice"_ustr, pDoc->GetString(ScAddress(2, 1, 0)));
+    CPPUNIT_ASSERT_EQUAL(u"lofice"_ustr, pDoc->GetString(ScAddress(2, 1, 0)));
     CPPUNIT_ASSERT_EQUAL(u""_ustr, pDoc->GetFormula(2, 0, 0));
     CPPUNIT_ASSERT_EQUAL(u""_ustr, pDoc->GetFormula(2, 1, 0));
 
     dispatchCommand(mxComponent, u".uno:Undo"_ustr, {});
 
     CPPUNIT_ASSERT_EQUAL(u"2310"_ustr, pDoc->GetString(ScAddress(2, 0, 0)));
-    CPPUNIT_ASSERT_EQUAL(u"LibreOffice"_ustr, pDoc->GetString(ScAddress(2, 1, 0)));
+    CPPUNIT_ASSERT_EQUAL(u"lofice"_ustr, pDoc->GetString(ScAddress(2, 1, 0)));
     CPPUNIT_ASSERT_EQUAL(u"=SUM(A1:B1)"_ustr, pDoc->GetFormula(2, 0, 0));
     CPPUNIT_ASSERT_EQUAL(u"=A2&B2"_ustr, pDoc->GetFormula(2, 1, 0));
 }

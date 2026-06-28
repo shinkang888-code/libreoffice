@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -89,7 +89,7 @@ namespace com::sun::star {
 namespace comphelper { class UnoInterfaceToUniqueIdentifierMapper; }
 
 namespace model { class Theme; }
-namespace vcl { class ILibreOfficeKitNotifier; }
+namespace vcl { class IloficeKitNotifier; }
 
 enum class SvXMLExportFlags {
     NONE                     = 0,
@@ -154,7 +154,7 @@ class XMLOFF_DLLPUBLIC SvXMLExport : public cppu::WeakImplHelper<
     std::unique_ptr<XMLEventExport> mpEventExport;
     std::unique_ptr<XMLImageMapExport> mpImageMapExport;
     std::unique_ptr<XMLErrors>  mpXMLErrors;
-    vcl::ILibreOfficeKitNotifier* mpNotifier = nullptr;
+    vcl::IloficeKitNotifier* mpNotifier = nullptr;
 
     const enum ::xmloff::token::XMLTokenEnum meClass;
     SAL_DLLPRIVATE void InitCtor_();
@@ -586,7 +586,7 @@ public:
     /// Get clamped mimetype for image export (empty if none)
     OUString const & GetImageFilterName() const;
 
-    void SetLibreOfficeKitNotifier(vcl::ILibreOfficeKitNotifier* pNotifier);
+    void SetloficeKitNotifier(vcl::IloficeKitNotifier* pNotifier);
 };
 
 inline rtl::Reference< XMLTextParagraphExport > const & SvXMLExport::GetTextParagraphExport()

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -86,7 +86,7 @@
 #include <basegfx/matrix/b2dhommatrixtools.hxx>
 #include <comphelper/lok.hxx>
 #include <sfx2/lokhelper.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <DrawController.hxx>
 
 #include <memory>
@@ -720,7 +720,7 @@ bool View::SdrBeginTextEdit(
         if (pObj && pObj->GetObjIdentifier() == SdrObjKind::Table)
             mpViewSh->UpdateScrollBars();
 
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             if (OutlinerView* pView = GetTextEditOutlinerView())
             {
@@ -826,7 +826,7 @@ SdrEndTextEditKind View::SdrEndTextEdit(bool bDontDeleteReally)
         {
             mpViewSh->GetViewShellBase().GetDrawController()->FireSelectionChangeListener();
 
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
                 SfxLokHelper::notifyOtherViews(&mpViewSh->GetViewShellBase(), LOK_CALLBACK_VIEW_LOCK, "rectangle", "EMPTY"_ostr);
 
         }

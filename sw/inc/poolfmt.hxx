@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -199,7 +199,7 @@ TABLESTYLE_LAVENDER,
 TABLESTYLE_RED,
 TABLESTYLE_TURQUOISE,
 TABLESTYLE_YELLOW,
-// 10 new styles since LibreOffice 6.0
+// 10 new styles since lofice 6.0
 TABLESTYLE_LO6_ACADEMIC,
 TABLESTYLE_LO6_BOX_LIST_BLUE,
 TABLESTYLE_LO6_BOX_LIST_GREEN,

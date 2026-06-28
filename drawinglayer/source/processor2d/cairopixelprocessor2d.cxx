@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -4354,7 +4354,7 @@ void CairoPixelProcessor2D::processControlPrimitive2D(
     bool bControlIsVisibleAsChildWindow(rControlPrimitive.isVisibleAsChildWindow());
 
     // tdf#131281 FormControl rendering for Tiled Rendering
-    if (bControlIsVisibleAsChildWindow && comphelper::LibreOfficeKit::isActive())
+    if (bControlIsVisibleAsChildWindow && comphelper::loficeKit::isActive())
     {
         // Do force paint when we are in Tiled Renderer and FormControl is 'visible'
         bControlIsVisibleAsChildWindow = false;

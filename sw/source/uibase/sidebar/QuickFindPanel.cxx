@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -166,7 +166,7 @@ QuickFindPanel::QuickFindPanel(weld::Widget* pParent, const uno::Reference<frame
     m_xFindAndReplaceToolbar->connect_clicked(
         LINK(this, QuickFindPanel, FindAndReplaceToolbarClickedHandler));
 
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
     {
         m_xSearchFindsList->connect_custom_get_size(
             LINK(this, QuickFindPanel, SearchFindsListCustomGetSizeHandler));
@@ -661,7 +661,7 @@ void QuickFindPanel::FillSearchFindsList()
             {
                 nPage = xPaM->GetPageNum();
                 OUString sPageEntry;
-                if (comphelper::LibreOfficeKit::isActive())
+                if (comphelper::loficeKit::isActive())
                 {
                     sPageEntry = u"-$#~"_ustr + SwResId(ST_PGE) + u" "_ustr
                                  + OUString::number(nPage) + u"~#$-"_ustr;

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -45,7 +45,7 @@
 #include <DocumentContentOperationsManager.hxx>
 #include <comphelper/lok.hxx>
 #include <txtfrm.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <rtl/strbuf.hxx>
 #include <strings.hrc>
 #include <tools/json_writer.hxx>
@@ -418,7 +418,7 @@ namespace sw::mark
 
     void Bookmark::sendLOKDeleteCallback()
     {
-        if (!comphelper::LibreOfficeKit::isActive() || GetMarkPos().GetDoc().IsClipBoard())
+        if (!comphelper::loficeKit::isActive() || GetMarkPos().GetDoc().IsClipBoard())
             return;
 
         SfxViewShell* pViewShell = SfxViewShell::Current();
@@ -434,7 +434,7 @@ namespace sw::mark
             aJson.put("DeleteBookmark", fieldCommand.toString());
         }
 
-        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_UNO_COMMAND_RESULT, aJson.finishAndGetAsOString());
+        pViewShell->loficeKitViewCallback(LOK_CALLBACK_UNO_COMMAND_RESULT, aJson.finishAndGetAsOString());
     }
 
     void Bookmark::InitDoc(SwDoc& io_rDoc,
@@ -582,7 +582,7 @@ namespace sw::mark
 
     TextFieldmark::~TextFieldmark()
     {
-        if (!comphelper::LibreOfficeKit::isActive() || GetMarkPos().GetDoc().IsClipBoard())
+        if (!comphelper::loficeKit::isActive() || GetMarkPos().GetDoc().IsClipBoard())
             return;
 
         SfxViewShell* pViewShell = SfxViewShell::Current();
@@ -599,7 +599,7 @@ namespace sw::mark
             aJson.put("DeleteTextFormField", fieldCommand);
         }
 
-        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_UNO_COMMAND_RESULT, aJson.finishAndGetAsOString());
+        pViewShell->loficeKitViewCallback(LOK_CALLBACK_UNO_COMMAND_RESULT, aJson.finishAndGetAsOString());
     }
 
     void TextFieldmark::InitDoc(SwDoc& io_rDoc,
@@ -985,7 +985,7 @@ namespace sw::mark
 
     void DropDownFieldmark::SendLOKShowMessage(const SfxViewShell* pViewShell)
     {
-        if (!comphelper::LibreOfficeKit::isActive())
+        if (!comphelper::loficeKit::isActive())
             return;
 
         if (!pViewShell)
@@ -1025,12 +1025,12 @@ namespace sw::mark
 
         // Placeholder text
         sPayload.append("\"placeholderText\": \"" + OUStringToOString(SwResId(STR_DROP_DOWN_EMPTY_LIST), RTL_TEXTENCODING_UTF8) + "\"}}");
-        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_FORM_FIELD_BUTTON, sPayload.toString());
+        pViewShell->loficeKitViewCallback(LOK_CALLBACK_FORM_FIELD_BUTTON, sPayload.toString());
     }
 
     void DropDownFieldmark::SendLOKHideMessage(const SfxViewShell* pViewShell)
     {
-        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_FORM_FIELD_BUTTON,
+        pViewShell->loficeKitViewCallback(LOK_CALLBACK_FORM_FIELD_BUTTON,
             "{\"action\": \"hide\", \"type\": \"drop-down\"}"_ostr);
     }
 

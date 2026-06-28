@@ -9,7 +9,7 @@ npm run verify-ci   # mk + 소스 파일 + officecfg props + ui
 npm run verify-mk
 ```
 
-전체 LibreOffice 빌드는 CI 시간상 제외 — Linux 전체 빌드는 `verify-lofice-build.sh` 로컬/전용 러너용.
+전체 lofice 빌드는 CI 시간상 제외 — Linux 전체 빌드는 `verify-lofice-build.sh` 로컬/전용 러너용.
 
 ## 옵션 대화상자 RAG 테스트 비동기
 

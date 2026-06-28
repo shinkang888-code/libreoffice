@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -393,7 +393,7 @@ CacheItem& FilterCache::impl_getItem(      EItemType        eType,
         if ( !bIsHelpFilter && !impl_isModuleInstalled(sDocService) )
         {
             OUString sMsg("The requested filter '" + sItem +
-                          "' exists ... but it should not; because the corresponding LibreOffice module was not installed.");
+                          "' exists ... but it should not; because the corresponding lofice module was not installed.");
             throw css::container::NoSuchElementException(sMsg, css::uno::Reference< css::uno::XInterface >());
         }
     }

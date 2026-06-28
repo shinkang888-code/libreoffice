@@ -7,11 +7,11 @@
 
 from uitest.uihelper.common import get_state_as_dict
 from uitest.uihelper.common import get_url_for_data_file
-from libreoffice.uno.propertyvalue import mkPropertyValues
+from lofice.uno.propertyvalue import mkPropertyValues
 
 # opens the dialogs, closes it with the given close button
 # and if there is an "OK" button open the dialog again and close it by using the OK button
-# the test only checks if LibreOffice crashes by opening the dialog
+# the test only checks if lofice crashes by opening the dialog
 def testAppDialog(UITestCase, app, dialog):
     with UITestCase.ui_test.create_doc_in_start_center(app):
         with UITestCase.ui_test.execute_dialog_through_command(
@@ -33,7 +33,7 @@ def testAppDialog(UITestCase, app, dialog):
 
 # opens the dialogs, closes it with the given close button
 # and if there is an "OK" button open the dialog again and close it by using the OK button
-# the test only checks if LibreOffice crashes by opening the dialog
+# the test only checks if lofice crashes by opening the dialog
 def testChartDialog(UITestCase, dialog):
     with UITestCase.ui_test.load_file(get_url_for_data_file("chart.ods")):
         xCalcDoc = UITestCase.xUITest.getTopFocusWindow()

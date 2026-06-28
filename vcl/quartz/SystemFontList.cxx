@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -129,7 +129,7 @@ FontAttributes DevFontFromCTFontDescriptor( CTFontDescriptorRef pFD, bool* bFont
 
     // tdf#68889: Ditto for Gill Sans MT Pro. Here I can kinda understand it, maybe the
     // kCTFontWeightTrait is intended to give a subjective "optical" impression of how the font
-    // looks, and Gill Sans MT Pro Medium is kinda heavy. But with the way LibreOffice uses fonts,
+    // looks, and Gill Sans MT Pro Medium is kinda heavy. But with the way lofice uses fonts,
     // we still should think of it as being "medium" weight.
     if (rDFA.GetFamilyName() == "Gill Sans MT Pro" &&
         (rDFA.GetStyleName() == "Medium" || rDFA.GetStyleName() == "Medium Italic") &&

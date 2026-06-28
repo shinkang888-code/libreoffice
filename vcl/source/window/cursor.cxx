@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -306,9 +306,9 @@ void vcl::Cursor::LOKNotify(vcl::Window* pWindow, const OUString& rAction)
 
     assert(pWindow && "Cannot notify without a window");
     assert(mpData && "Require ImplCursorData");
-    assert(comphelper::LibreOfficeKit::isActive());
+    assert(comphelper::loficeKit::isActive());
 
-    const vcl::ILibreOfficeKitNotifier* pNotifier = pParent->GetLOKNotifier();
+    const vcl::IloficeKitNotifier* pNotifier = pParent->GetLOKNotifier();
 
     if (pWindow->IsFormControl() || (pWindow->GetParent() && pWindow->GetParent()->IsFormControl()))
     {
@@ -331,7 +331,7 @@ void vcl::Cursor::LOKNotify(vcl::Window* pWindow, const OUString& rAction)
     }
     else
     {
-        if (comphelper::LibreOfficeKit::isDialogPainting())
+        if (comphelper::loficeKit::isDialogPainting())
             return;
 
         std::vector<vcl::LOKPayloadItem> aItems;

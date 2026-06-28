@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -244,7 +244,7 @@ bool SfxAppEvent_Impl( const OUString& rCmd, std::u16string_view rEvent,
             // in [...]; handle commas separating multiple arguments; handle
             // double "", ((, )), [[, ]] in quoted arguments); see also the mail
             // thread starting at <http://lists.freedesktop.org/archives/
-            // libreoffice/2013-July/054779.html> "DDE on Windows."
+            // lofice/2013-July/054779.html> "DDE on Windows."
             std::vector<OUString> aData;
             for ( sal_Int32 n = start; n < rCmd.getLength() - 1; )
             {

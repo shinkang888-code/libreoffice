@@ -1,6 +1,6 @@
 # lofice
 
-**AI 친화형 모던 오피스 스위트** — LibreOffice 코어 엔진 기반, Lonex. Inc 제작
+**AI 친화형 모던 오피스 스위트** — lofice 코어 엔진 기반, Lonex. Inc 제작
 
 | 항목 | 내용 |
 |------|------|
@@ -15,7 +15,7 @@
 
 lofice는 통합 오피스 스uite로, Writer / Calc / Impress / Draw / Base / Math를 포함합니다.
 
-- **코어:** 객체 지향 C++ + UNO 컴포넌트 모델 (LibreOffice 기반 파생)
+- **코어:** 객체 지향 C++ + UNO 컴포넌트 모델 (lofice 기반 파생)
 - **UI:** VCL / weld 추상화
 - **AI:** 이벤트 리스너 Hooking API (`lofice::IEventListener`)
 
@@ -38,7 +38,7 @@ lofice는 통합 오피스 스uite로, Writer / Calc / Impress / Draw / Base / M
 
 ## 라이선스
 
-- **Upstream (LibreOffice 기반):** Mozilla Public License 2.0 — [LICENSE](COPYING.MPL)
+- **Upstream (lofice 기반):** Mozilla Public License 2.0 — [LICENSE](COPYING.MPL)
 - **lofice 신규 추가분:** Lonex. Inc 독점 — [lofice/LICENSE.md](lofice/LICENSE.md)
 - **저작권 고지:** [lofice/COPYRIGHT-KR.md](lofice/COPYRIGHT-KR.md)
 

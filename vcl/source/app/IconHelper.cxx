@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -17,19 +17,19 @@ OUString IconHelper::GetAppIconName(sal_uInt16 nIcon)
     switch (nIcon)
     {
         case SV_ICON_ID_TEXT:
-            return u"libreoffice-writer"_ustr;
+            return u"lofice-writer"_ustr;
         case SV_ICON_ID_SPREADSHEET:
-            return u"libreoffice-calc"_ustr;
+            return u"lofice-calc"_ustr;
         case SV_ICON_ID_DRAWING:
-            return u"libreoffice-draw"_ustr;
+            return u"lofice-draw"_ustr;
         case SV_ICON_ID_PRESENTATION:
-            return u"libreoffice-impress"_ustr;
+            return u"lofice-impress"_ustr;
         case SV_ICON_ID_DATABASE:
-            return u"libreoffice-base"_ustr;
+            return u"lofice-base"_ustr;
         case SV_ICON_ID_FORMULA:
-            return u"libreoffice-math"_ustr;
+            return u"lofice-math"_ustr;
         default:
-            return u"libreoffice-startcenter"_ustr;
+            return u"lofice-startcenter"_ustr;
     }
 }
 

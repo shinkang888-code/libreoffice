@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -49,7 +49,7 @@ constexpr OUString our_sFirebirdTmpVar = u"FIREBIRD_TMP"_ustr;
 constexpr OUString our_sFirebirdLockVar = u"FIREBIRD_LOCK"_ustr;
 constexpr OUString our_sFirebirdMsgVar = u"FIREBIRD_MSG"_ustr;
 #ifdef MACOSX
-constexpr OUString our_sFirebirdLibVar = u"LIBREOFFICE_FIREBIRD_LIB"_ustr;
+constexpr OUString our_sFirebirdLibVar = u"lofice_FIREBIRD_LIB"_ustr;
 #endif
 };
 
@@ -177,7 +177,7 @@ Sequence< DriverPropertyInfo > SAL_CALL FirebirdDriver::getPropertyInfo(
 sal_Int32 SAL_CALL FirebirdDriver::getMajorVersion(  )
 {
     // The major and minor version are sdbc driver specific. Must begin with 1.0
-    // as per https://api.libreoffice.org/docs/common/ref/com/sun/star/sdbc/XDriver.html
+    // as per https://api.lofice.org/docs/common/ref/com/sun/star/sdbc/XDriver.html
     return 1;
 }
 

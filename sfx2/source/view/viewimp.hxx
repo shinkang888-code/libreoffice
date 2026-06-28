@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -54,7 +54,7 @@ struct SfxViewShell_Impl
 
     mutable std::vector<SfxInPlaceClient*> maIPClients;
 
-    SfxLokCallbackInterface* m_pLibreOfficeKitViewCallback;
+    SfxLokCallbackInterface* m_ploficeKitViewCallback;
     /// Set if we are in the middle of a tiled search.
     bool m_bTiledSearching;
     static sal_uInt32 m_nLastViewShellId;

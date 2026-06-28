@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -35,7 +35,7 @@
 #include <rtl/math.hxx>
 #include <unotools/charclass.hxx>
 #include <comphelper/lok.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <tools/json_writer.hxx>
 #include <svl/numformat.hxx>
 
@@ -292,7 +292,7 @@ void ScCheckListMenuControl::queueLaunchSubMenu(size_t nPos, ScListSubMenuContro
 
     maOpenTimer.mpSubMenu = pMenu;
     maOpenTimer.mnMenuPos = nPos;
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         maOpenTimer.maTimer.Invoke();
     else
         maOpenTimer.maTimer.Start();
@@ -318,7 +318,7 @@ void ScCheckListMenuControl::queueCloseSubMenu()
     maOpenTimer.mpSubMenu = nullptr;
     maOpenTimer.mnMenuPos = MENU_NOT_SELECTED;
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         maCloseTimer.maTimer.Invoke();
     else
         maCloseTimer.maTimer.Start();
@@ -683,7 +683,7 @@ ScCheckListMenuControl::ScCheckListMenuControl(weld::Widget* pParent, ScViewData
     maSearchEditTimer.SetTimeout(EDIT_UPDATEDATA_TIMEOUT);
     maSearchEditTimer.SetInvokeHandler(LINK(this, ScCheckListMenuControl, SearchEditTimeoutHdl));
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         mxBtnSelectSingle->hide();
         mxBtnUnselectSingle->hide();
@@ -1745,7 +1745,7 @@ void ScCheckListMenuControl::launch(weld::Widget* pWidget, const tools::Rectangl
     if (maConfig.mbRTL)
     {
         // In RTL mode, the logical "left" is visual "right".
-        if (!comphelper::LibreOfficeKit::isActive())
+        if (!comphelper::loficeKit::isActive())
         {
             tools::Long nLeft = aRect.Left() - aRect.GetWidth();
             aRect.SetLeft( nLeft );

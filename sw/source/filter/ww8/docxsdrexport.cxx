@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -699,7 +699,7 @@ void DocxSdrExport::startDMLAnchorInline(const SwFrameFormat* pFrameFormat, cons
     sal_Int64 nDistL = aLRSpaceItem.ResolveLeft();
     sal_Int64 nDistR = aLRSpaceItem.ResolveRight({});
 
-    // LibreOffice behaves different for frames and drawing objects, but MS Office treats frames
+    // lofice behaves different for frames and drawing objects, but MS Office treats frames
     // as drawing objects too. Therefore we transform the values from frame so as if they come
     // from a drawing object.
     sal_Int32 nWidthDiff(0);
@@ -1141,7 +1141,7 @@ void DocxSdrExport::startDMLAnchorInline(const SwFrameFormat* pFrameFormat, cons
     m_pImpl->getSerializer()->singleElementNS(XML_wp, XML_extent, XML_cx, aWidth, XML_cy, aHeight);
 
     // XML_effectExtent, includes effects, fat stroke and rotation
-    // FixMe: tdf141880. Because LibreOffice currently cannot handle negative vertical margins, they
+    // FixMe: tdf141880. Because lofice currently cannot handle negative vertical margins, they
     // were forced to zero on import. Especially bottom margin of inline anchored rotated objects are
     // affected. If the object was not changed, it would be better to export the original values
     // from grab-Bag. Unfortunately there exists no marker for "not changed", so a heuristic is used
@@ -1237,10 +1237,10 @@ void DocxSdrExport::startDMLAnchorInline(const SwFrameFormat* pFrameFormat, cons
             break;
     }
 
-    // ToDo: Exclude cases where LibreOffice wrap without contour is different
+    // ToDo: Exclude cases where lofice wrap without contour is different
     // from Word XML_wrapSquare or where direct use of distances not possible and workaround
     // will be done using wrapPolygon.
-    // ToDo: handle case Writer frame, where contour can be set in LibreOffice but is not rendered.
+    // ToDo: handle case Writer frame, where contour can be set in lofice but is not rendered.
 
     // This case needs no wrapPolygon
     if (!rSurround.IsContour())
@@ -1315,7 +1315,7 @@ void DocxSdrExport::startDMLAnchorInline(const SwFrameFormat* pFrameFormat, cons
     }
 
     // In this case we likely had an odt document to be exported to docx. ODF does not know the
-    // concept of a wrap polygon and LibreOffice has no one internally. So as a workaround, we
+    // concept of a wrap polygon and lofice has no one internally. So as a workaround, we
     // generate a wrap polygon from the shape geometry.
     tools::Polygon aContour = lcl_CreateContourPolygon(const_cast<SdrObject*>(pObj));
 

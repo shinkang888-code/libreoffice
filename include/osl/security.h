@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 
 #ifndef INCLUDED_OSL_SECURITY_H
@@ -127,7 +127,7 @@ SAL_DLLPUBLIC sal_Bool SAL_CALL osl_getUserName(
     @param[in] Security the security handle.
     @param[out] strName the string that receives the user name on success.
     @return True, if the security handle is valid, otherwise False.
-    @since LibreOffice 5.2
+    @since lofice 5.2
 */
 SAL_DLLPUBLIC sal_Bool SAL_CALL osl_getShortUserName(
         oslSecurity Security, rtl_uString **strName);

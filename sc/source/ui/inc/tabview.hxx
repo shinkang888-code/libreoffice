@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -261,7 +261,7 @@ private:
 
     void            SetZoomPercentFromCommand(sal_uInt16 nZoomPercent);
 
-    DECL_STATIC_LINK(ScTabView, InstallLOKNotifierHdl, void*, vcl::ILibreOfficeKitNotifier*);
+    DECL_STATIC_LINK(ScTabView, InstallLOKNotifierHdl, void*, vcl::IloficeKitNotifier*);
 
     void            UpdateHighlightOverlay();
     void            ImplTabChanged(bool bSameTabButMoved);
@@ -524,7 +524,7 @@ public:
 
     void            InvalidateAttribs();
 
-    void            OnLibreOfficeKitTabChanged();
+    void            OnloficeKitTabChanged();
     void            AddWindowToForeignEditView(SfxViewShell* pViewShell, ScSplitPos eWhich);
     void            RemoveWindowFromForeignEditView(SfxViewShell* pViewShell, ScSplitPos eWhich);
     void            MakeEditView( ScEditEngineDefaulter& rEngine, SCCOL nCol, SCROW nRow );

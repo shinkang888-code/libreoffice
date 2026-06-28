@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -53,11 +53,11 @@ DEFINE_GUID(OID_ServiceManager, 0x82154420, 0xfbf, 0x11d4, 0x83, 0x13, 0x0, 0x50
 // FIXME: This GUID is just the above OID_ServiceManager with the
 // initial part bumped by one. Is that good enough?
 // {82154421-0FBF-11d4-8313-005004526AB4}
-DEFINE_GUID(OID_LibreOfficeWriterApplication, 0x82154421, 0xfbf, 0x11d4, 0x83, 0x13, 0x0, 0x50, 0x4, 0x52, 0x6a, 0xb4);
+DEFINE_GUID(OID_loficeWriterApplication, 0x82154421, 0xfbf, 0x11d4, 0x83, 0x13, 0x0, 0x50, 0x4, 0x52, 0x6a, 0xb4);
 
 // For Calc
 // {82154425-0FBF-11d4-8313-005004526AB4}
-DEFINE_GUID(OID_LibreOfficeCalcApplication, 0x82154425, 0xfbf, 0x11d4, 0x83, 0x13, 0x0, 0x50, 0x4, 0x52, 0x6a, 0xb4);
+DEFINE_GUID(OID_loficeCalcApplication, 0x82154425, 0xfbf, 0x11d4, 0x83, 0x13, 0x0, 0x50, 0x4, 0x52, 0x6a, 0xb4);
 
 OneInstanceOleWrapper::OneInstanceOleWrapper(  const Reference<XMultiServiceFactory>& smgr,
                                                std::function<const Reference<XInterface>()> xInstFunction )
@@ -471,7 +471,7 @@ OleServer::OleServer( const Reference<XMultiServiceFactory>& smgr):
                                 aApplication >>= xApplication;
                                 return xApplication;
                             },
-                            &OID_LibreOfficeWriterApplication );
+                            &OID_loficeWriterApplication );
 
     (void) provideInstance( [&]
                             {
@@ -483,7 +483,7 @@ OleServer::OleServer( const Reference<XMultiServiceFactory>& smgr):
                                 aApplication >>= xApplication;
                                 return xApplication;
                             },
-                            &OID_LibreOfficeCalcApplication );
+                            &OID_loficeCalcApplication );
 }
 
 OleServer::~OleServer()

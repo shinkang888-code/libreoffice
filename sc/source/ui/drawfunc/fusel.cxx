@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -87,7 +87,7 @@ bool FuSelection::MouseButtonDown(const MouseEvent& rMEvt)
     else
         aMDPos = pWindow->PixelToLogic(rMEvt.GetPosPixel());
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         ScViewData& rViewData = rViewShell.GetViewData();
         ScDocument& rDocument = rViewData.GetDocument();
@@ -362,7 +362,7 @@ bool FuSelection::MouseButtonUp(const MouseEvent& rMEvt)
     ScRangeListVector aProtectedChartRangesVector;
     bool bWasDragged = false;
 
-    if (comphelper::LibreOfficeKit::isActive() && rDocument.IsNegativePage(rViewData.CurrentTabForData()))
+    if (comphelper::loficeKit::isActive() && rDocument.IsNegativePage(rViewData.CurrentTabForData()))
         aPnt.setX(-aPnt.X());
 
     if (pView && rMEvt.IsLeft())

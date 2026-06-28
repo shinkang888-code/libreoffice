@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -634,7 +634,7 @@ void SubstitutePathVariables::SetPredefinedPathVariables()
     // (note: getenv is a hack to detect if we're running in a unit test)
     // Also, it's okay to have an empty user installation path in case of LOK
     if (aState == ::utl::Bootstrap::PATH_EXISTS || getenv("SRC_ROOT") ||
-        (comphelper::LibreOfficeKit::isActive() && aState == ::utl::Bootstrap::PATH_VALID))
+        (comphelper::loficeKit::isActive() && aState == ::utl::Bootstrap::PATH_VALID))
     {
         m_aPreDefVars.m_FixedVar[ PREDEFVAR_USERPATH ] = sVal;
     }

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1164,7 +1164,7 @@ CPPUNIT_TEST_FIXTURE(Test, testTdf109080_style_ns)
 {
     createSwDoc("tdf109080_style_ns.odt");
     // Test we can import <style:header-first> and <style:footer-first>
-    // (produced by LibreOffice 4.0 - 5.x)
+    // (produced by lofice 4.0 - 5.x)
 
     xmlDocUniquePtr pXmlDoc = parseLayoutDump();
     assertXPathContent(pXmlDoc, "/root/page[1]/header/txt/text()", u"This is the first page header");

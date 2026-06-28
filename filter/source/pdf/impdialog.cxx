@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -212,7 +212,7 @@ ImpPDFTabDialog::ImpPDFTabDialog(weld::Window* pParent, const Sequence< Property
                RID_L + RID_TAB_PDFLINKS.sIconName);
     AddTabPage(u"security"_ustr, TabResId(RID_TAB_PDFPROTECT.aLabel), ImpPDFTabSecurityPage::Create,
                RID_L + RID_TAB_PDFPROTECT.sIconName);
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         AddTabPage(u"digitalsignatures"_ustr, TabResId(RID_TAB_PDFSIGN.aLabel),
                    ImpPDFTabSigningPage::Create, RID_L + RID_TAB_PDFSIGN.sIconName);
 
@@ -674,7 +674,7 @@ void ImpPDFTabGeneralPage::SetFilterConfigItem(ImpPDFTabDialog* pParent)
     mxCbExportNotesInMargin->set_sensitive(
         mbIsWriter && !pParent->maConfigItem.IsReadOnly(u"ExportNotesInMargin"_ustr));
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         mxCbViewPDF->hide();
         mxCbViewPDF->set_active(false);

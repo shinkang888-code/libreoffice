@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -38,7 +38,7 @@ def init_hids():
         os.chdir(repo_dir)
 
         if not os.path.exists(os.path.join(repo_dir,'config')):
-            subprocess.call(['git','clone','--bare','git://gerrit.libreoffice.org/help',repo_dir])
+            subprocess.call(['git','clone','--bare','git://gerrit.lofice.org/help',repo_dir])
         elif not args['git_static']:
             subprocess.call(['git','fetch','origin'])
         return subprocess.check_output(['git','grep','hid="[^"]*/[^"]*">','master','--'])
@@ -56,7 +56,7 @@ def init_core_files():
     os.chdir(core_repo_dir)
 
     if not os.path.exists(os.path.join(core_repo_dir,'.git')):
-        subprocess.call(['git','clone','git://gerrit.libreoffice.org/core',core_repo_dir])
+        subprocess.call(['git','clone','git://gerrit.lofice.org/core',core_repo_dir])
     elif not args['git_static']:
         subprocess.call(['git','fetch','origin'])
     allfiles = subprocess.check_output(['git','ls-tree','--name-only','--full-name','-r','master'])
@@ -151,7 +151,7 @@ if __name__ == "__main__":
         errors = '\nall is clean\n'
 
     if args['send_to']:
-        msg_from = os.path.basename(sys.argv[0]) + '@libreoffice.org'
+        msg_from = os.path.basename(sys.argv[0]) + '@lofice.org'
         if isinstance(args['send_to'], str):
             msg_to = [args['send_to']]
         else:
@@ -170,19 +170,19 @@ Here is the report for wrong hids from help related to .ui files
 
 Best,
 
-Your friendly LibreOffice Help-ids Checker
+Your friendly lofice Help-ids Checker
 
 Note: The bot generating this message can be found and improved here:
-       https://gerrit.libreoffice.org/gitweb?p=dev-tools.git;a=blob;f=scripts/test-hid-vs-ui.py'''
+       https://gerrit.lofice.org/gitweb?p=dev-tools.git;a=blob;f=scripts/test-hid-vs-ui.py'''
         now = datetime.datetime.now()
         msg = email.mime.text.MIMEText(body, 'plain', 'UTF-8')
         msg['From'] = msg_from
         msg['To'] = msg_to[0]
         msg['Cc'] = ', '.join(msg_to[1:]) # Works only if at least 2 items in tuple
         msg['Date'] = email.utils.formatdate(time.mktime(now.timetuple()))
-        msg['Subject'] = 'LibreOffice Gerrit News for python on %s' % (now.date().isoformat())
+        msg['Subject'] = 'lofice Gerrit News for python on %s' % (now.date().isoformat())
         msg['Reply-To'] = msg_to[0]
-        msg['X-Mailer'] = 'LibreOfficeGerritDigestMailer 1.1'
+        msg['X-Mailer'] = 'loficeGerritDigestMailer 1.1'
 
         server.sendmail(msg_from, msg_to, str(msg))
     else:

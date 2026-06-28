@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -26,7 +26,7 @@
 #include <vcl/weld/MessageDialog.hxx>
 #include <openuriexternally.hxx>
 #include <comphelper/lok.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 #include <sfx2/viewsh.hxx>
 #include <sfx2/strings.hrc>
@@ -55,11 +55,11 @@ public:
 
 void URITools::openURI(const OUString& sURI, bool bHandleSystemShellExecuteException)
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         if (SfxViewShell* pViewShell = SfxViewShell::Current())
         {
-            pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_HYPERLINK_CLICKED,
+            pViewShell->loficeKitViewCallback(LOK_CALLBACK_HYPERLINK_CLICKED,
                                                    sURI.toUtf8());
         }
         delete this;

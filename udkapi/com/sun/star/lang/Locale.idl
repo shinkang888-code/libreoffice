@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -45,7 +45,7 @@ published struct Locale
         <p>If this field contains an empty string, the meaning depends on the
         context.</p>
 
-        <p>Since LibreOffice 4.2, if the locale can not be represented
+        <p>Since lofice 4.2, if the locale can not be represented
         using only ISO 639 and ISO 3166 codes this field contains the
         ISO 639-3 reserved for local use code <strong>"qlt"</strong> and
         a <strong>BCP 47</strong> language tag is present in the Variant
@@ -69,7 +69,7 @@ published struct Locale
 
     /** specifies a <strong>BCP 47</strong> Language Tag.
 
-        <p>Since LibreOffice 4.2, <strong>if</strong> the Language field
+        <p>Since lofice 4.2, <strong>if</strong> the Language field
         is the code <strong>"qlt"</strong> this field contains the full
         BCP 47 language tag. If the Language field is not "qlt" this
         field is empty. </p>

@@ -7,11 +7,11 @@
     <string name="calc_hide">הסתרה</string>
     <string name="calc_show">הצגה</string>
     <string name="error">שגיאה</string>
-    <string name="app_name">מציג LibreOffice</string>
-    <string name="app_name_settings">הגדרות מציג LibreOffice</string>
-    <string name="app_version">גרסה: %1$s&lt;br&gt;מזהה הרכבה: &lt;a href=https://hub.libreoffice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
-    <string name="app_description">מציג LibreOffice הוא מציג מסמכים שמבוסס על LibreOffice.</string>
-    <string name="app_credits">https://he.libreoffice.org</string>
+    <string name="app_name">מציג lofice</string>
+    <string name="app_name_settings">הגדרות מציג lofice</string>
+    <string name="app_version">גרסה: %1$s&lt;br&gt;מזהה הרכבה: &lt;a href=https://hub.lofice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
+    <string name="app_description">מציג lofice הוא מציג מסמכים שמבוסס על lofice.</string>
+    <string name="app_credits">https://he.lofice.org</string>
     <string name="app_vendor">המהדורה הזאת סופקה על ידי $VENDOR.</string>
     <string name="readonly_file">הקובץ הזה הוא לקריאה בלבד.</string>
     <string name="about_license">הצגת הרישיון</string>

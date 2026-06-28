@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -109,7 +109,7 @@ done
 if [ $# != 2 ]
 then
   echo $USAGE
-  echo "Example: $0 . ~/libreoffice"
+  echo "Example: $0 . ~/lofice"
   exit 2
 fi
 

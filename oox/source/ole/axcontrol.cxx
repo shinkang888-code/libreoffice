@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1144,7 +1144,7 @@ void AxLabelModel::exportBinaryModel( BinaryOutputStream& rOutStrm )
     if ( mnBackColor )
         aWriter.writeIntProperty< sal_uInt32 >( mnBackColor );
     else
-        // if mnBackColor == 0 then it's the libreoffice default backcolour is
+        // if mnBackColor == 0 then it's the lofice default backcolour is
         // the MSO Label default which is AX_SYSCOLOR_BUTTONFACE
         aWriter.writeIntProperty< sal_uInt32 >( AX_SYSCOLOR_WINDOWBACK );
     aWriter.writeIntProperty< sal_uInt32 >( mnFlags );

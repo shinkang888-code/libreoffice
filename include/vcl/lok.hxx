@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -12,7 +12,7 @@
 
 #include <sal/config.h>
 #include <vcl/dllapi.h>
-#include <LibreOfficeKit/LibreOfficeKitTypes.h>
+#include <loficeKit/loficeKitTypes.h>
 
 namespace rtl
 {
@@ -22,8 +22,8 @@ class OStringBuffer;
 namespace vcl::lok
 {
 bool VCL_DLLPUBLIC isUnipoll();
-void VCL_DLLPUBLIC registerPollCallbacks(LibreOfficeKitPollCallback pPollCallback,
-                                         LibreOfficeKitWakeCallback pWakeCallback, void* pData);
+void VCL_DLLPUBLIC registerPollCallbacks(loficeKitPollCallback pPollCallback,
+                                         loficeKitWakeCallback pWakeCallback, void* pData);
 void VCL_DLLPUBLIC unregisterPollCallbacks();
 
 // Called to tell VCL that the number of document views has changed, so that VCL

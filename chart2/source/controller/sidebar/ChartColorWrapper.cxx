@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -31,7 +31,7 @@
 #include <sal/log.hxx>
 #include <sfx2/viewsh.hxx>
 #include <utility>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 namespace chart::sidebar {
 
@@ -132,12 +132,12 @@ void ChartColorWrapper::updateData()
     mpControl->statusChanged(aEvent);
 
     SfxViewShell* pViewShell = SfxViewShell::Current();
-    if (comphelper::LibreOfficeKit::isActive() && pViewShell && (maPropertyName == aLineColor))
+    if (comphelper::loficeKit::isActive() && pViewShell && (maPropertyName == aLineColor))
     {
         OString sCommand = OUStringToOString(aUrl.Complete, RTL_TEXTENCODING_ASCII_US);
         sal_Int32 nColor = -1;
         aEvent.State >>= nColor;
-        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
+        pViewShell->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
                                                sCommand + "=" + OString::number(nColor));
     }
 }

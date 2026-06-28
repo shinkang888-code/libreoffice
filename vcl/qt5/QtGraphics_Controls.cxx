@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -820,7 +820,7 @@ bool QtGraphics_Controls::getNativeControlRegion(
             // Ideally this should be cleaned up in the callers and all platform integrations
             // to adhere to what the doc in vcl/inc/WidgetDrawInterface.hxx says, but this
             // here keeps it working with existing code for now.
-            // (s.a. discussion in https://gerrit.libreoffice.org/c/core/+/146516 for more details)
+            // (s.a. discussion in https://gerrit.lofice.org/c/core/+/146516 for more details)
             QLineEdit aDummyEdit;
             const int nFrameWidth = pixelMetric(QStyle::PM_DefaultFrameWidth, nullptr, &aDummyEdit);
             QFontMetrics aFontMetrics(QApplication::font());

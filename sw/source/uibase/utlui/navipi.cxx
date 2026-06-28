@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -462,7 +462,7 @@ SwNavigationPI::SwNavigationPI(weld::Widget* pParent,
             dynamic_cast<NavElementToolBoxControl*>(xController.get());
 
     // In case of LOK, the xController may not a NavElementToolBoxControl
-    if (comphelper::LibreOfficeKit::isActive() && !pToolBoxControl)
+    if (comphelper::loficeKit::isActive() && !pToolBoxControl)
     {
         m_pNavigateByComboBox = nullptr;
     }
@@ -567,7 +567,7 @@ SwNavigationPI::SwNavigationPI(weld::Widget* pParent,
 
     m_aExpandedSize = m_xContainer->get_preferred_size();
 
-    if(comphelper::LibreOfficeKit::isActive())
+    if(comphelper::loficeKit::isActive())
     {
         m_xBuilder->weld_container(u"gridcontent16"_ustr)->hide();
         m_xDocListBox->hide();
@@ -1209,7 +1209,7 @@ sal_Int8 SwNavigationPI::ExecuteDrop( const ExecuteDropEvent& rEvt )
 // toggle between showing the global tree or the content tree
 void SwNavigationPI::ToggleTree()
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         m_xGlobalTree->HideTree();
         return;

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -2920,7 +2920,7 @@ sal_uInt16 PopupMenu::ImplExecute(const VclPtr<vcl::Window>& pParentWin, const t
     }
 
     VclPtr<MenuFloatingWindow> pWin = VclPtrInstance<MenuFloatingWindow>(this, pParentWin, WB_BORDER | WB_SYSTEMWINDOW);
-    if (comphelper::LibreOfficeKit::isActive() && get_id() == "editviewspellmenu")
+    if (comphelper::loficeKit::isActive() && get_id() == "editviewspellmenu")
     {
         VclPtr<vcl::Window> xNotifierParent = pParentWin->GetParentWithLOKNotifier();
         assert(xNotifierParent && xNotifierParent->GetLOKNotifier() && "editview menu without LOKNotifier");

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -23,7 +23,7 @@
 #include <comphelper/classids.hxx>
 #include <comphelper/embeddedobjectcontainer.hxx>
 #include <comphelper/lok.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 #include <sfx2/viewsh.hxx>
 #include <vcl/svapp.hxx>
@@ -1861,7 +1861,7 @@ void SdPage::NotifyPagePropertyChanges()
     OString out = jsonWriter.finishAndGetAsOString();
     if (SfxViewShell* pViewShell = SfxViewShell::Current())
     {
-        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, out);
+        pViewShell->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, out);
         pViewShell->NotifyOtherViews(LOK_CALLBACK_STATE_CHANGED, ".uno:PageSetup"_ostr, out);
     }
 }
@@ -1874,7 +1874,7 @@ void SdPage::SetSize(const Size& aSize)
     {
         FmFormPage::SetSize(aSize);
 
-        if (comphelper::LibreOfficeKit::isActive() && SfxViewShell::Current())
+        if (comphelper::loficeKit::isActive() && SfxViewShell::Current())
             NotifyPagePropertyChanges();
     }
 }
@@ -1886,7 +1886,7 @@ void SdPage::SetBorder(sal_Int32 nLft, sal_Int32 nUpp, sal_Int32 nRgt, sal_Int32
     {
         FmFormPage::SetBorder(nLft, nUpp, nRgt, nLwr);
 
-        if (comphelper::LibreOfficeKit::isActive() && SfxViewShell::Current())
+        if (comphelper::loficeKit::isActive() && SfxViewShell::Current())
             NotifyPagePropertyChanges();
     }
 }

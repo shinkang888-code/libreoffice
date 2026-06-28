@@ -1,4 +1,4 @@
-# LibreOffice Filters
+# lofice Filters
 
 Filter registration and some simple filters (also descriptions).
 

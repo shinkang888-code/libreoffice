@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -48,12 +48,12 @@ $(IOSGEN)/native-code.h: $(BUILDDIR)/config_host.mk \
 	$(call gb_Trace_StartRange,$(subst $(WORKDIR)/,,$@),EN2)
 	$(call gb_Trace_EndRange,$(subst $(WORKDIR)/,,$@),EN2)
 
-	# generate native-code.h (used by LibreOffice.c)
+	# generate native-code.h (used by lofice.c)
 	xcrun python3 $(SRCDIR)/solenv/bin/native-code.py \
 	    -C -g core -g writer -g calc -g draw -g edit \
 	    > $(IOSGEN)/native-code.h
 
-	# copy resource files used to start/run LibreOffice
+	# copy resource files used to start/run lofice
 	cp $(WORKDIR)/UnpackedTarball/icu/source/data/in/icudt$(ICU_MAJOR)l.dat $(IOSRES)/icudt$(ICU_MAJOR)l.dat
 	cp $(INSTDIR)/program/types.rdb             $(IOSRES)/udkapi.rdb
 	cp $(INSTDIR)/program/types/offapi.rdb      $(IOSRES)
@@ -118,7 +118,7 @@ $(IOSGEN)/native-code.h: $(BUILDDIR)/config_host.mk \
 	# bootstraprc must be in $BRAND_BASE_DIR/program
 	(echo '[Bootstrap]' \
 	&& echo 'InstallMode=<installmode>' \
-	&& echo "ProductKey=LibreOffice $(PRODUCTVERSION)" \
+	&& echo "ProductKey=lofice $(PRODUCTVERSION)" \
 	&& echo 'UserInstallation=$$SYSUSERHOME' \
 	    ) > $(IOSRES)/program/bootstraprc
 

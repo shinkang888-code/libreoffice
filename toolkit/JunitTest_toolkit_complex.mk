@@ -1,5 +1,5 @@
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -20,7 +20,7 @@ $(eval $(call gb_JunitTest_JunitTest,toolkit_complex))
 
 $(eval $(call gb_JunitTest_use_jars,toolkit_complex,\
     OOoRunner \
-    libreoffice \
+    lofice \
     test \
 ))
 

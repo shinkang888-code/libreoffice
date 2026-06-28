@@ -1,5 +1,5 @@
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -19,7 +19,7 @@
 
 # Map target platform (extension cfg) and extension platform (SDK settings)
 # See:
-# https://wiki.documentfoundation.org/Documentation/DevGuide/Extensions#Target_Platform
+# https://wiki.lofice.io/Documentation/DevGuide/Extensions#Target_Platform
 # odk/settings/settings.mk
 
 # only make version 3.81 or later accepts the multiple else conditions

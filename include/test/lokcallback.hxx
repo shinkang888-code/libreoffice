@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -11,7 +11,7 @@
 
 #include <sal/config.h>
 #include <test/testdllapi.hxx>
-#include <LibreOfficeKit/LibreOfficeKitTypes.h>
+#include <loficeKit/loficeKitTypes.h>
 #include <sfx2/lokcallback.hxx>
 #include <vcl/idle.hxx>
 
@@ -20,7 +20,7 @@
 class SfxChildWindow;
 
 /**
-A helper to convert SfxLokCallbackInterface to a LIbreOfficeKitCallback for tests.
+A helper to convert SfxLokCallbackInterface to a loficeKitCallback for tests.
 
 It reimplements the specialized callbacks and converts them to the generic type/payload
 callback.
@@ -28,20 +28,20 @@ callback.
 class OOO_DLLPUBLIC_TEST TestLokCallbackWrapper final : public SfxLokCallbackInterface, public Idle
 {
 public:
-    TestLokCallbackWrapper(LibreOfficeKitCallback callback, void* data);
+    TestLokCallbackWrapper(loficeKitCallback callback, void* data);
     /// Discard all possibly still held events.
     void clear();
     /// Set the view id of the associated SfxViewShell.
     void setLOKViewId(int viewId) { m_viewId = viewId; }
-    virtual void libreOfficeKitViewCallback(int nType, const rtl::OString& pPayload) override;
-    virtual void libreOfficeKitViewCallbackWithViewId(int nType, const rtl::OString& pPayload,
+    virtual void loficeKitViewCallback(int nType, const rtl::OString& pPayload) override;
+    virtual void loficeKitViewCallbackWithViewId(int nType, const rtl::OString& pPayload,
                                                       int nViewId) override;
-    virtual void libreOfficeKitViewInvalidateTilesCallback(const tools::Rectangle* pRect, int nPart,
+    virtual void loficeKitViewInvalidateTilesCallback(const tools::Rectangle* pRect, int nPart,
                                                            int nMode) override;
-    virtual void libreOfficeKitViewUpdatedCallback(int nType) override;
-    virtual void libreOfficeKitViewUpdatedCallbackPerViewId(int nType, int nViewId,
+    virtual void loficeKitViewUpdatedCallback(int nType) override;
+    virtual void loficeKitViewUpdatedCallbackPerViewId(int nType, int nViewId,
                                                             int nSourceViewId) override;
-    virtual void libreOfficeKitViewAddPendingInvalidateTiles() override;
+    virtual void loficeKitViewAddPendingInvalidateTiles() override;
     virtual void dumpState(rtl::OStringBuffer&) override{};
 
     virtual void Invoke() override;
@@ -53,7 +53,7 @@ private:
     void startTimer();
     void flushLOKData();
     void discardUpdatedTypes(int nType, int nViewId);
-    LibreOfficeKitCallback m_callback;
+    loficeKitCallback m_callback;
     void* m_data;
     int m_viewId = -1; // the associated SfxViewShell
     std::vector<int> m_updatedTypes; // value is type

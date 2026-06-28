@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -540,7 +540,7 @@ public:
     virtual void undo_collapse() override;
 
     virtual void
-    SetInstallLOKNotifierHdl(const Link<void*, vcl::ILibreOfficeKitNotifier*>& rLink) override;
+    SetInstallLOKNotifierHdl(const Link<void*, vcl::IloficeKitNotifier*>& rLink) override;
 
     virtual int run() override;
 
@@ -738,7 +738,7 @@ public:
     virtual ~SalInstanceSpinButton() override;
 };
 
-//ComboBox and ListBox have similar apis, ComboBoxes in LibreOffice have an edit box and ListBoxes
+//ComboBox and ListBox have similar apis, ComboBoxes in lofice have an edit box and ListBoxes
 //don't. This distinction isn't there in Gtk. Use a template to sort this problem out.
 template <class vcl_type>
 class SalInstanceComboBox : public SalInstanceWidget, public virtual weld::ComboBox

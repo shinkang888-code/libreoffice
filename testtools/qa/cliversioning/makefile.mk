@@ -1,5 +1,5 @@
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -51,7 +51,7 @@ echo :
     @echo ###########################   N O T E  ######################################
     @echo . 
     @echo To run the test you have to provide the path to the  office location. It must
-    @echo contain the ure (d:\myOffice\LibreOffice\URE).
+    @echo contain the ure (d:\myOffice\lofice\URE).
     @echo Also an office must be installed with full system integration.
     @echo Example:
     @echo dmake run office="d:\myOffice"
@@ -78,7 +78,7 @@ CT_NOOFFICE = -NoOffice
 # --- Targets ------------------------------------------------------
 
 RUN: $(MISC)$/copyassemblies.done
-    java -cp $(CLASSPATH) -DSystemRoot=$(SystemRoot) -Dcli_test_program=$(BIN)$/runtests.exe -Dpath="$(office)"\LibreOffice\URE\bin $(CT_APP) $(CT_NOOFFICE) $(CT_TESTBASE) $(CT_TEST)
+    java -cp $(CLASSPATH) -DSystemRoot=$(SystemRoot) -Dcli_test_program=$(BIN)$/runtests.exe -Dpath="$(office)"\lofice\URE\bin $(CT_APP) $(CT_NOOFFICE) $(CT_TESTBASE) $(CT_TEST)
 
 run: RUN
 

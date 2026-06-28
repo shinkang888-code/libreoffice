@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -15,7 +15,7 @@ class tdf157482(UITestCase):
     def set_security_warnings(self, enabled):
         with self.ui_test.execute_dialog_through_command(".uno:OptionsTreeDialog") as xDialog:
             xPages = xDialog.getChild('pages')
-            xLODevEntry = xPages.getChild('0')                           # LibreOfficeDev
+            xLODevEntry = xPages.getChild('0')                           # loficeDev
             xSecurityEntryLODevEntry = xLODevEntry.getChild('6')
             xSecurityEntryLODevEntry.executeAction('SELECT', tuple())    # Security
             xOptions = xDialog.getChild('options')

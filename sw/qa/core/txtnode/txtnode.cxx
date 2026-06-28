@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,7 +9,7 @@
 
 #include <swmodeltestbase.hxx>
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <comphelper/propertyvalue.hxx>
 #include <com/sun/star/text/XTextTable.hpp>
@@ -171,7 +171,7 @@ void ViewCallback::callbackImpl(int nType, const char* /*pPayload*/)
 CPPUNIT_TEST_FIXTURE(SwCoreTxtnodeTest, testTitleFieldInvalidate)
 {
     // Set up LOK to track invalidations.
-    comphelper::LibreOfficeKit::setActive(true);
+    comphelper::loficeKit::setActive(true);
 
     // Given a document with a title field:
     createSwDoc("title-field-invalidate.fodt");
@@ -182,7 +182,7 @@ CPPUNIT_TEST_FIXTURE(SwCoreTxtnodeTest, testTitleFieldInvalidate)
     pWrtShell->SttEndDoc(/*bStt=*/false);
     ViewCallback aCallback;
     TestLokCallbackWrapper aCallbackWrapper(&ViewCallback::callback, &aCallback);
-    pWrtShell->GetSfxViewShell()->setLibreOfficeKitViewCallback(&aCallbackWrapper);
+    pWrtShell->GetSfxViewShell()->setloficeKitViewCallback(&aCallbackWrapper);
     aCallbackWrapper.setLOKViewId(SfxLokHelper::getView(*pWrtShell->GetSfxViewShell()));
     Scheduler::ProcessEventsToIdle();
     aCallback.m_nInvalidations = 0;
@@ -200,7 +200,7 @@ CPPUNIT_TEST_FIXTURE(SwCoreTxtnodeTest, testTitleFieldInvalidate)
     CPPUNIT_ASSERT_EQUAL(1, aCallback.m_nInvalidations);
 
     // Tear down LOK.
-    pWrtShell->GetSfxViewShell()->setLibreOfficeKitViewCallback(nullptr);
+    pWrtShell->GetSfxViewShell()->setloficeKitViewCallback(nullptr);
 }
 
 CPPUNIT_TEST_FIXTURE(SwCoreTxtnodeTest, testFlyAnchorUndo)

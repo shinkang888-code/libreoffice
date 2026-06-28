@@ -19,7 +19,7 @@ if ! command -v gh >/dev/null 2>&1; then
 fi
 
 if [[ ! -f ./autogen.sh ]]; then
-  echo "ERROR: not a LibreOffice tree (autogen.sh missing)" >&2
+  echo "ERROR: not a lofice tree (autogen.sh missing)" >&2
   exit 1
 fi
 

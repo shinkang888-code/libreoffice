@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -60,7 +60,7 @@
 #include <linguistic/lngprops.hxx>
 #include <vcl/settings.hxx>
 #include <vcl/svapp.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <sfx2/viewsh.hxx>
 #include <sfx2/lokhelper.hxx>
@@ -231,7 +231,7 @@ void EditView::InvalidateWindow(const tools::Rectangle& rClipRect)
 
 void EditView::InvalidateOtherViewWindows( const tools::Rectangle& rInvRect )
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         bool bNegativeX = IsNegativeX();
         for (auto& pWin : getImpl().maOutWindowSet)
@@ -603,7 +603,7 @@ void EditView::ShowCursor( bool bGotoCursor, bool bForceVisCursor, bool bActivat
             return;
 
         static const OString aPayload = OString::boolean(true);
-        getImpl().mpViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_CURSOR_VISIBLE, aPayload);
+        getImpl().mpViewShell->loficeKitViewCallback(LOK_CALLBACK_CURSOR_VISIBLE, aPayload);
         getImpl().mpViewShell->NotifyOtherViews(LOK_CALLBACK_VIEW_CURSOR_VISIBLE, "visible"_ostr, aPayload);
     }
 }
@@ -621,7 +621,7 @@ void EditView::HideCursor(bool bDeactivate)
             return;
 
         OString aPayload = OString::boolean(false);
-        getImpl().mpViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_CURSOR_VISIBLE, aPayload);
+        getImpl().mpViewShell->loficeKitViewCallback(LOK_CALLBACK_CURSOR_VISIBLE, aPayload);
         getImpl().mpViewShell->NotifyOtherViews(LOK_CALLBACK_VIEW_CURSOR_VISIBLE, "visible"_ostr, aPayload);
     }
 }
@@ -994,7 +994,7 @@ bool EditView::IsWrongSpelledWordAtPos( const Point& rPosPixel, bool bMarkIfWron
 static void LOKSendSpellPopupMenu(const weld::Menu& rMenu, LanguageType nGuessLangWord,
                                   LanguageType nGuessLangPara, sal_uInt16 nSuggestions)
 {
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return;
 
     // Generate the menu structure and send it to the client code.
@@ -1061,7 +1061,7 @@ static void LOKSendSpellPopupMenu(const weld::Menu& rMenu, LanguageType nGuessLa
 
     std::stringstream aStream;
     boost::property_tree::write_json(aStream, aRoot, true);
-    pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_CONTEXT_MENU, OString(aStream.str()));
+    pViewShell->loficeKitViewCallback(LOK_CALLBACK_CONTEXT_MENU, OString(aStream.str()));
 }
 
 bool EditView::ExecuteSpellPopup(const Point& rPosPixel, const Link<SpellCallbackInfo&,void> &rCallBack)
@@ -1247,7 +1247,7 @@ bool EditView::ExecuteSpellPopup(const Point& rPosPixel, const Link<SpellCallbac
     EPaM aP = getImpEditEngine().CreateEPaM(aPaM);
     EPaM aP2 = getImpEditEngine().CreateEPaM(aPaM2);
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         xPopupMenu->remove(u"autocorrect"_ustr);
         xPopupMenu->remove(u"autocorrectdlg"_ustr);

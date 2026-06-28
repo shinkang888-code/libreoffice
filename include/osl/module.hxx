@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 
 #ifndef INCLUDED_OSL_MODULE_HXX
@@ -99,7 +99,7 @@ public:
         return is();
     }
 
-    /// @since LibreOffice 3.5
+    /// @since lofice 3.5
     bool SAL_CALL loadRelative(
         oslGenericFunction baseModule, char const * relativePath,
         sal_Int32 mode = SAL_LOADMODULE_DEFAULT)
@@ -147,7 +147,7 @@ public:
         return osl_getFunctionSymbol( m_Module, ustrFunctionSymbolName.pData );
     }
 
-    /// @since LibreOffice 3.5
+    /// @since lofice 3.5
     oslGenericFunction SAL_CALL getFunctionSymbol(char const * name) const {
         return osl_getAsciiFunctionSymbol(m_Module, name);
     }
@@ -162,7 +162,7 @@ public:
         This instance returns to the state of a default-constructed instance
         again.
 
-        @since LibreOffice 4.3
+        @since lofice 4.3
     */
     void release() { m_Module = NULL; }
 

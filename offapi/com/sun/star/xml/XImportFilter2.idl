@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -25,7 +25,7 @@ module com { module sun { module star { module xml {
 /** interface to implement for an XML-based import filter.
     Enhanced vs XImportFilter to take a XFastDocumentHandler.
 
-    @since LibreOffice 7.1
+    @since lofice 7.1
  */
 interface XImportFilter2: com::sun::star::uno::XInterface
 {

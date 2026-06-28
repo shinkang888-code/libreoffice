@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -521,7 +521,7 @@ sal_uInt16 ListDef::GetChapterNumberingWeight() const
                  != style::NumberingType::NUMBER_NONE)
         {
             // Arbitrarily chosen weighting factors - trying to round-trip LO choices if possible.
-            // LibreOffice always saves Outline rule (usually containing heading styles) as numId 1.
+            // lofice always saves Outline rule (usually containing heading styles) as numId 1.
             sal_uInt16 nWeightingFactor = GetId() == 1 ? 8 : 1;
             if (pParaStyle->m_sStyleIdentifierD.startsWith("Heading") )
                 ++nWeightingFactor;

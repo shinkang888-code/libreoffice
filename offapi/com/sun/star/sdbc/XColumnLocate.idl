@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -41,7 +41,7 @@ published interface XColumnLocate: com::sun::star::uno::XInterface
     /** maps the given ResultSet column name to its ResultSet column index.
 
         <p>
-        The specification before LibreOffice 4.2 left unspecified what should
+        The specification before lofice 4.2 left unspecified what should
         happen for an invalid column name. As a result some drivers written
         against the older specification may return a special invalid value, such
         as a negative number, zero, or a number greater than the number of

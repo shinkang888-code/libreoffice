@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -329,7 +329,7 @@ void UseUniquePtr::CheckDeleteLocalVar(const FunctionDecl* functionDecl, const C
         return;
     if (loplugin::hasPathnamePrefix(fn, SRCDIR "/cppuhelper/qa/"))
         return;
-    if (loplugin::hasPathnamePrefix(fn, SRCDIR "/libreofficekit/qa/"))
+    if (loplugin::hasPathnamePrefix(fn, SRCDIR "/loficekit/qa/"))
         return;
     if (loplugin::hasPathnamePrefix(fn, SRCDIR "/vcl/qa/"))
         return;

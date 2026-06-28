@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -540,7 +540,7 @@ void Scheduler::CallbackTaskScheduling()
     // macOS bugs tdf#157312 and tdf#163945 were fixed by firing the
     // Skia flush task with TaskPriority::POST_PAINT.
     // The problem is that this method often executes within an
-    // NSTimer and NSTimers are always fired while LibreOffice is in
+    // NSTimer and NSTimers are always fired while lofice is in
     // -[NSApp nextEventMatchingMask:untilDate:inMode:dequeue:].
     // Since fetching the next native event doesn't handle pending
     // events until *after* all of the pending NSTimers have fired,
@@ -549,7 +549,7 @@ void Scheduler::CallbackTaskScheduling()
     // after all of the pending NSTimers have fired.
     // The result is that the Skia flush task is frequently delayed
     // and, in cases like tdf#165277, a user's attempts to get
-    // LibreOffice to paint the window through key and mouse events
+    // lofice to paint the window through key and mouse events
     // leads to an endless delaying of the Skia flush task.
     // After experimenting with both Skia/Metal and Skia/Raster,
     // tdf#165277 requires the Skia flush task to run immediately
@@ -798,7 +798,7 @@ Task::~Task()
             mpSchedulerData->mpTask = nullptr;
     }
     else
-        assert(nullptr == mpSchedulerData || comphelper::IsFuzzing() || comphelper::LibreOfficeKit::isActive());
+        assert(nullptr == mpSchedulerData || comphelper::IsFuzzing() || comphelper::loficeKit::isActive());
 }
 
 bool Task::DecideTransferredExecution()

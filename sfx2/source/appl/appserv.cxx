@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -181,7 +181,7 @@ namespace
                     using namespace org::freedesktop::PackageKit;
                     using namespace svtools;
                     Reference< XSyncDbusSessionHelper > xSyncDbusSessionHelper(SyncDbusSessionHelper::create(comphelper::getProcessComponentContext()));
-                    Sequence< OUString > vPackages { u"libreoffice-base"_ustr };
+                    Sequence< OUString > vPackages { u"lofice-base"_ustr };
                     xSyncDbusSessionHelper->InstallPackageNames(vPackages, OUString());
                     // I'll be back (hopefully)!
                     SolarMutexGuard aGuard;
@@ -189,7 +189,7 @@ namespace
                 }
                 catch (const Exception &)
                 {
-                    TOOLS_INFO_EXCEPTION("sfx.appl", "trying to install LibreOffice Base");
+                    TOOLS_INFO_EXCEPTION("sfx.appl", "trying to install lofice Base");
                 }
             }
             return;
@@ -368,7 +368,7 @@ weld::Window* SfxRequest::GetFrameWeld() const
 
 void SfxApplication::MiscExec_Impl( SfxRequest& rReq )
 {
-    const bool bIsLOK = comphelper::LibreOfficeKit::isActive();
+    const bool bIsLOK = comphelper::loficeKit::isActive();
     static svtools::EditableColorConfig aEditableConfig;
     static bool aColorConfigInitialized = false;
     if (!aColorConfigInitialized && bIsLOK)
@@ -619,7 +619,7 @@ void SfxApplication::MiscExec_Impl( SfxRequest& rReq )
         case SID_SEND_FEEDBACK:
         {
             OUString module = SfxHelp::GetCurrentModuleIdentifier();
-            OUString sURL(officecfg::Office::Common::Menus::SendFeedbackURL::get() + //officecfg/registry/data/org/openoffice/Office/Common.xcu => https://hub.libreoffice.org/send-feedback/
+            OUString sURL(officecfg::Office::Common::Menus::SendFeedbackURL::get() + //officecfg/registry/data/org/openoffice/Office/Common.xcu => https://hub.lofice.org/send-feedback/
                 "?LOversion=" + utl::ConfigManager::getAboutBoxProductVersion() +
                 "&LOlocale=" + utl::ConfigManager::getUILocale() +
                 "&LOmodule=" + module.subView(module.lastIndexOf('.') + 1 )  );
@@ -632,7 +632,7 @@ void SfxApplication::MiscExec_Impl( SfxRequest& rReq )
             // Askbot has URL's normalized to languages, not locales
             // Get language from locale: ll or lll or ll-CC or lll-CC
 
-            OUString sURL(officecfg::Office::Common::Menus::QA_URL::get() + //https://hub.libreoffice.org/forum/
+            OUString sURL(officecfg::Office::Common::Menus::QA_URL::get() + //https://hub.lofice.org/forum/
                 "?LOlocale=" + utl::ConfigManager::getUILocale());
             sfx2::openUriExternally(sURL, false, rReq.GetFrameWeld());
             break;
@@ -640,7 +640,7 @@ void SfxApplication::MiscExec_Impl( SfxRequest& rReq )
         case SID_DOCUMENTATION:
         {
             // Open documentation page based on locales
-            OUString sURL(officecfg::Office::Common::Menus::DocumentationURL::get() + //https://hub.libreoffice.org/documentation/
+            OUString sURL(officecfg::Office::Common::Menus::DocumentationURL::get() + //https://hub.lofice.org/documentation/
                 "?LOlocale=" + utl::ConfigManager::getUILocale());
             sfx2::openUriExternally(sURL, false, rReq.GetFrameWeld());
             break;
@@ -649,7 +649,7 @@ void SfxApplication::MiscExec_Impl( SfxRequest& rReq )
         case SID_GETINVOLVED:
         {
             // Open get involved/join us page based on locales
-            OUString sURL(officecfg::Office::Common::Menus::GetInvolvedURL::get() + //https://hub.libreoffice.org/joinus/
+            OUString sURL(officecfg::Office::Common::Menus::GetInvolvedURL::get() + //https://hub.lofice.org/joinus/
                 "?LOlocale=" + utl::ConfigManager::getUILocale());
             sfx2::openUriExternally(sURL, false, rReq.GetFrameWeld());
             break;
@@ -659,7 +659,7 @@ void SfxApplication::MiscExec_Impl( SfxRequest& rReq )
             // Open donation page based on language + script (BCP47) with language as fall back.
             OUString aLang = LanguageTag(utl::ConfigManager::getUILocale()).getLanguage();
             OUString aBcp47 = LanguageTag(utl::ConfigManager::getUILocale()).getBcp47();
-            OUString sURL(officecfg::Office::Common::Menus::DonationURL::get() + //https://hub.libreoffice.org/donation/
+            OUString sURL(officecfg::Office::Common::Menus::DonationURL::get() + //https://hub.lofice.org/donation/
                 "?BCP47=" + aBcp47 + "&LOlang=" + aLang );
             sfx2::openUriExternally(sURL, false, rReq.GetFrameWeld());
             break;
@@ -667,7 +667,7 @@ void SfxApplication::MiscExec_Impl( SfxRequest& rReq )
         case SID_WHATSNEW:
         {
             // Open release notes depending on version and locale
-            OUString sURL(officecfg::Office::Common::Menus::ReleaseNotesURL::get() + //https://hub.libreoffice.org/ReleaseNotes/
+            OUString sURL(officecfg::Office::Common::Menus::ReleaseNotesURL::get() + //https://hub.lofice.org/ReleaseNotes/
                 "?LOvers=" + utl::ConfigManager::getProductVersion() +
                 "&LOlocale=" + LanguageTag(utl::ConfigManager::getUILocale()).getBcp47() );
             sfx2::openUriExternally(sURL, false, rReq.GetFrameWeld());
@@ -683,7 +683,7 @@ void SfxApplication::MiscExec_Impl( SfxRequest& rReq )
         case SID_HYPHENATIONMISSING:
         {
             // Open wiki page about hyphenation
-            OUString sURL(officecfg::Office::Common::Menus::HyphenationMissingURL::get() + //https://hub.libreoffice.org/HyphenationMissing/
+            OUString sURL(officecfg::Office::Common::Menus::HyphenationMissingURL::get() + //https://hub.lofice.org/HyphenationMissing/
                 "?LOlocale=" + utl::ConfigManager::getUILocale());
             sfx2::openUriExternally(sURL, false, rReq.GetFrameWeld());
             break;
@@ -1016,7 +1016,7 @@ void SfxApplication::MiscExec_Impl( SfxRequest& rReq )
 
                 aCurrentMode = comphelper::getString( aAppNode.getNodeValue( u"Active"_ustr ) );
 
-                if ( !comphelper::LibreOfficeKit::isActive() && aCurrentMode == aNewName )
+                if ( !comphelper::loficeKit::isActive() && aCurrentMode == aNewName )
                 {
                     bDone = true;
                     break;
@@ -1032,7 +1032,7 @@ void SfxApplication::MiscExec_Impl( SfxRequest& rReq )
             while( pViewFrame )
             {
                 // in LOK case we want to apply changes only to the current view
-                if (comphelper::LibreOfficeKit::isActive() &&
+                if (comphelper::loficeKit::isActive() &&
                     pViewFrame != &SfxViewShell::Current()->GetViewFrame())
                 {
                     pViewFrame = SfxViewFrame::GetNext( *pViewFrame );
@@ -1161,7 +1161,7 @@ void SfxApplication::MiscExec_Impl( SfxRequest& rReq )
                     // Sidebar
                     pViewFrame->ShowChildWindow( SID_SIDEBAR );
 
-                    if (comphelper::LibreOfficeKit::isActive())
+                    if (comphelper::loficeKit::isActive())
                         aSidebarMode = "Opened";
 
                     sfx2::sidebar::SidebarController* pSidebar =
@@ -2044,7 +2044,7 @@ void SfxApplication::OfaState_Impl(SfxItemSet &rSet)
         rSet.DisableItem( FN_BUSINESS_CARD );
         rSet.DisableItem( FN_XFORMS_INIT );
     }
-    if ( comphelper::LibreOfficeKit::isActive() )
+    if ( comphelper::loficeKit::isActive() )
         rSet.DisableItem( SID_AUTO_CORRECT_DLG );
 
     if (SvtSecurityOptions::IsMacroDisabled())

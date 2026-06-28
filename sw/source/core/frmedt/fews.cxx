@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -322,7 +322,7 @@ void SwFEShell::ShellGetFocus()
 
     if ( HasDrawView() )
     {
-        if (!comphelper::LibreOfficeKit::isActive())
+        if (!comphelper::loficeKit::isActive())
             Imp()->GetDrawView()->showMarkHandles();
         if ( Imp()->GetDrawView()->GetMarkedObjectList().GetMarkCount() != 0 )
             FrameNotify( this, FLY_DRAG_START );
@@ -335,7 +335,7 @@ void SwFEShell::ShellLoseFocus()
 
     if ( HasDrawView() && Imp()->GetDrawView()->GetMarkedObjectList().GetMarkCount() != 0 )
     {
-        if (!comphelper::LibreOfficeKit::isActive())
+        if (!comphelper::loficeKit::isActive())
             Imp()->GetDrawView()->hideMarkHandles();
         FrameNotify( this, FLY_DRAG_END );
     }

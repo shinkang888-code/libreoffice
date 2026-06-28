@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1393,7 +1393,7 @@ void SwEditWin::KeyInput(const KeyEvent &rKEvt)
 {
     SwWrtShell &rSh = m_rView.GetWrtShell();
 
-    if (comphelper::LibreOfficeKit::isActive() && m_rView.GetPostItMgr())
+    if (comphelper::loficeKit::isActive() && m_rView.GetPostItMgr())
     {
         if (vcl::Window* pWindow = m_rView.GetPostItMgr()->GetActiveSidebarWin())
         {
@@ -1734,7 +1734,7 @@ void SwEditWin::KeyInput(const KeyEvent &rKEvt)
         case SwKeyState::CheckKey:
             eKeyState = SwKeyState::KeyToView;       // default forward to View
 
-            if (!comphelper::LibreOfficeKit::isActive() &&
+            if (!comphelper::loficeKit::isActive() &&
                 !rKeyCode.IsMod2() && '=' == aCh &&
                 !rSh.IsTableMode() && rSh.GetTableFormat() &&
                 rSh.IsSttPara() &&
@@ -1742,7 +1742,7 @@ void SwEditWin::KeyInput(const KeyEvent &rKEvt)
             {
                 // at the beginning of the table's cell a '=' ->
                 // call EditRow (F2-functionality)
-                // [Avoid this for LibreOfficeKit, as the separate input window
+                // [Avoid this for loficeKit, as the separate input window
                 // steals the focus & things go wrong - the user never gets
                 // the focus back.]
                 rSh.Push();
@@ -3016,7 +3016,7 @@ void SwEditWin::MouseButtonDown(const MouseEvent& _rMEvt)
     if (m_rView.GetPostItMgr()->IsHit(aMEvt.GetPosPixel()))
         return;
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         if (vcl::Window* pWindow = m_rView.GetPostItMgr()->IsHitSidebarWindow(aMEvt.GetPosPixel()))
         {
@@ -3548,7 +3548,7 @@ void SwEditWin::MouseButtonDown(const MouseEvent& _rMEvt)
                             {
                             case SelectionType::Graphic:
                                 ResetMouseButtonDownFlags();
-                                if (!comphelper::LibreOfficeKit::isActive())
+                                if (!comphelper::loficeKit::isActive())
                                 {
                                     GetView().GetViewFrame().GetBindings().Execute(
                                         FN_FORMAT_GRAFIC_DLG, nullptr,
@@ -3564,7 +3564,7 @@ void SwEditWin::MouseButtonDown(const MouseEvent& _rMEvt)
 
                             case SelectionType::Frame:
                                 ResetMouseButtonDownFlags();
-                                if (!comphelper::LibreOfficeKit::isActive())
+                                if (!comphelper::loficeKit::isActive())
                                 {
                                     GetView().GetViewFrame().GetBindings().Execute(
                                         FN_FORMAT_FRAME_DLG, nullptr,
@@ -3585,7 +3585,7 @@ void SwEditWin::MouseButtonDown(const MouseEvent& _rMEvt)
 
                         // if the cursor position was corrected or if a Fly
                         // was selected in ReadOnlyMode, no word selection, except when tiled rendering.
-                        if ((!g_bValidCursorPos || rSh.IsFrameSelected()) && !comphelper::LibreOfficeKit::isActive())
+                        if ((!g_bValidCursorPos || rSh.IsFrameSelected()) && !comphelper::loficeKit::isActive())
                             return;
 
                         SwField *pField = rSh.GetCurField(true);
@@ -3649,7 +3649,7 @@ void SwEditWin::MouseButtonDown(const MouseEvent& _rMEvt)
                         }
                         else
                         {
-                            if (!rSh.SelWrd(&aDocPos) && comphelper::LibreOfficeKit::isActive())
+                            if (!rSh.SelWrd(&aDocPos) && comphelper::loficeKit::isActive())
                                 // Double click did not select any word: try to
                                 // select the current cell in case we are in a
                                 // table.
@@ -4145,7 +4145,7 @@ bool SwEditWin::changeMousePointer(Point const & rDocPoint)
         if ( PointerStyle::Null != nPointer &&
             // i#35543 - Enhanced table selection is explicitly allowed in table mode
             ( !bChkTableSel || !rShell.IsTableMode() ) &&
-            !comphelper::LibreOfficeKit::isActive() )
+            !comphelper::loficeKit::isActive() )
         {
             SetPointer( nPointer );
         }
@@ -4171,7 +4171,7 @@ void SwEditWin::MouseMove(const MouseEvent& _rMEvt)
 {
     MouseEvent rMEvt(_rMEvt);
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         if (vcl::Window* pWindow = m_rView.GetPostItMgr()->IsHitSidebarWindow(rMEvt.GetPosPixel()))
         {
@@ -4301,7 +4301,7 @@ void SwEditWin::MouseMove(const MouseEvent& _rMEvt)
     }
 
     const Point aOldPt( rSh.VisArea().Pos() );
-    const bool bInsWin = rSh.VisArea().Contains( aDocPt ) || comphelper::LibreOfficeKit::isActive();
+    const bool bInsWin = rSh.VisArea().Contains( aDocPt ) || comphelper::loficeKit::isActive();
 
     if (rSh.GetViewOptions()->IsShowOutlineContentVisibilityButton())
     {
@@ -4734,7 +4734,7 @@ void SwEditWin::MouseMove(const MouseEvent& _rMEvt)
  */
 void SwEditWin::MouseButtonUp(const MouseEvent& rMEvt)
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         if (vcl::Window* pWindow = m_rView.GetPostItMgr()->IsHitSidebarWindow(rMEvt.GetPosPixel()))
         {
@@ -5222,7 +5222,7 @@ void SwEditWin::MouseButtonUp(const MouseEvent& rMEvt)
                             }
                             else if ( IsAttrAtPos::InetAttr == aContentAtPos.eContentAtPos )
                             {
-                                if (comphelper::LibreOfficeKit::isActive())
+                                if (comphelper::loficeKit::isActive())
                                 {
                                     OUString val((*static_cast<const SwFormatINetFormat*>(aContentAtPos.aFnd.pAttr)).GetValue());
                                     if (val.startsWith("#"))
@@ -5486,7 +5486,7 @@ void SwEditWin::MouseButtonUp(const MouseEvent& rMEvt)
             pDocSh->Broadcast(SfxHint(SfxHintId::SwRedlineContentAtPos));
     }
 
-    if (!(pSdrView && rMEvt.GetClicks() == 1 && comphelper::LibreOfficeKit::isActive()))
+    if (!(pSdrView && rMEvt.GetClicks() == 1 && comphelper::loficeKit::isActive()))
         return;
 
     // When tiled rendering, single click on a shape text starts editing already.

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -108,7 +108,7 @@
 #include <svx/dialog/ThemeColorEditDialog.hxx>
 #include <comphelper/scopeguard.hxx>
 #include <comphelper/lok.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <osl/diagnose.h>
 
 #include <svx/svxdlg.hxx>
@@ -671,7 +671,7 @@ void SwBaseShell::ExecUndo(SfxRequest &rReq)
                     rShell.LockPaint(LockPaintReason::Undo);
 
                 sal_uInt16 nUndoOffset = 0;
-                if (comphelper::LibreOfficeKit::isActive() && !bRepair && nCnt == 1)
+                if (comphelper::loficeKit::isActive() && !bRepair && nCnt == 1)
                 {
                     sw::UndoManager& rManager = rWrtShell.GetDoc()->GetUndoManager();
                     const SfxUndoAction* pAction = rManager.GetUndoAction();
@@ -2028,7 +2028,7 @@ void SwBaseShell::GetState( SfxItemSet &rSet )
                     else if(nWhich != SID_ANCHOR_MENU)
                         rSet.Put(SfxBoolItem(nWhich, bSet));
 
-                    if (comphelper::LibreOfficeKit::isActive())
+                    if (comphelper::loficeKit::isActive())
                     {
                         if (nWhich == FN_TOOL_ANCHOR_PAGE || nWhich == FN_TOOL_ANCHOR_FRAME)
                         {

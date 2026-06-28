@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -119,13 +119,13 @@ published service SearchDescriptor
         <p> SearchRegularExpression, SearchWildcard and SearchSimilarity
         are mutually exclusive, only one can be `TRUE` at the same time. </p>
 
-        @since LibreOffice 5.2
+        @since lofice 5.2
      */
     [optional, property] boolean SearchWildcard;
 
     /** Specifies the character used to escape special characters in wildcards.
 
-        @since LibreOffice 24.2
+        @since lofice 24.2
      */
     [optional, property] long WildcardEscapeCharacter;
 

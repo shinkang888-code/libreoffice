@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1422,7 +1422,7 @@ void ScCellShell::ExecuteEdit( SfxRequest& rReq )
                     bool bColPoss, bRowPoss;
                     pTabViewShell->TestRemoveOutline( bColPoss, bRowPoss );
                     // TODO: handle this case in LOK too
-                    if ( bColPoss && bRowPoss && !comphelper::LibreOfficeKit::isActive() )
+                    if ( bColPoss && bRowPoss && !comphelper::loficeKit::isActive() )
                     {
                         ScAbstractDialogFactory* pFact = ScAbstractDialogFactory::Create();
 
@@ -1470,7 +1470,7 @@ void ScCellShell::ExecuteEdit( SfxRequest& rReq )
                 pTabViewShell->CopyToClip( nullptr, false, false, true );
                 rReq.Done();
 
-                if (!comphelper::LibreOfficeKit::isActive() || !pTabViewShell->GetViewShell() || !pTabViewShell->GetViewShell()->IsLokReadOnlyView())
+                if (!comphelper::loficeKit::isActive() || !pTabViewShell->GetViewShell() || !pTabViewShell->GetViewShell()->IsLokReadOnlyView())
                     GetViewData().SetPasteMode( ScPasteFlags::Mode | ScPasteFlags::Border );
 
                 pTabViewShell->ShowCursor();
@@ -1484,7 +1484,7 @@ void ScCellShell::ExecuteEdit( SfxRequest& rReq )
                 pTabViewShell->CutToClip();
                 rReq.Done();
 
-                if (!comphelper::LibreOfficeKit::isActive() || !pTabViewShell->GetViewShell() || !pTabViewShell->GetViewShell()->IsLokReadOnlyView())
+                if (!comphelper::loficeKit::isActive() || !pTabViewShell->GetViewShell() || !pTabViewShell->GetViewShell()->IsLokReadOnlyView())
                     GetViewData().SetPasteMode( ScPasteFlags::Mode | ScPasteFlags::Border );
 
                 pTabViewShell->ShowCursor();
@@ -2741,7 +2741,7 @@ void ScCellShell::ExecuteEdit( SfxRequest& rReq )
                                                 pAuthorItem ? &pAuthorItem->GetValue() : nullptr,
                                                 pDateItem ? &pDateItem->GetValue() : nullptr );
                 }
-                else if (!comphelper::LibreOfficeKit::isActive() || comphelper::LibreOfficeKit::isTiledAnnotations())
+                else if (!comphelper::loficeKit::isActive() || comphelper::loficeKit::isTiledAnnotations())
                 {
                     pTabViewShell->EditNote();                  // note object to edit
                 }
@@ -2972,7 +2972,7 @@ void ScCellShell::ExecuteEdit( SfxRequest& rReq )
                     // Generate a deterministic UUID v5 (SHA-1-based, RFC 4122) from a fixed
                     // namespace and the author name, so the same user always gets the same
                     // person-id.
-                    OString aInput = "LibreOffice:ThreadedCommentPerson:"
+                    OString aInput = "lofice:ThreadedCommentPerson:"
                         + OUStringToOString(aAuthor, RTL_TEXTENCODING_UTF8);
                     sal_uInt8 aDigest[RTL_DIGEST_LENGTH_SHA1];
                     rtl_digest_SHA1(aInput.getStr(), aInput.getLength(),

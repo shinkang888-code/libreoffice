@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1807,7 +1807,7 @@ void HelpButton::Click()
     if ( !GetClickHdl() )
     {
         vcl::Window* pFocusWin = Application::GetFocusWindow();
-        if ( !pFocusWin || comphelper::LibreOfficeKit::isActive() )
+        if ( !pFocusWin || comphelper::loficeKit::isActive() )
             pFocusWin = this;
 
         HelpEvent aEvt( pFocusWin->GetPointerPosPixel(), HelpEventMode::CONTEXT );
@@ -1819,7 +1819,7 @@ void HelpButton::Click()
 void HelpButton::StateChanged( StateChangedType nStateChange )
 {
     // Hide when we have no help URL.
-    if (comphelper::LibreOfficeKit::isActive() &&
+    if (comphelper::loficeKit::isActive() &&
         officecfg::Office::Common::Help::HelpRootURL::get().isEmpty())
         Hide();
     else

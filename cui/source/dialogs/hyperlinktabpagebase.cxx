@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -136,7 +136,7 @@ void HyperlinkTabPageBase::ShowMarkWnd()
 
     // Don't capture 'this' - cleanup is handled by HideMarkWnd() in the destructor
     // Capturing 'this' causes a dangling reference if the tab page is destroyed
-    // before the async callback fires (e.g., when closing LibreOffice with dialog open)
+    // before the async callback fires (e.g., when closing lofice with dialog open)
     weld::DialogController::runAsync(mxMarkWnd, [](sal_Int32 /*nResult*/) {});
 }
 

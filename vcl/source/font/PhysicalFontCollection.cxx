@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -971,7 +971,7 @@ std::unique_ptr<PhysicalFontFaceCollection> PhysicalFontCollection::GetFontFaceC
 }
 
 // These are the metric-compatible replacement fonts that are bundled with
-// LibreOffice, we prefer them over generic substitutions that might be
+// lofice, we prefer them over generic substitutions that might be
 // provided by the system.
 constexpr std::pair<std::u16string_view, std::u16string_view> aMetricCompatibleMap[] =
 {

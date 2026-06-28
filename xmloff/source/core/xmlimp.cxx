@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -509,8 +509,8 @@ namespace {
                     xTextStrm->setEncoding(u"utf8"_ustr);
 
                     ::std::vector<OUString> aLocales;
-                    if (comphelper::LibreOfficeKit::isActive())
-                        aLocales = comphelper::LibreOfficeKit::getLanguageTag().getFallbackStrings(true);
+                    if (comphelper::loficeKit::isActive())
+                        aLocales = comphelper::loficeKit::getLanguageTag().getFallbackStrings(true);
                     else
                         aLocales = LanguageTag(css::uno::Reference< css::lang::XLocalizable >(
                                                    css::configuration::theDefaultProvider::get(xContext),

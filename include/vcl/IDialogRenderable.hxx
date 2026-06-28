@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -25,17 +25,17 @@ typedef std::pair<const OString, const OString> LOKPayloadItem;
 
 typedef sal_uInt32 LOKWindowId;
 
-class VCL_DLLPUBLIC ILibreOfficeKitNotifier
+class VCL_DLLPUBLIC IloficeKitNotifier
 {
 public:
-    virtual ~ILibreOfficeKitNotifier();
+    virtual ~IloficeKitNotifier();
 
     /// Callbacks
     virtual void notifyWindow(vcl::LOKWindowId nLOKWindowId,
                               const OUString& rAction,
                               const std::vector<LOKPayloadItem>& rPayload = std::vector<LOKPayloadItem>()) const = 0;
 
-    virtual void libreOfficeKitViewCallback(int nType, const OString& pPayload) const = 0;
+    virtual void loficeKitViewCallback(int nType, const OString& pPayload) const = 0;
 
     /// Emits a LOK_CALLBACK_INVALIDATE_TILES.
     virtual void notifyInvalidation(tools::Rectangle const *) const = 0;

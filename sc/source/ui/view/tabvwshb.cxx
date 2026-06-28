@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -89,7 +89,7 @@ void ScTabViewShell::ConnectObject( const SdrOle2Obj* pObj )
     ScViewData& rViewData = GetViewData();
     ScDocShell* pDocSh = rViewData.GetDocShell();
     ScDocument& rDoc = pDocSh->GetDocument();
-    bool bNegativeX = comphelper::LibreOfficeKit::isActive() && rDoc.IsNegativePage(rViewData.CurrentTabForData());
+    bool bNegativeX = comphelper::loficeKit::isActive() && rDoc.IsNegativePage(rViewData.CurrentTabForData());
     if (bNegativeX)
         pClient->SetNegativeX(true);
 
@@ -167,7 +167,7 @@ void ScTabViewShell::ActivateObject(SdrOle2Obj* pObj, sal_Int32 nVerb)
         ScViewData& rViewData = GetViewData();
         ScDocShell* pDocSh = rViewData.GetDocShell();
         ScDocument& rDoc = pDocSh->GetDocument();
-        bool bNegativeX = comphelper::LibreOfficeKit::isActive() && rDoc.IsNegativePage(rViewData.CurrentTabForData());
+        bool bNegativeX = comphelper::loficeKit::isActive() && rDoc.IsNegativePage(rViewData.CurrentTabForData());
         SfxInPlaceClient* pClient = FindIPClient( xObj, pWin );
         if ( !pClient )
             pClient = new ScClient( this, pWin, &GetScDrawView()->GetModel(), pObj );
@@ -400,7 +400,7 @@ void ScTabViewShell::ExecDrawIns(SfxRequest& rReq)
 
         case SID_INSERT_DIAGRAM:
             FuInsertChart(*this, pWin, pView, rModel, rReq, LINK( this, ScTabViewShell, DialogClosedHdl ));
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
                 pDocSh->SetModified();
             break;
 
@@ -775,7 +775,7 @@ void ScTabViewShell::ExecuteUndo(SfxRequest& rReq)
                     bRepair = static_cast<const SfxBoolItem*>(pItem)->GetValue();
 
                 sal_uInt16 nUndoOffset = 0;
-                if (comphelper::LibreOfficeKit::isActive() && !bRepair)
+                if (comphelper::loficeKit::isActive() && !bRepair)
                 {
                     SfxUndoAction* pAction = nullptr;
                     if (bIsUndo)

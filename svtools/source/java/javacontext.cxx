@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -64,7 +64,7 @@ Any SAL_CALL JavaContext::getValueByName( const OUString& Name)
 
     if ( Name == JAVA_INTERACTION_HANDLER_NAME )
     {
-        if ( !comphelper::LibreOfficeKit::isActive() )
+        if ( !comphelper::loficeKit::isActive() )
         {
             osl::MutexGuard aGuard(osl::Mutex::getGlobalMutex());
             if (!m_xHandler.is())

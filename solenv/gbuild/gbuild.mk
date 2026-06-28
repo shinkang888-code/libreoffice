@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -255,13 +255,13 @@ gb_TEST_ENV_VARS := MAX_CONCURRENCY=4
 #
 #  see xmlsecurity/source/xmlsec/nss/nssinitializer.cxx for use
 #
-#  a) If MOZILLA_CERTIFICATE_FOLDER is empty then LibreOffice autodetects
+#  a) If MOZILLA_CERTIFICATE_FOLDER is empty then lofice autodetects
 #  the user's mozilla-descended application profile. To disable that we
 #  use a non-empty string here.
 #
 #  b) Using dbm: appears to nss as equivalent to an empty path so the
 #  initial NSS_InitReadWrite will fail. In response to that failure
-#  LibreOffice will create a temp fallback cert database which is removed
+#  lofice will create a temp fallback cert database which is removed
 #  on process exit
 gb_TEST_ENV_VARS += MOZILLA_CERTIFICATE_FOLDER=dbm:
 # Avoid hanging if the cups daemon requests a password:
@@ -270,7 +270,7 @@ ifeq (,$(SAL_USE_VCLPLUGIN))
 gb_TEST_ENV_VARS += SAL_USE_VCLPLUGIN=svp
 endif
 
-# This is used to detect whether LibreOffice is being built (as opposed to building
+# This is used to detect whether lofice is being built (as opposed to building
 # 3rd-party code). Used for tag deprecation for API we want to
 # ensure is not used at all externally while we clean
 # out our internal usage, for code in sal/ that should be used only internally, etc.

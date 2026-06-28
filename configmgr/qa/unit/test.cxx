@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -323,8 +323,8 @@ void Test::testLocalizedProperty() {
     auto const access = css::configuration::ReadOnlyAccess::create(
         comphelper::getProcessComponentContext(), u"*"_ustr);
     {
-        // See <https://bugs.documentfoundation.org/show_bug.cgi?id=33638> "Pagination extension
-        // not localized in LibreOffice", which wants to retrieve the non-canonical xml:lang="pt-PT"
+        // See <https://bugs.lofice.io/show_bug.cgi?id=33638> "Pagination extension
+        // not localized in lofice", which wants to retrieve the non-canonical xml:lang="pt-PT"
         // value for the passed-in "pt" locale:
         OUString v;
         CPPUNIT_ASSERT(
@@ -332,7 +332,7 @@ void Test::testLocalizedProperty() {
         CPPUNIT_ASSERT_EQUAL(u"pt-PT"_ustr, v);
     }
     {
-        // See <https://gerrit.libreoffice.org/c/core/+/147089> "configmgr: fix no longer found
+        // See <https://gerrit.lofice.org/c/core/+/147089> "configmgr: fix no longer found
         // es-419 -> es fallback", which wants to retrieve the xml:lang="es" value for the passed-in
         // "es-419" locale:
         OUString v;
@@ -341,7 +341,7 @@ void Test::testLocalizedProperty() {
         CPPUNIT_ASSERT_EQUAL(u"es"_ustr, v);
     }
     {
-        // See <https://git.libreoffice.org/core/+/dfc28be2487c13be36a90efd778b8d8f179c589d%5E%21>
+        // See <https://git.lofice.org/core/+/dfc28be2487c13be36a90efd778b8d8f179c589d%5E%21>
         // "configmgr: Use a proper LanguageTag-based locale fallback mechanism":
         OUString v;
         CPPUNIT_ASSERT(

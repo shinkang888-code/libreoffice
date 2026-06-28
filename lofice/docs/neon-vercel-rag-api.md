@@ -16,7 +16,7 @@ lofice C++ (AiRagContext)
 ## 1. Neon 연결 (CLI)
 
 ```powershell
-cd c:\Users\FORYOUCOM\Documents\cursor\loffice_li\libreoffice
+cd c:\Users\FORYOUCOM\Documents\cursor\loffice_li\lofice
 neonctl link --org-id org-wispy-brook-68991240 --project-id gentle-base-41825553
 neonctl checkout main
 # → .env.local DATABASE_URL 생성

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -63,7 +63,7 @@
 #if ENABLE_YRS
 #include <IDocumentState.hxx>
 #endif
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <comphelper/sequence.hxx>
 #include <sfx2/lokhelper.hxx>
@@ -2169,7 +2169,7 @@ void SwCursorShell::UpdateCursor( sal_uInt16 eFlags, bool bIdleEnd, ScrollSizeMo
             if (Imp()->IsAccessible() && m_bSendAccessibleCursorEvents)
                 Imp()->InvalidateAccessibleCursorPosition( pTableFrame );
 #endif
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
                 sendLOKCursorUpdates();
             return;
         }
@@ -2473,7 +2473,7 @@ void SwCursorShell::UpdateCursor( sal_uInt16 eFlags, bool bIdleEnd, ScrollSizeMo
         RefreshBlockCursor();
 
     // We should not restrict cursor update to the active view when using LOK
-    bool bCheckFocus = m_bHasFocus || comphelper::LibreOfficeKit::isActive();
+    bool bCheckFocus = m_bHasFocus || comphelper::loficeKit::isActive();
 
     if( !bIdleEnd && bCheckFocus && !m_bBasicHideCursor )
     {
@@ -2541,7 +2541,7 @@ void SwCursorShell::UpdateCursor( sal_uInt16 eFlags, bool bIdleEnd, ScrollSizeMo
     GetDoc()->getIDocumentState().YrsNotifyCursorUpdate();
 #endif
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         sendLOKCursorUpdates();
 
     getIDocumentMarkAccess()->NotifyCursorUpdate(*this);
@@ -2620,7 +2620,7 @@ void SwCursorShell::sendLOKCursorUpdates()
     }
 
     OString pChar = aJsonWriter.finishAndGetAsOString();
-    pNotifySh->libreOfficeKitViewCallback(LOK_CALLBACK_TABLE_SELECTED, pChar);
+    pNotifySh->loficeKitViewCallback(LOK_CALLBACK_TABLE_SELECTED, pChar);
 }
 
 void SwCursorShell::RefreshBlockCursor()
@@ -2908,10 +2908,10 @@ void SwCursorShell::ShowCursor()
     m_pCurrentCursor->SetShowTextInputFieldOverlay( true );
     m_pCurrentCursor->SetShowContentControlOverlay(true);
 
-    if (SfxViewShell* pNotifySh = comphelper::LibreOfficeKit::isActive() ? GetSfxViewShell() : nullptr)
+    if (SfxViewShell* pNotifySh = comphelper::loficeKit::isActive() ? GetSfxViewShell() : nullptr)
     {
         const OString aPayload = OString::boolean(m_bSVCursorVis);
-        pNotifySh->libreOfficeKitViewCallback(LOK_CALLBACK_CURSOR_VISIBLE, aPayload);
+        pNotifySh->loficeKitViewCallback(LOK_CALLBACK_CURSOR_VISIBLE, aPayload);
         SfxLokHelper::notifyOtherViews(pNotifySh, LOK_CALLBACK_VIEW_CURSOR_VISIBLE, "visible", aPayload);
     }
 
@@ -2930,10 +2930,10 @@ void SwCursorShell::HideCursor()
     m_pCurrentCursor->SetShowContentControlOverlay(false);
     m_pVisibleCursor->Hide();
 
-    if (SfxViewShell* pNotifySh = comphelper::LibreOfficeKit::isActive() ? GetSfxViewShell() : nullptr)
+    if (SfxViewShell* pNotifySh = comphelper::loficeKit::isActive() ? GetSfxViewShell() : nullptr)
     {
         OString aPayload = OString::boolean(m_bSVCursorVis);
-        pNotifySh->libreOfficeKitViewCallback(LOK_CALLBACK_CURSOR_VISIBLE, aPayload);
+        pNotifySh->loficeKitViewCallback(LOK_CALLBACK_CURSOR_VISIBLE, aPayload);
         SfxLokHelper::notifyOtherViews(pNotifySh, LOK_CALLBACK_VIEW_CURSOR_VISIBLE, "visible", aPayload);
     }
 }

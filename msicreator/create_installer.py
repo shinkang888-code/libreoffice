@@ -37,11 +37,11 @@ def create_creator_json():
         "upgrade_guid": "6f05ed48-a735-4155-ab60-e4cc98455262",
         "version": lo_version,
         "product_name": lo_name,
-        "manufacturer": "The Document Foundation",
+        "manufacturer": "Lonex. Inc",
         "name": lo_name,
         "name_base": lo_name,
         "comments": "Testing a libo installer",
-        "installdir": "LibreOffice Test",
+        "installdir": "lofice Test",
         "startmenu_shortcut": "program/soffice.exe",
         "desktop_shortcut": "program/soffice.exe",
         "addremove_icon": uninstaller_icon,
@@ -55,16 +55,16 @@ def create_creator_json():
         },
         "parts": [
             {
-                "id": "libreoffice",
-                "title": "The LibreOffice Suite",
-                "description": "This is a test for the LibreOffice installer",
+                "id": "lofice",
+                "title": "The lofice Suite",
+                "description": "This is a test for the lofice installer",
                 "absent": "disallow",
                 "staged_dir": "main"
             },
             {
-                "id": "libreofficefonts",
-                "title": "The LibreOffice Fonts ",
-                "description": "This is a test for the LibreOffice Fonts",
+                "id": "loficefonts",
+                "title": "The lofice Fonts ",
+                "description": "This is a test for the lofice Fonts",
                 "absent": "allow",
                 "staged_dir": "libo-fonts"
             }

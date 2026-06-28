@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 #ifndef INCLUDED_COM_SUN_STAR_UNO_SEQUENCE_HXX
 #define INCLUDED_COM_SUN_STAR_UNO_SEQUENCE_HXX
@@ -279,7 +279,7 @@ void sequence_output_bytes( std::basic_ostream<charT, traits> &os, const value_t
    Support for Sequence in std::ostream (and thus in CPPUNIT_ASSERT or SAL_INFO
    macros, for example).
 
-   @since LibreOffice 6.1
+   @since lofice 6.1
 */
 template< typename value_t, typename charT, typename traits >
 inline std::basic_ostream<charT, traits> &operator<<(std::basic_ostream<charT, traits> &os, css::uno::Sequence<value_t> const& v)

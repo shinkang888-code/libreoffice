@@ -33,18 +33,18 @@ This guide is intended for contributors working on the **Rust UNO bindings** imp
 
 ## Project Overview
 
-The Rust UNO project enables LibreOffice to be scripted and extended using Rust. It works by inspecting the UNO IDL (Interface Definition Language) types and generating:
+The Rust UNO project enables lofice to be scripted and extended using Rust. It works by inspecting the UNO IDL (Interface Definition Language) types and generating:
 
 1. **Rust Wrappers**: Safe, idiomatic Rust structs.
 2. **C++ Bridges**: `extern "C"` functions that handle the raw UNO C++ API.
 
-The system is fully integrated into the LibreOffice build system via `autogen.sh` and `make`.
+The system is fully integrated into the lofice build system via `autogen.sh` and `make`.
 
 ---
 
 ## Codebase Structure
 
-The project is split across the core LibreOffice codebase:
+The project is split across the core lofice codebase:
 
 ### Code Generator (`codemaker`)
 
@@ -99,7 +99,7 @@ graph LR
 
 ### Prerequisites
 
-Ensure you have a full LibreOffice build environment and have run `./autogen.sh --enable-rust-uno`.
+Ensure you have a full lofice build environment and have run `./autogen.sh --enable-rust-uno`.
 
 ### Rebuilding Bindings
 
@@ -123,7 +123,7 @@ make
 
 ## Testing Strategy
 
-Testing is integrated into the LibreOffice startup sequence for basic sanity checks.
+Testing is integrated into the lofice startup sequence for basic sanity checks.
 
 ### Integration Tests
 

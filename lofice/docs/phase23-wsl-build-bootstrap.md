@@ -34,7 +34,7 @@ npm run embed
 ### WSL 직접
 
 ```bash
-cd /mnt/c/Users/.../libreoffice
+cd /mnt/c/Users/.../lofice
 LOFICE_WSL_INSTALL_DEPS=1 bash lofice/scripts/bootstrap-wsl-build.sh
 ENABLE_CURL=YES LOFICE_SKIP_OPTIONAL=1 bash lofice/scripts/verify-lofice-build.sh
 ```

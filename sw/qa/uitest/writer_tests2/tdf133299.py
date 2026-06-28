@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -8,7 +8,7 @@
 #
 
 from uitest.framework import UITestCase
-from libreoffice.uno.propertyvalue import mkPropertyValues
+from lofice.uno.propertyvalue import mkPropertyValues
 from uitest.uihelper.common import get_url_for_data_file
 
 class tdf133299(UITestCase):
@@ -19,7 +19,7 @@ class tdf133299(UITestCase):
             cursor = text.createTextCursor()
             textGraphic = document.createInstance('com.sun.star.text.TextGraphicObject')
             provider = self.xContext.ServiceManager.createInstance('com.sun.star.graphic.GraphicProvider')
-            graphic = provider.queryGraphic( mkPropertyValues({"URL": get_url_for_data_file("LibreOffice.jpg")}))
+            graphic = provider.queryGraphic( mkPropertyValues({"URL": get_url_for_data_file("lofice.jpg")}))
             textGraphic.Graphic = graphic
             text.insertTextContent(cursor, textGraphic, False)
             #select image

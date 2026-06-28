@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 # Use this script to update
-# https://wiki.documentfoundation.org/MissingUnitTests
+# https://wiki.lofice.io/MissingUnitTests
 
 import os
 import datetime
@@ -196,7 +196,7 @@ def main(ignoredBugs):
     fixList = []
     #Split the list into different chunks for the requests, otherwise it fails
     for chunk in splitList(listOfBugIdsWithoutTest, 50):
-        urlGet = 'https://bugs.documentfoundation.org/rest/bug?id=' + ','.join(chunk)
+        urlGet = 'https://bugs.lofice.io/rest/bug?id=' + ','.join(chunk)
         rGet = requests.get(urlGet)
         rawData = json.loads(rGet.text)
         rGet.close()

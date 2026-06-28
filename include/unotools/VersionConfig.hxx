@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -16,7 +16,7 @@
 namespace utl
 {
 /** This method is called when there's a need to determine if the
- * current version of LibreOffice has been upgraded to a newer one.
+ * current version of lofice has been upgraded to a newer one.
  */
 bool UNOTOOLS_DLLPUBLIC isProductVersionUpgraded();
 /** This method is called to detect if the program is started the

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -244,7 +244,7 @@ void ScDPFieldButton::drawPopupButton()
     // => one at the correct location with fill (possibly no outline)
     // => and the other at an x offset with outline and without fill
     // eg. Replacing this with a DrawRect() does not have any such problems.
-    comphelper::LibreOfficeKit::isActive() ? mpOutDev->SetLineColor() : mpOutDev->SetLineColor(aArrowColor);
+    comphelper::loficeKit::isActive() ? mpOutDev->SetLineColor() : mpOutDev->SetLineColor(aArrowColor);
     mpOutDev->SetFillColor(aArrowColor);
 
     Point aCenter(aPos.X() + (aSize.Width() / 2), aPos.Y() + (aSize.Height() / 2));

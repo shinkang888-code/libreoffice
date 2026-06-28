@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -103,7 +103,7 @@ css::beans::Optional<css::uno::Any> getValue(std::u16string_view id)
                 // The proxy address may depend on the requested address, on the time of the day, on the speed of the wind...
                 // The best we can do here is to ask the current value for a given address.
                 aHTTPProxy = KProtocolManager::proxyForUrl(
-                    QUrl(QStringLiteral("http://www.libreoffice.org")));
+                    QUrl(QStringLiteral("http://www.lofice.org")));
                 break;
             default: // No proxy is used
                 break;
@@ -130,7 +130,7 @@ css::beans::Optional<css::uno::Any> getValue(std::u16string_view id)
                 // The proxy address may depend on the requested address, on the time of the day, on the speed of the wind...
                 // The best we can do here is to ask the current value for a given address.
                 aHTTPProxy = KProtocolManager::proxyForUrl(
-                    QUrl(QStringLiteral("http://www.libreoffice.org")));
+                    QUrl(QStringLiteral("http://www.lofice.org")));
                 break;
             default: // No proxy is used
                 break;
@@ -157,7 +157,7 @@ css::beans::Optional<css::uno::Any> getValue(std::u16string_view id)
                 // The proxy address may depend on the requested address, on the time of the day, on the speed of the wind...
                 // The best we can do here is to ask the current value for a given address.
                 aHTTPSProxy = KProtocolManager::proxyForUrl(
-                    QUrl(QStringLiteral("https://www.libreoffice.org")));
+                    QUrl(QStringLiteral("https://www.lofice.org")));
                 break;
             default: // No proxy is used
                 break;
@@ -184,7 +184,7 @@ css::beans::Optional<css::uno::Any> getValue(std::u16string_view id)
                 // The proxy address may depend on the requested address, on the time of the day, on the speed of the wind...
                 // The best we can do here is to ask the current value for a given address.
                 aHTTPSProxy = KProtocolManager::proxyForUrl(
-                    QUrl(QStringLiteral("https://www.libreoffice.org")));
+                    QUrl(QStringLiteral("https://www.lofice.org")));
                 break;
             default: // No proxy is used
                 break;

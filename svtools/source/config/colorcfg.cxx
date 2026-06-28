@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -256,7 +256,7 @@ void ColorConfig_Impl::Notify(const uno::Sequence<OUString>& rProperties)
     // 'OnlyCurrentDocumentColorScheme' to allow them to go through, but
     // identify what that change is for, so the other color config listeners for
     // whom it doesn't matter, can ignore it as an optimization.
-    const bool bOnlyCurrentDocumentColorScheme = (bEmptyColorSchemeNotify || bEmptyCurrentSchemeNotify) && comphelper::LibreOfficeKit::isActive();
+    const bool bOnlyCurrentDocumentColorScheme = (bEmptyColorSchemeNotify || bEmptyCurrentSchemeNotify) && comphelper::loficeKit::isActive();
     NotifyListeners(bOnlyCurrentDocumentColorScheme ? ConfigurationHints::OnlyCurrentDocumentColorScheme : ConfigurationHints::NONE);
 }
 

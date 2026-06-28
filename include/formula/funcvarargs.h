@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -27,7 +27,7 @@
     fixed parameters followed by optional paired parameters.
 
     @NOTE: also
-    reportbuilder/java/org/libreoffice/report/pentaho/StarFunctionDescription.java
+    reportbuilder/java/org/lofice/report/pentaho/StarFunctionDescription.java
     uses a hard coded value in StarFunctionDescription::getArguments() for
     functionDescription.isInfiniteParameterCount() which though looks like it
     could be easily adapted.

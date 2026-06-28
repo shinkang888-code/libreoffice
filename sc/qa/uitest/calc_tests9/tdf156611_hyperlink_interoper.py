@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,8 +9,8 @@
 
 from uitest.framework import UITestCase
 from uitest.uihelper.common import get_url_for_data_file
-from libreoffice.uno.propertyvalue import mkPropertyValues
-from libreoffice.calc.document import get_cell_by_position
+from lofice.uno.propertyvalue import mkPropertyValues
+from lofice.calc.document import get_cell_by_position
 from uitest.uihelper.calc import enter_text_to_cell
 from uitest.uihelper.common import get_state_as_dict, select_pos
 
@@ -22,7 +22,7 @@ class tdf156611(UITestCase):
         with self.ui_test.load_file(get_url_for_data_file("tdf126541_GridOff.xlsx")) as document:
 
             # data that we will check against when hyperlink is inserted
-            urls =[["",""],["https://www.documentfoundation.org/",""]]
+            urls =[["",""],["https://www.lofice.io/",""]]
             texts =[["aaa bbb","bbb"],["cccc ddd","ddd"],["eeee","aaa cccc eeee"]]
 
             # 1. run, we want hyperlink insertion work like in MS excel (only 1 hyperlink/cell is allowed)
@@ -32,11 +32,11 @@ class tdf156611(UITestCase):
                 xGridWindow = xCalcDoc.getChild("grid_window")
 
                 #Change hyperlink interoperability setting
-                #Go to Tools -> Options -> LibreofficeDev Calc -> Compatibility
+                #Go to Tools -> Options -> loficeDev Calc -> Compatibility
                 with self.ui_test.execute_dialog_through_command(".uno:OptionsTreeDialog", close_button="cancel") as xDialogOpt:
 
                     xPages = xDialogOpt.getChild("pages")
-                    xChartEntry = xPages.getChild('3')                 # LibreofficeDev Calc
+                    xChartEntry = xPages.getChild('3')                 # loficeDev Calc
                     xChartEntry.executeAction("EXPAND", tuple())
                     xChartGeneralEntry = xChartEntry.getChild('7')
                     xChartGeneralEntry.executeAction("SELECT", tuple())          #Compatibility
@@ -67,7 +67,7 @@ class tdf156611(UITestCase):
 
                     # Insert a sample hyperlink, and change text
                     xTarget.executeAction("TYPE", mkPropertyValues({"KEYCODE":"CTRL+A"}))
-                    xTarget.executeAction("TYPE", mkPropertyValues({"TEXT": "https://www.documentfoundation.org/"}))
+                    xTarget.executeAction("TYPE", mkPropertyValues({"TEXT": "https://www.lofice.io/"}))
                     xIndication.executeAction("TYPE", mkPropertyValues({"KEYCODE":"CTRL+A"}))
                     xIndication.executeAction("TYPE", mkPropertyValues({"TEXT": "cccc"}))
 
@@ -91,7 +91,7 @@ class tdf156611(UITestCase):
 
                     xTarget = xDialog2.getChild("target")
                     self.assertEqual(get_state_as_dict(xTarget)["Text"], urls[1][i])
-                    # 1. run: "https://www.documentfoundation.org/" the cell already have this url.
+                    # 1. run: "https://www.lofice.io/" the cell already have this url.
                     # 2. run: "" The selected text is not a hyperlink yet.
                     xIndication = xDialog2.getChild("indication")
                     self.assertEqual(get_state_as_dict(xIndication)["Text"], texts[1][i])
@@ -117,7 +117,7 @@ class tdf156611(UITestCase):
                 self.assertEqual(len(xTextFields), i+1)
                 self.assertEqual(xTextFields[i].URL, "https://aWrongLink/")
                 if (i==1):
-                    self.assertEqual(xTextFields[0].URL, "https://www.documentfoundation.org/")
+                    self.assertEqual(xTextFields[0].URL, "https://www.lofice.io/")
                 # 1. run: only the last inserted hyperlink will remain: "https://aWrongLink/"
                 # 2. run: both links will be in the cell
 

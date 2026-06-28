@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -274,9 +274,9 @@ void SvXMLMetaDocumentContext::setBuildId(std::u16string_view i_rBuildId, const 
         }
     }
 
-    // "LibreOffice_project" was hard-coded since LO 3.3.0
+    // "lofice_project" was hard-coded since LO 3.3.0
     // see utl::DocInfoHelper::GetGeneratorString()
-    if (i_rBuildId.find(u"LibreOffice_project/") != std::u16string_view::npos)
+    if (i_rBuildId.find(u"lofice_project/") != std::u16string_view::npos)
     {
         OUStringBuffer sNumber;
         size_t const firstSlash = i_rBuildId.find('/');

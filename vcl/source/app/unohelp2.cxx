@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -30,7 +30,7 @@
 #include <cppuhelper/queryinterface.hxx>
 #include <boost/property_tree/json_parser.hpp>
 #include <comphelper/lok.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 using namespace ::com::sun::star;
 
@@ -46,7 +46,7 @@ TextDataObject::~TextDataObject() {}
 void TextDataObject::CopyStringTo(
     const OUString& rContent,
     const uno::Reference<datatransfer::clipboard::XClipboard>& rxClipboard,
-    const vcl::ILibreOfficeKitNotifier* pNotifier)
+    const vcl::IloficeKitNotifier* pNotifier)
 {
     SAL_WARN_IF(!rxClipboard.is(), "vcl", "TextDataObject::CopyStringTo: invalid clipboard!");
     if (!rxClipboard.is())
@@ -64,14 +64,14 @@ void TextDataObject::CopyStringTo(
         if (xFlushableClipboard.is())
             xFlushableClipboard->flushClipboard();
 
-        if (pNotifier != nullptr && comphelper::LibreOfficeKit::isActive())
+        if (pNotifier != nullptr && comphelper::loficeKit::isActive())
         {
             boost::property_tree::ptree aTree;
             aTree.put("content", rContent);
             aTree.put("mimeType", "text/plain");
             std::stringstream aStream;
             boost::property_tree::write_json(aStream, aTree);
-            pNotifier->libreOfficeKitViewCallback(LOK_CALLBACK_CLIPBOARD_CHANGED,
+            pNotifier->loficeKitViewCallback(LOK_CALLBACK_CLIPBOARD_CHANGED,
                                                   OString(aStream.str()));
         }
     }

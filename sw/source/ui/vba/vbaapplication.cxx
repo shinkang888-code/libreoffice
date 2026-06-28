@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column:100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -346,7 +346,7 @@ void SAL_CALL SwVbaApplication::setStatusBar( const OUString& _statusbar )
 
     // Yes, we intentionally use the "extensions.olebridge" tag here even if this is sw. We
     // interpret setting the StatusBar property as a request from an Automation client to display
-    // the string in LibreOffice's debug output, and all other generic Automation support debug
+    // the string in lofice's debug output, and all other generic Automation support debug
     // output (in extensions/source/ole) uses that tag. If the check for "cross-module" or mixed log
     // areas in compilerplugins/clang/sallogareas.cxx is re-activated, this will have to be added as
     // a special case.

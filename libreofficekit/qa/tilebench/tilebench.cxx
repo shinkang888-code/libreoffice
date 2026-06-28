@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -16,9 +16,9 @@
 #include <iostream>
 #include <osl/time.h>
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
-#include <LibreOfficeKit/LibreOfficeKitInit.h>
-#include <LibreOfficeKit/LibreOfficeKit.hxx>
+#include <loficeKit/loficeKitEnums.h>
+#include <loficeKit/loficeKitInit.h>
+#include <loficeKit/loficeKit.hxx>
 
 #ifdef IOS
 #include <vcl/svapp.hxx>
@@ -32,7 +32,7 @@ static int help( const char *error = nullptr )
 {
     if (error)
         fprintf (stderr, "Error: %s\n\n", error);
-    fprintf( stderr, "Usage: tilebench <absolute-path-to-libreoffice-install> [path to document] [--preinit] [--save <path>] <options>\n");
+    fprintf( stderr, "Usage: tilebench <absolute-path-to-lofice-install> [path to document] [--preinit] [--save <path>] <options>\n");
     fprintf( stderr, "\trenders a selection of small tiles from the document, checksums them and times the process based on options:\n" );
     fprintf( stderr, "\t--tile\t[max parts|-1] [max tiles|-1]\n" );
     fprintf( stderr, "\t--dialog\t<.uno:Command>\n" );
@@ -134,7 +134,7 @@ static void dumpTile(const char *pNameStem,
                         buf[2] = (*(pixel + 0) * 255 + alpha / 2) / alpha;
                         break;
                     default:
-                        assert(false && "unhandled LibreOfficeKitTileMode");
+                        assert(false && "unhandled loficeKitTileMode");
                         break;
                 }
             }
@@ -572,7 +572,7 @@ int main( int argc, char* argv[] )
 
     if ( argv[1][0] != '/' )
     {
-        fprintf(stderr, "Absolute path required to libreoffice install\n");
+        fprintf(stderr, "Absolute path required to lofice install\n");
         return 1;
     }
 

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 
 #ifndef INCLUDED_OSL_FILE_HXX
@@ -721,7 +721,7 @@ public:
         True if it's a directory, False otherwise.
 
         @see getFileType
-        @since LibreOffice 3.6
+        @since lofice 3.6
     */
     bool isDirectory() const
     {
@@ -736,7 +736,7 @@ public:
         @see getFileType
         @see isFile
         @see isLink
-        @since LibreOffice 3.6
+        @since lofice 3.6
     */
     bool isRegular() const
     {
@@ -749,7 +749,7 @@ public:
         True if it's a link, False otherwise.
 
         @see getFileType
-        @since LibreOffice 3.6
+        @since lofice 3.6
     */
     bool isLink() const
     {
@@ -925,7 +925,7 @@ public:
         @return
         the URL with which this File instance was created.
 
-        @since LibreOffice 4.1
+        @since lofice 4.1
     */
     rtl::OUString getURL() const { return _aPath; }
 
@@ -1326,7 +1326,7 @@ public:
 
         @see move()
 
-        @since LibreOffice 6.2
+        @since lofice 6.2
     */
     static RC replace(const ::rtl::OUString& ustrSourceFileURL,
                       const ::rtl::OUString& ustrDestFileURL)
@@ -1581,7 +1581,7 @@ public:
 
     @see osl_getDirectoryItem()
 
-    @since LibreOffice 3.6
+    @since lofice 3.6
 */
     bool isIdenticalTo( const DirectoryItem &pOther )
     {
@@ -1674,7 +1674,7 @@ public:
         @return
         the URL with which this Directory instance was created.
 
-        @since LibreOffice 4.1
+        @since lofice 4.1
     */
     rtl::OUString getURL() const { return _aPath; }
 
@@ -1834,7 +1834,7 @@ public:
 
         @param[in] flags
         Optional flags, see osl_createDirectoryWithFlags for details.  This
-        defaulted parameter is new since LibreOffice 4.3.
+        defaulted parameter is new since lofice 4.3.
 
         @retval E_None on success
         @retval E_INVAL the format of the parameters was not valid

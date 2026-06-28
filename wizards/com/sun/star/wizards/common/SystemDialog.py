@@ -1,5 +1,5 @@
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -111,7 +111,7 @@ class SystemDialog(object):
             xPropertyValue = list(oObject)
             for i in xPropertyValue:
                 if i is not None and i.Name == "UIName":
-                    return str(i.Value).replace("%productname%", "LibreOffice")
+                    return str(i.Value).replace("%productname%", "lofice")
 
             raise Exception(
                 "UIName property not found for Filter " + filterName)
@@ -121,7 +121,7 @@ class SystemDialog(object):
 
     @classmethod
     def showErrorBox(self, xMSF, sErrorMessage, AddTag=None, AddString=None):
-        sErrorMessage = sErrorMessage.replace("%PRODUCTNAME", "LibreOffice" )
+        sErrorMessage = sErrorMessage.replace("%PRODUCTNAME", "lofice" )
         sErrorMessage = sErrorMessage.replace(str(13), "<BR>")
         if AddTag and AddString:
             sErrorMessage = sErrorMessage.replace( AddString, AddTag)

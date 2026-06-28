@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -8,7 +8,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 
 #ifndef INCLUDED_SALHELPER_THREAD_HXX
@@ -28,7 +28,7 @@ namespace salhelper
 /**
    A safe encapsulation of ::osl::Thread.
 
-   @since LibreOffice 3.6
+   @since lofice 3.6
 */
 class SALHELPER_DLLPUBLIC Thread : public salhelper::SimpleReferenceObject, private osl::Thread
 {

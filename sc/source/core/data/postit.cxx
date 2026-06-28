@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -478,7 +478,7 @@ std::unique_ptr<ScPostIt> ScPostIt::Clone( const ScAddress& rOwnPos, ScDocument&
     if (bIsSameDoc && !mrDoc.IsClipboard() && rOwnPos == rDestPos)
         bCloneCaption = false;
     CreateCaptionFromInitData( rOwnPos );
-    sal_uInt32 nPostItId = comphelper::LibreOfficeKit::isActive() ? 0 : mnPostItId;
+    sal_uInt32 nPostItId = comphelper::loficeKit::isActive() ? 0 : mnPostItId;
     std::unique_ptr<ScPostIt> pClone;
     if (bCloneCaption)
         pClone = std::make_unique<ScPostIt>(rDestDoc, rDestPos, *this, nPostItId);

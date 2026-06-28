@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -52,11 +52,11 @@ static bool IsCloneable(const SfxPoolItem* pState)
 void ControllerItem::ReceiverNotifyItemUpdate(sal_uInt16 nSID, SfxItemState eState,
                                               const SfxPoolItem* pState)
 {
-    if (nSID == SID_ATTR_METRIC && IsCloneable(pState) && comphelper::LibreOfficeKit::isActive())
+    if (nSID == SID_ATTR_METRIC && IsCloneable(pState) && comphelper::loficeKit::isActive())
     {
         std::unique_ptr<SfxPoolItem> xClose(pState->Clone());
         MeasurementSystem eSystem
-            = LocaleDataWrapper(comphelper::LibreOfficeKit::getLocale()).getMeasurementSystemEnum();
+            = LocaleDataWrapper(comphelper::loficeKit::getLocale()).getMeasurementSystemEnum();
         FieldUnit eUnit = MeasurementSystem::Metric == eSystem ? FieldUnit::CM : FieldUnit::INCH;
         static_cast<SfxUInt16Item*>(xClose.get())->SetValue(static_cast<sal_uInt16>(eUnit));
         mrItemUpdateReceiver.NotifyItemUpdate(nSID, eState, xClose.get());

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -27,7 +27,7 @@ namespace framework {
  * Implementation of a service to make it easy to disable a whole
  * suite of UNO commands in a batch - and have that act in-process.
  *
- * Often external re-use of LibreOffice wants a very cut-down set
+ * Often external re-use of lofice wants a very cut-down set
  * of functionality included, and disabling elements remotely one
  * by one performs poorly.
  */

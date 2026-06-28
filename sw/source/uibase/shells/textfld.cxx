@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -117,7 +117,7 @@ static OUString lcl_BuildTitleWithRedline( const SwRangeRedline *pRedline )
 
 static bool lcl_canUserModifyAnnotation(const SwView& rView, std::u16string_view sAuthor)
 {
-    return !comphelper::LibreOfficeKit::isActive() || !rView.IsLokReadOnlyView()
+    return !comphelper::loficeKit::isActive() || !rView.IsLokReadOnlyView()
            || sAuthor == rView.GetRedlineAuthor();
 }
 
@@ -637,7 +637,7 @@ void SwTextShell::ExecField(SfxRequest &rReq)
             {
                 // In case of LOK and comment text is already provided, skip
                 // dialog creation and just change the redline comment directly
-                if (comphelper::LibreOfficeKit::isActive() && !sCommentText.isEmpty())
+                if (comphelper::loficeKit::isActive() && !sCommentText.isEmpty())
                 {
                     rSh.SetRedlineComment(sCommentText);
                     GetView().AttrChangedNotify(nullptr);
@@ -1743,12 +1743,12 @@ void SwTextShell::StateField( SfxItemSet &rSet )
             break;
 
         case FN_REDLINE_COMMENT:
-            if (!comphelper::LibreOfficeKit::isActive() && !rSh.GetCurrRedline())
+            if (!comphelper::loficeKit::isActive() && !rSh.GetCurrRedline())
                 rSet.DisableItem(nWhich);
             break;
 
         case FN_REPLY:
-            if (!comphelper::LibreOfficeKit::isActive())
+            if (!comphelper::loficeKit::isActive())
                 rSet.DisableItem(nWhich);
             break;
 
@@ -1874,7 +1874,7 @@ void SwTextShell::InsertHyperlink(const SvxHyperlinkItem& rHlnkItem)
             }
             rSh.SttSelect();
             // inserting mention
-            if (comphelper::LibreOfficeKit::isActive() && !rReplacementText.isEmpty())
+            if (comphelper::loficeKit::isActive() && !rReplacementText.isEmpty())
             {
                 SwPaM* pCursorPos = rSh.GetCursor();
                 // move cursor backwards to select @mention

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -67,7 +67,7 @@ OOperandParam::OOperandParam(sal_Int32 _nPos)
 {
     //TODO: Actually do something here (the current state of OOperandParam appears to be "the
     // remains of the very beginnings of a never finished implementation of support for parameters
-    // in this code", as Lionel put it in the comments at <https://gerrit.libreoffice.org/c/core/+/
+    // in this code", as Lionel put it in the comments at <https://gerrit.lofice.org/c/core/+/
     // 116839/1#message-7b2bbf3543f559a0b67dc35cd940e2ab8829c274> "-Werror,-Wunused-but-set-variable
     // (Clang 13 trunk)").
 }

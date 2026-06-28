@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -40,7 +40,7 @@
 #include <sfx2/printer.hxx>
 #include <toolkit/helper/vclunohelper.hxx>
 #include <toolkit/awt/vclxdevice.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <sfx2/lokcomponenthelpers.hxx>
 #include <sfx2/ipclient.hxx>
 #include <editeng/svxacorr.hxx>
@@ -2961,7 +2961,7 @@ uno::Sequence< beans::PropertyValue > SAL_CALL SwXTextDocument::getRenderer(
                 // to PDF instead of a printer from within the native print
                 // dialog so set the printer's paper to the preferred size so
                 // that the initial preview more closely matches the page size
-                // and rotation that LibreOffice expects.
+                // and rotation that lofice expects.
                 if (bPrintProspect)
                 {
                     // we just state what output size we would need
@@ -2973,7 +2973,7 @@ uno::Sequence< beans::PropertyValue > SAL_CALL SwXTextDocument::getRenderer(
                     // Related: tdf#163126 set both page size properties as
                     // they do two different things. The preferred page size
                     // tells the printer to set its paper size. But the page
-                    // size is the size that LibreOffice will actually draw.
+                    // size is the size that lofice will actually draw.
                     // Fortunately on macOS, there is a good chance that the
                     // print output will closely match the preferred page size
                     // since there is no problem printing to a page size not
@@ -3382,7 +3382,7 @@ void SwXTextDocument::paintTile( VirtualDevice &rDevice,
                                          nTilePosX, nTilePosY, nTileWidth, nTileHeight);
 
     // Draw Form controls
-    comphelper::LibreOfficeKit::setTiledPainting(true);
+    comphelper::loficeKit::setTiledPainting(true);
     SwDrawModel* pDrawLayer = GetDocOrThrow().getIDocumentDrawModelAccess().GetDrawModel();
     SdrPage* pPage = pDrawLayer->GetPage(sal_uInt16(0));
     SdrView* pDrawView = pViewShell->GetDrawView();
@@ -3390,7 +3390,7 @@ void SwXTextDocument::paintTile( VirtualDevice &rDevice,
     tools::Rectangle aTileRect(Point(nTilePosX, nTilePosY), Size(nTileWidth, nTileHeight));
     Size aOutputSize(nOutputWidth, nOutputHeight);
     LokControlHandler::paintControlTile(pPage, pDrawView, rEditWin, rDevice, aOutputSize, aTileRect);
-    comphelper::LibreOfficeKit::setTiledPainting(false);
+    comphelper::loficeKit::setTiledPainting(false);
 }
 
 Size SwXTextDocument::getDocumentSize()
@@ -3958,7 +3958,7 @@ void SwXTextDocument::initializeForTiledRendering(const css::uno::Sequence<css::
     // editing, see postMouseEvent and setGraphicSelection methods.
     aViewOption.SetZoom(1 * 100);
 
-    aViewOption.SetPostIts(comphelper::LibreOfficeKit::isTiledAnnotations());
+    aViewOption.SetPostIts(comphelper::loficeKit::isTiledAnnotations());
     pViewShell->ApplyViewOptions(aViewOption);
 
     // position the pages again after setting view options. Eg: if postit

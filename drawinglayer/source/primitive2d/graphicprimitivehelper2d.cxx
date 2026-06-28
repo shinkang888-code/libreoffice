@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -480,7 +480,7 @@ namespace drawinglayer::primitive2d
             // and the document is left open for a minute or two without
             // changing any content, this destructor will be called on a
             // non-main thread with the mutex unlocked:
-            //   https://bugs.documentfoundation.org/attachment.cgi?id=46801
+            //   https://bugs.lofice.io/attachment.cgi?id=46801
             // This hits an assert in VirtualDevice::ReleaseGraphics() so
             // explicitly lock the mutex and explicitly dispose and clear
             // the VirtualDevice instances variables.

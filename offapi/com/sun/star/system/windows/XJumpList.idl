@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -20,7 +20,7 @@ module com { module sun { module star { module system { module windows {
     Use XJumpList::abortList to cancel a current list building session.
     Use XJumpList::getRemovedItems to see which items were removed by the user.
 
-    @since LibreOffice 7.4
+    @since lofice 7.4
 */
 interface XJumpList: com::sun::star::uno::XInterface
 {
@@ -39,7 +39,7 @@ interface XJumpList: com::sun::star::uno::XInterface
             <li>Startcenter</li>
         </ul>
 
-        "Startcenter" will map to the generic "LibreOffice" icon.
+        "Startcenter" will map to the generic "lofice" icon.
 
         @throws com::sun::star::lang::IllegalArgumentException
         When `application` is invalid
@@ -100,7 +100,7 @@ interface XJumpList: com::sun::star::uno::XInterface
     void addTasks([in] sequence<com::sun::star::system::windows::JumpListItem> jumpListItems)
         raises( ::com::sun::star::lang::IllegalArgumentException, ::com::sun::star::util::InvalidStateException );
 
-    /** Display the recently used files (populated by LibreOffice)
+    /** Display the recently used files (populated by lofice)
 
         @throws com::sun::star::util::InvalidStateException
         When there is no open list.
@@ -108,7 +108,7 @@ interface XJumpList: com::sun::star::uno::XInterface
     void showRecentFiles()
         raises (::com::sun::star::util::InvalidStateException);
 
-    /** Display the frequently used files (populated by LibreOffice)
+    /** Display the frequently used files (populated by lofice)
 
         @throws com::sun::star::util::InvalidStateException
         When there is no open list.
@@ -148,7 +148,7 @@ interface XJumpList: com::sun::star::uno::XInterface
             <li>Startcenter</li>
         </ul>
 
-        "Startcenter" will map to the generic "LibreOffice" icon.
+        "Startcenter" will map to the generic "lofice" icon.
 
         @throws com::sun::star::lang::IllegalArgumentException
         When `application` is invalid
@@ -173,7 +173,7 @@ interface XJumpList: com::sun::star::uno::XInterface
             <li>Startcenter</li>
         </ul>
 
-        "Startcenter" will map to the generic "LibreOffice" icon.
+        "Startcenter" will map to the generic "lofice" icon.
 
         @return List of removed items.
     */

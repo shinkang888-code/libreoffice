@@ -1,5 +1,5 @@
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -114,5 +114,5 @@ xda                     http://schemas.microsoft.com/office/spreadsheetml/2017/d
 # xls14Lst for features introduced by excel 2010
 xls14Lst               http://schemas.microsoft.com/office/spreadsheetml/2009/9/main
 
-# LibreOffice's own extensions
-loext                  http://schemas.libreoffice.org/
+# lofice's own extensions
+loext                  http://schemas.lofice.org/

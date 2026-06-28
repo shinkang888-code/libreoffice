@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -2360,7 +2360,7 @@ void ChartExport::exportChart( const Reference< css::chart::XChartDocument >& xC
                 pFS->endElement( FSNS( XML_c, XML_floor ) );
             }
 
-            // LibreOffice doesn't distinguish between sideWall and backWall (both are using the same color).
+            // lofice doesn't distinguish between sideWall and backWall (both are using the same color).
             // It is controlled by the same Wall property.
             Reference< beans::XPropertySet > xWall = mxNewDiagram->getWall();
             if( xWall.is() )
@@ -3057,8 +3057,8 @@ void ChartExport::exportPlotArea(const Reference< css::chart::XChartDocument >& 
      */
     Reference< css::chart::X3DDisplay > xWallFloorSupplier( mxDiagram, uno::UNO_QUERY );
     // tdf#114139 For 2D charts Plot Area equivalent is Chart Wall.
-    // Unfortunately LibreOffice doesn't have Plot Area equivalent for 3D charts.
-    // It means that Plot Area couldn't be displayed and changed for 3D chars in LibreOffice.
+    // Unfortunately lofice doesn't have Plot Area equivalent for 3D charts.
+    // It means that Plot Area couldn't be displayed and changed for 3D chars in lofice.
     // We cannot write Wall attributes into Plot Area for 3D charts, because Wall us used as background wall.
     if( !mbIs3DChart && xWallFloorSupplier.is() )
     {
@@ -3067,7 +3067,7 @@ void ChartExport::exportPlotArea(const Reference< css::chart::XChartDocument >& 
         {
             uno::Any aAny = xWallPropSet->getPropertyValue(u"LineStyle"_ustr);
             sal_Int32 eChartType = getChartType( );
-            // Export LineStyle_NONE instead of default linestyle of PlotArea border, because LibreOffice
+            // Export LineStyle_NONE instead of default linestyle of PlotArea border, because lofice
             // make invisible the Wall shape properties, in case of these charts. Or in the future set
             // the default LineStyle of these charts to LineStyle_NONE.
             bool noSupportWallProp = ( (eChartType == chart::TYPEID_PIE) || (eChartType == chart::TYPEID_RADARLINE) || (eChartType == chart::TYPEID_RADARAREA) );
@@ -3540,7 +3540,7 @@ void ChartExport::exportBarChart(const Reference< chart2::XChartType >& xChartTy
                 // Stacked/Percent Bar/Column chart Overlap-workaround
                 // Export the Overlap value with 100% for stacked charts,
                 // because the default overlap value of the Bar/Column chart is 0% and
-                // LibreOffice do nothing with the overlap value in Stacked charts case,
+                // lofice do nothing with the overlap value in Stacked charts case,
                 // unlike the MS Office, which is interpreted differently.
                 if ((mbStacked || mbPercent) && nOverlap != 100)
                 {

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -24,7 +24,7 @@ protected:
 };
 
 //A test to ensure that our Title Case functionality is working
-//http://lists.freedesktop.org/archives/libreoffice/2012-June/032767.html
+//http://lists.freedesktop.org/archives/lofice/2012-June/032767.html
 //https://bz.apache.org/ooo/show_bug.cgi?id=30863
 CPPUNIT_TEST_FIXTURE(TestCharacterClassification, testTitleCase)
 {
@@ -58,7 +58,7 @@ CPPUNIT_TEST_FIXTURE(TestCharacterClassification, testTitleCase)
     }
 }
 
-//https://bugs.libreoffice.org/show_bug.cgi?id=69641
+//https://bugs.lofice.org/show_bug.cgi?id=69641
 CPPUNIT_TEST_FIXTURE(TestCharacterClassification, testStringType)
 {
     lang::Locale aLocale;

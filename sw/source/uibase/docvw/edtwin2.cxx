@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -66,7 +66,7 @@
 #include <unomap.hxx>
 #include <names.hxx>
 #include <com/sun/star/style/XStyleFamiliesSupplier.hpp>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <viscrs.hxx>
 
 namespace {
@@ -716,7 +716,7 @@ void SwEditWin::RequestHelp(const HelpEvent &rEvt)
             }
             if (!sText.isEmpty())
             {
-                if (comphelper::LibreOfficeKit::isActive())
+                if (comphelper::loficeKit::isActive())
                 {
                     const SwRangeRedline* pRedline = nullptr;
                     if (aContentAtPos.eContentAtPos == IsAttrAtPos::Redline)
@@ -724,7 +724,7 @@ void SwEditWin::RequestHelp(const HelpEvent &rEvt)
                         pRedline = aContentAtPos.aFnd.pRedl;
                     }
                     OString aPayload = getTooltipPayload(sText, aFieldRect, rSh, pRedline);
-                    m_rView.libreOfficeKitViewCallback(LOK_CALLBACK_TOOLTIP, aPayload);
+                    m_rView.loficeKitViewCallback(LOK_CALLBACK_TOOLTIP, aPayload);
                 }
                 else
                 {
@@ -784,15 +784,15 @@ void SwEditWin::Paint(vcl::RenderContext& rRenderContext, const tools::Rectangle
     {
         pWrtShell->setOutputToWindow(true);
         bool bTiledPainting = false;
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
-            bTiledPainting = comphelper::LibreOfficeKit::isTiledPainting();
-            comphelper::LibreOfficeKit::setTiledPainting(true);
+            bTiledPainting = comphelper::loficeKit::isTiledPainting();
+            comphelper::loficeKit::setTiledPainting(true);
         }
         pWrtShell->Paint(rRenderContext, rRect);
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
-            comphelper::LibreOfficeKit::setTiledPainting(bTiledPainting);
+            comphelper::loficeKit::setTiledPainting(bTiledPainting);
         }
         pWrtShell->setOutputToWindow(false);
     }

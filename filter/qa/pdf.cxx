@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -149,7 +149,7 @@ void Test::doTestCommentsInMargin(bool commentsInMarginEnabled)
         return;
 
     loadFromFile(u"commentsInMargin.odt");
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         vcl::ITiledRenderable* pTiledDoc = dynamic_cast<vcl::ITiledRenderable*>(mxComponent.get());
         pTiledDoc->initializeForTiledRendering(uno::Sequence<beans::PropertyValue>());
@@ -202,29 +202,29 @@ CPPUNIT_TEST_FIXTURE(Test, testCommentsInMarginDisabled) { doTestCommentsInMargi
 
 CPPUNIT_TEST_FIXTURE(Test, testCommentsInMarginEnabledTiledAnnotationsEnabled)
 {
-    comphelper::LibreOfficeKit::setActive(true);
-    comphelper::LibreOfficeKit::setTiledAnnotations(true);
+    comphelper::loficeKit::setActive(true);
+    comphelper::loficeKit::setTiledAnnotations(true);
     doTestCommentsInMargin(true);
 }
 
 CPPUNIT_TEST_FIXTURE(Test, testCommentsInMarginDisabledTiledAnnotationsEnabled)
 {
-    comphelper::LibreOfficeKit::setActive(true);
-    comphelper::LibreOfficeKit::setTiledAnnotations(true);
+    comphelper::loficeKit::setActive(true);
+    comphelper::loficeKit::setTiledAnnotations(true);
     doTestCommentsInMargin(false);
 }
 
 CPPUNIT_TEST_FIXTURE(Test, testCommentsInMarginEnabledTiledAnnotationsDisabled)
 {
-    comphelper::LibreOfficeKit::setActive(true);
-    comphelper::LibreOfficeKit::setTiledAnnotations(false);
+    comphelper::loficeKit::setActive(true);
+    comphelper::loficeKit::setTiledAnnotations(false);
     doTestCommentsInMargin(true);
 }
 
 CPPUNIT_TEST_FIXTURE(Test, testCommentsInMarginDisabledTiledAnnotationsDisabled)
 {
-    comphelper::LibreOfficeKit::setActive(true);
-    comphelper::LibreOfficeKit::setTiledAnnotations(false);
+    comphelper::loficeKit::setActive(true);
+    comphelper::loficeKit::setTiledAnnotations(false);
     doTestCommentsInMargin(false);
 }
 

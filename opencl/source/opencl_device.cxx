@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -42,7 +42,7 @@ void DS_CHECK_STATUS(cl_int status, char const * name) {
 bool bIsDeviceSelected = false;
 ds_device selectedDevice;
 
-struct LibreOfficeDeviceEvaluationIO
+struct loficeDeviceEvaluationIO
 {
     std::vector<double> input0;
     std::vector<double> input1;
@@ -119,7 +119,7 @@ double random(double min, double max)
 }
 
 /* Populate input */
-void populateInput(std::unique_ptr<LibreOfficeDeviceEvaluationIO> const & testData)
+void populateInput(std::unique_ptr<loficeDeviceEvaluationIO> const & testData)
 {
     double* input0 = testData->input0.data();
     double* input1 = testData->input1.data();
@@ -135,7 +135,7 @@ void populateInput(std::unique_ptr<LibreOfficeDeviceEvaluationIO> const & testDa
 }
 
 /* Evaluate devices */
-ds_status evaluateScoreForDevice(ds_device& rDevice, std::unique_ptr<LibreOfficeDeviceEvaluationIO> const & testData)
+ds_status evaluateScoreForDevice(ds_device& rDevice, std::unique_ptr<loficeDeviceEvaluationIO> const & testData)
 {
     if (rDevice.eType == DeviceType::OpenCLDevice)
     {
@@ -313,7 +313,7 @@ ds_status evaluateScoreForDevice(ds_device& rDevice, std::unique_ptr<LibreOffice
     return DS_SUCCESS;
 }
 
-ds_status profileDevices(std::unique_ptr<ds_profile> const & pProfile, std::unique_ptr<LibreOfficeDeviceEvaluationIO> const & pTestData)
+ds_status profileDevices(std::unique_ptr<ds_profile> const & pProfile, std::unique_ptr<loficeDeviceEvaluationIO> const & pTestData)
 {
     ds_status status = DS_SUCCESS;
 
@@ -500,7 +500,7 @@ ds_device const & getDeviceSelection(
         /* Setup */
         std::unique_ptr<ds_profile> aProfile;
         ds_status status;
-        status = initDSProfile(aProfile, "LibreOffice v1"_ostr);
+        status = initDSProfile(aProfile, "lofice v1"_ostr);
 
         if (status != DS_SUCCESS)
         {
@@ -529,7 +529,7 @@ ds_device const & getDeviceSelection(
             }
 
             /* Populate input data for micro-benchmark */
-            std::unique_ptr<LibreOfficeDeviceEvaluationIO> testData(new LibreOfficeDeviceEvaluationIO);
+            std::unique_ptr<loficeDeviceEvaluationIO> testData(new loficeDeviceEvaluationIO);
             testData->inputSize  = INPUTSIZE;
             testData->outputSize = OUTPUTSIZE;
             testData->input0.resize(testData->inputSize);

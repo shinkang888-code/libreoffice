@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -45,16 +45,16 @@ private:
     // Names of all available scheme names
     css::uno::Sequence<OUString> m_aSchemeNames;
 
-    // Names of default color schemes shipped with LibreOffice
+    // Names of default color schemes shipped with lofice
     css::uno::Sequence<OUString> m_aDefaultSchemes
-        = { u"COLORSCHEME_LIBREOFFICE_LIGHT"_ustr, u"COLORSCHEME_LIBREOFFICE_DARK"_ustr,
+        = { u"COLORSCHEME_lofice_LIGHT"_ustr, u"COLORSCHEME_lofice_DARK"_ustr,
             u"COLORSCHEME_BREEZE_LIGHT"_ustr,      u"COLORSCHEME_BREEZE_DARK"_ustr,
             u"COLORSCHEME_SOLARIZED_LIGHT"_ustr,   u"COLORSCHEME_SOLARIZED_DARK"_ustr };
 
     // Maps the scheme names to their TranslateId
     SchemeTranslateIdMap m_aTranslateIdsMap = {
-        { "COLORSCHEME_LIBREOFFICE_LIGHT", RID_STR_COLORSCHEME_LIGHT },
-        { "COLORSCHEME_LIBREOFFICE_DARK", RID_STR_COLORSCHEME_DARK },
+        { "COLORSCHEME_lofice_LIGHT", RID_STR_COLORSCHEME_LIGHT },
+        { "COLORSCHEME_lofice_DARK", RID_STR_COLORSCHEME_DARK },
         { "COLORSCHEME_BREEZE_LIGHT", RID_STR_COLORSCHEME_BREEZE_LIGHT },
         { "COLORSCHEME_BREEZE_DARK", RID_STR_COLORSCHEME_BREEZE_DARK },
         { "COLORSCHEME_SOLARIZED_LIGHT", RID_STR_COLORSCHEME_SOLARIZED_LIGHT },

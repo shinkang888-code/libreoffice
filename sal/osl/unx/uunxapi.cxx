@@ -1,6 +1,6 @@
 /* -*- Mode: ObjC; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -433,7 +433,7 @@ int ftruncate_with_name(int fd, sal_uInt64 uSize, const OString& path)
      * call already checked by the sandbox, still requires a security
      * scope bookmark for the file to be active in case the file is
      * one that the sandbox doesn't otherwise allow access to. Luckily
-     * LibreOffice usually calls ftruncate() through the helpful C++
+     * lofice usually calls ftruncate() through the helpful C++
      * abstraction layer that keeps the pathname around.
      */
 

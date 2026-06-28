@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_settings">LibreOffice Viewerin asetukset</string>
-    <string name="app_credits">https://www.libreoffice.org</string>
+    <string name="app_name_settings">lofice Viewerin asetukset</string>
+    <string name="app_credits">https://www.lofice.org</string>
     <string name="app_vendor">Tämä julkaisun toimitti $VENDOR.</string>
     <string name="readonly_file">Tämä tiedosto on kirjoitussuojattu.</string>
     <string name="about_license">Näytä lisenssi</string>
@@ -13,9 +13,9 @@
     <string name="new_drawing">Uusi piirros</string>
     <string name="default_document_name">nimetön</string>
     <string name="select_file_to_open">Valitse avattava tiedosto</string>
-    <string name="app_name">LibreOffice Viewer</string>
-    <string name="app_description">LibreOffice Viewer on LibreOfficeen perustuva asiakirjojen katseluohjelma.</string>
-    <string name="app_version">Versio: %1$s&lt;br&gt;Build ID: &lt;a href=https://hub.libreoffice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
+    <string name="app_name">lofice Viewer</string>
+    <string name="app_description">lofice Viewer on loficeen perustuva asiakirjojen katseluohjelma.</string>
+    <string name="app_version">Versio: %1$s&lt;br&gt;Build ID: &lt;a href=https://hub.lofice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
     <string name="no_camera_found">Kameraa ei löytynyt</string>
     <string name="compress_photo_smallest_size">Pienin koko</string>
     <string name="compress_photo_medium_size">Keskikoko</string>

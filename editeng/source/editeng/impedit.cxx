@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -43,7 +43,7 @@
 #include <vcl/window.hxx>
 #include <sot/exchange.hxx>
 #include <sot/formats.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/string.hxx>
 #include <sfx2/viewsh.hxx>
 #include <sfx2/lokhelper.hxx>
@@ -198,7 +198,7 @@ ImpEditView::ImpEditView(EditView* pView, EditEngine& rEditEngine, vcl::Window* 
     , meSelectionMode(EESelectionMode::Std)
     , meAnchorMode(EEAnchorMode::TopLeft)
     , mpEditViewCallbacks(nullptr)
-    , mbBroadcastLOKViewCursor(comphelper::LibreOfficeKit::isActive())
+    , mbBroadcastLOKViewCursor(comphelper::loficeKit::isActive())
     , mbSuppressLOKMessages(false)
     , mbNegativeX(false)
 {
@@ -248,7 +248,7 @@ void ImpEditView::SetEditSelection( const EditSelection& rEditSelection )
 
     SelectionChanged();
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         // Tiled rendering: selections are only painted when we are in selection mode.
         getEditEngine().SetInSelectionMode(maEditSelection.HasRange());
@@ -345,7 +345,7 @@ void ImpEditView::lokSelectionCallback(const std::optional<tools::PolyPolygon> &
         }
         OString sRectangle = comphelper::string::join("; ", v);
 
-        const vcl::ILibreOfficeKitNotifier* pNotifier = pParent->GetLOKNotifier();
+        const vcl::IloficeKitNotifier* pNotifier = pParent->GetLOKNotifier();
         std::vector<vcl::LOKPayloadItem> aItems;
         aItems.emplace_back("rectangles", sRectangle);
         aItems.emplace_back("startHandleVisible", OString::boolean(bStartHandleVisible));
@@ -424,7 +424,7 @@ void ImpEditView::lokSelectionCallback(const std::optional<tools::PolyPolygon> &
             if (mpLOKSpecialPositioning)
                 aPayload += ":: " + sRefPoint;
 
-            mpViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION_START, aPayload);
+            mpViewShell->loficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION_START, aPayload);
 
             tools::Rectangle& rEnd = aRectangles.back();
             tools::Rectangle aEnd(rEnd.Right() - 1, rEnd.Top(), rEnd.Right(), rEnd.Bottom());
@@ -433,7 +433,7 @@ void ImpEditView::lokSelectionCallback(const std::optional<tools::PolyPolygon> &
             if (mpLOKSpecialPositioning)
                 aPayload += ":: " + sRefPoint;
 
-            mpViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION_END, aPayload);
+            mpViewShell->loficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION_END, aPayload);
         }
 
         if (mpOtherShell)
@@ -444,7 +444,7 @@ void ImpEditView::lokSelectionCallback(const std::optional<tools::PolyPolygon> &
         }
         else
         {
-            mpViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION, sRectangle);
+            mpViewShell->loficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION, sRectangle);
             mpViewShell->NotifyOtherViews(LOK_CALLBACK_TEXT_VIEW_SELECTION, "selection"_ostr, sRectangle);
         }
     }
@@ -461,10 +461,10 @@ void ImpEditView::lokSelectionCallback(const std::optional<tools::PolyPolygon> &
 // the Region*, see GetSelectionRectangles below.
 void ImpEditView::DrawSelectionXOR( EditSelection aTmpSel, vcl::Region* pRegion, OutputDevice* pTargetDevice )
 {
-    if (getEditViewCallbacks() && !pRegion && !comphelper::LibreOfficeKit::isActive())
+    if (getEditViewCallbacks() && !pRegion && !comphelper::loficeKit::isActive())
     {
         // we are done, do *not* visualize self
-        // CAUTION: do not use when comphelper::LibreOfficeKit::isActive()
+        // CAUTION: do not use when comphelper::loficeKit::isActive()
         // due to event stuff triggered below. That *should* probably be moved
         // to SelectionChanged() which exists now, but I do not know enough about
         // that stuff to do it
@@ -488,7 +488,7 @@ void ImpEditView::DrawSelectionXOR( EditSelection aTmpSel, vcl::Region* pRegion,
 
     std::optional<tools::PolyPolygon> pPolyPoly;
 
-    if ( !pRegion && !comphelper::LibreOfficeKit::isActive())
+    if ( !pRegion && !comphelper::loficeKit::isActive())
     {
         if (!getImpEditEngine().IsUpdateLayout())
             return;
@@ -509,7 +509,7 @@ void ImpEditView::DrawSelectionXOR( EditSelection aTmpSel, vcl::Region* pRegion,
             mpOutputWindow->GetCursor()->Hide();
     }
 
-    if (comphelper::LibreOfficeKit::isActive() || pRegion)
+    if (comphelper::loficeKit::isActive() || pRegion)
         pPolyPoly = tools::PolyPolygon();
 
     DBG_ASSERT(!getEditEngine().IsIdleFormatterActive(), "DrawSelectionXOR: Not formatted!");
@@ -633,10 +633,10 @@ void ImpEditView::DrawSelectionXOR( EditSelection aTmpSel, vcl::Region* pRegion,
     };
     getImpEditEngine().IterateLineAreas(DrawHighlight, ImpEditEngine::IterFlag::none);
 
-    if (comphelper::LibreOfficeKit::isActive() && mpViewShell && mpOutputWindow)
+    if (comphelper::loficeKit::isActive() && mpViewShell && mpOutputWindow)
         lokSelectionCallback(pPolyPoly, bStartHandleVisible, bEndHandleVisible);
 
-    if (pRegion || comphelper::LibreOfficeKit::isActive())
+    if (pRegion || comphelper::loficeKit::isActive())
     {
         if (pRegion)
             *pRegion = vcl::Region( *pPolyPoly );
@@ -1363,7 +1363,7 @@ void ImpEditView::ShowCursor( bool bGotoCursor, bool bForceVisCursor )
 
         GetCursor()->SetSize( aCursorSz );
 
-        if (comphelper::LibreOfficeKit::isActive() && mpViewShell && !mbSuppressLOKMessages)
+        if (comphelper::loficeKit::isActive() && mpViewShell && !mbSuppressLOKMessages)
         {
             Point aPos = GetCursor()->GetPos();
             boost::property_tree::ptree aMessageParams;
@@ -1476,11 +1476,11 @@ void ImpEditView::ShowCursor( bool bGotoCursor, bool bForceVisCursor )
                 aMessageParams.put("mispelledWord", bIsWrong ? 1 : 0);
                 aMessageParams.add_child("hyperlink", aHyperlinkTree);
 
-                if (comphelper::LibreOfficeKit::isViewIdForVisCursorInvalidation())
+                if (comphelper::loficeKit::isViewIdForVisCursorInvalidation())
                     SfxLokHelper::notifyOtherView(*pThisShell, pThisShell,
                             LOK_CALLBACK_INVALIDATE_VISIBLE_CURSOR, aMessageParams);
                 else
-                    pThisShell->libreOfficeKitViewCallback(LOK_CALLBACK_INVALIDATE_VISIBLE_CURSOR,
+                    pThisShell->loficeKitViewCallback(LOK_CALLBACK_INVALIDATE_VISIBLE_CURSOR,
                             OString(aMessageParams.get<std::string>("rectangle")));
             }
         }
@@ -1642,12 +1642,12 @@ Pair ImpEditView::Scroll( tools::Long ndX, tools::Long ndY, ScrollRangeCheck nRa
 
         bool bInvalidateToTriggerRedraw = !mpOutputWindow && getEditViewCallbacks();
 
-        if (comphelper::LibreOfficeKit::isActive() || bInvalidateToTriggerRedraw)
+        if (comphelper::loficeKit::isActive() || bInvalidateToTriggerRedraw)
         {
             // Need to invalidate the window, otherwise no tile will be re-painted.
             // NOTE:
             // No invalidate in the sense of repaint needed, so not needed for
-            // all cases. Keeping it here so that for LibreOfficeKit this is still
+            // all cases. Keeping it here so that for loficeKit this is still
             // done, that may need a repaint. Just doing it will work, but do an
             // extra-primitive extraction at the paint which is usually not needed
             GetEditViewPtr()->Invalidate();
@@ -1672,7 +1672,7 @@ Pair ImpEditView::Scroll( tools::Long ndX, tools::Long ndY, ScrollRangeCheck nRa
         if (EditViewCallbacks* pCallbacks = getEditViewCallbacks())
             pCallbacks->EditViewScrollStateChange();
 
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             DrawSelectionXOR();
         }
@@ -2123,12 +2123,12 @@ void ImpEditView::DeselectAll()
     SetEditSelection(aNewSelection);
     // const_cast<EditPaM&>(GetEditSelection().Min()) = GetEditSelection().Max();
 
-    if (comphelper::LibreOfficeKit::isActive() && mpViewShell && mpOutputWindow)
+    if (comphelper::loficeKit::isActive() && mpViewShell && mpOutputWindow)
     {
         VclPtr<vcl::Window> pParent = mpOutputWindow->GetParentWithLOKNotifier();
         if (pParent && pParent->GetLOKWindowId())
         {
-            const vcl::ILibreOfficeKitNotifier* pNotifier = pParent->GetLOKNotifier();
+            const vcl::IloficeKitNotifier* pNotifier = pParent->GetLOKNotifier();
             std::vector<vcl::LOKPayloadItem> aItems;
             aItems.emplace_back("rectangles", "");
             pNotifier->notifyWindow(pParent->GetLOKWindowId(), u"text_selection"_ustr, aItems);
@@ -2179,7 +2179,7 @@ bool ImpEditView::SetCursorAtPoint( const Point& rPointPixel )
     bool bGotoCursor = DoAutoScroll();
 
     // aTmpNewSel: Diff between old and new, not the new selection, unless for tiled rendering
-    EditSelection aTmpNewSel( comphelper::LibreOfficeKit::isActive() ? GetEditSelection().Min() : GetEditSelection().Max(), aPaM );
+    EditSelection aTmpNewSel( comphelper::loficeKit::isActive() ? GetEditSelection().Min() : GetEditSelection().Max(), aPaM );
 
     // #i27299#
     // work on copy of current selection and set new selection, if it has changed.

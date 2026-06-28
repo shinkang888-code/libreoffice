@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -299,7 +299,7 @@ SvxSearchDialog::SvxSearchDialog(weld::Window* pParent, SfxChildWindow* pChildWi
     , m_xAllSheetsCB(m_xBuilder->weld_check_button(u"allsheets"_ustr))
     , m_xCalcStrFT(m_xBuilder->weld_label(u"entirecells"_ustr))
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         m_xCloseBtn->hide();
         m_xHelpBtn->hide();
@@ -965,7 +965,7 @@ void SvxSearchDialog::Init_Impl( bool bSearchPattern )
         bool bSetSearch = !(m_nModifyFlag & ModifyFlags::Search);
         bool bSetReplace = !(m_nModifyFlag & ModifyFlags::Replace);
 
-        if (!comphelper::LibreOfficeKit::isActive())
+        if (!comphelper::loficeKit::isActive())
         {
             if (!(m_pSearchItem->GetSearchString().isEmpty()) && bSetSearch)
                 m_xSearchLB->set_entry_text(m_pSearchItem->GetSearchString());

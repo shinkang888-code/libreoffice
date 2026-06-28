@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -213,7 +213,7 @@ bool SdrDragView::BegDragObj(const Point& rPnt, OutputDevice* pOut, SdrHdl* pHdl
 
         // Coordinate maybe affected by GridOffset, so we may need to
         // adapt to Model-coordinates here
-        if((comphelper::LibreOfficeKit::isActive() && mpMarkedObj
+        if((comphelper::loficeKit::isActive() && mpMarkedObj
             && getPossibleGridOffsetForSdrObject(aGridOffset, rMarkList.GetMark(0)->GetMarkedSdrObj(), GetSdrPageView()))
             || (getPossibleGridOffsetForPosition(
             aGridOffset,
@@ -525,7 +525,7 @@ void SdrDragView::MovDragObj(const Point& rPnt)
     // Coordinate maybe affected by GridOffset, so we may need to
     // adapt to Model-coordinates here
     const SdrMarkList& rMarkList = GetMarkedObjectList();
-    if((comphelper::LibreOfficeKit::isActive() && mpMarkedObj
+    if((comphelper::loficeKit::isActive() && mpMarkedObj
         && getPossibleGridOffsetForSdrObject(aGridOffset, rMarkList.GetMark(0)->GetMarkedSdrObj(), GetSdrPageView()))
         || (getPossibleGridOffsetForPosition(
         aGridOffset,

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -473,7 +473,7 @@ void VbaApplicationBase::Quit()
 
         // TODO: Probably we should just close any document windows open by the "application"
         // (Writer or Calc) the call being handled is for. And only then, if no document windows
-        // are left open, quit the actual LibreOffice application.
+        // are left open, quit the actual lofice application.
         Application::PostUserEvent( LINK( &AsyncQuitHandler::instance(), AsyncQuitHandler, OnAsyncQuit ) );
     }
 }

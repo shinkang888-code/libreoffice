@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -133,7 +133,7 @@ void FuInsertGraphic::DoExecute( SfxRequest& rReq )
         if ( pArgs->GetItemState( FN_PARAM_1, true, &pItem ) == SfxItemState::SET )
             bAsLink = static_cast<const SfxBoolItem*>(pItem)->GetValue();
 
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             INetURLObject aURL(aFileName);
             if (INetProtocol::File != aURL.GetProtocol() && HostFilter::isForbidden(aURL.GetHost()))
@@ -199,7 +199,7 @@ void FuInsertGraphic::DoExecute( SfxRequest& rReq )
             }
         }
     }
-    else if (!comphelper::LibreOfficeKit::isActive())
+    else if (!comphelper::loficeKit::isActive())
     {
         // TODO: enable in LOK, it contains synchronous error window without LOKNotifier
         SdGRFFilter::HandleGraphicFilterError( nError, GraphicFilter::GetGraphicFilter().GetLastError() );
@@ -402,10 +402,10 @@ void FuInsertOLE::DoExecute( SfxRequest& rReq )
             else
                 bRet = mpView->InsertObjectAtView(pOleObj.get(), *pPV, SdrInsertFlags::SETDEFLAYER);
 
-            if (bRet && !comphelper::LibreOfficeKit::isActive())
+            if (bRet && !comphelper::loficeKit::isActive())
             {
                 // Let the chart be activated after the inserting (unless
-                // via LibreOfficeKit)
+                // via loficeKit)
                 if (nSlotId == SID_INSERT_DIAGRAM)
                 {
                     pOleObj->SetProgName( u"StarChart"_ustr);

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -24,7 +24,7 @@
 #include <svl/stritem.hxx>
 #include <svl/numformat.hxx>
 #include <svl/zformat.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <vcl/scheduler.hxx>
 #include <comphelper/lok.hxx>
 #include <comphelper/propertyvalue.hxx>
@@ -179,7 +179,7 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testDocumentSize)
     ScTabViewShell* pViewShell = pDocSh->GetBestViewShell(false);
     CPPUNIT_ASSERT(pViewShell);
 
-    setupLibreOfficeKitViewCallback(pViewShell);
+    setuploficeKitViewCallback(pViewShell);
 
     // check initial document size
     Size aDocSize = pModelObj->getDocumentSize();
@@ -269,7 +269,7 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testDocumentSizeChanged)
 {
     // Load a document that doesn't have much content.
     createDoc("small.ods");
-    setupLibreOfficeKitViewCallback(SfxViewShell::Current());
+    setuploficeKitViewCallback(SfxViewShell::Current());
 
     // Go to the A30 cell -- that will extend the document size.
     uno::Sequence<beans::PropertyValue> aPropertyValues =
@@ -397,7 +397,7 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testColRowResize)
     ScTabViewShell* pViewShell = pDocSh->GetBestViewShell(false);
     CPPUNIT_ASSERT(pViewShell);
 
-    setupLibreOfficeKitViewCallback(pViewShell);
+    setuploficeKitViewCallback(pViewShell);
 
     ScDocument& rDoc = pDocSh->GetDocument();
 
@@ -570,7 +570,7 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testCreateViewGraphicSelection)
     CPPUNIT_ASSERT(aView1.m_bGraphicViewSelection);
 
     SfxLokHelper::setView(nView1);
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
 }
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testGraphicInvalidate)
@@ -746,7 +746,7 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testInvalidateOnInserRowCol)
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testCommentCallback)
 {
     // Comments callback are emitted only if tiled annotations are off
-    comphelper::LibreOfficeKit::setTiledAnnotations(false);
+    comphelper::loficeKit::setTiledAnnotations(false);
 
     // FIXME: Hack because previous tests do not destroy ScDocument(with annotations) on exit (?).
     ScPostIt::mnLastPostItId = 1;
@@ -849,7 +849,7 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testCommentCallback)
         CPPUNIT_ASSERT_EQUAL(aCommentId, aView1.m_aCommentCallbackResult.get<std::string>("id"));
         CPPUNIT_ASSERT_EQUAL(aCommentId, aView2.m_aCommentCallbackResult.get<std::string>("id"));
     }
-    comphelper::LibreOfficeKit::setTiledAnnotations(true);
+    comphelper::loficeKit::setTiledAnnotations(true);
 }
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testUndoLimiting)
@@ -1024,9 +1024,9 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testDocumentSizeWithTwoViews)
     for (size_t i = 0; i < aBuffer1.size(); ++i)
         CPPUNIT_ASSERT_EQUAL(aBuffer1[i], aBuffer2[i]);
 
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
     SfxLokHelper::setView(nView1);
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
 }
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testDisableUndoRepair)
@@ -1096,9 +1096,9 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testDisableUndoRepair)
         CPPUNIT_ASSERT(dynamic_cast< const SfxStringItem* >(aSet2.GetItem(SID_UNDO)));
     }
 
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
     SfxLokHelper::setView(nView1);
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
 }
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testDocumentRepair)
@@ -1146,9 +1146,9 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testDocumentRepair)
         CPPUNIT_ASSERT_EQUAL(true, pItem2->GetValue());
     }
 
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
     SfxLokHelper::setView(nView1);
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
 }
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testLanguageStatus)
@@ -1200,9 +1200,9 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testLanguageStatus)
         CPPUNIT_ASSERT_EQUAL(aLangBolivia, pItem2->GetValue());
     }
 
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
     SfxLokHelper::setView(nView1);
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
 }
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testMultiViewCopyPaste)
@@ -1249,9 +1249,9 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testMultiViewCopyPaste)
     CPPUNIT_ASSERT_EQUAL(u"TestCopy1"_ustr, pDoc->GetString(ScAddress(0, 1, 0)));
     CPPUNIT_ASSERT_EQUAL(u"TestCopy2"_ustr, pDoc->GetString(ScAddress(1, 1, 0)));
 
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
     SfxLokHelper::setView(nView1);
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
 }
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testIMESupport)
@@ -1316,9 +1316,9 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testFilterDlg)
     CPPUNIT_ASSERT_EQUAL(false, pView2->GetViewFrame().GetDispatcher()->IsLocked());
     CPPUNIT_ASSERT_EQUAL(false, pView1->GetViewFrame().GetDispatcher()->IsLocked());
 
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
     SfxLokHelper::setView(nView1);
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
 }
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testFunctionDlg)
@@ -1351,9 +1351,9 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testFunctionDlg)
     CPPUNIT_ASSERT_EQUAL(false, pView1->GetViewFrame().GetDispatcher()->IsLocked());
     CPPUNIT_ASSERT_EQUAL(false, pView2->GetViewFrame().GetDispatcher()->IsLocked());
 
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
     SfxLokHelper::setView(nView2);
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
 }
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testSpellOnlineParameter)
@@ -1447,8 +1447,8 @@ static Bitmap getTile(ScModelObj* pModelObj, int nTilePosX, int nTilePosY, tools
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testSheetChangeNoInvalidation)
 {
-    const bool oldPartInInvalidation = comphelper::LibreOfficeKit::isPartInInvalidation();
-    comphelper::LibreOfficeKit::setPartInInvalidation(true);
+    const bool oldPartInInvalidation = comphelper::loficeKit::isPartInInvalidation();
+    comphelper::loficeKit::setPartInInvalidation(true);
 
     ScModelObj* pModelObj = createDoc("two_sheets.ods");
     ScViewData* pViewData = ScDocShell::GetViewData();
@@ -1518,7 +1518,7 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testSheetChangeNoInvalidation)
     Scheduler::ProcessEventsToIdle();
     CPPUNIT_ASSERT(!aView1.m_bInvalidateTiles);
 
-    comphelper::LibreOfficeKit::setPartInInvalidation(oldPartInInvalidation);
+    comphelper::loficeKit::setPartInInvalidation(oldPartInInvalidation);
 }
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testInsertDeletePageInvalidation)
@@ -1701,9 +1701,9 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testRowColumnHeaders)
     CPPUNIT_ASSERT_EQUAL(aHeaders2, aHeaders2_2);
 
     SfxLokHelper::setView(nView1);
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
     SfxLokHelper::setView(nView2);
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
 }
 
 namespace
@@ -1942,9 +1942,9 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testSheetGeometryDataInvariance)
     }
 
     SfxLokHelper::setView(nView1);
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
     SfxLokHelper::setView(nView2);
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
 }
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testSheetGeometryDataCorrectness)
@@ -2040,7 +2040,7 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testSheetGeometryDataCorrectness)
             /*bHidden*/ true, /*bFiltered*/ true, /*bGroups*/ true);
     aSGData.parseTest(aGeomStr);
 
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
 }
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testDeleteCellMultilineContent)
@@ -2071,13 +2071,13 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testDeleteCellMultilineContent)
     CPPUNIT_ASSERT_EQUAL("row"_ostr, aView1.m_sInvalidateHeader);
     sal_uInt16 nRow2Height = rDoc.GetRowHeight(static_cast<SCROW>(0), static_cast<SCTAB>(0), false);
     CPPUNIT_ASSERT_EQUAL(nRow1Height, nRow2Height);
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
 }
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testPasteIntoWrapTextCell)
 {
-    comphelper::LibreOfficeKit::setCompatFlag(
-        comphelper::LibreOfficeKit::Compat::scPrintTwipsMsgs);
+    comphelper::loficeKit::setCompatFlag(
+        comphelper::loficeKit::Compat::scPrintTwipsMsgs);
 
     ScModelObj* pModelObj = createDoc("empty.ods");
     CPPUNIT_ASSERT(pModelObj);
@@ -2158,13 +2158,13 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testPasteIntoWrapTextCell)
     CPPUNIT_ASSERT_EQUAL(sCopyContent2, pDoc->GetString(0, 1, 0));
     CPPUNIT_ASSERT_EQUAL("all"_ostr, aView.m_sInvalidateSheetGeometry);
 
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
 }
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testSortAscendingDescending)
 {
-    comphelper::LibreOfficeKit::setCompatFlag(
-        comphelper::LibreOfficeKit::Compat::scPrintTwipsMsgs);
+    comphelper::loficeKit::setCompatFlag(
+        comphelper::loficeKit::Compat::scPrintTwipsMsgs);
     ScModelObj* pModelObj = createDoc("sort-range.ods");
     ScDocument* pDoc = pModelObj->GetDocument();
 
@@ -2291,15 +2291,15 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testAutoInputExactMatch)
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testEditCursorBounds)
 {
-    comphelper::LibreOfficeKit::setCompatFlag(
-        comphelper::LibreOfficeKit::Compat::scPrintTwipsMsgs);
+    comphelper::loficeKit::setCompatFlag(
+        comphelper::loficeKit::Compat::scPrintTwipsMsgs);
     ScModelObj* pModelObj = createDoc("empty.ods");
     ScDocument* pDoc = pModelObj->GetDocument();
 
     ScTestViewCallback aView;
     ScTabViewShell* pView = dynamic_cast<ScTabViewShell*>(SfxViewShell::Current());
     CPPUNIT_ASSERT(pView);
-    comphelper::LibreOfficeKit::setViewIdForVisCursorInvalidation(true);
+    comphelper::loficeKit::setViewIdForVisCursorInvalidation(true);
 
     // ~170% zoom.
     pModelObj->setClientZoom(256, 256, 2222, 2222);
@@ -2329,20 +2329,20 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testEditCursorBounds)
     CPPUNIT_ASSERT_MESSAGE("Edit cursor must be in cell bounds!",
         aCellBounds.Contains(aView.m_aInvalidateCursorResult.getBounds()));
 
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
 }
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testTextSelectionBounds)
 {
-    comphelper::LibreOfficeKit::setCompatFlag(
-        comphelper::LibreOfficeKit::Compat::scPrintTwipsMsgs);
+    comphelper::loficeKit::setCompatFlag(
+        comphelper::loficeKit::Compat::scPrintTwipsMsgs);
     ScModelObj* pModelObj = createDoc("empty.ods");
     ScDocument* pDoc = pModelObj->GetDocument();
 
     ScTestViewCallback aView;
     ScTabViewShell* pView = dynamic_cast<ScTabViewShell*>(SfxViewShell::Current());
     CPPUNIT_ASSERT(pView);
-    comphelper::LibreOfficeKit::setViewIdForVisCursorInvalidation(true);
+    comphelper::loficeKit::setViewIdForVisCursorInvalidation(true);
 
     // ~170% zoom.
     pModelObj->setClientZoom(256, 256, 2222, 2222);
@@ -2377,7 +2377,7 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testTextSelectionBounds)
     CPPUNIT_ASSERT_MESSAGE("Text selections must be in cell bounds!",
         !aCellBounds.Intersection(aView.m_aTextSelectionResult.getBounds(0)).IsEmpty());
 
-    SfxViewShell::Current()->setLibreOfficeKitViewCallback(nullptr);
+    SfxViewShell::Current()->setloficeKitViewCallback(nullptr);
 }
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testSheetViewDataCrash)
@@ -2440,7 +2440,7 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testTextBoxInsert)
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testCommentCellCopyPaste)
 {
     // Comments callback are emitted only if tiled annotations are off
-    comphelper::LibreOfficeKit::setTiledAnnotations(false);
+    comphelper::loficeKit::setTiledAnnotations(false);
 
     // FIXME: Hack because previous tests do not destroy ScDocument(with annotations) on exit (?).
     ScPostIt::mnLastPostItId = 1;
@@ -2526,7 +2526,7 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testCommentCellCopyPaste)
             CPPUNIT_ASSERT_EQUAL(std::string("LOK Comment Cell B2"), aView.m_aCommentCallbackResult.get<std::string>("text"));
         }
     }
-    comphelper::LibreOfficeKit::setTiledAnnotations(true);
+    comphelper::loficeKit::setTiledAnnotations(true);
 }
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testInvalidEntrySave)
@@ -2931,8 +2931,8 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testOpenURL)
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testInvalidateForSplitPanes)
 {
-    comphelper::LibreOfficeKit::setCompatFlag(
-        comphelper::LibreOfficeKit::Compat::scPrintTwipsMsgs);
+    comphelper::loficeKit::setCompatFlag(
+        comphelper::loficeKit::Compat::scPrintTwipsMsgs);
 
     ScModelObj* pModelObj = createDoc("split.ods");
     CPPUNIT_ASSERT(pModelObj);
@@ -2975,8 +2975,8 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testInvalidateForSplitPanes)
 // Saving shouldn't trigger an invalidation
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testNoInvalidateOnSave)
 {
-    comphelper::LibreOfficeKit::setCompatFlag(
-        comphelper::LibreOfficeKit::Compat::scPrintTwipsMsgs);
+    comphelper::loficeKit::setCompatFlag(
+        comphelper::loficeKit::Compat::scPrintTwipsMsgs);
 
     loadFromFile(u"invalidate-on-save.ods");
 
@@ -3273,8 +3273,8 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testLongFirstColumnMouseClick)
     // very long (longer than ~800px default size of GridWindow) triggers a code-path where the cell
     // selected is the neighbouring cell even when we clicked on the area of the first cell.
 
-    comphelper::LibreOfficeKit::setCompatFlag(
-        comphelper::LibreOfficeKit::Compat::scPrintTwipsMsgs);
+    comphelper::loficeKit::setCompatFlag(
+        comphelper::loficeKit::Compat::scPrintTwipsMsgs);
 
     ScModelObj* pModelObj = createDoc("DocumentWithLongFirstColumn.ods");
     CPPUNIT_ASSERT(pModelObj);
@@ -3358,8 +3358,8 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testLongFirstColumnMouseClick)
 // screen invalidation.
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testExtendedAreasDontOverlap)
 {
-    comphelper::LibreOfficeKit::setCompatFlag(
-        comphelper::LibreOfficeKit::Compat::scPrintTwipsMsgs);
+    comphelper::loficeKit::setCompatFlag(
+        comphelper::loficeKit::Compat::scPrintTwipsMsgs);
 
     ScModelObj* pModelObj = createDoc("empty.ods");
     CPPUNIT_ASSERT(pModelObj);
@@ -3506,7 +3506,7 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testNumberFormatLocaleMultiUser)
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testLeftOverflowEdit)
 {
-    comphelper::LibreOfficeKit::setCompatFlag(comphelper::LibreOfficeKit::Compat::scPrintTwipsMsgs);
+    comphelper::loficeKit::setCompatFlag(comphelper::loficeKit::Compat::scPrintTwipsMsgs);
     ScModelObj* pModelObj = createDoc("right-aligned-with-overflow.ods");
     ScTestViewCallback aView;
 
@@ -3743,7 +3743,7 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testPrintRanges)
 
 CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testThreadedCommentInsertAndResolve)
 {
-    comphelper::LibreOfficeKit::setTiledAnnotations(false);
+    comphelper::loficeKit::setTiledAnnotations(false);
     // Reset the static counter so the first note gets a predictable id.
     ScPostIt::mnLastPostItId = 1;
 
@@ -3832,7 +3832,7 @@ CPPUNIT_TEST_FIXTURE(ScTiledRenderingTest, testThreadedCommentInsertAndResolve)
         CPPUNIT_ASSERT_EQUAL(std::string("Modify"), aView1.m_aCommentCallbackResult.get<std::string>("action"));
         CPPUNIT_ASSERT_EQUAL(std::string("false"), aView1.m_aCommentCallbackResult.get<std::string>("resolved"));
     }
-    comphelper::LibreOfficeKit::setTiledAnnotations(true);
+    comphelper::loficeKit::setTiledAnnotations(true);
 }
 
 CPPUNIT_PLUGIN_IMPLEMENT();

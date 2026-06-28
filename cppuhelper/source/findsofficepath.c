@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -100,7 +100,7 @@ static wchar_t* platformSpecific(void)
         return wcsdup(env);
     }
 
-    const wchar_t* SUBKEYNAME = L"Software\\LibreOffice\\UNO\\InstallPath";
+    const wchar_t* SUBKEYNAME = L"Software\\lofice\\UNO\\InstallPath";
 
     /* read the key's default value from HKEY_CURRENT_USER */
     wchar_t* path = getPathFromRegistryKey( HKEY_CURRENT_USER, SUBKEYNAME );
@@ -137,7 +137,7 @@ static char* platformSpecific(void)
     const int SEPARATOR = '/';
     const char* PATHSEPARATOR = ":";
     const char* PATHVARNAME = "PATH";
-    const char* APPENDIX = "/libreoffice" LIBO_VERSION_DOTTED_2;
+    const char* APPENDIX = "/lofice" LIBO_VERSION_DOTTED_2;
         // must match the product's UNIXFILENAME.* in sysui/productlist.mk
 
     char* path = NULL;

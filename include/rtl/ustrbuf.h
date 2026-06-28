@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 
 #ifndef INCLUDED_RTL_USTRBUF_H
@@ -104,7 +104,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uStringbuffer_ensureCapacity(
     @param   This        The string, on that the operation should take place
     @param   capacity    the capacity of the string buffer
     @param   offset      the offset.
-    @param   str         a character array.  Since LibreOffice 4.4, as a special
+    @param   str         a character array.  Since lofice 4.4, as a special
                          case, if str is null then the len added characters are
                          left uninitialized.
     @param   len         the number of characters to append.
@@ -190,7 +190,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uStringbuffer_remove(
     @param  ppThis      The string, on that the operation should take place
     @param  nCapacity   pointer to the capacity of the string buffer
 
-    @since LibreOffice 3.6
+    @since lofice 3.6
  */
 SAL_DLLPUBLIC rtl_uString * SAL_CALL rtl_uStringBuffer_makeStringAndClear(
                                         /*inout*/ rtl_uString ** ppThis,
@@ -205,7 +205,7 @@ SAL_DLLPUBLIC rtl_uString * SAL_CALL rtl_uStringBuffer_makeStringAndClear(
 
     @param  pThis      The string, on that the operation should take place
 
-    @since LibreOffice 3.6
+    @since lofice 3.6
  */
 SAL_DLLPUBLIC rtl_uString * SAL_CALL rtl_uStringBuffer_refReturn( rtl_uString *pThis );
 

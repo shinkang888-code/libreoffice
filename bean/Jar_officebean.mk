@@ -1,6 +1,6 @@
 #
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -11,7 +11,7 @@
 $(eval $(call gb_Jar_Jar,officebean))
 
 $(eval $(call gb_Jar_use_jars,officebean,\
-	libreoffice \
+	lofice \
 ))
 
 $(eval $(call gb_Jar_set_packageroot,officebean,com))

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -233,7 +233,7 @@ namespace sdr::contact
             if (static_cast<SdrPaintView&>(mrPageWindow.GetPageView().GetView()).IsTextEdit())
                 aNewViewInformation2D.setTextEditActive(true);
 
-            if (!isOutputToRecordingMetaFile() && !comphelper::LibreOfficeKit::isSlideshowRendering())
+            if (!isOutputToRecordingMetaFile() && !comphelper::loficeKit::isSlideshowRendering())
             {
                 // this is the EditView repaint, provide that information,
                 // but only if we do not export to metafile and do not prepare a SlideShow
@@ -380,7 +380,7 @@ namespace sdr::contact
         // Get info about the need to visualize GluePoints
         bool ObjectContactOfPageView::AreGluePointsVisible() const
         {
-            bool bTiledRendering = comphelper::LibreOfficeKit::isActive();
+            bool bTiledRendering = comphelper::loficeKit::isActive();
             return !bTiledRendering && GetPageWindow().GetPageView().GetView().ImpIsGlueVisible();
         }
 

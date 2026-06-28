@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1808,7 +1808,7 @@ bool EditEngine::HasValidData( const css::uno::Reference< css::datatransfer::XTr
 {
     bool bValidData = false;
 
-    if ( comphelper::LibreOfficeKit::isActive())
+    if ( comphelper::loficeKit::isActive())
         return true;
 
     if ( rTransferable.is() )

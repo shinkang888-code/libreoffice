@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -15,7 +15,7 @@
 #include <comphelper/scopeguard.hxx>
 #include <sfx2/lokhelper.hxx>
 #include <vcl/scheduler.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <sctestviewcallback.hxx>
 #include <docfunc.hxx>
 #include <docsh.hxx>
@@ -5501,9 +5501,9 @@ CPPUNIT_TEST_FIXTURE(SyncTest, testSync_OperationInvalidatesOtherView)
     ScModelObj* pModelObj = createDoc("SheetView_AutoFilter.ods");
     pModelObj->initializeForTiledRendering(uno::Sequence<beans::PropertyValue>());
 
-    comphelper::LibreOfficeKit::setPartInInvalidation(true);
+    comphelper::loficeKit::setPartInInvalidation(true);
     comphelper::ScopeGuard aPartInvalidationGuard(
-        []() { comphelper::LibreOfficeKit::setPartInInvalidation(false); });
+        []() { comphelper::loficeKit::setPartInInvalidation(false); });
 
     setupViews();
 

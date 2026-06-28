@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -117,7 +117,7 @@ LayoutManager::LayoutManager( const Reference< XComponentContext >& xContext ) :
     m_aStatusBarElement.m_aType = "statusbar";
     m_aStatusBarElement.m_aName = STATUS_BAR_ALIAS;
 
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
     {
         m_xToolbarManager = new ToolbarLayoutManager( xContext, Reference<XUIElementFactory>(m_xUIElementFactoryManager, UNO_QUERY_THROW), this );
     }
@@ -787,18 +787,18 @@ void LayoutManager::implts_updateUIElementsVisibleState( bool bSetVisible )
             }
 #ifdef MACOSX
             // Related: tdf#161623 don't set the menubar to null on macOS
-            // When a window enters LibreOffice's internal full screen mode,
+            // When a window enters lofice's internal full screen mode,
             // the vcl code will hide the macOS menubar. However, if the
             // window is also in native full screen mode, macOS will force
             // the menubar to be visible.
             // While the vcl code already partially handles this case by
-            // disabling all menu items when in LibreOffice's internal full
+            // disabling all menu items when in lofice's internal full
             // screen mode, the problem is that any submenus that were not
             // displayed before setting the menubar to null will show all
             // menu items with no title.
             // A simple way to reproduce this bug is to open a new Writer
             // or Calc document and do the following:
-            // - Switch the window to LibreOffice's internal full screen
+            // - Switch the window to lofice's internal full screen
             //   mode by manually selecting the View > Full Screen menu
             //   item (the bug does not occur if its key shortcut is
             //   pressed)

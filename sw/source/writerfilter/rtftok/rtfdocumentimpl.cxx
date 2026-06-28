@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1666,7 +1666,7 @@ void RTFDocumentImpl::text(OUString& rString)
             m_aStates.top().appendDestinationText(rString);
             break;
         case Destination::GENERATOR:
-            // don't enlarge space sequences, eg. it was saved in LibreOffice
+            // don't enlarge space sequences, eg. it was saved in lofice
             if (!rString.startsWithIgnoreAsciiCase("Microsoft"))
                 m_aSettingsTableSprms.set(NS_ooxml::LN_CT_Settings_longerSpaceSequence,
                                           new RTFValue(0));

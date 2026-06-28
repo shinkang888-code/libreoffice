@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -66,7 +66,7 @@
 #include <svx/xlntrit.hxx>
 #include <svx/xfltrit.hxx>
 #include <svx/sdprcitm.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <rtl/ustring.hxx>
 #include <sfx2/viewsh.hxx>
 #include <comphelper/lok.hxx>
@@ -973,7 +973,7 @@ void SdrEditView::MergeAttrFromMarked(SfxItemSet& rAttr, bool bOnlyHardAttr) con
                 rAttr.MergeValue(rItem);
             }
 
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
             {
                 OUString sPayload;
                 switch(nWhich)
@@ -1061,7 +1061,7 @@ void SdrEditView::MergeAttrFromMarked(SfxItemSet& rAttr, bool bOnlyHardAttr) con
                 {
                     if (SfxViewShell* pViewShell = GetSfxViewShell())
                     {
-                        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
+                        pViewShell->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
                             OUStringToOString(sPayload, RTL_TEXTENCODING_ASCII_US));
                     }
                 }
@@ -1681,19 +1681,19 @@ void SdrEditView::SetGeoAttrToMarked(const SfxItemSet& rAttr, bool addPageMargin
     if (bChgSiz)
     {
         // tdf#164285 the item was accessed even when not being set if
-        // false == comphelper::LibreOfficeKit::isActive(). For SlotIDs
+        // false == comphelper::loficeKit::isActive(). For SlotIDs
         // like SID_ATTR_TRANSFORM_SIZE_POINT this will crash by asserting
         // due to SlotIDs having no defaults (see
         // SfxItemPool::GetUserOrPoolDefaultItem line 725)
         if (const SfxUInt16Item* pPoolItem = rAttr.GetItemIfSet(SID_ATTR_TRANSFORM_SIZE_POINT))
             eSizePoint = static_cast<RectPoint>(pPoolItem->GetValue());
-        else if (comphelper::LibreOfficeKit::isActive())
+        else if (comphelper::loficeKit::isActive())
             // for TiledRendering the default which is set at the start of
             // this method to RectPoint::MM seems purposely being changed to
             // RectPoint::LT here - from a change 6 years ago. Note that this
             // will make choosing another definition point in the UI for the
             // PosSizeDialog except TopLeft not working when
-            // comphelper::LibreOfficeKit *is* active.
+            // comphelper::loficeKit *is* active.
             eSizePoint = RectPoint::LT;
     }
 

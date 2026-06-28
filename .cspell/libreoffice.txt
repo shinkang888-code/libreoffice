@@ -1,4 +1,4 @@
-# custom dictionary words related to LibreOffice
+# custom dictionary words related to lofice
 aclocal
 activex
 allbuild

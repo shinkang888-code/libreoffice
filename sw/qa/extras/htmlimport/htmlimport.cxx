@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -96,7 +96,7 @@ CPPUNIT_TEST_FIXTURE(HtmlImportTest, testInlinedImage)
         {
             // FIXME? For some reason without the fix in 72703173066a2db5c977d422ace
             // I was getting GraphicType::NONE from SwEditShell::GetGraphicType() when
-            // running LibreOffice but cannot reproduce that in a unit test here. :-(
+            // running lofice but cannot reproduce that in a unit test here. :-(
             // So, this does not really test anything.
             CPPUNIT_ASSERT(pGrfNode->GetGrfObj().GetType() != GraphicType::NONE);
             break;
@@ -200,7 +200,7 @@ CPPUNIT_TEST_FIXTURE(HtmlImportTest, testMetaIsoDates)
     // get the document properties
     CPPUNIT_ASSERT(xDocProps.is());
     DateTime aCreated(xDocProps->getCreationDate()); // in the new format
-    DateTime aModified(xDocProps->getModificationDate()); // in the legacy format (what LibreOffice used to write)
+    DateTime aModified(xDocProps->getModificationDate()); // in the legacy format (what lofice used to write)
 
     CPPUNIT_ASSERT_EQUAL(DateTime(Date(7, 5, 2017), tools::Time(12, 34, 3, 921000000)), aCreated);
     CPPUNIT_ASSERT_EQUAL(DateTime(Date(8, 5, 2017), tools::Time(12, 47, 0, 386000000)), aModified);

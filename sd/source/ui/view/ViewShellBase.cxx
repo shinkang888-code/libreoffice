@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -77,7 +77,7 @@
 #include <comphelper/diagnose_ex.hxx>
 #include <comphelper/lok.hxx>
 #include <sfx2/lokhelper.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <editeng/editview.hxx>
 #include <tools/svborder.hxx>
 #include <o3tl/unreachable.hxx>
@@ -1099,7 +1099,7 @@ void ViewShellBase::afterCallbackRegistered()
     // common tasks
     SfxViewShell::afterCallbackRegistered();
 
-    if (comphelper::LibreOfficeKit::isActive() && mpDocument && mpDocument->GetStartWithPresentation())
+    if (comphelper::loficeKit::isActive() && mpDocument && mpDocument->GetStartWithPresentation())
     {
         // Be consistent with SidebarController, emit JSON.
         boost::property_tree::ptree aTree;
@@ -1107,7 +1107,7 @@ void ViewShellBase::afterCallbackRegistered()
         aTree.put("state", "true");
         std::stringstream aStream;
         boost::property_tree::write_json(aStream, aTree);
-        libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, OString(aStream.str()));
+        loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, OString(aStream.str()));
     }
 }
 

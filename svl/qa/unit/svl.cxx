@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -586,9 +586,9 @@ void Test::testDateInput()
         { "US/Mountain", "1790-07-26" },
         { "Asia/Tehran", "1999-03-22" },
 
-        // Data from https://bugs.documentfoundation.org/show_bug.cgi?id=63230
-        // https://bugs.documentfoundation.org/attachment.cgi?id=79051
-        // https://bugs.documentfoundation.org/show_bug.cgi?id=79663
+        // Data from https://bugs.lofice.io/show_bug.cgi?id=63230
+        // https://bugs.lofice.io/attachment.cgi?id=79051
+        // https://bugs.lofice.io/show_bug.cgi?id=79663
         { "Africa/Accra", "1800-01-01" },
         { "Africa/Accra", "1800-04-10" },
         { "Africa/Addis_Ababa", "1870-01-01" },

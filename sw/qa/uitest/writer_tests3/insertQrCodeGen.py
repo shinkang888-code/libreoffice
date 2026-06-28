@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -25,14 +25,14 @@ class insertQrCode(UITestCase):
                     xECC_Low = xDialog.getChild("button_low") #How radio button input is written in text.
                     xBorder = xDialog.getChild("edit_margin")
 
-                    type_text(xURL, "www.libreoffice.org") #set the QR code
+                    type_text(xURL, "www.lofice.org") #set the QR code
                     xECC_Low.executeAction("CLICK", tuple())
                     xBorder.executeAction("UP", tuple())
                     xBorder.executeAction("DOWN", tuple())
 
                 # check the QR code in the document
                 element = document.DrawPage[0]
-                self.assertEqual(element.BarCodeProperties.Payload, "www.libreoffice.org")
+                self.assertEqual(element.BarCodeProperties.Payload, "www.lofice.org")
                 self.assertEqual(element.BarCodeProperties.ErrorCorrection, 1)
                 self.assertEqual(element.BarCodeProperties.Border, 1)
                 self.assertEqual(element.BarCodeProperties.Type, 0)
@@ -48,12 +48,12 @@ class insertQrCode(UITestCase):
                     xURL = xDialog.getChild("edit_text")
                     xType = xDialog.getChild("choose_type")
 
-                    type_text(xURL, "www.libreoffice.org") #set the QR code
+                    type_text(xURL, "www.lofice.org") #set the QR code
                     select_by_text(xType, "Barcode")
 
                 # check the QR code in the document
                 element = document.DrawPage[0]
-                self.assertEqual(element.BarCodeProperties.Payload, "www.libreoffice.org")
+                self.assertEqual(element.BarCodeProperties.Payload, "www.lofice.org")
                 self.assertEqual(element.BarCodeProperties.ErrorCorrection, 1)
                 self.assertEqual(element.BarCodeProperties.Border, 1)
                 self.assertEqual(element.BarCodeProperties.Type, 1)

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -390,7 +390,7 @@ Reference<XComponent> openWriter(Reference<XComponentContext> xContext)
     Reference<XComponent> xComp = NULL;
     try
     {
-        // getting the remote LibreOffice service manager
+        // getting the remote lofice service manager
         Reference<XMultiComponentFactory> xMCF = xContext->getServiceManager();
 
         Reference<XInterface> oDesktop

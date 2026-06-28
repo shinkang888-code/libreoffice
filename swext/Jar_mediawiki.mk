@@ -1,6 +1,6 @@
 #
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -15,7 +15,7 @@ $(eval $(call gb_Jar_set_packageroot,mediawiki,com))
 $(eval $(call gb_Jar_set_manifest,mediawiki,$(SRCDIR)/swext/mediawiki/src/com/sun/star/wiki/MANIFEST.MF))
 
 $(eval $(call gb_Jar_use_jars,mediawiki,\
-	libreoffice \
+	lofice \
 ))
 
 $(eval $(call gb_Jar_add_sourcefiles,mediawiki,\

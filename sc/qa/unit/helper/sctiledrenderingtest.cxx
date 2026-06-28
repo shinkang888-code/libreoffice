@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,7 +9,7 @@
 
 #include "sctiledrenderingtest.hxx"
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <comphelper/servicehelper.hxx>
 #include <sfx2/lokhelper.hxx>
@@ -32,14 +32,14 @@ void ScTiledRenderingTest::setUp()
 {
     UnoApiTest::setUp();
 
-    comphelper::LibreOfficeKit::setActive(true);
+    comphelper::loficeKit::setActive(true);
 }
 
 void ScTiledRenderingTest::tearDown()
 {
     m_callbackWrapper.clear();
 
-    comphelper::LibreOfficeKit::resetCompatFlag();
+    comphelper::loficeKit::resetCompatFlag();
 
     UnoApiTest::tearDown();
 }
@@ -54,9 +54,9 @@ ScModelObj* ScTiledRenderingTest::createDoc(const char* pName)
     return pModelObj;
 }
 
-void ScTiledRenderingTest::setupLibreOfficeKitViewCallback(SfxViewShell* pViewShell)
+void ScTiledRenderingTest::setuploficeKitViewCallback(SfxViewShell* pViewShell)
 {
-    pViewShell->setLibreOfficeKitViewCallback(&m_callbackWrapper);
+    pViewShell->setloficeKitViewCallback(&m_callbackWrapper);
     m_callbackWrapper.setLOKViewId(SfxLokHelper::getView(*pViewShell));
 }
 

@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -25,9 +25,9 @@ SOFFICE_CONNECTION_URI = "uno:socket,host=localhost,port=2083;urp;StarOffice.Com
 
 
 def connect_soffice():
-    """Connect to remote running LibreOffice
+    """Connect to remote running lofice
 
-    :return: an object representing the remote LibreOffice instance.
+    :return: an object representing the remote lofice instance.
     """
     local_context = uno.getComponentContext()
     resolver = local_context.ServiceManager.createInstanceWithContext(
@@ -36,7 +36,7 @@ def connect_soffice():
     try:
         remote_context = resolver.resolve(SOFFICE_CONNECTION_URI)
     except NoConnectException:
-        raise Exception("Cannot establish a connection to LibreOffice.")
+        raise Exception("Cannot establish a connection to lofice.")
 
     return remote_context.ServiceManager.createInstanceWithContext(
         "com.sun.star.frame.Desktop", remote_context

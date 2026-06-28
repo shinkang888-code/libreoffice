@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -136,7 +136,7 @@ bool SelectionEngine::SelMouseButtonDown( const MouseEvent& rMEvt )
         return false;
 
     sal_uInt16 nModifier = rMEvt.GetModifier() | nLockedMods;
-    bool nSwap = comphelper::LibreOfficeKit::isActive() && (nModifier & KEY_MOD1) && (nModifier & KEY_MOD2);
+    bool nSwap = comphelper::loficeKit::isActive() && (nModifier & KEY_MOD1) && (nModifier & KEY_MOD2);
 
     if ( !nSwap && (nModifier & KEY_MOD2) )
         return false;
@@ -345,7 +345,7 @@ bool SelectionEngine::SelMouseMove( const MouseEvent& rMEvt )
         return true;
 
     aWTimer.SetTimeout( nUpdateInterval );
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         // Generating fake mouse moves does not work with LOK.
         aWTimer.Start();
     if ( eSelMode != SelectionMode::Single )

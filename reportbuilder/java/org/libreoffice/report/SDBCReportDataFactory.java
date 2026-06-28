@@ -1,5 +1,5 @@
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -521,13 +521,13 @@ public class SDBCReportDataFactory implements DataSourceFactory
                         final Boolean escape = (Boolean) prop.getPropertyValue(ESCAPEPROCESSING);
                         rowSetProp.setPropertyValue(ESCAPEPROCESSING, escape);
                         final String queryCommand = (String) prop.getPropertyValue(UNO_COMMAND);
-                        statement = "SELECT * FROM (" + queryCommand + ") \"__LibreOffice_report_result\"";
+                        statement = "SELECT * FROM (" + queryCommand + ") \"__lofice_report_result\"";
                     }
 
                 }
                 else
                 {
-                    statement = "SELECT * FROM (" + command + ") \"__LibreOffice_report_result\"";
+                    statement = "SELECT * FROM (" + command + ") \"__lofice_report_result\"";
                 }
             }
             rowSetProp.setPropertyValue(UNO_COMMAND, statement);

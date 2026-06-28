@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -968,10 +968,10 @@ void drawIconSets(vcl::RenderContext& rRenderContext, const ScIconSetInfo* pOldI
 
     if (pOldIconSetInfo->mnHeight)
     {
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             aHeight = rRenderContext.LogicToPixel(Size(0, pOldIconSetInfo->mnHeight), MapMode(MapUnit::MapTwip)).Height();
-            aHeight *= comphelper::LibreOfficeKit::getDPIScale();
+            aHeight *= comphelper::loficeKit::getDPIScale();
         }
         else
         {
@@ -2161,12 +2161,12 @@ void ScOutputData::DrawRefMark( SCCOL nRefStartX, SCROW nRefStartY,
         return;
 
     mpDev->SetLineColor( rColor );
-    if (bTop && bBottom && bLeft && bRight && !comphelper::LibreOfficeKit::isActive() )
+    if (bTop && bBottom && bLeft && bRight && !comphelper::loficeKit::isActive() )
     {
             mpDev->SetFillColor();
             mpDev->DrawRect( tools::Rectangle( nMinX, nMinY, nMaxX, nMaxY ) );
     }
-    else if ( !comphelper::LibreOfficeKit::isActive() )
+    else if ( !comphelper::loficeKit::isActive() )
     {
         if (bTop)
             mpDev->DrawLine( Point( nMinX, nMinY ), Point( nMaxX, nMinY ) );
@@ -2177,7 +2177,7 @@ void ScOutputData::DrawRefMark( SCCOL nRefStartX, SCROW nRefStartY,
         if (bRight)
             mpDev->DrawLine( Point( nMaxX, nMinY ), Point( nMaxX, nMaxY ) );
     }
-    if ( !bHandle || !bRight || !bBottom || comphelper::LibreOfficeKit::isActive() )
+    if ( !bHandle || !bRight || !bBottom || comphelper::loficeKit::isActive() )
         return;
 
     mpDev->SetLineColor( rColor );
@@ -2493,7 +2493,7 @@ void ScOutputData::DrawSparklines(vcl::RenderContext& rRenderContext)
 void ScOutputData::DrawNoteMarks(vcl::RenderContext& rRenderContext)
 {
     // cool#6911 draw the note indicator browser-side instead
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return;
 
     tools::Long nInitPosX = mnScrX;

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -3064,7 +3064,7 @@ const OUString & SfxViewFrame::GetActualPresentationURL_Impl() const
 void SfxViewFrame::SetModalMode( bool bModal )
 {
     // no real modality for LOK
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return;
 
     m_pImpl->bModal = bModal;
@@ -3616,7 +3616,7 @@ void SfxViewFrame::ChildWindowExecute( SfxRequest &rReq )
             const OUString aDeckId(pDeckIdItem->GetValue());
             // Compatibility with old LOK "toggle always"
             // TODO: check LOK with tdf#142978 Show a11y sidebar when finding issues on PDF export, hash: 53fc5fa
-            const bool isLOK = comphelper::LibreOfficeKit::isActive();
+            const bool isLOK = comphelper::loficeKit::isActive();
             const SfxBoolItem* pToggleItem = rReq.GetArg(SID_SIDEBAR_DECK_TOGGLE);
             bool bToggle = isLOK || (pToggleItem && pToggleItem->GetValue());
             ::sfx2::sidebar::Sidebar::ShowDeck(aDeckId, this, bToggle);

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1781,7 +1781,7 @@ void MSWordExportBase::SectionProperties( const WW8_SepInfo& rSepInfo, WW8_PdAtt
         }
     }
 
-    // Libreoffice 4.0 introduces support for page styles (SwPageDesc) with
+    // lofice 4.0 introduces support for page styles (SwPageDesc) with
     // a different header/footer for the first page.  The same effect can be
     // achieved by chaining two page styles together (SwPageDesc::GetFollow)
     // which are identical except for header/footer.

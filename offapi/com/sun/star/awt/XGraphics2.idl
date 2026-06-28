@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -25,7 +25,7 @@ published interface XGraphics2: com::sun::star::awt::XGraphics
 {
     /** clears the given rectangle on the device
 
-        @since LibreOffice 4.1
+        @since lofice 4.1
      */
     void clear( [in] Rectangle aRect );
 
@@ -35,7 +35,7 @@ published interface XGraphics2: com::sun::star::awt::XGraphics
 
         <p>Note that some devices may not support this operation.</p>
 
-        @since LibreOffice 4.1
+        @since lofice 4.1
 
         @param  nX
             the X coordinate on the device where the graphic will be drawn

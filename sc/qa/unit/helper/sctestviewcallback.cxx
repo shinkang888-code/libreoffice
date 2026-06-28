@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -11,7 +11,7 @@
 
 #include <boost/property_tree/json_parser.hpp>
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <comphelper/string.hxx>
 #include <test/unoapi_test.hxx>
@@ -35,9 +35,9 @@ void ScTestEditCursorMessage::parseMessage(const char* pMessage)
 {
     clear();
     if (!pMessage
-        || !comphelper::LibreOfficeKit::isCompatFlagSet(
-               comphelper::LibreOfficeKit::Compat::scPrintTwipsMsgs)
-        || !comphelper::LibreOfficeKit::isViewIdForVisCursorInvalidation())
+        || !comphelper::loficeKit::isCompatFlagSet(
+               comphelper::loficeKit::Compat::scPrintTwipsMsgs)
+        || !comphelper::loficeKit::isViewIdForVisCursorInvalidation())
         return;
 
     std::stringstream aStream(pMessage);
@@ -152,7 +152,7 @@ ScTestViewCallback::ScTestViewCallback(bool bDeleteListenerOnDestruct)
     , m_callbackWrapper(&callback, this)
 {
     mpViewShell = SfxViewShell::Current();
-    mpViewShell->setLibreOfficeKitViewCallback(&m_callbackWrapper);
+    mpViewShell->setloficeKitViewCallback(&m_callbackWrapper);
     mnView = SfxLokHelper::getCurrentView();
     m_callbackWrapper.setLOKViewId(mnView);
     if (!bDeleteListenerOnDestruct)
@@ -164,7 +164,7 @@ ScTestViewCallback::~ScTestViewCallback()
     if (mpViewShell)
     {
         SfxLokHelper::setView(mnView);
-        mpViewShell->setLibreOfficeKitViewCallback(nullptr);
+        mpViewShell->setloficeKitViewCallback(nullptr);
     }
 }
 

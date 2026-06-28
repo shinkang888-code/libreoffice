@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -148,7 +148,7 @@ model::ColorSet const* ColorSets::getDefault()
 {
     bool bForceDefault = !o3tl::getEnvironment(u"LO_FORCE_FALLBACK_DOCUMENT_THEME"_ustr).isEmpty();
     ColorSets& rSets = ColorSets::get();
-    auto const* pColorSet = rSets.getColorSet(u"LibreOffice");
+    auto const* pColorSet = rSets.getColorSet(u"lofice");
     if (pColorSet && !bForceDefault)
     {
         return pColorSet;

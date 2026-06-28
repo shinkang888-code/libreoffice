@@ -3,7 +3,7 @@
 # Find holes in structures, so that we can pack them and improve our memory density.
 #
 # In order to make this work, you need to
-# (1) Be operating in a workspace where you have a __NON-DEBUG__ build of LibreOffice, but __WITH SYMBOLS__.
+# (1) Be operating in a workspace where you have a __NON-DEBUG__ build of lofice, but __WITH SYMBOLS__.
 #     (A debug build has different sizes for some things in the standard library.)
 # (2) First run the unusedfields loplugin to generate a log file
 # (3) Install the pahole stuff into your gdb, I used this one:

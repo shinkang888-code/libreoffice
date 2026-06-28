@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -101,7 +101,7 @@ void TestHash::testSHA512_NoSaltNoSpin()
 }
 
 // Password, salt, hash and spin count taken from OOXML sheetProtection of
-// tdf#104250 https://bugs.documentfoundation.org/attachment.cgi?id=129104
+// tdf#104250 https://bugs.lofice.io/attachment.cgi?id=129104
 void TestHash::testSHA512_saltspin()
 {
     const OUString aHash = comphelper::DocPasswordHelper::GetOoxHashAsBase64( u"pwd", u"876MLoKTq42+/DLp415iZQ==", 100000,

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -876,14 +876,14 @@ void SlideshowLayerRenderer::createViewAndDraw(
     // that a slideshow rendering is going to be performed in order to enable the decomposition.
     // Using TextHierarchyEditPrimitive2D decomposition in place of TextEditDrawing for rendering a text object
     // in edit mode allows to animate a single paragraph even when the related text object is in edit mode.
-    comphelper::LibreOfficeKit::setSlideshowRendering(true);
+    comphelper::loficeKit::setSlideshowRendering(true);
     // Redraw slide but skip EndCompleteRedraw() which uses TextEditDrawing for rendering text when a text object is
     // in edit mode. TextEditDrawing was causing to have artifacts displayed while playing the slideshow such as
     // a tiny rectangle around the edited text shape.
     SdrPaintWindow* pPaintWindow = aView.BeginCompleteRedraw(rRenderContext.maVirtualDevice);
     assert(pPaintWindow && "SlideshowLayerRenderer::createViewAndDraw: No OutDev (!)");
     aView.DoCompleteRedraw(*pPaintWindow, aRegion, pRedirector);
-    comphelper::LibreOfficeKit::setSlideshowRendering(false);
+    comphelper::loficeKit::setSlideshowRendering(false);
 }
 
 namespace

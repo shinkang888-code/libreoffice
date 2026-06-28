@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -363,22 +363,22 @@ published constants Key
     const short SEMICOLON = 1317;
 
 
-    /** @since LibreOffice 4.3 **/
+    /** @since lofice 4.3 **/
     const short QUOTERIGHT = 1318;
 
-    /** @since LibreOffice 7.5 **/
+    /** @since lofice 7.5 **/
     const short RIGHTCURLYBRACKET = 1319;
 
-    /** @since LibreOffice 7.6 **/
+    /** @since lofice 7.6 **/
     const short COLON = 1320;
 
-    /* # sign. @since LibreOffice 24.2 */
+    /* # sign. @since lofice 24.2 */
     const short NUMBERSIGN = 191;
 
-    /* XF86Forward @since LibreOffice 24.2 */
+    /* XF86Forward @since lofice 24.2 */
     const short XF86FORWARD = 167;
 
-    /* XF86Back @since LibreOffice 24.2 */
+    /* XF86Back @since lofice 24.2 */
     const short XF86BACK = 166;
 
     /** The following values don't correspond to physical keys on any

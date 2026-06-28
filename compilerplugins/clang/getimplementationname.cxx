@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -277,7 +277,7 @@ void GetImplementationName::generateOutput(FunctionDecl const * decl, const std:
     const std::string doublecolonregex("::");
     const std::string cppclassweb(replace_all(cppclass, doublecolonregex, "_1_1"));
     std::ofstream redirectfile(m_Outdir + "/" + unoimpl + ".html");
-    redirectfile << "<meta http-equiv=\"refresh\" content=\"0; URL=http://docs.libreoffice.org/" << module << "/html/class" << cppclassweb << "\">\n";
+    redirectfile << "<meta http-equiv=\"refresh\" content=\"0; URL=http://docs.lofice.org/" << module << "/html/class" << cppclassweb << "\">\n";
     redirectfile.close();
 }
 

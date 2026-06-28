@@ -1,6 +1,6 @@
 # Cursor 코드베이스 색인 — lofice 워크스페이스
 
-LibreOffice 전체 리포는 파일 수가 많아 Cursor `@Codebase` 품질·속도를 위해 **제외 규칙**을 두었습니다.
+lofice 전체 리포는 파일 수가 많아 Cursor `@Codebase` 품질·속도를 위해 **제외 규칙**을 두었습니다.
 
 ## 설정 파일 (리포 루트)
 

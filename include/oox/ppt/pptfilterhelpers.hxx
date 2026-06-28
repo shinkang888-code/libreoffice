@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -84,11 +84,11 @@ namespace oox::ppt {
 
     OOX_DLLPUBLIC void fixInteractiveSequenceTiming( const css::uno::Reference< css::animations::XAnimationNode >& xNode );
 
-    /** convert attribute values of the animation target so that LibreOffice understand.
+    /** convert attribute values of the animation target so that lofice understand.
      */
     OOX_DLLPUBLIC bool convertAnimationValue(AnimationAttributeEnum eAttribute, css::uno::Any& rValue);
 
-    /** convert the measure string to LibreOffice format.
+    /** convert the measure string to lofice format.
      * i.e. convert occurrence of #{0,1}ppt_[xywh] to x,y, width, height.
      */
     OOX_DLLPUBLIC bool convertMeasure(OUString& rString);

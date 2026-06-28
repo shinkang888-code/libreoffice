@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -403,23 +403,23 @@ DECLARE_ODFEXPORT_TEST(testShapesHyperlink, "shapes-hyperlink.odt")
     CPPUNIT_ASSERT_EQUAL(1, getPages());
     CPPUNIT_ASSERT_EQUAL(5, getShapes());
     uno::Reference<beans::XPropertySet> const xPropSet1(getShape(1), uno::UNO_QUERY);
-    CPPUNIT_ASSERT_EQUAL(u"http://libreoffice.org/"_ustr,
+    CPPUNIT_ASSERT_EQUAL(u"http://lofice.org/"_ustr,
                          getProperty<OUString>(xPropSet1, u"Hyperlink"_ustr));
 
     uno::Reference<beans::XPropertySet> const xPropSet2(getShape(2), uno::UNO_QUERY);
-    CPPUNIT_ASSERT_EQUAL(u"http://libreoffice2.org/"_ustr,
+    CPPUNIT_ASSERT_EQUAL(u"http://lofice2.org/"_ustr,
                          getProperty<OUString>(xPropSet2, u"Hyperlink"_ustr));
 
     uno::Reference<beans::XPropertySet> const xPropSet3(getShape(3), uno::UNO_QUERY);
-    CPPUNIT_ASSERT_EQUAL(u"http://libreoffice3.org/"_ustr,
+    CPPUNIT_ASSERT_EQUAL(u"http://lofice3.org/"_ustr,
                          getProperty<OUString>(xPropSet3, u"Hyperlink"_ustr));
 
     uno::Reference<beans::XPropertySet> const xPropSet4(getShape(4), uno::UNO_QUERY);
-    CPPUNIT_ASSERT_EQUAL(u"http://libreoffice4.org/"_ustr,
+    CPPUNIT_ASSERT_EQUAL(u"http://lofice4.org/"_ustr,
                          getProperty<OUString>(xPropSet4, u"Hyperlink"_ustr));
 
     uno::Reference<beans::XPropertySet> const xPropSet5(getShape(5), uno::UNO_QUERY);
-    CPPUNIT_ASSERT_EQUAL(u"http://libreoffice5.org/"_ustr,
+    CPPUNIT_ASSERT_EQUAL(u"http://lofice5.org/"_ustr,
                          getProperty<OUString>(xPropSet5, u"Hyperlink"_ustr));
 }
 

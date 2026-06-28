@@ -2,9 +2,9 @@
 <resources>
     <string name="calc_optimal_length">Hyd Gorau</string>
     <string name="pref_experimental_editing_summary">Galluogi’r modd golygu arbrofol. Gall fod peryglon.</string>
-    <string name="app_name_settings">Gosodiadau LibreOffice Viewer</string>
-    <string name="app_description">Mae LibreOffice Viewer yn ddarllenydd dogfennau yn seiliedig ar LibreOffice.</string>
-    <string name="app_credits">https://www.libreoffice.org</string>
+    <string name="app_name_settings">Gosodiadau lofice Viewer</string>
+    <string name="app_description">Mae lofice Viewer yn ddarllenydd dogfennau yn seiliedig ar lofice.</string>
+    <string name="app_credits">https://www.lofice.org</string>
     <string name="app_vendor">Darparwyd y fersiwn yma gan $VENDOR.</string>
     <string name="readonly_file">Darllen yn unig yw\'r ffeil.</string>
     <string name="about_license">Dangos y Drwydded</string>
@@ -96,8 +96,8 @@
     <string name="action_rename_slide">Ailenwi Sleid</string>
     <string name="automatic">Awtomatig</string>
     <string name="new_presentation">Cyflwyniadau Newydd</string>
-    <string name="app_version">Fersiwn: %1$s&lt;br&gt;Build ID: &lt;a href=https://hub.libreoffice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
-    <string name="app_name">LibreOffice Viewer</string>
+    <string name="app_version">Fersiwn: %1$s&lt;br&gt;Build ID: &lt;a href=https://hub.lofice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
+    <string name="app_name">lofice Viewer</string>
     <string name="pref_developer_mode_summary">Galluogi\'r modd datblygwr lle mae modd i chi anfon gorchmynion UNO o fewn yr ap. Gall fod peryglon.</string>
     <string name="file_icon_desc">eiconffeil</string>
     <string name="calc_optimal_length_default_text">Rhoi Hyd Ychwanegol mewn 100fed/mm</string>

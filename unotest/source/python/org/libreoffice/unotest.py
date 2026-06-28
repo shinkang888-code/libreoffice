@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -91,7 +91,7 @@ class OfficeConnection(object):
         if "--valgrind" in self.args:
             argv.append("--valgrind")
         if self.verbose:
-            print ("starting LibreOffice with channel: ", channel)
+            print ("starting lofice with channel: ", channel)
         return subprocess.Popen(argv)
 
     def connect(self, channel):
@@ -302,14 +302,14 @@ def makeCopyFromTDOC(file):
 ### tests ###
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser("Help utilities for testing LibreOffice")
+    parser = argparse.ArgumentParser("Help utilities for testing lofice")
     group = parser.add_mutually_exclusive_group()
     group.add_argument("-v", "--verbose", help="increase output verbosity", action="store_true")
     #parser.add_argument("p", type=str, help="program name")
     args = parser.parse_args()
     if args.verbose:
         verbose = True
-    from uitest.libreoffice.connection import PersistentConnection
+    from uitest.lofice.connection import PersistentConnection
     con = PersistentConnection({"verbose" : args.verbose})
     print("starting soffice ... ", end="")
     con.setUp()

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -422,8 +422,8 @@ bool SVGFilter::filterImpressOrDraw( const Sequence< PropertyValue >& rDescripto
         bool bSelectionOnly = false;
         bool bGotSelection = false;
 
-        // when using LibreOfficeKit, default to exporting everything (-1)
-        bool bPageProvided = comphelper::LibreOfficeKit::isActive();
+        // when using loficeKit, default to exporting everything (-1)
+        bool bPageProvided = comphelper::loficeKit::isActive();
         sal_Int32 nPageToExport = -1;
 
         comphelper::SequenceAsHashMap args(rDescriptor);

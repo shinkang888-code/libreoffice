@@ -1,5 +1,5 @@
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -85,7 +85,7 @@ protected:
 
             //uno::Reference< dom::XElement > xChildId( xChildNodes->item( 0 ), uno::UNO_QUERY );
             //CPPUNIT_ASSERT( xChildId.is() );
-            //CPPUNIT_ASSERT( xChildId->getNodeValue() == "LibreOffice_3.4" );
+            //CPPUNIT_ASSERT( xChildId->getNodeValue() == "lofice_3.4" );
             //fprintf( stderr, "Attribute == %s\n", OUStringToOString( aEntry.UpdateDocument->getAttribute( OUString( "test" ) ), RTL_TEXTENCODING_UTF8 ).getStr() );
             //fprintf( stderr, "Value == %s\n", OUStringToOString( xChildId->getNodeValue(), RTL_TEXTENCODING_UTF8 ).getStr() );
             // TODO check more deeply
@@ -108,7 +108,7 @@ protected:
                     u"InstallSetID"_ustr ) )
         {
             CPPUNIT_ASSERT_EQUAL( std::size_t(1), aInfo.Sources.size() );
-            CPPUNIT_ASSERT_EQUAL( u"http://www.libreoffice.org/download/"_ustr, aInfo.Sources[0].URL );
+            CPPUNIT_ASSERT_EQUAL( u"http://www.lofice.org/download/"_ustr, aInfo.Sources[0].URL );
         }
         else
             CPPUNIT_FAIL( "Calling checkForUpdates() failed." );

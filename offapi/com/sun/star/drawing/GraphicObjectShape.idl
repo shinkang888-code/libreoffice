@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -35,7 +35,7 @@ published service GraphicObjectShape
 
     /** This is a url to the source bitmap for this graphic shape.
 
-        @deprecated as of LibreOffice 6.1 - use Graphic instead
+        @deprecated as of lofice 6.1 - use Graphic instead
 
         Note the new behaviour since it was deprecated:
         This property can only be set and only external URLs are
@@ -140,7 +140,7 @@ published service GraphicObjectShape
     [optional, property] boolean SignatureLineIsSigned;
 
     /// Shape as a QR Code
-    /// @since LibreOffice 6.4
+    /// @since lofice 6.4
     [optional, property] com::sun::star::drawing::BarCode BarCodeProperties;
 };
 

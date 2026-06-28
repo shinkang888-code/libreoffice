@@ -12,69 +12,69 @@ cd $SRC/external-tar
 
 #cache build dependencies
 curl --no-progress-meter -S \
-    -C - -O https://dev-www.libreoffice.org/src/$FONT_LIBERATION_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/extern/$OPENSYMBOL_TTF \
-    -C - -O https://dev-www.libreoffice.org/src/$RASQAL_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$CLUCENE_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$HYPHEN_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$RAPTOR_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$MYTHES_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$REDLAND_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$BOOST_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$BOX2D_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$EXPAT_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$FAST_FLOAT_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$LIBJPEG_TURBO_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$LCMS2_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$LIBEXTTEXTCAT_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$CPPUNIT_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$CAIRO_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$CURL_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$XMLSEC_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$LIBLANGTAG_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$ABW_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$CDR_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$LIBCMIS_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$EBOOK_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$ETONYEK_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$FREEHAND_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$MD4C_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$MSPUB_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$MWAW_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$ODFGEN_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$ORCUS_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$PAGEMAKER_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$LIBPNG_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$REVENGE_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$STAROFFICE_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$VISIO_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$WPD_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$WPG_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$WPS_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$ZMF_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$PIXMAN_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$ZLIB_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$ZSTD_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$MDDS_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$OPENSSL_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$LANGTAGREG_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$GRAPHITE_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$HARFBUZZ_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$GLM_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$ICU_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$ICU_DATA_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$LIBXML_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$LIBXSLT_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$HUNSPELL_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$FREETYPE_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$FONTCONFIG_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$EPOXY_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$EPUBGEN_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$LIBNUMBERTEXT_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$QXP_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$LIBWEBP_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$LIBTIFF_TARBALL \
-    -C - -O https://dev-www.libreoffice.org/src/$DRAGONBOX_TARBALL
+    -C - -O https://dev-www.lofice.org/src/$FONT_LIBERATION_TARBALL \
+    -C - -O https://dev-www.lofice.org/extern/$OPENSYMBOL_TTF \
+    -C - -O https://dev-www.lofice.org/src/$RASQAL_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$CLUCENE_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$HYPHEN_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$RAPTOR_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$MYTHES_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$REDLAND_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$BOOST_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$BOX2D_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$EXPAT_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$FAST_FLOAT_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$LIBJPEG_TURBO_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$LCMS2_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$LIBEXTTEXTCAT_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$CPPUNIT_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$CAIRO_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$CURL_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$XMLSEC_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$LIBLANGTAG_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$ABW_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$CDR_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$LIBCMIS_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$EBOOK_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$ETONYEK_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$FREEHAND_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$MD4C_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$MSPUB_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$MWAW_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$ODFGEN_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$ORCUS_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$PAGEMAKER_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$LIBPNG_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$REVENGE_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$STAROFFICE_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$VISIO_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$WPD_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$WPG_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$WPS_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$ZMF_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$PIXMAN_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$ZLIB_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$ZSTD_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$MDDS_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$OPENSSL_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$LANGTAGREG_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$GRAPHITE_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$HARFBUZZ_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$GLM_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$ICU_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$ICU_DATA_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$LIBXML_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$LIBXSLT_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$HUNSPELL_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$FREETYPE_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$FONTCONFIG_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$EPOXY_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$EPUBGEN_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$LIBNUMBERTEXT_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$QXP_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$LIBWEBP_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$LIBTIFF_TARBALL \
+    -C - -O https://dev-www.lofice.org/src/$DRAGONBOX_TARBALL
 
 cd $SRC
 
@@ -98,14 +98,14 @@ curl --no-progress-meter -S \
 # upstream rtf.dict has an unescaped \h on line 90 that libFuzzer's ParseDictionaryFile rejects
 sed -i '/"\\headerr"/d' rtf.dict
 # build our own fuzz dict for odf, following the pattern of svg.dict
-echo "# Keywords taken from libreoffice/schema/odf1.3/OpenDocument-v1.3-schema.rng" > odf.dict
-echo "# and libreoffice/schema/libreoffice/OpenDocument-v1.4+libreoffice-schema.rng" >> odf.dict
+echo "# Keywords taken from lofice/schema/odf1.3/OpenDocument-v1.3-schema.rng" > odf.dict
+echo "# and lofice/schema/lofice/OpenDocument-v1.4+lofice-schema.rng" >> odf.dict
 echo "# tags" >> odf.dict
-grep -h "rng:element name=" libreoffice/schema/odf1.3/OpenDocument-v1.3-schema.rng libreoffice/schema/libreoffice/OpenDocument-v1.4+libreoffice-schema.rng | sed -n 's#.*<rng:element name="\([^"]*\)".*#"<\1"#p' >> odf.dict
+grep -h "rng:element name=" lofice/schema/odf1.3/OpenDocument-v1.3-schema.rng lofice/schema/lofice/OpenDocument-v1.4+lofice-schema.rng | sed -n 's#.*<rng:element name="\([^"]*\)".*#"<\1"#p' >> odf.dict
 echo "# attributes " >> odf.dict
-grep -h "rng:attribute name=" libreoffice/schema/odf1.3/OpenDocument-v1.3-schema.rng libreoffice/schema/libreoffice/OpenDocument-v1.4+libreoffice-schema.rng | sed -n 's#.*<rng:attribute name="\([^"]*\)".*#"\1"#p' >> odf.dict
+grep -h "rng:attribute name=" lofice/schema/odf1.3/OpenDocument-v1.3-schema.rng lofice/schema/lofice/OpenDocument-v1.4+lofice-schema.rng | sed -n 's#.*<rng:attribute name="\([^"]*\)".*#"\1"#p' >> odf.dict
 echo "# attributes' values" >> odf.dict
-grep -h "rng:value" libreoffice/schema/odf1.3/OpenDocument-v1.3-schema.rng libreoffice/schema/libreoffice/OpenDocument-v1.4+libreoffice-schema.rng | sed -n 's#.*<rng:value>\([^<]*\)</rng:value>.*#"\1"#p' | sort | uniq >> odf.dict
+grep -h "rng:value" lofice/schema/odf1.3/OpenDocument-v1.3-schema.rng lofice/schema/lofice/OpenDocument-v1.4+lofice-schema.rng | sed -n 's#.*<rng:value>\([^<]*\)</rng:value>.*#"\1"#p' | sort | uniq >> odf.dict
 
 #fuzzing corpuses
 #afl jpeg, gif, bmp, png, webp
@@ -141,49 +141,49 @@ git clone --depth 1 https://github.com/mozilla/pdf.js pdf.js && \
 
 curl --no-progress-meter -S -C - https://storage.googleapis.com/skia-fuzzer/oss-fuzz/svg_seed_corpus.zip -o svgfuzzer_seed_corpus.zip
 curl --no-progress-meter -S \
-    -C - -O https://dev-www.libreoffice.org/corpus/wmffuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/xbmfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/xpmfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/svmfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/pcdfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/dxffuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/metfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/ppmfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/psdfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/epsfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/pctfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/pcxfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/rasfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/tgafuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/tiffuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/hwpfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/602fuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/lwpfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/pptfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/rtffuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/olefuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/cgmfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/ww2fuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/ww6fuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/ww8fuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/qpwfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/slkfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/fodtfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/fodsfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/fodgfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/fodpfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/xlsfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/scrtffuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/wksfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/dbffuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/diffuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/docxfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/xlsxfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/pptxfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/mmlfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/mtpfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/htmlfuzzer_seed_corpus.zip \
-    -C - -O https://dev-www.libreoffice.org/corpus/zipfuzzer_seed_corpus.zip
+    -C - -O https://dev-www.lofice.org/corpus/wmffuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/xbmfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/xpmfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/svmfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/pcdfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/dxffuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/metfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/ppmfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/psdfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/epsfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/pctfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/pcxfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/rasfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/tgafuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/tiffuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/hwpfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/602fuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/lwpfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/pptfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/rtffuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/olefuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/cgmfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/ww2fuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/ww6fuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/ww8fuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/qpwfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/slkfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/fodtfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/fodsfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/fodgfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/fodpfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/xlsfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/scrtffuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/wksfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/dbffuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/diffuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/docxfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/xlsxfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/pptxfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/mmlfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/mtpfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/htmlfuzzer_seed_corpus.zip \
+    -C - -O https://dev-www.lofice.org/corpus/zipfuzzer_seed_corpus.zip
 cp fodtfuzzer_seed_corpus.zip fodt2pdffuzzer_seed_corpus.zip
 cp rtffuzzer_seed_corpus.zip rtf2pdffuzzer_seed_corpus.zip
 cp fodsfuzzer_seed_corpus.zip fods2xlsfuzzer_seed_corpus.zip

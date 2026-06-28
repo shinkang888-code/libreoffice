@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -310,7 +310,7 @@ Point FloatingWindow::ImplCalcPos(vcl::Window* pWindow,
     }
 
     sal_uInt16 nArrangeIndex = 0;
-    const bool bLOKActive = comphelper::LibreOfficeKit::isActive();
+    const bool bLOKActive = comphelper::loficeKit::isActive();
 
     for ( ; nArrangeIndex < nArrangeAttempts; nArrangeIndex++ )
     {
@@ -401,7 +401,7 @@ Point FloatingWindow::ImplCalcPos(vcl::Window* pWindow,
             default: break;
         }
 
-        // no further adjustment for LibreOfficeKit
+        // no further adjustment for loficeKit
         if (bLOKActive)
             break;
 
@@ -483,7 +483,7 @@ AbsoluteScreenPixelPoint FloatingWindow::ImplConvertToAbsPos(vcl::Window* pRefer
     const OutputDevice *pWindowOutDev = pReference->GetOutDev();
 
     // compare coordinates in absolute screen coordinates
-    if ( pWindowOutDev->HasMirroredGraphics() && !comphelper::LibreOfficeKit::isActive() )
+    if ( pWindowOutDev->HasMirroredGraphics() && !comphelper::loficeKit::isActive() )
     {
         Point aTmp(rPos);
         if(!pReference->IsRTLEnabled() )
@@ -506,7 +506,7 @@ AbsoluteScreenPixelRectangle FloatingWindow::ImplConvertToAbsPos(vcl::Window* pR
 
     // compare coordinates in absolute screen coordinates
     // Keep in sync with FloatingWindow::ImplFloatHitTest, e.g. fdo#33509
-    if( pParentWinOutDev->HasMirroredGraphics() && !comphelper::LibreOfficeKit::isActive() )
+    if( pParentWinOutDev->HasMirroredGraphics() && !comphelper::loficeKit::isActive() )
     {
         tools::Rectangle aScreenRect(rRect);
         if(!pReference->IsRTLEnabled() )
@@ -661,7 +661,7 @@ void FloatingWindow::PixelInvalidate(const tools::Rectangle* /*pRectangle*/)
         {
             std::make_pair("rectangle"_ostr, aRect.toString())
         };
-        const vcl::ILibreOfficeKitNotifier* pNotifier = pParent->GetLOKNotifier();
+        const vcl::IloficeKitNotifier* pNotifier = pParent->GetLOKNotifier();
         pNotifier->notifyWindow(GetLOKWindowId(), u"invalidate"_ustr, aPayload);
     }
 }
@@ -712,7 +712,7 @@ void FloatingWindow::StateChanged( StateChangedType nType )
         }
         else if (!IsVisible() && nType == StateChangedType::Visible)
         {
-            if (const vcl::ILibreOfficeKitNotifier* pNotifier = GetLOKNotifier())
+            if (const vcl::IloficeKitNotifier* pNotifier = GetLOKNotifier())
             {
                 pNotifier->notifyWindow(GetLOKWindowId(), u"close"_ustr);
                 ReleaseLOKNotifier();
@@ -961,7 +961,7 @@ void FloatingWindow::AddPopupModeWindow(vcl::Window* pWindow)
 bool SystemWindow::UpdatePositionData()
 {
     // tdf#164337 don't update position data when waiting for a system resize
-    // When entering and exiting LibreOffice's internal full screen mode,
+    // When entering and exiting lofice's internal full screen mode,
     // updating position data causes the "exit full screen" floating
     // toolbar to migrate after cycle.
     if (mpWindowImpl->mbWaitSystemResize)

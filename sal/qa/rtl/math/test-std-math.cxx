@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -28,7 +28,7 @@ In tdf#148430, we try to replace rtl math functions to std functions,
 this unit test is to demonstrate this replacement will not change
 the behavior of code and no other unexpected results.
 
-You can see more discussions in https://gerrit.libreoffice.org/c/core/+/138294.
+You can see more discussions in https://gerrit.lofice.org/c/core/+/138294.
 */
 
 class Test : public CppUnit::TestFixture

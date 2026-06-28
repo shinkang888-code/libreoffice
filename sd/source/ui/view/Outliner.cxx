@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -60,7 +60,7 @@
 #include <SpellDialogChildWindow.hxx>
 #include <framework/FrameworkHelper.hxx>
 #include <svx/svxids.hrc>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/string.hxx>
 #include <comphelper/lok.hxx>
 #include <comphelper/scopeguard.hxx>
@@ -656,7 +656,7 @@ bool SdOutliner::SearchAndReplaceAll()
         do
         {
             bFoundMatch = ! SearchAndReplaceOnce(&aSelections);
-            if (mpSearchItem->GetCommand() == SvxSearchCmd::FIND_ALL && comphelper::LibreOfficeKit::isActive() && bFoundMatch && aSelections.size() == 1)
+            if (mpSearchItem->GetCommand() == SvxSearchCmd::FIND_ALL && comphelper::loficeKit::isActive() && bFoundMatch && aSelections.size() == 1)
             {
                 // Without this, RememberStartPosition() will think it already has a remembered position.
                 mnStartPageIndex = sal_uInt16(-1);
@@ -669,7 +669,7 @@ bool SdOutliner::SearchAndReplaceAll()
         }
         while (bFoundMatch);
 
-        if (mpSearchItem->GetCommand() == SvxSearchCmd::FIND_ALL && comphelper::LibreOfficeKit::isActive() && !aSelections.empty())
+        if (mpSearchItem->GetCommand() == SvxSearchCmd::FIND_ALL && comphelper::loficeKit::isActive() && !aSelections.empty())
         {
             boost::property_tree::ptree aTree;
             aTree.put("searchString", mpSearchItem->GetSearchString().toUtf8().getStr());
@@ -688,18 +688,18 @@ bool SdOutliner::SearchAndReplaceAll()
             std::stringstream aStream;
             boost::property_tree::write_json(aStream, aTree);
             OString aPayload( aStream.str() );
-            rSfxViewShell.libreOfficeKitViewCallback(LOK_CALLBACK_SEARCH_RESULT_SELECTION, aPayload);
+            rSfxViewShell.loficeKitViewCallback(LOK_CALLBACK_SEARCH_RESULT_SELECTION, aPayload);
         }
     }
 
     RestoreStartPosition ();
 
-    if (mpSearchItem->GetCommand() == SvxSearchCmd::FIND_ALL && comphelper::LibreOfficeKit::isActive() && !bRet)
+    if (mpSearchItem->GetCommand() == SvxSearchCmd::FIND_ALL && comphelper::loficeKit::isActive() && !bRet)
     {
         // Find-all, tiled rendering and we have at least one match.
         OString aPayload = OString::number(mnStartPageIndex);
         SfxViewShell& rSfxViewShell = pViewShell->GetViewShellBase();
-        rSfxViewShell.libreOfficeKitViewCallback(LOK_CALLBACK_SET_PART, aPayload);
+        rSfxViewShell.loficeKitViewCallback(LOK_CALLBACK_SET_PART, aPayload);
 
         // Emit a selection callback here:
         // 1) The original one is no longer valid, as we there was a SET_PART in between
@@ -712,7 +712,7 @@ bool SdOutliner::SearchAndReplaceAll()
                 aRectangles.push_back(rSelection.m_aRectangles);
         }
         OString sRectangles = comphelper::string::join("; ", aRectangles);
-        rSfxViewShell.libreOfficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION, sRectangles);
+        rSfxViewShell.loficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION, sRectangles);
     }
 
     mnStartPageIndex = sal_uInt16(-1);
@@ -781,7 +781,7 @@ void SdOutliner::sendLOKSearchResultCallback(const std::shared_ptr<sd::ViewShell
     {
         pOutlinerView->GetSelectionRectangles(aLogicRects);
 
-        // convert to twips if in 100thmm (seems as if LibreOfficeKit is based on twips?). Do this
+        // convert to twips if in 100thmm (seems as if loficeKit is based on twips?). Do this
         // here where we have the only place needing this, *not* in ImpEditView::GetSelectionRectangles
         // which makes that method unusable for others
         if (pOutlinerView->GetWindow() && MapUnit::Map100thMM == pOutlinerView->GetWindow()->GetMapMode().GetMapUnit())
@@ -804,10 +804,10 @@ void SdOutliner::sendLOKSearchResultCallback(const std::shared_ptr<sd::ViewShell
 
     if (!pSelections)
     {
-        // notify LibreOfficeKit about changed page
+        // notify loficeKit about changed page
         OString aPayload = OString::number(maCurrentPosition.mnPageIndex);
         SfxViewShell& rSfxViewShell = pViewShell->GetViewShellBase();
-        rSfxViewShell.libreOfficeKitViewCallback(LOK_CALLBACK_SET_PART, aPayload);
+        rSfxViewShell.loficeKitViewCallback(LOK_CALLBACK_SET_PART, aPayload);
 
         // also about search result selections
         boost::property_tree::ptree aTree;
@@ -824,11 +824,11 @@ void SdOutliner::sendLOKSearchResultCallback(const std::shared_ptr<sd::ViewShell
         std::stringstream aStream;
         boost::property_tree::write_json(aStream, aTree);
         aPayload = OString(aStream.str());
-        rSfxViewShell.libreOfficeKitViewCallback(LOK_CALLBACK_SEARCH_RESULT_SELECTION, aPayload);
+        rSfxViewShell.loficeKitViewCallback(LOK_CALLBACK_SEARCH_RESULT_SELECTION, aPayload);
 
         if (rVectorGraphicSearchContext.mbCurrentIsVectorGraphic)
         {
-            rSfxViewShell.libreOfficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION, sRectangles);
+            rSfxViewShell.loficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION, sRectangles);
         }
     }
     else
@@ -999,7 +999,7 @@ bool SdOutliner::SearchAndReplaceOnce(std::vector<sd::SearchSelection>* pSelecti
 
     mrDrawDocument.GetDocSh()->SetWaitCursor( false );
 
-    if (pViewShell && comphelper::LibreOfficeKit::isActive() && mbStringFound)
+    if (pViewShell && comphelper::loficeKit::isActive() && mbStringFound)
     {
         sendLOKSearchResultCallback(pViewShell, getOutlinerView(), pSelections);
     }
@@ -1289,7 +1289,7 @@ void SdOutliner::ProvideNextTextObject()
             maCurrentPosition = *maObjectIterator;
 
             // LOK: do not descent to notes or master pages when searching
-            bool bForbiddenPage = comphelper::LibreOfficeKit::isActive() && (maCurrentPosition.mePageKind != PageKind::Standard || maCurrentPosition.meEditMode != EditMode::Page);
+            bool bForbiddenPage = comphelper::loficeKit::isActive() && (maCurrentPosition.mePageKind != PageKind::Standard || maCurrentPosition.meEditMode != EditMode::Page);
 
             rVectorGraphicSearchContext.reset();
 
@@ -1465,7 +1465,7 @@ void SdOutliner::ShowEndOfSearchDialog()
             if (pViewShell)
             {
                 SfxViewShell& rSfxViewShell = pViewShell->GetViewShellBase();
-                rSfxViewShell.libreOfficeKitViewCallback(LOK_CALLBACK_SEARCH_NOT_FOUND, mpSearchItem->GetSearchString().toUtf8());
+                rSfxViewShell.loficeKitViewCallback(LOK_CALLBACK_SEARCH_NOT_FOUND, mpSearchItem->GetSearchString().toUtf8());
             }
         }
 

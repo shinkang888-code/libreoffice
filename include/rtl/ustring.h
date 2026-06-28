@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 
 #ifndef INCLUDED_RTL_USTRING_H
@@ -1093,7 +1093,7 @@ SAL_DLLPUBLIC sal_Int32 SAL_CALL rtl_ustr_toInt32(
     the unsigned integer value represented by the string, or 0 if the string
     does not represent an unsigned integer.
 
-    @since LibreOffice 4.2
+    @since lofice 4.2
  */
 SAL_DLLPUBLIC sal_uInt32 SAL_CALL rtl_ustr_toUInt32(
         const sal_Unicode * str, sal_Int16 radix ) SAL_THROW_EXTERN_C();
@@ -1136,7 +1136,7 @@ SAL_DLLPUBLIC sal_Int64 SAL_CALL rtl_ustr_toInt64(
     not represent a long integer.
 
     @internal
-    @since LibreOffice 6.4
+    @since lofice 6.4
 */
 SAL_DLLPUBLIC sal_Int64 SAL_CALL rtl_ustr_toInt64_WithLength(
         const sal_Unicode * str, sal_Int16 radix, sal_Int32 nStrLength ) SAL_THROW_EXTERN_C();
@@ -1157,7 +1157,7 @@ SAL_DLLPUBLIC sal_Int64 SAL_CALL rtl_ustr_toInt64_WithLength(
     the unsigned long integer value represented by the string, or 0 if the
     string does not represent an unsigned long integer.
 
-    @since LibreOffice 4.1
+    @since lofice 4.1
  */
 SAL_DLLPUBLIC sal_uInt64 SAL_CALL rtl_ustr_toUInt64(
         const sal_Unicode * str, sal_Int16 radix ) SAL_THROW_EXTERN_C();
@@ -1255,7 +1255,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_new(
 
     @return pointer to the new string.
 
-    @since LibreOffice 4.1
+    @since lofice 4.1
  */
 SAL_DLLPUBLIC rtl_uString * SAL_CALL rtl_uString_alloc(sal_Int32 nLen) SAL_THROW_EXTERN_C();
 
@@ -1339,7 +1339,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_newFromStr_WithLength(
     @param[in]     beginIndex   the beginning index, inclusive.
     @param[in]     count        the number of characters.
 
-    @since LibreOffice 4.0
+    @since lofice 4.0
  */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_newFromSubString(
         rtl_uString ** newStr, const rtl_uString * from,
@@ -1367,7 +1367,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_newFromAscii(
 
 /**
  @internal
- @since LibreOffice 3.6
+ @since lofice 3.6
 */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_newFromLiteral(
         rtl_uString ** newStr, const char * value, sal_Int32 len,
@@ -1473,7 +1473,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_newConcat(
 
     @param rightLength  the length of the \p right string; must be non-negative
 
-    @since LibreOffice 5.1
+    @since lofice 5.1
  */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_newConcatAsciiL(
     rtl_uString ** newString, rtl_uString * left, char const * right,
@@ -1495,7 +1495,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_newConcatAsciiL(
 
     @param rightLength the length of the \p right string; must be non-negative
 
-    @since LibreOffice 5.3
+    @since lofice 5.3
  */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_newConcatUtf16L(
     rtl_uString ** newString, rtl_uString * left, sal_Unicode const * right,
@@ -1584,7 +1584,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplace(
     function its value is the index into the original string at which the
     replacement took place or -1 if no replacement took place
 
-    @since LibreOffice 3.6
+    @since lofice 3.6
 */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceFirst(
     rtl_uString ** newStr, rtl_uString * str, rtl_uString const * from,
@@ -1612,7 +1612,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceFirst(
     function its value is the index into the original string at which the
     replacement took place or -1 if no replacement took place
 
-    @since LibreOffice 3.6
+    @since lofice 3.6
 */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceFirstAsciiL(
     rtl_uString ** newStr, rtl_uString * str, char const * from,
@@ -1641,7 +1641,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceFirstAsciiL(
     function its value is the index into the original string at which the
     replacement took place or -1 if no replacement took place
 
-    @since LibreOffice 5.1
+    @since lofice 5.1
 */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceFirstToAsciiL(
     rtl_uString ** newStr, rtl_uString * str, rtl_uString const * from,
@@ -1673,7 +1673,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceFirstToAsciiL(
     function its value is the index into the original string at which the
     replacement took place or -1 if no replacement took place
 
-    @since LibreOffice 3.6
+    @since lofice 3.6
 */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceFirstAsciiLAsciiL(
     rtl_uString ** newStr, rtl_uString * str, char const * from,
@@ -1709,7 +1709,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceFirstAsciiLAsciiL(
     replacement took place (or would have taken place if \p newStr points to
     null upon return) or -1 if no replacement took place
 
-    @since LibreOffice 5.3
+    @since lofice 5.3
 */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceFirstAsciiLUtf16L(
     rtl_uString ** newStr, rtl_uString * str, char const * from,
@@ -1745,7 +1745,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceFirstAsciiLUtf16L(
     replacement took place (or would have taken place if \p newStr points to
     null upon return) or -1 if no replacement took place
 
-    @since LibreOffice 5.3
+    @since lofice 5.3
 */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceFirstUtf16LAsciiL(
     rtl_uString ** newStr, rtl_uString * str, sal_Unicode const * from,
@@ -1781,7 +1781,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceFirstUtf16LAsciiL(
     replacement took place (or would have taken place if \p newStr points to
     null upon return) or -1 if no replacement took place
 
-    @since LibreOffice 5.3
+    @since lofice 5.3
 */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceFirstUtf16LUtf16L(
     rtl_uString ** newStr, rtl_uString * str, sal_Unicode const * from,
@@ -1803,7 +1803,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceFirstUtf16LUtf16L(
 
     @param to  pointer to the replacing substring; must not be null
 
-    @since LibreOffice 3.6
+    @since lofice 3.6
 */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceAll(
     rtl_uString ** newStr, rtl_uString * str, rtl_uString const * from,
@@ -1826,7 +1826,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceAll(
 
     @param fromIndex  the position in the string where we will begin searching
 
-    @since LibreOffice 4.0
+    @since lofice 4.0
 */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceAllFromIndex(
     rtl_uString ** newStr, rtl_uString * str, rtl_uString const * from,
@@ -1850,7 +1850,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceAllFromIndex(
 
     @param to  pointer to the replacing substring; must not be null
 
-    @since LibreOffice 3.6
+    @since lofice 3.6
 */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceAllAsciiL(
     rtl_uString ** newStr, rtl_uString * str, char const * from,
@@ -1874,7 +1874,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceAllAsciiL(
 
     @param toLength  the length of the \p to substring; must be non-negative
 
-    @since LibreOffice 5.1
+    @since lofice 5.1
 */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceAllToAsciiL(
     rtl_uString ** newStr, rtl_uString * str, rtl_uString const * from,
@@ -1901,7 +1901,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceAllToAsciiL(
 
     @param toLength  the length of the \p to substring; must be non-negative
 
-    @since LibreOffice 3.6
+    @since lofice 3.6
 */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceAllAsciiLAsciiL(
     rtl_uString ** newStr, rtl_uString * str, char const * from,
@@ -1932,7 +1932,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceAllAsciiLAsciiL(
 
     @param toLength  the length of the \p to substring; must be non-negative
 
-    @since LibreOffice 3.6
+    @since lofice 3.6
 */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceAllAsciiLUtf16L(
     rtl_uString ** newStr, rtl_uString * str, char const * from,
@@ -1963,7 +1963,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceAllAsciiLUtf16L(
 
     @param toLength  the length of the \p to substring; must be non-negative
 
-    @since LibreOffice 3.6
+    @since lofice 3.6
 */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceAllUtf16LAsciiL(
     rtl_uString ** newStr, rtl_uString * str, sal_Unicode const * from,
@@ -1994,7 +1994,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceAllUtf16LAsciiL(
 
     @param toLength  the length of the \p to substring; must be non-negative
 
-    @since LibreOffice 3.6
+    @since lofice 3.6
 */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceAllUtf16LUtf16L(
     rtl_uString ** newStr, rtl_uString * str, sal_Unicode const * from,
@@ -2028,7 +2028,7 @@ SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceAllUtf16LUtf16L(
 
     @param fromIndex  the position in the string where we will begin searching
 
-    @since LibreOffice 7.1
+    @since lofice 7.1
 */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_newReplaceAllFromIndexUtf16LUtf16L(
     rtl_uString ** newStr, rtl_uString * str, sal_Unicode const * from,
@@ -2392,7 +2392,7 @@ SAL_DLLPUBLIC sal_Bool SAL_CALL rtl_convertStringToUString(
  @param size
  the number of characters
 
- @since LibreOffice 4.1
+ @since lofice 4.1
  @internal
  */
 SAL_DLLPUBLIC void SAL_CALL rtl_uString_ensureCapacity( rtl_uString ** str, sal_Int32 size ) SAL_THROW_EXTERN_C();

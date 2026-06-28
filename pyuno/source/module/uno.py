@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -315,7 +315,7 @@ class ByteSequence:
 class Any:
     """Represents a UNO Any value.
 
-    Use to pass an explicit typed Any. Note that before LibreOffice 26.8 it was not possible to pass
+    Use to pass an explicit typed Any. Note that before lofice 26.8 it was not possible to pass
     an Any as an argument to a method call and you had to use uno.invoke instead.
 
     """
@@ -332,7 +332,7 @@ class Any:
 def invoke(object, methodname, argTuple):
     """Use this function to call an interface method named by a string.
 
-    Note that before LibreOffice 26.8 this function was needed in order to pass an Any as an
+    Note that before lofice 26.8 this function was needed in order to pass an Any as an
     argument to a method call, but now it is possible to just directly call the method instead.
 
     """
@@ -347,7 +347,7 @@ _builtin_import = __import__
 
 
 def _uno_import(name, *optargs, **kwargs):
-    """Overrides built-in import to allow directly importing LibreOffice classes."""
+    """Overrides built-in import to allow directly importing lofice classes."""
 
     try:
         return _builtin_import(name, *optargs, **kwargs)

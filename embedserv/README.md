@@ -1,3 +1,3 @@
-# LibreOffice Embeddable Objects
+# lofice Embeddable Objects
 
-To embed LibreOffice via OLE2.
+To embed lofice via OLE2.

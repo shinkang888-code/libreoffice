@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -46,7 +46,7 @@ struct PrstCameraValues
     double mfRotateAngleZ; // unit 1/60000 degree
 
     // Position of origin relative to the bounding box of the transformed 2D shape.
-    // LibreOffice can handle values outside the ODF range.
+    // lofice can handle values outside the ODF range.
     double mfOriginX; // ODF range [-0.5 (left).. 0.5 (right)], fraction of width
     double mfOriginY; // ODF range [-0.5 (top) 0.5 (bottom)], fraction of height
 
@@ -359,7 +359,7 @@ void Scene3DHelper::addProjectionGeometryToMap(
         aViewPoint.PositionY = aPrstCameraValuesArray[mnPrstCameraIndex].mfViewPointY;
 
         // The z-coordinate is determined bei a field of view angle in OOXML and by a
-        // distance in LibreOffice. MS Office users can change its value.
+        // distance in lofice. MS Office users can change its value.
         if ((*p3DProperties).mfFieldOfVision.has_value())
         {
             double fFov = (*p3DProperties).mfFieldOfVision.value();
@@ -902,7 +902,7 @@ void Scene3DHelper::setLightingProperties(const oox::drawingml::Shape3DPropertie
     // If the implementation is improved one day, the parts will need to be adapted.
 
     // (1) Moving the camera around does not change shape or light directions for modern cameras in
-    // MS Office. For legacy cameras MS Office behaves same as LibreOffice: Not the camera is moved
+    // MS Office. For legacy cameras MS Office behaves same as lofice: Not the camera is moved
     // but the shape is rotated. For modern cameras we need to rotate the light rig the same way as
     // the shape to get a similar illumination as in MS Office.
     if (mnPrstCameraIndex < 20 || 37 < mnPrstCameraIndex)

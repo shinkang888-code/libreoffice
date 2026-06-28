@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -604,7 +604,7 @@ void ScEditShell::Execute( SfxRequest& rReq )
                     bool bCellLinksOnly
                         = (ScModule::get()->GetAppOptions().GetLinksInsertedLikeMSExcel()
                           && rViewData.GetSfxDocShell()->GetMedium()->GetFilter()->IsMSOFormat())
-                          || comphelper::LibreOfficeKit::isActive();
+                          || comphelper::loficeKit::isActive();
 
                     bool bDone = false;
                     if ( (eMode == HLINK_DEFAULT || eMode == HLINK_FIELD) && !bCellLinksOnly )
@@ -817,7 +817,7 @@ void ScEditShell::GetState( SfxItemSet& rSet )
                     bool bCellLinksOnly
                         = (ScModule::get()->GetAppOptions().GetLinksInsertedLikeMSExcel()
                           && rViewData.GetSfxDocShell()->GetMedium()->GetFilter()->IsMSOFormat())
-                          || comphelper::LibreOfficeKit::isActive();
+                          || comphelper::loficeKit::isActive();
                     std::unique_ptr<const SvxFieldData> aSvxFieldDataPtr(GetURLField());
                     const SvxURLField* pURLField(static_cast<const SvxURLField*>(aSvxFieldDataPtr.get()));
                     if (!bCellLinksOnly)

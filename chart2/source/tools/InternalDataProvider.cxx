@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1227,7 +1227,7 @@ OUString SAL_CALL InternalDataProvider::convertRangeToXML( const OUString& aRang
 OUString SAL_CALL InternalDataProvider::convertRangeFromXML( const OUString& aXMLRange )
 {
     // Handle non-standards-conforming table:cell-range-address="PivotChart", see
-    // <https://bugs.documentfoundation.org/show_bug.cgi?id=112783> "PIVOT CHARTS: Save produces
+    // <https://bugs.lofice.io/show_bug.cgi?id=112783> "PIVOT CHARTS: Save produces
     // invalid file because of invalid cell address":
     if (aXMLRange == "PivotChart") {
         return u""_ustr;

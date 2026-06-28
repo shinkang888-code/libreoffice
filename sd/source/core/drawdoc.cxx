@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -562,7 +562,7 @@ void SdDrawDocument::ResizeCurrentPage(
     // }
 
     // Notify LOK clients of the current page size change.
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return;
 
     SfxViewShell* pViewShell = SfxViewShell::Current();
@@ -708,7 +708,7 @@ void SdDrawDocument::AdaptPageSizeForAllPages(
     }
 
     // Notify LOK clients of the document size change.
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return;
 
     SfxViewShell* pViewShell = SfxViewShell::Current();

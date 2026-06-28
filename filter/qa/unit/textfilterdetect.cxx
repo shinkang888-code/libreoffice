@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -215,7 +215,7 @@ CPPUNIT_TEST_FIXTURE(TextFilterDetectTest, testEmptyFileDOC_Template)
 
 // The unit test fails on some Linux systems. Until it is found out why the file URLs are broken
 // there, let it be Windows-only, since the original issue tested here was Windows-specific.
-// See https://lists.freedesktop.org/archives/libreoffice/2023-December/091265.html for details.
+// See https://lists.freedesktop.org/archives/lofice/2023-December/091265.html for details.
 #ifdef _WIN32
 CPPUNIT_TEST_FIXTURE(TextFilterDetectTest, testHybridPDFFile_Writer)
 {

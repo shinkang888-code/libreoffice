@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -24,7 +24,7 @@ SvpSalGraphics::SvpSalGraphics()
     : m_aTextRenderImpl(m_aCairoCommon)
     , m_pBackend(new SvpGraphicsBackend(m_aCairoCommon))
 {
-    bool bLOKActive = comphelper::LibreOfficeKit::isActive();
+    bool bLOKActive = comphelper::loficeKit::isActive();
     initWidgetDrawBackends(bLOKActive);
 }
 
@@ -48,7 +48,7 @@ void SvpSalGraphics::GetResolution( sal_Int32& rDPIX, sal_Int32& rDPIY )
 
 bool SvpSalGraphics::ShouldDownscaleIconsAtSurface(double& rScaleOut) const
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return SalGraphics::ShouldDownscaleIconsAtSurface(rScaleOut);
     rScaleOut = m_aCairoCommon.m_fScale;
     return true;

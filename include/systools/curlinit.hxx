@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -92,7 +92,7 @@ static void InitCurl_easy(CURL* const pCURL)
     // User-Agent string with contact information, or they may be IP-blocked
     // without notice" otherwise:
     OString const useragent(
-        OString::Concat("LibreOffice " LIBO_VERSION_DOTTED " denylistedbackend/")
+        OString::Concat("lofice " LIBO_VERSION_DOTTED " denylistedbackend/")
         + pVersion->version + " " + pVersion->ssl_version);
     // looks like an explicit "User-Agent" header in CURLOPT_HTTPHEADER
     // will override CURLOPT_USERAGENT, see Curl_http_useragent(), so no need

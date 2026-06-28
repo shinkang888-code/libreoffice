@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -96,7 +96,7 @@ published constants KParseTokens
     /** The same as GROUP_SEPARATOR_IN_NUMBER, but require <em>3</em>
         digits following the group separator.
 
-        @since LibreOffice 25.2
+        @since lofice 25.2
      */
     const long GROUP_SEPARATOR_IN_NUMBER_3 = 0x04000000;
 
@@ -118,7 +118,7 @@ published constants KParseTokens
         inline numbers in a formula expression do not contain group
         separators.
 
-        @since LibreOffice 6.2
+        @since lofice 6.2
      */
     const long GROUP_SEPARATOR_IN_NUMBER = 0x08000000;
 

@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
-/* This file is part of the LibreOffice project.
+/* This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -15,13 +15,13 @@ bool ThemeColors::m_bIsThemeCached = false;
 void ThemeColors::SetThemeState(ThemeState eState)
 {
     auto pChange(comphelper::ConfigurationChanges::create());
-    officecfg::Office::Common::Appearance::LibreOfficeTheme::set(static_cast<int>(eState), pChange);
+    officecfg::Office::Common::Appearance::loficeTheme::set(static_cast<int>(eState), pChange);
     pChange->commit();
 }
 
 ThemeState ThemeColors::GetThemeState()
 {
-    return static_cast<ThemeState>(officecfg::Office::Common::Appearance::LibreOfficeTheme::get());
+    return static_cast<ThemeState>(officecfg::Office::Common::Appearance::loficeTheme::get());
 }
 
 bool ThemeColors::UseOnlyWhiteDocBackground()

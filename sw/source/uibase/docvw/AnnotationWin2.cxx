@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -179,8 +179,8 @@ void SwAnnotationWin::DrawForPage(OutputDevice* pDev, const Point& rPt)
     auto lclSizePixelToLogic = [this](Size szs) {
         // In LOK without tiled annotations, SwAnnotationWin desn't have the
         // right conversion when printing to PDF but mxSidebarTextControl does
-        if (comphelper::LibreOfficeKit::isActive()
-            && !comphelper::LibreOfficeKit::isTiledAnnotations())
+        if (comphelper::loficeKit::isActive()
+            && !comphelper::loficeKit::isTiledAnnotations())
             return mxSidebarTextControl->GetDrawingArea()->get_ref_device().PixelToLogic(szs);
         else
             return PixelToLogic(szs);
@@ -189,8 +189,8 @@ void SwAnnotationWin::DrawForPage(OutputDevice* pDev, const Point& rPt)
     auto lclPointPixelToLogic = [this](Point pnt) {
         // In LOK without tiled annotations, SwAnnotationWin desn't have the
         // right conversion when printing to PDF but mxSidebarTextControl does
-        if (comphelper::LibreOfficeKit::isActive()
-            && !comphelper::LibreOfficeKit::isTiledAnnotations())
+        if (comphelper::loficeKit::isActive()
+            && !comphelper::loficeKit::isTiledAnnotations())
             return mxSidebarTextControl->GetDrawingArea()->get_ref_device().PixelToLogic(pnt);
         else
             return PixelToLogic(pnt);
@@ -539,7 +539,7 @@ void SwAnnotationWin::Rescale()
     // when modifying a commented text. Not clear the root cause,
     // anyway skipping this method fixes the problem, and there should be
     // no side effect, since the client has disabled annotations rendering.
-    if (comphelper::LibreOfficeKit::isActive() && !comphelper::LibreOfficeKit::isTiledAnnotations())
+    if (comphelper::loficeKit::isActive() && !comphelper::loficeKit::isTiledAnnotations())
         return;
 
     MapMode aMode = GetParent()->GetMapMode();
@@ -616,7 +616,7 @@ void SwAnnotationWin::SetPosAndSize()
 
             // LOK has map mode disabled, and we still want to perform pixel ->
             // twips conversion for the size of the line above the note.
-            if (comphelper::LibreOfficeKit::isActive() && !EditWin().IsMapModeEnabled())
+            if (comphelper::loficeKit::isActive() && !EditWin().IsMapModeEnabled())
             {
                 EditWin().EnableMapMode();
                 Size aSize(aLineEnd.getX() - aLineStart.getX(), aLineEnd.getY() - aLineStart.getY());
@@ -737,7 +737,7 @@ void SwAnnotationWin::SetPosAndSize()
 
             // For annotation text range rectangles to be calculated correctly,
             // we need the map mode disabled
-            bool bDisableMapMode = comphelper::LibreOfficeKit::isActive() && EditWin().IsMapModeEnabled();
+            bool bDisableMapMode = comphelper::loficeKit::isActive() && EditWin().IsMapModeEnabled();
             if (bDisableMapMode)
                 EditWin().EnableMapMode(false);
 
@@ -1059,11 +1059,11 @@ void SwAnnotationWin::DeactivatePostIt()
     // Make sure this view doesn't emit LOK callbacks during the update, as the
     // sidebar window's SidebarTextControl doesn't have a valid twip offset
     // (map mode origin) during that operation.
-    bool bTiledPainting = comphelper::LibreOfficeKit::isTiledPainting();
-    comphelper::LibreOfficeKit::setTiledPainting(true);
+    bool bTiledPainting = comphelper::loficeKit::isTiledPainting();
+    comphelper::loficeKit::setTiledPainting(true);
     // write the visible text back into the SwField
     UpdateData();
-    comphelper::LibreOfficeKit::setTiledPainting(bTiledPainting);
+    comphelper::loficeKit::setTiledPainting(bTiledPainting);
 
     if ( !Application::GetSettings().GetStyleSettings().GetHighContrastMode() )
         GetOutlinerView()->SetBackgroundColor(COL_TRANSPARENT);

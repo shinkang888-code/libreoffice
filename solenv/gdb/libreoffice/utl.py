@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,7 +9,7 @@
 
 import gdb
 
-from libreoffice.util import printing
+from lofice.util import printing
 
 class TranslateIdPrinter(object):
     '''Prints a TranslateId.'''
@@ -26,7 +26,7 @@ printer = None
 def build_pretty_printers():
     global printer
 
-    printer = printing.Printer('libreoffice/utl')
+    printer = printing.Printer('lofice/utl')
 
     # various types
     printer.add('TranslateId', TranslateIdPrinter)

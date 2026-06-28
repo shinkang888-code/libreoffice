@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -110,25 +110,25 @@ service Axis
 
     /** Determines display units are available for axis
 
-        @since LibreOffice 4.3
+        @since lofice 4.3
      */
     [optional, property] boolean DisplayUnits;
 
     /** Determines built in display unit value for axis
 
-        @since LibreOffice 4.3
+        @since lofice 4.3
      */
     [optional, property] string BuiltInUnit;
 
     /** Compatibility option: determines which strategy should be tried first for fixing axis labels overlapping issues
 
-        @since LibreOffice 5.1
+        @since lofice 5.1
      */
     [optional, property] boolean TryStaggeringFirst;
 
     /** This attribute specifies the shift of the first major tick from the origin.
 
-        @since LibreOffice 7.0
+        @since lofice 7.0
      */
     [optional, property] long MajorOrigin;
 

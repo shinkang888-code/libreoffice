@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -35,9 +35,9 @@ int lo_apk_closedir(lo_apk_dir *dirp);
 
 int lo_apk_lstat(const char *path, struct stat *statp);
 
-/// "libreofficekit_" prefix, because it is exported from the .so, when we are
+/// "loficekit_" prefix, because it is exported from the .so, when we are
 /// initializing the JNI externally.
-void libreofficekit_set_javavm(JavaVM *vm);
+void loficekit_set_javavm(JavaVM *vm);
 
 JavaVM *lo_get_javavm(void);
 

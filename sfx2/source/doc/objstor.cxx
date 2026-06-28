@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -738,7 +738,7 @@ bool SfxObjectShell::DoLoad( SfxMedium *pMed )
             constexpr bool bUsePdfium = true;
 #else
             const bool bUsePdfium
-                = comphelper::LibreOfficeKit::isActive() || getenv("LO_IMPORT_USE_PDFIUM");
+                = comphelper::loficeKit::isActive() || getenv("LO_IMPORT_USE_PDFIUM");
 #endif
             const bool bPdfiumImport
                 = bUsePdfium && pMedium->GetFilter()
@@ -1116,7 +1116,7 @@ ErrCode SfxObjectShell::HandleFilter( SfxMedium* pMedium, SfxObjectShell const *
     SfxItemSet& rSet = pMedium->GetItemSet();
     const SfxStringItem* pOptions = rSet.GetItem(SID_FILE_FILTEROPTIONS, false);
     const SfxUnoAnyItem* pData = rSet.GetItem(SID_FILTER_DATA, false);
-    const bool bTiledRendering = comphelper::LibreOfficeKit::isActive();
+    const bool bTiledRendering = comphelper::loficeKit::isActive();
 
     // Process earlier as the input could contain express detection instructions.
     // This is relevant for "automatic" use case. For interactive use case the
@@ -1519,7 +1519,7 @@ bool SfxObjectShell::SaveTo_Impl
 
         // before we overwrite the original file, we will make a backup if there is a demand for that
         // if the backup is not created here it will be created internally and will be removed in case of successful saving
-        const bool bDoBackup = officecfg::Office::Common::Save::Document::CreateBackup::get() && !comphelper::LibreOfficeKit::isActive();
+        const bool bDoBackup = officecfg::Office::Common::Save::Document::CreateBackup::get() && !comphelper::loficeKit::isActive();
         if ( bDoBackup )
         {
             rMedium.DoBackup_Impl(/*bForceUsingBackupPath=*/false);
@@ -2604,7 +2604,7 @@ bool SfxObjectShell::ImportFrom(SfxMedium& rMedium,
             }
 
             // tdf#107690 import custom document property _MarkAsFinal as SecurityOptOpenReadonly
-            // (before this fix, LibreOffice opened read-only OOXML documents as editable,
+            // (before this fix, lofice opened read-only OOXML documents as editable,
             // also saved and exported _MarkAsFinal=true silently, resulting unintended read-only
             // warning info bar in MSO)
             uno::Reference< document::XDocumentPropertiesSupplier > xPropSupplier(GetModel(), uno::UNO_QUERY_THROW);
@@ -3244,7 +3244,7 @@ bool SfxObjectShell::PreDoSaveAs_Impl(const OUString& rFileName, const OUString&
         return false;
     }
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         // Before saving, commit in-flight changes.
         TerminateEditing();
@@ -3483,14 +3483,14 @@ bool SfxObjectShell::SaveAsOwnFormat( SfxMedium& rMedium )
         }
 #endif
 
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             // Because XMLTextFieldExport::ExportFieldDeclarations (called from SwXMLExport)
             // calls SwXTextFieldMasters::getByName, which in turn maps property names by
             // calling SwStyleNameMapper::GetTextUINameArray, which uses
             // SvtSysLocale().GetUILanguageTag() to do the mapping, saving indirectly depends
             // on the UI language. This is an unfortunate dependency. Here we use the loader's language.
-            const LanguageTag& viewLanguage = comphelper::LibreOfficeKit::getLanguageTag();
+            const LanguageTag& viewLanguage = comphelper::loficeKit::getLanguageTag();
             const LanguageTag loadLanguage = SfxLokHelper::getLoadLanguage();
 
             // Use the default language for saving and restore later if necessary.
@@ -3498,7 +3498,7 @@ bool SfxObjectShell::SaveAsOwnFormat( SfxMedium& rMedium )
             if (viewLanguage != loadLanguage)
             {
                 restoreLanguage = true;
-                comphelper::LibreOfficeKit::setLanguageTag(loadLanguage);
+                comphelper::loficeKit::setLanguageTag(loadLanguage);
             }
 
             // Restore the view's original language automatically and as necessary.
@@ -3506,8 +3506,8 @@ bool SfxObjectShell::SaveAsOwnFormat( SfxMedium& rMedium )
                 [&viewLanguage, restoreLanguage]()
                 {
                     if (restoreLanguage
-                        && viewLanguage != comphelper::LibreOfficeKit::getLanguageTag())
-                        comphelper::LibreOfficeKit::setLanguageTag(viewLanguage);
+                        && viewLanguage != comphelper::loficeKit::getLanguageTag())
+                        comphelper::loficeKit::setLanguageTag(viewLanguage);
                 });
 
             return SaveAs(rMedium);

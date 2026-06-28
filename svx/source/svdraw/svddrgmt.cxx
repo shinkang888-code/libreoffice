@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -679,7 +679,7 @@ void SdrDragMethod::CreateOverlayGeometry(
     const sdr::contact::ObjectContact& rObjectContact, bool bIsGeometrySizeValid)
 {
     // We do client-side object manipulation with the Kit API
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return;
 
     // create SdrDragEntries on demand

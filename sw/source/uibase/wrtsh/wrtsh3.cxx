@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -31,7 +31,7 @@
 #include <sfx2/dispatch.hxx>
 #include <comphelper/lok.hxx>
 #include <tools/json_writer.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 #include <swmodule.hxx>
 #include <wrtsh.hxx>
@@ -109,13 +109,13 @@ bool SwWrtShell::GotoContentControl(const SwFormatContentControl& rContentContro
         {
             // Replace the placeholder image with a real one.
             GetView().StopShellTimer();
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
             {
                 tools::JsonWriter aJson;
                 aJson.put("action", "change-picture");
                 OString pJson(aJson.finishAndGetAsOString());
                 if (SfxViewShell* pNotifySh = GetSfxViewShell())
-                    pNotifySh->libreOfficeKitViewCallback(LOK_CALLBACK_CONTENT_CONTROL,
+                    pNotifySh->loficeKitViewCallback(LOK_CALLBACK_CONTENT_CONTROL,
                                                               pJson);
             }
             else

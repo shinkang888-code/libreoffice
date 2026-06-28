@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -171,7 +171,7 @@ published service TextTable
 
     /** contains the URL for the background graphic.
 
-        @deprecated as of LibreOffice 6.1 - use BackGraphic instead
+        @deprecated as of lofice 6.1 - use BackGraphic instead
 
         Note the new behaviour since it this was deprecated:
         This property can only be set and only external URLs are
@@ -198,7 +198,7 @@ published service TextTable
 
     /** Grab bag of table properties, used as a string-any map for interim interop purposes.
 
-        @since LibreOffice 4.3
+        @since lofice 4.3
 
         <p>This property is intentionally not handled by the ODF filter. Any
         member that should be handled there should be first moved out from this grab
@@ -208,13 +208,13 @@ published service TextTable
 
     /** contains the name of table style used by the table.
 
-        @since LibreOffice 5.3
+        @since lofice 5.3
      */
     [optional, property] string TableTemplateName;
 
     /** contains the graphic for the background.
 
-        @since LibreOffice 6.1
+        @since lofice 6.1
      */
     [optional, property] com::sun::star::graphic::XGraphic BackGraphic;
 };

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -16,7 +16,7 @@
 # considered unsafe.
 #
 # 3) Create two client certificates that can be used to sign ODF documents in
-# LibreOffice.
+# lofice.
 #
 # References:
 #

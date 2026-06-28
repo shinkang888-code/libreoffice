@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -834,7 +834,7 @@ void SchXMLSeries2Context::setDefaultsToSeries( SeriesDefaultsAndStyles& rSeries
 }
 
 // ODF has the line and fill properties in a <style:style> element, which is referenced by the
-// <chart:data-label> element. But LibreOffice has them as special label properties of the series
+// <chart:data-label> element. But lofice has them as special label properties of the series
 // or point respectively. The following array maps the API name of the ODF property to the name of
 // the internal property. Those are of kind "LabelFoo".
 // The array is used in methods setStylesToSeries and setStylesToDataPoints.

@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -19,7 +19,7 @@ class tdf113252(UITestCase):
             xWriterDoc = self.xUITest.getTopFocusWindow()
             xWriterEdit = xWriterDoc.getChild("writer_edit")
 
-            #Start LibreOffice. Go to Tools > Macros > Organize Macros > Basic
+            #Start lofice. Go to Tools > Macros > Organize Macros > Basic
             with self.ui_test.execute_dialog_through_command(".uno:MacroDialog", close_button="close") as xDialog:
 
                 #Click Button Organizer

@@ -1,13 +1,13 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-// Design proposal: https://wiki.documentfoundation.org/Design/Whiteboards/Comments_Ruler_Control
+// Design proposal: https://wiki.lofice.io/Design/Whiteboards/Comments_Ruler_Control
 
 #include <swruler.hxx>
 
@@ -116,7 +116,7 @@ sw::sidebarwindows::SidebarPosition SwCommentRuler::GetSidebarPosition()
 
 void SwCommentRuler::Paint(vcl::RenderContext& rRenderContext, const tools::Rectangle& rRect)
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return; // no need to waste time on startup
 
     SvxRuler::Paint(rRenderContext, rRect);

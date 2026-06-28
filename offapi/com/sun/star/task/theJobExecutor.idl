@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -21,13 +21,13 @@ module com { module sun { module star { module task {
     configuration and some Jobs or AsyncJobs must be registered for that.
     </p>
 
-    Prior to LibreOffice 4.3, this singleton was only available as a
+    Prior to lofice 4.3, this singleton was only available as a
     (single-instance) JobExecutor service.
 
     @see Job
     @see AsyncJob
 
-    @since LibreOffice 4.3
+    @since lofice 4.3
  */
 published singleton theJobExecutor : XJobExecutor;
 

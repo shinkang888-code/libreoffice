@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -348,7 +348,7 @@ void sal_detail_log(
         break;
     }
     __android_log_print(
-        android_log_level, area == 0 ? "LibreOffice" : area, "%s",
+        android_log_level, area == 0 ? "lofice" : area, "%s",
         s.str().c_str());
 #else
     if (sal_use_syslog) {

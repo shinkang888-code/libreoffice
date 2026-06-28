@@ -7,7 +7,7 @@
     android:layout_height="fill_parent"
     android:background="#fff"
     android:fitsSystemWindows="true"
-    tools:context=".LibreOfficeMainActivity">
+    tools:context=".loficeMainActivity">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinator_layout"
@@ -29,9 +29,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:elevation="3dp"
-                    app:theme="@style/LibreOfficeTheme"
-                    tools:theme="@style/LibreOfficeTheme"
-                    app:popupTheme="@style/LibreOfficeTheme" />
+                    app:theme="@style/loficeTheme"
+                    tools:theme="@style/loficeTheme"
+                    app:popupTheme="@style/loficeTheme" />
 
             </com.google.android.material.appbar.AppBarLayout>
 

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -21,7 +21,7 @@
 //  File:       ooofilt.cxx
 //  Contents:   Filter Implementation for OpenOffice.Org Document using
 //              Indexing Service
-//  Summary:    The LibreOffice filter reads OpenOffice.org XML files (with
+//  Summary:    The lofice filter reads OpenOffice.org XML files (with
 //              the extension .sxw .sxi, etc) and ODF files and extract
 //              their content, author, keywords,subject,comments and title
 //              to be filtered.
@@ -41,7 +41,7 @@
 //  filterr.h       FACILITY_ITF error definitions for IFilter
 //  ntquery.h       Indexing Service declarations
 //  assert.h        assertion function.
-//  ooofilt.hxx     LibreOffice filter declarations
+//  ooofilt.hxx     lofice filter declarations
 //  propspec.hxx    PROPSPEC
 
 
@@ -66,7 +66,7 @@
 
 //C-------------------------------------------------------------------------
 //  Class:      COooFilter
-//  Summary:    Implements LibreOffice filter class
+//  Summary:    Implements lofice filter class
 
 //M-------------------------------------------------------------------------
 //  Method:     COooFilter::COooFilter
@@ -171,7 +171,7 @@ ULONG STDMETHODCALLTYPE COooFilter::Release()
 }
 //M-------------------------------------------------------------------------
 //  Method:     COooFilter::Init                (IFilter::Init)
-//  Summary:    Initializes LibreOffice filter instance
+//  Summary:    Initializes lofice filter instance
 //  Arguments:  grfFlags
 //                  [in] Flags for filter behavior
 //              cAttributes
@@ -761,7 +761,7 @@ ULONG STDMETHODCALLTYPE COooFilterCF::Release()
 }
 //M-------------------------------------------------------------------------
 //  Method:     COooFilterCF::CreateInstance (IClassFactory::CreateInstance)
-//  Summary:    Creates new LibreOffice filter object
+//  Summary:    Creates new lofice filter object
 //  Arguments:  pUnkOuter
 //                  [in] Pointer to IUnknown interface of aggregating object
 //              riid
@@ -769,13 +769,13 @@ ULONG STDMETHODCALLTYPE COooFilterCF::Release()
 //              ppvObject
 //                  [out] Address that receives requested interface pointer
 //  Returns:    S_OK
-//                  LibreOffice filter object was successfully created
+//                  lofice filter object was successfully created
 //              CLASS_E_NOAGGREGATION
 //                  pUnkOuter parameter was non-NULL
 //              E_NOINTERFACE
 //                  (not implemented)
 //              E_OUTOFMEMORY
-//                  LibreOffice filter object could not be created
+//                  lofice filter object could not be created
 //                  due to insufficient memory
 //              E_UNEXPECTED
 //                  Unsuccessful due to an unexpected condition
@@ -826,7 +826,7 @@ HRESULT STDMETHODCALLTYPE COooFilterCF::LockServer(BOOL fLock)
 }
 //+-------------------------------------------------------------------------
 //  DLL:        ooofilt.dll
-//  Summary:    Implements Dynamic Link Library functions for LibreOffice filter
+//  Summary:    Implements Dynamic Link Library functions for lofice filter
 
 //F-------------------------------------------------------------------------
 //  Function:   DllMain
@@ -852,7 +852,7 @@ extern "C" BOOL WINAPI DllMain(
 }
 //F-------------------------------------------------------------------------
 //  Function:   DllGetClassObject
-//  Summary:    Create LibreOffice filter class factory object
+//  Summary:    Create lofice filter class factory object
 //  Arguments:  cid
 //                  [in] Class ID of class that class factory creates
 //              iid

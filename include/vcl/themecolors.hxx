@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
-/* This file is part of the LibreOffice project.
+/* This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -11,7 +11,7 @@
 #include <vcl/dllapi.h>
 #include <svtools/colorcfg.hxx>
 
-/* ThemeState represents registry values for "LibreOfficeTheme" enumeration
+/* ThemeState represents registry values for "loficeTheme" enumeration
  * in officecfg/registry/schema/org/openoffice/Office/Common.xcs, which means
  * that the associations here have a meaning. Please don't change it. */
 enum class ThemeState

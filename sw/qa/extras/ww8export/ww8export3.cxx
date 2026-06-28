@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -293,9 +293,9 @@ DECLARE_WW8EXPORT_TEST(testHyperLinkURLSaving, "tdf120003.doc")
 {
     OUString URL = getProperty<OUString>(getShape(1), u"HyperLinkURL"_ustr);
     // Without the fix in place, this test would have failed with
-    // - Expected: https://www.libreoffice.org/
-    // - Actual  : tps://www.libreoffice.org/
-    CPPUNIT_ASSERT_EQUAL(u"https://www.libreoffice.org/"_ustr, URL);
+    // - Expected: https://www.lofice.org/
+    // - Actual  : tps://www.lofice.org/
+    CPPUNIT_ASSERT_EQUAL(u"https://www.lofice.org/"_ustr, URL);
 }
 
 DECLARE_WW8EXPORT_TEST(testdf79553_lineNumbers, "tdf79553_lineNumbers.doc")

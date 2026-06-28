@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -131,13 +131,13 @@ interface XFastParser: com::sun::star::uno::XInterface
     string getNamespaceURL( [in] string prefix )
         raises( com::sun::star::lang::IllegalArgumentException );
 
-    /** @since LibreOffice 5.3 */
+    /** @since lofice 5.3 */
     void setNamespaceHandler( [in] XFastNamespaceHandler Handler);
 
     /**
       * Simulate a DTD file.
       * Will allow to use customized entity references like &infin; .
-      * @since LibreOffice 7.1
+      * @since lofice 7.1
       */
     void setCustomEntityNames( [in] sequence< beans::Pair<string,string> > replacements);
 };

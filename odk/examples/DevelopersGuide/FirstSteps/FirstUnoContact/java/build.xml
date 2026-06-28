@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -28,7 +28,7 @@
 
     <path id="office.class.path">
         <filelist dir="${OFFICE_HOME}/program/classes"
-            files="libreoffice.jar"/>
+            files="lofice.jar"/>
     </path>
 
     <fileset id="bootstrap.glue.code" dir="${OO_SDK_HOME}/classes">

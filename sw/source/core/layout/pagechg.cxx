@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -2013,7 +2013,7 @@ void SwRootFrame::ImplCalcBrowseWidth()
 
     mbBrowseWidthValid = true;
     SwViewShell *pSh = getRootFrame()->GetCurrShell();
-    mnBrowseWidth = (!comphelper::LibreOfficeKit::isActive() && pSh)? MINLAY + 2 * pSh->GetOut()-> PixelToLogic( pSh->GetBrowseBorder() ).Width(): MIN_BROWSE_WIDTH;
+    mnBrowseWidth = (!comphelper::loficeKit::isActive() && pSh)? MINLAY + 2 * pSh->GetOut()-> PixelToLogic( pSh->GetBrowseBorder() ).Width(): MIN_BROWSE_WIDTH;
 
     do
     {
@@ -2505,7 +2505,7 @@ void SwRootFrame::CheckViewLayout( const SwViewOption* pViewOpt, const SwRect* p
 
             // center page if possible
             tools::Long nSizeDiff = 0;
-            if (nVisWidth > nCurrentRowWidth && !comphelper::LibreOfficeKit::isActive())
+            if (nVisWidth > nCurrentRowWidth && !comphelper::loficeKit::isActive())
                 nSizeDiff = ( nVisWidth - nCurrentRowWidth ) / 2;
 
             // adjust positions of pages in current row

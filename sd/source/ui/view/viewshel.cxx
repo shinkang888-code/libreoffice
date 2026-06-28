@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -332,7 +332,7 @@ void ViewShell::Activate(bool bIsMDIActivate)
         if (GetDispatcher() != nullptr)
         {
             SfxCallMode nCall = SfxCallMode::RECORD;
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
             {
                 // Make sure the LOK case doesn't dispatch async events while switching views, that
                 // would lead to a loop, see SfxHintPoster::DoEvent_Impl().
@@ -1382,7 +1382,7 @@ void ViewShell::ImpSidUndo(SfxRequest& rReq)
         sal_uInt16 nCount(pUndoManager->GetUndoActionCount());
         if(nCount >= nNumber)
         {
-            if (comphelper::LibreOfficeKit::isActive() && !bRepair)
+            if (comphelper::loficeKit::isActive() && !bRepair)
             {
                 // If another view created the first undo action, prevent redoing it from this view.
                 const SfxUndoAction* pAction = pUndoManager->GetUndoAction();
@@ -1452,7 +1452,7 @@ void ViewShell::ImpSidRedo(SfxRequest& rReq)
         sal_uInt16 nCount(pUndoManager->GetRedoActionCount());
         if(nCount >= nNumber)
         {
-            if (comphelper::LibreOfficeKit::isActive() && !bRepair)
+            if (comphelper::loficeKit::isActive() && !bRepair)
             {
                 // If another view created the first undo action, prevent redoing it from this view.
                 const SfxUndoAction* pAction = pUndoManager->GetRedoAction();

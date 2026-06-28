@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -25,7 +25,7 @@
 
 /** Container of po entry
 
-    Provide all file operations related to LibreOffice specific
+    Provide all file operations related to lofice specific
     po entry and store it's attributes.
 */
 class GenPoEntry
@@ -458,8 +458,8 @@ PoHeader::PoHeader( std::string_view rExtSrc )
     m_pGenPo->setExtractCom(Concat2View(OString::Concat("extracted from ") + rExtSrc));
     m_pGenPo->setMsgStr(
         "Project-Id-Version: PACKAGE VERSION\n"
-        "Report-Msgid-Bugs-To: https://bugs.libreoffice.org/enter_bug.cgi?"
-        "product=LibreOffice&bug_status=UNCONFIRMED&component=UI\n"
+        "Report-Msgid-Bugs-To: https://bugs.lofice.org/enter_bug.cgi?"
+        "product=lofice&bug_status=UNCONFIRMED&component=UI\n"
         "POT-Creation-Date: " + lcl_GetTime() +
         "\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
         "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -468,7 +468,7 @@ PoHeader::PoHeader( std::string_view rExtSrc )
         "Content-Type: text/plain; charset=UTF-8\n"
         "Content-Transfer-Encoding: 8bit\n"
         "X-Accelerator-Marker: ~\n"
-        "X-Generator: LibreOffice\n");
+        "X-Generator: lofice\n");
     m_bIsInitialized = true;
 }
 
@@ -582,7 +582,7 @@ void PoIfstream::open(const OString& rFileName, OString* pPoHeader)
         if (sTemp.starts_with("\"PO-Revision-Date"))
             *pPoHeader += "PO-Revision-Date: " + lcl_GetTime() + "\n";
         else if (sTemp.starts_with("\"X-Generator"))
-            *pPoHeader += "X-Generator: LibreOffice\n";
+            *pPoHeader += "X-Generator: lofice\n";
         else if (sTemp.starts_with("\""))
             *pPoHeader += lcl_GenNormString(sTemp);
     }

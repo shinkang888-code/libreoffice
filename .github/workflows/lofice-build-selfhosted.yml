@@ -8,6 +8,13 @@ on:
   push:
     paths:
       - 'lofice/**'
+      - 'framework/**'
+      - 'sfx2/**'
+      - 'sw/**'
+      - 'sc/**'
+      - 'sd/**'
+      - 'instsetoo_native/**'
+      - 'icon-themes/**'
       - 'officecfg/registry/**/Lofice.xcs'
       - 'officecfg/registry/**/Lofice.xcu'
       - '.github/workflows/lofice-build-selfhosted.yml'

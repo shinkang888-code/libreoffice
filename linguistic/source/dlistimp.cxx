@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -324,9 +324,9 @@ void DicList::SearchForDictionaries(
             uno::Reference< XDictionary > xDic =
                         new DictionaryNeo( aDicTitle.isEmpty() ? aDicName : aDicTitle, nLang, eType, aURL, bIsWriteablePath );
 
-            // when using libreofficekit we don't have "options" dialog to make user-dictionaries active
+            // when using loficekit we don't have "options" dialog to make user-dictionaries active
             // so when we add user-dictionary, we make them active as well
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
                 xDic->setActive(true);
 
             addDictionary( xDic );
@@ -603,7 +603,7 @@ void DicList::CreateDicList()
 
     // create IgnoreAllList dictionary with empty URL (non persistent)
     // and add it to list
-    const LanguageTag tag = comphelper::LibreOfficeKit::isActive()
+    const LanguageTag tag = comphelper::loficeKit::isActive()
                                 ? LanguageTag(u"en-US"_ustr)
                                 : SvtSysLocale().GetUILanguageTag();
     std::locale loc(Translate::Create("svt", tag));

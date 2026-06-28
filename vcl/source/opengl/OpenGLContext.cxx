@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -122,7 +122,7 @@ const char* getSourceString(GLenum source)
         case GL_DEBUG_SOURCE_THIRD_PARTY:
             return "third party";
         case GL_DEBUG_SOURCE_APPLICATION:
-            return "Libreoffice";
+            return "lofice";
         case GL_DEBUG_SOURCE_OTHER:
             return "unknown";
         default:
@@ -273,7 +273,7 @@ void OpenGLContext::InitGLDebugging()
     }
 
     // Test hooks for inserting tracing messages into the stream
-    VCL_GL_INFO("LibreOffice GLContext initialized");
+    VCL_GL_INFO("lofice GLContext initialized");
 #endif
 }
 

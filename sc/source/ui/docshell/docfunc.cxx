@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -217,7 +217,7 @@ bool ScDocFunc::AdjustRowHeight( const ScRange& rRange, bool bPaint, bool bApi )
     // tdf#76183: recalculate objects' positions
     if (bChanged)
     {
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             SfxViewShell* pViewShell = SfxViewShell::GetFirst();
             while (pViewShell)
@@ -238,7 +238,7 @@ bool ScDocFunc::AdjustRowHeight( const ScRange& rRange, bool bPaint, bool bApi )
         rDocShell.PostPaint(ScRange(0, nStartRow, nTab, rDoc.MaxCol(), rDoc.MaxRow(), nTab),
                             PaintPartFlags::Grid | PaintPartFlags::Left);
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         ScTabViewShell::notifyAllViewsHeaderInvalidation(pSomeViewForThisDoc, ROW_HEADER, nTab);
         ScTabViewShell::notifyAllViewsSheetGeomInvalidation(
@@ -963,7 +963,7 @@ bool ScDocFunc::ShowNote( const ScAddress& rPos, bool bShow )
     ScDocument& rDoc = rDocShell.GetDocument();
     ScPostIt* pNote = rDoc.GetNote( rPos );
     if( !pNote || (bShow == pNote->IsCaptionShown()) ||
-        (comphelper::LibreOfficeKit::isActive() && !comphelper::LibreOfficeKit::isTiledAnnotations()) )
+        (comphelper::loficeKit::isActive() && !comphelper::loficeKit::isTiledAnnotations()) )
         return false;
 
     // move the caption to internal or hidden layer and create undo action

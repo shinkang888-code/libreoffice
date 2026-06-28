@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -46,7 +46,7 @@ $(eval $(call gb_Helper_register_executables,NONE, \
 	idxdict \
 	io-testconnection \
 	langsupport \
-	$(if $(filter iOS,$(OS)),LibreOffice) \
+	$(if $(filter iOS,$(OS)),lofice) \
 	lngconvex \
 	localize \
     $(call gb_CondExeLockfile,lockfile) \
@@ -686,8 +686,8 @@ $(eval $(call gb_Helper_register_libraries_for_install,PLAINLIBS_OOO,ooo, \
 	embobj \
 	$(if $(ENABLE_JAVA),hsqldb) \
 	i18nutil \
-	$(if $(and $(ENABLE_GTK3), $(filter LINUX %BSD SOLARIS,$(OS))), libreofficekitgtk) \
-	$(if $(and $(ENABLE_GTKTILEDVIEWER), $(filter WNT,$(OS))), libreofficekitgtk) \
+	$(if $(and $(ENABLE_GTK3), $(filter LINUX %BSD SOLARIS,$(OS))), loficekitgtk) \
+	$(if $(and $(ENABLE_GTKTILEDVIEWER), $(filter WNT,$(OS))), loficekitgtk) \
 	$(if $(ENABLE_JAVA), \
 		$(if $(filter $(OS),MACOSX),,officebean) \
 	) \
@@ -792,7 +792,7 @@ $(eval $(call gb_Helper_register_jars_for_install,URE,ure, \
 	java_uno \
 	juh \
 	jurt \
-	libreoffice \
+	lofice \
 	ridl \
 	unoloader \
 ))
@@ -872,9 +872,9 @@ $(eval $(call gb_Helper_register_packages_for_install,calc,\
 	sc_res_xml \
 ))
 
-$(eval $(call gb_Helper_register_packages_for_install,libreofficekit,\
-	$(if $(filter LINUX %BSD SOLARIS, $(OS)),libreofficekit_selectionhandles) \
-	$(if $(and $(ENABLE_GTKTILEDVIEWER), $(filter WNT,$(OS))), libreofficekit_selectionhandles) \
+$(eval $(call gb_Helper_register_packages_for_install,loficekit,\
+	$(if $(filter LINUX %BSD SOLARIS, $(OS)),loficekit_selectionhandles) \
+	$(if $(and $(ENABLE_GTKTILEDVIEWER), $(filter WNT,$(OS))), loficekit_selectionhandles) \
 ))
 
 $(eval $(call gb_Helper_register_packages_for_install,ure,\
@@ -1245,7 +1245,7 @@ $(eval $(call gb_Helper_register_uiconfigs,\
 	filter \
 	formula \
 	fps \
-	libreofficekit \
+	loficekit \
 	$(call gb_Helper_optional,SCRIPTING,modules/BasicIDE) \
 	$(call gb_Helper_optional,DBCONNECTIVITY,\
 		modules/dbapp \

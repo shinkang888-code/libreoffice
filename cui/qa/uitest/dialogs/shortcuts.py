@@ -7,7 +7,7 @@
 
 from uitest.framework import UITestCase
 from uitest.uihelper.common import select_pos
-from libreoffice.uno.propertyvalue import mkPropertyValues
+from lofice.uno.propertyvalue import mkPropertyValues
 from uitest.uihelper.common import get_state_as_dict
 
 class Test(UITestCase):

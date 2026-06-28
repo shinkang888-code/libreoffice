@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -10,8 +10,8 @@
 # tests for tracked changes ; tdf912270
 
 from uitest.framework import UITestCase
-from libreoffice.calc.document import get_cell_by_position
-from libreoffice.uno.propertyvalue import mkPropertyValues
+from lofice.calc.document import get_cell_by_position
+from lofice.uno.propertyvalue import mkPropertyValues
 from uitest.uihelper.calc import enter_text_to_cell
 from uitest.uihelper.common import get_state_as_dict, get_url_for_data_file
 import datetime
@@ -139,8 +139,8 @@ class CalcTrackedChanges(UITestCase):
             gridwin = xCalcDoc.getChild("grid_window")
             #track changes;  enter text to cell
             self.xUITest.executeCommand(".uno:TraceChangeMode")
-            enter_text_to_cell(gridwin, "A1", "Test LibreOffice")
-            enter_text_to_cell(gridwin, "A2", "Test LibreOffice")
+            enter_text_to_cell(gridwin, "A1", "Test lofice")
+            enter_text_to_cell(gridwin, "A2", "Test lofice")
             #accept tracked changes
             with self.ui_test.execute_modeless_dialog_through_command(".uno:AcceptChanges", close_button="close") as xTrackDlg:
 
@@ -148,9 +148,9 @@ class CalcTrackedChanges(UITestCase):
                 self.assertEqual(2, len(xChangesList.getChildren()))
 
                 textStart = "Changed contents\tSheet1.A1\tUnknown Author\t" + datetime.datetime.now().strftime("%m/%d/%Y")
-                textEnd = "(Cell A1 changed from '<empty>' to 'Test LibreOffice')"
+                textEnd = "(Cell A1 changed from '<empty>' to 'Test lofice')"
                 textStart2 = "Changed contents\tSheet1.A2\tUnknown Author\t" + datetime.datetime.now().strftime("%m/%d/%Y")
-                textEnd2 = "(Cell A2 changed from '<empty>' to 'Test LibreOffice')"
+                textEnd2 = "(Cell A2 changed from '<empty>' to 'Test lofice')"
                 self.assertTrue(get_state_as_dict(xChangesList.getChild('0'))["Text"].startswith(textStart))
                 self.assertTrue(get_state_as_dict(xChangesList.getChild('0'))["Text"].endswith(textEnd))
                 self.assertTrue(get_state_as_dict(xChangesList.getChild('1'))["Text"].startswith(textStart2))
@@ -179,7 +179,7 @@ class CalcTrackedChanges(UITestCase):
                 self.assertTrue(get_state_as_dict(xChangesList.getChild('0').getChild('1'))["Text"].endswith(textEnd2))
 
 
-            self.assertEqual(get_cell_by_position(document, 0, 0, 0).getString(), "Test LibreOffice")
+            self.assertEqual(get_cell_by_position(document, 0, 0, 0).getString(), "Test lofice")
 
     def test_tracked_changes_acceptall(self):
 
@@ -189,8 +189,8 @@ class CalcTrackedChanges(UITestCase):
             gridwin = xCalcDoc.getChild("grid_window")
             #track changes;  enter text to cell
             self.xUITest.executeCommand(".uno:TraceChangeMode")
-            enter_text_to_cell(gridwin, "A1", "Test LibreOffice")
-            enter_text_to_cell(gridwin, "A2", "Test LibreOffice")
+            enter_text_to_cell(gridwin, "A1", "Test lofice")
+            enter_text_to_cell(gridwin, "A2", "Test lofice")
             #accept All tracked changes
             with self.ui_test.execute_modeless_dialog_through_command(".uno:AcceptChanges", close_button="close") as xTrackDlg:
 
@@ -198,9 +198,9 @@ class CalcTrackedChanges(UITestCase):
                 self.assertEqual(2, len(xChangesList.getChildren()))
 
                 textStart = "Changed contents\tSheet1.A1\tUnknown Author\t" + datetime.datetime.now().strftime("%m/%d/%Y")
-                textEnd = "(Cell A1 changed from '<empty>' to 'Test LibreOffice')"
+                textEnd = "(Cell A1 changed from '<empty>' to 'Test lofice')"
                 textStart2 = "Changed contents\tSheet1.A2\tUnknown Author\t" + datetime.datetime.now().strftime("%m/%d/%Y")
-                textEnd2 = "(Cell A2 changed from '<empty>' to 'Test LibreOffice')"
+                textEnd2 = "(Cell A2 changed from '<empty>' to 'Test lofice')"
                 self.assertTrue(get_state_as_dict(xChangesList.getChild('0'))["Text"].startswith(textStart))
                 self.assertTrue(get_state_as_dict(xChangesList.getChild('0'))["Text"].endswith(textEnd))
                 self.assertTrue(get_state_as_dict(xChangesList.getChild('1'))["Text"].startswith(textStart2))
@@ -221,7 +221,7 @@ class CalcTrackedChanges(UITestCase):
                 self.assertTrue(get_state_as_dict(xChangesList.getChild('0').getChild('1'))["Text"].endswith(textEnd2))
 
 
-            self.assertEqual(get_cell_by_position(document, 0, 0, 0).getString(), "Test LibreOffice")
+            self.assertEqual(get_cell_by_position(document, 0, 0, 0).getString(), "Test lofice")
 
     def test_tracked_changes_reject(self):
 
@@ -231,8 +231,8 @@ class CalcTrackedChanges(UITestCase):
             gridwin = xCalcDoc.getChild("grid_window")
             #track changes;  enter text to cell
             self.xUITest.executeCommand(".uno:TraceChangeMode")
-            enter_text_to_cell(gridwin, "A1", "Test LibreOffice")
-            enter_text_to_cell(gridwin, "A2", "Test LibreOffice")
+            enter_text_to_cell(gridwin, "A1", "Test lofice")
+            enter_text_to_cell(gridwin, "A2", "Test lofice")
             #accept tracked changes
             with self.ui_test.execute_modeless_dialog_through_command(".uno:AcceptChanges", close_button="close") as xTrackDlg:
 
@@ -240,9 +240,9 @@ class CalcTrackedChanges(UITestCase):
                 self.assertEqual(2, len(xChangesList.getChildren()))
 
                 textStart = "Changed contents\tSheet1.A1\tUnknown Author\t" + datetime.datetime.now().strftime("%m/%d/%Y")
-                textEnd = "(Cell A1 changed from '<empty>' to 'Test LibreOffice')"
+                textEnd = "(Cell A1 changed from '<empty>' to 'Test lofice')"
                 textStart2 = "Changed contents\tSheet1.A2\tUnknown Author\t" + datetime.datetime.now().strftime("%m/%d/%Y")
-                textEnd2 = "(Cell A2 changed from '<empty>' to 'Test LibreOffice')"
+                textEnd2 = "(Cell A2 changed from '<empty>' to 'Test lofice')"
                 self.assertTrue(get_state_as_dict(xChangesList.getChild('0'))["Text"].startswith(textStart))
                 self.assertTrue(get_state_as_dict(xChangesList.getChild('0'))["Text"].endswith(textEnd))
                 self.assertTrue(get_state_as_dict(xChangesList.getChild('1'))["Text"].startswith(textStart2))
@@ -267,8 +267,8 @@ class CalcTrackedChanges(UITestCase):
                 xChangesList.getChild('0').executeAction("EXPAND", tuple())
                 self.assertEqual(2, len(xChangesList.getChild('0').getChildren()))
 
-                textEnd3 = "(Cell A1 changed from 'Test LibreOffice' to '<empty>')"
-                textEnd4 = "(Cell A2 changed from 'Test LibreOffice' to '<empty>')"
+                textEnd3 = "(Cell A1 changed from 'Test lofice' to '<empty>')"
+                textEnd4 = "(Cell A2 changed from 'Test lofice' to '<empty>')"
                 self.assertTrue(get_state_as_dict(xChangesList.getChild('0').getChild('0'))["Text"].startswith(textStart))
                 self.assertTrue(get_state_as_dict(xChangesList.getChild('0').getChild('0'))["Text"].endswith(textEnd3))
                 self.assertTrue(get_state_as_dict(xChangesList.getChild('0').getChild('1'))["Text"].startswith(textStart2))
@@ -293,8 +293,8 @@ class CalcTrackedChanges(UITestCase):
             gridwin = xCalcDoc.getChild("grid_window")
             #track changes;  enter text to cell
             self.xUITest.executeCommand(".uno:TraceChangeMode")
-            enter_text_to_cell(gridwin, "A1", "Test LibreOffice")
-            enter_text_to_cell(gridwin, "A2", "Test LibreOffice")
+            enter_text_to_cell(gridwin, "A1", "Test lofice")
+            enter_text_to_cell(gridwin, "A2", "Test lofice")
             #accept tracked changes
             with self.ui_test.execute_modeless_dialog_through_command(".uno:AcceptChanges", close_button="close") as xTrackDlg:
 
@@ -302,9 +302,9 @@ class CalcTrackedChanges(UITestCase):
                 self.assertEqual(2, len(xChangesList.getChildren()))
 
                 textStart = "Changed contents\tSheet1.A1\tUnknown Author\t" + datetime.datetime.now().strftime("%m/%d/%Y")
-                textEnd = "(Cell A1 changed from '<empty>' to 'Test LibreOffice')"
+                textEnd = "(Cell A1 changed from '<empty>' to 'Test lofice')"
                 textStart2 = "Changed contents\tSheet1.A2\tUnknown Author\t" + datetime.datetime.now().strftime("%m/%d/%Y")
-                textEnd2 = "(Cell A2 changed from '<empty>' to 'Test LibreOffice')"
+                textEnd2 = "(Cell A2 changed from '<empty>' to 'Test lofice')"
                 self.assertTrue(get_state_as_dict(xChangesList.getChild('0'))["Text"].startswith(textStart))
                 self.assertTrue(get_state_as_dict(xChangesList.getChild('0'))["Text"].endswith(textEnd))
                 self.assertTrue(get_state_as_dict(xChangesList.getChild('1'))["Text"].startswith(textStart2))
@@ -320,8 +320,8 @@ class CalcTrackedChanges(UITestCase):
                 xChangesList.getChild('0').executeAction("EXPAND", tuple())
                 self.assertEqual(2, len(xChangesList.getChild('0').getChildren()))
 
-                textEnd3 = "(Cell A1 changed from 'Test LibreOffice' to '<empty>')"
-                textEnd4 = "(Cell A2 changed from 'Test LibreOffice' to '<empty>')"
+                textEnd3 = "(Cell A1 changed from 'Test lofice' to '<empty>')"
+                textEnd4 = "(Cell A2 changed from 'Test lofice' to '<empty>')"
                 self.assertTrue(get_state_as_dict(xChangesList.getChild('0').getChild('0'))["Text"].startswith(textStart2))
                 self.assertTrue(get_state_as_dict(xChangesList.getChild('0').getChild('0'))["Text"].endswith(textEnd4))
                 self.assertTrue(get_state_as_dict(xChangesList.getChild('0').getChild('1'))["Text"].startswith(textStart))

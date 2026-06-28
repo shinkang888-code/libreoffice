@@ -1,13 +1,13 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #
 from uitest.framework import UITestCase
-from libreoffice.uno.propertyvalue import mkPropertyValues
+from lofice.uno.propertyvalue import mkPropertyValues
 from uitest.uihelper.common import get_state_as_dict, get_url_for_data_file
 from org.libreoffice.unotest import systemPathToFileUrl
 from tempfile import TemporaryDirectory
@@ -28,7 +28,7 @@ class tdf141297(UITestCase):
                 with self.ui_test.execute_dialog_through_command(".uno:InsertGraphic", close_button="") as xOpenDialog:
 
                     xFileName = xOpenDialog.getChild("file_name")
-                    xFileName.executeAction("TYPE", mkPropertyValues({"TEXT": get_url_for_data_file("LibreOffice.jpg")}))
+                    xFileName.executeAction("TYPE", mkPropertyValues({"TEXT": get_url_for_data_file("lofice.jpg")}))
 
                     xLink = xOpenDialog.getChild("link")
                     self.assertEqual("false", get_state_as_dict(xLink)['Selected'])
@@ -48,7 +48,7 @@ class tdf141297(UITestCase):
 
                     sFileName = "FULL_FILE_NAME"
                     xFileName = xDialog.getChild(sFileName)
-                    self.assertTrue(get_state_as_dict(xFileName)["Text"].endswith("/LibreOffice.jpg"))
+                    self.assertTrue(get_state_as_dict(xFileName)["Text"].endswith("/lofice.jpg"))
 
                     sBreakLink = "BREAK_LINK"
                     xBreakLink = xDialog.getChild(sBreakLink)

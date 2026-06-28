@@ -1,5 +1,5 @@
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -24,9 +24,9 @@ solarisprovides = "%SOLSUREPACKAGEPREFIX%BRANDPACKAGEVERSION-stdlibs"
 linuxreplaces = "%UREPACKAGEPREFIX%BRANDPACKAGEVERSION-stdlibs"
 linuxincompat = "%UREPACKAGEPREFIX%BRANDPACKAGEVERSION-stdlibs"
 packagename = "%UREPACKAGEPREFIX%BRANDPACKAGEVERSION-ure"
-copyright = "2026 The Document Foundation"
+copyright = "2026 Lonex. Inc"
 solariscopyright = "solariscopyrightfile"
-vendor = "The Document Foundation"
+vendor = "Lonex. Inc"
 description = "UNO Runtime Environment"
 destpath = "/opt"
 packageversion = "%UREPACKAGEVERSION"
@@ -40,9 +40,9 @@ solarisprovides = "%SOLSUREPACKAGEPREFIX%BRANDPACKAGEVERSION-stdlibs"
 linuxreplaces = "%UREPACKAGEPREFIX%BRANDPACKAGEVERSION-stdlibs"
 linuxincompat = "%UREPACKAGEPREFIX%BRANDPACKAGEVERSION-stdlibs"
 packagename = "%UREPACKAGEPREFIX%BRANDPACKAGEVERSION-ure"
-copyright = "2026 The Document Foundation"
+copyright = "2026 Lonex. Inc"
 solariscopyright = "solariscopyrightfile"
-vendor = "The Document Foundation"
+vendor = "Lonex. Inc"
 description = "UNO Runtime Environment"
 destpath = "/opt"
 packageversion = "%UREPACKAGEVERSION"

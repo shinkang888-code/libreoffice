@@ -34,7 +34,7 @@ class InsertRemoveCells(unittest.TestCase):
         sheet.insertCells(addr, 2)
 
         # basically, the insertCells call is the test: it should not crash
-        # LibreOffice.  However, for completeness, we should test the cell
+        # lofice.  However, for completeness, we should test the cell
         # contents as well.
 
         empty_cells = (

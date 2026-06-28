@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -139,11 +139,11 @@ void SvxAppearanceTabPage::LoadSchemeList()
     css::uno::Sequence<OUString> aSchemeNames = pColorConfig->GetSchemeNames();
 
     // insert auto, light, dark themes first
-    m_xSchemeList->insert(0, CuiResId(RID_COLOR_SCHEME_LIBREOFFICE_AUTOMATIC),
+    m_xSchemeList->insert(0, CuiResId(RID_COLOR_SCHEME_lofice_AUTOMATIC),
                           &AUTOMATIC_COLOR_SCHEME, nullptr, nullptr);
-    m_xSchemeList->insert(1, CuiResId(RID_COLOR_SCHEME_LIBREOFFICE_LIGHT), &LIGHT_COLOR_SCHEME,
+    m_xSchemeList->insert(1, CuiResId(RID_COLOR_SCHEME_lofice_LIGHT), &LIGHT_COLOR_SCHEME,
                           nullptr, nullptr);
-    m_xSchemeList->insert(2, CuiResId(RID_COLOR_SCHEME_LIBREOFFICE_DARK), &DARK_COLOR_SCHEME,
+    m_xSchemeList->insert(2, CuiResId(RID_COLOR_SCHEME_lofice_DARK), &DARK_COLOR_SCHEME,
                           nullptr, nullptr);
 
     // insert all the custom color schemes
@@ -186,7 +186,7 @@ std::unique_ptr<SfxTabPage> SvxAppearanceTabPage::Create(weld::Container* pPage,
 OUString SvxAppearanceTabPage::GetAllStrings()
 {
     OUStringBuffer sAllStrings;
-    OUString labels[] = { u"libreofficethemeslb"_ustr, u"optionslb"_ustr, u"appearancelb"_ustr,
+    OUString labels[] = { u"loficethemeslb"_ustr, u"optionslb"_ustr, u"appearancelb"_ustr,
                           u"itemslb"_ustr, u"colorlb"_ustr };
 
     for (const auto& label : labels)
@@ -569,7 +569,7 @@ void SvxAppearanceTabPage::InitIcons()
     const vcl::IconThemeInfo& autoIconTheme
         = vcl::IconThemeInfo::FindIconThemeById(mInstalledIconThemes, autoThemeId);
 
-    OUString sAutoStr(CuiResId(RID_COLOR_SCHEME_LIBREOFFICE_AUTOMATIC));
+    OUString sAutoStr(CuiResId(RID_COLOR_SCHEME_lofice_AUTOMATIC));
     OUString entryForAuto = sAutoStr + " (" + autoIconTheme.GetDisplayName() + ")";
     m_xIconsDropDown->append(u"auto"_ustr,
                              entryForAuto); // index 0 means choose style automatically

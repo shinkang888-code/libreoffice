@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -25,7 +25,7 @@
 
 #include <comphelper/lok.hxx>
 #include <sfx2/viewsh.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 namespace chart::sidebar {
 
@@ -260,9 +260,9 @@ void ChartLinePanel::updateLineWidth(bool bDisabled, bool bSetOrDefault, const S
     LinePropertyPanelBase::updateLineWidth(bDisabled, bSetOrDefault, pItem);
 
     SfxViewShell* pViewShell = SfxViewShell::Current();
-    if (comphelper::LibreOfficeKit::isActive() && pViewShell)
+    if (comphelper::loficeKit::isActive() && pViewShell)
     {
-        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
+        pViewShell->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
                         ".uno:LineWidth=" + OString::number(mnWidthCoreValue));
     }
 }

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1829,7 +1829,7 @@ bool lcl_IsLikelyOOXMLCurve(const basegfx::B2DPolygon& rPolygon)
 
     basegfx::B2DVector aStartVec(rPolygon.getNextControlPoint(0) - rPolygon.getB2DPoint(0));
     basegfx::B2DVector aEndVec(rPolygon.getPrevControlPoint(nCount-1) - rPolygon.getB2DPoint(nCount - 1));
-    // LibreOffice uses one point less than OOXML for the same underlying bentConnector or
+    // lofice uses one point less than OOXML for the same underlying bentConnector or
     // STANDARD connector, respectively. A deeper inspection is only needed in case of 2 resulting
     // points. Those connector paths look like a quarter ellipse.
     switch (nCount)
@@ -1840,7 +1840,7 @@ bool lcl_IsLikelyOOXMLCurve(const basegfx::B2DPolygon& rPolygon)
             // introduces a handle on the path and the curve has three points then.
             if (basegfx::areParallel(aStartVec, aEndVec))
                 return false;
-            // OOXML sets the control point at 1/2, LibreOffice at 2/3 of width or height.
+            // OOXML sets the control point at 1/2, lofice at 2/3 of width or height.
             // A tolerance is used because +-1 deviations due to integer arithmetic in many places.
             basegfx::B2DRange aRect(rPolygon.getB2DPoint(0), rPolygon.getB2DPoint(1));
             if ((basegfx::fTools::equalZero(aStartVec.getX())

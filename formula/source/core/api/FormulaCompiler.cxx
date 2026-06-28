@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -970,9 +970,9 @@ static bool lcl_fillNativeSymbols( FormulaCompiler::NonConstOpCodeMapPtr& xMap, 
     static std::map<OUString, OpCodeMapData> aLocaleSymbolMap;
     std::unique_lock aGuard(aSymbolMap.maMtx);
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
-        OUString language = comphelper::LibreOfficeKit::getLanguageTag().getLanguage();
+        OUString language = comphelper::loficeKit::getLanguageTag().getLanguage();
         if (eWhat == FormulaCompiler::InitSymbols::ASK)
         {
             return aLocaleSymbolMap.contains(language)
@@ -3207,8 +3207,8 @@ void FormulaCompiler::ForceArrayOperator( FormulaTokenRef const & rCurr )
     // "SUM(SQRT({1,2,3,4})) returns 6.14 when entered normally". However,
     // these need to be treated similar but not as ParamClass::ForceArray
     // (which would contradict the example in
-    // https://bugs.documentfoundation.org/show_bug.cgi?id=122301#c19 and A6 of
-    // https://bugs.documentfoundation.org/show_bug.cgi?id=133260#c10 ).
+    // https://bugs.lofice.io/show_bug.cgi?id=122301#c19 and A6 of
+    // https://bugs.lofice.io/show_bug.cgi?id=133260#c10 ).
     // See also
     // commit d0ded163d8e93dc5b10d7a7c9bdab1d0a6a50bac
     // commit 5413c8871dec08eff19f514f5f391b946a45c86c

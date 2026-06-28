@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -45,7 +45,7 @@ void ScDefaultsOptions::SetInitTabPrefix(const OUString& aPrefix)
 
 OUString ScDefaultsOptions::GetInitTabPrefix() const
 {
-    if (comphelper::LibreOfficeKit::isActive() && !bInitTabPrefixChanged)
+    if (comphelper::loficeKit::isActive() && !bInitTabPrefixChanged)
     {
         // LOKit may have different users with different locales, so the proper
         // translation of the default TabPrefix has to be fetched each time

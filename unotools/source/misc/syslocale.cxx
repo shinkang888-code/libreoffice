@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -159,16 +159,16 @@ SvtSysLocaleOptions& SvtSysLocale::GetOptions() const
 
 const LanguageTag& SvtSysLocale::GetLanguageTag() const
 {
-    if (comphelper::LibreOfficeKit::isActive())
-        return comphelper::LibreOfficeKit::getLocale();
+    if (comphelper::loficeKit::isActive())
+        return comphelper::loficeKit::getLocale();
 
     return pImpl->aSysLocaleOptions.GetRealLanguageTag();
 }
 
 const LanguageTag& SvtSysLocale::GetUILanguageTag() const
 {
-    if (comphelper::LibreOfficeKit::isActive())
-        return comphelper::LibreOfficeKit::getLanguageTag();
+    if (comphelper::loficeKit::isActive())
+        return comphelper::loficeKit::getLanguageTag();
 
     return pImpl->aSysLocaleOptions.GetRealUILanguageTag();
 }

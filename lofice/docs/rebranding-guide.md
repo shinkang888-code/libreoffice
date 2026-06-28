@@ -17,7 +17,7 @@
 | Tier | 스크립트 | 범위 | UNO ID 보호 |
 |------|---------|------|------------|
 | Display | `-Tier Display` | UI·설치·README 표시명 | ✅ |
-| Headers | `-Tier Headers` | 파일 헤더 "LibreOffice project" | ✅ |
+| Headers | `-Tier Headers` | 파일 헤더 "lofice project" | ✅ |
 | All | `-Tier All` | 전체 (라인 단위 UNO 보호) | ✅ |
 
 ```powershell
@@ -60,9 +60,33 @@
 # 1. 마스터 로고: lofice/assets/lofice-logo-master.png (첨부 파일로 교체 가능)
 # 2. 크기별 PNG 생성
 .\lofice\scripts\generate-icons.ps1
-# 3. icon-themes mainapp 슬롯 배치
+# 3. icon-themes mainapp 슬롯 배치 (+ embed PNG)
 .\lofice\scripts\deploy-icons.ps1
 ```
+
+`deploy-icons.ps1`는 SVG와 함께 `lofice_16.png`, `lofice_32.png`를 각 테마 `res/`에 복사합니다.  
+원본 mainapp 백업(`*.lofice.bak`)은 `.gitignore` 대상이며 커밋하지 않습니다.
+
+---
+
+## 진행 체크리스트 (2026-06-28)
+
+| 단계 | 상태 | 내용 |
+|------|------|------|
+| 1. 아이콘 deploy | ✅ | 6 테마 mainapp + PNG |
+| 2. 모듈 rebrand | ✅ | framework(360), sfx2(375), sw(3157), sc(2748), sd(1231) |
+| 3. instsetoo/productlist | ✅ | productlist `lofice`, MSI ulf, archive 경로 |
+| 4. CI 검증 | ✅ | `verify-rebrand`, workflow path 확장 |
+| 5. MPL 문서 | ✅ | `lofice/docs/mpl-compliance.md` |
+| 6. 추가 모듈 rebrand | ✅ | cui, vcl, officecfg, starmath, dbaccess, svx, chart2, xmloff, xmlsecurity, solenv 등 |
+| Linux 바이너리 빌드 | ⏳ | self-hosted runner 필요 |
+
+검증: `cd lofice/scripts && npm run verify-rebrand`
+
+### Android 주의
+
+`android/Bootstrap`, `android/source/src`의 Java 클래스명(`LibreOfficeKit` 등)은 JNI와 연동되므로 **rebrand 제외**합니다.  
+UI 문자열은 `android/source/res`에만 Display tier를 적용하세요.
 
 첨부 로고 파일을 `lofice/assets/lofice-logo-master.png`에 덮어쓴 뒤 스크립트를 재실행하세요.
 

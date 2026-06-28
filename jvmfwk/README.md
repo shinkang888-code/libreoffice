@@ -7,7 +7,7 @@ Used to use an over-engineered "plugin" mechanism although there was only one
 
 IMPORTANT:  The `<updated>` element in `vmfwk/distributions/OpenOfficeorg/javavendors_*.xml` files
 should only be updated for incompatible changes, not for compatible ones.  As stated in the commit
-message of <https://gerrit.libreoffice.org/#/c/69730/> in LibreOffice gerrit:
+message of <https://gerrit.lofice.org/#/c/69730/> in lofice gerrit:
 
 javavendors\_\*.xml &lt;updated\> should not have been updated...
 

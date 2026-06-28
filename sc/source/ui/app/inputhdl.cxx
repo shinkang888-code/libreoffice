@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -64,7 +64,7 @@
 #include <tools/json_writer.hxx>
 #include <formula/formulahelper.hxx>
 #include <formula/funcvarargs.h>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <osl/diagnose.h>
 
@@ -348,7 +348,7 @@ void ScInputHandler::SendReferenceMarks( const SfxViewShell* pViewShell,
     ss <<  " ] }";
 
     OString aPayload( ss.str() );
-    pViewShell->libreOfficeKitViewCallback(
+    pViewShell->loficeKitViewCallback(
                 LOK_CALLBACK_REFERENCE_MARKS, aPayload );
 }
 
@@ -501,8 +501,8 @@ ReferenceMark ScInputHandler::GetReferenceMark( const ScViewData& rViewData, ScD
     ScSplitPos eWhich = rViewData.GetActivePart();
 
     // This method is LOK specific.
-    if (comphelper::LibreOfficeKit::isCompatFlagSet(
-            comphelper::LibreOfficeKit::Compat::scPrintTwipsMsgs))
+    if (comphelper::loficeKit::isCompatFlagSet(
+            comphelper::loficeKit::Compat::scPrintTwipsMsgs))
     {
         SCCOL nCol1 = nX1, nCol2 = nX2;
         SCROW nRow1 = nY1, nRow2 = nY2;
@@ -551,7 +551,7 @@ ReferenceMark ScInputHandler::GetReferenceMark( const ScViewData& rViewData, ScD
 
 void ScInputHandler::UpdateLokReferenceMarks()
 {
-    if ( !comphelper::LibreOfficeKit::isActive())
+    if ( !comphelper::loficeKit::isActive())
         return;
 
     ScTabViewShell* pShell = pActiveViewSh ? pActiveViewSh
@@ -1120,8 +1120,8 @@ void ScInputHandler::HideTip()
     aManualTip.clear();
 
     const SfxViewShell* pViewShell = SfxViewShell::Current();
-    if (comphelper::LibreOfficeKit::isActive() && pViewShell)
-        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_CALC_FUNCTION_LIST, "hidetip"_ostr);
+    if (comphelper::loficeKit::isActive() && pViewShell)
+        pViewShell->loficeKitViewCallback(LOK_CALLBACK_CALC_FUNCTION_LIST, "hidetip"_ostr);
 }
 void ScInputHandler::HideTipBelow()
 {
@@ -1292,13 +1292,13 @@ void ScInputHandler::ShowArgumentsTip( OUString& rSelText )
                         }
 
                         const SfxViewShell* pViewShell = SfxViewShell::Current();
-                        if (comphelper::LibreOfficeKit::isActive() && pViewShell)
+                        if (comphelper::loficeKit::isActive() && pViewShell)
                         {
                             tools::JsonWriter writer;
                             writer.put("type", "formulausage");
                             writer.put("text", aNew);
                             OString sFunctionUsageTip = writer.finishAndGetAsOString();
-                            pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_TOOLTIP, sFunctionUsageTip);
+                            pViewShell->loficeKitViewCallback(LOK_CALLBACK_TOOLTIP, sFunctionUsageTip);
                         }
                     }
                 }
@@ -1446,7 +1446,7 @@ namespace {
 void ScInputHandler::ShowFuncList( const ::std::vector< OUString > & rFuncStrVec )
 {
     const SfxViewShell* pViewShell = SfxViewShell::Current();
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         if (rFuncStrVec.size() && pViewShell)
         {
@@ -1519,7 +1519,7 @@ void ScInputHandler::ShowFuncList( const ::std::vector< OUString > & rFuncStrVec
             }
 
             OString s = aPayload.makeStringAndClear();
-            pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_CALC_FUNCTION_LIST, s);
+            pViewShell->loficeKitViewCallback(LOK_CALLBACK_CALC_FUNCTION_LIST, s);
         }
         return;
     }
@@ -1679,7 +1679,7 @@ void completeFunction( EditView* pView, const OUString& rInsert, bool& rParInser
     bool bNoInitialLetter = false;
     OUString aOld = pView->getEditEngine().GetText(0);
     // in case we want just insert a function and not completing
-    if ( comphelper::LibreOfficeKit::isActive() )
+    if ( comphelper::loficeKit::isActive() )
     {
         ESelection aSelRange = aSel;
         --aSelRange.start.nIndex;
@@ -1788,7 +1788,7 @@ void ScInputHandler::PasteFunctionData()
     HideTip();
 
     EditView* pActiveView = pTopView ? pTopView : pTableView;
-    if (comphelper::LibreOfficeKit::isActive() && pTopView && pInputWin)
+    if (comphelper::loficeKit::isActive() && pTopView && pInputWin)
         pInputWin->TextGrabFocus();
     if (pActiveView)
         pActiveView->ShowCursor();
@@ -2381,7 +2381,7 @@ void ScInputHandler::UpdateActiveView()
     // setup the pTableView editeng for tiled rendering to get cursor and selections
     if (pTableView && pActiveViewSh)
     {
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             pTableView->RegisterViewShell(pActiveViewSh);
         }
@@ -2895,7 +2895,7 @@ void ScInputHandler::DataChanged( bool bFromTopNotify, bool bSetModified )
 
     UpdateParenthesis(); // Highlight parentheses anew
 
-    const bool bUpdateKit = comphelper::LibreOfficeKit::isActive() && pActiveViewSh && pInputWin;
+    const bool bUpdateKit = comphelper::loficeKit::isActive() && pActiveViewSh && pInputWin;
 
     if (eMode==SC_INPUT_TYPE || eMode==SC_INPUT_TABLE)
     {
@@ -2958,7 +2958,7 @@ void ScInputHandler::DataChanged( bool bFromTopNotify, bool bSetModified )
         }
 
         OUString aText = ScEditUtil::GetMultilineString(*mpEditEngine);
-        pActiveViewSh->libreOfficeKitViewCallback(LOK_CALLBACK_CELL_FORMULA, aText.toUtf8());
+        pActiveViewSh->loficeKitViewCallback(LOK_CALLBACK_CELL_FORMULA, aText.toUtf8());
         pActiveViewSh->LOKSendFormulabarUpdate(pActiveView,
                                                aText,
                                                aSel);
@@ -3005,7 +3005,7 @@ void ScInputHandler::UpdateFormulaMode()
 
             // in LOK, we always need to perform the GetFormulaData() call so
             // that the formula insertion works
-            if (comphelper::LibreOfficeKit::isActive() || pMod->GetAppOptions().GetAutoComplete())
+            if (comphelper::loficeKit::isActive() || pMod->GetAppOptions().GetAutoComplete())
                 GetFormulaData();
 
             UpdateParenthesis();
@@ -3229,7 +3229,7 @@ static void lcl_SelectionToEnd( EditView* pView )
 
 void ScInputHandler::EnterHandler( ScEnterMode nBlockMode, bool bBeforeSavingInLOK )
 {
-    if (!mbDocumentDisposing && comphelper::LibreOfficeKit::isActive()
+    if (!mbDocumentDisposing && comphelper::loficeKit::isActive()
         && pActiveViewSh != SfxViewShell::Current())
         return;
 
@@ -3701,7 +3701,7 @@ void ScInputHandler::CancelHandler()
 
     bInOwnChange = false;
 
-    if ( comphelper::LibreOfficeKit::isActive() && pExecuteSh )
+    if ( comphelper::loficeKit::isActive() && pExecuteSh )
     {
         // Clear
         std::vector<ReferenceMark> aReferenceMarks;
@@ -3839,7 +3839,7 @@ void ScInputHandler::SetReference( const ScRange& rRef, const ScDocument& rDoc )
             aRefStr = rRef.Format(rDoc, ScRefFlags::VALID, aAddrDetails);
     }
     bool bLOKShowSelect = true;
-    if(comphelper::LibreOfficeKit::isActive() && pRefViewSh->GetViewData().GetRefTabNo() != pRefViewSh->GetViewData().CurrentTabForData())
+    if(comphelper::loficeKit::isActive() && pRefViewSh->GetViewData().GetRefTabNo() != pRefViewSh->GetViewData().CurrentTabForData())
         bLOKShowSelect = false;
 
     if (pTableView || pTopView)
@@ -3970,7 +3970,7 @@ bool ScInputHandler::KeyInput( const KeyEvent& rKEvt, bool bStartEdit /* = false
 
         ScModule* pScMod = ScModule::get();
         const ScInputOptions& rOpt = pScMod->GetInputOptions();
-        const bool bKit = comphelper::LibreOfficeKit::isActive();
+        const bool bKit = comphelper::loficeKit::isActive();
 
         if ( (rOpt.GetMoveKeepEdit() && !bKit)
              || (pActiveViewSh && pActiveViewSh->GetMoveKeepEdit() && bKit) )
@@ -4018,7 +4018,7 @@ bool ScInputHandler::KeyInput( const KeyEvent& rKEvt, bool bStartEdit /* = false
 
                 ScModule* pScMod = ScModule::get();
                 const ScInputOptions& rOpt = pScMod->GetInputOptions();
-                const bool bKit = comphelper::LibreOfficeKit::isActive();
+                const bool bKit = comphelper::loficeKit::isActive();
 
                 if ( (rOpt.GetMoveKeepEdit() && !bKit)
                     || (pActiveViewSh && pActiveViewSh->GetMoveKeepEdit() && bKit) )
@@ -4214,7 +4214,7 @@ bool ScInputHandler::KeyInput( const KeyEvent& rKEvt, bool bStartEdit /* = false
             // right away at the start of the edit, so that the content is
             // saved even when the user leaves the document before hitting
             // Enter
-            if (comphelper::LibreOfficeKit::isActive() && bSetModified && pActiveViewSh && !pActiveViewSh->GetViewData().GetDocShell()->IsModified())
+            if (comphelper::loficeKit::isActive() && bSetModified && pActiveViewSh && !pActiveViewSh->GetViewData().GetDocShell()->IsModified())
                 pActiveViewSh->GetViewData().GetDocShell()->SetModified();
 
             InvalidateAttribs();        //! in DataChanged?
@@ -4482,7 +4482,7 @@ void ScInputHandler::NotifyChange( const ScInputHdlState* pState,
                         bTextValid = true;              //! To begin with remember as a string
                     }
 
-                    const bool bUpdateKit = comphelper::LibreOfficeKit::isActive() && pActiveViewSh;
+                    const bool bUpdateKit = comphelper::loficeKit::isActive() && pActiveViewSh;
 
                     if (pInputWin)
                     {
@@ -4504,11 +4504,11 @@ void ScInputHandler::NotifyChange( const ScInputHdlState* pState,
                             aSel.end.nPara = 0;
 
                         pActiveViewSh->LOKSendFormulabarUpdate(pActiveView, aString, aSel);
-                        pActiveViewSh->libreOfficeKitViewCallback(LOK_CALLBACK_CELL_FORMULA, aString.toUtf8());
+                        pActiveViewSh->loficeKitViewCallback(LOK_CALLBACK_CELL_FORMULA, aString.toUtf8());
                     }
                 }
 
-                if ( pInputWin || comphelper::LibreOfficeKit::isActive())                        // Named range input
+                if ( pInputWin || comphelper::loficeKit::isActive())                        // Named range input
                 {
                     OUString aPosStr;
                     bool bSheetLocal = false;
@@ -4547,8 +4547,8 @@ void ScInputHandler::NotifyChange( const ScInputHdlState* pState,
                         pInputWin->SetSumAssignMode();
                     }
 
-                    if (comphelper::LibreOfficeKit::isActive() && pActiveViewSh)
-                        pActiveViewSh->libreOfficeKitViewCallback(LOK_CALLBACK_CELL_ADDRESS, aPosStr.toUtf8());
+                    if (comphelper::loficeKit::isActive() && pActiveViewSh)
+                        pActiveViewSh->loficeKitViewCallback(LOK_CALLBACK_CELL_ADDRESS, aPosStr.toUtf8());
                 }
 
                 if (bStopEditing) {
@@ -4660,7 +4660,7 @@ void ScInputHandler::InputSelection( const EditView* pView )
     // When the selection is changed manually, stop overwriting parentheses
     ResetAutoPar();
 
-    if (comphelper::LibreOfficeKit::isActive() && pActiveViewSh)
+    if (comphelper::loficeKit::isActive() && pActiveViewSh)
     {
         EditView* pActiveView = pTopView ? pTopView : pTableView;
         ESelection aSel = pActiveView ? pActiveView->GetSelection() : ESelection();

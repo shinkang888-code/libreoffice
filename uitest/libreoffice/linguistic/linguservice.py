@@ -9,7 +9,7 @@
 def get_lingu_service_manager(xContext):
     """ Returns the com.sun.star.linguistic2.LinguServiceManager
 
-        Further information: https://api.libreoffice.org/docs/idl/ref/servicecom_1_1sun_1_1star_1_1linguistic2_1_1LinguServiceManager.html
+        Further information: https://api.lofice.org/docs/idl/ref/servicecom_1_1sun_1_1star_1_1linguistic2_1_1LinguServiceManager.html
     """
     xServiceManager = xContext.getServiceManager()
     xLinguServiceManager = xServiceManager.createInstanceWithContext("com.sun.star.linguistic2.LinguServiceManager", xContext)
@@ -20,7 +20,7 @@ def get_spellchecker(xContext):
     """ Returns the com.sun.star.linguistic2.XSpellChecker through the
     com.sun.star.linguistic2.LinguServiceManager
 
-    Further information: https://api.libreoffice.org/docs/idl/ref/servicecom_1_1sun_1_1star_1_1linguistic2_1_1SpellChecker.html"""
+    Further information: https://api.lofice.org/docs/idl/ref/servicecom_1_1sun_1_1star_1_1linguistic2_1_1SpellChecker.html"""
     xLinguServiceManager = get_lingu_service_manager(xContext)
     return xLinguServiceManager.getSpellChecker()
 

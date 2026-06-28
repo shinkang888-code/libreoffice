@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -614,7 +614,7 @@ NSSCMSMessage *CreateCMSMessage(const PRTime* time,
     // if it works, and fallback if it doesn't.
     if (SECKEYPrivateKey * pPrivateKey = PK11_FindKeyByAnyCert(cert, nullptr))
     {
-        if (!comphelper::LibreOfficeKit::isActive())
+        if (!comphelper::loficeKit::isActive())
         {
             // pPrivateKey only exists in the memory in the LOK case, don't delete it.
             SECKEY_DestroyPrivateKey(pPrivateKey);

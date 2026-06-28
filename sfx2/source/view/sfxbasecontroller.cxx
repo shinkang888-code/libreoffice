@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -979,8 +979,8 @@ void SfxBaseController::CopyLokViewCallbackFromFrameCreator()
     if (m_pData->m_xFrame)
         if (auto xCreator = m_pData->m_xFrame->getCreator())
             if (auto parentVS = SfxViewShell::Get(xCreator->getController()))
-                pCallback = parentVS->getLibreOfficeKitViewCallback();
-    m_pData->m_pViewShell->setLibreOfficeKitViewCallback(pCallback);
+                pCallback = parentVS->getloficeKitViewCallback();
+    m_pData->m_pViewShell->setloficeKitViewCallback(pCallback);
 }
 
 SfxViewShell* SfxBaseController::GetViewShell_Impl() const

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -759,7 +759,7 @@ CPPUNIT_TEST_FIXTURE(CustomshapesTest, testTdf124029_arc_position)
 {
     // tdf121029 MS binary custom shape mso_sptArc has wrong position
     // MS uses the sector for position reference. Error was, that
-    // LibreOffice has used the underlying ellipse.
+    // lofice has used the underlying ellipse.
     loadFromFile(u"tdf124029_Arc_position.doc");
     uno::Reference<drawing::XShape> xShape(getShape(0));
     // The visual wrong position is due to a wrong shape width.
@@ -867,7 +867,7 @@ CPPUNIT_TEST_FIXTURE(CustomshapesTest, testTdf126512_OOXML_handle_in_ODP)
 {
     // The test covers all preset shapes with handles. Connectors are included as ordinary
     // shapes to prevent converting. The file was created in PowerPoint 365 and then
-    // opened and exported to ODF format by LibreOffice.
+    // opened and exported to ODF format by lofice.
     // Error was, that for shapes, which were originally imported from OOXML, the handles
     // could not be moved at all.
     loadFromFile(u"tdf126512_OOXMLHandleMovementInODF.odp");

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -12,7 +12,7 @@
 #include <comphelper/dispatchcommand.hxx>
 #include <comphelper/lok.hxx>
 #include <comphelper/propertyvalue.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <sfx2/ipclient.hxx>
 #include <sfx2/lokhelper.hxx>
 #include <toolkit/helper/vclunohelper.hxx>
@@ -223,7 +223,7 @@ void LokChartHelper::PaintAllChartsOnTile(VirtualDevice& rDevice,
                                           tools::Long nTileWidth, tools::Long nTileHeight,
                                           bool bNegativeX)
 {
-    if (comphelper::LibreOfficeKit::isTiledAnnotations())
+    if (comphelper::loficeKit::isTiledAnnotations())
         return;
 
     // Resizes the virtual device so to contain the entries context

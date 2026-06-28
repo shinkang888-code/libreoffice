@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -103,7 +103,7 @@ gb_AFLAGS := $(AFLAGS)
 # C4706: assignment within conditional expression
 
 # build-time penalty is too high for ci use/disable when JENKINS_HOME is set
-MSVC_ANALYZE_FLAGS := $(if $(ENABLE_MSVC_ANALYZE),-analyze:ruleset$(SRCDIR)/solenv/vs/LibreOffice.ruleset,)
+MSVC_ANALYZE_FLAGS := $(if $(ENABLE_MSVC_ANALYZE),-analyze:ruleset$(SRCDIR)/solenv/vs/lofice.ruleset,)
 
 gb_FilterOutClangCFLAGS += $(MSVC_ANALYZE_FLAGS)
 
@@ -173,8 +173,8 @@ endif
 ifneq ($(COM_IS_CLANG),TRUE)
 
 # Work around MSVC 2017 C4702 compiler bug with release builds
-# https://lists.freedesktop.org/archives/libreoffice/2018-July/080532.html
-# https://lists.freedesktop.org/archives/libreoffice/2018-August/080776.html
+# https://lists.freedesktop.org/archives/lofice/2018-July/080532.html
+# https://lists.freedesktop.org/archives/lofice/2018-August/080776.html
 gb_CXXFLAGS += \
 	$(if $(ENABLE_OPTIMIZED),-wd4702) \
 

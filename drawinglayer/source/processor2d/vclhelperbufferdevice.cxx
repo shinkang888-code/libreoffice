@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -511,7 +511,7 @@ void impBufferDevice::paint(double fTrans)
             // I added 'doSpeedCompare' above which can be activated by defining
             // SPEED_COMPARE at the top of this file.
             // I added the used Testdoc: blurplay3.odg as
-            //     https://bugs.documentfoundation.org/attachment.cgi?id=182463
+            //     https://bugs.lofice.io/attachment.cgi?id=182463
             // I did measure on
             //
             // Linux Dbg:

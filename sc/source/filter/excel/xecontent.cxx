@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1836,7 +1836,7 @@ XclExpDV::XclExpDV( const XclExpRoot& rRoot, sal_uInt32 nScHandle ) :
 
                     // maximum length allowed in Excel is 255 characters, and don't end with an empty token
                     // It should be 8192 but Excel doesn't accept it for unknown reason
-                    // See also https://bugs.documentfoundation.org/show_bug.cgi?id=137167#c2 for more details
+                    // See also https://bugs.lofice.io/show_bug.cgi?id=137167#c2 for more details
                     sal_uInt32 nLen = sFormulaBuf.getLength();
                     if( nLen > 256 )  // 255 + beginning quote mark
                     {

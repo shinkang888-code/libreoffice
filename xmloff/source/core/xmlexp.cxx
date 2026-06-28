@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1821,7 +1821,7 @@ void SvXMLExport::GetViewSettingsAndViews(uno::Sequence<beans::PropertyValue>& r
         return;
 
     std::optional<css::uno::ContextLayer> oLayer;
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         oLayer.emplace(comphelper::NewFlagContext(u"IsLOKExport"_ustr));
     }
@@ -2498,7 +2498,7 @@ OUString const & SvXMLExport::GetImageFilterName() const
     return msImgFilterName;
 }
 
-void SvXMLExport::SetLibreOfficeKitNotifier(vcl::ILibreOfficeKitNotifier* pNotifier)
+void SvXMLExport::SetloficeKitNotifier(vcl::IloficeKitNotifier* pNotifier)
 {
     mpNotifier = pNotifier;
 }

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1350,7 +1350,7 @@ CPPUNIT_TEST_FIXTURE(Test, testBehaviourWhenWidthAndHeightIsOrIsNotSet)
     // This test checks the behaviour when width and height attributes
     // are and are not set. In both cases the result must be the same,
     // however if the width / height are set, then the size of the image
-    // is enforced, but this isn't really possible in LibreOffice (or
+    // is enforced, but this isn't really possible in lofice (or
     // maybe we could lock the size in this case).
     // The behaviour in browsers is that when a SVG image has width / height
     // attributes set, then the image is shown with that size, but if it

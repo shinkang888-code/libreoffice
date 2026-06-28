@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -146,13 +146,13 @@ public:
 
     PriorityAwareAnyInputCallback()
     {
-        comphelper::LibreOfficeKit::setAnyInputCallback(&callback, this,
+        comphelper::loficeKit::setAnyInputCallback(&callback, this,
                                                         Scheduler::GetMostUrgentTaskPriority);
     }
 
     ~PriorityAwareAnyInputCallback()
     {
-        comphelper::LibreOfficeKit::setAnyInputCallback(nullptr, nullptr,
+        comphelper::loficeKit::setAnyInputCallback(nullptr, nullptr,
                                                         []() -> int { return -1; });
     }
 };
@@ -161,7 +161,7 @@ CPPUNIT_TEST_FIXTURE(Test, testIdleLayoutingAnyInput)
 {
 #if !defined(MACOSX) && !defined(_WIN32) // FIXME fails on macOS and Windows
     // Set up LOK:
-    comphelper::LibreOfficeKit::setActive(true);
+    comphelper::loficeKit::setActive(true);
 
     // Given a document with 3 pages, the first page is visible:
     createSwDoc();

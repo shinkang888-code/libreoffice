@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -153,7 +153,7 @@ AquaSalGraphics::AquaSalGraphics(bool bPrinter)
     for (int i = 0; i < MAX_FALLBACK; ++i)
         mpFont[i] = nullptr;
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         initWidgetDrawBackends(true);
 }
 
@@ -355,7 +355,7 @@ void AquaSalGraphics::DrawTextLayout(const GenericSalLayout& rLayout)
 
 bool AquaSalGraphics::ShouldDownscaleIconsAtSurface(double& rScaleOut) const
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return SalGraphics::ShouldDownscaleIconsAtSurface(rScaleOut);
     rScaleOut = sal::aqua::getWindowScaling();
     return true;

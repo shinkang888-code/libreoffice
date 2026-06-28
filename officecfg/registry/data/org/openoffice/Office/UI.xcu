@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -134,10 +134,10 @@
   </node>
   <node oor:name="ColorScheme">
     <prop oor:name="CurrentColorScheme">
-      <value>COLOR_SCHEME_LIBREOFFICE_AUTOMATIC</value>
+      <value>COLOR_SCHEME_lofice_AUTOMATIC</value>
     </prop>
     <node oor:name="ColorSchemes">
-      <node oor:name="COLOR_SCHEME_LIBREOFFICE_AUTOMATIC" oor:op="replace">
+      <node oor:name="COLOR_SCHEME_lofice_AUTOMATIC" oor:op="replace">
         <!-- Group_General -->
         <node oor:name="DocColor">
           <prop oor:name="Color">
@@ -653,7 +653,7 @@
           </prop>
         </node>
       </node>
-      <node oor:name="COLOR_SCHEME_LIBREOFFICE_LIGHT" oor:op="replace">
+      <node oor:name="COLOR_SCHEME_lofice_LIGHT" oor:op="replace">
         <!-- Group_General -->
         <node oor:name="DocColor">
           <prop oor:name="Color">
@@ -1164,7 +1164,7 @@
           </prop>
         </node>
       </node>
-      <node oor:name="COLOR_SCHEME_LIBREOFFICE_DARK" oor:op="replace">
+      <node oor:name="COLOR_SCHEME_lofice_DARK" oor:op="replace">
         <!-- Group_General -->
         <node oor:name="DocColor">
           <prop oor:name="Color">

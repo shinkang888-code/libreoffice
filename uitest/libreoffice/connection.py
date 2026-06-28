@@ -33,7 +33,7 @@ class OfficeConnection:
         self.xContext = None
 
     def setUp(self):
-        """  Create a new connection to a LibreOffice process
+        """  Create a new connection to a lofice process
 
         If the connection method is path the instance will be created as a
         new subprocess. If the connection method is connect the instance tries
@@ -71,7 +71,7 @@ class OfficeConnection:
                 self.soffice = None
 
     def bootstrap(self, soffice, userdir, socket):
-        """ Creates a new LibreOffice process
+        """ Creates a new lofice process
 
         @param soffice Path to the soffice installation
         @param userdir Directory of the user profile, only one process per user
@@ -101,7 +101,7 @@ class OfficeConnection:
         return subprocess.Popen(argv, env=env)
 
     def connect(self, socket):
-        """ Tries to connect to the LibreOffice instance through the specified socket"""
+        """ Tries to connect to the lofice instance through the specified socket"""
         xLocalContext = uno.getComponentContext()
         xUnoResolver = xLocalContext.ServiceManager.createInstanceWithContext(
                 "com.sun.star.bridge.UnoUrlResolver", xLocalContext)
@@ -119,7 +119,7 @@ class OfficeConnection:
                 time.sleep(1)
 
     def tearDown(self):
-        """Terminate a LibreOffice instance created with the path connection method.
+        """Terminate a lofice instance created with the path connection method.
 
         Tries to terminate the soffice instance through the normal
         XDesktop::terminate method and waits indefinitely for the subprocess
@@ -169,9 +169,9 @@ class PersistentConnection:
         self.connection = None
 
     def getContext(self):
-        """ Returns the XContext corresponding to the LibreOffice instance
+        """ Returns the XContext corresponding to the lofice instance
 
-        This is the starting point for any PyUNO access to the LibreOffice
+        This is the starting point for any PyUNO access to the lofice
         instance."""
         return self.connection.xContext
 
@@ -192,7 +192,7 @@ class PersistentConnection:
                 self.connection = None
 
     def kill(self):
-        """ Kills the LibreOffice instance if it was created through the connection
+        """ Kills the lofice instance if it was created through the connection
 
         Only works with the connection method path"""
         if self.connection and self.connection.soffice:

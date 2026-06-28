@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1650,7 +1650,7 @@ void SwTextNode::Update(
     // Inform LOK clients about change in position of redlines (if any)
     // Don't emit notifications during save: redline flags are temporarily changed during save, but
     // it's not useful to let clients know about such changes.
-    if (!comphelper::LibreOfficeKit::isActive() || GetDoc().IsInWriting())
+    if (!comphelper::loficeKit::isActive() || GetDoc().IsInWriting())
         return;
 
     const SwRedlineTable& rTable = GetDoc().getIDocumentRedlineAccess().GetRedlineTable();

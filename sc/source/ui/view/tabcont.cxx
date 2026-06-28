@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -38,7 +38,7 @@
 #include <dragdata.hxx>
 #include <markdata.hxx>
 #include <gridwin.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 
 ScTabControl::ScTabControl( vcl::Window* pParent, ScViewData& rData )
@@ -457,11 +457,11 @@ void ScTabControl::SwitchToPageId(sal_uInt16 nId)
         SelectPage( i, i==nId );
     Select();
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
-        // notify LibreOfficeKit about changed page
+        // notify loficeKit about changed page
         OString aPayload = OString::number(nId - 1);
-        rViewData.GetViewShell()->libreOfficeKitViewCallback(LOK_CALLBACK_SET_PART, aPayload);
+        rViewData.GetViewShell()->loficeKitViewCallback(LOK_CALLBACK_SET_PART, aPayload);
     }
 }
 

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -216,7 +216,7 @@ void SfxObjectShell::UpdateDocInfoForSave()
 {
     uno::Reference<document::XDocumentProperties> xDocProps(getDocProperties());
 
-    // clear user data if recommend (see 'Tools - Options - LibreOffice - Security')
+    // clear user data if recommend (see 'Tools - Options - lofice - Security')
     if ( SvtSecurityOptions::IsOptionSet(
             SvtSecurityOptions::EOption::DocWarnRemovePersonalInfo ) && !SvtSecurityOptions::IsOptionSet(
                 SvtSecurityOptions::EOption::DocWarnKeepDocUserInfo))
@@ -616,7 +616,7 @@ bool SfxObjectShell::IsHelpDocument() const
 
 void SfxObjectShell::ResetFromTemplate( const OUString& rTemplateName, std::u16string_view rFileName )
 {
-    // only care about resetting this data for LibreOffice formats otherwise
+    // only care about resetting this data for lofice formats otherwise
     if ( !IsOwnStorageFormat( *GetMedium())  )
         return;
 

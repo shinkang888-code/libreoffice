@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -39,7 +39,7 @@
 #include <svx/svdpage.hxx>
 #include <svx/svxids.hrc>
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <officecfg/Office/Common.hxx>
 #include <officecfg/Office/Calc.hxx>
 #include <svl/numuno.hxx>
@@ -631,7 +631,7 @@ void ScModelObj::setPart( int nPart, bool /*bAllowChangeFocus*/ )
         return;
 
     if (SdrView* pDrawView = pViewData->GetViewShell()->GetScDrawView())
-        pDrawView->SetNegativeX(comphelper::LibreOfficeKit::isActive() &&
+        pDrawView->SetNegativeX(comphelper::loficeKit::isActive() &&
             pViewData->GetDocument().IsLayoutRTL(nPart));
 
     pTabView->SelectTabPage(nPart + 1);
@@ -1070,7 +1070,7 @@ void ScModelObj::resetSelection()
         pViewShell->Unmark();
 
     // and hide the cell and text selection
-    pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION, ""_ostr);
+    pViewShell->loficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION, ""_ostr);
     SfxLokHelper::notifyOtherViews(pViewShell, LOK_CALLBACK_TEXT_VIEW_SELECTION, "selection", ""_ostr);
 }
 
@@ -1106,7 +1106,7 @@ static void lcl_sendLOKDocumentBackground(const ScViewData* pViewData)
     const Color& rColor = rBackground.GetColor();
 
     ScTabViewShell* pViewShell = pViewData->GetViewShell();
-    pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_DOCUMENT_BACKGROUND_COLOR, rColor.AsRGBHexString().toUtf8());
+    pViewShell->loficeKitViewCallback(LOK_CALLBACK_DOCUMENT_BACKGROUND_COLOR, rColor.AsRGBHexString().toUtf8());
 }
 
 void ScModelObj::setClientZoom(int nTilePixelWidth_, int nTilePixelHeight_, int nTileTwipWidth_, int nTileTwipHeight_)
@@ -1241,8 +1241,8 @@ void ScModelObj::setClientVisibleArea(const tools::Rectangle& rRectangle)
     // Store the visible area so that we can use at places like shape insertion
     pViewData->setLOKVisibleArea(rRectangle);
 
-    if (comphelper::LibreOfficeKit::isCompatFlagSet(
-            comphelper::LibreOfficeKit::Compat::scPrintTwipsMsgs))
+    if (comphelper::loficeKit::isCompatFlagSet(
+            comphelper::loficeKit::Compat::scPrintTwipsMsgs))
     {
         ScTabView* pTabView = pViewData->GetView();
         if (pTabView)
@@ -3768,7 +3768,7 @@ void lcl_dataAreaInvalidation(ScModelObj* pModel,
         bool bInvalidate = bAreaExtended || bInvalidateDataArea;
         if ( bInvalidate )
         {
-            if ( comphelper::LibreOfficeKit::isActive() )
+            if ( comphelper::loficeKit::isActive() )
                 SfxLokHelper::notifyPartSizeChangedAllViews( pModel, nTab );
         }
     }

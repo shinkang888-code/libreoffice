@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -240,7 +240,7 @@ void DocxAttributeOutput::TableDefinition(
     m_pSerializer->singleElementNS(XML_w, XML_tblW, FSNS(XML_w, XML_w), OString::number(nPageSize),
                                    FSNS(XML_w, XML_type), widthType);
 
-    // Disable layout autofit, as it does not exist in LibreOffice yet
+    // Disable layout autofit, as it does not exist in lofice yet
     m_pSerializer->singleElementNS(XML_w, XML_tblLayout, FSNS(XML_w, XML_type), "fixed");
 
     // Look for the table style property in the table grab bag

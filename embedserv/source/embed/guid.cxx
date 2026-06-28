@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -29,31 +29,31 @@ wchar_t const * getStorageTypeFromGUID_Impl( GUID const & guid )
         return L"soffice.StarWriterDocument.6";
 
     if ( guid == OID_WriterOASISTextServer )
-        return L"LibreOffice.WriterDocument.1";
+        return L"lofice.WriterDocument.1";
 
     if ( guid == OID_CalcServer )
         return L"soffice.StarCalcDocument.6";
 
     if ( guid == OID_CalcOASISServer )
-        return L"LibreOffice.CalcDocument.1";
+        return L"lofice.CalcDocument.1";
 
     if ( guid == OID_DrawingServer )
         return L"soffice.StarDrawDocument.6";
 
     if ( guid == OID_DrawingOASISServer )
-        return L"LibreOffice.DrawDocument.1";
+        return L"lofice.DrawDocument.1";
 
     if ( guid == OID_PresentationServer )
         return L"soffice.StarImpressDocument.6";
 
     if ( guid == OID_PresentationOASISServer )
-        return L"LibreOffice.ImpressDocument.1";
+        return L"lofice.ImpressDocument.1";
 
     if ( guid == OID_MathServer )
         return L"soffice.StarMathDocument.6";
 
     if ( guid == OID_MathOASISServer )
-        return L"LibreOffice.MathDocument.1";
+        return L"lofice.MathDocument.1";
 
     return L"";
 }

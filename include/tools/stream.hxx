@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -666,7 +666,7 @@ public:
     void            ObjectOwnsMemory( bool bOwn ) { bOwnsData = bOwn; }
     /// Makes the stream read-only after it was (possibly) initially writable,
     /// without having to copy the data or change buffers.
-    /// @since LibreOffice 7.5
+    /// @since lofice 7.5
     void            MakeReadOnly();
     void            SetResizeOffset( std::size_t nNewResize ) { nResize = nNewResize; }
     virtual sal_uInt64 TellEnd() override final { FlushBuffer(); return nEndOfData; }

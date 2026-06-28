@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -49,7 +49,7 @@
 #include <vcl/EnumContext.hxx>
 #include <o3tl/enumrange.hxx>
 #include <comphelper/lok.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <editeng/itemtype.hxx>
 #include <osl/diagnose.h>
 
@@ -1670,7 +1670,7 @@ void SwTableShell::GetState(SfxItemSet &rSet)
                     aRowHeight.SetValue(nHeight);
                     rSet.Put(aRowHeight);
 
-                    if (comphelper::LibreOfficeKit::isActive())
+                    if (comphelper::loficeKit::isActive())
                     {
                         // TODO: set correct unit
                         MapUnit eTargetUnit = MapUnit::MapInch;
@@ -1679,7 +1679,7 @@ void SwTableShell::GetState(SfxItemSet &rSet)
 
                         OUString sPayload = ".uno:TableRowHeight=" + sHeight;
 
-                        GetViewShell()->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
+                        GetViewShell()->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
                             OUStringToOString(sPayload, RTL_TEXTENCODING_ASCII_US));
                     }
                 }
@@ -1694,7 +1694,7 @@ void SwTableShell::GetState(SfxItemSet &rSet)
                 aColumnWidth.SetValue(nWidth);
                 rSet.Put(aColumnWidth);
 
-                if (comphelper::LibreOfficeKit::isActive())
+                if (comphelper::loficeKit::isActive())
                 {
                     // TODO: set correct unit
                     MapUnit eTargetUnit = MapUnit::MapInch;
@@ -1703,7 +1703,7 @@ void SwTableShell::GetState(SfxItemSet &rSet)
 
                     OUString sPayload = ".uno:TableColumWidth=" + sWidth;
 
-                    GetViewShell()->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
+                    GetViewShell()->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED,
                         OUStringToOString(sPayload, RTL_TEXTENCODING_ASCII_US));
                 }
 

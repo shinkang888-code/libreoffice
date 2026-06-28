@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -126,7 +126,7 @@ endef
 # $(gb_Executable_BINDIR_FOR_BUILD)/$(1)$(gb_Executable_EXT_for_build) is
 # not suitable). Also optionally, set the ExternalProject that builds
 # the executable. This is needed to create proper dependency for
-# executables that are not bundled # with libreoffice, so they are used
+# executables that are not bundled # with lofice, so they are used
 # directly from workdir/UnpackedTarball/*.
 #
 # gb_ExternalExecutable_set_internal executable call? external?

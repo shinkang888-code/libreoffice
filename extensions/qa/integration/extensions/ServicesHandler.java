@@ -1,5 +1,5 @@
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -50,7 +50,7 @@ public class ServicesHandler implements XPropertyHandler
             try
             {
                 // translate the service name into a URL to dispatch
-                String documentationURL = "https://api.libreoffice.org/docs/common/ref/" + m_serviceName.replace('.','/') + ".html";
+                String documentationURL = "https://api.lofice.org/docs/common/ref/" + m_serviceName.replace('.','/') + ".html";
                 System.out.println( documentationURL );
 
                 // the OpenHyperlink command, to be dispatched to the Desktop

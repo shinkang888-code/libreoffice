@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -125,7 +125,7 @@ using namespace framework;
  *   1b) timed, ODF, temporary recovery files created in the backup folder (default setting)
  *      -temporary: deleted when the document itself is saved
  *      -handles the situation where LO immediately exits (power outage, program crash, pkill -9 soffice)
- *          -not restored immediately (user needs to restart LibreOffice)
+ *          -not restored immediately (user needs to restart lofice)
  *          -no guarantee of availability of recovery file (since deleted on document save)
  *           or original document (perhaps /tmp, removeable disk, disconnected server).
  *          -TODO tdf#57414: if SessionSave not desired, don't recover unmodified files.

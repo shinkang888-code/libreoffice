@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -110,7 +110,7 @@ static bool CheckExtensionInRegistry( LPCWSTR lpSubKey )
             {   // We will replace registration for WordPad (alas, on XP only) FIXME
                 bRet = true;
             }
-            else if ( wcsncmp( szBuffer, L"LibreOffice.", 12 ) == 0 )
+            else if ( wcsncmp( szBuffer, L"lofice.", 12 ) == 0 )
             {   // We will replace registration for our own types, too
                 bRet = true;
             }
@@ -189,7 +189,7 @@ static void saveOldRegistration( LPCWSTR lpSubKey )
             szBuffer[nSize/sizeof(*szBuffer)] = L'\0';
 
             // No need to save associations for our own types
-            if ( wcsncmp( szBuffer, L"LibreOffice.", 12 ) != 0 )
+            if ( wcsncmp( szBuffer, L"lofice.", 12 ) != 0 )
             {
                 // Save the old association
                 RegSetValueExW( hKey, L"LOBackupAssociation", 0,

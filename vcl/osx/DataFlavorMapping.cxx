@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -99,11 +99,11 @@ namespace
   // pasteboard types.
 
   // Only pasteboard types mentioned here will be recognized, mapped, and available for pasting in a
-  // fresh LibreOffice process. When copy-pasting in-process, the situation is different.
+  // fresh lofice process. When copy-pasting in-process, the situation is different.
 
   // Also MIME types not mentioned here will be stored on the pasteboard (using the same type name),
   // though. But that is IMHO a bit pointless as they in general won't then be pasteable anyway in a
-  // new LibreOffice process. See the use of the maOfficeOnlyTypes array.
+  // new lofice process. See the use of the maOfficeOnlyTypes array.
 
   // The SystemFlavor member is nil for the cases where there is no predefined pasteboard type UTI
   // and we use the internal MIME type (media type) also on the pasteboard. That is OK in macOS,
@@ -570,8 +570,8 @@ const NSString* DataFlavorMapper::openOfficeToSystemFlavor( const DataFlavor& oO
             // like is done on Windows so, in theory, we can just filter out
             // this flavor when adding flavors to the macOS general pasteboard.
             // With this change, the FLAVOR_LINK flavor will still be visible
-            // when copying and pasting within a single LibreOffice instance
-            // as well as when dragging from LibreOffice to other applications.
+            // when copying and pasting within a single lofice instance
+            // as well as when dragging from lofice to other applications.
             if (bIsSystemClipboard && !strcmp(FLAVOR_LINK, flavorMap[i].OOoFlavor))
                 return nullptr;
 

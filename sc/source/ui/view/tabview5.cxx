@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -162,7 +162,7 @@ ScTabView::~ScTabView()
     delete pDrawOld;
     pDrawOld = nullptr;
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         ScTabViewShell* pThisViewShell = GetViewData().GetViewShell();
 
@@ -283,11 +283,11 @@ void ScTabView::ImplTabChanged(bool bSameTabButMoved)
 {
     // For kit ignore invalidations during tab change
     ScTabViewShell* pViewShell = aViewData.GetViewShell();
-    SfxLokCallbackInterface* pCallback = pViewShell->getLibreOfficeKitViewCallback();
-    pViewShell->setLibreOfficeKitViewCallback(nullptr);
+    SfxLokCallbackInterface* pCallback = pViewShell->getloficeKitViewCallback();
+    pViewShell->setloficeKitViewCallback(nullptr);
     comphelper::ScopeGuard aOutputGuard(
         [this, pViewShell, pCallback] {
-            pViewShell->setLibreOfficeKitViewCallback(pCallback);
+            pViewShell->setloficeKitViewCallback(pCallback);
             // But possibly update any out of date formulas on the tab we switched to
             UpdateFormulas();
         });
@@ -346,7 +346,7 @@ void ScTabView::TabChanged( bool bSameTabButMoved )
 {
     ImplTabChanged(bSameTabButMoved);
 
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return;
 
     ScDocShell* pDocSh = GetViewData().GetDocShell();
@@ -696,7 +696,7 @@ void ScTabView::ResetBrushDocument()
 
 void ScTabView::OnLOKNoteStateChanged(const ScPostIt* pNote)
 {
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return;
 
     const SdrCaptionObj* pCaption = pNote->GetCaption();

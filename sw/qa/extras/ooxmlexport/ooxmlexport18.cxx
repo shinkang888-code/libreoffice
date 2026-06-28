@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -280,7 +280,7 @@ CPPUNIT_TEST_FIXTURE(Test, testTdf154703_framePr2)
         // framePr frames are always imported as fully transparent
         CPPUNIT_ASSERT_EQUAL(sal_Int16(100), getProperty<sal_Int16>(getShape(1), u"FillTransparence"_ustr));
 
-        // as opposed to testLibreOfficeHang (RTF != INVERT_BORDER_SPACING) do not duplicate left/right
+        // as opposed to testloficeHang (RTF != INVERT_BORDER_SPACING) do not duplicate left/right
         uno::Reference<text::XTextRange> xTextRange(getShape(1), uno::UNO_QUERY);
         uno::Reference<text::XText> xText = xTextRange->getText();
         CPPUNIT_ASSERT_EQUAL(u"framePr"_ustr, getParagraphOfText(1, xText)->getString());
@@ -905,9 +905,9 @@ CPPUNIT_TEST_FIXTURE(Test, testTdf153664)
 
 DECLARE_OOXMLEXPORT_TEST(testTdf124472_hyperlink, "tdf124472.docx")
 {
-    CPPUNIT_ASSERT_EQUAL(u"https://www.libreoffice.org/"_ustr,
+    CPPUNIT_ASSERT_EQUAL(u"https://www.lofice.org/"_ustr,
                          getProperty<OUString>(getRun(getParagraph(1), 1), u"HyperLinkURL"_ustr));
-    CPPUNIT_ASSERT_EQUAL(u"mailto:info@libreoffice.org"_ustr,
+    CPPUNIT_ASSERT_EQUAL(u"mailto:info@lofice.org"_ustr,
                          getProperty<OUString>(getRun(getParagraph(2), 1), u"HyperLinkURL"_ustr));
     CPPUNIT_ASSERT_EQUAL(u""_ustr,
                          getProperty<OUString>(getRun(getParagraph(3), 1), u"HyperLinkURL"_ustr));

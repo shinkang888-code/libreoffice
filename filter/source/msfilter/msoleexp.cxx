@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -65,17 +65,17 @@ static SvGlobalName GetEmbeddedVersion( const SvGlobalName& aAppName )
 static OUString GetStorageType( const SvGlobalName& aEmbName )
 {
     if ( aEmbName == SvGlobalName( SO3_SM_OLE_EMBED_CLASSID_8 ) )
-        return u"LibreOffice.MathDocument.1"_ustr;
+        return u"lofice.MathDocument.1"_ustr;
     else if ( aEmbName == SvGlobalName( SO3_SW_OLE_EMBED_CLASSID_8 ) )
-        return u"LibreOffice.WriterDocument.1"_ustr;
+        return u"lofice.WriterDocument.1"_ustr;
     else if ( aEmbName == SvGlobalName( SO3_SC_OLE_EMBED_CLASSID_8 ) )
-        return u"LibreOffice.CalcDocument.1"_ustr;
+        return u"lofice.CalcDocument.1"_ustr;
     else if ( aEmbName == SvGlobalName( SO3_SDRAW_OLE_EMBED_CLASSID_8 ) )
-        return u"LibreOffice.DrawDocument.1"_ustr;
+        return u"lofice.DrawDocument.1"_ustr;
     else if ( aEmbName == SvGlobalName( SO3_SIMPRESS_OLE_EMBED_CLASSID_8 ) )
-        return u"LibreOffice.ImpressDocument.1"_ustr;
+        return u"lofice.ImpressDocument.1"_ustr;
     else if ( aEmbName == SvGlobalName( SO3_SCH_OLE_EMBED_CLASSID_8 ) )
-        return u"LibreOffice.ChartDocument.1"_ustr;
+        return u"lofice.ChartDocument.1"_ustr;
     return OUString();
 }
 

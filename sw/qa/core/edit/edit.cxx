@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -12,7 +12,7 @@
 #include <boost/property_tree/json_parser.hpp>
 
 #include <editeng/wghtitem.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <test/lokcallback.hxx>
 #include <comphelper/propertyvalue.hxx>
 #include <sfx2/lokhelper.hxx>
@@ -489,7 +489,7 @@ CPPUNIT_TEST_FIXTURE(Test, testRedlineReinstateSelf)
 CPPUNIT_TEST_FIXTURE(Test, testDocumentCompareCallback)
 {
     // Set up LOK:
-    comphelper::LibreOfficeKit::setActive(true);
+    comphelper::loficeKit::setActive(true);
 
     // Given a new document:
     createSwDoc("compare-new.odt");
@@ -497,7 +497,7 @@ CPPUNIT_TEST_FIXTURE(Test, testDocumentCompareCallback)
     SwWrtShell* pWrtShell = pDocShell->GetWrtShell();
     ViewCallback aCallback;
     TestLokCallbackWrapper aCallbackWrapper(&ViewCallback::callback, &aCallback);
-    pWrtShell->GetSfxViewShell()->setLibreOfficeKitViewCallback(&aCallbackWrapper);
+    pWrtShell->GetSfxViewShell()->setloficeKitViewCallback(&aCallbackWrapper);
     aCallbackWrapper.setLOKViewId(SfxLokHelper::getView(*pWrtShell->GetSfxViewShell()));
 
     // When comparing with an old document:
@@ -527,7 +527,7 @@ CPPUNIT_TEST_FIXTURE(Test, testDocumentCompareCallback)
                          aTree.get<std::string>("state.metadata.thisDocument.modificationDate"));
 
     // Tear down LOK:
-    pWrtShell->GetSfxViewShell()->setLibreOfficeKitViewCallback(nullptr);
+    pWrtShell->GetSfxViewShell()->setloficeKitViewCallback(nullptr);
 }
 
 CPPUNIT_TEST_FIXTURE(Test, testAutocorrectRedline)

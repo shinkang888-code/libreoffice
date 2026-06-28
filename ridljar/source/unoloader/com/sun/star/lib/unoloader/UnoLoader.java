@@ -1,5 +1,5 @@
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -38,7 +38,7 @@ public final class UnoLoader {
      * Executes a UNO JAR.
      *
      * @param base a base URL relative to which the URE JARs
-     * (<code>libreoffice.jar</code>, etc.) can be found; must
+     * (<code>lofice.jar</code>, etc.) can be found; must
      * not be <code>null</code>.
      *
      * @param jar the URL of a UNO JAR that specifies a Main-Class; must not be

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -67,11 +67,11 @@ OUString DocInfoHelper::GetGeneratorString()
                 aResult.append( "$" + os + "_" + arch + " " );
             }
 
-            // second product: LibreOffice_project/<build_information>
+            // second product: lofice_project/<build_information>
             // build_information has '(' and '[' encoded as '$', ')' and ']' ignored
             // and ':' replaced by '-'
             {
-                aResult.append( "LibreOffice_project/" );
+                aResult.append( "lofice_project/" );
                 OUString aBuildId( Bootstrap::getBuildIdData( OUString() ) );
                 for( sal_Int32 i=0; i < aBuildId.getLength(); i++ )
                 {

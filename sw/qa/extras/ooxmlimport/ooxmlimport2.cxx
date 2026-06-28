@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -79,7 +79,7 @@ CPPUNIT_TEST_FIXTURE(Test, testTdf159897Broken_link)
         auto xPara(getParagraph(i));
         auto xRun = getRun(xPara, 0);
         OUString sURL = getProperty<OUString>(xRun, u"HyperLinkURL"_ustr);
-        CPPUNIT_ASSERT_EQUAL(u"https://libreoffice.org/"_ustr, sURL);
+        CPPUNIT_ASSERT_EQUAL(u"https://lofice.org/"_ustr, sURL);
 
         OUString sText;
         switch (i)
@@ -459,7 +459,7 @@ CPPUNIT_TEST_FIXTURE(Test, testTdf124600)
     // - Actual  : 318
     // i.e. the shape had an unexpected left margin, but not in Word.
     // Regina: LO needs a left margin to get the same rendering as Word, because Word aligns the
-    // shape with the outer edge of the border, but LibreOffice aligns with the snap rectangle.
+    // shape with the outer edge of the border, but lofice aligns with the snap rectangle.
     // Expected: 0 is wrong. ToDo: The current margin is wrong and needs to be fixed. Then activate
     // the test again with the correct margin.
     // CPPUNIT_ASSERT_EQUAL(static_cast<sal_Int32>(0),
@@ -1027,7 +1027,7 @@ CPPUNIT_TEST_FIXTURE(Test, testTdf126426)
         uno::Reference<text::XTextRange> xRun(xRunEnum->nextElement(), uno::UNO_QUERY_THROW);
         CPPUNIT_ASSERT_EQUAL(u"Link"_ustr, xRun->getString());
         auto aURL = getProperty<OUString>(xRun, u"HyperLinkURL"_ustr);
-        CPPUNIT_ASSERT_EQUAL(u"http://libreoffice.org/"_ustr, aURL);
+        CPPUNIT_ASSERT_EQUAL(u"http://lofice.org/"_ustr, aURL);
     }
     {
         // Need to ensure that text following hyperlink is still default color (-1)

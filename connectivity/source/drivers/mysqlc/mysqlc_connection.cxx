@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -186,7 +186,7 @@ void OConnection::construct(const OUString& url, const Sequence<PropertyValue>& 
     // Check if the server is 4.1 or above
     if (getMysqlVersion() < 40100)
     {
-        throw SQLException(u"MariaDB LibreOffice Connector requires MySQL Server 4.1 or above"_ustr,
+        throw SQLException(u"MariaDB lofice Connector requires MySQL Server 4.1 or above"_ustr,
                            *this, OUString(), 0, Any());
     }
 

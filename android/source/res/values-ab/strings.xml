@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">LibreOffice Ахәаԥшыга</string>
-    <string name="app_version">Аверсиа: %1$s&lt;br&gt;Build ID: &lt;a href=https://hub.libreoffice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
+    <string name="app_name">lofice Ахәаԥшыга</string>
+    <string name="app_version">Аверсиа: %1$s&lt;br&gt;Build ID: &lt;a href=https://hub.lofice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
     <string name="new_textdocument">Атексттә документ ҿыц</string>
     <string name="title_recents">Ааигәатәи афаилқәа</string>
     <string name="calc_optimal_length">Иоптималу аура</string>
@@ -26,9 +26,9 @@
     <string name="calc_alert_double_click_optimal_length">Аҵаҳәара: ахы ҩынтә ақәыӷәӷәара иқәнаргылоит иоптималу аҭбаара/аҳаракыра.</string>
     <string name="about_license">Иаарԥштәуп алицензиа</string>
     <string name="action_cut">Игәылԥҟатәуп</string>
-    <string name="app_name_settings">LibreOffice Ахәаԥшыга архиара</string>
-    <string name="app_credits">https://www.libreoffice.org</string>
-    <string name="app_description">LibreOffice ахәаԥшыга — ари апрограмма LibreOffice аҟны иаԥҵаз адокументқәа рыхәаԥшра иазкуп.</string>
+    <string name="app_name_settings">lofice Ахәаԥшыга архиара</string>
+    <string name="app_credits">https://www.lofice.org</string>
+    <string name="app_description">lofice ахәаԥшыга — ари апрограмма lofice аҟны иаԥҵаз адокументқәа рыхәаԥшра иазкуп.</string>
     <string name="readonly_file">Ари афаил аԥхьара мацара иазкуп.</string>
     <string name="create_file">Иаԥҵатәуп афаил ҿыц</string>
     <string name="new_presentation">Апрезентациа ҿыц</string>

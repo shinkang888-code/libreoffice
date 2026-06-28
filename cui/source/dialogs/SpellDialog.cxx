@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -367,8 +367,8 @@ void SpellDialog::UpdateBoxes_Impl(bool bCallFromSelectHdl)
     m_xLanguageLB->set_sensitive( bShowChangeAll );
     m_xIgnoreAllPB->set_visible( bShowChangeAll );
 
-    m_xAddToDictMB->set_visible( bShowChangeAll && nDicts > 1 && !comphelper::LibreOfficeKit::isActive());
-    m_xAddToDictPB->set_visible( bShowChangeAll && nDicts <= 1 && !comphelper::LibreOfficeKit::isActive());
+    m_xAddToDictMB->set_visible( bShowChangeAll && nDicts > 1 && !comphelper::loficeKit::isActive());
+    m_xAddToDictPB->set_visible( bShowChangeAll && nDicts <= 1 && !comphelper::loficeKit::isActive());
     m_xIgnoreRulePB->set_visible( !bShowChangeAll );
     m_xIgnoreRulePB->set_sensitive(bSpellErrorDescription && !aSpellErrorDescription.sRuleId.isEmpty());
     m_xAutoCorrPB->set_visible( bShowChangeAll && rParent.HasAutoCorrection() );
@@ -898,8 +898,8 @@ int SpellDialog::InitUserDicts()
 
     int nDicts = nItemId-1;
 
-    m_xAddToDictMB->set_visible(nDicts > 1 && !comphelper::LibreOfficeKit::isActive());
-    m_xAddToDictPB->set_visible(nDicts <= 1 && !comphelper::LibreOfficeKit::isActive());
+    m_xAddToDictMB->set_visible(nDicts > 1 && !comphelper::loficeKit::isActive());
+    m_xAddToDictPB->set_visible(nDicts <= 1 && !comphelper::loficeKit::isActive());
 
     return nDicts;
 }

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,14 +18,14 @@ module qa
 
 /**
  * Dumps the content into a string.
- * This is an internal interface and should not be used outside of Libreoffice source code
+ * This is an internal interface and should not be used outside of lofice source code
  */
 interface XDumper : com::sun::star::uno::XInterface
 {
     /**
      * dump the content into a string
      * @param kind  What kind of data to dump (for objects that know how to dump different data).
-     * @since LibreOffice 3.6
+     * @since lofice 3.6
      */
 
     string dump([in] string kind);

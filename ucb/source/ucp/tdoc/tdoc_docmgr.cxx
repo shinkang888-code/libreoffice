@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -101,9 +101,9 @@ OfficeDocumentsManager::OfficeDocumentsManager(
 OfficeDocumentsManager::~OfficeDocumentsManager()
 {
     //OSL_ENSURE( m_aDocs.empty(), "document list not empty!" );
-    // no need to assert this: Normal shutdown of LibreOffice could already trigger it, since the order
+    // no need to assert this: Normal shutdown of lofice could already trigger it, since the order
     // in which objects are actually released/destroyed upon shutdown is not defined. And when we
-    // arrive *here*, LibreOffice *is* shutting down currently, since we're held by the TDOC provider,
+    // arrive *here*, lofice *is* shutting down currently, since we're held by the TDOC provider,
     // which is disposed upon shutdown.
     m_xDocCloseListener->Dispose();
 }

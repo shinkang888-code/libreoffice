@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -85,7 +85,7 @@
 #include <comphelper/dispatchcommand.hxx>
 #include <comphelper/processfactory.hxx>
 #include <comphelper/lok.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 #include <salhelper/simplereferenceobject.hxx>
 #include <rtl/ref.hxx>
@@ -423,7 +423,7 @@ void SwMailMergeWizardExecutor::ExecuteMailMergeWizard( const SfxItemSet * pArgs
                 using namespace org::freedesktop::PackageKit;
                 using namespace svtools;
                 auto xSyncDbusSessionHelper(SyncDbusSessionHelper::create(comphelper::getProcessComponentContext()));
-                const css::uno::Sequence< OUString > vPackages{ u"libreoffice-base"_ustr };
+                const css::uno::Sequence< OUString > vPackages{ u"lofice-base"_ustr };
                 xSyncDbusSessionHelper->InstallPackageNames(vPackages, OUString());
                 SolarMutexGuard aGuard;
                 (void)executeRestartDialog(comphelper::getProcessComponentContext(),
@@ -434,7 +434,7 @@ void SwMailMergeWizardExecutor::ExecuteMailMergeWizard( const SfxItemSet * pArgs
             {
                 TOOLS_INFO_EXCEPTION(
                     "sw.core",
-                    "trying to install LibreOffice Base, caught");
+                    "trying to install lofice Base, caught");
             }
         }
         auto xRestartManager
@@ -962,7 +962,7 @@ void SwModule::ConfigurationChanged(utl::ConfigurationBroadcaster* pBrdCst, Conf
     }
     else if ( pBrdCst == m_pColorConfig.get() )
     {
-        const bool bKit = comphelper::LibreOfficeKit::isActive();
+        const bool bKit = comphelper::loficeKit::isActive();
         const SwViewColors aViewColors(*m_pColorConfig);
         SwViewOption aViewOption = *GetViewOption(/*Web=*/false);
 
@@ -1003,9 +1003,9 @@ void SwModule::ConfigurationChanged(utl::ConfigurationBroadcaster* pBrdCst, Conf
 
                     if (bKit)
                     {
-                        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_APPLICATION_BACKGROUND_COLOR,
+                        pViewShell->loficeKitViewCallback(LOK_CALLBACK_APPLICATION_BACKGROUND_COLOR,
                             aViewColors.m_aAppBackgroundColor.AsRGBHexString().toUtf8());
-                        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_DOCUMENT_BACKGROUND_COLOR,
+                        pViewShell->loficeKitViewCallback(LOK_CALLBACK_DOCUMENT_BACKGROUND_COLOR,
                             aViewColors.m_aDocColor.AsRGBHexString().toUtf8());
                     }
 

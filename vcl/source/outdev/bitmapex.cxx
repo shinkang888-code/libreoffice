@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -154,14 +154,14 @@ void OutputDevice::DrawScaledAndTranslatedBitmap(
 
     const Point aOrigin = GetMapMode().GetOrigin();
 
-    if (!mpMetaFile && comphelper::LibreOfficeKit::isActive() && GetMapMode().GetMapUnit() != MapUnit::MapPixel)
+    if (!mpMetaFile && comphelper::loficeKit::isActive() && GetMapMode().GetMapUnit() != MapUnit::MapPixel)
     {
         aDestPt.Move(aOrigin.getX(), aOrigin.getY());
         EnableMapMode(false);
     }
 
     DrawBitmap(aDestPt, aDestSize, rBitmap);
-    if (!mpMetaFile && comphelper::LibreOfficeKit::isActive() && GetMapMode().GetMapUnit() != MapUnit::MapPixel)
+    if (!mpMetaFile && comphelper::loficeKit::isActive() && GetMapMode().GetMapUnit() != MapUnit::MapPixel)
     {
         EnableMapMode();
         aDestPt.Move(-aOrigin.getX(), -aOrigin.getY());

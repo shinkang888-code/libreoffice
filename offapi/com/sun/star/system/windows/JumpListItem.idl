@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -12,7 +12,7 @@ module com { module sun { module star { module system { module windows {
 
 /** Specifies an item for com::sun::star::system::windows::XJumpList .
 
-    @since LibreOffice 7.4
+    @since lofice 7.4
 */
 
 struct JumpListItem
@@ -27,8 +27,8 @@ struct JumpListItem
      */
     string description;
 
-    /** Arguments to be passed to LibreOffice.
-        This can be a file to be loaded, or any command line parameter supported by LibreOffice, and any combination of the two.
+    /** Arguments to be passed to lofice.
+        This can be a file to be loaded, or any command line parameter supported by lofice, and any combination of the two.
         Add multiple arguments separated by space.
         Must not include embedded NULs ('\\0').
     */

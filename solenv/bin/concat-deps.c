@@ -716,7 +716,7 @@ static void eat_space(char ** token)
 }
 
 /*
- * Prune LibreOffice specific duplicate dependencies to improve
+ * Prune lofice specific duplicate dependencies to improve
  * gnumake startup time, and shrink the disk-space footprint.
  */
 static int

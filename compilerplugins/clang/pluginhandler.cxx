@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * Based on LLVM/Clang.
  *
@@ -513,7 +513,7 @@ bool PluginHandler::isAllRelevantCodeDefined(NamedDecl const * decl) {
     return !decl->isExternallyVisible();
 }
 
-std::unique_ptr<ASTConsumer> LibreOfficeAction::CreateASTConsumer( CompilerInstance& Compiler, StringRef )
+std::unique_ptr<ASTConsumer> loficeAction::CreateASTConsumer( CompilerInstance& Compiler, StringRef )
 {
 #if __cplusplus >= 201402L
     return std::make_unique<PluginHandler>( Compiler, _args );
@@ -522,13 +522,13 @@ std::unique_ptr<ASTConsumer> LibreOfficeAction::CreateASTConsumer( CompilerInsta
 #endif
 }
 
-bool LibreOfficeAction::ParseArgs( const CompilerInstance&, const std::vector< std::string >& args )
+bool loficeAction::ParseArgs( const CompilerInstance&, const std::vector< std::string >& args )
 {
     _args = args;
     return true;
 }
 
-static FrontendPluginRegistry::Add< loplugin::LibreOfficeAction > X( "loplugin", "LibreOffice compile check plugin" );
+static FrontendPluginRegistry::Add< loplugin::loficeAction > X( "loplugin", "lofice compile check plugin" );
 
 } // namespace
 

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 
 #ifndef INCLUDED_OSL_PROCESS_H
@@ -409,7 +409,7 @@ SAL_DLLPUBLIC oslProcessError SAL_CALL osl_getProcessLocale(
 
     @param[in] pLocale  a pointer to the locale to be set
 
-    @deprecated  LibreOffice itself does not use this, and client code should
+    @deprecated  lofice itself does not use this, and client code should
         not have good use for it either.  It may eventually be removed.
 */
 

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -451,8 +451,8 @@ void munchDrawCommands(std::vector<std::shared_ptr<WidgetDrawAction>> const& rDr
             case WidgetDrawActionType::IMAGE:
             {
                 double nScaleFactor = 1.0;
-                if (comphelper::LibreOfficeKit::isActive())
-                    nScaleFactor = comphelper::LibreOfficeKit::getDPIScale();
+                if (comphelper::loficeKit::isActive())
+                    nScaleFactor = comphelper::loficeKit::getDPIScale();
 
                 auto const& rWidgetDraw = static_cast<WidgetDrawActionImage const&>(*pDrawAction);
                 auto& rCacheImages = ImplGetSVData()->maGDIData.maThemeImageCache;

@@ -1,6 +1,6 @@
 #! /bin/bash
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -16,33 +16,33 @@
 
 set -e
 
-cp -r "${PREFIXDIR?}"/lib/libreoffice /app/
-ln -s /app/libreoffice/program/soffice /app/bin/libreoffice
+cp -r "${PREFIXDIR?}"/lib/lofice /app/
+ln -s /app/lofice/program/soffice /app/bin/lofice
 
 mkdir -p /app/share/applications
 "${SRCDIR?}"/solenv/bin/assemble-flatpak-desktop.sh "${PREFIXDIR?}"/share/applications/ \
  /app/share/applications/ "${1?}"
 
-## icons/hicolor/*/apps/libreoffice-* ->
+## icons/hicolor/*/apps/lofice-* ->
 ## icons/hicolor/*/apps/$1-*:
 mkdir -p /app/share/icons
-for i in "${PREFIXDIR?}"/share/icons/hicolor/*/apps/libreoffice-*
+for i in "${PREFIXDIR?}"/share/icons/hicolor/*/apps/lofice-*
 do
  mkdir -p \
   "$(dirname /app/share/icons/hicolor/"${i#"${PREFIXDIR?}"/share/icons/hicolor/}")"
  cp -a "$i" \
   "$(dirname /app/share/icons/hicolor/"${i#"${PREFIXDIR?}"/share/icons/hicolor/}")"/"$(basename "$i")"
  cp -a "$i" \
-  "$(dirname /app/share/icons/hicolor/"${i#"${PREFIXDIR?}"/share/icons/hicolor/}")"/"${1?}"."${i##*/apps/libreoffice-}"
+  "$(dirname /app/share/icons/hicolor/"${i#"${PREFIXDIR?}"/share/icons/hicolor/}")"/"${1?}"."${i##*/apps/lofice-}"
 done
 
 mkdir -p /app/share/runtime/locale
-for i in $(ls /app/libreoffice/program/resource)
+for i in $(ls /app/lofice/program/resource)
 do
   lang="${i%[_@]*}"
   mkdir -p /app/share/runtime/locale/"${lang}"/resource
-  mv /app/libreoffice/program/resource/"${i}" /app/share/runtime/locale/"${lang}"/resource
-  ln -s ../../../share/runtime/locale/"${lang}"/resource/"${i}" /app/libreoffice/program/resource
+  mv /app/lofice/program/resource/"${i}" /app/share/runtime/locale/"${lang}"/resource
+  ln -s ../../../share/runtime/locale/"${lang}"/resource/"${i}" /app/lofice/program/resource
 done
 
 # The .../share/registry/res/registry_*.xcd glob may match nothing (the
@@ -50,7 +50,7 @@ done
 # match at least .../share/registry/Langpack-en-US.xcd and
 # .../share/registry/res/fcfg_langpack-en-US.xcd, respectively):
 shopt -s nullglob
-for i in /app/libreoffice/share/registry/Langpack-*.xcd /app/libreoffice/share/registry/res/{fcfg_langpack,registry}_*.xcd
+for i in /app/lofice/share/registry/Langpack-*.xcd /app/lofice/share/registry/res/{fcfg_langpack,registry}_*.xcd
 do
   basename="$(basename "${i}" .xcd)"
   lang="${basename#Langpack-}"

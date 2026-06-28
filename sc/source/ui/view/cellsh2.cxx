@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -172,8 +172,8 @@ static bool lcl_GetSortParam( const ScViewData& rData, const ScSortParam& rSortP
     aExternalRange.aEnd.SetRow( nEndRow );
     aExternalRange.aEnd.SetCol( nEndCol );
 
-    // with LibreOfficeKit, don't try to interact with the user
-    if (!comphelper::LibreOfficeKit::isActive() &&
+    // with loficeKit, don't try to interact with the user
+    if (!comphelper::loficeKit::isActive() &&
         ((rSortParam.nCol1 == rSortParam.nCol2 && aExternalRange.aStart.Col() != aExternalRange.aEnd.Col()) ||
          (rSortParam.nRow1 == rSortParam.nRow2 && aExternalRange.aStart.Row() != aExternalRange.aEnd.Row())))
     {

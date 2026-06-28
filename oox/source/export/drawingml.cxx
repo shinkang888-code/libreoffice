@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1773,7 +1773,7 @@ void DrawingML::WriteImageBrightnessContrastTransparence(uno::Reference<beans::X
         if (aColorMode == drawing::ColorMode_GREYS)
             mpFS->singleElementNS(XML_a, XML_grayscl);
         else if (aColorMode == drawing::ColorMode_MONO)
-            //black/white has a 0,5 threshold in LibreOffice
+            //black/white has a 0,5 threshold in lofice
             mpFS->singleElementNS(XML_a, XML_biLevel, XML_thresh, OString::number(50000));
         else if (aColorMode == drawing::ColorMode_WATERMARK)
         {
@@ -2003,7 +2003,7 @@ void DrawingML::WriteGraphicCropProperties(uno::Reference<beans::XPropertySet> c
 
     if(GetProperty(rXPropSet, u"CustomShapeGeometry"_ustr))
     {
-    // tdf#134210 GraphicCrop property is handled in import filter because of LibreOffice has not core
+    // tdf#134210 GraphicCrop property is handled in import filter because of lofice has not core
     // feature. We cropped the bitmap physically and MSO shouldn't crop bitmap one more time. When we
     // have core feature for graphic cropping in custom shapes, we should uncomment the code anymore.
 
@@ -2557,9 +2557,9 @@ void DrawingML::WriteRunProperties(const Reference<XPropertySet>& rRun, sal_Int3
         nCharKerning = static_cast<sal_Int32>(*o3tl::doAccess<sal_Int16>(mAny));
     /**  While setting values in propertymap,
     *    CharKerning converted using GetTextSpacingPoint
-    *    i.e set @ https://opengrok.libreoffice.org/xref/core/oox/source/drawingml/textcharacterproperties.cxx#129
+    *    i.e set @ https://opengrok.lofice.org/xref/core/oox/source/drawingml/textcharacterproperties.cxx#129
     *    therefore to get original value CharKerning need to be convert.
-    *    https://opengrok.libreoffice.org/xref/core/oox/source/drawingml/drawingmltypes.cxx#95
+    *    https://opengrok.lofice.org/xref/core/oox/source/drawingml/drawingmltypes.cxx#95
     **/
     nCharKerning = toTextSpacingPoint(nCharKerning);
 
@@ -2789,7 +2789,7 @@ void DrawingML::WriteRunProperties(const Reference<XPropertySet>& rRun, sal_Int3
 
                 WriteSolidFill(COL_WHITE);
             }
-            // tdf#104219 In LibreOffice and MS Office, there are two types of colors:
+            // tdf#104219 In lofice and MS Office, there are two types of colors:
             // Automatic and Fixed. OOXML is setting automatic color, by not providing color.
             else if( color != COL_AUTO )
             {
@@ -4246,7 +4246,7 @@ void DrawingML::WriteBodyProps(const css::uno::Reference< css::uno::XInterface >
 #endif
 
     // Prepare attributes 'anchor' and 'anchorCtr'
-    // LibreOffice has 12 value sets, MS Office only 6. We map them so, that it reverses the
+    // lofice has 12 value sets, MS Office only 6. We map them so, that it reverses the
     // 6 mappings from import, and we assign the others approximately.
     TextVerticalAdjust eVerticalAlignment(TextVerticalAdjust_TOP);
     if (GetProperty(rXPropSet, u"TextVerticalAdjust"_ustr))

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -840,15 +840,15 @@ namespace
             sContent = getXPathContent(pXmlDoc, xpath);
             CPPUNIT_ASSERT_EQUAL_MESSAGE(aOutput.getStr(), u"ٱلسََّل"_ustr, sContent.replaceAll("\n\n", " ").replaceAll("\n", ""));
 
-            // Test for "LibreOffice RTL"
+            // Test for "lofice RTL"
             xpath = "string(//draw:frame[@draw:transform='matrix(917.222222222222 0 0 917.222222222222 12779.375 5121.79583335)']/draw:text-box/text:p/text:span)"_ostr;
             sContent = getXPathContent(pXmlDoc, xpath);
-            CPPUNIT_ASSERT_EQUAL_MESSAGE(aOutput.getStr(), u"LibreOffice RTL"_ustr, sContent.replaceAll("\n\n", " ").replaceAll("\n", ""));
+            CPPUNIT_ASSERT_EQUAL_MESSAGE(aOutput.getStr(), u"lofice RTL"_ustr, sContent.replaceAll("\n\n", " ").replaceAll("\n", ""));
 
-            // Test for "LibreOffice LTR (test)"
+            // Test for "lofice LTR (test)"
             xpath = "string(//draw:frame[last()-1]/draw:text-box/text:p/text:span[last()])"_ostr;
             sContent = getXPathContent(pXmlDoc, xpath);
-            CPPUNIT_ASSERT_EQUAL_MESSAGE(aOutput.getStr(), u"LibreOffice LTR (test)"_ustr, sContent.replaceAll("\n\n", " ").replaceAll("\n", ""));
+            CPPUNIT_ASSERT_EQUAL_MESSAGE(aOutput.getStr(), u"lofice LTR (test)"_ustr, sContent.replaceAll("\n\n", " ").replaceAll("\n", ""));
 
             /* Test for Chinese characters */
             // Use last() instead of matrix below, because the matrix may be different on different OS due to fallback of Chinese fonts.

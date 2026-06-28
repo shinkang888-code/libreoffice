@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# lofice — Bootstrap LibreOffice build tree on WSL/Linux (autogen + configure)
+# lofice — Bootstrap lofice build tree on WSL/Linux (autogen + configure)
 #
 # Usage (WSL, repo root):
 #   LOFICE_WSL_INSTALL_DEPS=1 bash lofice/scripts/bootstrap-wsl-build.sh
@@ -17,7 +17,7 @@ cd "$ROOT"
 log() { echo "==> $*"; }
 
 if [[ ! -f ./autogen.sh ]]; then
-  echo "ERROR: autogen.sh not found — run from LibreOffice repo root" >&2
+  echo "ERROR: autogen.sh not found — run from lofice repo root" >&2
   exit 1
 fi
 

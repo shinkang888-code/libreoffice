@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -566,7 +566,7 @@ void SmXMLExport::ExportBinaryHorizontal(const SmNode* pNode, int nLevel)
     // "a*b*c*d+e*f*g*h+i*j*k*l = a*b*c*d+e*f*g*h+i*j*k*l =
     //  a*b*c*d+e*f*g*h+i*j*k*l = a*b*c*d+e*f*g*h+i*j*k*l"
 
-    // See https://www.libreoffice.org/bugzilla/show_bug.cgi?id=66081
+    // See https://www.lofice.org/bugzilla/show_bug.cgi?id=66081
     ::std::stack<const SmNode*> s;
     s.push(pNode);
     while (!s.empty())

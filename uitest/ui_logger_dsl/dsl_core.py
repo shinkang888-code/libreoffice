@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice UI_logger project.
+# This file is part of the lofice UI_logger project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -79,14 +79,14 @@ class ul_Compiler:
         line = (
             "# -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-\n"
             + "#\n"
-            + "# This file is part of the LibreOffice project.\n"
+            + "# This file is part of the lofice project.\n"
             + "#\n"
             + "# This Source Code Form is subject to the terms of the Mozilla Public\n"
             + "# License, v. 2.0. If a copy of the MPL was not distributed with this\n"
             + "# file, You can obtain one at http://mozilla.org/MPL/2.0/\n"
             + "#\n\n"
             + "from uitest.framework import UITestCase\n"
-            + "from libreoffice.uno.propertyvalue import mkPropertyValues\n"
+            + "from lofice.uno.propertyvalue import mkPropertyValues\n"
             + "from uitest.uihelper.common import get_state_as_dict\n"
             + "import importlib\n\n"
             + "class TestClass(UITestCase):\n"

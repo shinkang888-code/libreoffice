@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
  */
 
 /*
- * This file is part of LibreOffice published API.
+ * This file is part of lofice published API.
  */
 
 #ifndef INCLUDED_OSL_FILE_H
@@ -314,7 +314,7 @@ SAL_DLLPUBLIC oslFileError SAL_CALL osl_releaseDirectoryItem(
 
     @see osl_getDirectoryItem()
 
-    @since LibreOffice 3.6
+    @since lofice 3.6
 */
 SAL_DLLPUBLIC sal_Bool SAL_CALL osl_identicalDirectoryItem(
                                         oslDirectoryItem pItemA,
@@ -653,7 +653,7 @@ typedef void *oslFileHandle;
     On Android, if the file path is below the /assets folder, the file
     exists only as a hopefully uncompressed element inside the app
     package (.apk), which has been mapped into memory as a whole by
-    the LibreOffice Android bootstrapping code. So files "opened" from
+    the lofice Android bootstrapping code. So files "opened" from
     there aren't actually files in the OS sense.
 
     @retval osl_File_E_None on success
@@ -868,7 +868,7 @@ SAL_DLLPUBLIC oslFileError SAL_CALL osl_mapFile (
     This function just won't work on Android in general where for
     (uncompressed) files inside the .apk, per SDK conventions in the
     /assets folder, osl_mapFile() returns a pointer to the file inside
-    the already by LibreOffice Android-specific bootstrapping code
+    the already by lofice Android-specific bootstrapping code
     mmapped .apk archive. We can't go and randomly munmap part of the
     .apk archive. So this function is not present on Android.
 
@@ -1186,7 +1186,7 @@ SAL_DLLPUBLIC oslFileError SAL_CALL osl_createDirectory( rtl_uString* pustrDirec
 
     @see osl_createDirectory()
 
-    @since LibreOffice 4.3
+    @since lofice 4.3
 */
 SAL_DLLPUBLIC oslFileError SAL_CALL osl_createDirectoryWithFlags(
     rtl_uString * url, sal_uInt32 flags);
@@ -1332,7 +1332,7 @@ SAL_DLLPUBLIC oslFileError SAL_CALL osl_removeFile(
     @retval osl_File_E_ISDIR is a directory
     @retval osl_File_E_ROFS read-only file system
     @retval osl_File_E_BUSY if the implementation internally requires resources that are
-        (temporarily) unavailable (added with LibreOffice 4.4)
+        (temporarily) unavailable (added with lofice 4.4)
 
     @see    osl_moveFile()
     @see    osl_removeFile()
@@ -1360,7 +1360,7 @@ SAL_DLLPUBLIC oslFileError SAL_CALL osl_copyFile(
     @retval osl_File_E_NOENT no such file or directory
     @retval osl_File_E_ROFS read-only file system
     @retval osl_File_E_BUSY if the implementation internally requires resources that are
-        (temporarily) unavailable (added with LibreOffice 4.4)
+        (temporarily) unavailable (added with lofice 4.4)
 
     @see osl_copyFile()
 */
@@ -1663,7 +1663,7 @@ SAL_DLLPUBLIC oslFileError SAL_CALL osl_createTempFile(
 
     @see osl_moveFile()
 
-    @since LibreOffice 6.2
+    @since lofice 6.2
 */
 SAL_DLLPUBLIC oslFileError SAL_CALL osl_replaceFile(rtl_uString* pustrSourceFileURL,
                                                     rtl_uString* pustrDestFileURL);

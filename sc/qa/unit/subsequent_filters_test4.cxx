@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -533,10 +533,10 @@ CPPUNIT_TEST_FIXTURE(ScFiltersTest4, testRichTextContentODS)
     CPPUNIT_ASSERT_MESSAGE("Unexpected text.", aParaText.startsWith("URL: "));
     CPPUNIT_ASSERT_MESSAGE("URL field item not found.",
                            pEditText->HasField(text::textfield::Type::URL));
-    CPPUNIT_ASSERT_EQUAL(u"URL: http://libreoffice.org"_ustr,
+    CPPUNIT_ASSERT_EQUAL(u"URL: http://lofice.org"_ustr,
                          ScEditUtil::GetString(*pEditText, *pDoc));
     pEE->SetText(*pEditText);
-    CPPUNIT_ASSERT_EQUAL(u"URL: http://libreoffice.org"_ustr, ScEditUtil::GetMultilineString(*pEE));
+    CPPUNIT_ASSERT_EQUAL(u"URL: http://lofice.org"_ustr, ScEditUtil::GetMultilineString(*pEE));
 
     // Cell with Date field item.
     aPos.IncRow();

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -56,7 +56,7 @@ DocumentTimerManager::DocumentTimerManager(SwDoc& i_rSwdoc)
 
 void DocumentTimerManager::StartIdling()
 {
-    if (m_bWaitForLokInit && comphelper::LibreOfficeKit::isActive())
+    if (m_bWaitForLokInit && comphelper::loficeKit::isActive())
     {
         // Start the idle jobs only after a certain delay.
         m_bWaitForLokInit = false;

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -63,7 +63,7 @@ const char usageText[] =
 "    --propertysetmixin     the generated skeleton implements the cppu::PropertySetMixin\n"
 "                           helper if a referenced new style service specifies an\n"
 "                           interface which provides attributes (directly or inherited).\n"
-"    -lh --licenseheader    generates a default LibreOffice MPL license\n"
+"    -lh --licenseheader    generates a default lofice MPL license\n"
 "                           header at the beginning of a component source file.\n"
 "                           This option is taken into account in 'component' mode\n"
 "                           only and if -o is unequal 'stdout'.\n"

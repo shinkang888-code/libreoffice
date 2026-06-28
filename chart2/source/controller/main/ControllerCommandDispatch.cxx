@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -616,7 +616,7 @@ void ControllerCommandDispatch::updateCommandAvailability()
     m_aCommandAvailability[ u".uno:FormatTrendlineEquation"_ustr ] = bFormatObjectAvailable && bControllerStateIsValid && m_apControllerState->bMayFormatTrendlineEquation;
     m_aCommandAvailability[ u".uno:FormatStockLoss"_ustr ] = bFormatObjectAvailable;
     m_aCommandAvailability[ u".uno:FormatStockGain"_ustr ] = bFormatObjectAvailable;
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         m_aCommandAvailability[u".uno:FillColor"_ustr] = bFormatObjectAvailable;
         m_aCommandAvailability[u".uno:XLineColor"_ustr] = bFormatObjectAvailable;
@@ -975,7 +975,7 @@ void SAL_CALL ControllerCommandDispatch::modified( const lang::EventObject& aEve
     if( bUpdateCommandAvailability )
         updateCommandAvailability();
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         if (SfxViewShell* pViewShell = SfxViewShell::Current())
             if (SfxObjectShell* pObjSh = pViewShell->GetObjectShell())

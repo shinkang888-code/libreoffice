@@ -12,7 +12,7 @@ M = {
   'ridl': 'ridljar',
   'unoil': 'unoil',
   'unoloader': 'ridljar',
-  'libreoffice': 'ridljar',
+  'lofice': 'ridljar',
 }
 
 parser = OptionParser()
@@ -41,9 +41,9 @@ def replace_in_file(filename, src_pattern):
 src_pattern = re.compile(r'^(\s*<version>)(@version@)(</version>\s*)$',
                          re.MULTILINE)
 
-for a in ['juh', 'jurt',  'libreoffice', 'officebean', 'ridl', 'unoil', 'unoloader']:
+for a in ['juh', 'jurt',  'lofice', 'officebean', 'ridl', 'unoil', 'unoloader']:
   replace_in_file(os.path.join(M[a], 'pom.%s.xml' % a), src_pattern)
 
-src_pattern = re.compile(r"^(LIBREOFFICE_VERSION = ')([-.@\w]+)(')$",
+src_pattern = re.compile(r"^(lofice_VERSION = ')([-.@\w]+)(')$",
                          re.MULTILINE)
 replace_in_file('solenv/maven/VERSION', src_pattern)

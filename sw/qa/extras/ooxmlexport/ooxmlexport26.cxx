@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -787,7 +787,7 @@ CPPUNIT_TEST_FIXTURE(Test, testTdf119952_negativeMargins)
 {
     auto verify = [this](bool bIsExport = false) {
         // With negative margins (in MS Word) one can set up header (or footer) that overlaps with the body.
-        // LibreOffice unable to display that, so when importing negative margins,
+        // lofice unable to display that, so when importing negative margins,
         // the header (or footer) converted to a flyframe, anchored to the header..
         // that can overlap with the body, and will appear like in Word.
         // This conversion modifies the document [i.e. replacing header text with a textbox...]

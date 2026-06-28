@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -19,7 +19,7 @@ from com.sun.star.task import XJobExecutor
 class MainJob(unohelper.Base, XJobExecutor):
     def __init__(self, ctx):
         self.ctx = ctx
-        # handling different situations (inside LibreOffice or other process)
+        # handling different situations (inside lofice or other process)
         try:
             self.sm = ctx.getServiceManager()
             self.desktop = XSCRIPTCONTEXT.getDesktop()

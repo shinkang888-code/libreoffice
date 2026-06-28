@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -3715,7 +3715,7 @@ void SwLayoutFrame::PaintSwFrame(vcl::RenderContext& rRenderContext, SwRect cons
 
     const SwPageFrame *pPage = nullptr;
     bool bWin = gProp.pSGlobalShell->GetWin() != nullptr;
-    if (comphelper::LibreOfficeKit::isTiledPainting())
+    if (comphelper::loficeKit::isTiledPainting())
         // Tiled rendering is similar to printing in this case: painting transparently multiple
         // times will result in darker colors: avoid that.
         bWin = false;
@@ -3745,7 +3745,7 @@ void SwLayoutFrame::PaintSwFrame(vcl::RenderContext& rRenderContext, SwRect cons
         if ( rRect.Overlaps( aPaintRect ) )
         {
             if ( bCnt && pFrame->IsCompletePaint() &&
-                 !(comphelper::LibreOfficeKit::isActive() && comphelper::LibreOfficeKit::isTiledPainting()) &&
+                 !(comphelper::loficeKit::isActive() && comphelper::loficeKit::isTiledPainting()) &&
                  !rRect.Contains( aPaintRect ) && Application::AnyInput( VclInputFlags::KEYBOARD ) )
             {
                 //fix(8104): It may happen, that the processing wasn't complete
@@ -4580,7 +4580,7 @@ void SwTextFrame::PaintParagraphStylesHighlighting() const
     int nStyleNumber(-1);
 
     bool bSpotlightStyle;
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         // For simplicity in kit mode, we render in the document "all styles"
         bSpotlightStyle = true;
@@ -6438,7 +6438,7 @@ enum PaintArea {LEFT, RIGHT, TOP, BOTTOM};
 /// Wrapper around pOut->DrawBitmap.
 static void lcl_paintBitmapExToRect(vcl::RenderContext *pOut, const Point& aPoint, const Size& aSize, const Bitmap& rBitmap, PaintArea eArea)
 {
-    if(!comphelper::LibreOfficeKit::isActive())
+    if(!comphelper::loficeKit::isActive())
     {
         // The problem is that if we get called multiple times and the color is
         // partly transparent, then the result will get darker and darker. To avoid
@@ -7361,7 +7361,7 @@ static std::vector<basegfx::B2DPolygon> lcl_CreatePageAreaDelimiterPolygons(cons
     std::vector<basegfx::B2DPolygon> aPolygons;
 
     // Hide text boundaries by default - cool#3491
-    if (!bHeaderFooter && comphelper::LibreOfficeKit::isActive())
+    if (!bHeaderFooter && comphelper::loficeKit::isActive())
         return aPolygons;
 
     double nLineLength = 200.0; // in Twips

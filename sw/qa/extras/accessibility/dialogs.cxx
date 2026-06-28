@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -57,7 +57,7 @@ CPPUNIT_TEST_FIXTURE(test::AccessibleTestBase, BasicTestSpecialCharactersDialog)
     CPPUNIT_ASSERT_EQUAL(u"<PARAGRAPH>©</PARAGRAPH>"_ustr, collectText());
 }
 
-/* checks for the fix from https://gerrit.libreoffice.org/c/core/+/147660 */
+/* checks for the fix from https://gerrit.lofice.org/c/core/+/147660 */
 CPPUNIT_TEST_FIXTURE(test::AccessibleTestBase, TestSpecialCharactersDialogFocus)
 {
     load(u"private:factory/swriter"_ustr);
@@ -66,7 +66,7 @@ CPPUNIT_TEST_FIXTURE(test::AccessibleTestBase, TestSpecialCharactersDialogFocus)
         CPPUNIT_ASSERT(dialog.tabTo(accessibility::AccessibleRole::TABLE_CELL, u" "));
 
         /* as there is a bug that focusing the character table doesn't enable the Insert button
-         * (https://bugs.documentfoundation.org/show_bug.cgi?id=153806), we move to another cell
+         * (https://bugs.lofice.io/show_bug.cgi?id=153806), we move to another cell
          * so it works. */
 
         // tdf#153918: Check that '!' char has correct accessible name and insert it
@@ -99,7 +99,7 @@ CPPUNIT_TEST_FIXTURE(test::AccessibleTestBase, BasicTestHyperlinkDialog)
         // Focus the URL box (should be default, but make sure we're on it)
         CPPUNIT_ASSERT(dialog.tabTo(accessibility::AccessibleRole::COMBO_BOX, u"Link:"));
         // Fill in an address
-        dialog.postExtTextEventAsync(u"https://libreoffice.org/"_ustr);
+        dialog.postExtTextEventAsync(u"https://lofice.org/"_ustr);
         // Validate the whole dialog
         dialog.postKeyEventAsync(0, awt::Key::RETURN);
         Scheduler::ProcessEventsToIdle();
@@ -109,7 +109,7 @@ CPPUNIT_TEST_FIXTURE(test::AccessibleTestBase, BasicTestHyperlinkDialog)
     CPPUNIT_ASSERT(activateMenuItem(u"Insert", u"Hyperlink..."));
     CPPUNIT_ASSERT(dialogWaiter->waitEndDialog());
 
-    CPPUNIT_ASSERT_EQUAL(u"<PARAGRAPH>https://libreoffice.org/</PARAGRAPH>"_ustr, collectText());
+    CPPUNIT_ASSERT_EQUAL(u"<PARAGRAPH>https://lofice.org/</PARAGRAPH>"_ustr, collectText());
 }
 
 CPPUNIT_TEST_FIXTURE(test::AccessibleTestBase, BasicTestBookmarkDialog)

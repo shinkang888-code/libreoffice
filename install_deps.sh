@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #
-# This script attempts to install the necessary dependencies to do LibreOffice development.
+# This script attempts to install the necessary dependencies to do lofice development.
 #
 # It should be kept in sync with the instructions at
-#    https://wiki.documentfoundation.org/Development/BuildingOnLinux
+#    https://wiki.lofice.io/Development/BuildingOnLinux
 #
 
 # Detect OS (i.e. distro)

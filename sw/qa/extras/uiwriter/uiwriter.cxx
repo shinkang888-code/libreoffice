@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -900,7 +900,7 @@ CPPUNIT_TEST_FIXTURE(SwUiWriterTest, testExportRTF)
     OString aData(static_cast<const char*>(aStream.GetData()), aStream.GetSize());
 
     //Amusingly eventually there was a commit id with "ccc" in it, and so the rtf contained
-    //{\*\generator LibreOfficeDev/4.4.0.0.alpha0$Linux_X86_64 LibreOffice_project/f70664ccc6837f2cc21a29bb4f44e41e100efe6b}
+    //{\*\generator loficeDev/4.4.0.0.alpha0$Linux_X86_64 lofice_project/f70664ccc6837f2cc21a29bb4f44e41e100efe6b}
     //so the test fell over. so strip the generator tag
     sal_Int32 nGeneratorStart = aData.indexOf("{\\*\\generator ");
     CPPUNIT_ASSERT(nGeneratorStart != -1);

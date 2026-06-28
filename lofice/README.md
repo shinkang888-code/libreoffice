@@ -36,4 +36,4 @@
 ## Important: UNO Compatibility
 
 `org.libreoffice.*` UNO 서비스 식별자는 **기능 호환**을 위해 코드 내부에 잔존할 수 있습니다.  
-사용자 대면 UI·설치 프로그램·문서에는 LibreOffice 표기를 사용하지 않습니다.
+사용자 대면 UI·설치 프로그램·문서에는 lofice 표기를 사용하지 않습니다.

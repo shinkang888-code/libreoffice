@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -44,7 +44,7 @@ published interface XStyleLoader: com::sun::star::uno::XInterface
         <li> boolean LoadPageStyles </li>
         <li> boolean LoadNumberingStyles </li>
         <li> boolean OverwriteStyles</li>
-        <li> com::sun::star::io::XInputStream InputStream (since LibreOffice 7.0)</li>
+        <li> com::sun::star::io::XInputStream InputStream (since lofice 7.0)</li>
         </ul>
      <p>As the default, all supported style families are loaded and existing styles are overwritten.</p>
      */

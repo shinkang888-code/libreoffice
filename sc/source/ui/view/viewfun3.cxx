@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -71,7 +71,7 @@
 #include <sfx2/lokhelper.hxx>
 #include <sc.hrc>
 #include <sfx2/bindings.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 using namespace com::sun::star;
 
@@ -932,7 +932,7 @@ bool ScViewFunc::PasteFromSystem( SotClipboardFormatId nFormatId, bool bApi, boo
         {
             ErrorMessage(STR_PASTE_ERROR);
         }
-        else if (comphelper::LibreOfficeKit::isActive())
+        else if (comphelper::loficeKit::isActive())
         {
             ScTabViewShell* pTabViewShell = rViewData.GetViewShell();
             pTabViewShell->OnLOKSetWidthOrHeight(rViewData.GetCurX(), true);

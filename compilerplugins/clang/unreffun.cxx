@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -105,7 +105,7 @@ bool UnrefFun::VisitFunctionDecl(FunctionDecl const * decl) {
             //
             //  SAL_DLLPUBLIC_EXPORT GType lok_doc_view_get_type();
             //
-            // in libreofficekit/source/gtk/lokdocview.cxx):
+            // in loficekit/source/gtk/lokdocview.cxx):
             if (decl->getAttr<VisibilityAttr>() != nullptr
                 && prev->getAttr<VisibilityAttr>() == nullptr)
             {

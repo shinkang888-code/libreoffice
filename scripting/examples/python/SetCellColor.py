@@ -1,5 +1,5 @@
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -19,10 +19,10 @@ import uno
 
 def _SetCellColor(sheet, cellRange, color):
     """Sets the background of 'cellRange' in 'sheet', to 'color'."""
-    # https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1table_1_1XCellRange.html#a92c77dc3025ac50d55bf31bc80ab118f
+    # https://api.lofice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1table_1_1XCellRange.html#a92c77dc3025ac50d55bf31bc80ab118f
     cells = sheet.getCellRangeByName(cellRange)
 
-    # https://api.libreoffice.org/docs/idl/ref/servicecom_1_1sun_1_1star_1_1table_1_1CellProperties.html
+    # https://api.lofice.org/docs/idl/ref/servicecom_1_1sun_1_1star_1_1table_1_1CellProperties.html
     cells.CellBackColor = color
 
 def SetCellColor():

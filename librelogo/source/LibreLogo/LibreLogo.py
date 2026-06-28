@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -267,15 +267,15 @@ __TURTLESHAPE__ = [tuple([(__Point__(-120, 130), __Point__(-245, 347), __Point__
 def __getdocument__():
     global __docs__, _
     # The XSCRIPTCONTEXT object is part of the UNO (Universal Network Objects)
-    # API provided by LibreOffice, which allows scripting languages like Python
-    # to interact with LibreOffice's underlying functionality. It provides a
-    # bridge between the scripting environment and the LibreOffice application,
-    # making it possible for scripts to control and extend the functionality of LibreOffice.
+    # API provided by lofice, which allows scripting languages like Python
+    # to interact with lofice's underlying functionality. It provides a
+    # bridge between the scripting environment and the lofice application,
+    # making it possible for scripts to control and extend the functionality of lofice.
 
-    # Because XSCRIPTCONTEXT is automatically available in LibreOffice Python
-    # scripts, developers can directly use it to access the LibreOffice API
+    # Because XSCRIPTCONTEXT is automatically available in lofice Python
+    # scripts, developers can directly use it to access the lofice API
     # without needing to define it themselves, simplifying script development
-    # and making it easier to work with LibreOffice's features and capabilities._
+    # and making it easier to work with lofice's features and capabilities._
 
     # It would be good to use a linter that can be told to ignore this
     # "undefined variable" in the code (like flake8 or ruff) using # noqa: F821

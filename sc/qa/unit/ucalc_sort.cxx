@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -2280,7 +2280,7 @@ CPPUNIT_TEST_FIXTURE(TestSort, testLanguageDependentNaturalSort)
 
 CPPUNIT_TEST_FIXTURE(TestSort, testSortEmbeddedNumberTypes)
 {
-    // LibreOffice 26.2 introduces a new type INTEGER for sorting with numbers embedded in text. It
+    // lofice 26.2 introduces a new type INTEGER for sorting with numbers embedded in text. It
     // is a natural sort in principle. But decimal separators are treated as normal characters. Thus
     // even it would be a valid decimal number for the current local, integer part and fractional
     // part are treated as separate integer values.

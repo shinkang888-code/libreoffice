@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -465,9 +465,9 @@ CPPUNIT_TEST_FIXTURE(SwCoreThemeTest, testThemeChanging)
     {
         auto const& rColorSets = svx::ColorSets::get();
         auto pNewColorSet
-            = std::make_shared<model::ColorSet>(*rColorSets.getColorSet(u"LibreOffice"));
+            = std::make_shared<model::ColorSet>(*rColorSets.getColorSet(u"lofice"));
         // check that the theme colors are as expected
-        CPPUNIT_ASSERT_EQUAL(u"LibreOffice"_ustr, pNewColorSet->getName());
+        CPPUNIT_ASSERT_EQUAL(u"lofice"_ustr, pNewColorSet->getName());
 
         sw::ThemeColorChanger aChanger(getSwDocShell());
         aChanger.apply(pNewColorSet);
@@ -481,7 +481,7 @@ CPPUNIT_TEST_FIXTURE(SwCoreThemeTest, testThemeChanging)
 
         auto pColorSet = pTheme->getColorSet();
         CPPUNIT_ASSERT(pColorSet);
-        CPPUNIT_ASSERT_EQUAL(u"LibreOffice"_ustr, pColorSet->getName());
+        CPPUNIT_ASSERT_EQUAL(u"lofice"_ustr, pColorSet->getName());
         CPPUNIT_ASSERT_EQUAL(Color(0x18A303), pTheme->GetColor(model::ThemeColorType::Accent1));
     }
 
@@ -511,7 +511,7 @@ CPPUNIT_TEST_FIXTURE(SwCoreThemeTest, testThemeChanging)
 
         auto pColorSet = pTheme->getColorSet();
         CPPUNIT_ASSERT(pColorSet);
-        CPPUNIT_ASSERT_EQUAL(u"LibreOffice"_ustr, pColorSet->getName());
+        CPPUNIT_ASSERT_EQUAL(u"lofice"_ustr, pColorSet->getName());
         CPPUNIT_ASSERT_EQUAL(Color(0x18A303), pTheme->GetColor(model::ThemeColorType::Accent1));
     }
 }

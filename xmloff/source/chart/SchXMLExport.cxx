@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -2704,7 +2704,7 @@ namespace
     }
 
 // ODF has the line and fill properties in a <style:style> element, which is referenced by the
-// <chart:data-label> element. But LibreOffice has them as special label properties of the series
+// <chart:data-label> element. But lofice has them as special label properties of the series
 // or point respectively. The following method generates ODF from internal API name.
 void lcl_createDataLabelProperties(
     std::vector<XMLPropertyState>& rDataLabelPropertyStates,

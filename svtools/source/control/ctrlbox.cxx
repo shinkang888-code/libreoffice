@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -378,7 +378,7 @@ namespace
         size_t nMaxDeviceHeight = SAL_MAX_INT16 / 16; // see limitXCreatePixmap and be generous wrt up to x16 hidpi
         assert(gUserItemSz.Height() != 0);
         gPreviewsPerDevice = gUserItemSz.Height() == 0 ? 16 : nMaxDeviceHeight / gUserItemSz.Height();
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
             gPreviewsPerDevice = 1;
     }
 }
@@ -388,7 +388,7 @@ IMPL_LINK(FontNameBox, SettingsChangedHdl, VclSimpleEvent&, rEvent, void)
     if (rEvent.GetId() != VclEventId::ApplicationDataChanged)
         return;
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return;
 
     DataChangedEvent* pData = static_cast<DataChangedEvent*>(static_cast<VclWindowEvent&>(rEvent).GetData());
@@ -579,7 +579,7 @@ void FontNameBox::EnableWYSIWYG(bool bEnable)
 
 IMPL_LINK(FontNameBox, CustomGetSizeHdl, OutputDevice&, rDevice, Size)
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         calcCustomItemSize(*m_xComboBox);
         gUserItemSz.setWidth(1.0 * rDevice.GetDPIX() / 96.0 * gUserItemSz.getWidth());
@@ -618,7 +618,7 @@ namespace
 
 IMPL_LINK_NOARG(FontNameBox, UpdateHdl, Timer*, void)
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return;
 
     CachePreview(mnPreviewProgress++, nullptr);
@@ -815,7 +815,7 @@ OutputDevice& FontNameBox::CachePreview(size_t nIndex, Point* pTopLeft,
     const FontMetric& rFontMetric = (*mpFontList)[nIndex];
     const OUString& rFontName = rFontMetric.GetFamilyName();
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         // we want to cache only best quality previews
         if (gHighestDPI < nDPIX || gHighestDPI < nDPIY)
@@ -853,7 +853,7 @@ OutputDevice& FontNameBox::CachePreview(size_t nIndex, Point* pTopLeft,
     {
         if (nPage >= rVirtualDevs.size())
         {
-            bool bIsLOK = comphelper::LibreOfficeKit::isActive();
+            bool bIsLOK = comphelper::loficeKit::isActive();
             rVirtualDevs.emplace_back(VclPtr<VirtualDevice>::Create(DeviceFormat::WITH_ALPHA));
 
             VirtualDevice& rDevice = *rVirtualDevs.back();
@@ -907,7 +907,7 @@ IMPL_LINK(FontNameBox, CustomRenderHdl, weld::ComboBox::render_args, aPayload, v
                                              rRenderContext.GetDPIX(),
                                              rRenderContext.GetDPIY());
 
-        Size aSourceSize = comphelper::LibreOfficeKit::isActive() ? rDevice.GetOutputSizePixel() : gUserItemSz;
+        Size aSourceSize = comphelper::loficeKit::isActive() ? rDevice.GetOutputSizePixel() : gUserItemSz;
         rRenderContext.DrawOutDev(aDestPoint, gUserItemSz,
                                   aTopLeft, aSourceSize,
                                   rDevice);

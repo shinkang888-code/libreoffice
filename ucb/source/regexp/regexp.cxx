@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -312,7 +312,7 @@ Regexp Regexp::parse(OUString const & rRegexp)
 
     // This and the matchString() calls below are some of the few places where
     // RTL_CONSTASCII_STRINGPARAM() should NOT be removed.
-    // (c.f. https://gerrit.libreoffice.org/3117)
+    // (c.f. https://gerrit.lofice.org/3117)
     if (matchString(&p, pEnd, RTL_CONSTASCII_STRINGPARAM(".*")))
     {
         if (p != pEnd)

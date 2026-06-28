@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -200,8 +200,8 @@ sal_Int16 GetMetalType(const SdrCustomShapeGeometryItem& rItem, const sal_Int16 
 
 // Calculates the light directions for the additional lights, which are used to emulate soft
 // lights of MS Office. Method needs to be documented in the Wiki
-// https://wiki.documentfoundation.org/Development/ODF_Implementer_Notes in part
-// List_of_LibreOffice_ODF_implementation-defined_items
+// https://wiki.lofice.io/Development/ODF_Implementer_Notes in part
+// List_of_lofice_ODF_implementation-defined_items
 // The method expects vector rLight to be normalized and results normalized vectors.
 void lcl_SoftLightsDirection(const basegfx::B3DVector& rLight, basegfx::B3DVector& rSoftUp,
                              basegfx::B3DVector& rSoftDown, basegfx::B3DVector& rSoftRight,

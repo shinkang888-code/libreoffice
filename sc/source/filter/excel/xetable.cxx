@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1768,7 +1768,7 @@ void XclExpColinfo::SaveXml( XclExpXmlStream& rStrm )
     // =Truncate(({width in pixels} - 5)/{Maximum Digit Width} * 100 + 0.5)/100
     // Explanation of magic numbers:
     // 5 number - are 4 pixels of margin padding (two on each side), plus 1 pixel padding for the gridlines.
-    //            It is unknown if it should be applied during LibreOffice export
+    //            It is unknown if it should be applied during lofice export
     // 100 number - used to limit precision to 0.01 with formula =Truncate( {value}*100+0.5 ) / 100
     // 0.5 number (0.005 to output value) - used to increase value before truncating,
     //            to avoid situation when 2.997 will be truncated to 2.99 and not to 3.00

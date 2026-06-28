@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -10,7 +10,7 @@
 $(eval $(call gb_Jar_Jar,java_uno))
 
 $(eval $(call gb_Jar_use_jars,java_uno,\
-	libreoffice \
+	lofice \
 ))
 
 $(eval $(call gb_Jar_set_manifest,java_uno,$(SRCDIR)/bridges/source/jni_uno/java/com/sun/star/bridges/jni_uno/manifest))
@@ -18,7 +18,7 @@ $(eval $(call gb_Jar_set_manifest,java_uno,$(SRCDIR)/bridges/source/jni_uno/java
 $(eval $(call gb_Jar_set_packageroot,java_uno,com))
 
 $(eval $(call gb_Jar_add_manifest_classpath,java_uno,\
-	libreoffice.jar \
+	lofice.jar \
 	$(if $(filter MACOSX,$(OS)),../../Frameworks/,../) \
 ))
 

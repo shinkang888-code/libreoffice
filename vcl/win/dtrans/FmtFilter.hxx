@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -38,7 +38,7 @@ css::uno::Sequence<sal_Int8> WinENHMFPictToOOMFPict(HENHMETAFILE hEnhMetaFile);
 
 /*------------------------------------------------------------------------
     input:
-    aByteStream - a sequence of bytes containing a LibreOffice metafile
+    aByteStream - a sequence of bytes containing a lofice metafile
                   picture with a leading METAFILEHEADER
 ------------------------------------------------------------------------*/
 HMETAFILEPICT OOMFPictToWinMFPict(css::uno::Sequence<sal_Int8> const& aOOMetaFilePict);
@@ -59,7 +59,7 @@ css::uno::Sequence<sal_Int8> WinBITMAPToOOBMP(HBITMAP);
 
 /*------------------------------------------------------------------------
     input:
-    aOOBmp - sequence of bytes containing a LibreOffice bitmap
+    aOOBmp - sequence of bytes containing a lofice bitmap
     May contain CF_DIBV5 or CF_DIB, but removing the BITMAPFILEHEADER
     is always the same size
 ------------------------------------------------------------------------*/

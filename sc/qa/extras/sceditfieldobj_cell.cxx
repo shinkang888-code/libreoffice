@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -118,8 +118,8 @@ uno::Reference<text::XTextField> getNewField(const uno::Reference<uno::XInterfac
     uno::Reference<text::XTextField> xField(
         xSM->createInstance(u"com.sun.star.text.TextField.URL"_ustr), uno::UNO_QUERY_THROW);
     uno::Reference<beans::XPropertySet> xPropSet(xField, uno::UNO_QUERY_THROW);
-    xPropSet->setPropertyValue(u"Representation"_ustr, uno::Any(u"LibreOffice"_ustr));
-    xPropSet->setPropertyValue(u"URL"_ustr, uno::Any(u"http://www.libreoffice.org/"_ustr));
+    xPropSet->setPropertyValue(u"Representation"_ustr, uno::Any(u"lofice"_ustr));
+    xPropSet->setPropertyValue(u"URL"_ustr, uno::Any(u"http://www.lofice.org/"_ustr));
     return xField;
 }
 

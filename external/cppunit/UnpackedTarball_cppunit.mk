@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -15,20 +15,20 @@ $(eval $(call gb_UnpackedTarball_update_autoconf_configs,cppunit))
 
 $(eval $(call gb_UnpackedTarball_set_patchlevel,cppunit,2))
 
-# * external/cppunit/order.patch.0 upstreamed at <https://gerrit.libreoffice.org/c/cppunit/+/123963>
+# * external/cppunit/order.patch.0 upstreamed at <https://gerrit.lofice.org/c/cppunit/+/123963>
 #   "Run tests in deterministic order";
 # * external/cppunit/propagate-exceptions.patch.0 upstreamed at
-#   <https://gerrit.libreoffice.org/c/cppunit/+/144074> "Introduce CPPUNIT_PROPAGATE_EXCEPTIONS
+#   <https://gerrit.lofice.org/c/cppunit/+/144074> "Introduce CPPUNIT_PROPAGATE_EXCEPTIONS
 #   environment variable";
 # * external/cppunit/sprintf.patch.0 upstreamed at
-#   <https://gerrit.libreoffice.org/c/cppunit/+/147383> "Use snprintf instead of sprintf";
+#   <https://gerrit.lofice.org/c/cppunit/+/147383> "Use snprintf instead of sprintf";
 # * external/cppunit/clang.patch.0 upstreamed at
-#   <https://gerrit.libreoffice.org/c/cppunit/+/147384> "Don't mis-apply GCC < 4.6 workaround for
+#   <https://gerrit.lofice.org/c/cppunit/+/147384> "Don't mis-apply GCC < 4.6 workaround for
 #   Clang":
 # * external/cppunit/0001-cid-1546460-COPY_INSTEAD_OF_MOVE.patch.1 upstreamed at
-#   <https://gerrit.libreoffice.org/c/cppunit/+/161455> "cid#1546460 COPY_INSTEAD_OF_MOVE";
+#   <https://gerrit.lofice.org/c/cppunit/+/161455> "cid#1546460 COPY_INSTEAD_OF_MOVE";
 # * external/cppunit/0001-cid-1660438-Variable-copied-when-it-could-be-moved.patch.1 upstreamed at
-#   <https://gerrit.libreoffice.org/c/cppunit/+/189407> "cid#1660438 Variable copied when it could be moved";
+#   <https://gerrit.lofice.org/c/cppunit/+/189407> "cid#1660438 Variable copied when it could be moved";
 $(eval $(call gb_UnpackedTarball_add_patches,cppunit,\
 	external/cppunit/windows.patch \
 	external/cppunit/unix.patch \

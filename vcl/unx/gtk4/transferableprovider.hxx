@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -23,7 +23,7 @@ class XTransferable;
 G_BEGIN_DECLS
 
 /*
-   Provide a mechanism to provide data from a LibreOffice XTransferable via a
+   Provide a mechanism to provide data from a lofice XTransferable via a
    GdkContentProvider for gtk clipboard or dnd
 */
 

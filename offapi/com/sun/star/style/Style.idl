@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -127,13 +127,13 @@ published service Style
     [optional, property] sequence< com::sun::star::beans::NamedValue > ParaStyleConditions;
 
     /** Flag indicating whether to hide the style in the UI.
-        @since LibreOffice 4.0
+        @since lofice 4.0
      */
     [optional, property] boolean Hidden;
 
     /** Grab bag of style properties, used as a string-any map for interim interop purposes.
 
-        @since LibreOffice 4.2
+        @since lofice 4.2
 
         <p>This property is intentionally not handled by the ODF filter. Any
         member that should be handled there should be first moved out from this grab

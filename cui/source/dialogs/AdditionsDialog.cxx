@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -494,7 +494,7 @@ AdditionsDialog::AdditionsDialog(weld::Window* pParent, const OUString& sAdditio
                                                      INetURLObject::EncodeMechanism::All);
 
     //FIXME: Temporary URL - v0 is not using actual api
-    m_sURL = "https://extensions.libreoffice.org/api/v0/" + sEncodedURLPart + ".json";
+    m_sURL = "https://extensions.lofice.org/api/v0/" + sEncodedURLPart + ".json";
 
     m_xExtensionManager
         = deployment::ExtensionManager::get(::comphelper::getProcessComponentContext());

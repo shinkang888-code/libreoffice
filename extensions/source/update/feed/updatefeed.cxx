@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -367,7 +367,7 @@ OUString UpdateInformationProvider::getUserAgent(bool bExtended)
     SAL_INFO("extensions.update", "UpdateUserAgent: " << aUserAgent);
     // if you want to debug online updates from a dev version, then uncommenting this (adjust for platform)
     // might be helpful
-    // return "LibreOffice 7.3.5.2 (184fe81b8c8c30d8b5082578aee2fed2ea847c01; Linux; X86_64; )";
+    // return "lofice 7.3.5.2 (184fe81b8c8c30d8b5082578aee2fed2ea847c01; Linux; X86_64; )";
     return aUserAgent;
 }
 

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -95,7 +95,7 @@ public:
         }
         catch (const css::uno::Exception&)
         {
-            TOOLS_INFO_EXCEPTION("svl", "trying to install a LibreOffice langpack");
+            TOOLS_INFO_EXCEPTION("svl", "trying to install a lofice langpack");
         }
         xLangpackInstaller.reset();
     }
@@ -136,18 +136,18 @@ OUString getInstalledLocaleForSystemUILanguage(const css::uno::Sequence<OUString
                     // langpack is the typical Fedora/RHEL naming convention
                     LanguageType eType = aWantedTag.getLanguageType();
                     if (MsLangId::isSimplifiedChinese(eType))
-                        aPackages.emplace_back("libreoffice-langpack-zh-Hans");
+                        aPackages.emplace_back("lofice-langpack-zh-Hans");
                     else if (MsLangId::isTraditionalChinese(eType))
-                        aPackages.emplace_back("libreoffice-langpack-zh-Hant");
+                        aPackages.emplace_back("lofice-langpack-zh-Hant");
                     else if (install == "pt")
-                        aPackages.emplace_back("libreoffice-langpack-pt-PT");
+                        aPackages.emplace_back("lofice-langpack-pt-PT");
                     else
-                        aPackages.emplace_back("libreoffice-langpack-" + install);
+                        aPackages.emplace_back("lofice-langpack-" + install);
                 }
-                else if (sVendor == "The Document Foundation/Debian" || sVendor == "The Document Foundation, Debian and Ubuntu")
+                else if (sVendor == "Lonex. Inc/Debian" || sVendor == "Lonex. Inc, Debian and Ubuntu")
                 {
                     // l10n is the typical Debian/Ubuntu naming convention
-                    aPackages.emplace_back("libreoffice-l10n-" + install);
+                    aPackages.emplace_back("lofice-l10n-" + install);
                 }
             }
             if (!aPackages.empty())

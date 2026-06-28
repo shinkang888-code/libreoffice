@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t; fill-column: 100 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -30,9 +30,9 @@ emscripten_install_files := \
 .PHONY: $(call gb_CustomTarget_get_target,instsetoo_native/emscripten-install)
 $(call gb_CustomTarget_get_target,instsetoo_native/emscripten-install): \
     | $(call gb_Postprocess_get_target,AllModulesButInstsetNative)
-	mkdir -p $(WORKDIR)/installation/LibreOffice/emscripten
+	mkdir -p $(WORKDIR)/installation/lofice/emscripten
 	for i in $(emscripten_install_files); do \
-        cp $(INSTDIR)/program/$$i $(WORKDIR)/installation/LibreOffice/emscripten/ || exit 1; \
+        cp $(INSTDIR)/program/$$i $(WORKDIR)/installation/lofice/emscripten/ || exit 1; \
     done
 
 # vim: set noet sw=4 ts=4:

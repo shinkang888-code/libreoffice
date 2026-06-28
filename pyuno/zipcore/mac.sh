@@ -3,7 +3,7 @@
 : ${URE_BOOTSTRAP=vnd.sun.star.pathname:$sd_prog/../Resources/fundamentalrc}
 export URE_BOOTSTRAP
 
-PYTHONHOME=$sd_prog/../Frameworks/LibreOfficePython.framework
+PYTHONHOME=$sd_prog/../Frameworks/loficePython.framework
 export PYTHONHOME
 
 pybasislibdir=$PYTHONHOME/Versions/%%PYVERSION%%/lib/python%%PYVERSION%%
@@ -11,4 +11,4 @@ PYTHONPATH=$sd_prog/../Resources:$sd_prog/../Frameworks:$pybasislibdir:$pybasisl
 export PYTHONPATH
 
 # execute binary
-exec "$PYTHONHOME/Versions/%%PYVERSION%%/Resources/Python.app/Contents/MacOS/LibreOfficePython" "$@"
+exec "$PYTHONHOME/Versions/%%PYVERSION%%/Resources/Python.app/Contents/MacOS/loficePython" "$@"

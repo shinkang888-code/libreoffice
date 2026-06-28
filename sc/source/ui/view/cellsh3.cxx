@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -49,7 +49,7 @@
 #include <scabstdlg.hxx>
 #include <columnspanset.hxx>
 #include <comphelper/lok.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <inputwin.hxx>
 #include <officecfg/Office/Calc.hxx>
 
@@ -176,7 +176,7 @@ void ScCellShell::Execute( SfxRequest& rReq )
                     // Enter
                     // NOTE: This also means we want to set the modified state
                     // regardless of the DontCommit parameter's value.
-                    if (comphelper::LibreOfficeKit::isActive() && !GetViewData().GetDocShell()->IsModified())
+                    if (comphelper::loficeKit::isActive() && !GetViewData().GetDocShell()->IsModified())
                     {
                         GetViewData().GetDocShell()->SetModified();
                         rBindings.Invalidate(SID_SAVEDOC);
@@ -322,7 +322,7 @@ void ScCellShell::Execute( SfxRequest& rReq )
                 sal_uInt16 nId = SID_OPENDLG_FUNCTION;
                 SfxViewFrame& rViewFrm = pTabViewShell->GetViewFrame();
                 SfxChildWindow* pWnd = rViewFrm.GetChildWindow( nId );
-                bool bVis = comphelper::LibreOfficeKit::isActive() || pWnd == nullptr;
+                bool bVis = comphelper::loficeKit::isActive() || pWnd == nullptr;
                 pScMod->SetRefDialog( nId, bVis );
                 rReq.Ignore();
             }
@@ -1046,7 +1046,7 @@ void ScCellShell::Execute( SfxRequest& rReq )
             aInputOptions.SetMoveKeepEdit(pEnabledArg->GetValue());
             pScMod->SetInputOptions(aInputOptions);
 
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
                 pTabViewShell->SetMoveKeepEdit(pEnabledArg->GetValue());
 
             break;

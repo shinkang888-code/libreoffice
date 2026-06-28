@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -473,7 +473,7 @@ published service Content
                            ::com::sun::star::lang::IllegalArgumentException
                            if the Name of the property is empty.</p>
                         <blockquote>
-                            Note: This command is new since Apache OpenOffice 4.0, LibreOffice 4.2 and replaces the deprecated interface method
+                            Note: This command is new since Apache OpenOffice 4.0, lofice 4.2 and replaces the deprecated interface method
                             com::sun::star::beans::XPropertyContainer::addProperty.
                         </blockquote>
                     </td>
@@ -488,7 +488,7 @@ published service Content
                         ::com::sun::star::beans::NotRemoveableException
                         if the property is not removable.</p>
                         <blockquote>
-                            Note: This command is new since Apache OpenOffice 4.0, LibreOffice 4.2 and replaces the deprecated interface method
+                            Note: This command is new since Apache OpenOffice 4.0, lofice 4.2 and replaces the deprecated interface method
                             com::sun::star::beans::XPropertyContainer::removeProperty.
                         </blockquote>
                     </td>

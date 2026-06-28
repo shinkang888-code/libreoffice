@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -53,7 +53,7 @@ interface XOpenCLSelection : com::sun::star::uno::XInterface
      * returns the index of the platform of the currently selected
      * device. This is an index into the sequence that
      * getOpenCLPlatforms returns in the current instance of
-     * LibreOffice (and not some a priori defined identifier for an
+     * lofice (and not some a priori defined identifier for an
      * OpenCL platform).
      */
     long getPlatformID();
@@ -61,7 +61,7 @@ interface XOpenCLSelection : com::sun::star::uno::XInterface
     /**
      * returns the index of the currently selected device. This is an
      * index into the sequence of devices in the OpenCLPLatform object
-     * the device is part of in the current instance of LibreOffice
+     * the device is part of in the current instance of lofice
      * (and not some a priori defined identifier for a specific model
      * of device accessed through a specific platform).
      */

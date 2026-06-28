@@ -14,8 +14,8 @@ from uitest.uihelper.common import get_state_as_dict, select_by_text
 from com.sun.star.uno import RuntimeException
 from com.sun.star.awt import Toolkit
 
-from libreoffice.uno.eventlistener import EventListener
-from libreoffice.uno.propertyvalue import mkPropertyValues
+from lofice.uno.eventlistener import EventListener
+from lofice.uno.propertyvalue import mkPropertyValues
 
 DEFAULT_SLEEP = 0.1
 

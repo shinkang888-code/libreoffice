@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -40,7 +40,7 @@ Sub TestExtensions
 
     &apos;Create an implementation of com.sun.star.ucb.XCommandEnvironment which is needed for
     &apos;adding the extension. The implementation is in
-    &apos;smoketest/org/libreoffice/smoketest/SmoketestCommandEnvironment.java and the code is in smoketest.jar
+    &apos;smoketest/org/lofice/smoketest/SmoketestCommandEnvironment.java and the code is in smoketest.jar
     cmdEnv = createUnoService(cUnoSmoketestCommandEnvironment)
 
     &apos;Create the component context and then get the singleton ExtensionManager

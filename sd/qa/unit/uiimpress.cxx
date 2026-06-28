@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,7 +9,7 @@
 
 #include "sdmodeltestbase.hxx"
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 #include <com/sun/star/animations/XAnimationNodeSupplier.hpp>
 #include <com/sun/star/beans/XPropertySet.hpp>
@@ -228,7 +228,7 @@ CPPUNIT_TEST_FIXTURE(SdUiImpressTest, testDocumentStructureTransformExtractSlide
           "\"TextCount\": 1, \"Texts\": { \"Text 0\": { \"ParaCount\": 1, \"Paragraphs\": [ "
           "\"Friendly Open Source Project\"]}}}, \"Objects 1\": { }, \"Objects 2\": { "
           "\"TextCount\": 1, \"Texts\": { \"Text 0\": { \"ParaCount\": 9, \"Paragraphs\": [ \"Real "
-          "Open Source\", \"100% open-source code\", \"Built with LibreOffice technology\", "
+          "Open Source\", \"100% open-source code\", \"Built with lofice technology\", "
           "\"Built with Free Software technology stacks: primarily C++\", \"Runs best on Linux\", "
           "\"Open Development\", \"Anyone can contribute & participate\", \"Follow commits and "
           "tickets\", \"Public community calls - forum has details\"]}}}, \"Objects 3\": { "

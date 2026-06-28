@@ -2,7 +2,7 @@
 
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -288,7 +288,7 @@ def validate_image_path(image_path):
 #-------------------------- MAIN --------------------------
 
 def main():
-    print("\nWelcome to the LibreOffice Addons Configuration Tool!\n")
+    print("\nWelcome to the lofice Addons Configuration Tool!\n")
     merge_fragment = ''
     addon_name = prompt_addon_name()
     addon_menu_fragment = ''

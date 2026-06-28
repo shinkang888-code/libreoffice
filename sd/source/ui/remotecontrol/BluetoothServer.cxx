@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -970,7 +970,7 @@ setupBluez5Profile1(DBusConnection* pConnection, std::vector<Communicator*>* pCo
     // dbus >= 1.2 -- we really shouldn't be trying this twice in any case.
     // (dbus_connection_try_register_object_path also returns an error with more
     // information which could be useful for debugging purposes.)
-    bErr = !dbus_connection_register_object_path(pConnection, "/org/libreoffice/bluez/profile1", &aVTable, pCommunicators);
+    bErr = !dbus_connection_register_object_path(pConnection, "/org/lofice/bluez/profile1", &aVTable, pCommunicators);
 
     if (bErr)
     {
@@ -988,7 +988,7 @@ unregisterBluez5Profile(DBusConnection* pConnection)
     DBusMessageIter it;
     dbus_message_iter_init_append(pMsg, &it);
 
-    const char *pPath = "/org/libreoffice/bluez/profile1";
+    const char *pPath = "/org/lofice/bluez/profile1";
     dbus_message_iter_append_basic(&it, DBUS_TYPE_OBJECT_PATH, &pPath);
 
     pMsg = sendUnrefAndWaitForReply( pConnection, pMsg );
@@ -996,7 +996,7 @@ unregisterBluez5Profile(DBusConnection* pConnection)
     if (pMsg)
         dbus_message_unref(pMsg);
 
-    dbus_connection_unregister_object_path( pConnection, "/org/libreoffice/bluez/profile1");
+    dbus_connection_unregister_object_path( pConnection, "/org/lofice/bluez/profile1");
 
     dbus_connection_flush(pConnection);
 }
@@ -1013,7 +1013,7 @@ registerBluez5Profile(DBusConnection* pConnection, std::vector<Communicator*>* p
                                         "org.bluez.ProfileManager1", "RegisterProfile");
     dbus_message_iter_init_append(pMsg, &it);
 
-    const char *pPath = "/org/libreoffice/bluez/profile1";
+    const char *pPath = "/org/lofice/bluez/profile1";
     dbus_message_iter_append_basic(&it, DBUS_TYPE_OBJECT_PATH, &pPath);
     const char *pUUID =  "spp"; // Bluez translates this to 0x1101 for spp
     dbus_message_iter_append_basic(&it, DBUS_TYPE_STRING, &pUUID);
@@ -1029,7 +1029,7 @@ registerBluez5Profile(DBusConnection* pConnection, std::vector<Communicator*>* p
         const char *pString = "Name";
         dbus_message_iter_append_basic(&aEntry, DBUS_TYPE_STRING, &pString);
 
-        const char *pValue = "LibreOffice Impress Remote";
+        const char *pValue = "lofice Impress Remote";
         DBusMessageIter aValue;
         dbus_message_iter_open_container(&aEntry, DBUS_TYPE_VARIANT, "s", &aValue);
         dbus_message_iter_append_basic(&aValue, DBUS_TYPE_STRING, &pValue);
@@ -1361,7 +1361,7 @@ void SAL_CALL BluetoothServer::run()
     WSAQUERYSETW aRecord = {};
     aRecord.dwSize = sizeof(aRecord);
     aRecord.lpszServiceInstanceName = const_cast<wchar_t *>(
-        L"LibreOffice Impress Remote Control");
+        L"lofice Impress Remote Control");
     aRecord.lpszComment = const_cast<wchar_t *>(
         L"Remote control of presentations over bluetooth.");
     aRecord.lpServiceClassId = const_cast<LPGUID>(&SerialPortServiceClass_UUID);
@@ -1478,9 +1478,9 @@ void SAL_CALL BluetoothServer::run()
          @"0009 - BluetoothProfileDescriptorList",
 
          // Attributes pointed to by the LanguageBaseAttributeIDList
-         @"LibreOffice Impress Remote Control",
+         @"lofice Impress Remote Control",
          @"0100 - ServiceName",
-         @"The Document Foundation",
+         @"Lonex. Inc",
          @"0102 - ProviderName",
          nil];
 

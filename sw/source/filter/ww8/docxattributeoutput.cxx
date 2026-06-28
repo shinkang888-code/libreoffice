@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -4830,7 +4830,7 @@ static void impl_borders( FSHelperPtr const & pSerializer,
             // for ALL the sides. This is because in Word - if you select a shadow
             // for a border - it turn on the shadow for ALL the sides (but shows only
             // the bottom-right one).
-            // This is so that no information will be lost if passed through LibreOffice
+            // This is so that no information will be lost if passed through lofice
             bWriteShadow = true;
         }
         else
@@ -5788,9 +5788,9 @@ void DocxAttributeOutput::FlyFrameGraphic( const SwGrfNode* pGrfNode, const Size
         GraphicDrawMode nMode = pGrafModeItem->GetValue();
         if (nMode == GraphicDrawMode::Greys)
             m_pSerializer->singleElementNS (XML_a, XML_grayscl);
-        else if (nMode == GraphicDrawMode::Mono) //black/white has a 0,5 threshold in LibreOffice
+        else if (nMode == GraphicDrawMode::Mono) //black/white has a 0,5 threshold in lofice
             m_pSerializer->singleElementNS (XML_a, XML_biLevel, XML_thresh, OString::number(50000));
-        else if (nMode == GraphicDrawMode::Watermark) //watermark has a brightness/luminance of 0,5 and contrast of -0.7 in LibreOffice
+        else if (nMode == GraphicDrawMode::Watermark) //watermark has a brightness/luminance of 0,5 and contrast of -0.7 in lofice
             m_pSerializer->singleElementNS( XML_a, XML_lum, XML_bright, OString::number(70000), XML_contrast, OString::number(-70000) );
     }
 
@@ -9605,7 +9605,7 @@ void DocxAttributeOutput::ParaNumRule_Impl( const SwTextNode* pTextNd, sal_Int32
     if ( USHRT_MAX == nNumId )
         return;
 
-    // LibreOffice is not very flexible with "Outline Numbering" (aka "Outline" numbering style).
+    // lofice is not very flexible with "Outline Numbering" (aka "Outline" numbering style).
     // Only ONE numbering rule ("Outline") can be associated with a style-assigned-listLevel,
     // and no other style is able to inherit these numId/nLvl settings - only text nodes can.
     // So listLevel only exists in paragraph properties EXCEPT for up to ten styles that have been

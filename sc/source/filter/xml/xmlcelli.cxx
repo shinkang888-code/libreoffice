@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -868,7 +868,7 @@ void ScXMLTableRowCellContext::SetAnnotation(const ScAddress& rPos)
 
         /*  Try to reuse the drawing object already created (but only if the
             note is visible, and the object is a caption object). */
-        if( mxAnnotationData->mbShown && mxAnnotationData->mbUseShapePos && !comphelper::LibreOfficeKit::isActive())
+        if( mxAnnotationData->mbShown && mxAnnotationData->mbUseShapePos && !comphelper::loficeKit::isActive())
         {
             if( SdrCaptionObj* pCaption = dynamic_cast< SdrCaptionObj* >( pObject ) )
             {
@@ -902,7 +902,7 @@ void ScXMLTableRowCellContext::SetAnnotation(const ScAddress& rPos)
             if (pOutlinerObj)
             {
                 // create cell note with all data from drawing object
-                if(!comphelper::LibreOfficeKit::isActive())
+                if(!comphelper::loficeKit::isActive())
                 {
                     pNote = ScNoteUtil::CreateNoteFromObjectData( *pDoc, rPos,
                         std::move(aItemSet), aStyleName, *pOutlinerObj,
@@ -932,7 +932,7 @@ void ScXMLTableRowCellContext::SetAnnotation(const ScAddress& rPos)
         if (rXMLImport.GetMM100UnitConverter().convertDateTime(fDate, mxAnnotationData->maCreateDate))
         {
             OUString aDate;
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
             {
                 //online handles the date format itself in browser
                 aDate = mxAnnotationData->maCreateDate;
@@ -1507,7 +1507,7 @@ void ScXMLTableRowCellContext::AddFormulaCell( const ScAddress& rCellPos )
 // - is blank
 // - has a constant error value beginning with "#" (such as "#VALUE!" or "#N/A")
 // - has an "Err:[###]" (where "[###]" is an error number)
-// Libreoffice 4.1+ with ODF1.2 extended write however calcext:value-type="error" in that case
+// lofice 4.1+ with ODF1.2 extended write however calcext:value-type="error" in that case
 void ScXMLTableRowCellContext::HasSpecialCaseFormulaText()
 {
     if (!mbEditEngineHasText)

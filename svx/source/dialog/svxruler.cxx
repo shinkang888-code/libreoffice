@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -49,7 +49,7 @@
 #include <rtl/math.hxx>
 #include <o3tl/string_view.hxx>
 #include <svl/itemset.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <tools/json_writer.hxx>
 #include <tools/UnitConversion.hxx>
 #include <comphelper/lok.hxx>
@@ -1245,7 +1245,7 @@ void SvxRuler::CreateJsonNotification(tools::JsonWriter& rJsonWriter)
 
 void SvxRuler::NotifyKit()
 {
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return;
     SfxViewShell* pViewShell = SfxViewShell::Current();
     if (!pViewShell)
@@ -1254,8 +1254,8 @@ void SvxRuler::NotifyKit()
     tools::JsonWriter aJsonWriter;
     CreateJsonNotification(aJsonWriter);
     OString pJsonData = aJsonWriter.finishAndGetAsOString();
-    LibreOfficeKitCallbackType eType = isHorizontal() ? LOK_CALLBACK_RULER_UPDATE : LOK_CALLBACK_VERTICAL_RULER_UPDATE;
-    pViewShell->libreOfficeKitViewCallback(eType, pJsonData);
+    loficeKitCallbackType eType = isHorizontal() ? LOK_CALLBACK_RULER_UPDATE : LOK_CALLBACK_VERTICAL_RULER_UPDATE;
+    pViewShell->loficeKitViewCallback(eType, pJsonData);
 }
 
 void SvxRuler::Update()

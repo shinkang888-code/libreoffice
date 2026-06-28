@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -68,7 +68,7 @@
 #include <comphelper/propertyvalue.hxx>
 #include <cppuhelper/exc_hlp.hxx>
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 #define SFX_CLIENTACTIVATE_TIMEOUT 100
 
@@ -349,7 +349,7 @@ void SAL_CALL SfxInPlaceClient_Impl::activatingInplace()
     if ( !m_pClient || !m_pClient->GetViewShell() )
         throw uno::RuntimeException();
 
-    if ( !comphelper::LibreOfficeKit::isActive() )
+    if ( !comphelper::loficeKit::isActive() )
         return;
 
     if ( SfxViewShell* pViewShell = m_pClient->GetViewShell() )
@@ -363,7 +363,7 @@ void SAL_CALL SfxInPlaceClient_Impl::activatingInplace()
         }
 
         OString str = (m_bNegativeX ? lcl_negateRectX(aRect) : aRect).toString() + ", \"INPLACE\"";
-        pViewShell->libreOfficeKitViewCallback( LOK_CALLBACK_GRAPHIC_SELECTION, str );
+        pViewShell->loficeKitViewCallback( LOK_CALLBACK_GRAPHIC_SELECTION, str );
     }
 
 }
@@ -385,10 +385,10 @@ void SAL_CALL SfxInPlaceClient_Impl::deactivatedInplace()
     if ( !m_pClient || !m_pClient->GetViewShell() )
         throw uno::RuntimeException();
 
-    if ( comphelper::LibreOfficeKit::isActive() )
+    if ( comphelper::loficeKit::isActive() )
     {
         if ( SfxViewShell* pViewShell = m_pClient->GetViewShell() ) {
-            pViewShell->libreOfficeKitViewCallback( LOK_CALLBACK_GRAPHIC_SELECTION, "INPLACE EXIT"_ostr );
+            pViewShell->loficeKitViewCallback( LOK_CALLBACK_GRAPHIC_SELECTION, "INPLACE EXIT"_ostr );
         }
     }
 }
@@ -448,7 +448,7 @@ awt::Rectangle SAL_CALL SfxInPlaceClient_Impl::getPlacement()
     // window map mode has a ~26.485 scale factor.
     // All that does not fit with current implementation for handling chart
     // editing in LOK.
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         bool bMapModeEnabled = pEditWin->IsMapModeEnabled();
         if (!bMapModeEnabled)
@@ -478,7 +478,7 @@ awt::Rectangle SAL_CALL SfxInPlaceClient_Impl::getClipRectangle()
 
     vcl::Window* pEditWin = m_pClient->GetEditWin();
     // See comment for SfxInPlaceClient_Impl::getPlacement.
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         bool bMapModeEnabled = pEditWin->IsMapModeEnabled();
         if (!bMapModeEnabled)
@@ -963,7 +963,7 @@ ErrCodeMsg SfxInPlaceClient::DoVerb(sal_Int32 nVerb)
                 // See comment for SfxInPlaceClient_Impl::getPlacement.
                 vcl::Window* pEditWin = GetEditWin();
                 bool bMapModeEnabled = pEditWin->IsMapModeEnabled();
-                if (comphelper::LibreOfficeKit::isActive() && !bMapModeEnabled)
+                if (comphelper::loficeKit::isActive() && !bMapModeEnabled)
                 {
                     pEditWin->EnableMapMode();
                 }
@@ -1016,7 +1016,7 @@ ErrCodeMsg SfxInPlaceClient::DoVerb(sal_Int32 nVerb)
                     //TODO/LATER: better error handling
 
                 }
-                if (comphelper::LibreOfficeKit::isActive() && !bMapModeEnabled
+                if (comphelper::loficeKit::isActive() && !bMapModeEnabled
                         && pEditWin->IsMapModeEnabled())
                 {
                     pEditWin->EnableMapMode(false);

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -1055,7 +1055,7 @@ void GraphicImport::lcl_attribute(Id nName, const Value& rValue)
                             }
                             else
                             {
-                                // As of June 2021 LibreOffice uses an area, which is large enough to
+                                // As of June 2021 lofice uses an area, which is large enough to
                                 // contain the rotated snap rectangle. MSO uses a smaller area, so
                                 // that the rotated snap rectangle covers text.
                                 awt::Point aMSOBaseLeftTop = aImportPosition;
@@ -1085,7 +1085,7 @@ void GraphicImport::lcl_attribute(Id nName, const Value& rValue)
                                 m_nTopMargin  += aLOSnapRect.Y - aMSOBaseLeftTop.Y;
                                 m_nBottomMargin += aMSOBaseLeftTop.Y + aMSOBaseSize.Height
                                                           - (aLOSnapRect.Y + aLOSnapRect.Height);
-                                // tdf#141880 LibreOffice cannot handle negative vertical margins.
+                                // tdf#141880 lofice cannot handle negative vertical margins.
                                 // Those cases are caught below at common place.
                             }
                         } // end IMPORT_AS_DETECTED_INLINE
@@ -1130,7 +1130,7 @@ void GraphicImport::lcl_attribute(Id nName, const Value& rValue)
                         }
                         else if (mpWrapPolygon && !bIsDiagram && !bIsWordprocessingCanvas)
                         {
-                            // Word uses a wrap polygon, LibreOffice has no explicit wrap polygon
+                            // Word uses a wrap polygon, lofice has no explicit wrap polygon
                             // but creates the wrap contour based on the shape geometry, without
                             // stroke width and shadow, but with rotation and flip. The concepts
                             // are not compatible. We approximate Word's rendering by setting
@@ -1210,7 +1210,7 @@ void GraphicImport::lcl_attribute(Id nName, const Value& rValue)
                             m_aInteropGrabBag[u"AnchorDistDiff"_ustr]
                                 <<= aAnchorDistDiff.getAsConstPropertyValueList();
 
-                            // FixMe: tdf#141880. LibreOffice cannot handle negative horizontal margin in contour wrap
+                            // FixMe: tdf#141880. lofice cannot handle negative horizontal margin in contour wrap
                             if (m_nLeftMargin < 0)
                                 m_nLeftMargin = 0;
                             if (m_nRightMargin < 0)
@@ -1243,7 +1243,7 @@ void GraphicImport::lcl_attribute(Id nName, const Value& rValue)
                             }
                         }
 
-                        // FixMe: tdf#141880 LibreOffice cannot handle negative vertical margins
+                        // FixMe: tdf#141880 lofice cannot handle negative vertical margins
                         // although they are allowed in ODF.
                         if (m_nTopMargin < 0)
                             m_nTopMargin = 0;

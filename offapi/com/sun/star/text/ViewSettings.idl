@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -243,57 +243,57 @@ published service ViewSettings
     /** If this property is `TRUE`, tips for document content are shown,
         typically in a help balloon when the mouse is over the content.
 
-        @since LibreOffice 4.1
+        @since lofice 4.1
      */
     [optional, property] boolean ShowContentTips;
 
     /** If this property is `TRUE`, and the scroll bar is shown, a tool tip
         is displayed while scrolling.
 
-        @since LibreOffice 4.2
+        @since lofice 4.2
      */
     [optional, property] boolean ShowScrollBarTips;
 
     /** If this property is `TRUE`, whitespaces around pages are hidden.
 
-        @since LibreOffice 5.1
+        @since lofice 5.1
     */
     [optional, property] boolean HideWhitespace;
 
     /** If this property is `TRUE`, tooltips for tracked changes are shown.
 
-        @since LibreOffice 6.1
+        @since lofice 6.1
     */
     [optional, property] boolean ShowInlineTooltips;
 
     /** If this property is `TRUE`, the advanced menu for header/footer is shown
 
-        @since LibreOffice 6.2
+        @since lofice 6.2
     */
     [optional, property] boolean UseHeaderFooterMenu;
 
     /** If this property is `TRUE`, bookmark positions are displayed.
 
-        @since LibreOffice 7.0
+        @since lofice 7.0
      */
     [optional, property] boolean ShowBookmarks;
 
     /** If this property is `TRUE`, the outline content visibility toggle button is shown.
 
-        @since LibreOffice 7.1
+        @since lofice 7.1
     */
     [optional, property] boolean ShowOutlineContentVisibilityButton;
 
     /** If this property is `TRUE`, tracked deletions are shown in margin.
 
-        @since LibreOffice 7.1
+        @since lofice 7.1
     */
     [optional, property] boolean ShowChangesInMargin;
 
     /** If this property is `TRUE`, sub outline levels are treated as content in
         outline content visibility actions.
 
-        @since LibreOffice 7.2
+        @since lofice 7.2
     */
     [optional, property] boolean TreatSubOutlineLevelsAsContent;
 };

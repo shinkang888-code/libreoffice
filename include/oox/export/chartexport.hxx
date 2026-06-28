@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -103,7 +103,7 @@ struct AxisIdPair{
  of the cell[range] from which the labels are sourced if that is the case. This
  is then used to write the label texts under the extension tag <c15:datalabelsRange>.
 
- @since LibreOffice 7.3.0
+ @since lofice 7.3.0
  */
 class DataLabelsRange
 {

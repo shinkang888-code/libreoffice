@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -261,7 +261,7 @@ JNI_OnLoad(JavaVM* vm, void* reserved)
 
 __attribute__ ((visibility("default")))
 jboolean
-Java_org_libreoffice_android_Bootstrap_setup__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2
+Java_org_lofice_android_Bootstrap_setup__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2
     (JNIEnv* env,
      jobject clazz,
      jstring dataDir,
@@ -357,7 +357,7 @@ get_jni_string_array(JNIEnv *env,
 
 __attribute__ ((visibility("default")))
 jint
-Java_org_libreoffice_android_Bootstrap_getpid(JNIEnv* env,
+Java_org_lofice_android_Bootstrap_getpid(JNIEnv* env,
                                               jobject clazz)
 {
     (void) env;
@@ -370,7 +370,7 @@ Java_org_libreoffice_android_Bootstrap_getpid(JNIEnv* env,
 
 __attribute__ ((visibility("default")))
 void
-Java_org_libreoffice_android_Bootstrap_system(JNIEnv* env,
+Java_org_lofice_android_Bootstrap_system(JNIEnv* env,
                                               jobject clazz,
                                               jstring cmdline)
 {
@@ -391,7 +391,7 @@ Java_org_libreoffice_android_Bootstrap_system(JNIEnv* env,
 
 __attribute__ ((visibility("default")))
 void
-Java_org_libreoffice_android_Bootstrap_putenv(JNIEnv* env,
+Java_org_lofice_android_Bootstrap_putenv(JNIEnv* env,
                                               jobject clazz,
                                               jstring string)
 {
@@ -648,7 +648,7 @@ extern void osl_setCommandArgs(int, char **);
 
 __attribute__ ((visibility("default")))
 void
-Java_org_libreoffice_android_Bootstrap_setCommandArgs(JNIEnv* env,
+Java_org_lofice_android_Bootstrap_setCommandArgs(JNIEnv* env,
                                                       jobject clazz,
                                                       jobject argv)
 {
@@ -661,7 +661,7 @@ Java_org_libreoffice_android_Bootstrap_setCommandArgs(JNIEnv* env,
     if (!get_jni_string_array(env, "setCommandArgs :argv", argv, &c_argc, (const char ***) &c_argv))
         return;
 
-    if (dladdr(Java_org_libreoffice_android_Bootstrap_setCommandArgs, &lo_bootstrap_info) != 0) {
+    if (dladdr(Java_org_lofice_android_Bootstrap_setCommandArgs, &lo_bootstrap_info) != 0) {
         char *new_argv0 = malloc(strlen(lo_bootstrap_info.dli_fname) + strlen(c_argv[0]));
         char *slash;
         strcpy(new_argv0, lo_bootstrap_info.dli_fname);
@@ -820,7 +820,7 @@ redirect_to_null(void)
 
 __attribute__ ((visibility("default")))
 void
-Java_org_libreoffice_android_Bootstrap_redirect_1stdio(JNIEnv* env,
+Java_org_lofice_android_Bootstrap_redirect_1stdio(JNIEnv* env,
                                                        jobject clazz,
                                                        jboolean state)
 {
@@ -891,7 +891,7 @@ Java_org_libreoffice_android_Bootstrap_redirect_1stdio(JNIEnv* env,
 
 __attribute__ ((visibility("default")))
 jlong
-Java_org_libreoffice_android_Bootstrap_address_1of_1direct_1byte_1buffer(JNIEnv *env,
+Java_org_lofice_android_Bootstrap_address_1of_1direct_1byte_1buffer(JNIEnv *env,
                                                                          jobject bbuffer)
 {
     return (jlong) (intptr_t) (*env)->GetDirectBufferAddress(env, bbuffer);
@@ -899,7 +899,7 @@ Java_org_libreoffice_android_Bootstrap_address_1of_1direct_1byte_1buffer(JNIEnv 
 
 __attribute__ ((visibility("default")))
 void
-libreofficekit_set_javavm(JavaVM *vm)
+loficekit_set_javavm(JavaVM *vm)
 {
     the_java_vm = vm;
 }

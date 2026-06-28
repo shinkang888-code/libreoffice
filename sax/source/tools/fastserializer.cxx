@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -100,7 +100,7 @@ namespace sax_fastparser {
         only place that appears to construct FastSerializerHelper appears to be
         XmlFilterBase::openFragmentStreamWithSerializer (oox/source/core/xmlfilterbase.cxx), and it
         only passes false for bWriteHeader when the given rMediaType contains "vml" but not "+xml"
-        (see <https://git.libreoffice.org/core/+/6a11add2c4ea975356cfb7bab02301788c79c904%5E!/>
+        (see <https://git.lofice.org/core/+/6a11add2c4ea975356cfb7bab02301788c79c904%5E!/>
         "XLSX VML Export fixes", stating "Don't write xml headers for vml files").  But let's assume
         that even such Vector Markup Language files are written as UTF-8.
      */

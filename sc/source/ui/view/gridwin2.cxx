@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -51,7 +51,7 @@
 #include <vector>
 
 #include <tools/json_writer.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 using namespace css;
 using namespace css::sheet;
@@ -114,7 +114,7 @@ bool ScGridWindow::DoAutoFilterButton( SCCOL nCol, SCROW nRow, const MouseEvent&
     Point aDiffPix = rMEvt.GetPosPixel();
 
     aDiffPix -= aScrPos;
-    bool bLOKActive = comphelper::LibreOfficeKit::isActive();
+    bool bLOKActive = comphelper::loficeKit::isActive();
     bool bLayoutRTL = rDoc.IsLayoutRTL( nTab );
     if ( bLayoutRTL && !bLOKActive )
         aDiffPix.setX( -aDiffPix.X() );
@@ -400,7 +400,7 @@ bool ScGridWindow::DPTestFieldPopupArrow(
     const MouseEvent& rMEvt, const ScAddress& rPos, const ScAddress& rDimPos, ScDPObject* pDPObj)
 {
     bool bLayoutRTL = mrViewData.GetDocument().IsLayoutRTL( mrViewData.CurrentTabForData() );
-    bool bLOK = comphelper::LibreOfficeKit::isActive();
+    bool bLOK = comphelper::loficeKit::isActive();
 
     // Get the geometry of the cell.
     Point aScrPos = mrViewData.GetScrPos(rPos.Col(), rPos.Row(), eWhich);
@@ -430,7 +430,7 @@ bool ScGridWindow::DPTestMultiFieldPopupArrow(
     const MouseEvent& rMEvt, const ScAddress& rPos, ScDPObject* pDPObj)
 {
     bool bLayoutRTL = mrViewData.GetDocument().IsLayoutRTL( mrViewData.CurrentTabForData() );
-    bool bLOK = comphelper::LibreOfficeKit::isActive();
+    bool bLOK = comphelper::loficeKit::isActive();
 
     // Get the geometry of the cell.
     Point aScrPos = mrViewData.GetScrPos(rPos.Col(), rPos.Row(), eWhich);
@@ -553,7 +553,7 @@ void ScGridWindow::DPLaunchFieldPopupMenu(const Point& rScreenPosition, const Si
     DataPilotFieldOrientation nOrient;
     tools::Long nDimIndex = pDPObject->GetHeaderDim(rAddress, nOrient);
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         // We send the cell position of the filter button to Online side. So the position of the popup can be adjusted near to the cell.
         ScTabViewShell* pViewShell = mrViewData.GetViewShell();
@@ -567,7 +567,7 @@ void ScGridWindow::DPLaunchFieldPopupMenu(const Point& rScreenPosition, const Si
                 writer.put("row", rAddress.Row());
             }
             OString info = writer.finishAndGetAsOString();
-            pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, info);
+            pViewShell->loficeKitViewCallback(LOK_CALLBACK_STATE_CHANGED, info);
         }
     }
 
@@ -853,7 +853,7 @@ bool ScGridWindow::UpdateVisibleRange()
     SCCOL nXRight = rDoc.MaxCol();
     SCROW nYBottom = rDoc.MaxRow();
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         ScTabViewShell* pViewShell = mrViewData.GetViewShell();
         nPosX = lcl_getValidValue(pViewShell->GetLOKStartHeaderCol(), nPosX);

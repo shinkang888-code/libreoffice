@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -48,7 +48,7 @@ static const ScDisplayNameMap* lcl_GetStyleNameMap( SfxStyleFamily nType )
             // Standard builtin styles from configuration.
             // Defined in sc/res/xml/styles.xml
             // Installed to "$BRAND_BASE_DIR/" LIBO_SHARE_FOLDER "/calc/styles.xml"
-            // e.g. /usr/lib64/libreoffice/share/calc/styles.xml
+            // e.g. /usr/lib64/lofice/share/calc/styles.xml
             // or instdir/share/calc/styles.xml
             { ScResId( STR_STYLENAME_HEADING ),   u"Heading"_ustr },
             { ScResId( STR_STYLENAME_HEADING_1 ), u"Heading 1"_ustr },

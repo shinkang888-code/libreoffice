@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -96,7 +96,7 @@ OUString GetStandardText(StandardButtonType eButton)
 {
     static const TranslateId aResIdAry[static_cast<int>(StandardButtonType::Count)] =
     {
-        // http://lists.freedesktop.org/archives/libreoffice/2013-January/044513.html
+        // http://lists.freedesktop.org/archives/lofice/2013-January/044513.html
         // Under windows we don't want accelerators on ok/cancel but do on other
         // buttons
 #ifdef _WIN32

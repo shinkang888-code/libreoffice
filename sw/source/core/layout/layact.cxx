@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -92,10 +92,10 @@ inline void SwLayAction::CheckIdleEnd()
     if (!IsInterrupt())
         m_bInterrupt = bool(GetInputType()) && Application::AnyInput(GetInputType());
 
-    if (comphelper::LibreOfficeKit::isActive() && !IsInterrupt() && bool(GetInputType()))
+    if (comphelper::loficeKit::isActive() && !IsInterrupt() && bool(GetInputType()))
     {
         // Also check if the LOK client has any pending input events.
-        m_bInterrupt = comphelper::LibreOfficeKit::anyInput();
+        m_bInterrupt = comphelper::loficeKit::anyInput();
     }
 }
 
@@ -757,7 +757,7 @@ void SwLayAction::InternalAction(OutputDevice* pRenderContext)
         // visible area.
         const SwRect &rVisArea = m_pImp->GetShell().VisArea();
         SwRect aLokVisArea(m_pImp->GetShell().getLOKVisibleArea());
-        bool bUseLokVisArea = comphelper::LibreOfficeKit::isActive() && !aLokVisArea.IsEmpty();
+        bool bUseLokVisArea = comphelper::loficeKit::isActive() && !aLokVisArea.IsEmpty();
         const SwRect& rVis = bUseLokVisArea ? aLokVisArea : rVisArea;
 
         while( pPg && pPg->getFrameArea().Bottom() < rVis.Top() )
@@ -1095,7 +1095,7 @@ bool SwLayAction::IsShortCut( SwPageFrame *&prPage )
     // LOK case: VisArea() is the entire document and getLOKVisibleArea() may contain the actual
     // visible area.
     SwRect aLokVisArea(m_pImp->GetShell().getLOKVisibleArea());
-    bool bUseLokVisArea = comphelper::LibreOfficeKit::isActive() && !aLokVisArea.IsEmpty();
+    bool bUseLokVisArea = comphelper::loficeKit::isActive() && !aLokVisArea.IsEmpty();
     const SwRect& rVis = bUseLokVisArea ? aLokVisArea : rVisArea;
 
     if ( (prPage->getFrameArea().Top() >= rVis.Bottom()) ||
@@ -2357,7 +2357,7 @@ bool SwLayIdle::DoIdleJob(IdleJobType eJob, IdleJobArea eJobArea)
         // visible area.
         const SwRect &rVisArea = m_pImp->GetShell().VisArea();
         SwRect aLokVisArea(m_pImp->GetShell().getLOKVisibleArea());
-        bool bUseLokVisArea = comphelper::LibreOfficeKit::isActive() && !aLokVisArea.IsEmpty();
+        bool bUseLokVisArea = comphelper::loficeKit::isActive() && !aLokVisArea.IsEmpty();
         const SwRect& rVis = bUseLokVisArea ? aLokVisArea : rVisArea;
         if (pPage && eJobArea == IdleJobArea::VISIBLE &&
             !pPage->getFrameArea().Overlaps(rVis))
@@ -2445,17 +2445,17 @@ SwLayIdle::SwLayIdle( SwRootFrame *pRt, SwViewShellImp *pI ) :
                 bSdrModelIdle = pSdrModel->IsWriterIdle();
                 pSdrModel->SetWriterIdle(true);
             }
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
             {
                 // Let the LOK anyInput() mechanism know that we're inside the idle layout.
-                comphelper::LibreOfficeKit::setIdleLayouting(true);
+                comphelper::loficeKit::setIdleLayouting(true);
             }
 
             aAction.Action(m_pImp->GetShell().GetOut());
 
-            if (comphelper::LibreOfficeKit::isActive())
+            if (comphelper::loficeKit::isActive())
             {
-                comphelper::LibreOfficeKit::setIdleLayouting(false);
+                comphelper::loficeKit::setIdleLayouting(false);
             }
             if (pSdrModel)
             {

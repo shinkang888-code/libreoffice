@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_settings">Paramètre de l\'afficheur LibreOffice</string>
-    <string name="app_name">LibreOffice Viewer</string>
-    <string name="app_credits">https://www.libreoffice.org</string>
+    <string name="app_name_settings">Paramètre de l\'afficheur lofice</string>
+    <string name="app_name">lofice Viewer</string>
+    <string name="app_credits">https://www.lofice.org</string>
     <string name="app_vendor">Cette version est fournie par $VENDOR.</string>
     <string name="readonly_file">Ce fichier est en lecture seule.</string>
     <string name="about_license">Afficher la licence</string>
     <string name="about_notice">Afficher la notice</string>
-    <string name="app_version">Version : %1$s&lt;br&gt;Build ID: &lt;a href=https://hub.libreoffice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
-    <string name="app_description">LibreOffice Viewer est une visionneuse de document basée sur LibreOffice.</string>
+    <string name="app_version">Version : %1$s&lt;br&gt;Build ID: &lt;a href=https://hub.lofice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
+    <string name="app_description">lofice Viewer est une visionneuse de document basée sur lofice.</string>
     <string name="search_find_next">Rechercher le suivant</string>
     <string name="search_find_previous">Rechercher le précédent</string>
     <string name="file_icon_desc">fileicon</string>

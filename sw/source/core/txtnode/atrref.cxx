@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -28,7 +28,7 @@
 #include <utility>
 #include <sfx2/viewsh.hxx>
 #include <tools/json_writer.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <comphelper/lok.hxx>
 #include <doc.hxx>
 #include <ndtxt.hxx>
@@ -126,7 +126,7 @@ SwTextRefMark::SwTextRefMark(
 
 SwTextRefMark::~SwTextRefMark()
 {
-    if (!comphelper::LibreOfficeKit::isActive() || GetTextNode().GetDoc().IsClipBoard())
+    if (!comphelper::loficeKit::isActive() || GetTextNode().GetDoc().IsClipBoard())
         return;
 
     SfxViewShell* pViewShell = SfxViewShell::Current();
@@ -142,7 +142,7 @@ SwTextRefMark::~SwTextRefMark()
         aJson.put("DeleteField", fieldCommand.toString());
     }
 
-    pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_UNO_COMMAND_RESULT, aJson.finishAndGetAsOString());
+    pViewShell->loficeKitViewCallback(LOK_CALLBACK_UNO_COMMAND_RESULT, aJson.finishAndGetAsOString());
 }
 
 const sal_Int32* SwTextRefMark::GetEnd() const

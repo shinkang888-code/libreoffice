@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -793,7 +793,7 @@ static void osl_file_adjustLockFlags(const OString& path, int *flags, sal_uInt32
         // during backup creation at save time (even though this is a
         // write lock and not a read lock).
         // Fixes the following bug:
-        // https://bugs.documentfoundation.org/show_bug.cgi?id=55004
+        // https://bugs.lofice.io/show_bug.cgi?id=55004
         switch (aFileStatFs.f_type) {
         case SMB_SUPER_MAGIC:
         case CIFS_SUPER_MAGIC:

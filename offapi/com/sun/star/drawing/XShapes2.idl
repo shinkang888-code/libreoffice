@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -12,7 +12,7 @@ module com {  module sun {  module star { module drawing {
 /**
  * Allows insertion of shapes at different positions.
  *
- * @since LibreOffice 4.2
+ * @since lofice 4.2
  */
 interface XShapes2
 {
@@ -21,7 +21,7 @@ interface XShapes2
      *
      * @param xShape shape to be inserted.
      *
-     * @since LibreOffice 4.2
+     * @since lofice 4.2
      */
     void addTop( [in] com::sun::star::drawing::XShape xShape );
 
@@ -30,7 +30,7 @@ interface XShapes2
      *
      * @param xShape shape to be inserted.
      *
-     * @since LibreOffice 4.2
+     * @since lofice 4.2
      */
     void addBottom( [in] com::sun::star::drawing::XShape xShape );
 };

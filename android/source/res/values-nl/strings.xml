@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_settings">LibreOffice Viewer-instellingen</string>
-    <string name="app_credits">https://www.libreoffice.org</string>
+    <string name="app_name_settings">lofice Viewer-instellingen</string>
+    <string name="app_credits">https://www.lofice.org</string>
     <string name="app_vendor">Deze uitgave is geleverd door $VENDOR.</string>
     <string name="readonly_file">Dit bestand is alleen-lezen.</string>
     <string name="about_license">Licentie inzien</string>
@@ -99,10 +99,10 @@
     <string name="action_rename_slide">Dia hernoemen</string>
     <string name="automatic">Automatisch</string>
     <string name="action_UNO_commands">UNO-opdracht sturen</string>
-    <string name="app_version">Versie: %1$s&lt;br&gt;Build ID: &lt;a href=https://hub.libreoffice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
+    <string name="app_version">Versie: %1$s&lt;br&gt;Build ID: &lt;a href=https://hub.lofice.org/git-core/%2$s&gt;%2$s&lt;/a&gt;</string>
     <string name="new_textdocument">Volgend tekstdocument</string>
-    <string name="app_description">LibreOffice Viewer is een documentviewer gebaseerd op LibreOffice.</string>
-    <string name="app_name">LibreOffice Viewer</string>
+    <string name="app_description">lofice Viewer is een documentviewer gebaseerd op lofice.</string>
+    <string name="app_name">lofice Viewer</string>
     <string name="pref_experimental_editing">Experimentele modus</string>
     <string name="pref_developer_mode_summary">Schakel de ontwikkelaarsmodus in, waarin u UNO-opdrachten binnen de app kunt verzenden. Gebruik op eigen risico.</string>
     <string name="action_save_as">Opslaan als…</string>

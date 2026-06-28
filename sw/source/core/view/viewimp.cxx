@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -122,13 +122,13 @@ SwViewShellImp::~SwViewShellImp()
 bool SwViewShellImp::AddPaintRect( const SwRect &rRect )
 {
     // In case of tiled rendering the visual area is the last painted tile -> not interesting.
-    if ( rRect.Overlaps( m_rShell.VisArea() ) || comphelper::LibreOfficeKit::isActive() )
+    if ( rRect.Overlaps( m_rShell.VisArea() ) || comphelper::loficeKit::isActive() )
     {
         if ( !m_oPaintRegion )
         {
             // In case of normal rendering, this makes sure only visible rectangles are painted.
             // Otherwise get the rectangle of the full document, so all paint rectangles are invalidated.
-            const SwRect& rArea = comphelper::LibreOfficeKit::isActive() ? m_rShell.GetLayout()->getFrameArea() : m_rShell.VisArea();
+            const SwRect& rArea = comphelper::loficeKit::isActive() ? m_rShell.GetLayout()->getFrameArea() : m_rShell.VisArea();
             m_oPaintRegion.emplace();
             m_oPaintRegion->ChangeOrigin(rArea);
         }
@@ -169,7 +169,7 @@ void SwViewShellImp::AddPendingLOKInvalidation( const SwRect& rRect )
 {
     std::vector<SwRect>& l = m_pendingLOKInvalidations;
     if(l.empty() && m_rShell.GetSfxViewShell()) // Announce that these invalidations will need flushing.
-        m_rShell.GetSfxViewShell()->libreOfficeKitViewAddPendingInvalidateTiles();
+        m_rShell.GetSfxViewShell()->loficeKitViewAddPendingInvalidateTiles();
     // These are often repeated, so check first for duplicates.
     if( std::find( l.begin(), l.end(), rRect ) == l.end())
         l.push_back( rRect );

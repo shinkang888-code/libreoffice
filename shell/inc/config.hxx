@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -19,10 +19,10 @@
 
 #pragma once
 
-#define COLUMN_HANDLER_DESCRIPTIVE_NAME    L"LibreOffice Column Handler"
-#define INFOTIP_HANDLER_DESCRIPTIVE_NAME   L"LibreOffice Infotip Handler"
-#define PROPSHEET_HANDLER_DESCRIPTIVE_NAME L"LibreOffice Property Sheet Handler"
-#define THUMBVIEWER_HANDLER_DESCRIPTIVE_NAME L"LibreOffice Thumbnail Viewer"
+#define COLUMN_HANDLER_DESCRIPTIVE_NAME    L"lofice Column Handler"
+#define INFOTIP_HANDLER_DESCRIPTIVE_NAME   L"lofice Infotip Handler"
+#define PROPSHEET_HANDLER_DESCRIPTIVE_NAME L"lofice Property Sheet Handler"
+#define THUMBVIEWER_HANDLER_DESCRIPTIVE_NAME L"lofice Thumbnail Viewer"
 
 #define META_CONTENT_NAME               "meta.xml"
 #define DOC_CONTENT_NAME                "content.xml"

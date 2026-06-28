@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -64,7 +64,7 @@
 #include <svx/sdtditm.hxx>
 #include "tableundo.hxx"
 #include "tablelayouter.hxx"
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <memory>
 #include <o3tl/enumarray.hxx>
 #include <o3tl/enumrange.hxx>
@@ -264,7 +264,7 @@ Point pixelToLogic(const Point& rPoint, vcl::Window const * pWindow)
 
 bool SvxTableController::onMouseButtonDown(const MouseEvent& rMEvt, vcl::Window* pWindow )
 {
-    if (comphelper::LibreOfficeKit::isActive() && !pWindow)
+    if (comphelper::loficeKit::isActive() && !pWindow)
     {
         // Tiled rendering: get the window that has the disabled map mode.
         if (OutputDevice* pOutputDevice = mrView.GetFirstOutputDevice())
@@ -321,7 +321,7 @@ bool SvxTableController::onMouseButtonDown(const MouseEvent& rMEvt, vcl::Window*
         }
     }
 
-    if (comphelper::LibreOfficeKit::isActive() && rMEvt.GetClicks() == 2 && rMEvt.IsLeft() && eHit == TableHitKind::CellTextArea)
+    if (comphelper::loficeKit::isActive() && rMEvt.GetClicks() == 2 && rMEvt.IsLeft() && eHit == TableHitKind::CellTextArea)
     {
         bool bEmptyOutliner = false;
         if (Outliner* pOutliner = mrView.GetTextEditOutliner())
@@ -468,11 +468,11 @@ void SvxTableController::GetState( SfxItemSet& rSet )
                     break;
                 }
             case SID_TABLE_DELETE_ROW:
-                if( !mxTable.is() || !hasSelectedCells() || (!comphelper::LibreOfficeKit::isActive() && mxTable->getRowCount() <= 1) )
+                if( !mxTable.is() || !hasSelectedCells() || (!comphelper::loficeKit::isActive() && mxTable->getRowCount() <= 1) )
                     rSet.DisableItem(SID_TABLE_DELETE_ROW);
                 break;
             case SID_TABLE_DELETE_COL:
-                if( !mxTable.is() || !hasSelectedCells() || (!comphelper::LibreOfficeKit::isActive() && mxTable->getColumnCount() <= 1) )
+                if( !mxTable.is() || !hasSelectedCells() || (!comphelper::loficeKit::isActive() && mxTable->getColumnCount() <= 1) )
                     rSet.DisableItem(SID_TABLE_DELETE_COL);
                 break;
             case SID_TABLE_DELETE_TABLE:
@@ -2369,7 +2369,7 @@ void SvxTableController::updateSelectionOverlay()
     }
 
     // If tiled rendering, emit callbacks for sdr table selection.
-    if (!(pOutDev && comphelper::LibreOfficeKit::isActive()))
+    if (!(pOutDev && comphelper::loficeKit::isActive()))
         return;
 
     tools::Rectangle aSelection(a2DRange.getMinX(), a2DRange.getMinY(), a2DRange.getMaxX(), a2DRange.getMaxY());
@@ -2379,8 +2379,8 @@ void SvxTableController::updateSelectionOverlay()
 
     if(SfxViewShell* pViewShell = SfxViewShell::Current())
     {
-        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_CELL_SELECTION_AREA, aSelection.toString());
-        pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION, aSelection.toString());
+        pViewShell->loficeKitViewCallback(LOK_CALLBACK_CELL_SELECTION_AREA, aSelection.toString());
+        pViewShell->loficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION, aSelection.toString());
     }
 }
 
@@ -2392,15 +2392,15 @@ void SvxTableController::destroySelectionOverlay()
 
     mpSelectionOverlay.reset();
 
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         // Clear the LOK text selection so far provided by this table.
         if(SfxViewShell* pViewShell = SfxViewShell::Current())
         {
-            pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_CELL_SELECTION_AREA, "EMPTY"_ostr);
-            pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION_START, "EMPTY"_ostr);
-            pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION_END, "EMPTY"_ostr);
-            pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION, "EMPTY"_ostr);
+            pViewShell->loficeKitViewCallback(LOK_CALLBACK_CELL_SELECTION_AREA, "EMPTY"_ostr);
+            pViewShell->loficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION_START, "EMPTY"_ostr);
+            pViewShell->loficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION_END, "EMPTY"_ostr);
+            pViewShell->loficeKitViewCallback(LOK_CALLBACK_TEXT_SELECTION, "EMPTY"_ostr);
         }
     }
 }

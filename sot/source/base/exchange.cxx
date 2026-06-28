@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -62,7 +62,7 @@ const DataFlavor* FormatArray_Impl()
         /* 11 DRAWING*/                   { u"application/x-openoffice-drawing;windows_formatname=\"Drawing Format\""_ustr, u"Drawing Format"_ustr, cppu::UnoType<Sequence<sal_Int8>>::get() },
         /* 12 SVXB*/                      { u"application/x-openoffice-svxb;windows_formatname=\"SVXB (StarView Bitmap/Animation)\""_ustr, u"SVXB (StarView Bitmap/Animation)"_ustr, cppu::UnoType<Sequence<sal_Int8>>::get() },
         /* 13 SVIM*/                      { u"application/x-openoffice-svim;windows_formatname=\"SVIM (StarView ImageMap)\""_ustr, u"SVIM (StarView ImageMap)"_ustr, cppu::UnoType<Sequence<sal_Int8>>::get() },
-        /* 14 XFA*/                       { u"application/x-libreoffice-xfa;windows_formatname=\"XFA (XOutDev FillAttr Any)\""_ustr, u"XFA (XOutDev FillAttr Any)"_ustr, cppu::UnoType<Sequence<sal_Int8>>::get() },
+        /* 14 XFA*/                       { u"application/x-lofice-xfa;windows_formatname=\"XFA (XOutDev FillAttr Any)\""_ustr, u"XFA (XOutDev FillAttr Any)"_ustr, cppu::UnoType<Sequence<sal_Int8>>::get() },
         /* 15 EDITENGINE_ODF_TEXT_FLAT*/  { u"application/vnd.oasis.opendocument.text-flat-xml"_ustr, u"Flat XML format (EditEngine ODF)"_ustr, cppu::UnoType<Sequence<sal_Int8>>::get() },
         /* 16 INTERNALLINK_STATE*/        { u"application/x-openoffice-internallink-state;windows_formatname=\"StatusInfo of SvxInternalLink\""_ustr, u"StatusInfo of SvxInternalLink"_ustr, cppu::UnoType<Sequence<sal_Int8>>::get() },
         /* 17 SOLK*/                      { u"application/x-openoffice-solk;windows_formatname=\"SOLK (StarOffice Link)\""_ustr, u"SOLK (StarOffice Link)"_ustr, cppu::UnoType<Sequence<sal_Int8>>::get() },
@@ -194,7 +194,7 @@ const DataFlavor* FormatArray_Impl()
         /*143 MATHML*/                    { u"application/mathml+xml"_ustr, u"MathML"_ustr, ::cppu::UnoType<const Sequence< sal_Int8 >>::get() },
         /*144 JPEG*/                      { u"image/jpeg"_ustr, u"JPEG Bitmap"_ustr, cppu::UnoType<Sequence<sal_Int8>>::get() },
         /*145 RICHTEXT*/                  { u"text/richtext"_ustr, u"Richtext Format"_ustr, cppu::UnoType<Sequence<sal_Int8>>::get() },
-        /*146 STRING_TSVC*/               { u"application/x-libreoffice-tsvc"_ustr, u"Text TSV-Calc"_ustr, cppu::UnoType<OUString>::get() },
+        /*146 STRING_TSVC*/               { u"application/x-lofice-tsvc"_ustr, u"Text TSV-Calc"_ustr, cppu::UnoType<OUString>::get() },
         /*147 PDF*/                       { u"application/pdf"_ustr, u"PDF Document"_ustr, cppu::UnoType<Sequence<sal_Int8>>::get() },
         /*148 SVG*/                       { u"image/svg+xml;windows_formatname=\"image/svg+xml\""_ustr, u"SVG"_ustr, cppu::UnoType<Sequence<sal_Int8>>::get() },
         /*149 MARKDOWN*/                  { u"text/markdown"_ustr, u"Markdown"_ustr, cppu::UnoType<OUString>::get() },

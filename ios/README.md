@@ -1,3 +1,3 @@
-# LibreOffice for iOS
+# lofice for iOS
 
-LibreOffice for iOS
+lofice for iOS

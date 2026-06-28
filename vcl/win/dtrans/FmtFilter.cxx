@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -57,7 +57,7 @@ struct METAFILEHEADER
 
 }
 
-// convert a windows metafile picture to a LibreOffice metafile picture
+// convert a windows metafile picture to a lofice metafile picture
 
 Sequence< sal_Int8 > WinMFPictToOOMFPict( Sequence< sal_Int8 >& aMetaFilePict )
 {
@@ -127,7 +127,7 @@ Sequence< sal_Int8 > WinMFPictToOOMFPict( Sequence< sal_Int8 >& aMetaFilePict )
     return mfpictStream;
 }
 
-// convert a windows enhanced metafile to a LibreOffice metafile
+// convert a windows enhanced metafile to a lofice metafile
 
 Sequence< sal_Int8 > WinENHMFPictToOOMFPict( HENHMETAFILE hEnhMetaFile )
 {
@@ -146,7 +146,7 @@ Sequence< sal_Int8 > WinENHMFPictToOOMFPict( HENHMETAFILE hEnhMetaFile )
     return aRet;
 }
 
-// convert a LibreOffice metafile picture to a windows metafile picture
+// convert a lofice metafile picture to a windows metafile picture
 
 HMETAFILEPICT OOMFPictToWinMFPict( Sequence< sal_Int8 > const & aOOMetaFilePict )
 {
@@ -170,7 +170,7 @@ HMETAFILEPICT OOMFPictToWinMFPict( Sequence< sal_Int8 > const & aOOMetaFilePict 
     return hPict;
 }
 
-// convert a LibreOffice metafile picture to a windows enhanced metafile picture
+// convert a lofice metafile picture to a windows enhanced metafile picture
 
 HENHMETAFILE OOMFPictToWinENHMFPict( Sequence< sal_Int8 > const & aOOMetaFilePict )
 {
@@ -179,7 +179,7 @@ HENHMETAFILE OOMFPictToWinENHMFPict( Sequence< sal_Int8 > const & aOOMetaFilePic
     return hEnhMtf;
 }
 
-// convert a windows device independent bitmap into a LibreOffice bitmap
+// convert a windows device independent bitmap into a lofice bitmap
 
 Sequence< sal_Int8 > WinDIBToOOBMP( const Sequence< sal_Int8 >& aWinDIB )
 {
@@ -211,7 +211,7 @@ Sequence< sal_Int8 > WinDIBToOOBMP( const Sequence< sal_Int8 >& aWinDIB )
     return ooBmpStream;
 }
 
-// convert a LibreOffice bitmap into a windows device independent bitmap
+// convert a lofice bitmap into a windows device independent bitmap
 
 Sequence< sal_Int8 > OOBmpToWinDIB( Sequence< sal_Int8 >& aOOBmp )
 {
@@ -389,7 +389,7 @@ css::uno::Sequence<sal_Int8> CF_HDROPToFileList(HGLOBAL hGlobal)
     return FileListToByteSequence(files);
 }
 
-// convert a windows bitmap handle into a LibreOffice bitmap
+// convert a windows bitmap handle into a lofice bitmap
 
 Sequence< sal_Int8 > WinBITMAPToOOBMP( HBITMAP aHBMP )
 {

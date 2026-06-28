@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -332,13 +332,13 @@ DECLARE_OOXMLEXPORT_TEST(testFdo70457, "fdo70457.docx")
 
 DECLARE_OOXMLEXPORT_TEST(testLOCrash, "file_crash.docx")
 {
-    //The problem was libreoffice crash while opening the file.
+    //The problem was lofice crash while opening the file.
     getParagraph(1,u"Contents"_ustr);
 }
 
 DECLARE_OOXMLEXPORT_TEST(testFdo72560, "fdo72560.docx")
 {
-    // The problem was libreoffice confuse when there RTL default style for paragraph
+    // The problem was lofice confuse when there RTL default style for paragraph
     uno::Reference<uno::XInterface> xParaLeftRTL(getParagraph( 1, u"RTL LEFT"_ustr));
     uno::Reference<uno::XInterface> xParaRightLTR(getParagraph( 2, u"LTR RIGHT"_ustr));
 
@@ -352,7 +352,7 @@ DECLARE_OOXMLEXPORT_TEST(testFdo72560, "fdo72560.docx")
 
 DECLARE_OOXMLEXPORT_TEST(testFdo72560b, "fdo72560b.docx")
 {
-    // The problem was libreoffice confuse when RTL was specified in non-default style
+    // The problem was lofice confuse when RTL was specified in non-default style
     uno::Reference<uno::XInterface> xParaEndRTL(getParagraph( 2, u"RTL END"_ustr));
     CPPUNIT_ASSERT_EQUAL(text::WritingMode2::RL_TB, getProperty<sal_Int16>( xParaEndRTL, u"WritingMode"_ustr ));
     CPPUNIT_ASSERT_EQUAL( sal_Int32(style::ParagraphAdjust_END), getProperty< sal_Int32 >( xParaEndRTL, u"ParaAdjust"_ustr ));
@@ -360,7 +360,7 @@ DECLARE_OOXMLEXPORT_TEST(testFdo72560b, "fdo72560b.docx")
 
 DECLARE_OOXMLEXPORT_TEST(testFdo72560c, "fdo72560c.docx")
 {
-    // The problem was libreoffice confuse when RTL was specified in DocDefaults
+    // The problem was lofice confuse when RTL was specified in DocDefaults
     uno::Reference<uno::XInterface> xParaEndRTL(getParagraph( 2, u"RTL END"_ustr));
     CPPUNIT_ASSERT_EQUAL(text::WritingMode2::RL_TB, getProperty<sal_Int16>( xParaEndRTL, u"WritingMode"_ustr ));
     CPPUNIT_ASSERT_EQUAL( sal_Int32(style::ParagraphAdjust_END), getProperty< sal_Int32 >( xParaEndRTL, u"ParaAdjust"_ustr ));
@@ -368,14 +368,14 @@ DECLARE_OOXMLEXPORT_TEST(testFdo72560c, "fdo72560c.docx")
 
 DECLARE_OOXMLEXPORT_TEST(testFdo72560d, "fdo72560d.docx")
 {
-    // The problem was libreoffice confuse when RTL was specified in "Normal" when not using Normal at all
+    // The problem was lofice confuse when RTL was specified in "Normal" when not using Normal at all
     CPPUNIT_ASSERT_EQUAL( sal_Int32(style::ParagraphAdjust_END), getProperty< sal_Int32 >( getParagraph(1), u"ParaAdjust"_ustr ));
     CPPUNIT_ASSERT_EQUAL( sal_Int32(style::ParagraphAdjust_END), getProperty< sal_Int32 >( getParagraph(2), u"ParaAdjust"_ustr ));
 }
 
 DECLARE_OOXMLEXPORT_TEST(testFdo72560e, "fdo72560e.docx")
 {
-    // The problem was libreoffice confuse when *locale* is RTL, but w:bidi / w:jc are never defined.
+    // The problem was lofice confuse when *locale* is RTL, but w:bidi / w:jc are never defined.
     // This unit test would only be noticed if the testing environment is set to something like an Arabic locale.
     CPPUNIT_ASSERT_EQUAL(text::WritingMode2::LR_TB, getProperty<sal_Int16>( getParagraph(2), u"WritingMode"_ustr ));
     CPPUNIT_ASSERT_EQUAL(sal_Int32(style::ParagraphAdjust_START), getProperty<sal_Int32>( getParagraph(2), u"ParaAdjust"_ustr ));
@@ -615,7 +615,7 @@ CPPUNIT_TEST_FIXTURE(Test, testSmartartStrict)
     verify();
 }
 
-DECLARE_OOXMLEXPORT_TEST(testLibreOfficeHang, "frame-wrap-auto.docx")
+DECLARE_OOXMLEXPORT_TEST(testloficeHang, "frame-wrap-auto.docx")
 {
     // fdo#72775
     // This was text::WrapTextMode_NONE.

@@ -1,6 +1,6 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -8,14 +8,14 @@
 #
 
 from uitest.framework import UITestCase
-from libreoffice.uno.propertyvalue import mkPropertyValues
-from libreoffice.calc.document import get_cell_by_position
+from lofice.uno.propertyvalue import mkPropertyValues
+from lofice.calc.document import get_cell_by_position
 from uitest.uihelper.common import get_state_as_dict, get_url_for_data_file, type_text, select_pos
 from uitest.uihelper.calc import enter_text_to_cell
 
 class ManualCalcTests(UITestCase):
 
-    # http://manual-test.libreoffice.org/manage/case/189/
+    # http://manual-test.lofice.org/manage/case/189/
     def test_define_database_range(self):
 
         with self.ui_test.create_doc_in_start_center("calc"):
@@ -48,7 +48,7 @@ class ManualCalcTests(UITestCase):
             self.assertEqual(gridWinState["MarkedArea"], "Sheet1.A1:Sheet1.D10")
 
 
-    # http://manual-test.libreoffice.org/manage/case/190/
+    # http://manual-test.lofice.org/manage/case/190/
     def test_sort_data(self):
         with self.ui_test.create_doc_in_start_center("calc") as document:
 
@@ -84,7 +84,7 @@ class ManualCalcTests(UITestCase):
             self.assertEqual(get_cell_by_position(document, 0, 1, 9).getValue(), 107)
 
 
-    # http://manual-test.libreoffice.org/manage/case/191/
+    # http://manual-test.lofice.org/manage/case/191/
     def test_validation(self):
         with self.ui_test.create_doc_in_start_center("calc"):
 
@@ -114,7 +114,7 @@ class ManualCalcTests(UITestCase):
             enter_text_to_cell(xGridWin, "C2", "24")
 
 
-    # http://manual-test.libreoffice.org/manage/case/187/
+    # http://manual-test.lofice.org/manage/case/187/
     def test_transpose(self):
         with self.ui_test.create_doc_in_start_center("calc") as document:
 
@@ -145,7 +145,7 @@ class ManualCalcTests(UITestCase):
             self.assertEqual(get_cell_by_position(document, 0, 3, 2).getValue(), 5678)
 
 
-    # http://manual-test.libreoffice.org/manage/case/151/
+    # http://manual-test.lofice.org/manage/case/151/
     def test_cell_recalc(self):
         with self.ui_test.load_file(get_url_for_data_file("cell_recalc.ods")) as document:
 
@@ -162,7 +162,7 @@ class ManualCalcTests(UITestCase):
 
             self.assertEqual(get_cell_by_position(document, 0, 3, 15).getValue(), 195)
 
-    # http://manual-test.libreoffice.org/manage/case/143/
+    # http://manual-test.lofice.org/manage/case/143/
     def test_random_numbers(self):
         with self.ui_test.create_doc_in_start_center("calc") as document:
             xGridWin = self.xUITest.getTopFocusWindow().getChild("grid_window")

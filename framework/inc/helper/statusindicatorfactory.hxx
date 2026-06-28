@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -122,7 +122,7 @@ class StatusIndicatorFactory final : public  ::cppu::WeakImplHelper<
                                            , css::lang::XInitialization
                                            , css::task::XStatusIndicatorFactory
                                            , css::util::XUpdatable >,
-                                     public comphelper::LibreOfficeKit::ThreadJoinable
+                                     public comphelper::loficeKit::ThreadJoinable
 {
 
     // member
@@ -213,7 +213,7 @@ class StatusIndicatorFactory final : public  ::cppu::WeakImplHelper<
         void setValue(const css::uno::Reference< css::task::XStatusIndicator >& xChild,
                                              sal_Int32                                           nValue);
 
-        // comphelper::LibreOfficeKit::ThreadJoinable
+        // comphelper::loficeKit::ThreadJoinable
         virtual bool joinThreads() override;
 
         virtual void startThreads() override;

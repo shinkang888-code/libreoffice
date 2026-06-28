@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -79,7 +79,7 @@
 #include <comphelper/lok.hxx>
 #include <o3tl/unreachable.hxx>
 #include <o3tl/make_shared.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 void ScTabViewShell::SetCurRefDlgId( sal_uInt16 nNew )
 {
@@ -129,7 +129,7 @@ std::shared_ptr<SfxModelessDialogController> ScTabViewShell::CreateRefDialogCont
 
     if ( nCurRefDlgId != nSlotId )
     {
-        if (!comphelper::LibreOfficeKit::isActive())
+        if (!comphelper::loficeKit::isActive())
         {
             //  the dialog has been opened in a different view
             //  -> lock the dispatcher for this view (modal mode)
@@ -541,7 +541,7 @@ css::uno::Reference<css::datatransfer::XTransferable2> ScTabViewShell::GetClipDa
 
 void ScTabViewShell::notifyAllViewsHeaderInvalidation(const SfxViewShell* pForViewShell, HeaderType eHeaderType, SCTAB nCurrentTabIndex)
 {
-    if (!comphelper::LibreOfficeKit::isActive())
+    if (!comphelper::loficeKit::isActive())
         return;
 
     OString aPayload;
@@ -566,7 +566,7 @@ void ScTabViewShell::notifyAllViewsHeaderInvalidation(const SfxViewShell* pForVi
         if (pTabViewShell && pViewShell->GetDocId() == pForViewShell->GetDocId()
             && (nCurrentTabIndex == -1 || pTabViewShell->getPart() == nCurrentTabIndex))
         {
-            pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_INVALIDATE_HEADER, aPayload);
+            pViewShell->loficeKitViewCallback(LOK_CALLBACK_INVALIDATE_HEADER, aPayload);
         }
         pViewShell = SfxViewShell::GetNext(*pViewShell);
     }
@@ -574,7 +574,7 @@ void ScTabViewShell::notifyAllViewsHeaderInvalidation(const SfxViewShell* pForVi
 
 bool ScTabViewShell::isAnyEditViewInRange(const SfxViewShell* pForViewShell, bool bColumns, SCCOLROW nStart, SCCOLROW nEnd)
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
     {
         SfxViewShell* pViewShell = SfxViewShell::GetFirst();
         while (pViewShell)
@@ -601,9 +601,9 @@ void ScTabViewShell::notifyAllViewsSheetGeomInvalidation(const SfxViewShell* pFo
                                                          bool bRows, bool bSizes, bool bHidden, bool bFiltered,
                                                          bool bGroups, SCTAB nCurrentTabIndex)
 {
-    if (!comphelper::LibreOfficeKit::isActive() ||
-            !comphelper::LibreOfficeKit::isCompatFlagSet(
-                comphelper::LibreOfficeKit::Compat::scPrintTwipsMsgs))
+    if (!comphelper::loficeKit::isActive() ||
+            !comphelper::loficeKit::isCompatFlagSet(
+                comphelper::loficeKit::Compat::scPrintTwipsMsgs))
         return;
 
     if (!bColumns && !bRows)
@@ -635,7 +635,7 @@ void ScTabViewShell::notifyAllViewsSheetGeomInvalidation(const SfxViewShell* pFo
         if (pTabViewShell && pViewShell->GetDocId() == pForViewShell->GetDocId() &&
                 (nCurrentTabIndex == -1 || pTabViewShell->getPart() == nCurrentTabIndex))
         {
-            pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_INVALIDATE_SHEET_GEOMETRY, aPayload);
+            pViewShell->loficeKitViewCallback(LOK_CALLBACK_INVALIDATE_SHEET_GEOMETRY, aPayload);
         }
         pViewShell = SfxViewShell::GetNext(*pViewShell);
     }

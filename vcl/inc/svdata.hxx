@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -39,7 +39,7 @@
 #include <vcl/wrkwin.hxx>
 #include <vcl/window.hxx>
 #include <vcl/task.hxx>
-#include <LibreOfficeKit/LibreOfficeKitTypes.h>
+#include <loficeKit/loficeKitTypes.h>
 #include <unotools/resmgr.hxx>
 
 #include <com/sun/star/lang/XComponent.hpp>
@@ -417,8 +417,8 @@ struct ImplSVData
     Link<LinkParamNone*,void> maDeInitHook;
 
     // LOK & headless backend specific hooks
-    LibreOfficeKitPollCallback mpPollCallback = nullptr;
-    LibreOfficeKitWakeCallback mpWakeCallback = nullptr;
+    loficeKitPollCallback mpPollCallback = nullptr;
+    loficeKitWakeCallback mpWakeCallback = nullptr;
     void *mpPollClosure = nullptr;
 
     void registerCacheOwner(CacheOwner&);

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -87,7 +87,7 @@
 
 #include <boost/property_tree/json_parser.hpp>
 #include <sfx2/dispatch.hxx>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 
 #define DRGPIX    2     // Drag MinMove in Pixel
 
@@ -1218,7 +1218,7 @@ void ChartController::execute_Command( const CommandEvent& rCEvt )
 
         xPopupController->setPopupMenu( xPopupMenu );
 
-        if (comphelper::LibreOfficeKit::isActive())
+        if (comphelper::loficeKit::isActive())
         {
             if (SfxViewShell* pViewShell = SfxViewShell::Current())
             {
@@ -1240,7 +1240,7 @@ void ChartController::execute_Command( const CommandEvent& rCEvt )
 
                 std::stringstream aStream;
                 boost::property_tree::write_json(aStream, aRoot, true);
-                pViewShell->libreOfficeKitViewCallback(LOK_CALLBACK_CONTEXT_MENU, OString(aStream.str()));
+                pViewShell->loficeKitViewCallback(LOK_CALLBACK_CONTEXT_MENU, OString(aStream.str()));
             }
         }
         else

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -268,7 +268,7 @@ void FontList::ImplInsertFonts(OutputDevice* pDevice, bool bInsertData)
 
     // inquire all fonts from the device
     int n = pDevice->GetFontFaceCollectionCount();
-    if (n == 0 && comphelper::LibreOfficeKit::isActive())
+    if (n == 0 && comphelper::loficeKit::isActive())
     {
         pDevice->RefreshFontData(true);
         n = pDevice->GetFontFaceCollectionCount();

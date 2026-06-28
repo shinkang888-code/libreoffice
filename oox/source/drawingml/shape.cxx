@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -661,7 +661,7 @@ static void lcl_copyCharPropsToShape(const uno::Reference<drawing::XShape>& xSha
     xSet->setPropertyValue(UNO_NAME_TEXT_AUTOGROWHEIGHT, uno::Any(false));
     xSet->setPropertyValue(UNO_NAME_TEXT_AUTOGROWWIDTH, uno::Any(false));
 
-    // LibreOffice is not able (as of Nov 2022) to use different styles for the paragraphs or
+    // lofice is not able (as of Nov 2022) to use different styles for the paragraphs or
     // characters in FontWork, since that was not allowed in old binary WordArt. We use the
     // properties of the first non empty paragraph for now.
     const TextParagraphVector& rParagraphs = pTextBody->getParagraphs();
@@ -1973,7 +1973,7 @@ Reference< XShape > const & Shape::createAndInsert(
             putPropertiesToGrabBag(comphelper::containerToSequence(aProperties));
 
             // Store original gradient fill of the shape to InteropGrabBag
-            // LibreOffice doesn't support all the kinds of gradient so we save its complete definition
+            // lofice doesn't support all the kinds of gradient so we save its complete definition
             if( aShapeProps.hasProperty( PROP_FillGradient ) )
             {
                 std::vector<beans::PropertyValue> aGradientStops;
@@ -2280,7 +2280,7 @@ Reference< XShape > const & Shape::createAndInsert(
                 }
 
                 // MS Office has e.g. fill and stroke of WordArt in the character properties,
-                // LibreOffice uses shape properties.
+                // lofice uses shape properties.
                 if (!mpTextBody->getTextProperties().msPrst.isEmpty()
                     && mpTextBody->getTextProperties().msPrst != u"textNoShape")
                 {

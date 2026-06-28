@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -23,7 +23,7 @@
 #include <types.hxx>
 
 //+-------------------------------------------------------------------------
-//  Contents:   LibreOffice filter declarations
+//  Contents:   lofice filter declarations
 //  Platform:   Windows 2000, Windows XP
 
 //+-------------------------------------------------------------------------
@@ -37,7 +37,7 @@ GUID const guidStorage = PSGUID_STORAGE;      // GUID for storage property set
 
 //C-------------------------------------------------------------------------
 //  Class:      COooFilter
-//  Purpose:    Implements interfaces of LibreOffice filter
+//  Purpose:    Implements interfaces of lofice filter
 
 // OooFilter Class ID
 // {7BC0E710-5703-45be-A29D-5D46D8B39262}
@@ -49,17 +49,17 @@ GUID const CLSID_COooFilter =
     { 0xa2, 0x9d, 0x5d, 0x46, 0xd8, 0xb3, 0x92, 0x62 }
 };
 
-// LibreOffice Persistent Handler Class ID
+// lofice Persistent Handler Class ID
 // {7BC0E713-5703-45be-A29D-5D46D8B39262}
 const CLSID CLSID_PERSISTENT_HANDLER =
 {0x7bc0e713, 0x5703, 0x45be, {0xa2, 0x9d, 0x5d, 0x46, 0xd8, 0xb3, 0x92, 0x62}};
 
-// LibreOffice Persistent Handler Addin Registered Class ID
+// lofice Persistent Handler Addin Registered Class ID
 // {89BCB740-6119-101A-BCB7-00DD010655AF}
 const CLSID CLSID_PERSISTENT_HANDLER_ADDIN =
 {0x89bcb740, 0x6119, 0x101a, {0xbc, 0xb7, 0x00, 0xdd, 0x01, 0x06, 0x55, 0xaf}};
 
-// LibreOffice Filter Handler Class ID
+// lofice Filter Handler Class ID
 // {7BC0E710-5703-45be-A29D-5D46D8B39262}
 const CLSID CLSID_FILTER_HANDLER =
 {0x7bc0e710, 0x5703, 0x45be, {0xa2, 0x9d, 0x5d, 0x46, 0xd8, 0xb3, 0x92, 0x62}};
@@ -156,7 +156,7 @@ private:
 
 //C-------------------------------------------------------------------------
 //  Class:      COooFilterCF
-//  Purpose:    Implements class factory for LibreOffice filter
+//  Purpose:    Implements class factory for lofice filter
 
 
 class COooFilterCF : public IClassFactory

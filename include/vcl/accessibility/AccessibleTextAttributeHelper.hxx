@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -33,7 +33,7 @@ template <class interface_type> class Reference;
 }
 
 /**
- * According to the IAccessible2 specification, some of the attributes that LibreOffice
+ * According to the IAccessible2 specification, some of the attributes that lofice
  * handles as text attributes are mapped to IAccessible2 text attributes as well,
  * but others should be reported as object attributes (e.g. text alignment is reported
  * via the "text-align" object attribute on the paragraph object).

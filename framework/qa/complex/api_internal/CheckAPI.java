@@ -1,5 +1,5 @@
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -40,8 +40,8 @@ import com.sun.star.task.XJob;
 import com.sun.star.uno.UnoRuntime;
 
 /**
- * This test executes the API tests internally in LibreOffice. Prerequisite is
- * that an OOoRunner.jar is registered inside of LibreOffice. Adjust the joblist
+ * This test executes the API tests internally in lofice. Prerequisite is
+ * that an OOoRunner.jar is registered inside of lofice. Adjust the joblist
  * inside of the CheckAPI.props to determine which tests will be executed.
  */
 public class CheckAPI  {

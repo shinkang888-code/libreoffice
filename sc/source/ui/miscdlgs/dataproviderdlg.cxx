@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -267,7 +267,7 @@ std::shared_ptr<sc::DataTransformation> ScSortTransformationControl::getTransfor
         // tdf#169515 The preview document does not show the sorted data. Reason: ShrinkToDataArea
         // fails. ToDo: Why?
         // Workaround: We use the size of the "internalhelper" database range instead. In case the
-        // user has defined a huge range, LibreOffice seems to hang. Thus the size is restricted here
+        // user has defined a huge range, lofice seems to hang. Thus the size is restricted here
         // although the preview does not show the final result in that case.
         ScDBCollection::NamedDBs& rLocalDBs = mpDoc->GetDBCollection()->getNamedDBs();
         ScDBData* pDB = rLocalDBs.findByName(u"internalhelper"_ustr);

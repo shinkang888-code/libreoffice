@@ -1,3 +1,3 @@
-# Embedding Objects Into LibreOffice
+# Embedding Objects Into lofice
 
-Code for embedding objects into LibreOffice (reverse of `embedserv` module).
+Code for embedding objects into lofice (reverse of `embedserv` module).

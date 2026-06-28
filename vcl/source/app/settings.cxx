@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -2363,13 +2363,13 @@ AppearanceMode MiscSettings::GetAppColorMode()
 
 void MiscSettings::SetAppColorMode(AppearanceMode eMode)
 {
-    // Partial: tdf#156855 update native and LibreOffice dark mode states
+    // Partial: tdf#156855 update native and lofice dark mode states
     // Updating the dark mode state of everything all at once does not
     // solve all failures to update colors when the light/dark mode
     // changes, but it eliminates enough failures that the UI is now
-    // generally readable without restarting LibreOffice.
+    // generally readable without restarting lofice.
     // Important: all of the following steps must be done. Otherwise,
-    // changing the macOS light/dark mode preference while LibreOffice
+    // changing the macOS light/dark mode preference while lofice
     // is running will cause the color mode state change to fail.
 
     // 1. Save the new mode.
@@ -2750,8 +2750,8 @@ const LanguageTag& AllSettings::GetLanguageTag() const
         return aRet;
     }
 
-    if (comphelper::LibreOfficeKit::isActive())
-        return comphelper::LibreOfficeKit::getLanguageTag();
+    if (comphelper::loficeKit::isActive())
+        return comphelper::loficeKit::getLanguageTag();
 
     assert(!mxData->maLocale.isSystemLocale());
 
@@ -2766,8 +2766,8 @@ const LanguageTag& AllSettings::GetUILanguageTag() const
         return aRet;
     }
 
-    if (comphelper::LibreOfficeKit::isActive())
-        return comphelper::LibreOfficeKit::getLanguageTag();
+    if (comphelper::loficeKit::isActive())
+        return comphelper::loficeKit::getLanguageTag();
 
     assert(!mxData->maUILocale.isSystemLocale());
 

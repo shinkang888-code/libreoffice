@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -88,8 +88,8 @@ core_constructor_list = [
     "com_sun_star_comp_chart2_ChartDocumentWrapper_get_implementation",
     "com_sun_star_comp_chart2_ChartFrameLoader_get_implementation",
     "com_sun_star_comp_chart2_WizardDialog_get_implementation",
-    "org_libreoffice_chart2_Chart2ToolboxController",
-    "org_libreoffice_comp_chart2_sidebar_ChartPanelFactory",
+    "org_lofice_chart2_Chart2ToolboxController",
+    "org_lofice_comp_chart2_sidebar_ChartPanelFactory",
 # comphelper/util/comphelp.component
     "com_sun_star_comp_MemoryStream",
     "com_sun_star_comp_task_OfficeRestartManager",
@@ -932,11 +932,11 @@ print ("""
 
 if options.java:
     print ("""
-    extern void Java_org_libreoffice_kit_LibreOfficeKit_initializeNative();
-    volatile void *p = (void *) Java_org_libreoffice_kit_LibreOfficeKit_initializeNative;
+    extern void Java_org_lofice_kit_loficeKit_initializeNative();
+    volatile void *p = (void *) Java_org_lofice_kit_loficeKit_initializeNative;
 
-    extern void Java_org_libreoffice_kit_Office_getError();
-    p = (void *) Java_org_libreoffice_kit_Office_getError;
+    extern void Java_org_lofice_kit_Office_getError();
+    p = (void *) Java_org_lofice_kit_Office_getError;
 
     """)
 
