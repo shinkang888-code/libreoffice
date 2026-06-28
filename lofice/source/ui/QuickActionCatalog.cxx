@@ -156,8 +156,8 @@ std::vector<QuickActionDef> getQuickActionsForApp(LoficeAppKind eKind)
         if (aResult.size() >= kMaxQuickActionSlots)
             break;
 
-        const bool bUniversal = (rDef.scope & QuickActionScope::Universal) != QuickActionScope{};
-        const bool bAppMatch = (rDef.scope & eAppScope) != QuickActionScope{};
+        const bool bUniversal = rDef.scope & QuickActionScope::Universal;
+        const bool bAppMatch = rDef.scope & eAppScope;
         if (bUniversal || bAppMatch || eKind == LoficeAppKind::Generic)
             aResult.push_back(rDef);
     }

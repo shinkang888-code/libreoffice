@@ -128,10 +128,6 @@ public:
 
 private:
 
-    class WorkerSink final;
-
-
-
     void joinThreadLocked();
 
     void postUiEvent(std::unique_ptr<AiStreamEventPayload> pPayload);

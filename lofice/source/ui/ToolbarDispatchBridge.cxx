@@ -71,7 +71,7 @@ void ToolbarDispatchBridge::invalidateBindings()
 {
     SolarMutexGuard aGuard;
     if (m_pBindings)
-        m_pBindings->Invalidate();
+        m_pBindings->InvalidateAll(false);
 }
 
 } // namespace lofice::ui

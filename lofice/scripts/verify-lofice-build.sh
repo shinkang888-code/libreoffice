@@ -51,8 +51,14 @@ if [[ ! -f "$ROOT/instdir/program/libsal_textenclo.so" ]]; then
 fi
 
 echo "==> make officecfg (Lofice headers)"
-rm -f "$ROOT/workdir/CustomTarget/officecfg/registry/officecfg/Office/Lofice.hxx" 2>/dev/null || true
+LOFICE_HXX="$ROOT/workdir/CustomTarget/officecfg/registry/officecfg/Office/Lofice.hxx"
+rm -f "$LOFICE_HXX" 2>/dev/null || true
+touch "$ROOT/officecfg/registry/schema/org/openoffice/Office/Lofice.xcs"
 make -j"${JOBS}" officecfg
+if [[ ! -f "$LOFICE_HXX" ]]; then
+  echo "ERROR: $LOFICE_HXX not generated — check officecfg/registry and xsltproc" >&2
+  exit 1
+fi
 
 echo "==> make lofice"
 make -j"${JOBS}" lofice
