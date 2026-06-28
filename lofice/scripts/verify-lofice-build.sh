@@ -16,17 +16,39 @@ if [[ "${ENABLE_CURL:-}" != "YES" ]]; then
   echo "WARN: ENABLE_CURL is not YES — lofice HTTP/RAG transport may be stubbed." >&2
 fi
 
-# WSL/CI often runs as root; LibreOffice Makefile requires container=1.
 if [[ "$(id -u)" -eq 0 ]] && [[ -z "${container:-}" ]]; then
   export container=1
   echo "WARN: building as root — container=1 (LibreOffice CI/WSL)"
 fi
 
+if [[ -f autogen.lastrun ]] && grep -q '^--quick' autogen.lastrun 2>/dev/null; then
+  echo "WARN: removing invalid autogen.lastrun (--quick)"
+  rm -f autogen.lastrun
+fi
+
+# First run on persistent runner: full tree warm-up (no cppumaker yet).
+if [[ ! -x "$ROOT/instdir/sdk/bin/cppumaker" ]]; then
+  echo "Cold build tree — running bootstrap-cold-build.sh"
+  bash "$(dirname "$0")/bootstrap-cold-build.sh"
+fi
+
 JOBS="${LOFICE_BUILD_JOBS:-$(nproc)}"
 
-# Cold trees: build solenv tools (concat-deps, etc.) before parallel module builds.
+bootstrap_module() {
+  local target="$1"
+  echo "==> bootstrap: ${target}"
+  make -j"${JOBS}" "${target}"
+}
+
 echo "==> bootstrap: solenv fetch (serial warm-up)"
 make -j1 solenv fetch
+
+# sal plugin libsal_textenclo.so (DLLPOSTFIX=lo) for lofice link/runtime deps
+if [[ ! -f "$ROOT/instdir/program/libsal_textenclo.so" ]]; then
+  for target in dragonbox fast_float cppunit boost sal; do
+    bootstrap_module "${target}"
+  done
+fi
 
 echo "==> make officecfg"
 make -j"${JOBS}" officecfg
