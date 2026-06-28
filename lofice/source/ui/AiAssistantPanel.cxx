@@ -34,8 +34,17 @@
 
 #include <algorithm>
 #include <chrono>
+#include <string_view>
 
 using namespace css;
+
+namespace
+{
+OUString loficeUtf8ToOUString(std::string_view rUtf8)
+{
+    return OStringToOUString(OString(rUtf8), RTL_TEXTENCODING_UTF8);
+}
+} // namespace
 
 namespace lofice::ui
 {
@@ -277,10 +286,7 @@ void AiAssistantPanel::setupQuickActionGrid(LoficeAppKind eApp)
             m_aQuickActionCommands[i] = OUString(rDef.unoCommand);
             if (!rDef.aiPrompt.empty())
             {
-                m_aQuickActionPrompts[i] = OStringToOUString(
-                    OString(rDef.aiPrompt.data(), static_cast<sal_Int32>(rDef.aiPrompt.size()),
-                        RTL_TEXTENCODING_UTF8),
-                    RTL_TEXTENCODING_UTF8);
+                m_aQuickActionPrompts[i] = loficeUtf8ToOUString(rDef.aiPrompt);
             }
             m_aQuickActionButtons[i]->set_label(OUString(rDef.label));
             m_aQuickActionButtons[i]->set_tooltip_text(m_aQuickActionPrompts[i].isEmpty()
@@ -317,10 +323,7 @@ void AiAssistantPanel::fillPromptFromQuickAction(std::string_view rAiPromptUtf8)
     if (rAiPromptUtf8.empty())
         return;
 
-    m_xPromptText->set_text(OStringToOUString(
-        OString(rAiPromptUtf8.data(), static_cast<sal_Int32>(rAiPromptUtf8.size()),
-            RTL_TEXTENCODING_UTF8),
-        RTL_TEXTENCODING_UTF8));
+    m_xPromptText->set_text(loficeUtf8ToOUString(rAiPromptUtf8));
 }
 
 bool AiAssistantPanel::isAsyncBusy() const
@@ -374,9 +377,7 @@ void AiAssistantPanel::appendResponseToken(std::string_view rToken)
         return;
 
     OUString aCurrent = m_xResponseText->get_text();
-    aCurrent += OStringToOUString(
-        OString(rToken.data(), static_cast<sal_Int32>(rToken.size()), RTL_TEXTENCODING_UTF8),
-        RTL_TEXTENCODING_UTF8);
+    aCurrent += loficeUtf8ToOUString(rToken);
     m_xResponseText->set_text(aCurrent);
 }
 
@@ -432,10 +433,7 @@ void AiAssistantPanel::handleStreamFinished(bool bSuccess, std::string_view rErr
 
     if (!rErrorDetail.empty())
     {
-        appendResponseLine(u"[오류] "_ustr + OStringToOUString(
-            OString(rErrorDetail.data(), static_cast<sal_Int32>(rErrorDetail.size()),
-                RTL_TEXTENCODING_UTF8),
-            RTL_TEXTENCODING_UTF8));
+        appendResponseLine(u"[오류] "_ustr + loficeUtf8ToOUString(rErrorDetail));
     }
     setStatus(u"AI 요청 실패 (외부 API)"_ustr);
 }
@@ -445,10 +443,7 @@ void AiAssistantPanel::handlePromptFinished(
 {
     if (bSuccess)
     {
-        m_xResponseText->set_text(OStringToOUString(
-            OString(rResponseUtf8.data(), static_cast<sal_Int32>(rResponseUtf8.size()),
-                RTL_TEXTENCODING_UTF8),
-            RTL_TEXTENCODING_UTF8));
+        m_xResponseText->set_text(loficeUtf8ToOUString(rResponseUtf8));
         if (!m_aPendingUserPrompt.empty())
             commitConversationTurn(m_aPendingUserPrompt);
         m_aPendingUserPrompt.clear();
@@ -474,10 +469,7 @@ void AiAssistantPanel::handlePromptFinished(
 
     if (!rResponseUtf8.empty())
     {
-        m_xResponseText->set_text(OStringToOUString(
-            OString(rResponseUtf8.data(), static_cast<sal_Int32>(rResponseUtf8.size()),
-                RTL_TEXTENCODING_UTF8),
-            RTL_TEXTENCODING_UTF8));
+        m_xResponseText->set_text(loficeUtf8ToOUString(rResponseUtf8));
     }
     setStatus(u"AI 요청 실패"_ustr);
 }
@@ -505,10 +497,7 @@ void AiAssistantPanel::restoreLastResponseFromHistory()
     if (!m_aConversation.lastAssistantMessage(aLastAssistant))
         return;
 
-    m_xResponseText->set_text(OStringToOUString(
-        OString(aLastAssistant.c_str(), static_cast<sal_Int32>(aLastAssistant.size()),
-            RTL_TEXTENCODING_UTF8),
-        RTL_TEXTENCODING_UTF8));
+    m_xResponseText->set_text(loficeUtf8ToOUString(aLastAssistant));
 }
 
 lofice::ai::AiPromptRequest AiAssistantPanel::buildPromptRequest(
@@ -722,10 +711,7 @@ IMPL_LINK(AiAssistantPanel, OnAsyncStreamEvent, void*, pData, void)
     switch (pPayload->kind)
     {
         case lofice::ai::AiStreamEventKind::Status:
-            setStatus(OStringToOUString(
-                OString(pPayload->text.c_str(), static_cast<sal_Int32>(pPayload->text.size()),
-                    RTL_TEXTENCODING_UTF8),
-                RTL_TEXTENCODING_UTF8));
+            setStatus(loficeUtf8ToOUString(pPayload->text));
             break;
         case lofice::ai::AiStreamEventKind::Token:
             appendResponseToken(pPayload->text);
@@ -755,10 +741,7 @@ IMPL_LINK(AiAssistantPanel, OnAsyncPromptEvent, void*, pData, void)
     switch (pPayload->kind)
     {
         case lofice::ai::AiStreamEventKind::Status:
-            setStatus(OStringToOUString(
-                OString(pPayload->text.c_str(), static_cast<sal_Int32>(pPayload->text.size()),
-                    RTL_TEXTENCODING_UTF8),
-                RTL_TEXTENCODING_UTF8));
+            setStatus(loficeUtf8ToOUString(pPayload->text));
             break;
         case lofice::ai::AiStreamEventKind::Token:
             appendResponseToken(pPayload->text);
@@ -800,11 +783,8 @@ IMPL_LINK(AiAssistantPanel, OnAsyncRagEvent, void*, pData, void)
     }
 
     const std::string& rContext = pPayload->context;
-    const OUString aPreview = OStringToOUString(
-        OString(rContext.c_str(),
-            static_cast<sal_Int32>(std::min(rContext.size(), std::size_t{1200})),
-            RTL_TEXTENCODING_UTF8),
-        RTL_TEXTENCODING_UTF8);
+    const OUString aPreview = loficeUtf8ToOUString(std::string_view(
+        rContext.data(), std::min(rContext.size(), std::size_t{ 1200 })));
     m_xResponseText->set_text(u"[RAG 테스트]\n"_ustr + aPreview);
     setStatus(u"RAG 테스트 성공 — 컨텍스트 "_ustr
         + OUString::number(static_cast<sal_Int32>(rContext.size())) + u"자"_ustr);
