@@ -7,3 +7,4 @@ libreofficekit/qa/gtktiledviewer/gtv.ui://GtkComboBoxText[@id='combo_partsmodese
 libreofficekit/qa/gtktiledviewer/gtv.ui://GtkComboBoxText[@id='combo_recentunoselector'] no-labelled-by
 libreofficekit/qa/gtktiledviewer/gtv.ui://GtkEntry[@id='addressbar_entry'] no-labelled-by
 libreofficekit/qa/gtktiledviewer/gtv.ui://GtkEntry[@id='formulabar_entry'] no-labelled-by
+libreofficekit/qa/gtktiledviewer/gtv.ui://GtkCalendar[@id='date'] no-labelled-by
