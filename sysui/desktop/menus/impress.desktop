@@ -1,5 +1,5 @@
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -30,7 +30,7 @@ StartupNotify=true
 X-GIO-NoFuse=true
 Keywords=Slideshow;Slides;OpenDocument Presentation;Microsoft PowerPoint;Microsoft Works;OpenOffice Impress;odp;ppt;pptx;
 InitialPreference=5
-StartupWMClass=libreoffice-impress
+StartupWMClass=lofice-impress
 X-KDE-Protocols=file,http,webdav,webdavs
 
 Actions=NewDocument;

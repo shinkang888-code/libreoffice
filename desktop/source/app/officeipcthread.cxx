@@ -1,6 +1,6 @@
-/* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
+﻿/* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -445,7 +445,7 @@ RequestHandler::Status DbusIpcThread::enable(rtl::Reference<IpcThread> * thread)
     }
     for (;;) {
         int n = dbus_bus_request_name(
-            con.connection, "org.libreoffice.LibreOfficeIpc0",
+            con.connection, "org.libreoffice.loficeIpc0",
             DBUS_NAME_FLAG_DO_NOT_QUEUE, &e);
         assert((n == -1) == bool(dbus_error_is_set(&e)));
         switch (n) {
@@ -478,9 +478,9 @@ RequestHandler::Status DbusIpcThread::enable(rtl::Reference<IpcThread> * thread)
                 char const * argstr = buf.getStr();
                 DbusMessageHolder msg(
                     dbus_message_new_method_call(
-                        "org.libreoffice.LibreOfficeIpc0",
-                        "/org/libreoffice/LibreOfficeIpc0",
-                        "org.libreoffice.LibreOfficeIpcIfc0", "Execute"));
+                        "org.libreoffice.loficeIpc0",
+                        "/org/lofice/loficeIpc0",
+                        "org.libreoffice.loficeIpcIfc0", "Execute"));
                 if (msg.message == nullptr) {
                     SAL_WARN(
                         "desktop.app", "dbus_message_new_method_call failed");
@@ -543,7 +543,7 @@ void DbusIpcThread::execute()
                 break;
             }
             if (!dbus_message_is_method_call(
-                    msg.message, "org.libreoffice.LibreOfficeIpcIfc0",
+                    msg.message, "org.libreoffice.loficeIpcIfc0",
                     "Execute"))
             {
                 SAL_INFO("desktop.app", "unknown DBus message ignored");

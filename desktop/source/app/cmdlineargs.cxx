@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -71,7 +71,7 @@ class ExtCommandLineSupplier: public CommandLineArgs::Supplier {
 public:
     explicit ExtCommandLineSupplier():
         m_count(
-            comphelper::LibreOfficeKit::isActive()
+            comphelper::loficeKit::isActive()
             ? 0 : rtl_getAppCommandArgCount()),
         m_index(0)
     {
@@ -113,7 +113,7 @@ CommandLineEvent CheckOfficeURI(/* in,out */ OUString& arg, CommandLineEvent cur
 {
     // 1. Strip the scheme name
     OUString rest1;
-    bool isOfficeURI = ( arg.startsWithIgnoreAsciiCase("vnd.libreoffice.command:", &rest1) // Proposed extended schema
+    bool isOfficeURI = ( arg.startsWithIgnoreAsciiCase("vnd.lofice.command:", &rest1) // Proposed extended schema
                       || arg.startsWithIgnoreAsciiCase("ms-word:",                 &rest1)
                       || arg.startsWithIgnoreAsciiCase("ms-powerpoint:",           &rest1)
                       || arg.startsWithIgnoreAsciiCase("ms-excel:",                &rest1)
@@ -440,7 +440,7 @@ void CommandLineArgs::ParseCommandLine_Impl( Supplier& supplier )
 #endif
 #ifdef _WIN32
             /* fdo#57203 ignore -Embedding on Windows
-               when LibreOffice is launched by COM+
+               when lofice is launched by COM+
             */
             else if ( oArg == "Embedding" )
             {

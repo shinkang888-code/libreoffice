@@ -1,5 +1,5 @@
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,7 +18,7 @@
 
 #include "macros.inc"
 
-FolderItem gid_Folderitem_LibreOffice
+FolderItem gid_Folderitem_lofice
     Name = "%PRODUCTNAME";
     ModuleID = gid_Module_Root;
 #ifdef ENABLE_SILENT_MSI
@@ -35,10 +35,10 @@ FolderItem gid_Folderitem_LibreOffice
     ALL_LANG(Tooltip, STR_FI_TOOLTIP_SOFFICE);
 End
 
-FolderItemProperty gid_Fip_LibreOffice_AppID
-    ShortcutID = gid_Folderitem_LibreOffice;
+FolderItemProperty gid_Fip_lofice_AppID
+    ShortcutID = gid_Folderitem_lofice;
     Key = "System.AppUserModel.ID";
-    Value = "TheDocumentFoundation.LibreOffice.Startcenter";
+    Value = "TheDocumentFoundation.lofice.Startcenter";
 End
 
 FolderItem gid_Folderitem_Soffice_Desktop
@@ -63,10 +63,10 @@ End
 FolderItemProperty gid_Fip_Soffice_Desktop_AppID
     ShortcutID = gid_Folderitem_Soffice_Desktop;
     Key = "System.AppUserModel.ID";
-    Value = "TheDocumentFoundation.LibreOffice.Startcenter";
+    Value = "TheDocumentFoundation.lofice.Startcenter";
 End
 
-FolderItem gid_Folderitem_LibreOffice_SafeMode
+FolderItem gid_Folderitem_lofice_SafeMode
     ALL_LANG(Name, STR_FI_NAME_SAFEMODE);
     ModuleID = gid_Module_Root;
 #ifdef ENABLE_SILENT_MSI
@@ -83,8 +83,8 @@ FolderItem gid_Folderitem_LibreOffice_SafeMode
     ALL_LANG(Tooltip, STR_FI_TOOLTIP_SOFFICE);
 End
 
-FolderItemProperty gid_Fip_LibreOffice_SafeMode
-    ShortcutID = gid_Folderitem_LibreOffice_SafeMode;
+FolderItemProperty gid_Fip_lofice_SafeMode
+    ShortcutID = gid_Folderitem_lofice_SafeMode;
     Key = "System.AppUserModel.ID";
-    Value = "TheDocumentFoundation.LibreOffice.SafeMode";
+    Value = "TheDocumentFoundation.lofice.SafeMode";
 End

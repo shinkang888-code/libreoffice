@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -688,7 +688,7 @@ void BackendImpl::PackageImpl::processPackage_(
             //No need for live-deployment for bundled extension, because OOo
             //restarts after installation
             if ((that->m_eContext != Context::Bundled && !startup)
-                 || comphelper::LibreOfficeKit::isActive())
+                 || comphelper::loficeKit::isActive())
             {
                 bool bIsSchema = m_isSchema;
                 // tdf#159790 prevent lock-ordering deadlock, the code below might acquire the solar mutex
@@ -717,7 +717,7 @@ void BackendImpl::PackageImpl::processPackage_(
 #if HAVE_FEATURE_EXTENSIONS
         if (!that->removeFromConfigmgrIni(m_isSchema, url, xCmdEnv) &&
             that->m_registeredPackages) {
-            // Obsolete package database handling - should be removed for LibreOffice 4.0
+            // Obsolete package database handling - should be removed for lofice 4.0
             t_string2string_map entries(
                 that->m_registeredPackages->getEntries());
             for (auto const& entry : entries)

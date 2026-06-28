@@ -43,6 +43,7 @@
 #include <comphelper/compbase.hxx>
 #include <cppuhelper/supportsservice.hxx>
 #include <officecfg/Office/Common.hxx>
+#include <lofice/ui/LoficePanelIntegration.hxx>
 
 
 using namespace css;
@@ -223,6 +224,10 @@ Reference<ui::XUIElement> SAL_CALL SwPanelFactory::createUIElement (
             = sw::sidebar::QuickFindPanel::Create(pParent, xFrame, pBindings);
         xElement = sfx2::sidebar::SidebarPanelBase::Create(rsResourceURL, xFrame, std::move(xPanel),
                                                            ui::LayoutSize(-1, -1, -1));
+    }
+    else if (rsResourceURL.endsWith("/AiAssistantPanel"))
+    {
+        xElement = lofice::ui::createAiAssistantSidebarPanel(rsResourceURL, rArguments);
     }
 
     return xElement;

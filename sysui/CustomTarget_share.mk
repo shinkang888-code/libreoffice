@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -163,17 +163,17 @@ $(share_WORKDIR)/%/create_tree.sh: $(share_SRCDIR)/share/create_tree.sh \
 ifneq ($(INTROSPECTION_SCANNER),)
 
 $(share_WORKDIR)/%/LOKDocView-0.1.gir: \
-		$(call gb_Library_get_target,libreofficekitgtk)
+		$(call gb_Library_get_target,loficekitgtk)
 	mkdir -p $(dir $@)
-	PYTHONWARNINGS=default g-ir-scanner "${SRCDIR}/include/LibreOfficeKit/LibreOfficeKitGtk.h" \
-				 "${SRCDIR}/libreofficekit/source/gtk/lokdocview.cxx" \
+	PYTHONWARNINGS=default g-ir-scanner "${SRCDIR}/include/loficeKit/loficeKitGtk.h" \
+				 "${SRCDIR}/loficekit/source/gtk/lokdocview.cxx" \
                  `${PKG_CONFIG} --cflags-only-I gobject-introspection-1.0 gtk+-3.0` \
 				 -I"${SRCDIR}/include/" \
                  --include=GLib-2.0 --include=GObject-2.0 --include=Gio-2.0 \
-                 --library=libreofficekitgtk --library-path="${INSTDIR}/program" \
+                 --library=loficekitgtk --library-path="${INSTDIR}/program" \
                  --include=Gdk-3.0 --include=GdkPixbuf-2.0 --include=Gtk-3.0 \
                  --namespace=LOKDocView --nsversion=0.1 --identifier-prefix=LOKDoc --symbol-prefix=lok_doc \
-                 --c-include="LibreOfficeKit/LibreOfficeKitGtk.h" \
+                 --c-include="loficeKit/loficeKitGtk.h" \
 				 --output="$@" --warn-all --no-libtool
 
 $(share_WORKDIR)/%/LOKDocView-0.1.typelib: $(share_WORKDIR)/%/LOKDocView-0.1.gir

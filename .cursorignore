@@ -1,0 +1,31 @@
+﻿# lofice / LibreOffice — Cursor hard block (secrets + build outputs)
+# https://cursor.com/docs/reference/ignore-file
+
+# Secrets
+.env.local
+**/.env
+**/.env.*
+**/credentials.json
+**/secrets.json
+**/*.key
+**/*.pem
+**/id_rsa
+
+# Build / configure outputs
+/workdir/
+/workdir_for_build/
+/instdir/
+/instdir_for_build/
+/buck-out/
+/test-install/
+/config_build/
+/in/
+/out/
+/autom4te.cache/
+/config.log
+/config.status
+/Makefile
+
+# Node / deploy artifacts (lofice)
+lofice/**/node_modules/
+lofice/rag-api/.vercel/

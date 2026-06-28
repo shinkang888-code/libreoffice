@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -166,7 +166,7 @@ static int child_get_exit_code(ChildInfo *info)
 
     if (osl_getProcessInfo(info->child, osl_Process_EXITCODE, &inf) != osl_Process_E_None)
     {
-        fprintf(stderr, "Warning: failed to fetch libreoffice exit status\n");
+        fprintf(stderr, "Warning: failed to fetch lofice exit status\n");
         return -1;
     }
 
@@ -560,7 +560,7 @@ static void system_checks(void)
     /* check proc is mounted - lots of things fail otherwise */
     if (stat("/proc/version", &buf) != 0)
     {
-        fprintf(stderr, "ERROR: /proc not mounted - LibreOffice is unlikely to work well if at all\n");
+        fprintf(stderr, "ERROR: /proc not mounted - lofice is unlikely to work well if at all\n");
         exit(1);
     }
 #endif

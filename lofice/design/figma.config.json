@@ -1,0 +1,42 @@
+{
+  "project": "lofice",
+  "figma": {
+    "planKey": "team::1610225395373160067",
+    "planName": "신강의 팀",
+    "tier": "pro",
+    "seatType": "expert",
+    "files": {
+      "designSystem": {
+        "fileKey": "8P6zGFeW9XsqlOhHAXOm9R",
+        "fileName": "lofice — AI Sidebar & Design System",
+        "url": "https://www.figma.com/design/8P6zGFeW9XsqlOhHAXOm9R/lofice-AI-Sidebar-Design-System",
+        "pages": {
+          "cover": "Cover",
+          "aiSidebar": "AI Sidebar",
+          "writerQuickActions": "Writer — Quick Actions",
+          "designTokens": "Design Tokens"
+        },
+        "nodes": {
+          "aiAssistantPanel": "1:6",
+          "gridSettingsExpanded": "6:2",
+          "writerAiAssistantPanel": "5:4",
+          "writerQuickActionSpec": "5:47"
+        }
+      }
+    }
+  },
+  "codeConnect": {
+    "enabled": true,
+    "mappings": [
+      {
+        "figmaNode": "AiAssistantPanel",
+        "source": "lofice/source/ui/AiAssistantPanel.cxx",
+        "uiResource": "lofice/uiconfig/modules/lofice/ui/sidebar_ai_assistant.ui"
+      }
+    ]
+  },
+  "cursorMcp": {
+    "server": "plugin-figma-figma",
+    "authenticatedEmail": "shinkang888@gmail.com"
+  }
+}

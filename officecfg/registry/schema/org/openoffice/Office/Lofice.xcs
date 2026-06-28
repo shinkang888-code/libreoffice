@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * lofice — AI settings schema
+ *
+ * Copyright (c) Lonex. Inc. All Rights Reserved.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ -->
+<!DOCTYPE oor:component-schema SYSTEM "../../../../component-schema.dtd">
+<oor:component-schema xmlns:oor="http://openoffice.org/2001/registry" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="en-US" oor:package="org.openoffice.Office" oor:name="Lofice">
+  <info>
+    <desc>lofice AI assistant and integration settings.</desc>
+  </info>
+  <templates>
+    <group oor:name="AiSettings">
+      <info>
+        <desc>HTTP endpoint and model settings for the lofice AI sidebar.</desc>
+      </info>
+      <prop oor:name="UseBuiltinAi" oor:type="xs:boolean" oor:nillable="false">
+        <info>
+          <desc>When true, use the built-in AI stub instead of an external endpoint.</desc>
+        </info>
+        <value>true</value>
+      </prop>
+      <prop oor:name="Endpoint" oor:type="xs:string">
+        <info>
+          <desc>OpenAI-compatible chat completions URL.</desc>
+        </info>
+        <value></value>
+      </prop>
+      <prop oor:name="ApiKey" oor:type="xs:string">
+        <info>
+          <desc>Bearer token for the external API.</desc>
+        </info>
+        <value></value>
+      </prop>
+      <prop oor:name="Model" oor:type="xs:string" oor:nillable="false">
+        <info>
+          <desc>Model name sent in the JSON request body.</desc>
+        </info>
+        <value>lofice-default</value>
+      </prop>
+      <prop oor:name="TimeoutSeconds" oor:type="xs:int" oor:nillable="false">
+        <info>
+          <desc>HTTP timeout in seconds (5–120).</desc>
+        </info>
+        <value>30</value>
+      </prop>
+      <prop oor:name="ChatHistoryJson" oor:type="xs:string">
+        <info>
+          <desc>Persisted multi-turn chat history as JSON array.</desc>
+        </info>
+        <value></value>
+      </prop>
+      <prop oor:name="UseRagContext" oor:type="xs:boolean" oor:nillable="false">
+        <info>
+          <desc>When true, fetch lofice codebase context from the RAG search server before each prompt.</desc>
+        </info>
+        <value>true</value>
+      </prop>
+      <prop oor:name="RagEndpoint" oor:type="xs:string">
+        <info>
+          <desc>HTTP URL for the RAG search API (GET /search?q=...&amp;mode=semantic).</desc>
+        </info>
+        <value>https://lofice-rag-api.vercel.app/search</value>
+      </prop>
+      <prop oor:name="RagTimeoutSeconds" oor:type="xs:int" oor:nillable="false">
+        <info>
+          <desc>RAG HTTP timeout in seconds (2–30).</desc>
+        </info>
+        <value>8</value>
+      </prop>
+      <prop oor:name="AutoSendQuickActionPrompt" oor:type="xs:boolean" oor:nillable="false">
+        <info>
+          <desc>When true, quick actions with an AI prompt auto-submit after filling the prompt field.</desc>
+        </info>
+        <value>true</value>
+      </prop>
+    </group>
+  </templates>
+  <component>
+    <group oor:name="AiSettings" oor:node-type="AiSettings">
+      <info>
+        <desc>User settings for lofice AI Assistant.</desc>
+      </info>
+    </group>
+  </component>
+</oor:component-schema>

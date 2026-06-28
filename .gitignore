@@ -202,3 +202,8 @@ gdb.txt
 
 # xml unit tests sometimes leave these lying around
 **/secmod.db
+.neon
+.env.local
+lofice/scripts/node_modules/
+lofice/rag-api/node_modules/
+lofice/rag-api/.vercel

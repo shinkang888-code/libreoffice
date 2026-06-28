@@ -1,5 +1,5 @@
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -208,7 +208,7 @@ RegistryItem gid_Regitem_Software_Microsoft_Windows_Currentversion_Uninstall_Sta
     ModuleID = gid_Module_Root;
     Subkey = "Software\Microsoft\Windows\CurrentVersion\Uninstall\%PRODUCTNAME %PRODUCTVERSION";
     Name = "HelpLink";
-    Value = "http://www.libreoffice.org";
+    Value = "http://www.lofice.org";
 End
 
 RegistryItem gid_Regitem_Software_Microsoft_Windows_Currentversion_Uninstall_Staroffice_Modifypath
@@ -224,7 +224,7 @@ RegistryItem gid_Regitem_Software_Microsoft_Windows_Currentversion_Uninstall_Sta
     ModuleID = gid_Module_Root;
     Subkey = "Software\Microsoft\Windows\CurrentVersion\Uninstall\%PRODUCTNAME %PRODUCTVERSION";
     Name = "Publisher";
-    Value = "The Document Foundation for the LibreOffice Community";
+    Value = "Lonex. Inc for the lofice Community";
 End
 
 RegistryItem gid_Regitem_Software_Microsoft_Windows_Currentversion_Uninstall_Staroffice_Uninstallstring
@@ -240,7 +240,7 @@ RegistryItem gid_Regitem_Software_Microsoft_Windows_Currentversion_Uninstall_Sta
     ModuleID = gid_Module_Root;
     Subkey = "Software\Microsoft\Windows\CurrentVersion\Uninstall\%PRODUCTNAME %PRODUCTVERSION";
     Name = "URLInfoAbout";
-    Value = "http://www.libreoffice.org/";
+    Value = "http://www.lofice.org/";
 End
 
 RegistryItem gid_Regitem_Software_Microsoft_Windows_Currentversion_Uninstall_Staroffice_Urlupdateinfo
@@ -248,12 +248,12 @@ RegistryItem gid_Regitem_Software_Microsoft_Windows_Currentversion_Uninstall_Sta
     ModuleID = gid_Module_Root;
     Subkey = "Software\Microsoft\Windows\CurrentVersion\Uninstall\%PRODUCTNAME %PRODUCTVERSION";
     Name = "URLUpdateInfo";
-    Value = "http://download.libreoffice.org";
+    Value = "http://download.lofice.org";
 End
 
 RegistryItem gid_Regitem_Software_Openoffice_Productname_Productversion_Path
 	ParentID = PREDEFINED_HKEY_LOCAL_MACHINE;
-    Subkey = "Software\LibreOffice\%PRODUCTNAME\%PRODUCTVERSION";
+    Subkey = "Software\lofice\%PRODUCTNAME\%PRODUCTVERSION";
 	ModuleID = gid_Module_Root;
 	Name = "Path";
 	Value = "<progpath>\program\soffice.exe";
@@ -279,7 +279,7 @@ End
 
 RegistryItem gid_Regitem_Software_OpenOfficeorg_Ooobaseversion_Install
 	ParentID = PREDEFINED_HKEY_LOCAL_MACHINE;
-    Subkey = "Software\LibreOffice\${REGISTRYLAYERNAME}\%PRODUCTNAME\%BRANDPACKAGEVERSION";
+    Subkey = "Software\lofice\${REGISTRYLAYERNAME}\%PRODUCTNAME\%BRANDPACKAGEVERSION";
 	ModuleID = gid_Module_Root;
 	Name = "INSTALLLOCATION";
 	Value = "[INSTALLLOCATION]";
@@ -324,7 +324,7 @@ End
 
 RegistryItem gid_Regitem_Software_OpenOfficeorg_Ooobaseversion_Officeinstall
 	ParentID = PREDEFINED_HKEY_LOCAL_MACHINE;
-    Subkey = "Software\LibreOffice\${REGISTRYLAYERNAME}\%PRODUCTNAME\%BRANDPACKAGEVERSION";
+    Subkey = "Software\lofice\${REGISTRYLAYERNAME}\%PRODUCTNAME\%BRANDPACKAGEVERSION";
 	ModuleID = gid_Module_Root;
 	Name = "OFFICEINSTALLLOCATION";
 	Value = "[INSTALLLOCATION]";
@@ -351,7 +351,7 @@ End
 
 RegistryItem gid_Regitem_Software_OpenOfficeorg_Ooobaseversion_Basisinstall
 	ParentID = PREDEFINED_HKEY_LOCAL_MACHINE;
-    Subkey = "Software\LibreOffice\${REGISTRYLAYERNAME}\Basis\%PRODUCTVERSION";
+    Subkey = "Software\lofice\${REGISTRYLAYERNAME}\Basis\%PRODUCTVERSION";
 	ModuleID = gid_Module_Root;
 	Name = "BASISINSTALLLOCATION";
 	Value = "[INSTALLLOCATION]";
@@ -360,7 +360,7 @@ End
 
 RegistryItem gid_Regitem_Software_OpenOfficeorg_Ooobaseversion_Layer_Basisinstall
 	ParentID = PREDEFINED_HKEY_LOCAL_MACHINE;
-    Subkey = "Software\LibreOffice\${REGISTRYLAYERNAME}\%PRODUCTNAME\%BRANDPACKAGEVERSION";
+    Subkey = "Software\lofice\${REGISTRYLAYERNAME}\%PRODUCTNAME\%BRANDPACKAGEVERSION";
 	ModuleID = gid_Module_Root;
 	Name = "BASISINSTALLLOCATION";
 	Value = "[INSTALLLOCATION]";
@@ -387,7 +387,7 @@ End
 
 RegistryItem gid_Regitem_Software_OpenOfficeorg_Ooobaseversion_Ureinstall
 	ParentID = PREDEFINED_HKEY_LOCAL_MACHINE;
-    Subkey = "Software\LibreOffice\${REGISTRYLAYERNAME}\URE\%URELAYERVERSION";
+    Subkey = "Software\lofice\${REGISTRYLAYERNAME}\URE\%URELAYERVERSION";
 	ModuleID = gid_Module_Root;
 	Name = "UREINSTALLLOCATION";
 	Value = "[INSTALLLOCATION]URE\\";
@@ -396,7 +396,7 @@ End
 
 RegistryItem gid_Regitem_Software_OpenOfficeorg_Ooobaseversion_Layer_Ureinstall
 	ParentID = PREDEFINED_HKEY_LOCAL_MACHINE;
-    Subkey = "Software\LibreOffice\${REGISTRYLAYERNAME}\%PRODUCTNAME\%BRANDPACKAGEVERSION";
+    Subkey = "Software\lofice\${REGISTRYLAYERNAME}\%PRODUCTNAME\%BRANDPACKAGEVERSION";
 	ModuleID = gid_Module_Root;
 	Name = "UREINSTALLLOCATION";
 	Value = "[INSTALLLOCATION]URE\\";
@@ -519,14 +519,14 @@ End
 
 RegistryItem gid_Regitem_Software_Openofficeorg_Uno_Installpath
     ParentID = PREDEFINED_HKEY_LOCAL_MACHINE;
-    Subkey = "Software\LibreOffice\UNO\InstallPath";
+    Subkey = "Software\lofice\UNO\InstallPath";
     ModuleID = gid_Module_Root;
     Value  = "<progpath>\program";
 End
 
 RegistryItem gid_Regitem_Software_Openofficeorg_Uno_Installpath_Branded
     ParentID = PREDEFINED_HKEY_LOCAL_MACHINE;
-    Subkey = "Software\LibreOffice\UNO\InstallPath";
+    Subkey = "Software\lofice\UNO\InstallPath";
     ModuleID = gid_Module_Root;
     Name = "%PRODUCTNAME %PRODUCTVERSION";
     Value  = "<progpath>\program";
@@ -677,6 +677,6 @@ RegistryItem gid_Regitem_Software_RegisteredApplications
 	Styles = ();
 End
 
-// registering vnd.libreoffice.command URI scheme handler
-REGISTER_URI_HANDLER( vnd.libreoffice.command, vnd_libreoffice_command, gid_Module_Root )
-REGISTRY_ENTRY_CAPABILITIES_URL(vnd.libreoffice.command, vnd_libreoffice_command, gid_Module_Root, vnd.libreoffice.command)
+// registering vnd.lofice.command URI scheme handler
+REGISTER_URI_HANDLER( vnd.lofice.command, vnd_lofice_command, gid_Module_Root )
+REGISTRY_ENTRY_CAPABILITIES_URL(vnd.lofice.command, vnd_lofice_command, gid_Module_Root, vnd.lofice.command)

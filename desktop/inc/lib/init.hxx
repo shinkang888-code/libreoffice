@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -23,8 +23,8 @@
 #include <osl/thread.h>
 #include <rtl/ref.hxx>
 #include <rtl/strbuf.hxx>
-#include <LibreOfficeKit/LibreOfficeKit.h>
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKit.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <com/sun/star/beans/PropertyValue.hpp>
 #include <com/sun/star/lang/XComponent.hpp>
 #include <tools/gen.hxx>
@@ -96,9 +96,9 @@ namespace desktop {
     class SAL_DLLPUBLIC_RTTI CallbackFlushHandler final : public SfxLokCallbackInterface
     {
     public:
-        DESKTOP_DLLPUBLIC explicit CallbackFlushHandler(LibreOfficeKitDocument* pDocument, LibreOfficeKitCallback pCallback, void* pData);
+        DESKTOP_DLLPUBLIC explicit CallbackFlushHandler(loficeKitDocument* pDocument, loficeKitCallback pCallback, void* pData);
         DESKTOP_DLLPUBLIC virtual ~CallbackFlushHandler() override;
-        // TODO This should be dropped and the binary libreOfficeKitViewCallback() variants should be called?
+        // TODO This should be dropped and the binary loficeKitViewCallback() variants should be called?
         DESKTOP_DLLPUBLIC void queue(const int type, const OString& data);
 
         /// Disables callbacks on this handler. Must match with identical count
@@ -127,12 +127,12 @@ namespace desktop {
         }
 
         // SfxLockCallbackInterface
-        virtual void libreOfficeKitViewCallback(int nType, const OString& pPayload) override;
-        virtual void libreOfficeKitViewCallbackWithViewId(int nType, const OString& pPayload, int nViewId) override;
-        DESKTOP_DLLPUBLIC virtual void libreOfficeKitViewInvalidateTilesCallback(const tools::Rectangle* pRect, int nPart, int nMode) override;
-        virtual void libreOfficeKitViewUpdatedCallback(int nType) override;
-        virtual void libreOfficeKitViewUpdatedCallbackPerViewId(int nType, int nViewId, int nSourceViewId) override;
-        virtual void libreOfficeKitViewAddPendingInvalidateTiles() override;
+        virtual void loficeKitViewCallback(int nType, const OString& pPayload) override;
+        virtual void loficeKitViewCallbackWithViewId(int nType, const OString& pPayload, int nViewId) override;
+        DESKTOP_DLLPUBLIC virtual void loficeKitViewInvalidateTilesCallback(const tools::Rectangle* pRect, int nPart, int nMode) override;
+        virtual void loficeKitViewUpdatedCallback(int nType) override;
+        virtual void loficeKitViewUpdatedCallbackPerViewId(int nType, int nViewId, int nSourceViewId) override;
+        virtual void loficeKitViewAddPendingInvalidateTiles() override;
         virtual void dumpState(rtl::OStringBuffer &rState) override;
 
     private:
@@ -227,8 +227,8 @@ namespace desktop {
         // For some types only the last message matters (see isUpdatedType()) or only the last message
         // per each viewId value matters (see isUpdatedTypePerViewId()), so instead of using push model
         // where we'd get flooded by repeated messages (which might be costly to generate and process),
-        // the preferred way is that libreOfficeKitViewUpdatedCallback()
-        // or libreOfficeKitViewUpdatedCallbackPerViewId() get called to notify about such a message being
+        // the preferred way is that loficeKitViewUpdatedCallback()
+        // or loficeKitViewUpdatedCallbackPerViewId() get called to notify about such a message being
         // needed, and we'll set a flag here to fetch the actual message before flushing.
         void setUpdatedType( int nType, bool value );
         void setUpdatedTypePerViewId( int nType, int nViewId, int nSourceViewId, bool value );
@@ -243,10 +243,10 @@ namespace desktop {
         // Flat_map is used in preference to unordered_map because the map is accessed very often.
         boost::container::flat_map<int, std::vector<PerViewIdData>> m_updatedTypesPerViewId; // key is view, index is type
 
-        LibreOfficeKitDocument* m_pDocument;
+        loficeKitDocument* m_pDocument;
         OString m_aViewRenderState;
         int m_viewId = -1; // view id of the associated SfxViewShell
-        LibreOfficeKitCallback m_pCallback;
+        loficeKitCallback m_pCallback;
         ImplSVEvent* m_pFlushEvent;
         void *m_pData;
         int m_nDisableCallbacks;
@@ -266,10 +266,10 @@ namespace desktop {
         DECL_LINK(IdleHdl, Timer*, void);
     };
 
-    struct DESKTOP_DLLPUBLIC LibLODocument_Impl : public LibreOfficeKitDocument
+    struct DESKTOP_DLLPUBLIC LibLODocument_Impl : public loficeKitDocument
     {
         css::uno::Reference<css::lang::XComponent> mxComponent;
-        std::shared_ptr< LibreOfficeKitDocumentClass > m_pDocumentClass;
+        std::shared_ptr< loficeKitDocumentClass > m_pDocumentClass;
         std::map<size_t, std::shared_ptr<CallbackFlushHandler>> mpCallbackFlushHandlers;
         const int mnDocumentId;
         WaitUntilIdle maIdleHelper;
@@ -282,20 +282,20 @@ namespace desktop {
         void updateViewsForPaintedTile(int nOrigViewId, int nPart, int nMode, const tools::Rectangle& rRectangle);
     };
 
-    struct DESKTOP_DLLPUBLIC LibLibreOffice_Impl : public LibreOfficeKit
+    struct DESKTOP_DLLPUBLIC Liblofice_Impl : public loficeKit
     {
         OUString maLastExceptionMsg;
-        std::shared_ptr< LibreOfficeKitClass > m_pOfficeClass;
+        std::shared_ptr< loficeKitClass > m_pOfficeClass;
         oslThread maThread;
-        LibreOfficeKitCallback mpCallback;
+        loficeKitCallback mpCallback;
         void *mpCallbackData;
         int64_t mOptionalFeatures;
         std::map<OString, rtl::Reference<LOKInteractionHandler>> mInteractionMap;
 
-        LibLibreOffice_Impl();
-        ~LibLibreOffice_Impl();
+        Liblofice_Impl();
+        ~Liblofice_Impl();
 
-        bool hasOptionalFeature(LibreOfficeKitOptionalFeatures const feature)
+        bool hasOptionalFeature(loficeKitOptionalFeatures const feature)
         {
             return (mOptionalFeatures & feature) != 0;
         }

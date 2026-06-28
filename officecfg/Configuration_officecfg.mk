@@ -152,6 +152,7 @@ $(eval $(call gb_Configuration_add_localized_datas,registry,officecfg/registry/d
 	$(if $(ENABLE_WASM_STRIP_BASIC_DRAW_MATH_IMPRESS),, \
 	    org/openoffice/Office/PresentationMinimizer.xcu \
 	    org/openoffice/Office/PresenterScreen.xcu) \
+	org/openoffice/Office/Lofice.xcu \
 	org/openoffice/Office/TableWizard.xcu \
 	org/openoffice/Office/UI.xcu \
 	org/openoffice/Office/Embedding.xcu \

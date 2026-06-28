@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -11,7 +11,7 @@ $(eval $(call gb_InstallModule_InstallModule,scp2/ooo))
 
 $(eval $(call gb_InstallModule_use_auto_install_libs,scp2/ooo,\
 	brand \
-	libreofficekit \
+	loficekit \
 	ooo \
 	ooo_fonts \
 	ooo_images \
@@ -71,7 +71,7 @@ $(eval $(call gb_InstallModule_add_scpfiles,scp2/ooo,\
     scp2/source/ooo/profileitem_ooo \
     scp2/source/ooo/scpaction_ooo \
     $(if $(filter-out MACOSX WNT,$(OS)), \
-		scp2/source/ooo/module_libreofficekit \
+		scp2/source/ooo/module_loficekit \
 	) \
 ))
 

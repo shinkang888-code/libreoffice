@@ -56,6 +56,7 @@ static PageIdToFileNameMap_Impl FileMap_Impl[] = {
     { RID_SVXPAGE_OPTIONS_JAVA, u""_ustr }, // Java
     { RID_SVXPAGE_BASICIDE_OPTIONS, u""_ustr }, // BasicIDEOptions
     { RID_SVXPAGE_ONLINEUPDATE, u""_ustr }, // OnlineUpdate
+    { RID_SVXPAGE_LOFICE_AI_OPTIONS, u""_ustr }, // AI Assistant
 
     // LanguageSettings, SID_LANGUAGE_OPTIONS
     { OFA_TP_LANGUAGES, u""_ustr }, // Languages

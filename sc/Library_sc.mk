@@ -20,6 +20,7 @@ $(eval $(call gb_Library_set_include,sc,\
     -I$(SRCDIR)/sc/source/filter/inc \
     -I$(SRCDIR)/sc/source/ui/inc \
     -I$(SRCDIR)/sc/inc \
+    -I$(SRCDIR)/lofice/include \
     -I$(WORKDIR)/SdiTarget/sc/sdi \
     $$(INCLUDE) \
 ))
@@ -81,6 +82,7 @@ $(eval $(call gb_Library_use_libraries,sc,\
     fwk \
     i18nlangtag \
     i18nutil \
+    lofice \
     $(call gb_Helper_optional,OPENCL, \
         opencl) \
     sal \

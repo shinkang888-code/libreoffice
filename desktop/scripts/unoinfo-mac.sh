@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -37,7 +37,7 @@ c++)
     ;;
 java)
     printf '0%s\0%s' \
-        "$sd_prog/../Resources/java/libreoffice.jar" \
+        "$sd_prog/../Resources/java/lofice.jar" \
         "$sd_prog/../MacOS"
     ;;
 *)

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -410,7 +410,7 @@ void Desktop::SynchronizeExtensionRepositories(bool bCleanedExtensionCache, Desk
         deployment::ExtensionManager::get(context)->reinstallDeployedExtensions(
             true, u"user"_ustr, Reference<task::XAbortChannel>(), silent);
 #if !HAVE_FEATURE_MACOSX_SANDBOX
-        if (!comphelper::LibreOfficeKit::isActive())
+        if (!comphelper::loficeKit::isActive())
             task::OfficeRestartManager::get(context)->requestRestart(
                 silent->getInteractionHandler());
 #endif

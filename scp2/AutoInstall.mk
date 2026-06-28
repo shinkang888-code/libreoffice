@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -25,7 +25,7 @@ $(eval $(call gb_AutoInstall_add_module,graphicfilter,LIBO_LIB_FILE))
 $(eval $(call gb_AutoInstall_add_module,impress,LIBO_LIB_FILE,,,PACKAGE_FILELIST))
 $(eval $(call gb_AutoInstall_add_module,impress_brand,,LIBO_EXECUTABLE,,PACKAGE_FILELIST))
 $(eval $(call gb_AutoInstall_add_module,kde,LIBO_LIB_FILE,LIBO_EXECUTABLE))
-$(eval $(call gb_AutoInstall_add_module,libreofficekit,LIBO_LIB_FILE,LIBO_EXECUTABLE,,PACKAGE_FILELIST))
+$(eval $(call gb_AutoInstall_add_module,loficekit,LIBO_LIB_FILE,LIBO_EXECUTABLE,,PACKAGE_FILELIST))
 $(eval $(call gb_AutoInstall_add_module,math,LIBO_LIB_FILE))
 $(eval $(call gb_AutoInstall_add_module,math_brand,,LIBO_EXECUTABLE,,PACKAGE_FILELIST))
 $(eval $(call gb_AutoInstall_add_module,ogltrans,LIBO_LIB_FILE,,,PACKAGE_FILELIST))

@@ -1,0 +1,43 @@
+# lofice / LibreOffice — exclude from semantic index only (@file still works)
+# https://cursor.com/docs/reference/ignore-file
+
+# External / SDK bulk (low signal for lofice AI sidebar work)
+external/
+odk/
+qadevOOo/
+
+# QA binary corpora
+**/qa/unit/data/
+**/qa/uitest/
+**/qa/extras/
+
+# Mobile / alternate platforms
+android/
+ios/
+emscripten/
+
+# Packaging / generated docs
+instsetoo_native/
+/docs/
+
+# Build trees (if present locally)
+/workdir/
+/workdir_for_build/
+/instdir/
+/instdir_for_build/
+/buck-out/
+/test-install/
+/config_build/
+/in/
+/out/
+/external/tarballs/
+
+# Node / deploy (lofice)
+lofice/**/node_modules/
+lofice/rag-api/.vercel/
+
+# Compiled objects (should not be indexed if they appear)
+**/*.a
+**/*.o
+**/*.obj
+**/*.lo

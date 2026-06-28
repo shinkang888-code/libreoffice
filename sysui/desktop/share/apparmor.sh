@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 # ------------------------------------------------------------------
 #
 #    Copyright (C) 2016 Canonical Ltd.
@@ -13,20 +13,20 @@
 # ------------------------------------------------------------------
 
 # This is a simple script to help get AppArmor working on different distros
-# Generally these apparmor profiles target the latest LibreOffice
+# Generally these apparmor profiles target the latest lofice
 
-INST_ROOT=$1  #Where libreoffice program folder can be found
+INST_ROOT=$1  #Where lofice program folder can be found
 PROFILESFROM=$2  #Where the profile files are
 INSTALLTO=$3  #Where should the apparmor profiles (For manual use should be /etc/apparmor.d)
 RESTART=$4 #Should we restart apparmor using service?
 CHECK=$5 #Check parsing of the new profile?
 
 #Example uses:
-#Ubuntu 16.04 with stock LibreOffice:
-# sudo ./sysui/desktop/share/apparmor.sh /usr/lib/libreoffice/ sysui/desktop/apparmor/ /etc/apparmor.d/ true true
+#Ubuntu 16.04 with stock lofice:
+# sudo ./sysui/desktop/share/apparmor.sh /usr/lib/lofice/ sysui/desktop/apparmor/ /etc/apparmor.d/ true true
 
-#Ubuntu 16.04, with built debs from LibreOffice git
-# sudo ./sysui/desktop/share/apparmor.sh /opt/libreofficedev5.2/ sysui/desktop/apparmor/ /etc/apparmor.d/ true true
+#Ubuntu 16.04, with built debs from lofice git
+# sudo ./sysui/desktop/share/apparmor.sh /opt/loficeDev5.2/ sysui/desktop/apparmor/ /etc/apparmor.d/ true true
 
 #Ubuntu 16.04, running from git!
 # sudo ./sysui/desktop/share/apparmor.sh /mnt/store/git/libo/instdir/ sysui/desktop/apparmor/ /etc/apparmor.d/ true true

@@ -1,0 +1,47 @@
+name: lofice Linux Build
+
+# Requires a self-hosted runner with labels: self-hosted, linux, lofice
+# and a pre-configured LibreOffice tree (./autogen.sh && ./configure done).
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'lofice/**'
+      - 'officecfg/registry/**/Lofice.xcs'
+      - 'officecfg/registry/**/Lofice.xcu'
+      - '.github/workflows/lofice-build-selfhosted.yml'
+
+jobs:
+  verify-fast:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: lofice/scripts
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: lofice/scripts/package-lock.json
+      - run: npm install
+      - run: npm run verify-ci
+
+  build:
+    needs: verify-fast
+    runs-on: [self-hosted, linux, lofice]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check build tree
+        run: |
+          if [[ ! -f Makefile ]]; then
+            echo "ERROR: No Makefile — runner needs ./autogen.sh && ./configure --enable-curl=YES" >&2
+            exit 1
+          fi
+
+      - name: Build lofice targets
+        run: bash lofice/scripts/verify-lofice-build.sh
+        env:
+          ENABLE_CURL: YES

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -360,7 +360,7 @@ namespace {
 #if defined(DBG_UTIL) && !defined(__EMSCRIPTEN__)
 void runGraphicsRenderTests()
 {
-    if (comphelper::LibreOfficeKit::isActive())
+    if (comphelper::loficeKit::isActive())
         return;
 #if !ENABLE_WASM_STRIP_PINGUSER
     if (!utl::isProductVersionUpgraded())
@@ -2235,7 +2235,7 @@ void Desktop::EnsureStartCenterFallbackMenubar()
 #ifdef MACOSX
     // Related: tdf#41775 show Start Center before loading documents
     //
-    // If LibreOffice is launched by opening a document from the Finder, or
+    // If lofice is launched by opening a document from the Finder, or
     // dragging a document onto its Dock icon, or from a command-line with a
     // document path parameter, the Start Center doesn't get created when all
     // of the document windows are closed. This causes the old "File only"
@@ -2303,7 +2303,7 @@ void Desktop::OpenDefault()
 
 #ifdef MACOSX
     // Related: tdf#41775 show Start Center before loading documents
-    // If LibreOffice is launched from the command line with a module
+    // If lofice is launched from the command line with a module
     // argument, the Start Center doesn't get created when all of the
     // document windows are closed. This causes the old "File only"
     // menubar to be displayed instead of the Start Center's menubar.

@@ -1,0 +1,39 @@
+name: lofice CI
+
+on:
+  push:
+    paths:
+      - 'lofice/**'
+      - 'officecfg/registry/**/Lofice.xcs'
+      - 'officecfg/registry/**/Lofice.xcu'
+      - '.github/workflows/lofice-ci.yml'
+  pull_request:
+    paths:
+      - 'lofice/**'
+      - 'officecfg/registry/**/Lofice.xcs'
+      - 'officecfg/registry/**/Lofice.xcu'
+      - '.github/workflows/lofice-ci.yml'
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: lofice/scripts
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: lofice/scripts/package-lock.json
+
+      - name: Install script dependencies
+        run: npm install
+
+      - name: Verify lofice mk, sources, officecfg, ui
+        run: npm run verify-ci
+
+      - name: Verify Library_lofice.mk (standalone)
+        run: npm run verify-mk

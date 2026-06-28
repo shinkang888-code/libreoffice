@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,21 +9,21 @@
 
 #include "macros.inc"
 
-#include "AutoInstall/libreofficekit"
+#include "AutoInstall/loficekit"
 
-Module gid_Module_Libreofficekit
-    Name = "Libreofficekit Data";
-    Description = "Libreofficekit Data";
+Module gid_Module_loficekit
+    Name = "loficekit Data";
+    Description = "loficekit Data";
     PackageInfo = "packinfo_office.txt";
     ParentID = gid_Module_Root_Brand;
     Styles = (HIDDEN_ROOT);
-    Dirs = (gid_Dir_Share_Libreofficekit);
-    Files = (auto_libreofficekit_ALL);
+    Dirs = (gid_Dir_Share_loficekit);
+    Files = (auto_loficekit_ALL);
 End
 
-Directory gid_Dir_Share_Libreofficekit
+Directory gid_Dir_Share_loficekit
     ParentID = gid_Brand_Dir_Share;
-    DosName = "libreofficekit";
+    DosName = "loficekit";
 End
 
 /* vim:set shiftwidth=4 softtabstop=4 expandtab: */

@@ -23,6 +23,7 @@
 #include "CellAppearancePropertyPanel.hxx"
 #include "NumberFormatPropertyPanel.hxx"
 #include "DatabasePropertyPanel.hxx"
+#include <lofice/ui/LoficePanelIntegration.hxx>
 #include <navipi.hxx>
 #include <dwfunctr.hxx>
 
@@ -98,6 +99,11 @@ Reference<ui::XUIElement> SAL_CALL ScPanelFactory::createUIElement (
         else if (rsResourceURL.endsWith("/DatabasePropertyPanel"))
         {
             xPanel = ScDatabasePropertyPanel::Create( pParent, xFrame, pBindings );
+        }
+        else if (rsResourceURL.endsWith("/AiAssistantPanel"))
+        {
+            xElement = lofice::ui::createAiAssistantSidebarPanel(rsResourceURL, rArguments);
+            return xElement;
         }
 
         if (xPanel)

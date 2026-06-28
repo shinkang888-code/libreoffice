@@ -15,6 +15,7 @@ $(eval $(call gb_Library_set_include,cui,\
     $$(INCLUDE) \
     -I$(SRCDIR)/cui/inc \
     -I$(SRCDIR)/cui/source/inc \
+    -I$(SRCDIR)/lofice/include \
 ))
 
 $(eval $(call gb_Library_set_precompiled_header,cui,cui/inc/pch/precompiled_cui))
@@ -46,6 +47,7 @@ $(eval $(call gb_Library_use_libraries,cui,\
     $(if $(ENABLE_JAVA), \
         jvmfwk) \
     lng \
+    lofice \
 	$(call gb_Helper_optional,OPENCL, \
 		opencl) \
     sal \

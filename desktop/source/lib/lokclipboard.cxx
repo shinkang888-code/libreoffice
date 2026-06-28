@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -181,7 +181,7 @@ void LOKTransferable::initFlavourFromMime(css::datatransfer::DataFlavor& rFlavor
         aMimeType = "text/plain;charset=utf-16";
         rFlavor.DataType = cppu::UnoType<OUString>::get();
     }
-    else if (aMimeType == "application/x-libreoffice-tsvc")
+    else if (aMimeType == "application/x-lofice-tsvc")
         rFlavor.DataType = cppu::UnoType<OUString>::get();
     else
         rFlavor.DataType = cppu::UnoType<uno::Sequence<sal_Int8>>::get();

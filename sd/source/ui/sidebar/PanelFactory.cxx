@@ -30,6 +30,7 @@
 #include <SlideTransitionPane.hxx>
 #include <TableDesignPane.hxx>
 #include "SlideBackground.hxx"
+#include <lofice/ui/LoficePanelIntegration.hxx>
 
 #include <sfx2/sidebar/SidebarPanelBase.hxx>
 #include <com/sun/star/uno/XComponentContext.hpp>
@@ -77,6 +78,16 @@ Reference<ui::XUIElement> SAL_CALL PanelFactory::createUIElement (
         throw RuntimeException(
             u"PanelFactory::createUIElement called without XFrame"_ustr);
 
+    const sal_uInt64 nBindingsValue (aArguments.getOrDefault(u"SfxBindings"_ustr, sal_uInt64(0)));
+    SfxBindings* pBindings = reinterpret_cast<SfxBindings*>(nBindingsValue);
+
+    if (rsUIElementResourceURL.endsWith("/AiAssistantPanel"))
+    {
+        if (pBindings == nullptr)
+            throw RuntimeException(u"PanelFactory: AiAssistantPanel requires SfxBindings"_ustr);
+        return lofice::ui::createAiAssistantSidebarPanel(rsUIElementResourceURL, rArguments);
+    }
+
     // Tunnel through the controller to obtain a ViewShellBase.
     ViewShellBase* pBase = nullptr;
     rtl::Reference<sd::DrawController> pController = dynamic_cast<sd::DrawController*>(xFrame->getController().get());
@@ -84,10 +95,6 @@ Reference<ui::XUIElement> SAL_CALL PanelFactory::createUIElement (
         pBase = pController->GetViewShellBase();
     if (pBase == nullptr)
         throw RuntimeException(u"can not get ViewShellBase for frame"_ustr);
-
-    // Get bindings from given arguments.
-    const sal_uInt64 nBindingsValue (aArguments.getOrDefault(u"SfxBindings"_ustr, sal_uInt64(0)));
-    SfxBindings* pBindings = reinterpret_cast<SfxBindings*>(nBindingsValue);
 
     // Create a framework view.
     std::unique_ptr<PanelLayout> xControl;

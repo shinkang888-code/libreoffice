@@ -1,5 +1,5 @@
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -48,7 +48,7 @@ Module gid_Module_Pyuno
              gid_File_Lib_Python_So,
              gid_File_Lib_Python3_So);
     Unixlinks = (gid_Unixlink_Python_Headers,
-                 gid_Unixlink_Python_LibreOfficePython,
+                 gid_Unixlink_Python_loficePython,
                  gid_Unixlink_Python_Resources,
                  gid_Unixlink_Python_Versions_Current,
                  gid_Unixlink_Python_Versions_ver_Headers,

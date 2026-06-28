@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- lofice AI options page (Tools → Options) -->
+<interface domain="lofice">
+  <requires lib="gtk+" version="3.24"/>
+  <object class="GtkBox" id="OptLoficeAiPage">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <property name="hexpand">True</property>
+    <property name="vexpand">True</property>
+    <property name="border-width">6</property>
+    <property name="orientation">vertical</property>
+    <child>
+      <object class="GtkFrame">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="label-xalign">0</property>
+        <property name="shadow-type">none</property>
+        <child>
+          <object class="GtkGrid" id="grid_settings">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="margin-start">12</property>
+            <property name="margin-top">6</property>
+            <property name="row-spacing">6</property>
+            <property name="column-spacing">12</property>
+            <child>
+              <object class="GtkCheckButton" id="check_use_builtin">
+                <property name="label" translatable="yes">내장 AI 사용</property>
+                <property name="visible">True</property>
+                <property name="active">True</property>
+              </object>
+              <packing><property name="left-attach">0</property><property name="top-attach">0</property><property name="width">2</property></packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_endpoint">
+                <property name="label" translatable="yes">API 엔드포인트</property>
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="use-underline">True</property>
+                <property name="mnemonic-widget">entry_endpoint</property>
+              </object>
+              <packing><property name="left-attach">0</property><property name="top-attach">1</property></packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry_endpoint">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="hexpand">True</property>
+                <property name="placeholder-text" translatable="yes">https://api.openai.com/v1/chat/completions</property>
+              </object>
+              <packing><property name="left-attach">1</property><property name="top-attach">1</property></packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_api_key">
+                <property name="label" translatable="yes">API 키</property>
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="use-underline">True</property>
+                <property name="mnemonic-widget">entry_api_key</property>
+              </object>
+              <packing><property name="left-attach">0</property><property name="top-attach">2</property></packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry_api_key">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="hexpand">True</property>
+                <property name="visibility">False</property>
+                <property name="input-purpose">password</property>
+              </object>
+              <packing><property name="left-attach">1</property><property name="top-attach">2</property></packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_model">
+                <property name="label" translatable="yes">모델</property>
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="use-underline">True</property>
+                <property name="mnemonic-widget">entry_model</property>
+              </object>
+              <packing><property name="left-attach">0</property><property name="top-attach">3</property></packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry_model">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="hexpand">True</property>
+                <property name="text">lofice-default</property>
+              </object>
+              <packing><property name="left-attach">1</property><property name="top-attach">3</property></packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_timeout">
+                <property name="label" translatable="yes">타임아웃(초)</property>
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="use-underline">True</property>
+                <property name="mnemonic-widget">spin_timeout</property>
+              </object>
+              <packing><property name="left-attach">0</property><property name="top-attach">4</property></packing>
+            </child>
+            <child>
+              <object class="GtkSpinButton" id="spin_timeout">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="adjustment">
+                  <object class="GtkAdjustment">
+                    <property name="lower">5</property>
+                    <property name="upper">120</property>
+                    <property name="step-increment">1</property>
+                    <property name="page-increment">5</property>
+                    <property name="value">30</property>
+                  </object>
+                </property>
+              </object>
+              <packing><property name="left-attach">1</property><property name="top-attach">4</property></packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_test_connection">
+                <property name="label" translatable="yes">연결 테스트</property>
+                <property name="visible">True</property>
+              </object>
+              <packing><property name="left-attach">0</property><property name="top-attach">5</property></packing>
+            </child>
+            <child>
+              <object class="GtkCheckButton" id="check_use_rag">
+                <property name="label" translatable="yes">코드베이스 RAG 사용</property>
+                <property name="visible">True</property>
+              </object>
+              <packing><property name="left-attach">0</property><property name="top-attach">6</property><property name="width">2</property></packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_rag_endpoint">
+                <property name="label" translatable="yes">RAG 서버 URL</property>
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="use-underline">True</property>
+                <property name="mnemonic-widget">entry_rag_endpoint</property>
+              </object>
+              <packing><property name="left-attach">0</property><property name="top-attach">7</property></packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry_rag_endpoint">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="hexpand">True</property>
+                <property name="text">https://lofice-rag-api.vercel.app/search</property>
+              </object>
+              <packing><property name="left-attach">1</property><property name="top-attach">7</property></packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_rag_timeout">
+                <property name="label" translatable="yes">RAG 타임아웃(초)</property>
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="use-underline">True</property>
+                <property name="mnemonic-widget">spin_rag_timeout</property>
+              </object>
+              <packing><property name="left-attach">0</property><property name="top-attach">8</property></packing>
+            </child>
+            <child>
+              <object class="GtkSpinButton" id="spin_rag_timeout">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="adjustment">
+                  <object class="GtkAdjustment">
+                    <property name="lower">2</property>
+                    <property name="upper">30</property>
+                    <property name="step-increment">1</property>
+                    <property name="value">8</property>
+                  </object>
+                </property>
+              </object>
+              <packing><property name="left-attach">1</property><property name="top-attach">8</property></packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_test_rag">
+                <property name="label" translatable="yes">RAG 테스트</property>
+                <property name="visible">True</property>
+              </object>
+              <packing><property name="left-attach">0</property><property name="top-attach">9</property></packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_hint">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="wrap">True</property>
+                <property name="max-width-chars">48</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">OpenAI 호환 Chat Completions URL을 사용하세요. RAG는 npm run rag-server 로컬 서버가 필요합니다. 사이드바 AI 설정과 동일한 값이 저장됩니다.</property>
+              </object>
+              <packing><property name="left-attach">0</property><property name="top-attach">10</property><property name="width">2</property></packing>
+            </child>
+          </object>
+        </child>
+        <child type="label">
+          <object class="GtkLabel" id="frame_title">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">lofice AI Assistant</property>
+            <attributes><attribute name="weight" value="bold"/></attributes>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

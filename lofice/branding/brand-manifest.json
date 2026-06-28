@@ -1,0 +1,32 @@
+{
+  "productName": "lofice",
+  "productNameDisplay": "lofice",
+  "vendor": "Lonex. Inc",
+  "vendorEmail": "shinkang888@gmail.com",
+  "inventorEmail": "kangjunchul8@gmail.com",
+  "copyrightCountry": "KR",
+  "copyrightRegistration": "Republic of Korea Copyright Registration",
+  "version": "1.0.0",
+  "buildProductName": "lofice",
+  "oneWordProductName": "lofice",
+  "installDirName": "lofice",
+  "bundleIdentifier": "org.lofice",
+  "website": "https://lofice.io",
+  "helpUrl": "https://help.lofice.io/",
+  "updateUrl": "",
+  "extensionUpdateUrl": "",
+  "logoMaster": "lofice/assets/lofice-logo-master.png",
+  "iconSizes": [16, 24, 32, 48, 64, 128, 256, 512],
+  "techStack": {
+    "language": "C++17/20",
+    "pureC": false,
+    "unoModel": true,
+    "rustWrapping": "optional future"
+  },
+  "rebrandRules": {
+    "replaceDisplayStrings": true,
+    "replaceInternalUnoNamespace": false,
+    "preserveMplHeaders": true,
+    "preserveOrgLibreofficeServices": true
+  }
+}

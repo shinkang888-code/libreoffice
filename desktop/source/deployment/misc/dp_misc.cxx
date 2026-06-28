@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -473,7 +473,7 @@ void syncRepositories(
 #if HAVE_FEATURE_MACOSX_SANDBOX
     (void) bModified;
 #else
-    if (bModified && !comphelper::LibreOfficeKit::isActive())
+    if (bModified && !comphelper::loficeKit::isActive())
     {
         Reference<task::XRestartManager> restarter(task::OfficeRestartManager::get(comphelper::getProcessComponentContext()));
         if (restarter.is())

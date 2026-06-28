@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- lofice AI Assistant sidebar — settings + quick actions + prompt/response -->
+
+<interface domain="lofice">
+
+  <requires lib="gtk+" version="3.24"/>
+
+  <object class="GtkGrid" id="AiAssistantPanel">
+
+    <property name="visible">True</property>
+
+    <property name="can-focus">False</property>
+
+    <property name="margin">12</property>
+
+    <property name="row-spacing">8</property>
+
+    <property name="column-spacing">6</property>
+
+    <child>
+
+      <object class="GtkLabel" id="label_title">
+
+        <property name="visible">True</property>
+
+        <property name="can-focus">False</property>
+
+        <property name="label" translatable="yes">lofice AI 어시스턴트</property>
+
+        <property name="xalign">0</property>
+
+      </object>
+
+      <packing>
+
+        <property name="left-attach">0</property>
+
+        <property name="top-attach">0</property>
+
+      </packing>
+
+    </child>
+
+    <child>
+
+      <object class="GtkLabel" id="label_app_context">
+
+        <property name="visible">True</property>
+
+        <property name="can-focus">False</property>
+
+        <property name="label" translatable="yes">컨텍스트: 범용</property>
+
+        <property name="xalign">0</property>
+
+      </object>
+
+      <packing>
+
+        <property name="left-attach">0</property>
+
+        <property name="top-attach">1</property>
+
+      </packing>
+
+    </child>
+
+    <child>
+
+      <object class="GtkButton" id="btn_toggle_settings">
+
+        <property name="label" translatable="yes">AI 설정</property>
+
+        <property name="visible">True</property>
+
+        <property name="can-focus">True</property>
+
+      </object>
+
+      <packing>
+
+        <property name="left-attach">0</property>
+
+        <property name="top-attach">2</property>
+
+      </packing>
+
+    </child>
+
+    <child>
+
+      <object class="GtkGrid" id="grid_settings">
+
+        <property name="visible">False</property>
+
+        <property name="can-focus">False</property>
+
+        <property name="row-spacing">4</property>
+
+        <property name="column-spacing">4</property>
+
+        <property name="margin-top">4</property>
+
+        <child>
+
+          <object class="GtkCheckButton" id="check_use_builtin">
+
+            <property name="label" translatable="yes">내장 AI 사용</property>
+
+            <property name="visible">True</property>
+
+            <property name="active">True</property>
+
+          </object>
+
+          <packing><property name="left-attach">0</property><property name="top-attach">0</property><property name="width">2</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkLabel" id="label_endpoint">
+
+            <property name="label" translatable="yes">API 엔드포인트</property>
+
+            <property name="visible">True</property>
+
+            <property name="xalign">0</property>
+
+          </object>
+
+          <packing><property name="left-attach">0</property><property name="top-attach">1</property><property name="width">2</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkEntry" id="entry_endpoint">
+
+            <property name="visible">True</property>
+
+            <property name="can-focus">True</property>
+
+            <property name="placeholder-text" translatable="yes">https://api.openai.com/v1/chat/completions</property>
+
+          </object>
+
+          <packing><property name="left-attach">0</property><property name="top-attach">2</property><property name="width">2</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkLabel" id="label_api_key">
+
+            <property name="label" translatable="yes">API 키</property>
+
+            <property name="visible">True</property>
+
+            <property name="xalign">0</property>
+
+          </object>
+
+          <packing><property name="left-attach">0</property><property name="top-attach">3</property><property name="width">2</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkEntry" id="entry_api_key">
+
+            <property name="visible">True</property>
+
+            <property name="can-focus">True</property>
+
+            <property name="visibility">False</property>
+
+            <property name="input-purpose">password</property>
+
+          </object>
+
+          <packing><property name="left-attach">0</property><property name="top-attach">4</property><property name="width">2</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkLabel" id="label_model">
+
+            <property name="label" translatable="yes">모델</property>
+
+            <property name="visible">True</property>
+
+            <property name="xalign">0</property>
+
+          </object>
+
+          <packing><property name="left-attach">0</property><property name="top-attach">5</property><property name="width">2</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkEntry" id="entry_model">
+
+            <property name="visible">True</property>
+
+            <property name="can-focus">True</property>
+
+            <property name="text">lofice-default</property>
+
+          </object>
+
+          <packing><property name="left-attach">0</property><property name="top-attach">6</property><property name="width">2</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkLabel" id="label_timeout">
+
+            <property name="label" translatable="yes">타임아웃(초)</property>
+
+            <property name="visible">True</property>
+
+            <property name="xalign">0</property>
+
+          </object>
+
+          <packing><property name="left-attach">0</property><property name="top-attach">7</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkSpinButton" id="spin_timeout">
+
+            <property name="visible">True</property>
+
+            <property name="can-focus">True</property>
+
+            <property name="adjustment">
+
+              <object class="GtkAdjustment">
+
+                <property name="lower">5</property>
+
+                <property name="upper">120</property>
+
+                <property name="step-increment">1</property>
+
+                <property name="page-increment">5</property>
+
+                <property name="value">30</property>
+
+              </object>
+
+            </property>
+
+          </object>
+
+          <packing><property name="left-attach">1</property><property name="top-attach">7</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkCheckButton" id="check_auto_send_quickaction">
+
+            <property name="label" translatable="yes">퀵액션 AI 프롬프트 자동 전송</property>
+
+            <property name="visible">True</property>
+
+            <property name="active">True</property>
+
+          </object>
+
+          <packing><property name="left-attach">0</property><property name="top-attach">8</property><property name="width">2</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkCheckButton" id="check_use_rag">
+
+            <property name="label" translatable="yes">코드베이스 RAG 사용</property>
+
+            <property name="visible">True</property>
+
+          </object>
+
+          <packing><property name="left-attach">0</property><property name="top-attach">9</property><property name="width">2</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkLabel" id="label_rag_endpoint">
+
+            <property name="label" translatable="yes">RAG 서버 URL</property>
+
+            <property name="visible">True</property>
+
+            <property name="xalign">0</property>
+
+          </object>
+
+          <packing><property name="left-attach">0</property><property name="top-attach">10</property><property name="width">2</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkEntry" id="entry_rag_endpoint">
+
+            <property name="visible">True</property>
+
+            <property name="can-focus">True</property>
+
+            <property name="text">https://lofice-rag-api.vercel.app/search</property>
+
+            <property name="placeholder-text" translatable="yes">https://lofice-rag-api.vercel.app/search</property>
+
+          </object>
+
+          <packing><property name="left-attach">0</property><property name="top-attach">11</property><property name="width">2</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkLabel" id="label_rag_timeout">
+
+            <property name="label" translatable="yes">RAG 타임아웃(초)</property>
+
+            <property name="visible">True</property>
+
+            <property name="xalign">0</property>
+
+          </object>
+
+          <packing><property name="left-attach">0</property><property name="top-attach">12</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkSpinButton" id="spin_rag_timeout">
+
+            <property name="visible">True</property>
+
+            <property name="can-focus">True</property>
+
+            <property name="adjustment">
+
+              <object class="GtkAdjustment">
+
+                <property name="lower">2</property>
+
+                <property name="upper">30</property>
+
+                <property name="step-increment">1</property>
+
+                <property name="value">8</property>
+
+              </object>
+
+            </property>
+
+          </object>
+
+          <packing><property name="left-attach">1</property><property name="top-attach">12</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkButton" id="btn_test_rag">
+
+            <property name="label" translatable="yes">RAG 테스트</property>
+
+            <property name="visible">True</property>
+
+          </object>
+
+          <packing><property name="left-attach">0</property><property name="top-attach">13</property><property name="width">2</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkButton" id="btn_save_settings">
+
+            <property name="label" translatable="yes">설정 저장</property>
+
+            <property name="visible">True</property>
+
+          </object>
+
+          <packing><property name="left-attach">0</property><property name="top-attach">14</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkButton" id="btn_test_connection">
+
+            <property name="label" translatable="yes">연결 테스트</property>
+
+            <property name="visible">True</property>
+
+          </object>
+
+          <packing><property name="left-attach">1</property><property name="top-attach">14</property></packing>
+
+        </child>
+
+      </object>
+
+      <packing>
+
+        <property name="left-attach">0</property>
+
+        <property name="top-attach">3</property>
+
+      </packing>
+
+    </child>
+
+    <child>
+
+      <object class="GtkGrid" id="grid_quick_actions">
+
+        <property name="visible">True</property>
+
+        <property name="can-focus">False</property>
+
+        <property name="column-spacing">4</property>
+
+        <property name="row-spacing">4</property>
+
+        <child><object class="GtkButton" id="btn_qa_00"><property name="label">QA0</property><property name="visible">True</property></object><packing><property name="left-attach">0</property><property name="top-attach">0</property></packing></child>
+
+        <child><object class="GtkButton" id="btn_qa_01"><property name="label">QA1</property><property name="visible">True</property></object><packing><property name="left-attach">1</property><property name="top-attach">0</property></packing></child>
+
+        <child><object class="GtkButton" id="btn_qa_02"><property name="label">QA2</property><property name="visible">True</property></object><packing><property name="left-attach">2</property><property name="top-attach">0</property></packing></child>
+
+        <child><object class="GtkButton" id="btn_qa_03"><property name="label">QA3</property><property name="visible">True</property></object><packing><property name="left-attach">3</property><property name="top-attach">0</property></packing></child>
+
+        <child><object class="GtkButton" id="btn_qa_10"><property name="label">QA4</property><property name="visible">True</property></object><packing><property name="left-attach">0</property><property name="top-attach">1</property></packing></child>
+
+        <child><object class="GtkButton" id="btn_qa_11"><property name="label">QA5</property><property name="visible">True</property></object><packing><property name="left-attach">1</property><property name="top-attach">1</property></packing></child>
+
+        <child><object class="GtkButton" id="btn_qa_12"><property name="label">QA6</property><property name="visible">True</property></object><packing><property name="left-attach">2</property><property name="top-attach">1</property></packing></child>
+
+        <child><object class="GtkButton" id="btn_qa_13"><property name="label">QA7</property><property name="visible">True</property></object><packing><property name="left-attach">3</property><property name="top-attach">1</property></packing></child>
+
+        <child><object class="GtkButton" id="btn_qa_20"><property name="label">QA8</property><property name="visible">True</property></object><packing><property name="left-attach">0</property><property name="top-attach">2</property></packing></child>
+
+        <child><object class="GtkButton" id="btn_qa_21"><property name="label">QA9</property><property name="visible">True</property></object><packing><property name="left-attach">1</property><property name="top-attach">2</property></packing></child>
+
+        <child><object class="GtkButton" id="btn_qa_22"><property name="label">QA10</property><property name="visible">True</property></object><packing><property name="left-attach">2</property><property name="top-attach">2</property></packing></child>
+
+        <child><object class="GtkButton" id="btn_qa_23"><property name="label">QA11</property><property name="visible">True</property></object><packing><property name="left-attach">3</property><property name="top-attach">2</property></packing></child>
+
+        <child><object class="GtkButton" id="btn_qa_30"><property name="label">QA12</property><property name="visible">True</property></object><packing><property name="left-attach">0</property><property name="top-attach">3</property></packing></child>
+
+        <child><object class="GtkButton" id="btn_qa_31"><property name="label">QA13</property><property name="visible">True</property></object><packing><property name="left-attach">1</property><property name="top-attach">3</property></packing></child>
+
+        <child><object class="GtkButton" id="btn_qa_32"><property name="label">QA14</property><property name="visible">True</property></object><packing><property name="left-attach">2</property><property name="top-attach">3</property></packing></child>
+
+        <child><object class="GtkButton" id="btn_qa_33"><property name="label">QA15</property><property name="visible">True</property></object><packing><property name="left-attach">3</property><property name="top-attach">3</property></packing></child>
+
+      </object>
+
+      <packing>
+
+        <property name="left-attach">0</property>
+
+        <property name="top-attach">4</property>
+
+      </packing>
+
+    </child>
+
+    <child>
+
+      <object class="GtkScrolledWindow" id="scroll_prompt">
+
+        <property name="visible">True</property>
+
+        <property name="can-focus">True</property>
+
+        <property name="hexpand">True</property>
+
+        <property name="min-content-height">80</property>
+
+        <child>
+
+          <object class="GtkTextView" id="text_prompt">
+
+            <property name="visible">True</property>
+
+            <property name="can-focus">True</property>
+
+            <property name="wrap-mode">word-char</property>
+
+          </object>
+
+        </child>
+
+      </object>
+
+      <packing>
+
+        <property name="left-attach">0</property>
+
+        <property name="top-attach">5</property>
+
+      </packing>
+
+    </child>
+
+    <child>
+
+      <object class="GtkScrolledWindow" id="scroll_response">
+
+        <property name="visible">True</property>
+
+        <property name="can-focus">True</property>
+
+        <property name="hexpand">True</property>
+
+        <property name="vexpand">True</property>
+
+        <property name="min-content-height">160</property>
+
+        <child>
+
+          <object class="GtkTextView" id="text_response">
+
+            <property name="visible">True</property>
+
+            <property name="can-focus">False</property>
+
+            <property name="editable">False</property>
+
+            <property name="wrap-mode">word-char</property>
+
+          </object>
+
+        </child>
+
+      </object>
+
+      <packing>
+
+        <property name="left-attach">0</property>
+
+        <property name="top-attach">6</property>
+
+      </packing>
+
+    </child>
+
+    <child>
+
+      <object class="GtkLabel" id="label_status">
+
+        <property name="visible">True</property>
+
+        <property name="can-focus">False</property>
+
+        <property name="label" translatable="yes">준비됨 — 16개 퀵액션, RAG 활성</property>
+
+        <property name="xalign">0</property>
+
+      </object>
+
+      <packing>
+
+        <property name="left-attach">0</property>
+
+        <property name="top-attach">7</property>
+
+      </packing>
+
+    </child>
+
+    <child>
+
+      <object class="GtkGrid" id="grid_prompt_actions">
+
+        <property name="visible">True</property>
+
+        <property name="column-spacing">8</property>
+
+        <child>
+
+          <object class="GtkButton" id="btn_send">
+
+            <property name="label" translatable="yes">전송</property>
+
+            <property name="visible">True</property>
+
+            <property name="can-focus">True</property>
+
+          </object>
+
+          <packing><property name="left-attach">0</property><property name="top-attach">0</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkButton" id="btn_cancel_async">
+
+            <property name="label" translatable="yes">취소</property>
+
+            <property name="visible">False</property>
+
+            <property name="can-focus">True</property>
+
+          </object>
+
+          <packing><property name="left-attach">1</property><property name="top-attach">0</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkButton" id="btn_clear_prompt">
+
+            <property name="label" translatable="yes">지우기</property>
+
+            <property name="visible">True</property>
+
+          </object>
+
+          <packing><property name="left-attach">2</property><property name="top-attach">0</property></packing>
+
+        </child>
+
+      </object>
+
+      <packing>
+
+        <property name="left-attach">0</property>
+
+        <property name="top-attach">8</property>
+
+      </packing>
+
+    </child>
+
+    <child>
+
+      <object class="GtkGrid" id="grid_history_actions">
+
+        <property name="visible">True</property>
+
+        <property name="column-spacing">6</property>
+
+        <child>
+
+          <object class="GtkButton" id="btn_export_history">
+
+            <property name="label" translatable="yes">대화 내보내기</property>
+
+            <property name="visible">True</property>
+
+          </object>
+
+          <packing><property name="left-attach">0</property><property name="top-attach">0</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkButton" id="btn_import_history">
+
+            <property name="label" translatable="yes">대화 가져오기</property>
+
+            <property name="visible">True</property>
+
+          </object>
+
+          <packing><property name="left-attach">1</property><property name="top-attach">0</property></packing>
+
+        </child>
+
+        <child>
+
+          <object class="GtkButton" id="btn_clear_response">
+
+            <property name="label" translatable="yes">응답 지우기</property>
+
+            <property name="visible">True</property>
+
+          </object>
+
+          <packing><property name="left-attach">2</property><property name="top-attach">0</property></packing>
+
+        </child>
+
+      </object>
+
+      <packing>
+
+        <property name="left-attach">0</property>
+
+        <property name="top-attach">9</property>
+
+      </packing>
+
+    </child>
+
+  </object>
+
+</interface>
+

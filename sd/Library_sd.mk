@@ -44,6 +44,7 @@ $(eval $(call gb_Library_set_include,sd,\
 	-I$(SRCDIR)/sd/inc \
 	-I$(SRCDIR)/sd/source/ui/inc \
 	-I$(SRCDIR)/sd/source/ui/slidesorter/inc \
+	-I$(SRCDIR)/lofice/include \
 	-I$(WORKDIR)/SdiTarget/sd/sdi \
 ))
 
@@ -81,6 +82,7 @@ $(eval $(call gb_Library_use_libraries,sd,\
 	fwk \
 	i18nlangtag \
 	i18nutil \
+	lofice \
 	icg \
 	msfilter \
 	oox \

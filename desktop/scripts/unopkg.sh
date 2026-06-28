@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# This file is part of the LibreOffice project.
+# This file is part of the lofice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -39,7 +39,7 @@ cd "$sd_cwd" || exit $?
 case "$(uname -s)" in
 OpenBSD)
     LD_LIBRARY_PATH="$sd_prog${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
-    JAVA_HOME=$(javaPathHelper -h libreoffice-java 2> /dev/null)
+    JAVA_HOME=$(javaPathHelper -h lofice-java 2> /dev/null)
     export LD_LIBRARY_PATH
     if [ -n "${JAVA_HOME}" ]; then
         export JAVA_HOME

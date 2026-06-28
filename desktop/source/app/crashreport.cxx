@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -132,7 +132,7 @@ void CrashReporter::writeCommonInfo()
     ucbhelper::InternetProxyDecider proxy_decider(::comphelper::getProcessComponentContext());
 
     static constexpr OUString protocol = u"https"_ustr;
-    static constexpr OUString url = u"crashreport.libreoffice.org"_ustr;
+    static constexpr OUString url = u"crashreport.lofice.org"_ustr;
     const sal_Int32 port = 443;
 
     const OUString proxy_server = proxy_decider.getProxy(protocol, url, port);
@@ -143,7 +143,7 @@ void CrashReporter::writeCommonInfo()
     maKeyValues.clear();
 
     // limit the amount of code that needs to be executed before the crash reporting
-    addKeyValue("ProductName", "LibreOffice", AddItem);
+    addKeyValue("ProductName", "lofice", AddItem);
     addKeyValue("Version", LIBO_VERSION_DOTTED, AddItem);
     addKeyValue("BuildID", utl::Bootstrap::getBuildIdData(""), AddItem);
     addKeyValue("URL", protocol + "://" + url + "/submit/", AddItem);

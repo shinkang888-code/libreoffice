@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -407,7 +407,7 @@ OUString MigrationImpl::preXDGConfigDir(const OUString& rConfigDir)
     // the 'old' config dir etc. ) - currently we just use the returned config dir.
     // If XDG_CONFIG_HOME is NOT set;
     // assume then we should now using the default $HOME/.config config location for
-    // our user profiles, however *all* previous libreoffice and openoffice.org
+    // our user profiles, however *all* previous lofice and openoffice.org
     // configurations will be in the 'old' config directory and that's where we need
     // to search - we convert the returned config dir to the 'old' dir
     if ( !pXDGCfgHome && rConfigDir.endsWith( XDG_CONFIG_PART )  )
@@ -829,7 +829,7 @@ void MigrationImpl::copyFiles()
             if (localName.endsWith( "/autocorr/acor_.dat")) {
                 // Previous versions used an empty language tag for
                 // LANGUAGE_DONTKNOW with the "[All]" autocorrection entry.
-                // As of LibreOffice 4.0 it is 'und' for LANGUAGE_UNDETERMINED
+                // As of lofice 4.0 it is 'und' for LANGUAGE_UNDETERMINED
                 // so the file name is "acor_und.dat".
                 localName = OUString::Concat(localName.subView( 0, localName.getLength() - 4)) + "und.dat";
             }

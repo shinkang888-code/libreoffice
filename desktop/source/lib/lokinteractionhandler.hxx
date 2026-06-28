@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -29,13 +29,13 @@
 #include <com/sun/star/task/XInteractionHandler2.hpp>
 
 namespace desktop {
-    struct LibLibreOffice_Impl;
+    struct Liblofice_Impl;
     struct LibLODocument_Impl;
 }
 
 /** InteractionHandler is an interface that provides the user with various dialogs / error messages.
 
-We need an own implementation for the LibreOfficeKit so that we can route the
+We need an own implementation for the loficeKit so that we can route the
 information easily via callbacks.
 
 TODO: the callbacks are not implemented yet, we just approve any interaction
@@ -46,7 +46,7 @@ class LOKInteractionHandler: public cppu::WeakImplHelper<css::lang::XServiceInfo
                                                          css::task::XInteractionHandler2>
 {
 private:
-    desktop::LibLibreOffice_Impl * m_pLOKit;
+    desktop::Liblofice_Impl * m_pLOKit;
     desktop::LibLODocument_Impl * m_pLOKDocument;
 
     /// Command for which we use this interaction handler (like "load", "save", "saveas", ...)
@@ -80,7 +80,7 @@ public:
 
     explicit LOKInteractionHandler(
             OString command,
-            desktop::LibLibreOffice_Impl *,
+            desktop::Liblofice_Impl *,
             desktop::LibLODocument_Impl *pLOKDocumt = nullptr);
 
     virtual ~LOKInteractionHandler() override;

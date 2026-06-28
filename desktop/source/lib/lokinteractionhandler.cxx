@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -45,7 +45,7 @@
 
 #include "../../inc/lib/init.hxx"
 
-#include <LibreOfficeKit/LibreOfficeKitEnums.h>
+#include <loficeKit/loficeKitEnums.h>
 #include <sfx2/lokhelper.hxx>
 #include <sfx2/viewsh.hxx>
 #include <utility>
@@ -57,7 +57,7 @@ using namespace com::sun::star;
 
 LOKInteractionHandler::LOKInteractionHandler(
         OString command,
-        desktop::LibLibreOffice_Impl *const pLOKit,
+        desktop::Liblofice_Impl *const pLOKit,
         desktop::LibLODocument_Impl *const pLOKDocument)
     : m_pLOKit(pLOKit)
     , m_pLOKDocument(pLOKDocument)

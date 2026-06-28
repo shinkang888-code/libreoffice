@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -40,14 +40,14 @@
 
 namespace {
 
-char const namespaceLibreOffice[] =
-    "http://libreoffice.org/extensions/description/2011";
+char const namespacelofice[] =
+    "http://lofice.org/extensions/description/2011";
 
 constexpr OUString namespaceOpenOfficeOrg =
     u"http://openoffice.org/extensions/description/2006"_ustr;
 
-char const minimalVersionLibreOffice[] = "LibreOffice-minimal-version";
-char const maximalVersionLibreOffice[] = "LibreOffice-maximal-version";
+char const minimalVersionlofice[] = "lofice-minimal-version";
+char const maximalVersionlofice[] = "lofice-maximal-version";
 
 constexpr OUString minimalVersionOpenOfficeOrg =
     u"OpenOffice.org-minimal-version"_ustr;
@@ -55,7 +55,7 @@ constexpr OUString minimalVersionOpenOfficeOrg =
 char const maximalVersionOpenOfficeOrg[] =
     "OpenOffice.org-maximal-version";
 
-OUString getLibreOfficeMajorMinorMicro() {
+OUString getloficeMajorMinorMicro() {
     return utl::ConfigManager::getAboutBoxProductVersion();
 }
 
@@ -106,12 +106,12 @@ check(dp_misc::DescriptionInfoset const & infoset) {
         unsatisfied(n);
     auto unsatisfiedRange = asNonConstRange(unsatisfied);
     sal_Int32 unsat = 0;
-    // check first if minimalVersionLibreOffice is specified -- in that case ignore the legacy OOo dependencies
+    // check first if minimalVersionlofice is specified -- in that case ignore the legacy OOo dependencies
     bool bIgnoreOoo = false;
     for (sal_Int32 i = 0; i < n; ++i) {
         css::uno::Reference< css::xml::dom::XElement > e(
             deps->item(i), css::uno::UNO_QUERY_THROW);
-        if ( e->getNamespaceURI() == namespaceLibreOffice && e->getTagName() == minimalVersionLibreOffice)
+        if ( e->getNamespaceURI() == namespacelofice && e->getTagName() == minimalVersionlofice)
         {
             bIgnoreOoo = true;
             break;
@@ -131,14 +131,14 @@ check(dp_misc::DescriptionInfoset const & infoset) {
             sat = bIgnoreOoo || satisfiesMaximalVersion(
                 getReferenceOpenOfficeOrgMajorMinor(),
                 e->getAttribute(u"value"_ustr));
-        } else if (e->getNamespaceURI() == namespaceLibreOffice && e->getTagName() == minimalVersionLibreOffice )
+        } else if (e->getNamespaceURI() == namespacelofice && e->getTagName() == minimalVersionlofice )
         {
             sat = satisfiesMinimalVersion(
-                getLibreOfficeMajorMinorMicro(),
+                getloficeMajorMinorMicro(),
                 e->getAttribute(u"value"_ustr));
-        } else if (e->getNamespaceURI() == namespaceLibreOffice && e->getTagName() == maximalVersionLibreOffice )
+        } else if (e->getNamespaceURI() == namespacelofice && e->getTagName() == maximalVersionlofice )
         {
-            sat = satisfiesMaximalVersion(getLibreOfficeMajorMinorMicro(), e->getAttribute(u"value"_ustr));
+            sat = satisfiesMaximalVersion(getloficeMajorMinorMicro(), e->getAttribute(u"value"_ustr));
         } else if (e->hasAttributeNS(namespaceOpenOfficeOrg,
                        minimalVersionOpenOfficeOrg))
         {
@@ -169,12 +169,12 @@ OUString getErrorText(
         return produceErrorText(
                 DpResId(RID_DEPLOYMENT_DEPENDENCIES_OOO_MAX),
             dependency->getAttribute(u"value"_ustr));
-    } else if (dependency->getNamespaceURI() == namespaceLibreOffice && dependency->getTagName() == minimalVersionLibreOffice )
+    } else if (dependency->getNamespaceURI() == namespacelofice && dependency->getTagName() == minimalVersionlofice )
     {
         return produceErrorText(
                 DpResId(RID_DEPLOYMENT_DEPENDENCIES_LO_MIN),
             dependency->getAttribute(u"value"_ustr));
-    } else if (dependency->getNamespaceURI() == namespaceLibreOffice && dependency->getTagName() == maximalVersionLibreOffice )
+    } else if (dependency->getNamespaceURI() == namespacelofice && dependency->getTagName() == maximalVersionlofice )
     {
         return produceErrorText(
                 DpResId(RID_DEPLOYMENT_DEPENDENCIES_LO_MAX),

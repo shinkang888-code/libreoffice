@@ -1,6 +1,6 @@
-/* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
+﻿/* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * This file is part of the LibreOffice project.
+ * This file is part of the lofice project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -126,7 +126,7 @@ Provider::queryDispatches(css::uno::Sequence<css::frame::DispatchDescriptor> con
 
 void Provider::dispatch(css::util::URL const&, css::uno::Sequence<css::beans::PropertyValue> const&)
 {
-    // Crash LibreOffice
+    // Crash lofice
     char volatile* p = nullptr;
     *p = 0;
 }

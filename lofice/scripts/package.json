@@ -1,0 +1,22 @@
+{
+  "name": "lofice-neon-tools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "index": "node index-codebase.mjs",
+    "embed": "node embed-codebase.mjs",
+    "search": "node search-codebase.mjs",
+    "rag-server": "node rag-search-server.mjs",
+    "verify-mk": "node verify-lofice-mk.mjs",
+    "verify-ci": "node verify-lofice-ci.mjs",
+    "verify-rag": "node verify-rag-health.mjs",
+    "verify-rag-e2e": "node verify-rag-e2e.mjs",
+    "verify-embed": "node verify-embed-readiness.mjs",
+    "verify-wsl": "bash verify-wsl-build-ready.sh",
+    "sync-vercel": "node sync-neon-vercel-env.mjs",
+    "deploy-rag-api": "node sync-neon-vercel-env.mjs --deploy"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.0"
+  }
+}

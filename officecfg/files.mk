@@ -35,6 +35,7 @@ officecfg_XCSFILES := \
     Office/Jobs \
     Office/Labels \
     Office/Linguistic \
+    Office/Lofice \
     Office/Logging \
     Office/Math \
     Office/OptionsDialog \
