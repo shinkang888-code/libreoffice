@@ -10,7 +10,7 @@
 $(eval $(call gb_Jar_Jar,testComponent))
 
 $(eval $(call gb_Jar_use_jars,testComponent,\
-    libreoffice \\
+    libreoffice \
 ))
 
 $(eval $(call gb_Jar_use_api,testComponent,\

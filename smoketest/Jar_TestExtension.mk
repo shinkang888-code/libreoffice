@@ -17,7 +17,7 @@ $(eval $(call gb_Jar_add_manifest_classpath,TestExtension,\
 ))
 
 $(eval $(call gb_Jar_use_jars,TestExtension,\
-	libreoffice \\
+	libreoffice \
 ))
 
 $(eval $(call gb_Jar_set_packageroot,TestExtension,com))

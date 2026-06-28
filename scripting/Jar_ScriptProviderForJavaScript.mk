@@ -10,7 +10,7 @@
 $(eval $(call gb_Jar_Jar,ScriptProviderForJavaScript))
 
 $(eval $(call gb_Jar_use_jars,ScriptProviderForJavaScript,\
-	libreoffice \\
+	libreoffice \
 	ScriptFramework \
 ))
 

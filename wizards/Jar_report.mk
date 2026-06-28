@@ -20,7 +20,7 @@
 $(eval $(call gb_Jar_Jar,report))
 
 $(eval $(call gb_Jar_use_jars,report,\
-	libreoffice \\
+	libreoffice \
 	java_uno \
 	commonwizards \
 ))

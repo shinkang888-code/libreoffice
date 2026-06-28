@@ -10,7 +10,7 @@
 $(eval $(call gb_JunitTest_JunitTest,ridljar_typedesc))
 
 $(eval $(call gb_JunitTest_use_jars,ridljar_typedesc,\
-    libreoffice \\
+    libreoffice \
 ))
 
 $(eval $(call gb_JunitTest_add_sourcefiles,ridljar_typedesc,\

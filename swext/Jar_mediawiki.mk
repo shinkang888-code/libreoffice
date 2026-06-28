@@ -15,7 +15,7 @@ $(eval $(call gb_Jar_set_packageroot,mediawiki,com))
 $(eval $(call gb_Jar_set_manifest,mediawiki,$(SRCDIR)/swext/mediawiki/src/com/sun/star/wiki/MANIFEST.MF))
 
 $(eval $(call gb_Jar_use_jars,mediawiki,\
-	libreoffice \\
+	libreoffice \
 ))
 
 $(eval $(call gb_Jar_add_sourcefiles,mediawiki,\

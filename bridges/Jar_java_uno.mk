@@ -10,7 +10,7 @@
 $(eval $(call gb_Jar_Jar,java_uno))
 
 $(eval $(call gb_Jar_use_jars,java_uno,\
-	libreoffice \\
+	libreoffice \
 ))
 
 $(eval $(call gb_Jar_set_manifest,java_uno,$(SRCDIR)/bridges/source/jni_uno/java/com/sun/star/bridges/jni_uno/manifest))

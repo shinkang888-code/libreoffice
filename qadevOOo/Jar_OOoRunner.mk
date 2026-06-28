@@ -17,7 +17,7 @@ $(eval $(call gb_Jar_add_manifest_classpath,OOoRunner,\
 $(eval $(call gb_Jar_set_manifest,OOoRunner,$(SRCDIR)/qadevOOo/runner/manifest))
 
 $(eval $(call gb_Jar_use_jars,OOoRunner,\
-	libreoffice \\
+	libreoffice \
 	java_uno \
 ))
 
