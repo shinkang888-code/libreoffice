@@ -16,7 +16,7 @@ $(eval $(call gb_JunitTest_set_defs,juh,\
 
 $(eval $(call gb_JunitTest_use_jars,juh,\
     OOoRunner \
-    lofice \
+    libreoffice \\
 ))
 
 $(eval $(call gb_JunitTest_use_jar_classset,juh,lofice))

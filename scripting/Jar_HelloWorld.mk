@@ -10,7 +10,7 @@
 $(eval $(call gb_Jar_Jar,HelloWorld))
 
 $(eval $(call gb_Jar_use_jars,HelloWorld,\
-	lofice \
+	libreoffice \\
 ))
 
 $(eval $(call gb_Jar_add_sourcefiles,HelloWorld,\

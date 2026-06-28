@@ -21,7 +21,7 @@ $(eval $(call gb_Jar_set_manifest,smoketest,$(SRCDIR)/smoketest/org/lofice/smoke
 $(eval $(call gb_Jar_set_packageroot,smoketest,org))
 
 $(eval $(call gb_Jar_use_jars,smoketest, \
-    lofice \
+    libreoffice \\
 ))
 
 # vim: set noet sw=4 ts=4:

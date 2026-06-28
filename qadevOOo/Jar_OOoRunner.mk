@@ -11,13 +11,13 @@
 $(eval $(call gb_Jar_Jar,OOoRunner))
 
 $(eval $(call gb_Jar_add_manifest_classpath,OOoRunner,\
-	lofice.jar \
+	libreoffice.jar \
 ))
 
 $(eval $(call gb_Jar_set_manifest,OOoRunner,$(SRCDIR)/qadevOOo/runner/manifest))
 
 $(eval $(call gb_Jar_use_jars,OOoRunner,\
-	lofice \
+	libreoffice \\
 	java_uno \
 ))
 

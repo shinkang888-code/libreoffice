@@ -10,7 +10,7 @@
 $(eval $(call gb_Jar_Jar,ridl))
 
 $(eval $(call gb_Jar_add_manifest_classpath,ridl, \
-    lofice.jar \
+    libreoffice.jar \
 ))
 
 # vim:set noet sw=4 ts=4:

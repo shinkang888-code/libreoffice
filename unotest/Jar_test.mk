@@ -15,7 +15,7 @@ $(eval $(call gb_Jar_add_manifest_classpath,test,\
 ))
 
 $(eval $(call gb_Jar_use_jars,test,\
-	lofice \
+	libreoffice \\
 	OOoRunner \
 ))
 

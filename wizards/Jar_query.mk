@@ -20,7 +20,7 @@
 $(eval $(call gb_Jar_Jar,query))
 
 $(eval $(call gb_Jar_use_jars,query,\
-	lofice \
+	libreoffice \\
 	java_uno \
 	commonwizards \
 ))

@@ -20,7 +20,7 @@
 $(eval $(call gb_Jar_Jar,commonwizards))
 
 $(eval $(call gb_Jar_use_jars,commonwizards,\
-	lofice \
+	libreoffice \\
 	java_uno \
 ))
 

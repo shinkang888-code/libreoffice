@@ -10,7 +10,7 @@
 $(eval $(call gb_Jar_Jar,ScriptProviderForBeanShell))
 
 $(eval $(call gb_Jar_use_jars,ScriptProviderForBeanShell,\
-	lofice \
+	libreoffice \\
 	ScriptFramework \
 ))
 

@@ -10,7 +10,7 @@
 $(eval $(call gb_Jar_Jar,ScriptFramework))
 
 $(eval $(call gb_Jar_use_jars,ScriptFramework,\
-	lofice \
+	libreoffice \\
 ))
 
 $(eval $(call gb_Jar_set_componentfile,ScriptFramework,scripting/java/ScriptFramework,OOO,services))

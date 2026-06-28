@@ -10,7 +10,7 @@
 $(eval $(call gb_Jar_Jar,juh))
 
 $(eval $(call gb_Jar_add_manifest_classpath,juh, \
-    lofice.jar \
+    libreoffice.jar \
 ))
 
 $(eval $(call gb_Jar_set_manifest,juh,$(SRCDIR)/javaunohelper/util/manifest))
