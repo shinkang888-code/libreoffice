@@ -1246,7 +1246,7 @@ $(eval $(call gb_Helper_register_uiconfigs,\
 	filter \
 	formula \
 	fps \
-	loficekit \
+	libreofficekit \
 	modules/lofice \
 	$(call gb_Helper_optional,SCRIPTING,modules/BasicIDE) \
 	$(call gb_Helper_optional,DBCONNECTIVITY,\
