@@ -1,6 +1,6 @@
 # -*- Mode: makefile-gmake; tab-width: 4; indent-tabs-mode: t -*-
 #
-# This file is part of the lofice project.
+# This file is part of the libreoffice project.
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,41 +9,41 @@
 
 $(eval $(call gb_Jar_Jar,libreoffice,org.libreoffice.uno))
 
-$(eval $(call gb_Jar_use_customtargets,lofice,\
+$(eval $(call gb_Jar_use_customtargets,libreoffice,\
     ridljar/javamaker \
     unoil/javamaker \
 ))
 
-$(eval $(call gb_Jar_use_jars,lofice, \
+$(eval $(call gb_Jar_use_jars,libreoffice, \
     unoloader \
 ))
 
-$(eval $(call gb_Jar_use_externals,lofice,\
+$(eval $(call gb_Jar_use_externals,libreoffice,\
     java_websocket \
 ))
 
-$(eval $(call gb_Jar_set_packageroot,lofice,com))
+$(eval $(call gb_Jar_set_packageroot,libreoffice,com))
 
-$(eval $(call gb_Jar_set_manifest,lofice,$(SRCDIR)/ridljar/util/manifest))
+$(eval $(call gb_Jar_set_manifest,libreoffice,$(SRCDIR)/ridljar/util/manifest))
 
-$(eval $(call gb_Jar_add_manifest_classpath,lofice, \
+$(eval $(call gb_Jar_add_manifest_classpath,libreoffice, \
     java_websocket.jar \
     unoloader.jar \
     $(if $(filter MACOSX,$(OS)),../../Frameworks/,../) \
 ))
 
 # ugly: the module-info.class is manually added here since it's not in "com" dir
-$(eval $(call gb_Jar_add_packagedirs,lofice,\
+$(eval $(call gb_Jar_add_packagedirs,libreoffice,\
     $(gb_CustomTarget_workdir)/ridljar/javamaker/com \
     $(gb_CustomTarget_workdir)/unoil/javamaker/com \
-	$(if $(MODULAR_JAVA),$(call gb_JavaClassSet_get_classdir,$(call gb_Jar_get_classsetname,lofice))/module-info.class) \
+	$(if $(MODULAR_JAVA),$(call gb_JavaClassSet_get_classdir,$(call gb_Jar_get_classsetname,libreoffice))/module-info.class) \
 ))
 
-$(if $(MODULAR_JAVA),$(eval $(call gb_Jar_add_sourcefiles_java9,lofice,\
-    ridljar/source/lofice/module-info \
+$(if $(MODULAR_JAVA),$(eval $(call gb_Jar_add_sourcefiles_java9,libreoffice,\
+    ridljar/source/libreoffice/module-info \
 )))
 
-$(eval $(call gb_Jar_add_sourcefiles,lofice,\
+$(eval $(call gb_Jar_add_sourcefiles,libreoffice,\
     ridljar/com/sun/star/comp/bridgefactory/BridgeFactory \
     ridljar/com/sun/star/comp/connections/Acceptor \
     ridljar/com/sun/star/comp/connections/Connector \
