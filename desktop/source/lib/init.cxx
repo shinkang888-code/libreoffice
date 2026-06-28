@@ -7873,7 +7873,7 @@ static void preloadData()
 
     std::cerr << "Preload textencodings"; // sal_textenc
     // Use RTL_TEXTENCODING_MS_1250 to trigger Impl_getTextEncodingData
-    // to dlopen sal_textenclo
+    // to dlopen sal_textenc
     (void)OUStringToOString(u"arbitrary string", RTL_TEXTENCODING_MS_1250);
     std::cerr << "\n";
 
