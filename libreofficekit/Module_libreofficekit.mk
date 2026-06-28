@@ -12,17 +12,17 @@ $(eval $(call gb_Module_Module,loficekit))
 ifeq ($(OS), $(filter LINUX %BSD SOLARIS, $(OS)))
 
 $(eval $(call gb_Module_add_check_targets,loficekit, \
-    CppunitTest_loficekit_checkapi \
+    CppunitTest_libreofficekit_checkapi \
 ))
 
 # tdf#113311 disabled because it can deadlock on shutdown
 #$(eval $(call gb_Module_add_subsequentcheck_targets,loficekit,\
-    CppunitTest_loficekit_tiledrendering \
+    CppunitTest_libreofficekit_tiledrendering \
 ))
 
 ifneq ($(ENABLE_GTK3),)
 $(eval $(call gb_Module_add_targets,loficekit,\
-    Library_loficekitgtk \
+    Library_libreofficekitgtk \
     Executable_gtktiledviewer \
 ))
 endif # ($(ENABLE_GTK3),)
@@ -30,14 +30,14 @@ endif # ($(ENABLE_GTK3),)
 $(eval $(call gb_Module_add_targets,loficekit,\
     $(if $(DISABLE_DYNLOADING),,Executable_tilebench) \
     Package_selectionhandles \
-    UIConfig_loficekit \
+    UIConfig_libreofficekit \
 ))
 
 else ifeq ($(OS),WNT)
 
 ifneq ($(ENABLE_GTKTILEDVIEWER),)
 $(eval $(call gb_Module_add_targets,loficekit,\
-    Library_loficekitgtk \
+    Library_libreofficekitgtk \
     Executable_gtktiledviewer \
     Package_selectionhandles \
 ))
