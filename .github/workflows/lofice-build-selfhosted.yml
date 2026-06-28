@@ -33,6 +33,8 @@ on:
       - 'icon-themes/**'
 
       - 'officecfg/registry/**/Lofice.xcs'
+      - 'Repository.mk'
+      - 'RepositoryModule_host.mk'
 
       - 'officecfg/registry/**/Lofice.xcu'
 

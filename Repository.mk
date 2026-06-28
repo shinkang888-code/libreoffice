@@ -441,6 +441,7 @@ $(eval $(call gb_Helper_register_libraries_for_install,OOOLIBS,ooo, \
 	$(if $(ENABLE_LDAP),ldapbe2) \
 	$(if $(filter WNT,$(OS)),WinUserInfoBe) \
 	localebe1 \
+	lofice \
 	log \
 	lng \
 	$(call gb_Helper_optional,SCRIPTING,$(if $(ENABLE_QUICKJS),jsprov)) \

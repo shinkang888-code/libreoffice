@@ -102,6 +102,7 @@ $(eval $(call gb_Module_add_moduledirs,lofice,\
 	jvmaccess \
 	jvmfwk \
 	$(call gb_Helper_optional,LIBRELOGO,librelogo) \
+	lofice \
 	loficekit \
 	lingucomponent \
 	linguistic \
