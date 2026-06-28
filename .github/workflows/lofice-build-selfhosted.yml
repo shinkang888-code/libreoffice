@@ -1,73 +1,147 @@
-name: lofice Linux Build
-
-# Requires self-hosted runner labels: self-hosted, linux, lofice
-# Install: bash lofice/scripts/install-github-runner.sh (WSL/Linux)
-
-on:
-  workflow_dispatch:
-  push:
-    paths:
-      - 'lofice/**'
-      - 'framework/**'
-      - 'sfx2/**'
-      - 'sw/**'
-      - 'sc/**'
-      - 'sd/**'
-      - 'instsetoo_native/**'
-      - 'icon-themes/**'
-      - 'officecfg/registry/**/Lofice.xcs'
-      - 'officecfg/registry/**/Lofice.xcu'
-      - '.github/workflows/lofice-build-selfhosted.yml'
-
-jobs:
-  verify-fast:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: lofice/scripts
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: npm
-          cache-dependency-path: lofice/scripts/package-lock.json
-      - run: npm install
-      - run: npm run verify-ci
-
-  build:
-    needs: verify-fast
-    runs-on: [self-hosted, linux, lofice]
-    env:
-      LOFICE_BUILD_ROOT: ${{ vars.LOFICE_BUILD_ROOT }}
-    steps:
-      - name: Sync persistent build tree
-        run: |
-          BUILD_ROOT="${LOFICE_BUILD_ROOT:-$HOME/lofice-build}"
-          echo "LOFICE_BUILD_ROOT=$BUILD_ROOT" >> "$GITHUB_ENV"
-          if [[ ! -d "$BUILD_ROOT/.git" ]]; then
-            echo "ERROR: $BUILD_ROOT missing — run install-github-runner.sh on this host" >&2
-            exit 1
-          fi
-          cd "$BUILD_ROOT"
-          git fetch origin
-          git checkout "${GITHUB_REF_NAME:-master}" 2>/dev/null || git checkout master
-          git pull --ff-only origin "${GITHUB_REF_NAME:-master}" || git reset --hard "origin/${GITHUB_REF_NAME:-master}"
-
-      - name: Bootstrap build tree if needed
-        run: |
-          cd "$LOFICE_BUILD_ROOT"
-          if [[ ! -f Makefile ]]; then
-            LOFICE_WSL_INSTALL_DEPS=1 bash lofice/scripts/bootstrap-wsl-build.sh
-          fi
-          if [[ ! -f Makefile ]]; then
-            echo "ERROR: Makefile still missing after bootstrap" >&2
-            exit 1
-          fi
-
-      - name: Build lofice targets
-        run: bash lofice/scripts/verify-lofice-build.sh
-        working-directory: ${{ env.LOFICE_BUILD_ROOT }}
-        env:
-          ENABLE_CURL: YES
-
+name: lofice Linux Build
+
+
+
+# Requires self-hosted runner labels: self-hosted, linux, lofice
+
+# Install: bash lofice/scripts/install-github-runner.sh (WSL/Linux)
+
+
+
+on:
+
+  workflow_dispatch:
+
+  push:
+
+    paths:
+
+      - 'lofice/**'
+
+      - 'framework/**'
+
+      - 'sfx2/**'
+
+      - 'sw/**'
+
+      - 'sc/**'
+
+      - 'sd/**'
+
+      - 'instsetoo_native/**'
+
+      - 'icon-themes/**'
+
+      - 'officecfg/registry/**/Lofice.xcs'
+
+      - 'officecfg/registry/**/Lofice.xcu'
+
+      - '.github/workflows/lofice-build-selfhosted.yml'
+
+
+
+jobs:
+
+  verify-fast:
+
+    runs-on: ubuntu-latest
+
+    defaults:
+
+      run:
+
+        working-directory: lofice/scripts
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+
+        with:
+
+          node-version: '20'
+
+          cache: npm
+
+          cache-dependency-path: lofice/scripts/package-lock.json
+
+      - run: npm install
+
+      - run: npm run verify-ci
+
+
+
+  build:
+
+    needs: verify-fast
+
+    runs-on: [self-hosted, linux, lofice]
+
+    env:
+
+      LOFICE_BUILD_ROOT: ${{ vars.LOFICE_BUILD_ROOT }}
+
+      container: "1"
+
+    steps:
+
+      - name: Sync persistent build tree
+
+        run: |
+
+          BUILD_ROOT="${LOFICE_BUILD_ROOT:-$HOME/lofice-build}"
+
+          echo "LOFICE_BUILD_ROOT=$BUILD_ROOT" >> "$GITHUB_ENV"
+
+          if [[ ! -d "$BUILD_ROOT/.git" ]]; then
+
+            echo "ERROR: $BUILD_ROOT missing — run install-github-runner.sh on this host" >&2
+
+            exit 1
+
+          fi
+
+          cd "$BUILD_ROOT"
+
+          git fetch origin
+
+          git checkout "${GITHUB_REF_NAME:-master}" 2>/dev/null || git checkout master
+
+          git pull --ff-only origin "${GITHUB_REF_NAME:-master}" || git reset --hard "origin/${GITHUB_REF_NAME:-master}"
+
+
+
+      - name: Bootstrap build tree if needed
+
+        run: |
+
+          cd "$LOFICE_BUILD_ROOT"
+
+          if [[ ! -f Makefile ]]; then
+
+            LOFICE_WSL_INSTALL_DEPS=1 bash lofice/scripts/bootstrap-wsl-build.sh
+
+          fi
+
+          if [[ ! -f Makefile ]]; then
+
+            echo "ERROR: Makefile still missing after bootstrap" >&2
+
+            exit 1
+
+          fi
+
+
+
+      - name: Build lofice targets
+
+        run: bash lofice/scripts/verify-lofice-build.sh
+
+        working-directory: ${{ env.LOFICE_BUILD_ROOT }}
+
+        env:
+
+          ENABLE_CURL: YES
+
+

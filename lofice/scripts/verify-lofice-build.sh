@@ -16,19 +16,17 @@ if [[ "${ENABLE_CURL:-}" != "YES" ]]; then
   echo "WARN: ENABLE_CURL is not YES — lofice HTTP/RAG transport may be stubbed." >&2
 fi
 
+# WSL/CI often runs as root; LibreOffice Makefile requires container=1.
+if [[ "$(id -u)" -eq 0 ]] && [[ -z "${container:-}" ]]; then
+  export container=1
+  echo "WARN: building as root — container=1 (LibreOffice CI/WSL)"
+fi
+
 JOBS="${LOFICE_BUILD_JOBS:-$(nproc)}"
 
-bootstrap_target() {
-  local target="$1"
-  if make -n "$target" >/dev/null 2>&1; then
-    echo "==> bootstrap: $target"
-    make -j"${JOBS}" "$target"
-  fi
-}
-
-# Cold trees: parallel make officecfg can race before solenv tools / bundled libxml2 exist.
-bootstrap_target concat-deps
-bootstrap_target libxml2
+# Cold trees: build solenv tools (concat-deps, etc.) before parallel module builds.
+echo "==> bootstrap: solenv fetch (serial warm-up)"
+make -j1 solenv fetch
 
 echo "==> make officecfg"
 make -j"${JOBS}" officecfg

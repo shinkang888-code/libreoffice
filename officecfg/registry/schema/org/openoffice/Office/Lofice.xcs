@@ -81,10 +81,10 @@
     </group>
   </templates>
   <component>
-    <group oor:name="AiSettings" oor:node-type="AiSettings">
+    <node-ref oor:name="AiSettings" oor:node-type="AiSettings">
       <info>
         <desc>User settings for lofice AI Assistant.</desc>
       </info>
-    </group>
+    </node-ref>
   </component>
 </oor:component-schema>
