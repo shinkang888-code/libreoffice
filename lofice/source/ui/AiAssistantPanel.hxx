@@ -106,7 +106,7 @@ private:
     void setAsyncBusyUiActive(bool bActive);
     void setStreamingUiActive(bool bActive);
     void setConnectionTestUiActive(bool bActive);
-    void setStatus(std::u16string_view rText);
+    void setStatus(const OUString& rText);
 
     DECL_LINK(OnQuickActionClicked, weld::Button&, void);
     DECL_LINK(OnSendClicked, weld::Button&, void);

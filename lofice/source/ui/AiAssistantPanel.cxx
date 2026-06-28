@@ -294,9 +294,9 @@ void AiAssistantPanel::setupQuickActionGrid(LoficeAppKind eApp)
     }
 }
 
-void AiAssistantPanel::setStatus(std::u16string_view rText)
+void AiAssistantPanel::setStatus(const OUString& rText)
 {
-    m_xStatusLabel->set_label(OUString(rText));
+    m_xStatusLabel->set_label(rText);
 }
 
 void AiAssistantPanel::dispatchQuickAction(
@@ -863,7 +863,7 @@ IMPL_LINK_NOARG(AiAssistantPanel, OnExportHistoryClicked, weld::Button&, void)
     }
 
     const lofice::ai::ConversationFileOutcome aOutcome
-        = lofice::ai::exportConversationToFile(this, m_aConversation);
+        = lofice::ai::exportConversationToFile(GetFrameWeld(), m_aConversation);
 
     if (aOutcome.result == lofice::ai::ConversationFileResult::Cancelled)
         return;
@@ -886,7 +886,7 @@ IMPL_LINK_NOARG(AiAssistantPanel, OnImportHistoryClicked, weld::Button&, void)
     }
 
     lofice::ai::ConversationFileOutcome aOutcome
-        = lofice::ai::importConversationFromFile(this, m_aConversation);
+        = lofice::ai::importConversationFromFile(GetFrameWeld(), m_aConversation);
 
     if (aOutcome.result == lofice::ai::ConversationFileResult::Cancelled)
         return;
