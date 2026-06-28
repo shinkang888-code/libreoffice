@@ -27,32 +27,24 @@
 
 
 #include <lofice/ai/AiAsyncHttpJob.hxx>
-
 #include <lofice/ai/AiAsyncRagJob.hxx>
-
 #include <lofice/ai/AiSettingsStore.hxx>
 
-
-
 #include <memory>
-
-
-
 #include <sal/types.h>
-
 #include <sfx2/tabdlg.hxx>
+#include <vcl/weld/Button.hxx>
+#include <vcl/weld/CheckButton.hxx>
+#include <vcl/weld/Entry.hxx>
+#include <vcl/weld/Label.hxx>
+#include <vcl/weld/SpinButton.hxx>
+#include <vcl/weld/Toggleable.hxx>
 
 namespace weld
 {
-class Button;
-class CheckButton;
 class Container;
 class DialogController;
-class Entry;
-class SpinButton;
-class Toggleable;
 }
-
 
 
 class OptLoficeAiTabPage final : public SfxTabPage
