@@ -93,7 +93,7 @@ private:
     void submitPromptFromUi();
     bool isAsyncBusy() const;
     void beginNewResponse();
-    void appendResponseLine(std::u16string_view rLine);
+    void appendResponseLine(const OUString& rLine);
     void appendResponseToken(std::string_view rToken);
     void handleStreamFinished(bool bSuccess, std::string_view rErrorDetail);
     void handlePromptFinished(bool bSuccess, std::string_view rResponseUtf8, std::string_view rProvider);
@@ -116,6 +116,7 @@ private:
     DECL_LINK(OnAsyncHttpEvent, void*, void);
     DECL_LINK(OnAsyncRagEvent, void*, void);
     DECL_LINK(OnClearPromptClicked, weld::Button&, void);
+    DECL_LINK(OnClearResponseClicked, weld::Button&, void);
     DECL_LINK(OnExportHistoryClicked, weld::Button&, void);
     DECL_LINK(OnImportHistoryClicked, weld::Button&, void);
     DECL_LINK(OnToggleSettingsClicked, weld::Button&, void);

@@ -30,6 +30,7 @@
 
 #include <sfx2/bindings.hxx>
 #include <vcl/svapp.hxx>
+#include <vcl/weld/Builder.hxx>
 
 #include <algorithm>
 #include <chrono>
@@ -63,37 +64,37 @@ AiAssistantPanel::AiAssistantPanel(
     SfxBindings* pBindings)
     : PanelLayout(
         pParent,
-        OUString(m_aLayout.kGridId),
-        OUString(m_aLayout.kUiResourcePath))
+        loficeLayoutId(m_aLayout.kGridId),
+        loficeLayoutId(m_aLayout.kUiResourcePath))
     , m_eAppKind(detectAppKind(rxFrame))
     , m_xDispatchBridge(std::make_unique<ToolbarDispatchBridge>(
           comphelper::getProcessComponentContext(), rxFrame, pBindings))
-    , m_xTitleLabel(m_xBuilder->weld_label(OUString(m_aLayout.kTitleLabelId)))
-    , m_xAppContextLabel(m_xBuilder->weld_label(OUString(m_aLayout.kAppContextLabelId)))
-    , m_xToggleSettingsButton(m_xBuilder->weld_button(OUString(m_aLayout.kToggleSettingsButtonId)))
-    , m_xSettingsGrid(m_xBuilder->weld_widget(OUString(m_aLayout.kSettingsGridId)))
-    , m_xUseBuiltinCheck(m_xBuilder->weld_check_button(OUString(m_aLayout.kUseBuiltinCheckId)))
+    , m_xTitleLabel(m_xBuilder->weld_label(loficeLayoutId(m_aLayout.kTitleLabelId)))
+    , m_xAppContextLabel(m_xBuilder->weld_label(loficeLayoutId(m_aLayout.kAppContextLabelId)))
+    , m_xToggleSettingsButton(m_xBuilder->weld_button(loficeLayoutId(m_aLayout.kToggleSettingsButtonId)))
+    , m_xSettingsGrid(m_xBuilder->weld_widget(loficeLayoutId(m_aLayout.kSettingsGridId)))
+    , m_xUseBuiltinCheck(m_xBuilder->weld_check_button(loficeLayoutId(m_aLayout.kUseBuiltinCheckId)))
     , m_xAutoSendQuickActionCheck(
-          m_xBuilder->weld_check_button(OUString(m_aLayout.kAutoSendQuickActionCheckId)))
-    , m_xEndpointEntry(m_xBuilder->weld_entry(OUString(m_aLayout.kEndpointEntryId)))
-    , m_xApiKeyEntry(m_xBuilder->weld_entry(OUString(m_aLayout.kApiKeyEntryId)))
-    , m_xModelEntry(m_xBuilder->weld_entry(OUString(m_aLayout.kModelEntryId)))
-    , m_xTimeoutSpin(m_xBuilder->weld_spin_button(OUString(m_aLayout.kTimeoutSpinId)))
-    , m_xUseRagCheck(m_xBuilder->weld_check_button(OUString(m_aLayout.kUseRagCheckId)))
-    , m_xRagEndpointEntry(m_xBuilder->weld_entry(OUString(m_aLayout.kRagEndpointEntryId)))
-    , m_xRagTimeoutSpin(m_xBuilder->weld_spin_button(OUString(m_aLayout.kRagTimeoutSpinId)))
-    , m_xTestRagButton(m_xBuilder->weld_button(OUString(m_aLayout.kTestRagButtonId)))
-    , m_xSaveSettingsButton(m_xBuilder->weld_button(OUString(m_aLayout.kSaveSettingsButtonId)))
-    , m_xTestConnectionButton(m_xBuilder->weld_button(OUString(m_aLayout.kTestConnectionButtonId)))
-    , m_xPromptText(m_xBuilder->weld_text_view(OUString(m_aLayout.kPromptTextId)))
-    , m_xResponseText(m_xBuilder->weld_text_view(OUString(m_aLayout.kResponseTextId)))
-    , m_xStatusLabel(m_xBuilder->weld_label(OUString(m_aLayout.kStatusLabelId)))
-    , m_xSendButton(m_xBuilder->weld_button(OUString(m_aLayout.kSendButtonId)))
-    , m_xCancelAsyncButton(m_xBuilder->weld_button(OUString(m_aLayout.kCancelAsyncButtonId)))
-    , m_xClearPromptButton(m_xBuilder->weld_button(OUString(m_aLayout.kClearPromptButtonId)))
-    , m_xExportHistoryButton(m_xBuilder->weld_button(OUString(m_aLayout.kExportHistoryButtonId)))
-    , m_xImportHistoryButton(m_xBuilder->weld_button(OUString(m_aLayout.kImportHistoryButtonId)))
-    , m_xClearResponseButton(m_xBuilder->weld_button(OUString(m_aLayout.kClearResponseButtonId)))
+          m_xBuilder->weld_check_button(loficeLayoutId(m_aLayout.kAutoSendQuickActionCheckId)))
+    , m_xEndpointEntry(m_xBuilder->weld_entry(loficeLayoutId(m_aLayout.kEndpointEntryId)))
+    , m_xApiKeyEntry(m_xBuilder->weld_entry(loficeLayoutId(m_aLayout.kApiKeyEntryId)))
+    , m_xModelEntry(m_xBuilder->weld_entry(loficeLayoutId(m_aLayout.kModelEntryId)))
+    , m_xTimeoutSpin(m_xBuilder->weld_spin_button(loficeLayoutId(m_aLayout.kTimeoutSpinId)))
+    , m_xUseRagCheck(m_xBuilder->weld_check_button(loficeLayoutId(m_aLayout.kUseRagCheckId)))
+    , m_xRagEndpointEntry(m_xBuilder->weld_entry(loficeLayoutId(m_aLayout.kRagEndpointEntryId)))
+    , m_xRagTimeoutSpin(m_xBuilder->weld_spin_button(loficeLayoutId(m_aLayout.kRagTimeoutSpinId)))
+    , m_xTestRagButton(m_xBuilder->weld_button(loficeLayoutId(m_aLayout.kTestRagButtonId)))
+    , m_xSaveSettingsButton(m_xBuilder->weld_button(loficeLayoutId(m_aLayout.kSaveSettingsButtonId)))
+    , m_xTestConnectionButton(m_xBuilder->weld_button(loficeLayoutId(m_aLayout.kTestConnectionButtonId)))
+    , m_xPromptText(m_xBuilder->weld_text_view(loficeLayoutId(m_aLayout.kPromptTextId)))
+    , m_xResponseText(m_xBuilder->weld_text_view(loficeLayoutId(m_aLayout.kResponseTextId)))
+    , m_xStatusLabel(m_xBuilder->weld_label(loficeLayoutId(m_aLayout.kStatusLabelId)))
+    , m_xSendButton(m_xBuilder->weld_button(loficeLayoutId(m_aLayout.kSendButtonId)))
+    , m_xCancelAsyncButton(m_xBuilder->weld_button(loficeLayoutId(m_aLayout.kCancelAsyncButtonId)))
+    , m_xClearPromptButton(m_xBuilder->weld_button(loficeLayoutId(m_aLayout.kClearPromptButtonId)))
+    , m_xExportHistoryButton(m_xBuilder->weld_button(loficeLayoutId(m_aLayout.kExportHistoryButtonId)))
+    , m_xImportHistoryButton(m_xBuilder->weld_button(loficeLayoutId(m_aLayout.kImportHistoryButtonId)))
+    , m_xClearResponseButton(m_xBuilder->weld_button(loficeLayoutId(m_aLayout.kClearResponseButtonId)))
 {
     lofice::ai::ensureDefaultAiListener();
 
@@ -115,7 +116,7 @@ AiAssistantPanel::AiAssistantPanel(
 
     for (std::size_t i = 0; i < kMaxQuickActionSlots; ++i)
     {
-        m_aQuickActionButtons[i] = m_xBuilder->weld_button(OUString(kQuickActionSlotWidgetIds[i]));
+        m_aQuickActionButtons[i] = m_xBuilder->weld_button(loficeLayoutId(kQuickActionSlotWidgetIds[i]));
         m_aQuickActionButtons[i]->connect_clicked(LINK(this, AiAssistantPanel, OnQuickActionClicked));
     }
 
@@ -358,12 +359,12 @@ void AiAssistantPanel::beginNewResponse()
     m_xResponseText->set_text(OUString());
 }
 
-void AiAssistantPanel::appendResponseLine(std::u16string_view rLine)
+void AiAssistantPanel::appendResponseLine(const OUString& rLine)
 {
     OUString aCurrent = m_xResponseText->get_text();
     if (!aCurrent.isEmpty())
         aCurrent += "\n";
-    aCurrent += OUString(rLine);
+    aCurrent += rLine;
     m_xResponseText->set_text(aCurrent);
 }
 

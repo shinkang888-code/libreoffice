@@ -15,10 +15,17 @@
 #include <cstdint>
 #include <string_view>
 
+#include <rtl/string.hxx>
+#include <rtl/ustring.hxx>
 #include <sal/types.h>
 
 namespace lofice::ui
 {
+
+inline OUString loficeLayoutId(std::string_view sv)
+{
+    return OStringToOUString(OString(sv.data(), sv.size()), RTL_TEXTENCODING_UTF8);
+}
 
 constexpr std::string_view kAiAssistantDeckId = "LoficeAiDeck";
 constexpr std::string_view kAiAssistantPanelId = "LoficeAiAssistantPanel";
