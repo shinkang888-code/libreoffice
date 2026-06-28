@@ -1,4 +1,6 @@
 *.doc binary
+*.sh text eol=lf
+lofice/scripts/** text eol=lf
 *.ppt binary
 *.xls binary
 *.sdw binary
