@@ -13,7 +13,7 @@
   <info>
     <desc>lofice AI assistant and integration settings.</desc>
   </info>
-  <templates>
+  <component>
     <group oor:name="AiSettings">
       <info>
         <desc>HTTP endpoint and model settings for the lofice AI sidebar.</desc>
@@ -79,12 +79,5 @@
         <value>true</value>
       </prop>
     </group>
-  </templates>
-  <component>
-    <node-ref oor:name="AiSettings" oor:node-type="AiSettings">
-      <info>
-        <desc>User settings for lofice AI Assistant.</desc>
-      </info>
-    </node-ref>
   </component>
 </oor:component-schema>

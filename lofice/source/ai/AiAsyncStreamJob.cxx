@@ -23,7 +23,7 @@ namespace lofice::ai
 namespace
 {
 
-class AiAsyncStreamJob::WorkerSink final : public AiStreamSink
+class AiAsyncStreamJob::WorkerSink : public AiStreamSink
 {
 public:
     explicit WorkerSink(AiAsyncStreamJob& rJob)
