@@ -283,14 +283,14 @@ void AiAssistantPanel::setupQuickActionGrid(LoficeAppKind eApp)
         if (i < aActions.size())
         {
             const QuickActionDef& rDef = aActions[i];
-            m_aQuickActionCommands[i] = OUString(rDef.unoCommand);
+            m_aQuickActionCommands[i] = loficeUtf8ToOUString(rDef.unoCommand);
             if (!rDef.aiPrompt.empty())
             {
                 m_aQuickActionPrompts[i] = loficeUtf8ToOUString(rDef.aiPrompt);
             }
-            m_aQuickActionButtons[i]->set_label(OUString(rDef.label));
+            m_aQuickActionButtons[i]->set_label(loficeUtf8ToOUString(rDef.label));
             m_aQuickActionButtons[i]->set_tooltip_text(m_aQuickActionPrompts[i].isEmpty()
-                ? OUString(rDef.unoCommand)
+                ? loficeUtf8ToOUString(rDef.unoCommand)
                 : m_aQuickActionPrompts[i]);
             m_aQuickActionButtons[i]->show();
         }

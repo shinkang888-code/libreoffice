@@ -65,7 +65,7 @@ css::uno::Reference<css::ui::XUIElement> createAiAssistantSidebarPanel(
         OUString(rsResourceURL),
         xFrame,
         std::move(xPanel),
-        ui::LayoutSize(-1, -1, -1));
+        css::ui::LayoutSize(-1, -1, -1));
 }
 
 } // namespace lofice::ui
