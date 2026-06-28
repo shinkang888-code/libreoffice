@@ -29,7 +29,7 @@ using namespace css;
 namespace lofice::ui
 {
 
-uno::Reference<ui::XUIElement> createAiAssistantSidebarPanel(
+css::uno::Reference<css::ui::XUIElement> createAiAssistantSidebarPanel(
     std::u16string_view rsResourceURL,
     const uno::Sequence<beans::PropertyValue>& rArguments)
 {
@@ -62,7 +62,7 @@ uno::Reference<ui::XUIElement> createAiAssistantSidebarPanel(
     std::unique_ptr<PanelLayout> xPanel = AiAssistantPanel::Create(pParent, xFrame, pBindings);
 
     return sfx2::sidebar::SidebarPanelBase::Create(
-        loficeLayoutId(rsResourceURL),
+        OUString(rsResourceURL),
         xFrame,
         std::move(xPanel),
         ui::LayoutSize(-1, -1, -1));

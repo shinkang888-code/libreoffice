@@ -20,9 +20,6 @@
 namespace lofice::ai
 {
 
-namespace
-{
-
 class AiAsyncStreamJob::WorkerSink : public AiStreamSink
 {
 public:
@@ -58,8 +55,6 @@ public:
 private:
     AiAsyncStreamJob& m_rJob;
 };
-
-} // namespace
 
 AiAsyncStreamJob::AiAsyncStreamJob() = default;
 

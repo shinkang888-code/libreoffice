@@ -24,13 +24,13 @@
         </info>
         <value>true</value>
       </prop>
-      <prop oor:name="Endpoint" oor:type="xs:string">
+      <prop oor:name="Endpoint" oor:type="xs:string" oor:nillable="false">
         <info>
           <desc>OpenAI-compatible chat completions URL.</desc>
         </info>
         <value></value>
       </prop>
-      <prop oor:name="ApiKey" oor:type="xs:string">
+      <prop oor:name="ApiKey" oor:type="xs:string" oor:nillable="false">
         <info>
           <desc>Bearer token for the external API.</desc>
         </info>
@@ -48,7 +48,7 @@
         </info>
         <value>30</value>
       </prop>
-      <prop oor:name="ChatHistoryJson" oor:type="xs:string">
+      <prop oor:name="ChatHistoryJson" oor:type="xs:string" oor:nillable="false">
         <info>
           <desc>Persisted multi-turn chat history as JSON array.</desc>
         </info>
@@ -60,7 +60,7 @@
         </info>
         <value>true</value>
       </prop>
-      <prop oor:name="RagEndpoint" oor:type="xs:string">
+      <prop oor:name="RagEndpoint" oor:type="xs:string" oor:nillable="false">
         <info>
           <desc>HTTP URL for the RAG search API (GET /search?q=...&amp;mode=semantic).</desc>
         </info>
