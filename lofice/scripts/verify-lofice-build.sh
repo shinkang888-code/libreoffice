@@ -52,7 +52,6 @@ fi
 
 echo "==> make officecfg (Lofice headers)"
 rm -f "$ROOT/workdir/CustomTarget/officecfg/registry/officecfg/Office/Lofice.hxx" 2>/dev/null || true
-make -j"${JOBS}" CustomTarget_officecfg_registry
 make -j"${JOBS}" officecfg
 
 echo "==> make lofice"
