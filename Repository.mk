@@ -1247,6 +1247,7 @@ $(eval $(call gb_Helper_register_uiconfigs,\
 	formula \
 	fps \
 	loficekit \
+	modules/lofice \
 	$(call gb_Helper_optional,SCRIPTING,modules/BasicIDE) \
 	$(call gb_Helper_optional,DBCONNECTIVITY,\
 		modules/dbapp \
